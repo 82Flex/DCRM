@@ -1,0 +1,82 @@
+{% extends "admin/base_site.html" %}
+
+{% load i18n %}
+
+{% block content_title %}<h1>RQ Queues</h1>{% endblock %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> &rsaquo;
+        {% trans 'Django RQ' %}
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<div id="content-main">
+
+    <div class="module">
+        <div class="results">
+            <table id="result_list">
+                <thead>
+                    <tr>
+                        <th><div class = 'text'><span>{% trans 'Name' %}</span></div></th>
+                        <th><div class = 'text'><span>{% trans 'Queued Jobs' %}</span></div></th>
+                        <th><div class = 'text'><span>{% trans 'Active Jobs' %}</span></div></th>
+                        <th><div class = 'text'><span>{% trans 'Deferred Jobs' %}</span></div></th>
+                        <th><div class = 'text'><span>{% trans 'Finished Jobs' %}</span></div></th>
+                        <th><div class = 'text'><span>{% trans 'Number of Workers' %}</span></div></th>
+                        <th><div class = 'text'><span>{% trans 'Host' %}</span></div></th>
+                        <th><div class = 'text'><span>{% trans 'Port' %}</span></div></th>
+                        <th><div class = 'text'><span>{% trans 'DB' %}</span></div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for queue in queues %}
+                        <tr class = "{% cycle 'row1' 'row2' %}">
+                            <th>
+                                <a href = "{% url 'rq_jobs' queue.index %}">
+                                    {{ queue.name }}
+                                </a>
+                            </th>
+                            <td>{{ queue.jobs }}</td>
+                            <td>
+                                {% if queue.name != 'failed' %}
+                                    <a href = "{% url 'rq_started_jobs' queue.index %}">
+                                        {{ queue.started_jobs }}
+                                    </a>
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if queue.name != 'failed' %}
+                                    <a href = "{% url 'rq_deferred_jobs' queue.index %}">
+                                        {{ queue.deferred_jobs }}
+                                    </a>
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if queue.name != 'failed' %}
+                                    <a href = "{% url 'rq_finished_jobs' queue.index %}">
+                                        {{ queue.finished_jobs }}
+                                    </a>
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </td>
+                            <td>{{ queue.workers }}</td>
+                            <td>{{ queue.connection_kwargs.host }}</td>
+                            <td>{{ queue.connection_kwargs.port }}</td>
+                            <td>{{ queue.connection_kwargs.db }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

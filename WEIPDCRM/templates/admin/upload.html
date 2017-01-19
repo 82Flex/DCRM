@@ -1,0 +1,196 @@
+{% extends 'admin/change_form.html' %}
+
+{% load suit_forms jquery_path admin_static i18n %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style type="text/css">
+.drop-area {
+	margin: 50px auto;
+	width: 500px;
+}
+#drop-title {
+	width: 100%;
+	height: 75pt;
+	border: 3px dashed silver;
+	color: #d3d3d3;
+	text-align: center;
+	font-size: 24px;
+	line-height: 75pt;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+</style>
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<script type="text/javascript" src="{% get_jquery_path as jquery_path %}{% static jquery_path %}"></script>
+<script type="text/javascript" src="{% static "admin/js/jquery.init.js" %}"></script>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> &rsaquo;
+    Upload &rsaquo; New Package
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            {% trans "Upload New Package" %}
+        </div>
+        <div class="card-block">
+            <form style="display:none;" enctype="multipart/form-data" action="" method="post" id="upload_form" novalidate>
+                {% csrf_token %}
+                {{ form }}
+                <input type="hidden" name="ajax" value="false">
+                <input type="submit">
+            </form>
+            <div class="drop-area">
+                <div id="drop-title">{% trans "Debian Package (*.deb)" %}</div>
+            </div>
+        </div>
+    </div>
+    <script>
+    (function($) {
+        var isUpload = false;
+        var box = document.getElementById('drop-title');
+        var finput = document.getElementById("id_package");
+        function ajax_upload(file) {
+            isUpload = true;
+            var xhr = new XMLHttpRequest();
+            xhr.timeout = 3000;
+            xhr.responseType = "json";
+            xhr.open("POST", "", true);
+            var body = new FormData();
+            body.append("ajax", true);
+            body.append("package", file);
+            body.append("csrfmiddlewaretoken", '{{ csrf_token }}');
+            xhr.upload.onprogress = function(e) {
+                if (e.lengthComputable) {
+                    box.innerText = "{% trans 'Uploaded: ' %}" + (e.loaded / e.total * 100) + "%";
+                }
+            };
+            xhr.upload.onerror = function (e) {
+
+            };
+            xhr.ontimeout = function(e) {
+                box.innerText = "{% trans 'Transfer Timeout' %}";
+                isUpload = false;
+            };
+            xhr.onload = function(e) {
+                if (this.status == 200) {
+                    if (this.response['status'] == true) {
+
+                    } else {
+                        isUpload = false;
+                    }
+                    box.innerText = this.response['msg'];
+                } else {
+                    box.innerText = "{% trans 'Service Unavailable: ' %}" + this.status;
+                    isUpload = false;
+                }
+            };
+            xhr.send(body);
+        }
+        function check_form(file_name) {
+            if (file_name.indexOf('.deb') !== file_name.length - 4) {
+                box.innerText = "{% trans 'Only Debian Package (*.deb) is allowed.' %}";
+                return false;
+            }
+            return true;
+        }
+        function check_upload(file) {
+            if (!check_form(file.name)) {
+                return false;
+            }
+            if (typeof FileReader == 'undefined') {
+                ajax_upload(file);
+            } else {
+                try {
+                    var reader = new FileReader();
+                    var packet = file.slice(0, 7);
+                    reader.readAsBinaryString(packet);
+                    reader.onload = function(evt) {
+                        if (evt.target.readyState == FileReader.DONE) {
+                            var magic = evt.target.result; // !<arch>
+                            if (magic != "!<arch>") {
+                                box.innerText = "{% trans 'Invalid Debian Package.' %}";
+                            } else {
+                                ajax_upload(file);
+                            }
+                        }
+                    };
+                    reader.onerror = function (evt) {
+                        box.innerText = "{% trans 'Cannot load file as Debian Package.' %}";
+                    };
+                } catch (e) {}
+            }
+            return true;
+        }
+        $(document).on ({
+            dragleave: function(e) {
+                e.preventDefault();
+            },
+            drop: function(e) {
+                e.preventDefault();
+            },
+            dragenter: function(e) {
+                e.preventDefault();
+            },
+            dragover: function(e) {
+                e.preventDefault();
+            }
+        });
+        box.addEventListener("click", function (e) {
+            if (isUpload) {
+                return;
+            }
+            finput.click();
+        }, false);
+        box.addEventListener("dragenter", function(e) {
+            e.preventDefault();
+            if (isUpload) {
+                return;
+            }
+            box.innerText = "{% trans 'Drop Here!' %}";
+        }, false);
+        box.addEventListener("dragleave", function(e) {
+            e.preventDefault();
+            if (isUpload) {
+                return;
+            }
+            box.innerText = "{% trans 'Debian Package (*.deb)' %}";
+        }, false);
+        box.addEventListener("drop", function(e) {
+            e.preventDefault();
+            if (isUpload) {
+                return;
+            }
+            box.innerText = "{% trans 'Debian Package (*.deb)' %}";
+            var fileList = e.dataTransfer.files;
+            if (fileList.length !== 1) {
+                box.innerText = "{% trans 'Please drop 1 file only.' %}";
+                return false;
+            }
+            check_upload(fileList[0]);
+        }, false);
+        finput.addEventListener("change", function (e) {
+            e.preventDefault();
+            if (isUpload) {
+                return;
+            }
+            if (!check_form(finput.value)) {
+                return false;
+            }
+            var uform = document.getElementById("upload_form");
+            uform.submit();
+        }, false);
+    })(django.jQuery);
+    </script>
+{% endblock %}

@@ -1,0 +1,349 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-04 11:44+0000\n"
+"PO-Revision-Date: 2017-01-04 19:45+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <i.82@me.com>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.7.3\n"
+
+#: WEIPDCRM/models/device_type.py:10
+msgid "Device Type"
+msgstr ""
+
+#: WEIPDCRM/models/device_type.py:11
+msgid "Device Types"
+msgstr ""
+
+#: WEIPDCRM/models/device_type.py:16 WEIPDCRM/models/os_version.py:16
+#: WEIPDCRM/models/package.py:17 WEIPDCRM/models/release.py:15
+#: WEIPDCRM/models/section.py:15 WEIPDCRM/models/version.py:18
+msgid "Created At"
+msgstr ""
+
+#: WEIPDCRM/models/device_type.py:18
+msgid "Descriptor"
+msgstr ""
+
+#: WEIPDCRM/models/device_type.py:20
+msgid "Example: iPhone 7 Plus"
+msgstr ""
+
+#: WEIPDCRM/models/device_type.py:23
+msgid "Subtype"
+msgstr ""
+
+#: WEIPDCRM/models/device_type.py:25
+msgid "Example: iPhone9,2"
+msgstr ""
+
+#: WEIPDCRM/models/device_type.py:28
+msgid "Platform"
+msgstr ""
+
+#: WEIPDCRM/models/device_type.py:30
+msgid "Example: A1661/A1784/A1785"
+msgstr ""
+
+#: WEIPDCRM/models/device_type.py:33 WEIPDCRM/models/os_version.py:28
+#: WEIPDCRM/models/package.py:20 WEIPDCRM/models/section.py:18
+msgid "Icon"
+msgstr ""
+
+#: WEIPDCRM/models/device_type.py:35 WEIPDCRM/models/os_version.py:30
+#: WEIPDCRM/models/package.py:22 WEIPDCRM/models/release.py:46
+#: WEIPDCRM/models/section.py:20
+msgid "Choose an Icon (*.png) to upload"
+msgstr ""
+
+#: WEIPDCRM/models/os_version.py:10
+msgid "iOS Version"
+msgstr ""
+
+#: WEIPDCRM/models/os_version.py:11
+msgid "iOS Versions"
+msgstr ""
+
+#: WEIPDCRM/models/os_version.py:18 WEIPDCRM/models/release.py:37
+#: WEIPDCRM/models/version.py:12 WEIPDCRM/models/version.py:40
+msgid "Version"
+msgstr ""
+
+#: WEIPDCRM/models/os_version.py:20
+msgid "Example: 10.2"
+msgstr ""
+
+#: WEIPDCRM/models/os_version.py:23
+msgid "Build"
+msgstr ""
+
+#: WEIPDCRM/models/os_version.py:25
+msgid "Example: 14C92"
+msgstr ""
+
+#: WEIPDCRM/models/package.py:11 WEIPDCRM/models/package.py:28
+#: WEIPDCRM/models/version.py:34
+msgid "Package"
+msgstr ""
+
+#: WEIPDCRM/models/package.py:12
+msgid "Packages"
+msgstr ""
+
+#: WEIPDCRM/models/package.py:18 WEIPDCRM/models/section.py:16
+msgid "Name"
+msgstr ""
+
+#: WEIPDCRM/models/package.py:30 WEIPDCRM/models/version.py:36
+msgid "Example: com.darwindev.xxtouch"
+msgstr ""
+
+#: WEIPDCRM/models/package.py:34
+msgid "Author"
+msgstr ""
+
+#: WEIPDCRM/models/package.py:35
+msgid "Author Email"
+msgstr ""
+
+#: WEIPDCRM/models/package.py:36
+msgid "Maintainer"
+msgstr ""
+
+#: WEIPDCRM/models/package.py:37
+msgid "Maintainer Email"
+msgstr ""
+
+#: WEIPDCRM/models/package.py:38
+msgid "Sponsor"
+msgstr ""
+
+#: WEIPDCRM/models/package.py:39
+msgid "Sponsor Email"
+msgstr ""
+
+#: WEIPDCRM/models/release.py:10
+msgid "Release"
+msgstr ""
+
+#: WEIPDCRM/models/release.py:11
+msgid "Releases"
+msgstr ""
+
+#: WEIPDCRM/models/release.py:18
+msgid "Origin"
+msgstr ""
+
+#: WEIPDCRM/models/release.py:20
+msgid "This name will be displayed in the sources interface of Cydia."
+msgstr ""
+
+#: WEIPDCRM/models/release.py:24
+msgid "Label"
+msgstr ""
+
+#: WEIPDCRM/models/release.py:26
+msgid "This name will be displayed at the top of the package list interface."
+msgstr ""
+
+#: WEIPDCRM/models/release.py:30
+msgid "Codename"
+msgstr ""
+
+#: WEIPDCRM/models/release.py:39 WEIPDCRM/models/version.py:42
+msgid "Example: 0.0.1-1"
+msgstr ""
+
+#: WEIPDCRM/models/release.py:40 WEIPDCRM/models/version.py:43
+msgid "0.0.1-1"
+msgstr ""
+
+#: WEIPDCRM/models/release.py:44
+msgid "Repository Icon"
+msgstr ""
+
+#: WEIPDCRM/models/section.py:10
+msgid "Section"
+msgstr ""
+
+#: WEIPDCRM/models/section.py:11
+msgid "Sections"
+msgstr ""
+
+#: WEIPDCRM/models/version.py:13
+msgid "Versions"
+msgstr ""
+
+#: WEIPDCRM/models/version.py:19
+msgid "Download Times"
+msgstr ""
+
+#: WEIPDCRM/models/version.py:23
+msgid "Storage"
+msgstr ""
+
+#: WEIPDCRM/models/version.py:25
+msgid "Choose a Debain Package (*.deb) to upload"
+msgstr ""
+
+#: WEIPDCRM/models/version.py:27
+msgid "MD5"
+msgstr ""
+
+#: WEIPDCRM/models/version.py:28
+msgid "SHA1"
+msgstr ""
+
+#: WEIPDCRM/models/version.py:29
+msgid "SHA256"
+msgstr ""
+
+#: WEIPDCRM/models/version.py:30
+msgid "Size"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/about.html:8
+msgid "About WEIPDCRM"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/about.html:11
+msgid "Darwin Cydia Repository Manager (DCRM)"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/about.html:13
+msgid "Version: "
+msgstr ""
+
+#: WEIPDCRM/templates/admin/about.html:14
+msgid "Open source Repository Manager for Cydia™/APT."
+msgstr ""
+
+#: WEIPDCRM/templates/admin/about.html:15
+msgid "Designer: "
+msgstr ""
+
+#: WEIPDCRM/templates/admin/about.html:16
+msgid ""
+"Special Thanks: Saurik IT/Django/Django Suit/Django RQ/jQuery/Bootstrap 4"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/about.html:17
+msgid "Copyright &copy; 2013-2017 82Flex.com All Rights Reserved. "
+msgstr ""
+
+#: WEIPDCRM/templates/admin/about.html:19
+msgid ""
+"This program is free software, you can redistribute it and/or modify it "
+"under the terms of the <a href=\"http://www.gnu.org/licenses\">GNU Affero "
+"General Public License</a> as published by the Free Software Foundation "
+"either version 3 of the License."
+msgstr ""
+
+#: WEIPDCRM/views/about.py:11
+msgid "About"
+msgstr ""
+
+#: suit/menu.py:106 suit/templates/registration/password_change_form.html.py:7
+msgid "Home"
+msgstr ""
+
+#: suit/templates/admin/auth/user/add_form.html:8
+msgid ""
+"First, enter a username and password. Then, you'll be able to edit more user "
+"options."
+msgstr ""
+
+#: suit/templates/admin/auth/user/add_form.html:10
+msgid "Enter a username and password."
+msgstr ""
+
+#: suit/templates/admin/base.html:13
+msgid "Django site admin"
+msgstr ""
+
+#: suit/templates/admin/base.html:18 suit/templates/admin/base.html.py:96
+msgid "Django administration"
+msgstr ""
+
+#: suit/templates/admin/base.html:19
+msgid "Admin"
+msgstr ""
+
+#: suit/templates/admin/base.html:43
+msgid "View site"
+msgstr ""
+
+#: suit/templates/admin/base.html:50
+msgid "Documentation"
+msgstr ""
+
+#: suit/templates/admin/base.html:55
+msgid "Change password"
+msgstr ""
+
+#: suit/templates/admin/base.html:58
+msgid "Log out"
+msgstr ""
+
+#: suit/templates/admin/change_list_results.html:17
+msgid "Remove from sorting"
+msgstr ""
+
+#: suit/templates/admin/change_list_results.html:18
+#, python-format
+msgid "Sorting priority: %(priority_number)s"
+msgstr ""
+
+#: suit/templates/admin/change_list_results.html:19
+msgid "Toggle sorting"
+msgstr ""
+
+#: suit/templates/admin/login.html:9
+#: suit/templates/registration/password_change_form.html:21
+msgid "Please correct the error below."
+msgstr ""
+
+#: suit/templates/admin/login.html:10
+#: suit/templates/registration/password_change_form.html:21
+msgid "Please correct the errors below."
+msgstr ""
+
+#: suit/templates/admin/login.html:26
+#, python-format
+msgid ""
+"You are authenticated as %(username)s, but are not authorized to access this "
+"page. Would you like to login to a different account?"
+msgstr ""
+
+#: suit/templates/admin/login.html:47
+msgid "Forgotten your password or username?"
+msgstr ""
+
+#: suit/templates/admin/login.html:51
+msgid "Log in"
+msgstr ""
+
+#: suit/templates/registration/password_change_form.html:8
+msgid "Password change"
+msgstr ""
+
+#: suit/templates/registration/password_change_form.html:26
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+
+#: suit/templates/registration/password_change_form.html:54
+msgid "Change my password"
+msgstr ""

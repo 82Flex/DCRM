@@ -1,0 +1,21 @@
+{% extends "admin/base_site.html" %}
+
+{% load i18n %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> &rsaquo;
+    Help &rsaquo; Statistics
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        {% trans "Statistics" %}
+    </div>
+    <div class="card-block">
+
+    </div>
+</div>
+{% endblock %}

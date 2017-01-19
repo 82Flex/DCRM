@@ -1,0 +1,30 @@
+{% extends "admin/base_site.html" %}
+
+{% load i18n %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> &rsaquo;
+    Help &rsaquo; About
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        {% trans "About WEIPDCRM" %}
+    </div>
+    <div class="card-block">
+        <h4 class="card-title">{% trans "Darwin Cydia Repository Manager (DCRM)" %}</h4>
+        <p class="card-text">
+            {% trans "Version: " %}{{ version }}<br />
+            {% trans "Open source Repository Manager for Cydia™/APT." %}<br /><br />
+            {% trans "Designer: " %}<a href="http://weibo.com/82flex">@i_82</a><br />
+            {% trans "Special Thanks: Saurik IT/Django/Django Suit/Django RQ/jQuery/Bootstrap 4" %}<br /><br />
+            {% trans "Copyright &copy; 2017 82Flex.com All Rights Reserved. " %}<br />
+        </p>
+        <p>{% trans 'This program is free software, you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/licenses">GNU Affero General Public License</a> as published by the Free Software Foundation either version 3 of the License.' %}</p>
+        <a href="https://github.com/82Flex/WEIPDCRM" class="btn btn-primary-outline" target="_blank">View on Github</a>
+    </div>
+</div>
+{% endblock %}
