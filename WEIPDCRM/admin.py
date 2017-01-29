@@ -1,10 +1,13 @@
 # coding:utf-8
 
+import sys
 from django.contrib import admin
 from manage.admin.package import PackageAdmin
 from manage.admin.release import ReleaseAdmin
 from manage.admin.settings import SettingsAdmin
-from manage.admin.version import VersionAdmin, OSVersionAdmin, DeviceTypeAdmin
+from manage.admin.version import VersionAdmin
+from manage.admin.device_type import DeviceTypeAdmin
+from manage.admin.os_version import OSVersionAdmin
 
 from WEIPDCRM.manage.admin.section import SectionAdmin
 from WEIPDCRM.models.device_type import DeviceType
@@ -14,6 +17,9 @@ from WEIPDCRM.models.release import Release
 from WEIPDCRM.models.section import Section
 from WEIPDCRM.models.setting import Setting
 from WEIPDCRM.models.version import Version
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 # Settings
 admin.site.site_header = "WEIPDCRM"

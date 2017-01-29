@@ -25,6 +25,9 @@ class ReleaseAdmin(admin.ModelAdmin):
         ('Appearance', {
             'fields': ['icon']
         }),
+        ('Cydia', {
+            'fields': ['suite', 'components']
+        }),
         ('SEO', {
             'fields': ['keywords']
         }),

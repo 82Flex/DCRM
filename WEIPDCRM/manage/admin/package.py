@@ -2,6 +2,9 @@
 
 from django.contrib import admin
 from django.forms import ModelForm
+from django.utils.safestring import mark_safe
+from django.utils.translation import ugettext as _
+
 from suit import apps
 from suit.widgets import AutosizedTextarea
 
@@ -13,20 +16,33 @@ class PackageForm(ModelForm):
         }
 
 
+def make_enabled(modeladmin, request, queryset):
+    queryset.update(enabled=True)
+make_enabled.short_description = _("Mark selected packages as enabled")
+
+
+def make_disabled(modeladmin, request, queryset):
+    queryset.update(enabled=False)
+make_disabled.short_description = _("Mark selected packages as disabled")
+
+
 class PackageAdmin(admin.ModelAdmin):
     form = PackageForm
-    list_display = ('enabled', 'package', 'name', 'section', 'author_name', 'created_at')
-    search_fields = ['package', 'name', 'section', 'author_name']
+    list_display = ('enabled', 'package', 'name', 'section', 'architecture', 'created_at', )
+    search_fields = ['package', 'name']
     list_filter = ('enabled', 'section', )
+    list_display_links = ('package',)
+    # list_editable = ('section',)
     readonly_fields = ["created_at"]
+    actions = [make_enabled, make_disabled]
     fieldsets = [
         ('General', {
-            'fields': ['enabled', 'package', 'name', 'section', 'description']
+            'fields': ['enabled', 'releases', 'package', 'name', 'section', 'architecture', 'description']
         }),
         ('Contact', {
             'fields': ['author_name', 'author_email',
                        'maintainer_name', 'maintainer_email',
-                       'sponsor_name', 'sponsor_email',
+                       'sponsor_name', 'sponsor_site',
                        'homepage']
         }),
         ('Appearance', {
@@ -42,5 +58,5 @@ class PackageAdmin(admin.ModelAdmin):
         },
     }
 
-    def has_add_permission(self, request):
-        return False
+    # def has_add_permission(self, request):
+    #     return False
