@@ -1,5 +1,8 @@
 import os
 import re
+import time
+import uuid
+# import json
 import tarfile
 import tempfile
 
@@ -101,14 +104,16 @@ class DebianPackage:
         self.version = ""
         self.control = {}
         self.size = os.path.getsize(path)
-        self.__load()
+        self.offset_control = 0
+        self.offset_data = 0
+        self.load()
 
-    def __load(self):
+    def load(self):
         has_flag = False
         has_control = False
         has_data = False
         # https://en.wikipedia.org/wiki/Deb_(file_format)
-        fd = open(self.path, 'rb+')
+        fd = open(self.path, 'rb')
         fd.seek(0)
         magic = fd.read(8)
         if magic != "!<arch>\n":
@@ -144,6 +149,7 @@ class DebianPackage:
                 else:
                     self.version = fd.read(4).rstrip()
             elif is_control:
+                self.offset_control = fd.tell() - 60
                 control_data = fd.read(size)
                 temp = tempfile.NamedTemporaryFile(delete=False)
                 temp.write(control_data)
@@ -213,6 +219,8 @@ class DebianPackage:
                         print(_('Package missing Cydia column: %s') % (cydia_col))
                 self.control = control_dict
             else:
+                if is_data:
+                    self.offset_data = fd.tell() - 60
                 fd.seek(fd.tell() + size)
             if size % 2 == 1:
                 fd.read(1)  # Even Padding
@@ -247,10 +255,78 @@ class DebianPackage:
         else:
             return field
 
-    def control_content(self):
+    @staticmethod
+    def get_control_content(control_dict):
+        """
+        :type control_dict: Dictionary
+        """
         content = ''
-        for (control_key, control_value) in self.control.items():
+        for (control_key, control_value) in control_dict.items():
             control_value = control_value.replace('\n', '\n ')
             control_value = control_value.replace('\n \n', '\n .\n')
             content += control_key + ': ' + control_value.replace('\n', '\n ') + '\n'
         return content
+
+    def save(self):
+        control = self.control
+        control_field = DebianPackage.get_control_content(control)
+        temp_control = tempfile.NamedTemporaryFile(delete=False)
+        temp_control.write(control_field)
+        temp_control.close()
+        temp_control_gz = tempfile.NamedTemporaryFile(delete=False)
+        temp_control_gz.close()
+        control_tar = tarfile.open(temp_control_gz.name, "w:gz")
+        control_tar.add(temp_control.name, "./control")
+        control_tar.close()
+        control_tar_size = int(os.path.getsize(temp_control_gz.name))
+        os.unlink(temp_control.name)
+        new_deb = tempfile.NamedTemporaryFile(delete=False)
+        new_deb.write(
+            b"\x21\x3C\x61\x72\x63\x68\x3E\x0A"  # 8
+            b"\x64\x65\x62\x69\x61\x6E\x2D\x62"  # 16
+            b"\x69\x6E\x61\x72\x79\x20\x20\x20"  # 24
+        )
+        new_deb.write(str(int(time.time())).ljust(12))
+        new_deb.write(
+            b"\x30\x20\x20\x20\x20\x20\x30\x20"  # 8
+            b"\x20\x20\x20\x20\x31\x30\x30\x36"  # 16
+            b"\x34\x34\x20\x20\x34\x20\x20\x20"  # 24
+            b"\x20\x20\x20\x20\x20\x20\x60\x0A"  # 32
+            b"\x32\x2E\x30\x0A\x63\x6F\x6E\x74"  # 40
+            b"\x72\x6F\x6C\x2E\x74\x61\x72\x2E"  # 48
+            b"\x67\x7A\x20\x20"                  # 52
+        )
+        new_deb.write(str(int(time.time())).ljust(12))
+        new_deb.write(
+            b"\x30\x20\x20\x20\x20\x20\x30\x20"  # 8
+            b"\x20\x20\x20\x20\x31\x30\x30\x36"  # 16
+            b"\x34\x34\x20\x20"  # 24
+        )
+        new_deb.write(str(control_tar_size).ljust(10))
+        new_deb.write(b"\x60\x0A")
+        control_tar = open(temp_control_gz.name, "rb")
+        control_tar.seek(0)
+        while True:
+            cache = control_tar.read(16 * 1024)  # 16k cache
+            if not cache:
+                break
+            new_deb.write(cache)
+        control_tar.close()
+        if control_tar_size % 2 != 0:
+            new_deb.write(b"\x0A")
+        data_tar = open(self.path, "rb")
+        data_tar.seek(self.offset_data)
+        while True:
+            cache = data_tar.read(16 * 1024)  # 16k cache
+            if not cache:
+                break
+            new_deb.write(cache)
+        data_tar.close()
+        new_deb.close()
+        target_dir = 'resources/versions/' + str(uuid.uuid1()) + '/'
+        os.mkdir(target_dir)
+        target_path = target_dir + control.get('Package', 'undefined') + '_' + \
+                      control.get('Version', 'undefined') + '_' + \
+                      control.get('Architecture', 'undefined') + '.deb'
+        os.rename(new_deb.name, target_path)
+        self.path = target_path

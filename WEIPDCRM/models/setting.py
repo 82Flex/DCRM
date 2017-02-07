@@ -54,7 +54,7 @@ class Setting(Preferences):
     downgrade_support = models.BooleanField(
         verbose_name=_("Downgrade Support"),
         help_text=_(
-            "Enable this function will cause a long-term traffic consumption."
+            "Allow multiple versions to exist in the latest package list."
         ),
         default=True
     )

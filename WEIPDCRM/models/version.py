@@ -4,6 +4,8 @@ from __future__ import unicode_literals
 
 import os
 import json
+import uuid
+import shutil
 import hashlib
 
 from django.db import models
@@ -18,6 +20,7 @@ from preferences import preferences
 from WEIPDCRM.models.os_version import OSVersion
 from WEIPDCRM.models.device_type import DeviceType
 from WEIPDCRM.models.package import Package
+from WEIPDCRM.models.debian_package import DebianPackage
 
 
 class Version(models.Model):
@@ -41,6 +44,22 @@ class Version(models.Model):
     sha256 = models.CharField(verbose_name=_("SHA256"), max_length=64, default="")
     sha512 = models.CharField(verbose_name=_("SHA512"), max_length=128, default="")
     size = models.BigIntegerField(verbose_name=_("Size"), default=0)
+
+    def update_storage(self):
+        # original
+        control_field = self.control_field
+        path = self.storage.name
+        # copy to temporary
+        temp_path = 'temp/' + str(uuid.uuid1()) + '.deb'
+        shutil.copyfile(path, temp_path)
+        # read new package
+        temp_package = DebianPackage(temp_path)
+        temp_package.control = json.loads(control_field)
+        # save new package
+        temp_package.save()
+        self.storage = temp_package.path
+        self.update_hash()
+        self.save()
 
     def update_hash(self):
         path = self.storage.name
@@ -120,12 +139,7 @@ class Version(models.Model):
 
     def get_control_content(self):
         control = json.loads(self.control_field)
-        content = ''
-        for (control_key, control_value) in control.items():
-            control_value = control_value.replace('\n', '\n ')
-            control_value = control_value.replace('\n \n', '\n .\n')
-            content += control_key + ': ' + control_value.replace('\n', '\n ') + '\n'
-        return content
+        return DebianPackage.get_control_content(control)
 
     control_content = property(get_control_content)
 

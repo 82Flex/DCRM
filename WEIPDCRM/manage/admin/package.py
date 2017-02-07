@@ -17,11 +17,19 @@ class PackageForm(ModelForm):
 
 
 def make_enabled(modeladmin, request, queryset):
+    """
+    :param queryset: QuerySet
+    :type modeladmin: PackageAdmin
+    """
     queryset.update(enabled=True)
 make_enabled.short_description = _("Mark selected packages as enabled")
 
 
 def make_disabled(modeladmin, request, queryset):
+    """
+    :param queryset: QuerySet
+    :type modeladmin: PackageAdmin
+    """
     queryset.update(enabled=False)
 make_disabled.short_description = _("Mark selected packages as disabled")
 
@@ -60,3 +68,13 @@ class PackageAdmin(admin.ModelAdmin):
 
     # def has_add_permission(self, request):
     #     return False
+    
+    def save_model(self, request, obj, form, change):
+        """
+        :param change: Boolean
+        :param form: PackageForm
+        :type obj: Package
+        """
+        if change:
+            pass
+        super(PackageAdmin, self).save_model(request, obj, form, change)

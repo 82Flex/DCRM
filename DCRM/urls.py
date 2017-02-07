@@ -23,7 +23,8 @@ from WEIPDCRM.views.admin.help import statistics
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^admin/sites/django-rq/', include('django_rq.urls')),
-    url(r'^admin/upload/$', upload.upload_view),
-    url(r'^admin/help/about/$', about.about_view),
-    url(r'^admin/help/statistics/$', statistics.statistics_view),
+    url(r'^admin/upload/$', upload.upload_view, name='upload'),
+    url(r'^admin/upload/version/$', upload.upload_version_view, name='version_add'),
+    url(r'^admin/help/about/$', about.about_view, name='help_about'),
+    url(r'^admin/help/statistics/$', statistics.statistics_view, name='help_statistics'),
 ]

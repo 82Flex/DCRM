@@ -5,9 +5,9 @@ import os
 
 from django_rq import job, queues
 from django.contrib import admin
-# from django.contrib import messages
+from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 # from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.utils.translation import ugettext as _
@@ -26,12 +26,12 @@ def handle_uploaded_package(path):
     result_dict = {}
     try:
         uploaded_package = DebianPackage(path)
+        # uploaded_package.load()
         control = uploaded_package.control
-        target_path = 'resources/versions/' + \
-                      control.get('Package', 'undefined') + \
-                      '_' + \
-                      control.get('Version', 'undefined') + \
-                      '_' + \
+        target_dir = 'resources/versions/' + str(uuid.uuid1()) + '/'
+        os.mkdir(target_dir)
+        target_path = target_dir + control.get('Package', 'undefined') + '_' + \
+                      control.get('Version', 'undefined') + '_' + \
                       control.get('Architecture', 'undefined') + '.deb'
         # p_size = os.path.getsize(path)
         # p_md5 = ''
@@ -66,8 +66,9 @@ def handle_uploaded_package(path):
         # search package
         p_package = Package.objects.filter(package=control['Package']).last()
         if p_package:
-            pass
-            # create a new version for package
+            p_section = p_package.section
+            if p_section:
+                pass
         else:
             # search section
             p_section = Section.objects.filter(name=control.get('Section', None)).last()
@@ -75,8 +76,10 @@ def handle_uploaded_package(path):
                 pass
             else:
                 # create a new section
-                p_section = Section(name=control.get('Section', _('Default')))
-                p_section.save()
+                p_section_name = control.get('Section', None)
+                if p_section_name:
+                    p_section = Section(name=p_section_name)
+                    p_section.save()
             # create a new package
             p_package = Package.objects.create(
                 name=control.get('Name', _('Untitled Package')),
@@ -97,6 +100,11 @@ def handle_uploaded_package(path):
             p_release = preferences.Setting.active_release
             if p_release:
                 p_package.releases.add(p_release)
+        # return process
+        if p_package:
+            result_dict.update({"package": p_package.id})
+        if p_section:
+            result_dict.update({"section": p_section.id})
         # search version
         p_version = Version.objects.filter(package=p_package, version=control.get('Version', None)).last()
         if p_version:
@@ -141,6 +149,12 @@ def handle_uploaded_file(request):
         for chunk in f.chunks():
             destination.write(chunk)
     return handle_uploaded_package.delay(package_temp_path)
+
+
+@staff_member_required
+def upload_version_view(request):
+    messages.info(request, _('Upload a Package File to add new version.'))
+    return redirect('upload')
 
 
 @staff_member_required

@@ -432,18 +432,18 @@ release_id</ColNames>
       <DataType>VARCHAR(255)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="108" parent="10" name="control_field">
+    <column id="108" parent="10" name="update_logs">
       <Position>11</Position>
       <DataType>TEXT(0,-1)|12</DataType>
     </column>
-    <column id="109" parent="10" name="sha512">
+    <column id="109" parent="10" name="control_field">
       <Position>12</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="110" parent="10" name="sha512">
+      <Position>13</Position>
       <DataType>VARCHAR(128)(0,-1)|12</DataType>
       <NotNull>1</NotNull>
-    </column>
-    <column id="110" parent="10" name="update_logs">
-      <Position>13</Position>
-      <DataType>TEXT(0,-1)|12</DataType>
     </column>
     <key id="111" parent="10">
       <ColNames>id</ColNames>

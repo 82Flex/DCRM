@@ -20,7 +20,8 @@ class Section(models.Model):
         verbose_name=_("Name"),
         max_length=255,
         help_text=_("This is a general field that gives the package a category "
-                    "based on the software that it installs."),
+                    "based on the software that it installs. You will not "
+                    "be able to edit its name after assigning any package under it."),
         unique=True
     )
     icon = models.ImageField(
