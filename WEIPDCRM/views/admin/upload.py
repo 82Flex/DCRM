@@ -15,8 +15,6 @@ from preferences import preferences
 
 from WEIPDCRM.forms.admin.upload import UploadForm
 from WEIPDCRM.models.debian_package import DebianPackage
-from WEIPDCRM.models.debian_package import BaseVersion
-from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.section import Section
 from WEIPDCRM.models.version import Version
 
@@ -33,80 +31,20 @@ def handle_uploaded_package(path):
         target_path = target_dir + control.get('Package', 'undefined') + '_' + \
                       control.get('Version', 'undefined') + '_' + \
                       control.get('Architecture', 'undefined') + '.deb'
-        # p_size = os.path.getsize(path)
-        # p_md5 = ''
-        # p_sha1 = ''
-        # p_sha256 = ''
-        # p_sha512 = ''
-        # hash_type = preferences.Setting.packages_validation
-        # if hash_type == 0:
-        #     pass
-        # if hash_type >= 1:
-        #     m2 = hashlib.md5()
-        #     m2.update(path)
-        #     p_md5 = m2.hexdigest()
-        # if hash_type >= 2:
-        #     m3 = hashlib.sha1()
-        #     m3.update(path)
-        #     p_sha1 = m3.hexdigest()
-        # if hash_type >= 3:
-        #     m4 = hashlib.sha256()
-        #     m4.update(path)
-        #     p_sha256 = m4.hexdigest()
-        # if hash_type >= 4:
-        #     m5 = hashlib.sha512()
-        #     m5.update(path)
-        #     p_sha512 = m5.hexdigest()
-        # hash_fields = 'Filename: ' + target_path + '\n'
-        # hash_fields += 'Size: ' + str(p_size) + '\n'
-        # hash_fields += "MD5sum: " + p_md5 + '\n'
-        # hash_fields += "SHA1: " + p_sha1 + '\n'
-        # hash_fields += "SHA256: " + p_sha256 + '\n'
-        # hash_fields += "SHA512: " + p_sha512 + '\n'
-        # search package
-        p_package = Package.objects.filter(package=control['Package']).last()
-        if p_package:
-            p_section = p_package.section
-            if p_section:
-                pass
-        else:
-            # search section
-            p_section = Section.objects.filter(name=control.get('Section', None)).last()
-            if p_section:
-                pass
-            else:
-                # create a new section
-                p_section_name = control.get('Section', None)
-                if p_section_name:
-                    p_section = Section(name=p_section_name)
-                    p_section.save()
-            # create a new package
-            p_package = Package.objects.create(
-                name=control.get('Name', _('Untitled Package')),
-                package=control.get('Package'),
-                section=p_section,
-                architecture=control.get('Architecture', None),
-                author_name=DebianPackage.value_for_field(control.get('Author', None)),
-                author_email=DebianPackage.detail_for_field(control.get('Author', None)),
-                sponsor_name=DebianPackage.value_for_field(control.get('Sponsor', None)),
-                sponsor_site=DebianPackage.detail_for_field(control.get('Sponsor', None)),
-                maintainer_name=DebianPackage.value_for_field(control.get('Maintainer', None)),
-                maintainer_email=DebianPackage.detail_for_field(control.get('Maintainer', None)),
-                depiction=control.get('Depiction', None),
-                homepage=control.get('Homepage', None),
-                description=control.get('Description', None)
-            )
-            # find active release
-            p_release = preferences.Setting.active_release
-            if p_release:
-                p_package.releases.add(p_release)
-        # return process
-        if p_package:
-            result_dict.update({"package": p_package.id})
+        p_section = Section.objects.filter(name=control.get('Section', None)).last()
         if p_section:
-            result_dict.update({"section": p_section.id})
+            pass
+        else:
+            # create a new section
+            p_section_name = control.get('Section', None)
+            if p_section_name:
+                p_section = Section(name=p_section_name)
+                p_section.save()
         # search version
-        p_version = Version.objects.filter(package=p_package, version=control.get('Version', None)).last()
+        p_version = Version.objects.filter(
+            package=control.get('Package', None),
+            version=control.get('Version', None)
+        ).last()
         if p_version:
             # version conflict
             result_dict.update({
@@ -114,18 +52,45 @@ def handle_uploaded_package(path):
                 "exception": _("Version Conflict: %s") % p_version.version
             })
         else:
-            p_version = Version(
-                package=p_package,
-                version=control.get('Version', None),
-                control_field=json.dumps(control, sort_keys=True, indent=2),
-                storage=target_path,
-                # size=p_size,
-                # md5=p_md5,
-                # sha1=p_sha1,
-                # sha256=p_sha256,
-                # sha512=p_sha512
-            )
             os.rename(path, target_path)
+            p_version = Version()
+            p_version.package = control.get('Package', None)
+            p_version.version = control.get('Version', None)
+            p_version.storage = target_path
+            p_version.maintainer_name = DebianPackage.value_for_field(control.get('Maintainer', None))
+            p_version.maintainer_email = DebianPackage.detail_for_field(control.get('Maintainer', None))
+            p_version.description = control.get('Description', "")
+            p_version.section = p_section
+            p_version.tag = control.get('Tag', None)
+            p_version.architecture = control.get('Architecture', None)
+            p_version.name = control.get('Name', None)
+            p_version.author_name = DebianPackage.value_for_field(control.get('Author', None))
+            p_version.author_email = DebianPackage.detail_for_field(control.get('Author', None))
+            p_version.sponsor_name = DebianPackage.value_for_field(control.get('Sponsor', None))
+            p_version.sponsor_site = DebianPackage.detail_for_field(control.get('Sponsor', None))
+            p_version.depiction = control.get('Depiction', None)
+            p_version.homepage = control.get('Homepage', None)
+            p_version.priority = control.get('Priority', None)
+            p_version.installed_size = control.get('Installed-Size', None)
+            p_version.essential = control.get('Essential', None)
+            p_version.depends = control.get('Depends', None)
+            p_version.pre_depends = control.get('Pre-Depends', None)
+            p_version.recommends = control.get('Recommends', None)
+            p_version.suggests = control.get('Suggests', None)
+            p_version.breaks = control.get('Breaks', None)
+            p_version.conflicts = control.get('Conflicts', None)
+            p_version.replaces = control.get('Replaces', None)
+            p_version.provides = control.get('Provides', None)
+            p_version.build_essential = control.get('Build-Essential', None)
+            p_version.origin = control.get('Origin', None)
+            p_version.bugs = control.get('Bugs', None)
+            p_version.multi_arch = control.get('Multi-Arch', None)
+            p_version.source = control.get('Source', None)
+            p_version.subarchitecture = control.get('Subarchitecture', None)
+            p_version.kernel_version = control.get('Kernel-Version', None)
+            p_version.installer_menu_item = control.get('Installer-Menu-Item', None)
+            p_version.built_using = control.get('Built-Using', None)
+            p_version.built_for_profiles = control.get('Built-For-Profiles', None)
             p_version.update_hash()
             p_version.save()
             # move resource

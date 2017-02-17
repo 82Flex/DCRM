@@ -71,7 +71,6 @@
         var finput = document.getElementById("id_package");
         var job_id = "{{ job_id }}";
         var msg = "{{ msg }}";
-        var schedule;
         function box_display(msg) {
             box.style.color = "#d3d3d3";
             box.innerText = msg;
@@ -93,7 +92,6 @@
                 },
                 success: function (d) {
                     if (d['result'] == true) {
-                        window.clearInterval(schedule);
                         if (d['job']['is_finished'] == true) {
                             if (d['job']['result']['success'] == true) {
                                 // Success, jump to version control
@@ -113,6 +111,7 @@
                     }
                 }
             });
+            window.setTimeout(job_test, 3000)
         }
         function ajax_upload(file) {
             isUpload = true;
@@ -141,7 +140,7 @@
                     if (this.response['status'] == true) {
                         if (this.response['job'] != null) {
                             job_id = this.response['job']['id'];
-                            schedule = window.setInterval(job_test, 3000);
+                            window.setTimeout(job_test, 3000);
                         }
                     } else {
                         isUpload = false;
@@ -253,7 +252,7 @@
         }
         if (job_id.length > 0) {
             isUpload = true;
-            schedule = window.setInterval(job_test, 3000);
+            window.setTimeout(job_test, 3000);
         }
     })(django.jQuery);
     </script>

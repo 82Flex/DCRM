@@ -5,7 +5,13 @@ from __future__ import unicode_literals
 from django.db import models
 from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
+from django.core.exceptions import ValidationError
+
+
+def validator_underscore(value):
+    if '_' in value:
+        raise ValidationError(_("Section name should not contain any underscore."))
 
 
 class Section(models.Model):
@@ -22,7 +28,10 @@ class Section(models.Model):
         help_text=_("This is a general field that gives the package a category "
                     "based on the software that it installs. You will not "
                     "be able to edit its name after assigning any package under it."),
-        unique=True
+        unique=True,
+        validators=[
+            validator_underscore
+        ]
     )
     icon = models.ImageField(
         verbose_name=_("Icon"),

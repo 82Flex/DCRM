@@ -13,7 +13,11 @@ class SettingsAdmin(PreferencesAdmin):
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['packages_compression', 'packages_validation', 'downgrade_support']
         }),
-        ('Cydia', {
+        ('Resource', {
+            'classes': ('suit-tab suit-tab-common',),
+            'fields': ['atomic_storage', 'resources_alias']
+        }),
+        ('Display', {
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['advanced_mode']
         }),

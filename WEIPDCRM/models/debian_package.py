@@ -8,6 +8,7 @@ import tempfile
 
 from django.utils.translation import ugettext as _
 from debian.debian_support import BaseVersion as _BaseVersion
+from preferences import preferences
 
 
 class BaseVersion(_BaseVersion):
@@ -323,10 +324,15 @@ class DebianPackage:
             new_deb.write(cache)
         data_tar.close()
         new_deb.close()
-        target_dir = 'resources/versions/' + str(uuid.uuid1()) + '/'
-        os.mkdir(target_dir)
-        target_path = target_dir + control.get('Package', 'undefined') + '_' + \
-                      control.get('Version', 'undefined') + '_' + \
-                      control.get('Architecture', 'undefined') + '.deb'
-        os.rename(new_deb.name, target_path)
-        self.path = target_path
+        atomic = preferences.Setting.atomic_storage
+        if atomic:
+            target_dir = 'resources/versions/' + str(uuid.uuid1()) + '/'
+            os.mkdir(target_dir)
+            target_path = target_dir + control.get('Package', 'undefined') + '_' + \
+                          control.get('Version', 'undefined') + '_' + \
+                          control.get('Architecture', 'undefined') + '.deb'
+            os.rename(new_deb.name, target_path)
+            self.path = target_path
+        else:
+            os.unlink(self.path)
+            os.rename(new_deb.name, self.path)

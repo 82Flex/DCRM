@@ -2,10 +2,19 @@
 
 from __future__ import unicode_literals
 
+import re
+
 from django.db import models
 from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext as _
+from django.core.exceptions import ValidationError
+
+
+def validator_basic(value):
+    pattern = re.compile(r"^[0-9A-Za-z_.\-]+$")
+    if not pattern.match(value):
+        raise ValidationError(_("Only these characters are allowed: 0-9A-Za-z_.-"))
 
 
 class Release(models.Model):
@@ -45,7 +54,10 @@ class Release(models.Model):
         help_text=_("Just set this to \"stable\". This field might not be required, but who "
                     "really knows? I, for certain, do not."),
         default=_("stable"),
-        blank=True
+        blank=True,
+        validators=[
+            validator_basic
+        ]
     )
 
     version = models.CharField(
@@ -59,14 +71,13 @@ class Release(models.Model):
     codename = models.CharField(
         verbose_name=_("Codename"),
         max_length=255,
+        blank=True,
         default="",
         help_text=_("In an \"automatic\" repository you might store multiple distributions "
                     "of software for different target systems. For example: apt.saurik.com's "
                     "main repository houses content both for desktop Debian Etch systems as "
                     "well as the iPhone. This codename then describes what distribution we "
-                    "are currently looking for. In a \"trivial\" repository (as described in "
-                    "this document) you may put anything you want here, and the field may even "
-                    "be optional.")
+                    "are currently looking for.")
     )
 
     architectures = models.CharField(
@@ -77,7 +88,10 @@ class Release(models.Model):
                     "architectures that appear in your Packages file here. Again, we use "
                     "darwin-arm for 1.1.x and iphoneos-arm for 2.x."),
         default=_("iphoneos-arm"),
-        blank=True
+        blank=True,
+        validators=[
+            validator_basic
+        ]
     )
 
     components = models.CharField(
@@ -86,7 +100,10 @@ class Release(models.Model):
         help_text=_("Just set this to \"main\". This field might not be required, but who "
                     "really knows? I, for certain, do not."),
         default=_("main"),
-        blank=True
+        blank=True,
+        validators=[
+            validator_basic
+        ]
     )
 
     description = models.TextField(

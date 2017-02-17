@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.utils.translation import ugettext as _
 
 from WEIPDCRM.models.section import Section
-from WEIPDCRM.models.package import Package
+from WEIPDCRM.models.version import Version
 
 
 class SectionAdmin(admin.ModelAdmin):
@@ -32,7 +32,7 @@ class SectionAdmin(admin.ModelAdmin):
         """
         :type obj: Section
         """
-        if Package.objects.filter(section=obj).count() > 0:
+        if Version.objects.filter(section=obj).count() > 0:
             return ['created_at', 'name']
         else:
             return ['created_at']

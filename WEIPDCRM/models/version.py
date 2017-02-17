@@ -3,7 +3,6 @@
 from __future__ import unicode_literals
 
 import os
-import json
 import uuid
 import shutil
 import hashlib
@@ -11,57 +10,229 @@ import hashlib
 from django.db import models
 from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
-# from django.db.models.signals import pre_save
-# from django.dispatch import receiver
 from django.utils.translation import ugettext as _
+from django_rq import job
 
 from preferences import preferences
 
 from WEIPDCRM.models.os_version import OSVersion
 from WEIPDCRM.models.device_type import DeviceType
-from WEIPDCRM.models.package import Package
+from WEIPDCRM.models.section import Section
 from WEIPDCRM.models.debian_package import DebianPackage
+
+
+@job("high")
+def write_to_package_job(control, path, callback_version_id):
+    # copy to temporary
+    temp_path = 'temp/' + str(uuid.uuid1()) + '.deb'
+    shutil.copyfile(path, temp_path)
+    # read new package
+    temp_package = DebianPackage(temp_path)
+    temp_package.control = control
+    # save new package
+    temp_package.save()
+    t_version = Version.objects.filter(id=callback_version_id).last()
+    t_version.write_callback(temp_package.path)
 
 
 class Version(models.Model):
     class Meta:
         verbose_name = _("Version")
         verbose_name_plural = _("Versions")
-
+    
+    def get_model_fields(self):
+        """
+        Access the fields of Version model via _meta table
+        :return: An array of fields in Version class
+        """
+        return self._meta.fields
+    
     # Base Property
-    id = models.AutoField(primary_key=True, editable=False)
-    enabled = models.BooleanField(verbose_name=_("Enabled"), default=False)
-    created_at = models.DateTimeField(verbose_name=_("Created At"), auto_now_add=True)
-    download_times = models.IntegerField(verbose_name=_("Download Times"), default=0)
-
+    id = models.AutoField(
+        primary_key=True,
+        editable=False
+    )
+    enabled = models.BooleanField(
+        verbose_name=_("Enabled"),
+        default=False
+    )  # OK
+    created_at = models.DateTimeField(
+        verbose_name=_("Created At"),
+        auto_now_add=True
+    )  # OK
+    
+    def __str__(self):
+        return self.package + ' (' + self.version + ')'
+    
+    def get_external_storage_link(self):
+        """
+        :return: External Storage Link
+         :rtype: str
+        """
+        file_path = self.storage.name
+        slash_index = file_path.find("/")
+        if slash_index > 0:
+            file_path = self.storage.name[slash_index + 1:]
+        return str(preferences.Setting.resources_alias) + file_path
+    
+    storage_link = property(get_external_storage_link)
+    
+    def get_admin_url(self):
+        content_type = ContentType.objects.get_for_model(self.__class__)
+        return urlresolvers.reverse(
+            "admin:%s_%s_change" % (content_type.app_label, content_type.model),
+            args=(self.id,)
+        )
+    
+    # Compatibility
+    os_compatibility = models.ManyToManyField(
+        OSVersion,
+        verbose_name=_("OS Compatibility"),
+        blank=True
+    )  # OK
+    device_compatibility = models.ManyToManyField(
+        DeviceType,
+        verbose_name=_("Device Compatibility"),
+        blank=True
+    )  # OK
+    
+    # Update Logs
+    update_logs = models.TextField(
+        verbose_name=_("Update Logs"),
+        blank=True,
+        default=_("")
+    )  # OK
+    
     # File System
     storage = models.FileField(
         verbose_name=_("Storage"),
         upload_to="debs",
-    )
-    md5 = models.CharField(verbose_name=_("MD5"), max_length=32, default="")
-    sha1 = models.CharField(verbose_name=_("SHA1"), max_length=40, default="")
-    sha256 = models.CharField(verbose_name=_("SHA256"), max_length=64, default="")
-    sha512 = models.CharField(verbose_name=_("SHA512"), max_length=128, default="")
-    size = models.BigIntegerField(verbose_name=_("Size"), default=0)
-
-    def update_storage(self):
+    )  # OK
+    icon = models.ImageField(
+        verbose_name=_("Icon"),
+        upload_to="package-icons",
+        help_text=_("Choose an Icon (*.png) to upload"),
+        blank=True,
+        default=""
+    )  # OK
+    md5 = models.CharField(
+        verbose_name=_("MD5Sum"),
+        max_length=32,
+        default=""
+    )  # OK
+    sha1 = models.CharField(
+        verbose_name=_("SHA1"),
+        max_length=40,
+        default=""
+    )  # OK
+    sha256 = models.CharField(
+        verbose_name=_("SHA256"),
+        max_length=64,
+        default=""
+    )  # OK
+    sha512 = models.CharField(
+        verbose_name=_("SHA512"),
+        max_length=128,
+        default=""
+    )  # OK
+    size = models.BigIntegerField(
+        verbose_name=_("Size"),
+        default=0,
+        help_text=_("The exact size of the package, in bytes.")
+    )  # OK
+    download_times = models.IntegerField(
+        verbose_name=_("Download Times"),
+        default=0,
+    )  # OK
+    installed_size = models.BigIntegerField(
+        verbose_name=_("Installed-Size"),
+        blank=True,
+        null=True,
+        default=0,
+        help_text=_("The approximate total size of the package's installed files, "
+                    "in KiB units.")
+    )  # OK
+    
+    def get_control_dict(self):
         # original
-        control_field = self.control_field
+        """
+        Generate control dictionary from instance properties
+        :rtype: dict
+        :return: No return value
+        """
+        control_field = {
+            "Package": self.package,
+            "Version": self.version,
+            "Architecture": self.architecture,
+            "Name": self.name,
+            "Description": self.description,
+            "Depiction": self.depiction,
+            "Homepage": self.homepage,
+            "Tag": self.tag,
+            "Priority": self.priority,
+            "Essential": self.essential,
+            "Depends": self.depends,
+            "Pre-Depends": self.pre_depends,
+            "Recommends": self.recommends,
+            "Suggests": self.suggests,
+            "Breaks": self.breaks,
+            "Conflicts": self.conflicts,
+            "Replaces": self.replaces,
+            "Provides": self.provides,
+            "Origin": self.origin,
+            "Source": self.source,
+            "Build-Essential": self.build_essential,
+            "Bugs": self.bugs,
+            "Multi-Arch": self.multi_arch,
+            "Subarchitecture": self.subarchitecture,
+            "Kernel-Version": self.kernel_version,
+            "Installer-Menu-Item": self.installer_menu_item,
+            "Built-Using": self.built_using,
+            "Built-For-Profiles": self.built_for_profiles,
+            "Installed-Size": self.installed_size,
+        }
+        control = {}
+        for (k, v) in control_field.items():
+            if v is not None and len(str(v)) > 0:
+                control[k] = str(v)
+        if self.section is not None:
+            control.update({"Section": self.section.name})
+        if (self.maintainer_name is not None and len(self.maintainer_name) > 0) and \
+                (self.maintainer_email is not None and len(self.maintainer_email) > 0):
+            control.update({"Maintainer": self.maintainer_name + " <" + self.maintainer_email + ">"})
+        if (self.author_name is not None and len(self.author_name) > 0) and \
+                (self.author_email is not None and len(self.author_email) > 0):
+            control.update({"Author": self.author_name + " <" + self.author_email + ">"})
+        if (self.sponsor_name is not None and len(self.sponsor_name) > 0) and \
+                (self.sponsor_site is not None and len(self.sponsor_site) > 0):
+            control.update({"Sponsor": self.sponsor_name + " <" + self.sponsor_site + ">"})
+        return control
+    
+    def update_storage(self):
+        """
+        Update control fields and write to deb files
+        This method is executed async.
+        """
+        control = self.get_control_dict()
         path = self.storage.name
-        # copy to temporary
-        temp_path = 'temp/' + str(uuid.uuid1()) + '.deb'
-        shutil.copyfile(path, temp_path)
-        # read new package
-        temp_package = DebianPackage(temp_path)
-        temp_package.control = json.loads(control_field)
-        # save new package
-        temp_package.save()
-        self.storage = temp_package.path
+        write_to_package_job.delay(control, path, self.id)
+    
+    def write_callback(self, temp_path):
+        """
+        The async callback for method update_storage
+        :type temp_path: str
+        :param temp_path: Created temp deb file for updating result
+        :return: No return value
+        """
+        os.rename(temp_path, self.storage.name)
         self.update_hash()
         self.save()
-
+    
     def update_hash(self):
+        """
+        Update hash fields from file system
+        :return: No return value
+        """
         path = self.storage.name
         p_size = os.path.getsize(path)
         p_md5 = ''
@@ -92,13 +263,16 @@ class Version(models.Model):
         self.sha1 = p_sha1
         self.sha256 = p_sha256
         self.sha512 = p_sha512
-
-    # Controls
-    package = models.ForeignKey(
-        Package,
+    
+    # Required Control
+    package = models.CharField(
         verbose_name=_("Package"),
-        null=False
-    )
+        max_length=255,
+        help_text=_("This is the \"identifier\" of the package. This should be, entirely "
+                    "in lower case, a reversed hostname (much like a \"bundleIdentifier\" "
+                    "in Apple's Info.plist files)."),
+        unique=True
+    )  # OK
     version = models.CharField(
         verbose_name=_("Version"),
         max_length=255,
@@ -106,55 +280,387 @@ class Version(models.Model):
                     "of the software in the package, and the version of the package "
                     "itself. These version numbers are separated by a hyphen."),
         default=_("0.0.1-1")
-    )
-
-    # Version Control
-    update_logs = models.TextField(
-        verbose_name=_("Update Logs"),
+    )  # OK
+    
+    # Recommend Control
+    maintainer_name = models.CharField(
+        verbose_name=_("Maintainer"),
+        max_length=255,
         blank=True,
-        null=True
-    )
-
-    # Compatibility
-    os_compatibility = models.ManyToManyField(
-        OSVersion,
-        verbose_name=_("OS Compatibility"),
-        blank=True
-    )
-    device_compatibility = models.ManyToManyField(
-        DeviceType,
-        verbose_name=_("Device Compatibility"),
-        blank=True
-    )
-
-    # Control
-    control_field = models.TextField(
-        verbose_name=_("Control Field"),
+        null=True,
+        help_text=_("It is typically the person who created the package, as opposed to "
+                    "the author of the software that was packaged."),
+        default=""
+    )  # OK
+    maintainer_email = models.EmailField(
+        verbose_name=_("Maintainer Email"),
+        max_length=255,
         blank=True,
-        null=True
-    )
-
-    def __str__(self):
-        return self.package.name + ' (' + self.version + ')'
-
-    def get_control_content(self):
-        control = json.loads(self.control_field)
-        return DebianPackage.get_control_content(control)
-
-    control_content = property(get_control_content)
-
-    def get_external_storage_link(self):
-        return '/' + self.storage.name
-
-    storage_link = property(get_external_storage_link)
-
-    def get_admin_url(self):
-        content_type = ContentType.objects.get_for_model(self.__class__)
-        return urlresolvers.reverse(
-            "admin:%s_%s_change" % (content_type.app_label, content_type.model),
-            args=(self.id,)
-        )
-
-# @receiver(pre_save, sender=Version)
-# def my_callback(sender, instance, *args, **kwargs):
-#     instance.update_hash()
+        null=True,
+        default=""
+    )  # OK
+    description = models.TextField(
+        verbose_name=_("Description"),
+        blank=True,
+        null=True,
+        default="",
+        help_text=_("The first line (after the colon) should contain a short description to be "
+                    "displayed on the package lists underneath the name of the package. "
+                    "Optionally, one can choose to replace that description with "
+                    "an arbitrarily long one that will be displayed on the package details "
+                    "screen.")
+    )  # OK
+    
+    # Foreign Keys
+    section = models.ForeignKey(
+        Section,
+        verbose_name=_("Section"),
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        help_text=_("Under the \"Install\" tab in Cydia, packages are listed by \"Section\". "
+                    "If you would like to encode a space into your section name, use an "
+                    "underscore (Cydia will automatically convert these)."),
+        default=""
+    )  # OK
+    tag = models.TextField(
+        verbose_name=_("Tag"),
+        blank=True,
+        null=True,
+        help_text=_("List of tags describing the qualities of the package. The "
+                    "description and list of supported tags can be found in the "
+                    "debtags package."),
+        default=_("")
+    )  # OK
+    architecture = models.CharField(
+        verbose_name=_("Architecture"),
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text=_("This describes what system a package is designed for, as .deb files "
+                    "are used on everything from the iPhone to your desktop computer. "
+                    "The correct value for iPhoneOS 1.0.x/1.1.x is \"darwin-arm\". If "
+                    "you are deploying to iPhoneOS 1.2/2.x you should use \"iphoneos-arm\"."),
+        default=""
+    )  # OK
+    
+    # Other Controls
+    name = models.CharField(
+        verbose_name=_("Name"),
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text=_("When the package is shown in Cydia's lists, it is convenient "
+                    "to have a prettier name. This field allows you to override this "
+                    "display with an arbitrary string. This field may change often, "
+                    "whereas the \"Package\" field is fixed for the lifetime of the "
+                    "package."),
+        default=_("Untitled Package")
+    )  # OK
+    author_name = models.CharField(
+        verbose_name=_("Author"),
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text=_("In contrast, the person who wrote the original software "
+                    "is called the \"author\". This name will be shown underneath "
+                    "the name of the package on the details screen. The field is "
+                    "in the same format as \"Maintainer\"."),
+        default=""
+    )  # OK
+    author_email = models.EmailField(
+        verbose_name=_("Author Email"),
+        max_length=255,
+        blank=True,
+        null=True,
+        default=""
+    )  # OK
+    sponsor_name = models.CharField(
+        verbose_name=_("Sponsor"),
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text=_("Finally, there might be someone who is simply providing the influence "
+                    "or the cash to make the package happen. This person should be listed "
+                    "here in the form of \"Maintainer\" except using a resource URI instead "
+                    "of an e-mail address."),
+        default=""
+    )  # OK
+    sponsor_site = models.URLField(
+        verbose_name=_("Sponsor Site"),
+        max_length=255,
+        blank=True,
+        null=True,
+        default=""
+    )  # OK
+    depiction = models.URLField(
+        verbose_name=_("Depiction"),
+        blank=True,
+        null=True,
+        help_text=_("This is a URL that is loaded into an iframe, replacing the Description: and Homepage: ."),
+        default=""
+    )  # OK
+    homepage = models.URLField(
+        verbose_name=_("Homepage"),
+        blank=True,
+        null=True,
+        default="",
+        help_text=_("Cydia supports a \"More Info\" field on the details screen that shunts users "
+                    "off to a website of the packager's choice.")
+    )  # OK
+    
+    # Advanced Controls
+    priority = models.CharField(
+        verbose_name=_("Priority"),
+        blank=True,
+        null=True,
+        max_length=255,
+        default="",
+        choices=(
+            (None, "-"),
+            ("required", "Required"),
+            ("standard", "Standard"),
+            ("optional", "Optional"),
+            ("extra", "Extra")
+        ),
+        help_text=_("Sets the importance of this package in relation to the system "
+                    "as a whole.  Common priorities are required, standard, "
+                    "optional, extra, etc.")
+    )  # OK
+    essential = models.CharField(
+        verbose_name=_("Essential"),
+        blank=True,
+        null=True,
+        max_length=255,
+        default="",
+        choices=(
+            (None, "-"),
+            ("yes", "Yes"),
+            ("no", "No")
+        ),
+        help_text=_("This field is usually only needed when the answer is yes. It "
+                    "denotes a package that is required for proper operation of the "
+                    "system. Dpkg or any other installation tool will not allow an "
+                    "Essential package to be removed (at least not without using "
+                    "one of the force options).")
+    )  # OK
+    depends = models.TextField(
+        verbose_name=_("Depends"),
+        blank=True,
+        null=True,
+        help_text=_("List of packages that are required for this package to provide "
+                    "a non-trivial amount of functionality. The package maintenance "
+                    "software will not allow a package to be installed if the "
+                    "packages listed in its Depends field aren't installed (at "
+                    "least not without using the force options).  In an "
+                    "installation, the postinst scripts of packages listed in "
+                    "Depends fields are run before those of the packages which "
+                    "depend on them. On the opposite, in a removal, the prerm "
+                    "script of a package is run before those of the packages listed "
+                    "in its Depends field."),
+        default=_("")
+    )  # OK
+    pre_depends = models.TextField(
+        verbose_name=_("Pre-Depends"),
+        blank=True,
+        null=True,
+        help_text=_("List of packages that must be installed and configured before "
+                    "this one can be installed. This is usually used in the case "
+                    "where this package requires another package for running its "
+                    "preinst script."),
+        default=_("")
+    )  # OK
+    recommends = models.TextField(
+        verbose_name=_("Recommends"),
+        blank=True,
+        null=True,
+        help_text=_("Lists packages that would be found together with this one in "
+                    "all but unusual installations. The package maintenance "
+                    "software will warn the user if they install a package without "
+                    "those listed in its Recommends field."),
+        default=_(""),
+    )  # OK
+    suggests = models.TextField(
+        verbose_name=_("Suggests"),
+        blank=True,
+        null=True,
+        help_text=_("Lists packages that are related to this one and can perhaps "
+                    "enhance its usefulness, but without which installing this "
+                    "package is perfectly reasonable."),
+        default=_(""),
+    )  # OK
+    breaks = models.TextField(
+        verbose_name=_("Breaks"),
+        blank=True,
+        null=True,
+        help_text=_("Lists packages that this one breaks, for example by exposing "
+                    "bugs when the named packages rely on this one. The package "
+                    "maintenance software will not allow broken packages to be "
+                    "configured; generally the resolution is to upgrade the "
+                    "packages named in a Breaks field."),
+        default=_(""),
+    )  # OK
+    conflicts = models.TextField(
+        verbose_name=_("Conflicts"),
+        blank=True,
+        null=True,
+        help_text=_("Lists packages that conflict with this one, for example by "
+                    "containing files with the same names. The package maintenance "
+                    "software will not allow conflicting packages to be installed "
+                    "at the same time. Two conflicting packages should each include "
+                    "a Conflicts line mentioning the other."),
+        default=_(""),
+    )  # OK
+    replaces = models.TextField(
+        verbose_name=_("Replaces"),
+        blank=True,
+        null=True,
+        help_text=_("List of packages files from which this one replaces. This is "
+                    "used for allowing this package to overwrite the files of "
+                    "another package and is usually used with the Conflicts field "
+                    "to force removal of the other package, if this one also has "
+                    "the same files as the conflicted package."),
+        default=_(""),
+    )  # OK
+    provides = models.TextField(
+        verbose_name=_("Provides"),
+        blank=True,
+        null=True,
+        help_text=_("This is a list of virtual packages that this one provides. "
+                    "Usually this is used in the case of several packages all "
+                    "providing the same service. For example, sendmail and exim "
+                    "can serve as a mail server, so they provide a common package "
+                    "(\"mail-transport-agent\") on which other packages can depend. "
+                    "This will allow sendmail or exim to serve as a valid option to "
+                    "satisfy the dependency.  This prevents the packages that "
+                    "depend on a mail server from having to know the package names "
+                    "for all of them, and using \'|\' to separate the list."),
+        default=_(""),
+    )  # OK
+    
+    # Fucking Controls
+    origin = models.CharField(
+        verbose_name=_("Origin"),
+        blank=True,
+        null=True,
+        max_length=255,
+        help_text=_("The name of the distribution this package is originating from."),
+        default=_("")
+    )  # OK
+    source = models.CharField(
+        verbose_name=_("Source"),
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text=_("The name of the source package that this binary package came "
+                    "from, if it is different than the name of the package itself. "
+                    "If the source version differs from the binary version, then "
+                    "the source-name will be followed by a source-version in "
+                    "parenthesis.  This can happen for example on a binary-only "
+                    "non-maintainer upload, or when setting a different binary "
+                    "version via «dpkg-gencontrol -v»."),
+        default=_("")
+    )  # OK
+    build_essential = models.CharField(
+        verbose_name=_("Build-Essential"),
+        blank=True,
+        null=True,
+        max_length=255,
+        default=_(""),
+        choices=(
+            (None, '-'),
+            ("yes", "Yes"),
+            ("no", "No")
+        ),
+        help_text=_("This field is usually only needed when the answer is yes, and "
+                    "is commonly injected by the archive software.  It denotes a "
+                    "package that is required when building other packages.")
+    )  # OK
+    bugs = models.URLField(
+        verbose_name=_("Bugs"),
+        blank=True,
+        null=True,
+        help_text=_("The url of the bug tracking system for this package. The "
+                    "current used format is bts-type://bts-address, like "
+                    "debbugs://bugs.debian.org."),
+        default=_("")
+    )  # OK
+    multi_arch = models.CharField(
+        verbose_name=_("Multi-Arch"),
+        blank=True,
+        null=True,
+        max_length=255,
+        choices=(
+            ("no", "No"),
+            ("same", "Same"),
+            ("foreign", "Foreign"),
+            ("allowed", "Allowed")
+        ),
+        help_text=_("This field is used to indicate how this package should behave "
+                    "on a multi-arch installations.<br />"
+                    "<ul>"
+                    "<li>no - This value is the default when the field is omitted, in "
+                    "which case adding the field with an explicit no value "
+                    "is generally not needed.</li>"
+                    "<li>same - This package is co-installable with itself, but it must "
+                    "not be used to satisfy the dependency of any package of "
+                    "a different architecture from itself.</li>"
+                    "<li>foreign - This package is not co-installable with itself, but "
+                    "should be allowed to satisfy a non-arch-qualified "
+                    "dependency of a package of a different arch from itself "
+                    "(if a dependency has an explicit arch-qualifier then "
+                    "the value foreign is ignored).</li>"
+                    "<li>allowed - This allows reverse-dependencies to indicate in their "
+                    "Depends field that they accept this package from a "
+                    "foreign architecture by qualifying the package name "
+                    "with :any, but has no effect otherwise.</li>"
+                    "</ul>"),
+        default=_("")
+    )  # OK
+    subarchitecture = models.CharField(
+        verbose_name=_("Subarchitecture"),
+        max_length=255,
+        blank=True,
+        null=True,
+        default=_("")
+    )  # OK
+    kernel_version = models.CharField(
+        verbose_name=_("Kernel-Version"),
+        max_length=255,
+        blank=True,
+        null=True,
+        default=_("")
+    )  # OK
+    installer_menu_item = models.TextField(
+        verbose_name=_("Installer-Menu-Item"),
+        blank=True,
+        null=True,
+        help_text=_("These fields are used by the debian-installer and are usually "
+                    "not needed. See "
+                    "/usr/share/doc/debian-installer/devel/modules.txt from the "
+                    "debian-installer package for more details about them."),
+        default=_("")
+    )  # OK
+    built_using = models.TextField(
+        verbose_name=_("Built-Using"),
+        blank=True,
+        null=True,
+        help_text=_("This field lists extra source packages that were used during "
+                    "the build of this binary package.  This is an indication to "
+                    "the archive maintenance software that these extra source "
+                    "packages must be kept whilst this binary package is "
+                    "maintained. This field must be a list of source package names "
+                    "with strict \'=\' version relationships.  Note that the archive "
+                    "maintenance software is likely to refuse to accept an upload "
+                    "which declares a Built-Using relationship which cannot be "
+                    "satisfied within the archive."),
+        default=_(""),
+    )  # OK
+    built_for_profiles = models.TextField(
+        verbose_name=_("Built-For-Profiles"),
+        blank=True,
+        null=True,
+        help_text=_("This field specifies a whitespace separated list of build "
+                    "profiles that this binary packages was built with."),
+        default=_(""),
+    )  # OK

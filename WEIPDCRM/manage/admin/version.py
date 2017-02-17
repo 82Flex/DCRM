@@ -1,13 +1,10 @@
 # coding:utf-8
 
-import json
 from django.contrib import admin
 from django.forms import ModelForm
-# from django.utils.html import format_html_join
 from django.utils.safestring import mark_safe
-# from django.core.urlresolvers import reverse
 
-from django_rq import job, queues
+from django_rq import job
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 
@@ -29,13 +26,6 @@ def hash_update_job(queryset):
     for e in queryset:
         e.update_hash()
         e.save()
-    return {"success": True}
-
-
-@job("high")
-def update_package_storage(package_id):
-    obj = Version.objects.get(id=package_id)
-    obj.update_storage()
     return {"success": True}
 
 
@@ -62,12 +52,6 @@ class VersionAdmin(admin.ModelAdmin):
         self.message_user(request, _("Hash updating job has been added to the \"high\" queue."))
     batch_hash_update.short_description = _("Update hashes of selected versions")
 
-    def package_(self, instance):
-        """
-        :type instance: Version
-        """
-        return mark_safe('<a href="' + instance.package.get_admin_url() + '" target="_blank">' + str(instance.package) + '</a>')
-
     def storage_(self, instance):
         """
         :type instance: Version
@@ -75,37 +59,100 @@ class VersionAdmin(admin.ModelAdmin):
         return mark_safe('<a href="' + instance.storage_link + '" target="_blank">' + instance.storage_link + '</a>')
 
     form = VersionForm
-    filter_horizontal = ('os_compatibility', 'device_compatibility')
-    list_display = ('enabled', 'version', 'package', 'download_times', 'created_at')
-    list_filter = ('enabled', )
-    list_select_related = ('package',)
-    list_display_links =('version', )
-    # list_editable = ('enabled', )
-    search_fields = ['version']
-    readonly_fields = ['package_', 'storage_', 'download_times', 'md5',
-                       'sha1', 'sha256', 'sha512', 'size', 'created_at',
-                       'control_content']
     actions = [make_enabled, make_disabled, batch_hash_update]
+    filter_horizontal = (
+        'os_compatibility',
+        'device_compatibility'
+    )
+    list_display = (
+        'enabled',
+        'version',
+        'package',
+        'name',
+        'section'
+    )
+    list_filter = ('enabled', 'section')
+    list_display_links = ('version', )
+    search_fields = ['version', 'package', 'name']
+    readonly_fields = [
+        'storage_',
+        'download_times',
+        'md5',
+        'sha1',
+        'sha256',
+        'sha512',
+        'size',
+        'created_at'
+    ]
     fieldsets = [
-        ('General', {
+        # Common
+        ('Basic', {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['enabled', 'package_', 'version', 'update_logs']
+            'fields': ['enabled', 'package', 'version']
         }),
-        ('File System', {
+        ('Display', {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['storage_', 'md5', 'sha1', 'sha256', 'sha512', 'size', 'download_times']
+            'fields': ['name', 'section', 'icon', 'description', 'update_logs']
         }),
-        ('Cydia', {
+        ('Links', {
+            'classes': ('suit-tab suit-tab-common',),
+            'fields': ['homepage', 'depiction']
+        }),
+        ('Compatibility', {
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['os_compatibility', 'device_compatibility']
         }),
-        ('History', {
-            'classes': ('suit-tab suit-tab-common',),
-            'fields': ['created_at']
+        # Contact
+        ('Maintainer', {
+            'classes': ('suit-tab suit-tab-contact',),
+            'fields': ['maintainer_name', 'maintainer_email']
         }),
-        ('Control Field', {
+        ('Author', {
+            'classes': ('suit-tab suit-tab-contact',),
+            'fields': ['author_name', 'author_email']
+        }),
+        ('Sponsor', {
+            'classes': ('suit-tab suit-tab-contact',),
+            'fields': ['sponsor_name', 'sponsor_site']
+        }),
+        # Advanced
+        ('Platform', {
             'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['control_content']
+            'fields': ['architecture', 'priority', 'essential', 'tag']
+        }),
+        ('Relations', {
+            'classes': ('suit-tab suit-tab-advanced',),
+            'fields': ['depends', 'pre_depends', 'conflicts', 'replaces', 'provides']
+        }),
+        ('Other Relations', {
+            'classes': ('suit-tab suit-tab-advanced',),
+            'fields': ['recommends', 'suggests', 'breaks']
+        }),
+        # File System
+        ('Storage', {
+            'classes': ('suit-tab suit-tab-file-system',),
+            'fields': ['storage_', 'size', 'installed_size']
+        }),
+        ('Hash', {
+            'classes': ('suit-tab suit-tab-file-system',),
+            'fields': ['md5', 'sha1', 'sha256', 'sha512']
+        }),
+        # Others
+        ('Provider', {
+            'classes': ('suit-tab suit-tab-others',),
+            'fields': ['origin', 'source', 'bugs', 'installer_menu_item']
+        }),
+        ('Make', {
+            'classes': ('suit-tab suit-tab-others',),
+            'fields': ['build_essential', 'built_using', 'built_for_profiles']
+        }),
+        ('Development', {
+            'classes': ('suit-tab suit-tab-others',),
+            'fields': ['multi_arch', 'subarchitecture', 'kernel_version']
+        }),
+        ('History', {
+            'classes': ('suit-tab suit-tab-statistics',),
+            'fields': ['created_at', 'download_times']
         }),
     ]
     suit_form_size = {
@@ -115,7 +162,11 @@ class VersionAdmin(admin.ModelAdmin):
     }
     suit_form_tabs = (
         ('common', 'Common'),
+        ('contact', 'Contact'),
         ('advanced', 'Advanced'),
+        ('file-system', 'File System'),
+        ('others', 'Others'),
+        ('statistics', 'Statistics')
     )
 
     def has_add_permission(self, request):
@@ -128,18 +179,21 @@ class VersionAdmin(admin.ModelAdmin):
         :param form: VersionForm
         :type obj: Version
         """
-        if change is True:
-            if 'version' in form.changed_data:
-                control = json.loads(obj.control_field)
-                control.update({"Version": form.cleaned_data['version']})
-                obj.control_field = json.dumps(control, sort_keys=True, indent=2)
-            if ('version' in form.changed_data and obj.enabled) or ('enabled' in form.changed_data and form.cleaned_data['enabled']):
-                update_package_storage.delay(obj.id)
-                messages.info(request, _("%s storage updating job has been added to the \"high\" queue.") % str(obj))
-        else:
-            pass
         # hash update
         obj.update_hash()
         super(VersionAdmin, self).save_model(request, obj, form, change)
+        excluded_column = ['enabled', 'created_at', 'os_compatibility', 'device_compatibility',
+                           'update_logs', 'storage', 'icon', 'md5', 'sha1', 'sha256', 'sha512',
+                           'size', 'download_times']
+        change_list = form.changed_data
+        change_num = len(change_list)
+        for change_var in change_list:
+            if change_var in excluded_column:
+                change_num -= 1
+        if change is True and change_num > 0:
+            obj.update_storage()
+            messages.info(request, _("%s storage updating job has been added to the \"high\" queue.") % str(obj))
+        else:
+            pass
 
     change_list_template = 'admin/version_change_list.html'

@@ -20,7 +20,7 @@ class ReleaseAdmin(admin.ModelAdmin):
     readonly_fields = ['created_at']
     fieldsets = [
         ('General', {
-            'fields': ['origin', 'label', 'codename', 'version', 'description']
+            'fields': ['origin', 'label', 'version', 'codename', 'description']
         }),
         ('Appearance', {
             'fields': ['icon']
