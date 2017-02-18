@@ -1,24 +1,23 @@
 # coding:utf-8
+"""
+DCRM Release Module
+"""
 
 from __future__ import unicode_literals
-
-import re
 
 from django.db import models
 from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext as _
-from django.core.exceptions import ValidationError
-
-
-def validator_basic(value):
-    pattern = re.compile(r"^[0-9A-Za-z_.\-]+$")
-    if not pattern.match(value):
-        raise ValidationError(_("Only these characters are allowed: 0-9A-Za-z_.-"))
+from django.core.validators import validate_slug
 
 
 class Release(models.Model):
-    class Meta:
+    """
+    DCRM Base Model: Release
+    """
+
+    class Meta(object):
         verbose_name = _("Release")
         verbose_name_plural = _("Releases")
 
@@ -56,7 +55,7 @@ class Release(models.Model):
         default=_("stable"),
         blank=True,
         validators=[
-            validator_basic
+            validate_slug
         ]
     )
 
@@ -90,7 +89,7 @@ class Release(models.Model):
         default=_("iphoneos-arm"),
         blank=True,
         validators=[
-            validator_basic
+            validate_slug
         ]
     )
 
@@ -102,7 +101,7 @@ class Release(models.Model):
         default=_("main"),
         blank=True,
         validators=[
-            validator_basic
+            validate_slug
         ]
     )
 
@@ -130,10 +129,14 @@ class Release(models.Model):
         blank=True
     )
 
-    def __str__(self):
+    def __unicode__(self):
         return self.label + " (" + self.codename + ")"
 
     def get_admin_url(self):
+        """
+        :return: URL String
+        :rtype: str
+        """
         content_type = ContentType.objects.get_for_model(self.__class__)
         return urlresolvers.reverse(
             "admin:%s_%s_change" % (content_type.app_label, content_type.model),

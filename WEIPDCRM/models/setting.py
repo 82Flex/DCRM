@@ -1,7 +1,11 @@
 # coding:utf-8
+"""
+DCRM Setting Module
+"""
 
 from __future__ import unicode_literals
 
+import re
 from django.db import models
 from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
@@ -13,13 +17,31 @@ from preferences.models import Preferences
 from WEIPDCRM.models.release import Release
 
 
-def validator_alias(value):
+def validator_basic(value):
+    """
+    :param value: Input Value
+    :type value: str
+    """
+    pattern = re.compile(r"^[0-9A-Za-z_.\-/]+$")
+    if not pattern.match(value):
+        raise ValidationError(_("Only these characters are allowed: 0-9A-Za-z_.-/"))
+
+
+def validate_alias(value):
+    """
+    :param value: Input Value
+    :type value: str
+    """
     if value[len(value) - 1:] != '/':
         raise ValidationError(_("Path alias should be suffixed by a slash char."))
 
 
 class Setting(Preferences):
-    class Meta:
+    """
+    DCRM Base Model: Setting
+    Preferences single instance, just for global settings
+    """
+    class Meta(object):
         verbose_name = _("Setting")
         verbose_name_plural = _("Settings")
     active_release = models.ForeignKey(
@@ -89,11 +111,16 @@ class Setting(Preferences):
         max_length=255,
         default="/resources/",
         validators=[
-            validator_alias
+            validator_basic,
+            validate_alias
         ]
     )
 
     def get_admin_url(self):
+        """
+        :return: URL String
+        :rtype: str
+        """
         content_type = ContentType.objects.get_for_model(self.__class__)
         return urlresolvers.reverse(
             "admin:%s_%s_change" % (content_type.app_label, content_type.model),

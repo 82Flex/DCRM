@@ -1,5 +1,9 @@
 # coding:utf-8
 
+from __future__ import unicode_literals
+
+import os
+
 from django.contrib import admin
 from django.forms import ModelForm
 from django.utils.safestring import mark_safe
@@ -7,6 +11,7 @@ from django.utils.safestring import mark_safe
 from django_rq import job
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from django.contrib.admin.actions import delete_selected
 
 from suit import apps
 from suit.widgets import AutosizedTextarea
@@ -15,7 +20,7 @@ from WEIPDCRM.models.version import Version
 
 
 class VersionForm(ModelForm):
-    class Meta:
+    class Meta(object):
         widgets = {
             'update_logs': AutosizedTextarea
         }
@@ -23,10 +28,14 @@ class VersionForm(ModelForm):
 
 @job("high")
 def hash_update_job(queryset):
+    succeed = True
     for e in queryset:
-        e.update_hash()
-        e.save()
-    return {"success": True}
+        try:
+            e.update_hash()
+            e.save()
+        except Exception as e:
+            succeed = False
+    return {"success": succeed}
 
 
 class VersionAdmin(admin.ModelAdmin):
@@ -59,7 +68,7 @@ class VersionAdmin(admin.ModelAdmin):
         return mark_safe('<a href="' + instance.storage_link + '" target="_blank">' + instance.storage_link + '</a>')
 
     form = VersionForm
-    actions = [make_enabled, make_disabled, batch_hash_update]
+    actions = [make_enabled, make_disabled, batch_hash_update, delete_selected]
     filter_horizontal = (
         'os_compatibility',
         'device_compatibility'
@@ -195,5 +204,12 @@ class VersionAdmin(admin.ModelAdmin):
             messages.info(request, _("%s storage updating job has been added to the \"high\" queue.") % str(obj))
         else:
             pass
+    
+    def delete_model(self, request, obj):
+        """
+        :type obj: Version
+        """
+        os.unlink(obj.storage.name)
+        super(VersionAdmin, self).delete_model(request, obj)
 
     change_list_template = 'admin/version_change_list.html'

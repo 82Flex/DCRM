@@ -1,4 +1,7 @@
 # coding:utf-8
+"""
+Class Implementation: Device Type
+"""
 
 from __future__ import unicode_literals
 
@@ -6,10 +9,14 @@ from django.db import models
 from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext as _
+from django.core.validators import validate_slug
 
 
 class DeviceType(models.Model):
-    class Meta:
+    """
+    For DCRM Compatibility Module
+    """
+    class Meta(object):
         verbose_name = _("Device Type")
         verbose_name_plural = _("Device Types")
 
@@ -23,7 +30,10 @@ class DeviceType(models.Model):
     descriptor = models.CharField(
         verbose_name=_("Descriptor"),
         max_length=255,
-        help_text=_("Example: iPhone 7 Plus")
+        help_text=_("Example: iPhone 7 Plus"),
+        validators=[
+            validate_slug
+        ]
     )
     subtype = models.CharField(
         verbose_name=_("Subtype"),
@@ -43,10 +53,14 @@ class DeviceType(models.Model):
         blank=True
     )
 
-    def __str__(self):
+    def __unicode__(self):
         return self.descriptor + " (" + self.subtype + ")"
 
     def get_admin_url(self):
+        """
+        :return: URL String
+        :rtype: str
+        """
         content_type = ContentType.objects.get_for_model(self.__class__)
         return urlresolvers.reverse(
             "admin:%s_%s_change" % (content_type.app_label, content_type.model),

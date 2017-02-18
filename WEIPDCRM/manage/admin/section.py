@@ -1,6 +1,9 @@
 # coding:utf-8
 
+from __future__ import unicode_literals
+
 from django.contrib import admin
+from django.contrib.admin.actions import delete_selected
 from django.utils.translation import ugettext as _
 
 from WEIPDCRM.models.section import Section
@@ -26,7 +29,7 @@ class SectionAdmin(admin.ModelAdmin):
             'fields': ['created_at']
         }),
     ]
-    actions = [generate_icon_package]
+    actions = [generate_icon_package, delete_selected]
 
     def get_readonly_fields(self, request, obj=None):
         """

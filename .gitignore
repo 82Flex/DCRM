@@ -1,3 +1,6 @@
 temp
 resources
+*.sqlite3
+*.rdb
+
 

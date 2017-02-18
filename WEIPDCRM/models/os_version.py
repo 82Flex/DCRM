@@ -1,4 +1,7 @@
 # coding:utf-8
+"""
+Class Implementation: OS Version
+"""
 
 from __future__ import unicode_literals
 
@@ -6,10 +9,14 @@ from django.db import models
 from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext as _
+from django.core.validators import validate_slug
 
 
 class OSVersion(models.Model):
-    class Meta:
+    """
+    For DCRM Compatibility Module
+    """
+    class Meta(object):
         verbose_name = _("iOS Version")
         verbose_name_plural = _("iOS Versions")
 
@@ -28,7 +35,10 @@ class OSVersion(models.Model):
     build = models.CharField(
         verbose_name=_("Build"),
         max_length=255,
-        help_text=_("Example: 14C92")
+        help_text=_("Example: 14C92"),
+        validators=[
+            validate_slug
+        ]
     )
     icon = models.ImageField(
         verbose_name=_("Icon"),
@@ -37,10 +47,14 @@ class OSVersion(models.Model):
         blank=True
     )
 
-    def __str__(self):
+    def __unicode__(self):
         return self.descriptor + " (" + self.build + ")"
 
     def get_admin_url(self):
+        """
+        :return: URL String
+        :rtype: str
+        """
         content_type = ContentType.objects.get_for_model(self.__class__)
         return urlresolvers.reverse(
             "admin:%s_%s_change" % (content_type.app_label, content_type.model),

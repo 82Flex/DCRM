@@ -1,6 +1,12 @@
+# coding=utf-8
+"""
+DCRM Upload handling Module
+"""
+
+from __future__ import unicode_literals
+
 import json
 import uuid
-# import hashlib
 import os
 
 from django_rq import job, queues
@@ -8,10 +14,8 @@ from django.contrib import admin
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, redirect
-# from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.utils.translation import ugettext as _
-from preferences import preferences
 
 from WEIPDCRM.forms.admin.upload import UploadForm
 from WEIPDCRM.models.debian_package import DebianPackage
@@ -21,6 +25,12 @@ from WEIPDCRM.models.version import Version
 
 @job('high')
 def handle_uploaded_package(path):
+    """
+    :param path: Package Uploaded Path
+    :type path: str
+    :return: Result Dict
+    :rtype: dict
+    """
     result_dict = {}
     try:
         uploaded_package = DebianPackage(path)
@@ -108,6 +118,10 @@ def handle_uploaded_package(path):
 
 
 def handle_uploaded_file(request):
+    """
+    :param request: Django Request
+    :type request: HttpRequest
+    """
     f = request.FILES['package']
     package_temp_path = 'temp/' + str(uuid.uuid1()) + '.deb'
     with open(package_temp_path, 'wb+') as destination:
@@ -118,12 +132,21 @@ def handle_uploaded_file(request):
 
 @staff_member_required
 def upload_version_view(request):
+    """
+    :param request: Django Request
+    :return: Redirect Response
+    """
     messages.info(request, _('Upload a Package File to add new version.'))
     return redirect('upload')
 
 
 @staff_member_required
 def upload_view(request):
+    """
+
+    :param request:
+    :return:
+    """
     if request.method == 'POST':
         # Save Package File To Resource Base
         if 'ajax' in request.POST and request.POST['ajax'] == 'true':

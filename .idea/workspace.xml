@@ -2,27 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46387471-7961-459d-b2b5-874381fc8570" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/webResources.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/manage/admin/package.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/models/package.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dump.rdb" afterPath="$PROJECT_DIR$/dump.rdb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/DCRM.iml" afterPath="$PROJECT_DIR$/.idea/DCRM.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/d8515465-990d-47c2-af22-fb175e34f5de.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/d8515465-990d-47c2-af22-fb175e34f5de.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/admin.py" afterPath="$PROJECT_DIR$/WEIPDCRM/admin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/forms/admin/upload.py" afterPath="$PROJECT_DIR$/WEIPDCRM/forms/admin/upload.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/manage/admin/device_type.py" afterPath="$PROJECT_DIR$/WEIPDCRM/manage/admin/device_type.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/manage/admin/os_version.py" afterPath="$PROJECT_DIR$/WEIPDCRM/manage/admin/os_version.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/manage/admin/release.py" afterPath="$PROJECT_DIR$/WEIPDCRM/manage/admin/release.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/manage/admin/section.py" afterPath="$PROJECT_DIR$/WEIPDCRM/manage/admin/section.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/manage/admin/settings.py" afterPath="$PROJECT_DIR$/WEIPDCRM/manage/admin/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py" afterPath="$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/models/debian_package.py" afterPath="$PROJECT_DIR$/WEIPDCRM/models/debian_package.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/models/device_type.py" afterPath="$PROJECT_DIR$/WEIPDCRM/models/device_type.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/models/os_version.py" afterPath="$PROJECT_DIR$/WEIPDCRM/models/os_version.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/models/release.py" afterPath="$PROJECT_DIR$/WEIPDCRM/models/release.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/models/section.py" afterPath="$PROJECT_DIR$/WEIPDCRM/models/section.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/models/setting.py" afterPath="$PROJECT_DIR$/WEIPDCRM/models/setting.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/models/version.py" afterPath="$PROJECT_DIR$/WEIPDCRM/models/version.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/templates/admin/upload.html" afterPath="$PROJECT_DIR$/WEIPDCRM/templates/admin/upload.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/views/admin/help/about.py" afterPath="$PROJECT_DIR$/WEIPDCRM/views/admin/help/about.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/views/admin/help/statistics.py" afterPath="$PROJECT_DIR$/WEIPDCRM/views/admin/help/statistics.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/views/admin/upload.py" afterPath="$PROJECT_DIR$/WEIPDCRM/views/admin/upload.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django_rq/templatetags/jquery_path.py" afterPath="$PROJECT_DIR$/django_rq/templatetags/jquery_path.py" />
     </list>
     <ignored path="DCRM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,6 +76,20 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="Django default" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="WEIPDCRM_section" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -81,7 +99,18 @@
     <favorites_list name="DCRM" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="debian_package.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/debian_package.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2288">
+              <caret line="153" column="24" lean-forward="false" selection-start-line="153" selection-start-column="24" selection-end-line="153" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -112,6 +141,11 @@
       <find>job_test</find>
       <find>schedule</find>
       <find>preferences</find>
+      <find>unicode</find>
+      <find>str(</find>
+      <find>trans</find>
+      <find>total_nu</find>
+      <find>str</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -120,7 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/WEIPDCRM/manage/package_admin.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/views/upload.py" />
         <option value="$PROJECT_DIR$/suit/menu.py" />
         <option value="$PROJECT_DIR$/django_rq/views.py" />
@@ -128,8 +161,6 @@
         <option value="$PROJECT_DIR$/WEIPDCRM/templates/admin/statistics.html" />
         <option value="$PROJECT_DIR$/WEIPDCRM/views/admin/statistics.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/views/admin/about.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/views/admin/help/about.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/views/admin/help/statistics.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/templates/admin/help/statistics.html" />
         <option value="$PROJECT_DIR$/django_rq/templates/django_rq/index.html" />
         <option value="$PROJECT_DIR$/django_rq/templates/django_rq/clear_queue.html" />
@@ -141,36 +172,39 @@
         <option value="$PROJECT_DIR$/django_rq/templates/django_rq/test.html" />
         <option value="$PROJECT_DIR$/WEIPDCRM/models/admin/upload.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/forms/admin/UploadForm.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/forms/admin/upload.py" />
         <option value="$PROJECT_DIR$/django_rq/templates/django_rq/job_detail.html" />
         <option value="$PROJECT_DIR$/WEIPDCRM/models/debian.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/views/admin/version.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/device_type.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/os_version.py" />
         <option value="$PROJECT_DIR$/DCRM/settings.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/models/package.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/models/os_version.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/models/device_type.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/templates/admin/version_index.html" />
         <option value="$PROJECT_DIR$/WEIPDCRM/templates/admin/help/about.html" />
         <option value="$PROJECT_DIR$/WEIPDCRM/apps.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/package.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/templates/admin/version_change_list.html" />
         <option value="$PROJECT_DIR$/DCRM/urls.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/admin.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/section.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/templates/admin/upload.html" />
         <option value="$PROJECT_DIR$/WEIPDCRM/models/architecture.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/models/tag.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/views/admin/upload.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/models/debian_package.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py" />
+        <option value="$PROJECT_DIR$/django_rq/templatetags/jquery_path.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/views/admin/help/about.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/views/admin/help/statistics.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/settings.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/models/version.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/forms/admin/upload.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/models/setting.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/models/section.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/release.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/templates/admin/upload.html" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/views/admin/upload.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/admin.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/models/device_type.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/models/release.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/models/os_version.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/models/section.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/section.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/release.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/device_type.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/os_version.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/models/version.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/models/debian_package.py" />
       </list>
     </option>
   </component>
@@ -191,10 +225,13 @@
           <State>
             <id />
           </State>
+          <State>
+            <id>Python</id>
+          </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>Django</id>
+            <id>PyMissingTypeHintsInspection</id>
           </State>
         </selected-state>
       </profile-state>
@@ -218,7 +255,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -361,32 +397,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="help" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DCRM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DCRM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEIPDCRM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -447,6 +457,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -457,7 +468,7 @@
     <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v4.2.4/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="SearchEverywhereHistoryKey" value="DebianPackage&#9;null&#9;null&#10;sponsor_em&#9;null&#9;null" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
@@ -807,15 +818,15 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18597998" sideWeight="0.6983842" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19456366" sideWeight="0.6983842" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28674698" sideWeight="0.50858366" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38054362" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16881259" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22771084" sideWeight="0.4914163" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22650602" sideWeight="0.4914163" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2811159" sideWeight="0.3016158" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28674698" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -845,181 +856,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="48" />
+      <option name="time" value="52" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Library/Python/2.7/site-packages/rq/connections.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/rq/job.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="300" column="0" lean-forward="false" selection-start-line="300" selection-start-column="0" selection-end-line="300" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/django_rq/queues.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/rq/decorators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DCRM/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="712">
-          <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2016.3/python_stubs/348993582/posix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="645" column="4" lean-forward="false" selection-start-line="645" selection-start-column="4" selection-end-line="645" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/django/core/urlresolvers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="536" column="4" lean-forward="false" selection-start-line="536" selection-start-column="4" selection-end-line="536" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/django/contrib/admin/templates/admin/change_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/templates/admin/help/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/suit/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/django/contrib/admin/helpers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="194" column="0" lean-forward="false" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/django/contrib/admin/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="287" column="0" lean-forward="false" selection-start-line="287" selection-start-column="0" selection-end-line="287" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/shutil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="45" column="4" lean-forward="false" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/manage/admin/device_type.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/device_type.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="53" column="9" lean-forward="false" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/os_version.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/views/admin/help/about.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/views/admin/help/statistics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/importlib/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="31" column="30" lean-forward="true" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/templates/admin/version_change_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DCRM/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="25" column="60" lean-forward="false" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/package.py" />
     <entry file="file://$PROJECT_DIR$/WEIPDCRM/manage/admin/package.py" />
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/manage/admin/section.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="6" column="43" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WEIPDCRM/views/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1028,21 +871,14 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/4b710d56/d8515465-990d-47c2-af22-fb175e34f5de/WEIPDCRM_version">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/templates/admin/upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1400">
-          <caret line="145" column="41" lean-forward="false" selection-start-line="145" selection-start-column="41" selection-end-line="145" selection-end-column="41" />
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1052,7 +888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-80">
           <caret line="94" column="6" lean-forward="false" selection-start-line="94" selection-start-column="6" selection-end-line="94" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1060,22 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2960">
           <caret line="100" column="13" lean-forward="false" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2016.3/python_stubs/348993582/__builtin__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="2577" column="8" lean-forward="false" selection-start-line="2577" selection-start-column="8" selection-end-line="2577" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/views/admin/upload.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="64" column="69" lean-forward="false" selection-start-line="64" selection-start-column="69" selection-end-line="64" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -1083,7 +902,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="986" column="8" lean-forward="false" selection-start-line="986" selection-start-column="8" selection-end-line="986" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,37 +912,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/django/db/models/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="616" column="8" lean-forward="false" selection-start-line="616" selection-start-column="8" selection-end-line="616" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/manage/admin/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="17" column="57" lean-forward="false" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2000">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/django_rq/workers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1132,76 +923,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/version.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="e#8568#8782#0" expanded="false" />
-            <element signature="e#8928#9158#0" expanded="false" />
-            <element signature="e#9392#9528#0" expanded="false" />
-            <element signature="e#10485#10724#0" expanded="false" />
-            <element signature="e#10876#11057#0" expanded="false" />
-            <element signature="e#11254#11593#0" expanded="false" />
-            <element signature="e#11797#12150#0" expanded="false" />
-            <element signature="e#12356#12641#0" expanded="false" />
-            <element signature="e#13002#13304#0" expanded="false" />
-            <element signature="e#13907#14051#0" expanded="false" />
-            <element signature="e#14276#14433#0" expanded="false" />
-            <element signature="e#14465#14651#0" expanded="false" />
-            <element signature="e#14849#14914#0" expanded="false" />
-            <element signature="e#14946#15312#0" expanded="false" />
-            <element signature="e#15452#16209#0" expanded="false" />
-            <element signature="e#16380#16648#0" expanded="false" />
-            <element signature="e#16817#17103#0" expanded="false" />
-            <element signature="e#17269#17467#0" expanded="false" />
-            <element signature="e#17629#17989#0" expanded="false" />
-            <element signature="e#18157#18534#0" expanded="false" />
-            <element signature="e#18700#19074#0" expanded="false" />
-            <element signature="e#19240#19961#0" expanded="false" />
-            <element signature="e#20424#20953#0" expanded="false" />
-            <element signature="e#21286#21510#0" expanded="false" />
-            <element signature="e#21643#21826#0" expanded="false" />
-            <element signature="e#22029#22143#0" expanded="false" />
-            <element signature="e#22175#23486#0" expanded="false" />
-            <element signature="e#24031#24292#0" expanded="false" />
-            <element signature="e#24463#25153#0" expanded="false" />
-            <element signature="e#25339#25472#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/section.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="27" column="72" lean-forward="true" selection-start-line="27" selection-start-column="72" selection-end-line="27" selection-end-column="72" />
-          <folding>
-            <element signature="e#16#55#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/manage/admin/release.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="22" column="63" lean-forward="false" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/setting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="50" />
-          <folding>
-            <element signature="e#848#986#0" expanded="false" />
-            <element signature="e#1120#1332#0" expanded="false" />
-            <element signature="e#1623#1829#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1209,7 +930,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1217,7 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7659">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1225,27 +944,301 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
           <caret line="178" column="30" lean-forward="true" selection-start-line="178" selection-start-column="30" selection-end-line="178" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/debian/changelog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4736">
+          <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/debian/copyright.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="324" column="45" lean-forward="false" selection-start-line="324" selection-start-column="38" selection-end-line="324" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/templates/admin/help/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/templates/admin/help/statistics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/django/contrib/admin/templatetags/admin_static.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_rq/templatetags/jquery_path.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/templates/admin/version_change_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/django/shortcuts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="55" column="26" lean-forward="false" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/views/admin/help/about.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/views/admin/help/statistics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/forms/admin/upload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
           <folding>
-            <element signature="e#951#1005#0" expanded="true" />
+            <element signature="e#16#55#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/debian_package.py">
+    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/tempfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-246">
+          <caret line="436" column="50" lean-forward="false" selection-start-line="436" selection-start-column="50" selection-end-line="436" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/debian/deb822.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="497" column="8" lean-forward="false" selection-start-line="497" selection-start-column="8" selection-end-line="497" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="826" column="42" lean-forward="false" selection-start-line="826" selection-start-column="42" selection-end-line="826" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/templates/admin/upload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="237" column="45" lean-forward="false" selection-start-line="237" selection-start-column="45" selection-end-line="237" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2016.3/python_stubs/348993582/__builtin__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="2531" column="8" lean-forward="false" selection-start-line="2531" selection-start-column="8" selection-end-line="2531" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/4b710d56/d8515465-990d-47c2-af22-fb175e34f5de/WEIPDCRM_section">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/django/db/models/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="852" column="8" lean-forward="false" selection-start-line="852" selection-start-column="8" selection-end-line="852" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="27" column="42" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/setting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/device_type.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <caret line="9" column="58" lean-forward="true" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/release.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1264">
-          <caret line="79" column="47" lean-forward="false" selection-start-line="79" selection-start-column="47" selection-end-line="79" selection-end-column="47" />
+        <state relative-caret-position="144">
+          <caret line="9" column="58" lean-forward="false" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/os_version.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="58" lean-forward="true" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/section.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="9" column="58" lean-forward="true" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/manage/admin/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/manage/admin/section.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="31" column="53" lean-forward="false" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
           <folding>
             <element signature="e#16#55#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/manage/admin/release.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding>
+            <element signature="e#16#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/manage/admin/device_type.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding>
+            <element signature="e#16#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/manage/admin/os_version.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="56" lean-forward="false" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
+          <folding>
+            <element signature="e#16#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/django/contrib/admin/actions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/version.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="277" column="27" lean-forward="true" selection-start-line="277" selection-start-column="27" selection-end-line="277" selection-end-column="27" />
+          <folding>
+            <element signature="e#44#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="29" column="30" lean-forward="false" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+          <folding>
+            <element signature="e#16#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/views/admin/upload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="110" column="14" lean-forward="false" selection-start-line="110" selection-start-column="14" selection-end-line="110" selection-end-column="14" />
+          <folding>
+            <element signature="e#52#91#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/debian_package.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2288">
+          <caret line="153" column="24" lean-forward="false" selection-start-line="153" selection-start-column="24" selection-end-line="153" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -18,3 +18,8 @@ else:
 @tag_decorator
 def get_jquery_path():
     return JQUERY_PATH
+
+
+@register.simple_tag
+def get_jquery_path():
+    return JQUERY_PATH

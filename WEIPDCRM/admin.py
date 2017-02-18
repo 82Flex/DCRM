@@ -1,6 +1,6 @@
-# coding:utf-8
+# coding=utf-8
 
-import sys
+# import sys
 from django.contrib import admin
 # from manage.admin.package import PackageAdmin
 from manage.admin.release import ReleaseAdmin
@@ -18,12 +18,14 @@ from WEIPDCRM.models.section import Section
 from WEIPDCRM.models.setting import Setting
 from WEIPDCRM.models.version import Version
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
+# reload(sys)
+# sys.setdefaultencoding('utf-8')
 
 # Settings
 admin.site.site_header = "WEIPDCRM"
 admin.site.site_title = "WEIPDCRM"
+
+admin.site.disable_action("delete_selected")
 
 # Models (The order should be edited in apps.py)
 # admin.site.register(Package, PackageAdmin)

@@ -1,4 +1,7 @@
 # coding:utf-8
+"""
+DCRM Section Module
+"""
 
 from __future__ import unicode_literals
 
@@ -7,15 +10,23 @@ from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
+from django.core.validators import validate_slug
 
 
 def validator_underscore(value):
+    """
+    :param value: Input Value
+    :type value: str
+    """
     if '_' in value:
         raise ValidationError(_("Section name should not contain any underscore."))
 
 
 class Section(models.Model):
-    class Meta:
+    """
+    DCRM Base Model: Section
+    """
+    class Meta(object):
         verbose_name = _("Section")
         verbose_name_plural = _("Sections")
 
@@ -30,6 +41,7 @@ class Section(models.Model):
                     "be able to edit its name after assigning any package under it."),
         unique=True,
         validators=[
+            validate_slug,
             validator_underscore
         ]
     )
@@ -41,10 +53,14 @@ class Section(models.Model):
         null=True
     )
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
     def get_admin_url(self):
+        """
+        :return: URL String
+        :rtype: str
+        """
         content_type = ContentType.objects.get_for_model(self.__class__)
         return urlresolvers.reverse(
             "admin:%s_%s_change" % (content_type.app_label, content_type.model),

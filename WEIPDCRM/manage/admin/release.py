@@ -1,6 +1,9 @@
 # coding:utf-8
 
+from __future__ import unicode_literals
+
 from django.contrib import admin
+from django.contrib.admin.actions import delete_selected
 from django.forms import ModelForm
 from suit import apps
 from suit.widgets import AutosizedTextarea
@@ -15,6 +18,7 @@ class ReleaseForm(ModelForm):
 
 class ReleaseAdmin(admin.ModelAdmin):
     form = ReleaseForm
+    actions = [delete_selected]
     list_display = ('origin', 'label', 'codename', 'version', 'created_at')
     search_fields = ['origin', 'label', 'codename']
     readonly_fields = ['created_at']
@@ -40,4 +44,3 @@ class ReleaseAdmin(admin.ModelAdmin):
             'AutosizedTextarea': apps.SUIT_FORM_SIZE_X_LARGE,
         },
     }
-

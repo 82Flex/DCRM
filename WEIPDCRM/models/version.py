@@ -1,4 +1,7 @@
-# coding:utf-8
+# coding=utf-8
+"""
+DCRM Version Module
+"""
 
 from __future__ import unicode_literals
 
@@ -11,6 +14,7 @@ from django.db import models
 from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext as _
+from django.core.validators import validate_slug
 from django_rq import job
 
 from preferences import preferences
@@ -24,6 +28,14 @@ from WEIPDCRM.models.debian_package import DebianPackage
 @job("high")
 def write_to_package_job(control, path, callback_version_id):
     # copy to temporary
+    """
+    :param control: New Control Dict
+    :type control: dict
+    :param path: Original Package Path
+    :type path: str
+    :param callback_version_id: Callback Version ID, for callback query
+    :type callback_version_id: int
+    """
     temp_path = 'temp/' + str(uuid.uuid1()) + '.deb'
     shutil.copyfile(path, temp_path)
     # read new package
@@ -36,7 +48,10 @@ def write_to_package_job(control, path, callback_version_id):
 
 
 class Version(models.Model):
-    class Meta:
+    """
+    DCRM Base Model: Version
+    """
+    class Meta(object):
         verbose_name = _("Version")
         verbose_name_plural = _("Versions")
     
@@ -61,7 +76,7 @@ class Version(models.Model):
         auto_now_add=True
     )  # OK
     
-    def __str__(self):
+    def __unicode__(self):
         return self.package + ' (' + self.version + ')'
     
     def get_external_storage_link(self):
@@ -78,6 +93,10 @@ class Version(models.Model):
     storage_link = property(get_external_storage_link)
     
     def get_admin_url(self):
+        """
+        :return: URL String
+        :rtype: str
+        """
         content_type = ContentType.objects.get_for_model(self.__class__)
         return urlresolvers.reverse(
             "admin:%s_%s_change" % (content_type.app_label, content_type.model),
@@ -193,8 +212,8 @@ class Version(models.Model):
         }
         control = {}
         for (k, v) in control_field.items():
-            if v is not None and len(str(v)) > 0:
-                control[k] = str(v)
+            if v is not None and len(unicode(v)) > 0:
+                control[k] = unicode(v)
         if self.section is not None:
             control.update({"Section": self.section.name})
         if (self.maintainer_name is not None and len(self.maintainer_name) > 0) and \
@@ -224,7 +243,17 @@ class Version(models.Model):
         :param temp_path: Created temp deb file for updating result
         :return: No return value
         """
-        os.rename(temp_path, self.storage.name)
+        atomic = preferences.Setting.atomic_storage
+        if atomic:
+            target_dir = 'resources/versions/' + str(uuid.uuid1()) + '/'
+            os.mkdir(target_dir)
+            target_path = target_dir + self.package + '_' + \
+                          self.version + '_' + \
+                          self.architecture + '.deb'
+            os.rename(temp_path, target_path)
+            self.storage.name = target_path
+        else:
+            os.rename(temp_path, self.storage.name)
         self.update_hash()
         self.save()
     
@@ -234,6 +263,8 @@ class Version(models.Model):
         :return: No return value
         """
         path = self.storage.name
+        if not os.path.exists(path):
+            return
         p_size = os.path.getsize(path)
         p_md5 = ''
         p_sha1 = ''
