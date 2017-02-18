@@ -2,5 +2,5 @@ temp
 resources
 *.sqlite3
 *.rdb
-
+*.pyc
 
