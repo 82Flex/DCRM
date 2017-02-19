@@ -13,7 +13,7 @@ class SettingsAdmin(PreferencesAdmin):
         }),
         ('Packages List', {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['packages_compression', 'packages_validation', 'downgrade_support']
+            'fields': ['enable_pdiffs', 'packages_compression', 'packages_validation', 'downgrade_support']
         }),
         ('Resource', {
             'classes': ('suit-tab suit-tab-common',),

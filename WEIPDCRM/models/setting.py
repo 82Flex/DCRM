@@ -78,9 +78,9 @@ class Setting(Preferences):
             (3, _("MD5Sum & SHA1 & SHA256 (Recommended)")),
             (4, _("MD5Sum & SHA1 & SHA256 & SHA512")),
         ),
-        default=1,
+        default=3,
         help_text=_(
-            "It will not take effect until any version edited or added."
+            "You need to update hashes manually."
         ),
     )
     downgrade_support = models.BooleanField(
@@ -114,6 +114,11 @@ class Setting(Preferences):
             validator_basic,
             validate_alias
         ]
+    )
+    enable_pdiffs = models.BooleanField(
+        verbose_name=_("Enable pdiffs"),
+        help_text=_("If package list is extremely large, you should enable this to allow incremental update."),
+        default=False
     )
 
     def get_admin_url(self):

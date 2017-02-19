@@ -105,7 +105,7 @@ class VersionAdmin(admin.ModelAdmin):
         }),
         ('Links', {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['homepage', 'depiction']
+            'fields': ['custom_depiction', 'depiction', 'homepage']
         }),
         ('Compatibility', {
             'classes': ('suit-tab suit-tab-common',),

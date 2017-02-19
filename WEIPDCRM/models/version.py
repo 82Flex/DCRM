@@ -6,15 +6,21 @@ DCRM Version Module
 from __future__ import unicode_literals
 
 import os
+import re
 import uuid
 import shutil
 import hashlib
 
+from debian.debian_support import NativeVersion
+from debian.deb822 import PkgRelation
+
 from django.db import models
 from django.core import urlresolvers
+from django.core.validators import URLValidator
+from django.core.validators import validate_slug
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext as _
-from django.core.validators import validate_slug
+from django.core.exceptions import ValidationError
 from django_rq import job
 
 from preferences import preferences
@@ -45,6 +51,52 @@ def write_to_package_job(control, path, callback_version_id):
     temp_package.save()
     t_version = Version.objects.filter(id=callback_version_id).last()
     t_version.write_callback(temp_package.path)
+
+
+def validate_reversed_domain(value):
+    pattern = re.compile(r"^[0-9A-Za-z.+\-]{2,}$")
+    if not pattern.match(value):
+        raise ValidationError(
+            _("We recommend using a reverse-domain name style string (i.e., com.domainname.appname).")
+        )
+
+
+def validate_version(value):
+    try:
+        NativeVersion(value)
+    except ValueError as e:
+        raise ValidationError(
+            _("Invalid version number.")
+        )
+
+
+def validate_name(value):
+    pattern = re.compile(r"[^<>]")
+    if not pattern.match(value):
+        raise ValidationError(
+            _("Name cannot contain < or >.")
+        )
+
+
+def validate_relations(value):
+    relations = PkgRelation.parse_relations(value)
+    for relation in relations:
+        for rel in relation:
+            if len(rel) == 3:
+                raise ValidationError(
+                    _("Cannot parse package relationship \"%s\"") % rel.get("name", "untitled")
+                )
+
+
+bugs_validator = URLValidator(
+    schemes=["bts-type", "debbugs"],
+    message=_("Enter a valid url of the bug tracking system."),
+    code="invalid"
+)
+
+
+def validate_bugs(value):
+    return bugs_validator(value)
 
 
 class Version(models.Model):
@@ -302,16 +354,22 @@ class Version(models.Model):
         help_text=_("This is the \"identifier\" of the package. This should be, entirely "
                     "in lower case, a reversed hostname (much like a \"bundleIdentifier\" "
                     "in Apple's Info.plist files)."),
-        unique=True
-    )  # OK
+        unique=True,
+        validators=[
+            validate_reversed_domain
+        ]
+    )
     version = models.CharField(
         verbose_name=_("Version"),
         max_length=255,
         help_text=_("A package's version indicates two separate values: the version "
                     "of the software in the package, and the version of the package "
                     "itself. These version numbers are separated by a hyphen."),
-        default=_("0.0.1-1")
-    )  # OK
+        default=_("1.0-1"),
+        validators=[
+            validate_version
+        ]
+    )
     
     # Recommend Control
     maintainer_name = models.CharField(
@@ -321,15 +379,18 @@ class Version(models.Model):
         null=True,
         help_text=_("It is typically the person who created the package, as opposed to "
                     "the author of the software that was packaged."),
-        default=""
-    )  # OK
+        default="",
+        validators=[
+            validate_name
+        ]
+    )
     maintainer_email = models.EmailField(
         verbose_name=_("Maintainer Email"),
         max_length=255,
         blank=True,
         null=True,
         default=""
-    )  # OK
+    )
     description = models.TextField(
         verbose_name=_("Description"),
         blank=True,
@@ -340,7 +401,7 @@ class Version(models.Model):
                     "Optionally, one can choose to replace that description with "
                     "an arbitrarily long one that will be displayed on the package details "
                     "screen.")
-    )  # OK
+    )
     
     # Foreign Keys
     section = models.ForeignKey(
@@ -353,7 +414,7 @@ class Version(models.Model):
                     "If you would like to encode a space into your section name, use an "
                     "underscore (Cydia will automatically convert these)."),
         default=""
-    )  # OK
+    )
     tag = models.TextField(
         verbose_name=_("Tag"),
         blank=True,
@@ -372,8 +433,11 @@ class Version(models.Model):
                     "are used on everything from the iPhone to your desktop computer. "
                     "The correct value for iPhoneOS 1.0.x/1.1.x is \"darwin-arm\". If "
                     "you are deploying to iPhoneOS 1.2/2.x you should use \"iphoneos-arm\"."),
-        default=""
-    )  # OK
+        default="",
+        validators=[
+            validate_slug
+        ]
+    )
     
     # Other Controls
     name = models.CharField(
@@ -387,7 +451,7 @@ class Version(models.Model):
                     "whereas the \"Package\" field is fixed for the lifetime of the "
                     "package."),
         default=_("Untitled Package")
-    )  # OK
+    )
     author_name = models.CharField(
         verbose_name=_("Author"),
         max_length=255,
@@ -397,15 +461,18 @@ class Version(models.Model):
                     "is called the \"author\". This name will be shown underneath "
                     "the name of the package on the details screen. The field is "
                     "in the same format as \"Maintainer\"."),
-        default=""
-    )  # OK
+        default="",
+        validators=[
+            validate_name
+        ]
+    )
     author_email = models.EmailField(
         verbose_name=_("Author Email"),
         max_length=255,
         blank=True,
         null=True,
         default=""
-    )  # OK
+    )
     sponsor_name = models.CharField(
         verbose_name=_("Sponsor"),
         max_length=255,
@@ -415,22 +482,30 @@ class Version(models.Model):
                     "or the cash to make the package happen. This person should be listed "
                     "here in the form of \"Maintainer\" except using a resource URI instead "
                     "of an e-mail address."),
-        default=""
-    )  # OK
+        default="",
+        validators=[
+            validate_name
+        ]
+    )
     sponsor_site = models.URLField(
         verbose_name=_("Sponsor Site"),
         max_length=255,
         blank=True,
         null=True,
         default=""
-    )  # OK
+    )
     depiction = models.URLField(
         verbose_name=_("Depiction"),
         blank=True,
         null=True,
         help_text=_("This is a URL that is loaded into an iframe, replacing the Description: and Homepage: ."),
         default=""
-    )  # OK
+    )
+    custom_depiction = models.BooleanField(
+        verbose_name=_("Custom Depiction"),
+        help_text=_("Exclude this version from Auto Depiction feature."),
+        default=False
+    )
     homepage = models.URLField(
         verbose_name=_("Homepage"),
         blank=True,
@@ -438,7 +513,7 @@ class Version(models.Model):
         default="",
         help_text=_("Cydia supports a \"More Info\" field on the details screen that shunts users "
                     "off to a website of the packager's choice.")
-    )  # OK
+    )
     
     # Advanced Controls
     priority = models.CharField(
@@ -457,7 +532,7 @@ class Version(models.Model):
         help_text=_("Sets the importance of this package in relation to the system "
                     "as a whole.  Common priorities are required, standard, "
                     "optional, extra, etc.")
-    )  # OK
+    )
     essential = models.CharField(
         verbose_name=_("Essential"),
         blank=True,
@@ -474,7 +549,7 @@ class Version(models.Model):
                     "system. Dpkg or any other installation tool will not allow an "
                     "Essential package to be removed (at least not without using "
                     "one of the force options).")
-    )  # OK
+    )
     depends = models.TextField(
         verbose_name=_("Depends"),
         blank=True,
@@ -489,8 +564,11 @@ class Version(models.Model):
                     "depend on them. On the opposite, in a removal, the prerm "
                     "script of a package is run before those of the packages listed "
                     "in its Depends field."),
-        default=_("")
-    )  # OK
+        default=_(""),
+        validators=[
+            validate_relations
+        ]
+    )
     pre_depends = models.TextField(
         verbose_name=_("Pre-Depends"),
         blank=True,
@@ -499,8 +577,11 @@ class Version(models.Model):
                     "this one can be installed. This is usually used in the case "
                     "where this package requires another package for running its "
                     "preinst script."),
-        default=_("")
-    )  # OK
+        default=_(""),
+        validators=[
+            validate_relations
+        ]
+    )
     recommends = models.TextField(
         verbose_name=_("Recommends"),
         blank=True,
@@ -510,7 +591,10 @@ class Version(models.Model):
                     "software will warn the user if they install a package without "
                     "those listed in its Recommends field."),
         default=_(""),
-    )  # OK
+        validators=[
+            validate_relations
+        ]
+    )
     suggests = models.TextField(
         verbose_name=_("Suggests"),
         blank=True,
@@ -519,7 +603,10 @@ class Version(models.Model):
                     "enhance its usefulness, but without which installing this "
                     "package is perfectly reasonable."),
         default=_(""),
-    )  # OK
+        validators=[
+            validate_relations
+        ]
+    )
     breaks = models.TextField(
         verbose_name=_("Breaks"),
         blank=True,
@@ -530,7 +617,10 @@ class Version(models.Model):
                     "configured; generally the resolution is to upgrade the "
                     "packages named in a Breaks field."),
         default=_(""),
-    )  # OK
+        validators=[
+            validate_relations
+        ]
+    )
     conflicts = models.TextField(
         verbose_name=_("Conflicts"),
         blank=True,
@@ -541,7 +631,10 @@ class Version(models.Model):
                     "at the same time. Two conflicting packages should each include "
                     "a Conflicts line mentioning the other."),
         default=_(""),
-    )  # OK
+        validators=[
+            validate_relations
+        ]
+    )
     replaces = models.TextField(
         verbose_name=_("Replaces"),
         blank=True,
@@ -552,7 +645,10 @@ class Version(models.Model):
                     "to force removal of the other package, if this one also has "
                     "the same files as the conflicted package."),
         default=_(""),
-    )  # OK
+        validators=[
+            validate_relations
+        ]
+    )
     provides = models.TextField(
         verbose_name=_("Provides"),
         blank=True,
@@ -567,7 +663,10 @@ class Version(models.Model):
                     "depend on a mail server from having to know the package names "
                     "for all of them, and using \'|\' to separate the list."),
         default=_(""),
-    )  # OK
+        validators=[
+            validate_relations
+        ]
+    )
     
     # Fucking Controls
     origin = models.CharField(
@@ -587,9 +686,7 @@ class Version(models.Model):
                     "from, if it is different than the name of the package itself. "
                     "If the source version differs from the binary version, then "
                     "the source-name will be followed by a source-version in "
-                    "parenthesis.  This can happen for example on a binary-only "
-                    "non-maintainer upload, or when setting a different binary "
-                    "version via «dpkg-gencontrol -v»."),
+                    "parenthesis."),
         default=_("")
     )  # OK
     build_essential = models.CharField(
@@ -606,16 +703,20 @@ class Version(models.Model):
         help_text=_("This field is usually only needed when the answer is yes, and "
                     "is commonly injected by the archive software.  It denotes a "
                     "package that is required when building other packages.")
-    )  # OK
-    bugs = models.URLField(
+    )
+    bugs = models.CharField(
         verbose_name=_("Bugs"),
         blank=True,
         null=True,
+        max_length=255,
         help_text=_("The url of the bug tracking system for this package. The "
                     "current used format is bts-type://bts-address, like "
                     "debbugs://bugs.debian.org."),
-        default=_("")
-    )  # OK
+        default=_(""),
+        validators=[
+            validate_bugs
+        ]
+    )
     multi_arch = models.CharField(
         verbose_name=_("Multi-Arch"),
         blank=True,
@@ -647,21 +748,27 @@ class Version(models.Model):
                     "with :any, but has no effect otherwise.</li>"
                     "</ul>"),
         default=_("")
-    )  # OK
+    )
     subarchitecture = models.CharField(
         verbose_name=_("Subarchitecture"),
         max_length=255,
         blank=True,
         null=True,
-        default=_("")
-    )  # OK
+        default=_(""),
+        validators=[
+            validate_slug
+        ]
+    )
     kernel_version = models.CharField(
         verbose_name=_("Kernel-Version"),
         max_length=255,
         blank=True,
         null=True,
-        default=_("")
-    )  # OK
+        default=_(""),
+        validators=[
+            validate_version
+        ]
+    )
     installer_menu_item = models.TextField(
         verbose_name=_("Installer-Menu-Item"),
         blank=True,
@@ -686,7 +793,10 @@ class Version(models.Model):
                     "which declares a Built-Using relationship which cannot be "
                     "satisfied within the archive."),
         default=_(""),
-    )  # OK
+        validators=[
+            validate_relations
+        ]
+    )
     built_for_profiles = models.TextField(
         verbose_name=_("Built-For-Profiles"),
         blank=True,
