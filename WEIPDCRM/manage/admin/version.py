@@ -66,7 +66,29 @@ class VersionAdmin(admin.ModelAdmin):
         :type instance: Version
         """
         return mark_safe('<a href="' + instance.storage_link + '" target="_blank">' + instance.storage_link + '</a>')
-
+    
+    def package_(self, instance):
+        """
+        :type instance: Version
+        """
+        if instance.package is None:
+            return "-"
+        return mark_safe('<a href="' +
+                         instance.get_change_list_url() + '?package__exact=' +
+                         instance.package + '" target="_blank">' +
+                         instance.package + '</a>')
+    
+    def section_(self, instance):
+        """
+        :type instance: Version
+        """
+        if instance.section is None:
+            return "-"
+        return mark_safe('<a href="' +
+                         instance.get_change_list_url() + '?section__id__exact=' +
+                         unicode(instance.section.id) + '" target="_blank">' +
+                         instance.section.name + '</a>')
+    
     form = VersionForm
     actions = [make_enabled, make_disabled, batch_hash_update, delete_selected]
     filter_horizontal = (
@@ -76,9 +98,9 @@ class VersionAdmin(admin.ModelAdmin):
     list_display = (
         'enabled',
         'version',
-        'package',
+        'package_',
         'name',
-        'section'
+        'section_'
     )
     list_filter = ('enabled', 'section')
     list_display_links = ('version', )

@@ -155,6 +155,16 @@ class Version(models.Model):
             args=(self.id,)
         )
     
+    def get_change_list_url(self):
+        """
+        :return: URL String
+        :rtype: str
+        """
+        content_type = ContentType.objects.get_for_model(self.__class__)
+        return urlresolvers.reverse(
+            "admin:%s_%s_changelist" % (content_type.app_label, content_type.model)
+        )
+    
     # Compatibility
     os_compatibility = models.ManyToManyField(
         OSVersion,

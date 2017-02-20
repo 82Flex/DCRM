@@ -10,7 +10,7 @@ from suit.widgets import AutosizedTextarea
 
 
 class ReleaseForm(ModelForm):
-    class Meta:
+    class Meta(object):
         widgets = {
             'description': AutosizedTextarea,
         }
