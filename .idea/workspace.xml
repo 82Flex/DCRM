@@ -2,13 +2,156 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46387471-7961-459d-b2b5-874381fc8570" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WEIPDCRM/manage/admin/package.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WEIPDCRM/models/package.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/admin.py" afterPath="$PROJECT_DIR$/WEIPDCRM/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/manage/admin/release.py" afterPath="$PROJECT_DIR$/WEIPDCRM/manage/admin/release.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py" afterPath="$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/models/version.py" afterPath="$PROJECT_DIR$/WEIPDCRM/models/version.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/css/base.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/css/changelists.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/css/dashboard.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/css/fonts.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/css/forms.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/css/login.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/css/rtl.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/css/widgets.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/fonts/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/fonts/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/fonts/Roboto-Bold-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/fonts/Roboto-Light-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/fonts/Roboto-Regular-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/calendar-icons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/gis/move_vertex_off.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/gis/move_vertex_on.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/icon-addlink.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/icon-alert.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/icon-calendar.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/icon-changelink.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/icon-clock.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/icon-deletelink.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/icon-no.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/icon-unknown-alt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/icon-unknown.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/icon-yes.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/inline-delete.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/search.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/selector-icons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/sorting-icons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/tooltag-add.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/img/tooltag-arrowright.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/SelectBox.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/SelectFilter2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/actions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/actions.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/admin/DateTimeShortcuts.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/admin/RelatedObjectLookups.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/calendar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/collapse.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/collapse.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/core.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/inlines.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/inlines.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/jquery.init.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/prepopulate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/prepopulate.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/timeparse.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/urlify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/vendor/jquery/LICENSE-JQUERY.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/vendor/jquery/jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/vendor/jquery/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/vendor/xregexp/LICENSE-XREGEXP.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/admin/js/vendor/xregexp/xregexp.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/cms/css/pages.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/bootstrap/css/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/bootstrap/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/bootstrap/img/glyphicons-halflings-white-shadow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/bootstrap/img/glyphicons-halflings-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/bootstrap/img/glyphicons-halflings.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/bootstrap/js/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/bootstrap/js/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/css/djangocms.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/css/filer.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/css/font-awesome.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/css/suit.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/fonts/FontAwesome.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/fonts/fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/fonts/fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/fonts/fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/fonts/fontawesome-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/fonts/fontawesome-webfont.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/img/ajax-loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/img/bg_left_white.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/img/bg_pattern.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/img/cc_active_nav.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/img/drag-handle.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/img/glyphicons-halflings-white-nav.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/img/glyphicons-halflings-white-shadow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/js/autosize.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/js/djangocms.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/js/jquery-1.8.3.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/js/jquery.autosize-min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/js/sortables.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/js/suit-form-confirm.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/js/suit.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/js/suit.sortables.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/djangocms.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/djangocms/list.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/filer.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/footer.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/header.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/left-column.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/print.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/sticky-footer.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/suit.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/ui/actionlist.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/ui/box.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/ui/breadcrumb.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/ui/calendar.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/ui/datepicker.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/ui/form.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/ui/left-nav.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/ui/list.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/ui/login.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/ui/pagination.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/ui/table.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/ui/tabs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/static/suit/less/variables.less" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/suit/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/suit/static/suit/fonts/FontAwesome.otf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/suit/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/suit/static/suit/fonts/fontawesome-webfont.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/suit/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/suit/static/suit/fonts/fontawesome-webfont.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/suit/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/suit/static/suit/fonts/fontawesome-webfont.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/suit/fonts/fontawesome-webfont.woff2" afterPath="$PROJECT_DIR$/suit/static/suit/fonts/fontawesome-webfont.woff2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/__init__.py" afterPath="$PROJECT_DIR$/suit/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/apps.py" afterPath="$PROJECT_DIR$/suit/apps.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/config.py" afterPath="$PROJECT_DIR$/suit/config.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/menu.py" afterPath="$PROJECT_DIR$/suit/menu.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/sortables.py" afterPath="$PROJECT_DIR$/suit/sortables.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/admin/css/changelists.css" afterPath="$PROJECT_DIR$/suit/static/admin/css/changelists.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/admin/css/dashboard.css" afterPath="$PROJECT_DIR$/suit/static/admin/css/dashboard.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/admin/css/forms.css" afterPath="$PROJECT_DIR$/suit/static/admin/css/forms.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/admin/css/login.css" afterPath="$PROJECT_DIR$/suit/static/admin/css/login.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/suit/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/suit/static/suit/css/font-awesome.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/suit/css/suit.css" afterPath="$PROJECT_DIR$/suit/static/suit/css/suit.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/suit/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/suit/static/suit/fonts/fontawesome-webfont.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/suit/js/autosize.min.js" afterPath="$PROJECT_DIR$/suit/static/suit/js/autosize.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/suit/js/suit.js" afterPath="$PROJECT_DIR$/suit/static/suit/js/suit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/static/suit/js/suit.sortables.js" afterPath="$PROJECT_DIR$/suit/static/suit/js/suit.sortables.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/template.py" afterPath="$PROJECT_DIR$/suit/template.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templates/admin/auth/user/add_form.html" afterPath="$PROJECT_DIR$/suit/templates/admin/auth/user/add_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templates/admin/base.html" afterPath="$PROJECT_DIR$/suit/templates/admin/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templates/admin/base_site.html" afterPath="$PROJECT_DIR$/suit/templates/admin/base_site.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templates/admin/change_form.html" afterPath="$PROJECT_DIR$/suit/templates/admin/change_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templates/admin/change_list_results.html" afterPath="$PROJECT_DIR$/suit/templates/admin/change_list_results.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templates/admin/includes/fieldset.html" afterPath="$PROJECT_DIR$/suit/templates/admin/includes/fieldset.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templates/admin/login.html" afterPath="$PROJECT_DIR$/suit/templates/admin/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templates/registration/password_change_form.html" afterPath="$PROJECT_DIR$/suit/templates/registration/password_change_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templates/suit/change_form_includes.html" afterPath="$PROJECT_DIR$/suit/templates/suit/change_form_includes.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templates/suit/menu.html" afterPath="$PROJECT_DIR$/suit/templates/suit/menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templates/suit/menu_item.html" afterPath="$PROJECT_DIR$/suit/templates/suit/menu_item.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templatetags/__init__.py" afterPath="$PROJECT_DIR$/suit/templatetags/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templatetags/suit_forms.py" afterPath="$PROJECT_DIR$/suit/templatetags/suit_forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templatetags/suit_list.py" afterPath="$PROJECT_DIR$/suit/templatetags/suit_list.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templatetags/suit_menu.py" afterPath="$PROJECT_DIR$/suit/templatetags/suit_menu.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/templatetags/suit_tags.py" afterPath="$PROJECT_DIR$/suit/templatetags/suit_tags.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/suit/widgets.py" afterPath="$PROJECT_DIR$/suit/widgets.py" />
     </list>
     <ignored path="DCRM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,18 +196,7 @@
     <favorites_list name="DCRM" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="password_change_form.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/suit/templates/registration/password_change_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="12" column="53" lean-forward="true" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -114,7 +246,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/suit/menu.py" />
         <option value="$PROJECT_DIR$/django_rq/views.py" />
         <option value="$PROJECT_DIR$/django_rq/templates/django_rq/tests.html" />
         <option value="$PROJECT_DIR$/WEIPDCRM/templates/admin/statistics.html" />
@@ -165,6 +296,7 @@
         <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/models/package.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/package.py" />
+        <option value="$PROJECT_DIR$/suit/templates/registration/password_change_form.html" />
       </list>
     </option>
   </component>
@@ -761,7 +893,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20314735" sideWeight="0.6983842" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20314735" sideWeight="0.6983842" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28674698" sideWeight="0.50858366" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16881259" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -769,7 +901,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22650602" sideWeight="0.4914163" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2811159" sideWeight="0.3016158" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28674698" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1224,7 +1356,7 @@
     <entry file="file://$PROJECT_DIR$/suit/templates/registration/password_change_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
-          <caret line="12" column="53" lean-forward="true" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
+          <caret line="12" column="53" lean-forward="false" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
           <folding />
         </state>
       </provider>
