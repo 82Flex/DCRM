@@ -120,6 +120,11 @@ class Setting(Preferences):
         help_text=_("If package list is extremely large, you should enable this to allow incremental update."),
         default=False
     )
+    rest_api = models.BooleanField(
+        verbose_name=_("Enable Rest API"),
+        help_text=_("Upload packages using HTTP, manage your repositories, snapshots, published repositories etc."),
+        default=False
+    )
 
     def get_admin_url(self):
         """
