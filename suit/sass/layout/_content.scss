@@ -1,0 +1,58 @@
+body.change-form {
+  #container {
+    br.clear:last-child {
+      display: none;
+    }
+  }
+}
+#content {
+  padding: 1.5rem $header-padding-horizontal;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-end;
+  align-items: flex-start;
+  .content-wrap {
+    body.dashboard & {
+      display: flex;
+    }
+    flex-basis: 100%;
+    > h1 {
+      flex-basis: 100%;
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+
+  #content-main {
+    flex-grow: 1;
+  }
+  #content-related {
+    flex-grow: 1;
+  }
+}
+#content-main {
+  > .object-tools {
+    @include reset-list();
+    position: relative;
+    overflow: hidden;
+    z-index: 6;
+    > li {
+      display: inline;
+      &:not(:first-child) {
+        margin-left: .5rem;
+      }
+      > a {
+        &:not([class*="btn-"]) {
+          @extend .btn-round;
+          @include btn-mixin(info, none, sm, round=true);
+          &.addlink {
+            @include btn-mixin(success, $icon-plus-circle, sm, round=true);
+          }
+        }
+      }
+    }
+  }
+}

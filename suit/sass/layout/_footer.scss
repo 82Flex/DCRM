@@ -1,0 +1,59 @@
+/* Sticky footer styles  */
+@include media-breakpoint-up(sm) {
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    &.suit_layout_horizontal, &.login {
+      margin-bottom: $footer-height;
+      #footer {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        min-height: $footer-height;
+        margin-top: -$footer-height;
+      }
+    }
+  }
+}
+
+/* Styles */
+.footer {
+  min-height: $footer-height;
+  background-color: darken($body-bg, 5%);
+  color: $gray;
+  font-size: $font-size-sm;
+  > .container-fluid {
+    padding: 1rem $grid-gutter-width-base;
+    > .row {
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      > div {
+        &:not(:first-child) {
+          @include media-breakpoint-down(xs) {
+            margin-top: .75rem;
+          }
+        }
+      }
+    }
+  }
+  .footer-links {
+    a {
+      white-space: nowrap;
+      &:not(:last-child) {
+        margin-right: .75rem;
+      }
+    }
+  }
+}
+
+/* Override BS4 [hidden] in reboot.scss to show Django debug toolbar */
+#djDebug {
+  &[hidden], [hidden][style*="display: block"], [hidden][style*="display:block"] {
+    display: block !important;
+  }
+}

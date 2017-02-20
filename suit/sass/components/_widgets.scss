@@ -1,0 +1,440 @@
+fieldset {
+  input[type=text],
+  input[type=url],
+  input[type=email],
+  input[type=number],
+  input[type=password],
+  .vTextField,
+  .vURLField,
+  .vLargeTextField,
+  .vTimeField,
+  .vDateField {
+    @extend .form-control;
+    display: inline-block;
+    @include media-breakpoint-down(xs) {
+      max-width: none;
+    }
+  }
+  select:not([multiple="multiple"]) {
+    @extend .custom-select;
+    border-radius: $input-border-radius;
+  }
+  input {
+    &[type=number],
+    &.vIntegerField,
+    &.vIntegerField,
+    &.vDateField,
+    &.vTimeField,
+    &.vForeignKeyRawIdAdminField {
+      width: auto;
+    }
+  }
+}
+// Date fields
+.timezonewarning {
+  display: inline-block;
+  margin-top: .5rem;
+  @extend .text-muted;
+  @extend small;
+}
+.related-lookup {
+  &:before {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    @include fa-icon-font();
+    content: $icon-search;
+    color: $body-color;
+    font-size: $font-size-lg;
+    margin-left: 5px;
+  }
+
+}
+.autosize {
+  max-height: 12rem;
+}
+.ImageWidget {
+  .float-xs-left {
+    margin-right: 1rem;
+    max-width: 75px;
+    height: auto;
+  }
+}
+.widget-AdminSplitDateTime, .widget-AdminDateWidget, .widget-AdminTimeWidget {
+  // Hide all text
+  font-size: 0;
+  color: transparent;
+  p {
+    margin: 0;
+  }
+
+  .datetimeshortcuts {
+    position: relative;
+    margin: 0 1.5rem 0 0;
+    white-space: nowrap;
+    display: inline-flex;
+    a {
+      white-space: nowrap;
+      font-size: $font-size-sm;
+      &:first-child {
+        margin-left: 3.15rem;
+        margin-top: .45rem;
+      }
+      &:not(:first-child) {
+        vertical-align: top;
+      }
+      $icon-width: 2rem;
+      &[id^='calendarlink'], &[id^='clocklink'] {
+        padding: $input-padding-y 0.75rem;
+        position: absolute;
+        left: -1px;
+        z-index: 0;
+        //width: $icon-width;
+        text-align: center;
+        white-space: nowrap;
+        @extend .input-group-addon;
+        &:hover, &:focus {
+          text-decoration: none;
+          color: $link-color;
+        }
+        .date-icon, .clock-icon {
+          @include fa-icon-font();
+        }
+        .date-icon {
+          &:before {
+            content: $icon-calendar;
+          }
+        }
+        .clock-icon {
+          &:before {
+            content: $icon-time;
+          }
+        }
+      }
+      &[id^='clocklink'] {
+        &:before {
+        }
+      }
+    }
+  }
+  input {
+    white-space: nowrap;
+    vertical-align: top;
+    &.vDateField, &.vTimeField {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      position: relative;
+      z-index: 2;
+      text-indent: 0;
+      //padding-right: 2rem;
+    }
+  }
+  br {
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+  .timezonewarning {
+    display: block;
+    font-size: 11px;
+  }
+}
+.widget-AdminSplitDateTime {
+  input.vDateField {
+    @include media-breakpoint-down(md) {
+      margin-bottom: .2rem;
+    }
+  }
+}
+.calendarbox, .clockbox {
+  margin: 0 0 0 2rem;
+  background-color: $body-bg;
+  border-radius: $border-radius;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .15);
+  .calendar-cancel {
+      margin: 0;
+      a {
+        padding: .3rem 0;
+        display: block;
+        color: #fff;
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+        text-align: center;
+        background-color: lighten($inverse-lightest, 15%);
+        &:hover {
+          text-decoration: none;
+          background-color: $inverse-lightest;
+        }
+      }
+    }
+}
+.widget-CheckboxInput, [class*='CheckboxInput'], .tabular .form-row {
+  input[type="checkbox"] {
+    margin-top: .65rem;
+  }
+  > .text-help {
+    margin-top: .25rem;
+  }
+}
+.calendarbox {
+  z-index: 3;
+  > div:first-child {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    background-color: lighten($inverse-lightest, 5%);
+    overflow: auto;
+    a {
+      //color: #fff;
+      display: block;
+      //width: 2rem;
+      text-align: center;
+      padding: .3rem .2rem .3rem 1rem;
+      position: relative;
+      z-index: 2;
+      color: transparent;
+      @include fa-icon-font();
+      &:hover {
+        background-color: $inverse-lighter;
+      }
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+      &.calendarnav-previous {
+        float: left;
+        text-align: center;
+        &:before {
+          content: "\f053";
+          color: #fff;
+        }
+      }
+      &.calendarnav-next {
+        float: right;
+        &:before {
+          content: "\f054";
+          color: #fff;
+        }
+      }
+    }
+  }
+  table {
+    width: 100%;
+    //border-collapse: separate;
+    //border-spacing: 1px 1px;
+    caption {
+      left: 0;
+      right: 0;
+      top: .3rem;
+      text-align: center;
+      position: absolute;
+      color: #fff;
+    }
+    tbody {
+      td {
+        padding: 0;
+        text-align: center;
+        font-size: $font-size-sm;
+        &.nonday {
+          background-color: transparent;
+        }
+        a {
+          display: block;
+          padding: .35rem .5rem;
+          background-color: #fff;
+          box-shadow: inset -1px -1px 0 0 $body-bg;
+        }
+        &.today {
+          a {
+            $bgcol: lighten($brand-success, 35%);
+            background-color: $bgcol;
+            box-shadow: inset -1px -1px 0 0 $bgcol;
+            //color: #fff;
+            //box-shadow: inset 1px 1px 2px 0 rgba(0,0,0,.2);
+          }
+        }
+        &, .today {
+          a:hover {
+            $bgcol: lighten($inverse-lightest, 15%);
+            background-color: $bgcol;
+            box-shadow: inset -1px -1px 0 0 $bgcol;
+            color: #fff;
+            text-decoration: none;
+          }
+        }
+        &.selected {
+          a {
+            background-color: $inverse-lightest;
+            color: #fff;
+            box-shadow: inset 1px 1px 2px 0 rgba(0, 0, 0, .2);
+          }
+          &.today {
+            a {
+              color: lighten($brand-success, 35%);
+            }
+          }
+        }
+      }
+      th {
+        padding: .4rem 0 .3rem;
+        font-size: $font-size-sm;
+        text-align: center;
+      }
+    }
+  }
+  .calendar-shortcuts {
+    padding: .75rem 0;
+    text-align: center;
+    color: lighten($text-muted, 15%);
+    font-size: $font-size-sm;
+    a {
+      color: $link-color;
+      padding: 0 .2rem;
+    }
+  }
+}
+.clockbox {
+  h2 {
+    padding: .75rem 1.5rem;
+    font-weight: normal;
+    font-size: $font-size-base;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    background-color: lighten($inverse-lightest, 5%);
+    color: #fff;
+    margin: 0;
+  }
+  .timelist {
+    @include reset-list();
+    li {
+      a {
+        display: block;
+        background-color: #fff;
+        text-align: center;
+        padding: .3rem 0;
+        font-size: $font-size-sm;
+        &:hover {
+          background-color: transparent;
+          text-decoration: none;
+        }
+      }
+      &:not(:last-child){
+        a {
+          margin-bottom: 1px;
+        }
+      }
+    }
+  }
+}
+/* Two column selector */
+.selector {
+ display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+  .selector-chooser {
+    //align-items: center;
+    @include reset-list();
+    //padding: 1rem;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    > * {
+      height: 20px;
+    }
+  }
+  .selector-available, .selector-chosen {
+    flex: 1 1 200px;
+    h2 {
+      font-size: 16px;
+      margin-top: .1rem;
+      //margin: 0;
+      //padding: 0;
+    }
+    p {
+      margin: 0;
+    }
+    label {
+      display: none;
+    }
+    select {
+      @extend .form-control;
+      padding: .25rem 0;
+      display: block;
+    }
+  }
+  .selector-available {
+    //margin-bottom: 20px;
+    p {
+      //margin-bottom: 20px;
+      //padding-bottom: -20px;
+    }
+    input {
+      display: block;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    select {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      margin-top: -1px;
+      min-height: 142px;
+    }
+  }
+  .selector-chosen {
+    select {
+      min-height: 162px;
+    }
+  }
+}
+.radiolist {
+  @include reset-list();
+  margin-top: 0.375rem;
+  input {
+    margin-right: .35rem;
+  }
+  &.inline {
+    li {
+      display: inline-block;
+      &:not(:last-child) {
+        margin-right: .5rem;
+      }
+    }
+  }
+}
+.suit-char-count {
+  position: absolute;
+  height: 1rem;
+  right: 1.25rem;
+  margin-top: -1.15rem;
+  font-size: 11px;
+  color: $gray-light;
+  a {
+    color: $gray-light;
+    &:hover, &:focus {
+      color: #55acee;
+      text-decoration: none;
+    }
+    .fa {
+      font-size: 12px;
+      display: inline-block;
+      padding-left: 2px;
+    }
+  }
+}
+
+// Edit related for django foreign keys
+.related-widget-wrapper-link {
+  &:not([href]) {
+    display: none;
+    //background-color: red;
+  }
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,209 @@
+$filter-col-width: 15rem;
+#changelist {
+  display: block;
+  position: relative;
+  &.filtered {
+    clear: both;
+    display: flex;
+    flex-wrap: wrap;
+    #toolbar {
+      flex: 10;
+      flex-basis: 100%;
+    }
+    #changelist-filter {
+      flex-basis: 15rem;
+      order: 3;
+    }
+  }
+  #changelist-filter + #changelist-form {
+    margin-right: 2rem;
+  }
+  #toolbar {
+    margin-bottom: 1.5rem;
+    #changelist-search {
+      label {
+        display: none;
+      }
+      input[type='submit'] {
+        @extend .btn;
+        @extend .btn-primary;
+        @include btn-mixin(primary, $icon-plus-circle);
+        margin-right: 1rem;
+      }
+      input[type='text'] {
+        @extend .form-control;
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
+        &:before {
+          @include fa-icon-font();
+          content: $icon-plus;
+        }
+      }
+      .small {
+        font-size: $font-size-sm;
+      }
+    }
+  }
+  #changelist-filter {
+    float: right;
+    width: $filter-col-width;
+    //position: absolute;
+    top: 0;
+    right: 0;
+    font-size: $font-size-sm;
+    h2 {
+      margin-bottom: $grid-gutter-width-base/2;
+      display: none;
+    }
+    h3 {
+      background-color: $inverse-lightest;
+      color: #fff;
+      font-size: $font-size-sm;
+      font-weight: normal;
+      padding: $grid-gutter-width-base/4 $grid-gutter-width-base/3;
+      margin: 0;
+    }
+    ul {
+      background-color: #fff;
+      @include reset-list();
+      padding: $grid-gutter-width-base/3 0;
+      margin-bottom: $grid-gutter-width-base/1.5;
+      li {
+        border-left: 3px solid transparent;
+        margin-left: -3px;
+        &.selected {
+          &:not(:first-child) {
+            border-left-color: $link-color-bright;
+          }
+          a {
+            font-weight: bold;
+            color: $body-color;
+          }
+        }
+        a {
+          padding: .1rem;
+          padding-left: $grid-gutter-width-base / 1.5;
+          display: block;
+        }
+      }
+    }
+  }
+  #changelist-form {
+    flex: 1;
+    .actions {
+      margin: -.5rem 0 1rem 0;
+      font-size: $font-size-sm;
+      align-items: baseline;
+      &[style*='block'] {
+        display: flex !important;
+      }
+      button {
+        //line-height: default;
+        @extend .btn;
+        @extend .btn-secondary;
+        @include btn-mixin(primary, null);
+        margin-right: 1rem;
+      }
+      select {
+        @extend .form-control;
+        display: inline;
+        width: auto;
+        height: 2.05rem;
+        margin-right: .25rem;
+      }
+      span.all,
+      span.action-counter,
+      span.clear,
+      span.question {
+        font-size: 13px;
+        margin: 0 0.5em;
+        display: none;
+      }
+    }
+    // Hide actions, show only after results
+    .actions {
+      .suit_toggle_changelist_top_actions & {
+        display: none;
+      }
+    }
+    // Actions after results
+    .results + .actions {
+      .suit_toggle_changelist_top_actions & {
+        display: flex;
+      }
+      margin: 1rem 0 0;
+    }
+
+    .paginator {
+      margin-top: 1rem;
+      font-size: $font-size-sm;
+      a:not(.showall), span {
+        font-size: 1rem;
+        display: inline-block;
+        //float: left;
+        padding: .5rem;
+        background-color: #fff;
+        line-height: normal;
+        min-width: 2.3rem;
+        text-align: center;
+        margin-left: -.1rem;
+        &.end {
+          margin-right: 1rem;
+        }
+      }
+      a {
+        &:hover {
+          background-color: lighten($body-bg, 3%);
+          text-decoration: none;
+        }
+      }
+      span.this-page {
+        background-color: $inverse-lightest;
+        color: #fff;
+      }
+      // This is odd, but django admin has Save in paginator
+      input[type='submit'] {
+        @extend .btn;
+        @extend .btn-primary;
+        float: right;
+        margin-top: -.75rem;
+      }
+    }
+  }
+  // Django date-hierarchy feature
+  .xfull {
+    flex-basis: 100%;
+  }
+  .toplinks {
+    @include reset-list();
+    margin-right: $filter-col-width + 2rem;
+    li {
+      display: inline-block;
+      a {
+        margin-right: .28rem;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+// Only add negative margin if object-tools are present
+.object-tools + #changelist.filtered {
+  #toolbar {
+    margin-top: -3.5rem;
+  }
+}
+
+body.change-list {
+  #content-main {
+    .object-tools {
+      float: right;
+      margin-bottom: 1.5rem;
+      min-height: 2rem;
+    }
+  }
+  .hiddenfields {
+    display: none;
+  }
+}

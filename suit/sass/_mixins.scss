@@ -1,0 +1,24 @@
+@mixin reset-list() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@mixin suit-box-shadow($darken: 5%) {
+  box-shadow: 0 1px 0 0 darken($body-bg, $darken);
+}
+@mixin text-semibold() { font-weight: 500; }
+.text-lighter { font-weight: 200; }
+.text-light { font-weight: 300; }
+.text-normal { font-weight: 400; }
+.text-semibold { @include text-semibold(); }
+.text-light-bold {
+  @extend .text-light;
+  strong {
+    @extend .text-semibold;
+  }
+}
+@mixin hide-text-indent() {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}

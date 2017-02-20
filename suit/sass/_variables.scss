@@ -1,0 +1,109 @@
+// Enable Flex | Welcome to the future :)
+// --------------------------------------------------
+$enable-flex: true;
+
+// Colors
+$brand-primary: #279bee;
+$brand-primary: #4298DE;
+$brand-success: #4ACB68;
+$brand-danger: #E04F3C;
+$brand-warning: #F1C40F;
+$brand-warning: #F3C544;
+$link-color-brighter: #279bee;
+$link-color-bright: darken($link-color-brighter, 10%);
+$link-color: darken($link-color-brighter, 20%);
+$body-bg: #f1f1f1;
+$inverse: #252830;
+//$inverse: #292C3A;
+$header-bg: $inverse;
+$inverse-light: lighten($inverse, 10%);
+$inverse-lighter: lighten($inverse, 15%);
+$inverse-lightest: lighten($inverse, 25%);
+$top-nav-bg: saturate(lighten($inverse, 9%), 2%);
+//$top-nav-bg: desaturate(#363B4D, 1%);
+$header-color: #fff;
+$header-muted-color: lighten($header-bg, 30%);
+
+// Import all Bootstrap variables
+@import "../../bower_components/bootstrap/scss/variables";
+
+
+// Typography
+// --------------------------------------------------
+$font-size-h1: 1.714rem;
+$font-size-h2: 1.571rem;
+$font-size-h3: 1.429rem;
+$font-size-h4: 1.286rem;
+$font-size-h5: 1.143rem;
+$font-size-h6: 1rem;
+$font-size-sm: .929rem;
+$font-size-xs: .857rem;
+
+$font-size-root: 14px;
+$font-family-sans-serif: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-base: $font-family-sans-serif;
+$headings-font-weight: 500;
+$font-size-lg: $font-size-h5;
+
+// http://pxtoem.com/
+
+// Suit
+// --------------------------------------------------
+$gray-light: lighten($gray-light, 10%);
+$text-muted: $gray-light;
+$sidebar-width: 200px;
+$grid-gutter-width-base: 1.875rem;
+$header-padding-horizontal: $grid-gutter-width-base;
+$header-padding-vertical: $grid-gutter-width-base/1.8;
+$nav-padding-horizontal: $grid-gutter-width-base + .75rem;
+$footer-height: 66px;
+$vertical-menu-width: 230px;
+
+// Buttons
+// --------------------------------------------------
+//$btn-line-height: $line-height-base;
+//$btn-padding-x: 1.2rem;
+//$btn-padding-y: .35rem;
+$btn-padding-x-sm: .75rem;
+$btn-padding-y-sm: .35rem;
+//$btn-padding-x-md: .85rem;
+//$btn-padding-y-md: .35rem;
+$font-size-md: 0.9375rem;
+//$btn-padding-x-sm: .75rem;
+
+// Inputs
+// --------------------------------------------------
+$input-padding-x-sm: $btn-padding-x-sm;
+$input-padding-y-sm: $btn-padding-y-sm;
+$textarea-line-height: $line-height-base;
+$custom-select-sm-padding-y: $btn-padding-x-sm;
+$custom-select-sm-font-size: $font-size-xs;
+
+//$input-padding-y: $btn-padding-y;
+
+// Tables
+// --------------------------------------------------
+$table-th-padding: .7rem .8rem;
+$table-cell-padding: .4rem .8rem;
+$table-sm-cell-padding: .3rem;
+$table-bg-accent: darken(#fff, 3%);
+
+// Forms
+// --------------------------------------------------
+$form-bg: lighten($body-bg, 2%);
+$form-border-color: darken($body-bg, 1%);
+$form-label-bg: #fff;
+
+// Cards
+// --------------------------------------------------
+$card-border-radius: 0;
+$card-border-radius-inner: 0;
+$card-border-color: transparent;
+$card-cap-bg: $inverse-lightest;
+$card-cap-color: #fff;
+
+
+// Blockquotes
+// --------------------------------------------------
+$blockquote-font-size: $font-size-base;
+$blockquote-border-color: darken($gray-lighter, 10%);
