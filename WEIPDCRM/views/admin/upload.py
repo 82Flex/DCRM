@@ -10,6 +10,7 @@ import uuid
 import os
 
 from django_rq import job, queues
+from django.db import transaction
 from django.contrib import admin
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
@@ -41,73 +42,74 @@ def handle_uploaded_package(path):
         target_path = target_dir + control.get('Package', 'undefined') + '_' + \
                       control.get('Version', 'undefined') + '_' + \
                       control.get('Architecture', 'undefined') + '.deb'
-        p_section = Section.objects.filter(name=control.get('Section', None)).last()
-        if p_section:
-            pass
-        else:
-            # create a new section
-            p_section_name = control.get('Section', None)
-            if p_section_name:
-                p_section = Section(name=p_section_name)
-                p_section.save()
-        # search version
-        p_version = Version.objects.filter(
-            package=control.get('Package', None),
-            version=control.get('Version', None)
-        ).last()
-        if p_version:
-            # version conflict
-            result_dict.update({
-                "success": False,
-                "exception": _("Version Conflict: %s") % p_version.version
-            })
-        else:
-            os.rename(path, target_path)
-            p_version = Version()
-            p_version.package = control.get('Package', None)
-            p_version.version = control.get('Version', None)
-            p_version.storage = target_path
-            p_version.maintainer_name = DebianPackage.value_for_field(control.get('Maintainer', None))
-            p_version.maintainer_email = DebianPackage.detail_for_field(control.get('Maintainer', None))
-            p_version.description = control.get('Description', "")
-            p_version.section = p_section
-            p_version.tag = control.get('Tag', None)
-            p_version.architecture = control.get('Architecture', None)
-            p_version.name = control.get('Name', None)
-            p_version.author_name = DebianPackage.value_for_field(control.get('Author', None))
-            p_version.author_email = DebianPackage.detail_for_field(control.get('Author', None))
-            p_version.sponsor_name = DebianPackage.value_for_field(control.get('Sponsor', None))
-            p_version.sponsor_site = DebianPackage.detail_for_field(control.get('Sponsor', None))
-            p_version.depiction = control.get('Depiction', None)
-            p_version.homepage = control.get('Homepage', None)
-            p_version.priority = control.get('Priority', None)
-            p_version.installed_size = control.get('Installed-Size', None)
-            p_version.essential = control.get('Essential', None)
-            p_version.depends = control.get('Depends', None)
-            p_version.pre_depends = control.get('Pre-Depends', None)
-            p_version.recommends = control.get('Recommends', None)
-            p_version.suggests = control.get('Suggests', None)
-            p_version.breaks = control.get('Breaks', None)
-            p_version.conflicts = control.get('Conflicts', None)
-            p_version.replaces = control.get('Replaces', None)
-            p_version.provides = control.get('Provides', None)
-            p_version.build_essential = control.get('Build-Essential', None)
-            p_version.origin = control.get('Origin', None)
-            p_version.bugs = control.get('Bugs', None)
-            p_version.multi_arch = control.get('Multi-Arch', None)
-            p_version.source = control.get('Source', None)
-            p_version.subarchitecture = control.get('Subarchitecture', None)
-            p_version.kernel_version = control.get('Kernel-Version', None)
-            p_version.installer_menu_item = control.get('Installer-Menu-Item', None)
-            p_version.built_using = control.get('Built-Using', None)
-            p_version.built_for_profiles = control.get('Built-For-Profiles', None)
-            p_version.update_hash()
-            p_version.save()
-            # move resource
-            result_dict.update({
-                "success": True,
-                "version": p_version.id
-            })
+        with transaction.atomic():
+            p_section = Section.objects.filter(name=control.get('Section', None)).last()
+            if p_section:
+                pass
+            else:
+                # create a new section
+                p_section_name = control.get('Section', None)
+                if p_section_name:
+                    p_section = Section(name=p_section_name)
+                    p_section.save()
+            # search version
+            p_version = Version.objects.filter(
+                package=control.get('Package', None),
+                version=control.get('Version', None)
+            ).last()
+            if p_version:
+                # version conflict
+                result_dict.update({
+                    "success": False,
+                    "exception": _("Version Conflict: %s") % p_version.version
+                })
+            else:
+                os.rename(path, target_path)
+                p_version = Version()
+                p_version.package = control.get('Package', None)
+                p_version.version = control.get('Version', None)
+                p_version.storage = target_path
+                p_version.maintainer_name = DebianPackage.value_for_field(control.get('Maintainer', None))
+                p_version.maintainer_email = DebianPackage.detail_for_field(control.get('Maintainer', None))
+                p_version.description = control.get('Description', "")
+                p_version.section = p_section
+                p_version.tag = control.get('Tag', None)
+                p_version.architecture = control.get('Architecture', None)
+                p_version.name = control.get('Name', None)
+                p_version.author_name = DebianPackage.value_for_field(control.get('Author', None))
+                p_version.author_email = DebianPackage.detail_for_field(control.get('Author', None))
+                p_version.sponsor_name = DebianPackage.value_for_field(control.get('Sponsor', None))
+                p_version.sponsor_site = DebianPackage.detail_for_field(control.get('Sponsor', None))
+                p_version.depiction = control.get('Depiction', None)
+                p_version.homepage = control.get('Homepage', None)
+                p_version.priority = control.get('Priority', None)
+                p_version.installed_size = control.get('Installed-Size', None)
+                p_version.essential = control.get('Essential', None)
+                p_version.depends = control.get('Depends', None)
+                p_version.pre_depends = control.get('Pre-Depends', None)
+                p_version.recommends = control.get('Recommends', None)
+                p_version.suggests = control.get('Suggests', None)
+                p_version.breaks = control.get('Breaks', None)
+                p_version.conflicts = control.get('Conflicts', None)
+                p_version.replaces = control.get('Replaces', None)
+                p_version.provides = control.get('Provides', None)
+                p_version.build_essential = control.get('Build-Essential', None)
+                p_version.origin = control.get('Origin', None)
+                p_version.bugs = control.get('Bugs', None)
+                p_version.multi_arch = control.get('Multi-Arch', None)
+                p_version.source = control.get('Source', None)
+                p_version.subarchitecture = control.get('Subarchitecture', None)
+                p_version.kernel_version = control.get('Kernel-Version', None)
+                p_version.installer_menu_item = control.get('Installer-Menu-Item', None)
+                p_version.built_using = control.get('Built-Using', None)
+                p_version.built_for_profiles = control.get('Built-For-Profiles', None)
+                p_version.update_hash()
+                p_version.save()
+                # move resource
+                result_dict.update({
+                    "success": True,
+                    "version": p_version.id
+                })
     except Exception as e:
         # error handler
         result_dict.update({

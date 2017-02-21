@@ -2,23 +2,23 @@
 
 # import sys
 from django.contrib import admin
-# from manage.admin.package import PackageAdmin
-from manage.admin.release import ReleaseAdmin
-from manage.admin.settings import SettingsAdmin
-from manage.admin.version import VersionAdmin
-from manage.admin.device_type import DeviceTypeAdmin
-from manage.admin.os_version import OSVersionAdmin
-from manage.admin.package import PackageAdmin
 
+# from WEIPDCRM.manage.admin.package import PackageAdmin
+from WEIPDCRM.manage.admin.release import ReleaseAdmin
+from WEIPDCRM.manage.admin.settings import SettingsAdmin
+from WEIPDCRM.manage.admin.version import VersionAdmin
+from WEIPDCRM.manage.admin.device_type import DeviceTypeAdmin
+from WEIPDCRM.manage.admin.os_version import OSVersionAdmin
+from WEIPDCRM.manage.admin.package import PackageAdmin
 from WEIPDCRM.manage.admin.section import SectionAdmin
+
 from WEIPDCRM.models.device_type import DeviceType
 from WEIPDCRM.models.os_version import OSVersion
-# from WEIPDCRM.models.package import Package
+from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.release import Release
 from WEIPDCRM.models.section import Section
 from WEIPDCRM.models.setting import Setting
 from WEIPDCRM.models.version import Version
-from WEIPDCRM.models.package import Package
 
 # reload(sys)
 # sys.setdefaultencoding('utf-8')

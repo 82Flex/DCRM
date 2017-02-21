@@ -315,6 +315,7 @@ class Version(models.Model):
             os.rename(temp_path, target_path)
             self.storage.name = target_path
         else:
+            os.unlink(self.storage.name)
             os.rename(temp_path, self.storage.name)
         self.update_hash()
         self.save()
@@ -337,19 +338,27 @@ class Version(models.Model):
             pass
         if hash_type >= 1:
             m2 = hashlib.md5()
-            m2.update(path)
+            with open(path, "rb") as f:
+                for block in iter(lambda: f.read(65535), b""):
+                    m2.update(block)
             p_md5 = m2.hexdigest()
         if hash_type >= 2:
             m3 = hashlib.sha1()
-            m3.update(path)
+            with open(path, "rb") as f:
+                for block in iter(lambda: f.read(65535), b""):
+                    m3.update(block)
             p_sha1 = m3.hexdigest()
         if hash_type >= 3:
             m4 = hashlib.sha256()
-            m4.update(path)
+            with open(path, "rb") as f:
+                for block in iter(lambda: f.read(65535), b""):
+                    m4.update(block)
             p_sha256 = m4.hexdigest()
         if hash_type >= 4:
             m5 = hashlib.sha512()
-            m5.update(path)
+            with open(path, "rb") as f:
+                for block in iter(lambda: f.read(65535), b""):
+                    m5.update(block)
             p_sha512 = m5.hexdigest()
         self.size = p_size
         self.md5 = p_md5
@@ -364,7 +373,6 @@ class Version(models.Model):
         help_text=_("This is the \"identifier\" of the package. This should be, entirely "
                     "in lower case, a reversed hostname (much like a \"bundleIdentifier\" "
                     "in Apple's Info.plist files)."),
-        unique=True,
         validators=[
             validate_reversed_domain
         ]

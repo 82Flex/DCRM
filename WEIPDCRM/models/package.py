@@ -9,14 +9,15 @@ It just groups all versions in the same package, and list the latest version of 
 from __future__ import unicode_literals
 
 from django.db import models
-from django.db.models import Count
 from WEIPDCRM.models.version import Version
 from django.utils.translation import ugettext as _
 
 
 class PackageManager(models.Manager):
     def get_queryset(self):
-        return super(PackageManager, self).get_queryset().annotate(version_count=Count('package'))
+        # TODO: Edit this query to make sure no duplicate package in the change list
+        query_set = super(PackageManager, self).get_queryset()
+        return query_set
 
 
 class Package(Version):
