@@ -2,52 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46387471-7961-459d-b2b5-874381fc8570" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources/d8515465-990d-47c2-af22-fb175e34f5de.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0002_auto_20170104_1251.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0003_sitepreferences.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0004_auto_20170104_1259.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0005_auto_20170105_0653.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0006_auto_20170105_0710.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0007_auto_20170105_0715.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0008_auto_20170105_0753.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0009_auto_20170105_0818.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0010_version_control_field.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0011_remove_setting_repository_url.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0012_auto_20170124_1234.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0013_auto_20170124_1258.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0014_auto_20170128_1215.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0015_package_architecture.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0016_auto_20170128_1340.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0017_setting_active_release.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0018_auto_20170128_1347.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0019_auto_20170128_1351.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0020_auto_20170128_1515.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0021_auto_20170130_0512.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0022_auto_20170216_1503.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0023_version_priority.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0024_auto_20170216_1541.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0025_auto_20170216_1544.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0026_auto_20170216_1553.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0027_auto_20170216_1553.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0028_auto_20170216_1657.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0029_auto_20170216_1657.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0030_auto_20170216_1707.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0031_auto_20170216_1708.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0032_auto_20170217_1703.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0033_setting_resources_alias.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0034_auto_20170219_1133.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0035_setting_enable_pdiffs.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0036_auto_20170220_1509.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0037_setting_rest_api.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DCRM/settings.py" afterPath="$PROJECT_DIR$/DCRM/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/admin.py" afterPath="$PROJECT_DIR$/WEIPDCRM/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/WEIPDCRM/migrations/0001_initial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py" afterPath="$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/models/package.py" afterPath="$PROJECT_DIR$/WEIPDCRM/models/package.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/models/version.py" afterPath="$PROJECT_DIR$/WEIPDCRM/models/version.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEIPDCRM/views/admin/upload.py" afterPath="$PROJECT_DIR$/WEIPDCRM/views/admin/upload.py" />
     </list>
     <ignored path="DCRM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -106,7 +66,44 @@
     <favorites_list name="DCRM" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="package.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/package.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+              <folding>
+                <element signature="e#222#261#0" expanded="true" />
+                <marker date="1487846342000" expanded="true" signature="537:625" ph="SELECT `WEIP... WEIPDCRM_version" />
+                <marker date="1487846342000" expanded="true" signature="537:679" ph="SELECT `WEIP... WEIPDCRM_version" />
+                <marker date="1487846342000" expanded="true" signature="537:740" ph="SELECT t1.* %s" />
+                <marker date="1487846342000" expanded="true" signature="537:741" ph="SELECT `WEIP... WEIPDCRM_version" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="version.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/version.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="109" column="17" lean-forward="false" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DCRM/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="113" column="64" lean-forward="true" selection-start-line="113" selection-start-column="64" selection-end-line="113" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -118,9 +115,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>action-select</find>
-      <find>exception</find>
-      <find>innerText</find>
       <find>document.</find>
       <find>IntegerField</find>
       <find>AutoField</find>
@@ -148,6 +142,9 @@
       <find>depiction</find>
       <find># OK Validate</find>
       <find>WEIPDCRM.</find>
+      <find>QuerySet</find>
+      <find>QuerySet(</find>
+      <find>get_model_fields</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -196,17 +193,17 @@
         <option value="$PROJECT_DIR$/WEIPDCRM/models/setting.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/release.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/apps.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py" />
         <option value="$PROJECT_DIR$/suit/templates/registration/password_change_form.html" />
-        <option value="$PROJECT_DIR$/DCRM/settings.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/models/package.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/views/admin/upload.py" />
-        <option value="$PROJECT_DIR$/WEIPDCRM/models/version.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/section.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/package.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/admin.py" />
         <option value="$PROJECT_DIR$/clear_all.py" />
         <option value="$PROJECT_DIR$/WEIPDCRM/clear_all.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py" />
+        <option value="$PROJECT_DIR$/DCRM/settings.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/models/version.py" />
+        <option value="$PROJECT_DIR$/WEIPDCRM/models/package.py" />
       </list>
     </option>
   </component>
@@ -254,6 +251,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -290,6 +288,64 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="WEIPDCRM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCRM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCRM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEIPDCRM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCRM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCRM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEIPDCRM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCRM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCRM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="DCRM" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -297,7 +353,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -657,28 +712,28 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21387696" sideWeight="0.6983842" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22532189" sideWeight="0.6983842" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31566265" sideWeight="0.31759655" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41566265" sideWeight="0.5343348" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22317597" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.49427754" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41566265" sideWeight="0.46566522" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31566265" sideWeight="0.68240345" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31445783" sideWeight="0.66452074" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2811159" sideWeight="0.3016158" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28674698" sideWeight="0.49713877" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22540474" sideWeight="0.4828326" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28674698" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -715,39 +770,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="54" />
+      <option name="time" value="56" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Library/Python/2.7/site-packages/django/core/validators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="146" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/django/core/management/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="471" column="0" lean-forward="false" selection-start-line="471" selection-start-column="0" selection-end-line="471" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/debian/arfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/debian/deprecation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-174">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Python/2.7/site-packages/debian/debian_support.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-10254">
@@ -829,13 +856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="23" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/django/db/models/query.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-196">
-          <caret line="883" column="8" lean-forward="false" selection-start-line="883" selection-start-column="8" selection-end-line="883" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -931,14 +951,6 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/4b710d56/7a6b3189-2c24-4658-b858-403d2f9ec6f7/DCRM.django_migrations" />
-    <entry file="file://$PROJECT_DIR$/DCRM/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="110" column="26" lean-forward="false" selection-start-line="110" selection-start-column="26" selection-end-line="110" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/12826bbc-6b8f-449d-a45c-9a248a635d67/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -960,31 +972,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/package.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="224" column="25" lean-forward="true" selection-start-line="224" selection-start-column="25" selection-end-line="224" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Python/2.7/site-packages/django/db/models/deletion.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
           <caret line="50" column="14" lean-forward="false" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/version.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="427" column="33" lean-forward="false" selection-start-line="427" selection-start-column="33" selection-end-line="427" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -1066,6 +1057,79 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WEIPDCRM/clear_all.py" />
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/migrations/0002_auto_20170221_1529.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/manage/admin/version.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="81" column="5" lean-forward="false" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/django/db/models/sql/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="259" column="30" lean-forward="true" selection-start-line="259" selection-start-column="30" selection-end-line="259" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/django/db/models/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-278">
+          <caret line="158" column="15" lean-forward="false" selection-start-line="158" selection-start-column="6" selection-end-line="158" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/MySQLdb/connections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DCRM/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="113" column="64" lean-forward="true" selection-start-line="113" selection-start-column="64" selection-end-line="113" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/version.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="109" column="17" lean-forward="false" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEIPDCRM/models/package.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+          <folding>
+            <element signature="e#222#261#0" expanded="true" />
+            <marker date="1487846342000" expanded="true" signature="537:625" ph="SELECT `WEIP... WEIPDCRM_version" />
+            <marker date="1487846342000" expanded="true" signature="537:679" ph="SELECT `WEIP... WEIPDCRM_version" />
+            <marker date="1487846342000" expanded="true" signature="537:740" ph="SELECT t1.* %s" />
+            <marker date="1487846342000" expanded="true" signature="537:741" ph="SELECT `WEIP... WEIPDCRM_version" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>

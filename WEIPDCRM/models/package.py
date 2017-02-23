@@ -15,8 +15,18 @@ from django.utils.translation import ugettext as _
 
 class PackageManager(models.Manager):
     def get_queryset(self):
-        # TODO: Edit this query to make sure no duplicate package in the change list
-        query_set = super(PackageManager, self).get_queryset()
+        query_list = super(PackageManager, self).get_queryset().raw(
+            "SELECT t1.* "
+            "FROM `%s` t1 "
+            "LEFT JOIN `%s` t2 "
+            "ON (t1.`package` = t2.`package` AND t1.`id` < t2.`id`) "
+            "WHERE t2.`id` IS NULL AND t1.`enabled` = TRUE" %
+            (Version._meta.db_table, Version._meta.db_table)
+        )
+        id_list = []
+        for query_t in query_list:
+            id_list.append(query_t.id)
+        query_set = super(PackageManager, self).get_queryset().filter(id__in=id_list)
         return query_set
 
 

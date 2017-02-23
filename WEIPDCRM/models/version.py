@@ -107,6 +107,7 @@ class Version(models.Model):
         verbose_name = _("Version")
         verbose_name_plural = _("Versions")
     
+    @staticmethod
     def get_model_fields(self):
         """
         Access the fields of Version model via _meta table
@@ -325,6 +326,12 @@ class Version(models.Model):
         Update hash fields from file system
         :return: No return value
         """
+
+        def hash_file(hash_obj, file_path):
+            with open(file_path, "rb") as f:
+                for block in iter(lambda: f.read(65535), b""):
+                    hash_obj.update(block)
+        
         path = self.storage.name
         if not os.path.exists(path):
             return
@@ -338,27 +345,19 @@ class Version(models.Model):
             pass
         if hash_type >= 1:
             m2 = hashlib.md5()
-            with open(path, "rb") as f:
-                for block in iter(lambda: f.read(65535), b""):
-                    m2.update(block)
+            hash_file(m2, path)
             p_md5 = m2.hexdigest()
         if hash_type >= 2:
             m3 = hashlib.sha1()
-            with open(path, "rb") as f:
-                for block in iter(lambda: f.read(65535), b""):
-                    m3.update(block)
+            hash_file(m3, path)
             p_sha1 = m3.hexdigest()
         if hash_type >= 3:
             m4 = hashlib.sha256()
-            with open(path, "rb") as f:
-                for block in iter(lambda: f.read(65535), b""):
-                    m4.update(block)
+            hash_file(m4, path)
             p_sha256 = m4.hexdigest()
         if hash_type >= 4:
             m5 = hashlib.sha512()
-            with open(path, "rb") as f:
-                for block in iter(lambda: f.read(65535), b""):
-                    m5.update(block)
+            hash_file(m5, path)
             p_sha512 = m5.hexdigest()
         self.size = p_size
         self.md5 = p_md5
@@ -375,7 +374,8 @@ class Version(models.Model):
                     "in Apple's Info.plist files)."),
         validators=[
             validate_reversed_domain
-        ]
+        ],
+        db_index=True
     )
     version = models.CharField(
         verbose_name=_("Version"),
@@ -386,7 +386,8 @@ class Version(models.Model):
         default=_("1.0-1"),
         validators=[
             validate_version
-        ]
+        ],
+        db_index=True
     )
     
     # Recommend Control
@@ -431,7 +432,7 @@ class Version(models.Model):
         help_text=_("Under the \"Install\" tab in Cydia, packages are listed by \"Section\". "
                     "If you would like to encode a space into your section name, use an "
                     "underscore (Cydia will automatically convert these)."),
-        default=""
+        default=None
     )
     tag = models.TextField(
         verbose_name=_("Tag"),
