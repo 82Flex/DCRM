@@ -35,10 +35,7 @@ class OSVersion(models.Model):
     build = models.CharField(
         verbose_name=_("Build"),
         max_length=255,
-        help_text=_("Example: 14C92"),
-        validators=[
-            validate_slug
-        ]
+        help_text=_("Example: 14C92/11A466"),
     )
     icon = models.ImageField(
         verbose_name=_("Icon"),

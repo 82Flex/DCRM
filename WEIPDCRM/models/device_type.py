@@ -31,9 +31,6 @@ class DeviceType(models.Model):
         verbose_name=_("Descriptor"),
         max_length=255,
         help_text=_("Example: iPhone 7 Plus"),
-        validators=[
-            validate_slug
-        ]
     )
     subtype = models.CharField(
         verbose_name=_("Subtype"),
