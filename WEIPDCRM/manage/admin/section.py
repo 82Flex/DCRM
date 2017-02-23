@@ -35,7 +35,7 @@ class SectionAdmin(admin.ModelAdmin):
         """
         :type obj: Section
         """
-        if Version.objects.filter(section=obj).count() > 0:
+        if Version.objects.filter(c_section=obj).count() > 0:
             return ['created_at', 'name']
         else:
             return ['created_at']

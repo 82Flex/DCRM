@@ -130,7 +130,7 @@ class Release(models.Model):
     )
 
     def __unicode__(self):
-        return self.label + " (" + self.codename + ")"
+        return self.label + " (" + self.origin + ")"
 
     def get_admin_url(self):
         """

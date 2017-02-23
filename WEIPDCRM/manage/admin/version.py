@@ -14,7 +14,7 @@ from django.utils.translation import ugettext as _
 from django.contrib.admin.actions import delete_selected
 
 from suit import apps
-from suit.widgets import AutosizedTextarea
+from suit_redactor.widgets import RedactorWidget
 
 from WEIPDCRM.models.version import Version
 
@@ -22,7 +22,8 @@ from WEIPDCRM.models.version import Version
 class VersionForm(ModelForm):
     class Meta(object):
         widgets = {
-            'update_logs': AutosizedTextarea
+            'update_logs': RedactorWidget,
+            'c_description': RedactorWidget,
         }
 
 
@@ -75,37 +76,37 @@ class VersionAdmin(admin.ModelAdmin):
     )
     list_display = (
         'enabled',
-        'version',
-        'package',
-        'name',
-        'section'
+        'c_version',
+        'c_package',
+        'c_name',
+        'c_section'
     )
-    list_filter = ('enabled', 'section')
-    list_display_links = ('version', )
-    search_fields = ['version', 'package', 'name']
+    list_filter = ('enabled', 'c_section')
+    list_display_links = ('c_version', )
+    search_fields = ['c_version', 'c_package', 'c_name']
     readonly_fields = [
         'storage_',
         'download_times',
-        'md5',
-        'sha1',
-        'sha256',
-        'sha512',
-        'size',
+        'c_md5',
+        'c_sha1',
+        'c_sha256',
+        'c_sha512',
+        'c_size',
         'created_at'
     ]
     fieldsets = [
         # Common
         ('Basic', {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['enabled', 'package', 'version']
+            'fields': ['enabled', 'c_package', 'c_version']
         }),
         ('Display', {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['name', 'section', 'icon', 'description', 'update_logs']
+            'fields': ['c_name', 'c_section', 'c_icon', 'c_description', 'update_logs']
         }),
         ('Links', {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['custom_depiction', 'depiction', 'homepage']
+            'fields': ['custom_depiction', 'c_depiction', 'c_homepage']
         }),
         ('Compatibility', {
             'classes': ('suit-tab suit-tab-common',),
@@ -127,37 +128,37 @@ class VersionAdmin(admin.ModelAdmin):
         # Advanced
         ('Platform', {
             'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['architecture', 'priority', 'essential', 'tag']
+            'fields': ['c_architecture', 'c_priority', 'c_essential', 'c_tag']
         }),
         ('Relations', {
             'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['depends', 'pre_depends', 'conflicts', 'replaces', 'provides']
+            'fields': ['c_depends', 'c_pre_depends', 'c_conflicts', 'c_replaces', 'c_provides']
         }),
         ('Other Relations', {
             'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['recommends', 'suggests', 'breaks']
+            'fields': ['c_recommends', 'c_suggests', 'c_breaks']
         }),
         # File System
         ('Storage', {
             'classes': ('suit-tab suit-tab-file-system',),
-            'fields': ['storage_', 'size', 'installed_size']
+            'fields': ['storage_', 'c_size', 'c_installed_size']
         }),
         ('Hash', {
             'classes': ('suit-tab suit-tab-file-system',),
-            'fields': ['md5', 'sha1', 'sha256', 'sha512']
+            'fields': ['c_md5', 'c_sha1', 'c_sha256', 'c_sha512']
         }),
         # Others
         ('Provider', {
             'classes': ('suit-tab suit-tab-others',),
-            'fields': ['origin', 'source', 'bugs', 'installer_menu_item']
+            'fields': ['c_origin', 'c_source', 'c_bugs', 'c_installer_menu_item']
         }),
         ('Make', {
             'classes': ('suit-tab suit-tab-others',),
-            'fields': ['build_essential', 'built_using', 'built_for_profiles']
+            'fields': ['c_build_essential', 'c_built_using', 'c_built_for_profiles']
         }),
         ('Development', {
             'classes': ('suit-tab suit-tab-others',),
-            'fields': ['multi_arch', 'subarchitecture', 'kernel_version']
+            'fields': ['c_multi_arch', 'c_subarchitecture', 'c_kernel_version']
         }),
         ('History', {
             'classes': ('suit-tab suit-tab-statistics',),
@@ -166,7 +167,7 @@ class VersionAdmin(admin.ModelAdmin):
     ]
     suit_form_size = {
         'widgets': {
-            'AutosizedTextarea': apps.SUIT_FORM_SIZE_X_LARGE,
+            'RedactorWidget': apps.SUIT_FORM_SIZE_X_LARGE,
         },
     }
     suit_form_tabs = (
@@ -192,8 +193,8 @@ class VersionAdmin(admin.ModelAdmin):
         obj.update_hash()
         super(VersionAdmin, self).save_model(request, obj, form, change)
         excluded_column = ['enabled', 'created_at', 'os_compatibility', 'device_compatibility',
-                           'update_logs', 'storage', 'icon', 'md5', 'sha1', 'sha256', 'sha512',
-                           'size', 'download_times']
+                           'update_logs', 'storage', 'c_icon', 'c_md5', 'c_sha1', 'c_sha256', 'c_sha512',
+                           'c_size', 'download_times']
         change_list = form.changed_data
         change_num = len(change_list)
         for change_var in change_list:

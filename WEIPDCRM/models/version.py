@@ -122,7 +122,8 @@ class Version(models.Model):
     )
     enabled = models.BooleanField(
         verbose_name=_("Enabled"),
-        default=False
+        default=False,
+        db_index=True
     )  # OK
     created_at = models.DateTimeField(
         verbose_name=_("Created At"),
@@ -130,7 +131,7 @@ class Version(models.Model):
     )  # OK
     
     def __unicode__(self):
-        return self.package + ' (' + self.version + ')'
+        return self.c_package + ' (' + self.c_version + ')'
     
     def get_external_storage_link(self):
         """
@@ -156,12 +157,13 @@ class Version(models.Model):
             args=(self.id,)
         )
     
-    def get_change_list_url(self):
+    @staticmethod
+    def get_change_list_url():
         """
         :return: URL String
         :rtype: str
         """
-        content_type = ContentType.objects.get_for_model(self.__class__)
+        content_type = ContentType.objects.get_for_model(Version)
         return urlresolvers.reverse(
             "admin:%s_%s_changelist" % (content_type.app_label, content_type.model)
         )
@@ -189,35 +191,36 @@ class Version(models.Model):
     storage = models.FileField(
         verbose_name=_("Storage"),
         upload_to="debs",
+        max_length=255
     )  # OK
-    icon = models.ImageField(
+    c_icon = models.ImageField(
         verbose_name=_("Icon"),
         upload_to="package-icons",
         help_text=_("Choose an Icon (*.png) to upload"),
         blank=True,
         default=""
     )  # OK
-    md5 = models.CharField(
+    c_md5 = models.CharField(
         verbose_name=_("MD5Sum"),
         max_length=32,
         default=""
     )  # OK
-    sha1 = models.CharField(
+    c_sha1 = models.CharField(
         verbose_name=_("SHA1"),
         max_length=40,
         default=""
     )  # OK
-    sha256 = models.CharField(
+    c_sha256 = models.CharField(
         verbose_name=_("SHA256"),
         max_length=64,
         default=""
     )  # OK
-    sha512 = models.CharField(
+    c_sha512 = models.CharField(
         verbose_name=_("SHA512"),
         max_length=128,
         default=""
     )  # OK
-    size = models.BigIntegerField(
+    c_size = models.BigIntegerField(
         verbose_name=_("Size"),
         default=0,
         help_text=_("The exact size of the package, in bytes.")
@@ -226,7 +229,7 @@ class Version(models.Model):
         verbose_name=_("Download Times"),
         default=0,
     )  # OK
-    installed_size = models.BigIntegerField(
+    c_installed_size = models.BigIntegerField(
         verbose_name=_("Installed-Size"),
         blank=True,
         null=True,
@@ -243,42 +246,42 @@ class Version(models.Model):
         :return: No return value
         """
         control_field = {
-            "Package": self.package,
-            "Version": self.version,
-            "Architecture": self.architecture,
-            "Name": self.name,
-            "Description": self.description,
-            "Depiction": self.depiction,
-            "Homepage": self.homepage,
-            "Tag": self.tag,
-            "Priority": self.priority,
-            "Essential": self.essential,
-            "Depends": self.depends,
-            "Pre-Depends": self.pre_depends,
-            "Recommends": self.recommends,
-            "Suggests": self.suggests,
-            "Breaks": self.breaks,
-            "Conflicts": self.conflicts,
-            "Replaces": self.replaces,
-            "Provides": self.provides,
-            "Origin": self.origin,
-            "Source": self.source,
-            "Build-Essential": self.build_essential,
-            "Bugs": self.bugs,
-            "Multi-Arch": self.multi_arch,
-            "Subarchitecture": self.subarchitecture,
-            "Kernel-Version": self.kernel_version,
-            "Installer-Menu-Item": self.installer_menu_item,
-            "Built-Using": self.built_using,
-            "Built-For-Profiles": self.built_for_profiles,
-            "Installed-Size": self.installed_size,
+            "Package": self.c_package,
+            "Version": self.c_version,
+            "Architecture": self.c_architecture,
+            "Name": self.c_name,
+            "Description": self.c_description,
+            "Depiction": self.c_depiction,
+            "Homepage": self.c_homepage,
+            "Tag": self.c_tag,
+            "Priority": self.c_priority,
+            "Essential": self.c_essential,
+            "Depends": self.c_depends,
+            "Pre-Depends": self.c_pre_depends,
+            "Recommends": self.c_recommends,
+            "Suggests": self.c_suggests,
+            "Breaks": self.c_breaks,
+            "Conflicts": self.c_conflicts,
+            "Replaces": self.c_replaces,
+            "Provides": self.c_provides,
+            "Origin": self.c_origin,
+            "Source": self.c_source,
+            "Build-Essential": self.c_build_essential,
+            "Bugs": self.c_bugs,
+            "Multi-Arch": self.c_multi_arch,
+            "Subarchitecture": self.c_subarchitecture,
+            "Kernel-Version": self.c_kernel_version,
+            "Installer-Menu-Item": self.c_installer_menu_item,
+            "Built-Using": self.c_built_using,
+            "Built-For-Profiles": self.c_built_for_profiles,
+            "Installed-Size": self.c_installed_size,
         }
         control = {}
         for (k, v) in control_field.items():
             if v is not None and len(unicode(v)) > 0:
                 control[k] = unicode(v)
-        if self.section is not None:
-            control.update({"Section": self.section.name})
+        if self.c_section is not None:
+            control.update({"Section": self.c_section.name})
         if (self.maintainer_name is not None and len(self.maintainer_name) > 0) and \
                 (self.maintainer_email is not None and len(self.maintainer_email) > 0):
             control.update({"Maintainer": self.maintainer_name + " <" + self.maintainer_email + ">"})
@@ -310,9 +313,9 @@ class Version(models.Model):
         if atomic:
             target_dir = 'resources/versions/' + str(uuid.uuid1()) + '/'
             os.mkdir(target_dir)
-            target_path = target_dir + self.package + '_' + \
-                          self.version + '_' + \
-                          self.architecture + '.deb'
+            target_path = target_dir + self.c_package + '_' + \
+                          self.c_version + '_' + \
+                          self.c_architecture + '.deb'
             os.rename(temp_path, target_path)
             self.storage.name = target_path
         else:
@@ -359,14 +362,14 @@ class Version(models.Model):
             m5 = hashlib.sha512()
             hash_file(m5, path)
             p_sha512 = m5.hexdigest()
-        self.size = p_size
-        self.md5 = p_md5
-        self.sha1 = p_sha1
-        self.sha256 = p_sha256
-        self.sha512 = p_sha512
+        self.c_size = p_size
+        self.c_md5 = p_md5
+        self.c_sha1 = p_sha1
+        self.c_sha256 = p_sha256
+        self.c_sha512 = p_sha512
     
     # Required Control
-    package = models.CharField(
+    c_package = models.CharField(
         verbose_name=_("Package"),
         max_length=255,
         help_text=_("This is the \"identifier\" of the package. This should be, entirely "
@@ -377,7 +380,7 @@ class Version(models.Model):
         ],
         db_index=True
     )
-    version = models.CharField(
+    c_version = models.CharField(
         verbose_name=_("Version"),
         max_length=255,
         help_text=_("A package's version indicates two separate values: the version "
@@ -410,7 +413,7 @@ class Version(models.Model):
         null=True,
         default=""
     )
-    description = models.TextField(
+    c_description = models.TextField(
         verbose_name=_("Description"),
         blank=True,
         null=True,
@@ -423,7 +426,7 @@ class Version(models.Model):
     )
     
     # Foreign Keys
-    section = models.ForeignKey(
+    c_section = models.ForeignKey(
         Section,
         verbose_name=_("Section"),
         on_delete=models.SET_NULL,
@@ -434,7 +437,7 @@ class Version(models.Model):
                     "underscore (Cydia will automatically convert these)."),
         default=None
     )
-    tag = models.TextField(
+    c_tag = models.TextField(
         verbose_name=_("Tag"),
         blank=True,
         null=True,
@@ -443,7 +446,7 @@ class Version(models.Model):
                     "debtags package."),
         default=_("")
     )  # OK
-    architecture = models.CharField(
+    c_architecture = models.CharField(
         verbose_name=_("Architecture"),
         max_length=255,
         blank=True,
@@ -459,7 +462,7 @@ class Version(models.Model):
     )
     
     # Other Controls
-    name = models.CharField(
+    c_name = models.CharField(
         verbose_name=_("Name"),
         max_length=255,
         blank=True,
@@ -513,7 +516,7 @@ class Version(models.Model):
         null=True,
         default=""
     )
-    depiction = models.URLField(
+    c_depiction = models.URLField(
         verbose_name=_("Depiction"),
         blank=True,
         null=True,
@@ -525,7 +528,7 @@ class Version(models.Model):
         help_text=_("Exclude this version from Auto Depiction feature."),
         default=False
     )
-    homepage = models.URLField(
+    c_homepage = models.URLField(
         verbose_name=_("Homepage"),
         blank=True,
         null=True,
@@ -535,7 +538,7 @@ class Version(models.Model):
     )
     
     # Advanced Controls
-    priority = models.CharField(
+    c_priority = models.CharField(
         verbose_name=_("Priority"),
         blank=True,
         null=True,
@@ -552,7 +555,7 @@ class Version(models.Model):
                     "as a whole.  Common priorities are required, standard, "
                     "optional, extra, etc.")
     )
-    essential = models.CharField(
+    c_essential = models.CharField(
         verbose_name=_("Essential"),
         blank=True,
         null=True,
@@ -569,7 +572,7 @@ class Version(models.Model):
                     "Essential package to be removed (at least not without using "
                     "one of the force options).")
     )
-    depends = models.TextField(
+    c_depends = models.TextField(
         verbose_name=_("Depends"),
         blank=True,
         null=True,
@@ -588,7 +591,7 @@ class Version(models.Model):
             validate_relations
         ]
     )
-    pre_depends = models.TextField(
+    c_pre_depends = models.TextField(
         verbose_name=_("Pre-Depends"),
         blank=True,
         null=True,
@@ -601,7 +604,7 @@ class Version(models.Model):
             validate_relations
         ]
     )
-    recommends = models.TextField(
+    c_recommends = models.TextField(
         verbose_name=_("Recommends"),
         blank=True,
         null=True,
@@ -614,7 +617,7 @@ class Version(models.Model):
             validate_relations
         ]
     )
-    suggests = models.TextField(
+    c_suggests = models.TextField(
         verbose_name=_("Suggests"),
         blank=True,
         null=True,
@@ -626,7 +629,7 @@ class Version(models.Model):
             validate_relations
         ]
     )
-    breaks = models.TextField(
+    c_breaks = models.TextField(
         verbose_name=_("Breaks"),
         blank=True,
         null=True,
@@ -640,7 +643,7 @@ class Version(models.Model):
             validate_relations
         ]
     )
-    conflicts = models.TextField(
+    c_conflicts = models.TextField(
         verbose_name=_("Conflicts"),
         blank=True,
         null=True,
@@ -654,7 +657,7 @@ class Version(models.Model):
             validate_relations
         ]
     )
-    replaces = models.TextField(
+    c_replaces = models.TextField(
         verbose_name=_("Replaces"),
         blank=True,
         null=True,
@@ -668,7 +671,7 @@ class Version(models.Model):
             validate_relations
         ]
     )
-    provides = models.TextField(
+    c_provides = models.TextField(
         verbose_name=_("Provides"),
         blank=True,
         null=True,
@@ -688,7 +691,7 @@ class Version(models.Model):
     )
     
     # Fucking Controls
-    origin = models.CharField(
+    c_origin = models.CharField(
         verbose_name=_("Origin"),
         blank=True,
         null=True,
@@ -696,7 +699,7 @@ class Version(models.Model):
         help_text=_("The name of the distribution this package is originating from."),
         default=_("")
     )  # OK
-    source = models.CharField(
+    c_source = models.CharField(
         verbose_name=_("Source"),
         max_length=255,
         blank=True,
@@ -708,7 +711,7 @@ class Version(models.Model):
                     "parenthesis."),
         default=_("")
     )  # OK
-    build_essential = models.CharField(
+    c_build_essential = models.CharField(
         verbose_name=_("Build-Essential"),
         blank=True,
         null=True,
@@ -723,7 +726,7 @@ class Version(models.Model):
                     "is commonly injected by the archive software.  It denotes a "
                     "package that is required when building other packages.")
     )
-    bugs = models.CharField(
+    c_bugs = models.CharField(
         verbose_name=_("Bugs"),
         blank=True,
         null=True,
@@ -736,7 +739,7 @@ class Version(models.Model):
             validate_bugs
         ]
     )
-    multi_arch = models.CharField(
+    c_multi_arch = models.CharField(
         verbose_name=_("Multi-Arch"),
         blank=True,
         null=True,
@@ -768,7 +771,7 @@ class Version(models.Model):
                     "</ul>"),
         default=_("")
     )
-    subarchitecture = models.CharField(
+    c_subarchitecture = models.CharField(
         verbose_name=_("Subarchitecture"),
         max_length=255,
         blank=True,
@@ -776,9 +779,9 @@ class Version(models.Model):
         default=_(""),
         validators=[
             validate_slug
-        ]
+        ],
     )
-    kernel_version = models.CharField(
+    c_kernel_version = models.CharField(
         verbose_name=_("Kernel-Version"),
         max_length=255,
         blank=True,
@@ -788,7 +791,7 @@ class Version(models.Model):
             validate_version
         ]
     )
-    installer_menu_item = models.TextField(
+    c_installer_menu_item = models.TextField(
         verbose_name=_("Installer-Menu-Item"),
         blank=True,
         null=True,
@@ -798,7 +801,7 @@ class Version(models.Model):
                     "debian-installer package for more details about them."),
         default=_("")
     )  # OK
-    built_using = models.TextField(
+    c_built_using = models.TextField(
         verbose_name=_("Built-Using"),
         blank=True,
         null=True,
@@ -816,7 +819,7 @@ class Version(models.Model):
             validate_relations
         ]
     )
-    built_for_profiles = models.TextField(
+    c_built_for_profiles = models.TextField(
         verbose_name=_("Built-For-Profiles"),
         blank=True,
         null=True,

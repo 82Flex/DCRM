@@ -101,7 +101,8 @@ class DebianPackage(object):
                 rfc822 = Deb822(control_obj)
                 for (k, v) in rfc822.items():
                     control_dict[k] = v
-                control_dict["Description"] = parse_multiline(control_dict["Description"])
+                if "Description" in control_dict.keys():
+                    control_dict["Description"] = parse_multiline(control_dict.get("Description", ""))
                 self.control = control_dict
                 
                 control_obj.close()
@@ -168,7 +169,8 @@ class DebianPackage(object):
         :return: Control in RFC822 Format
         """
         # Using Deb822 to format control
-        control_dict["Description"] = format_multiline(control_dict["Description"])
+        if "Description" in control_dict.keys():
+            control_dict["Description"] = format_multiline(control_dict["Description"])
         rfc822 = Deb822(control_dict)
         return rfc822.dump(encoding="utf-8") + "\n"  # Just add a blank line and encode
     

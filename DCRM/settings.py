@@ -14,7 +14,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
-SITE_ID = 5
+# SITE_ID = 5
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'WEIPDCRM.apps.SuitConfig',
     'preferences',
     "django_rq",
+    "suit_redactor",
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -47,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+# Redis Config
 
 RQ_QUEUES = {
     'default': {
@@ -141,7 +144,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'zh_Hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
 
