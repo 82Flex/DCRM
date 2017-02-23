@@ -3,4 +3,6 @@ resources
 *.sqlite3
 *.rdb
 *.pyc
+static
+WEIPDCRM/static/
 
