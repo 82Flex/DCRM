@@ -36,7 +36,7 @@ class PackageAdmin(admin.ModelAdmin):
         "c_name",
         "created_at"
     )
-    list_display_links = ()
+    list_display_links = None
     search_fields = ['c_package', 'c_version', 'c_name']
     actions = []
     

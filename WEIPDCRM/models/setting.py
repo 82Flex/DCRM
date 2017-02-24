@@ -54,7 +54,7 @@ class Setting(Preferences):
                     "recognized by any advanced package tools.")
     )
     packages_compression = models.IntegerField(
-        verbose_name=_("packages Compression"),
+        verbose_name=_("Packages Compression"),
         choices=(
             (0, _("Plain")),
             (1, _("Gzip")),

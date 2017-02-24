@@ -10,7 +10,7 @@ from django.utils.safestring import mark_safe
 
 from django_rq import job
 from django.contrib import messages
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.admin.actions import delete_selected
 
 from suit import apps

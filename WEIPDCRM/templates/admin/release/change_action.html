@@ -16,10 +16,6 @@
     {% if show_save %}
         <input type="submit" value="Save" class="btn btn-lg btn-primary" name="_save"/>
     {% endif %}
-
-    {% if show_save_as_new %}
-        <input type="submit" value="{% trans 'Save as new' %}" name="_saveasnew"/>{% endif %}
-
     {% if show_save_and_continue %}
         <input type="submit" value="{% trans 'Save and continue editing' %}" name="_continue"/>{% endif %}
     {% if show_save_as_new %}

@@ -26,36 +26,41 @@ class Build(models.Model):
 
     # Base Property
     uuid = models.UUIDField(
+        verbose_name=_("UUID"),
         primary_key=True,
-        editable=False,
         default=uuid.uuid4
     )
     created_at = models.DateTimeField(
         verbose_name=_("Created At"),
         auto_now_add=True
     )
-    c_release = models.ForeignKey(
+    active_release = models.ForeignKey(
         Release,
-        verbose_name=_("Release"),
+        verbose_name=_("Active Release"),
         on_delete=models.CASCADE,
-        null=True,
-        editable=False
+        null=True
     )
-    storage_package = models.FilePathField(
-        verbose_name=_("Storage Package"),
-        allow_files=True,
-        allow_folders=False,
-        max_length=255,
+    compression = models.IntegerField(
+        verbose_name=_("Packages Compression"),
+        choices=(
+            (0, _("Plain")),
+            (1, _("Gzip")),
+            (2, _("Plain and Gzip")),
+            (3, _("Bzip")),
+            (4, _("Plain and Bzip")),
+            (5, _("Gzip and Bzip")),
+            (6, _("All (Recommended)")),
+        ),
+        default=6,
     )
     details = models.TextField(
         verbose_name=_("Details"),
         blank=True,
         null=True,
-        editable=False,
     )
     
     def __unicode__(self):
-        return self.uuid
+        return str(self.uuid)
 
     def get_admin_url(self):
         """

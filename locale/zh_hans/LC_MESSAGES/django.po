@@ -3,21 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: WEIPDCRM/models/version.py:187 WEIPDCRM/models/version.py:447
-#: WEIPDCRM/models/version.py:589 WEIPDCRM/models/version.py:602
-#: WEIPDCRM/models/version.py:615 WEIPDCRM/models/version.py:627
-#: WEIPDCRM/models/version.py:641 WEIPDCRM/models/version.py:655
-#: WEIPDCRM/models/version.py:669 WEIPDCRM/models/version.py:687
-#: WEIPDCRM/models/version.py:700 WEIPDCRM/models/version.py:712
-#: WEIPDCRM/models/version.py:719 WEIPDCRM/models/version.py:737
-#: WEIPDCRM/models/version.py:772 WEIPDCRM/models/version.py:779
-#: WEIPDCRM/models/version.py:789 WEIPDCRM/models/version.py:802
-#: WEIPDCRM/models/version.py:817 WEIPDCRM/models/version.py:828
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 22:36+0100\n"
+"POT-Creation-Date: 2017-02-24 22:28+0100\n"
 "PO-Revision-Date: 2017-01-04 19:44+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <i.82@me.com>\n"
@@ -57,6 +47,66 @@ msgstr ""
 msgid "%s storage updating job has been added to the \"high\" queue."
 msgstr ""
 
+#: WEIPDCRM/models/build.py:24 WEIPDCRM/models/os_version.py:36
+msgid "Build"
+msgstr ""
+
+#: WEIPDCRM/models/build.py:25
+msgid "Builds"
+msgstr ""
+
+#: WEIPDCRM/models/build.py:29
+msgid "UUID"
+msgstr ""
+
+#: WEIPDCRM/models/build.py:34 WEIPDCRM/models/device_type.py:27
+#: WEIPDCRM/models/os_version.py:27 WEIPDCRM/models/package.py:36
+#: WEIPDCRM/models/release.py:27 WEIPDCRM/models/section.py:35
+#: WEIPDCRM/models/version.py:129
+#: django_rq/templates/django_rq/job_detail.html:51
+msgid "Created At"
+msgstr ""
+
+#: WEIPDCRM/models/build.py:39 WEIPDCRM/models/setting.py:49
+msgid "Active Release"
+msgstr ""
+
+#: WEIPDCRM/models/build.py:44 WEIPDCRM/models/setting.py:57
+msgid "Packages Compression"
+msgstr ""
+
+#: WEIPDCRM/models/build.py:46 WEIPDCRM/models/setting.py:59
+msgid "Plain"
+msgstr ""
+
+#: WEIPDCRM/models/build.py:47 WEIPDCRM/models/setting.py:60
+msgid "Gzip"
+msgstr ""
+
+#: WEIPDCRM/models/build.py:48 WEIPDCRM/models/setting.py:61
+msgid "Plain and Gzip"
+msgstr ""
+
+#: WEIPDCRM/models/build.py:49 WEIPDCRM/models/setting.py:62
+msgid "Bzip"
+msgstr ""
+
+#: WEIPDCRM/models/build.py:50 WEIPDCRM/models/setting.py:63
+msgid "Plain and Bzip"
+msgstr ""
+
+#: WEIPDCRM/models/build.py:51 WEIPDCRM/models/setting.py:64
+msgid "Gzip and Bzip"
+msgstr ""
+
+#: WEIPDCRM/models/build.py:52 WEIPDCRM/models/setting.py:65
+msgid "All (Recommended)"
+msgstr ""
+
+#: WEIPDCRM/models/build.py:57
+msgid "Details"
+msgstr ""
+
 #: WEIPDCRM/models/debian_package.py:46
 msgid "Not a Debian Package"
 msgstr ""
@@ -77,13 +127,6 @@ msgstr ""
 #: WEIPDCRM/models/device_type.py:25 WEIPDCRM/models/os_version.py:25
 #: WEIPDCRM/models/version.py:124
 msgid "Enabled"
-msgstr ""
-
-#: WEIPDCRM/models/device_type.py:27 WEIPDCRM/models/os_version.py:27
-#: WEIPDCRM/models/package.py:36 WEIPDCRM/models/release.py:27
-#: WEIPDCRM/models/section.py:35 WEIPDCRM/models/version.py:129
-#: django_rq/templates/django_rq/job_detail.html:51
-msgid "Created At"
 msgstr ""
 
 #: WEIPDCRM/models/device_type.py:31
@@ -137,10 +180,6 @@ msgstr ""
 
 #: WEIPDCRM/models/os_version.py:33
 msgid "Example: 10.2"
-msgstr ""
-
-#: WEIPDCRM/models/os_version.py:36
-msgid "Build"
 msgstr ""
 
 #: WEIPDCRM/models/os_version.py:38
@@ -318,46 +357,10 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:49
-msgid "Active Release"
-msgstr ""
-
 #: WEIPDCRM/models/setting.py:53
 msgid ""
 "Each repository should have an active release, otherwise it will not be "
 "recognized by any advanced package tools."
-msgstr ""
-
-#: WEIPDCRM/models/setting.py:57
-msgid "packages Compression"
-msgstr ""
-
-#: WEIPDCRM/models/setting.py:59
-msgid "plain"
-msgstr ""
-
-#: WEIPDCRM/models/setting.py:60
-msgid "gzip"
-msgstr ""
-
-#: WEIPDCRM/models/setting.py:61
-msgid "plain and gzip"
-msgstr ""
-
-#: WEIPDCRM/models/setting.py:62
-msgid "bzip"
-msgstr ""
-
-#: WEIPDCRM/models/setting.py:63
-msgid "plain and bzip"
-msgstr ""
-
-#: WEIPDCRM/models/setting.py:64
-msgid "gzip and bzip"
-msgstr ""
-
-#: WEIPDCRM/models/setting.py:65
-msgid "all"
 msgstr ""
 
 #: WEIPDCRM/models/setting.py:69
@@ -888,6 +891,31 @@ msgid ""
 "binary packages was built with."
 msgstr ""
 
+#: WEIPDCRM/templates/admin/build/change_action.html:7
+#: WEIPDCRM/templates/admin/release/change_action.html:12
+#: django_rq/templates/django_rq/jobs.html:51
+msgid "Delete"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/build/change_action.html:11
+msgid "Build Now"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/build/change_list.html:10
+msgid "Build Active Release"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/device_type/change_form.html:7
+#: WEIPDCRM/templates/admin/os_version/change_form.html:7
+#: WEIPDCRM/templates/admin/release/change_form.html:13
+#: WEIPDCRM/templates/admin/version/change_form.html:7
+msgid "Links"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/device_type/change_form.html:10
+msgid "List of iOS Devices"
+msgstr ""
+
 #: WEIPDCRM/templates/admin/help/about.html:7
 #: WEIPDCRM/templates/admin/help/statistics.html:7
 #: WEIPDCRM/templates/admin/upload.html:37
@@ -944,6 +972,39 @@ msgstr ""
 msgid "Statistics"
 msgstr ""
 
+#: WEIPDCRM/templates/admin/new_change_form.html:8
+msgid "History"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/new_change_form.html:13
+msgid "View on site"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/os_version/change_form.html:10
+msgid "iOS Version History"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/release/change_action.html:6
+msgid "Save & Build"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/release/change_action.html:20
+msgid "Save and continue editing"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/release/change_action.html:22
+msgid "Save as new"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/release/change_action.html:24
+msgid "Save and add another"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/release/change_form.html:16
+#: WEIPDCRM/templates/admin/version/change_form.html:18
+msgid "Saurik's Cydia"
+msgstr ""
+
 #: WEIPDCRM/templates/admin/upload.html:53
 msgid "Upload New Package"
 msgstr ""
@@ -998,7 +1059,15 @@ msgstr ""
 msgid "Too many files."
 msgstr ""
 
-#: WEIPDCRM/templates/admin/version_change_list.html:10
+#: WEIPDCRM/templates/admin/version/change_form.html:10
+msgid "About Deb-Control"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/version/change_form.html:14
+msgid "About Deb-Version"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/version/change_list.html:10
 #, python-format
 msgid "Add %(name)s"
 msgstr ""
@@ -1148,10 +1217,6 @@ msgstr ""
 
 #: django_rq/templates/django_rq/jobs.html:48
 msgid "Actions:"
-msgstr ""
-
-#: django_rq/templates/django_rq/jobs.html:51
-msgid "Delete"
 msgstr ""
 
 #: django_rq/templates/django_rq/jobs.html:53

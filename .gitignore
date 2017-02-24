@@ -4,4 +4,5 @@ resources/
 *.rdb
 *.pyc
 WEIPDCRM/static/
+.idea/
 

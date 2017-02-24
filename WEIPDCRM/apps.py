@@ -27,6 +27,7 @@ class SuitConfig(DjangoSuitConfig):
             ChildItem(model='WEIPDCRM.version'),
             ChildItem(model='WEIPDCRM.section'),
             ChildItem(model='WEIPDCRM.release'),
+            ChildItem(model='WEIPDCRM.build'),
             ChildItem(model='WEIPDCRM.osversion'),
             ChildItem(model='WEIPDCRM.devicetype'),
             ChildItem(model='WEIPDCRM.setting'),
