@@ -39,3 +39,5 @@ class SectionAdmin(admin.ModelAdmin):
             return ['created_at', 'name']
         else:
             return ['created_at']
+    
+    change_form_template = 'admin/section/change_form.html'

@@ -22,3 +22,4 @@ class DeviceTypeAdmin(admin.ModelAdmin):
             'fields': ['created_at']
         }),
     ]
+    change_form_template = "admin/device_type/change_form.html"

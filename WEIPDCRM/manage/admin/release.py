@@ -44,3 +44,5 @@ class ReleaseAdmin(admin.ModelAdmin):
             'AutosizedTextarea': apps.SUIT_FORM_SIZE_X_LARGE,
         },
     }
+    
+    change_form_template = "admin/release/change_form.html"

@@ -46,4 +46,4 @@ class PackageAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return False
     
-    change_list_template = 'admin/version_change_list.html'
+    change_list_template = 'admin/version/change_list.html'

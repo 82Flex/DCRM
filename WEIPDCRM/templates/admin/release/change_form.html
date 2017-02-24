@@ -1,0 +1,19 @@
+{% extends 'admin/new_change_form.html' %}
+
+{% load release_submit_row i18n admin_urls %}
+
+{% block submit_buttons_bottom %}
+    {# Currently only way extending submit_row.html is by custom template tag #}
+    {% submit_row %}
+{% endblock %}
+
+{% block object-tools %}
+    {{ block.super }}
+    <ul class="object-tools">
+        <li class="heading">{% trans 'Links' %}</li>
+        <li>
+            <a href="http://www.saurik.com/id/7" target="_blank">
+                <i class="fa fa-fw fa-link"></i>{% trans "Saurik's Cydia" %}</a>
+        </li>
+    </ul>
+{% endblock %}

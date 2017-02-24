@@ -22,3 +22,4 @@ class OSVersionAdmin(admin.ModelAdmin):
             'fields': ['created_at']
         }),
     ]
+    change_form_template = "admin/os_version/change_form.html"

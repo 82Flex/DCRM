@@ -1,0 +1,13 @@
+{% extends 'admin/new_change_form.html' %}
+{% load i18n admin_urls %}
+
+{% block object-tools %}
+    {{ block.super }}
+    <ul class="object-tools">
+        <li class="heading">{% trans 'Links' %}</li>
+        <li>
+            <a href="https://en.wikipedia.org/wiki/IOS_version_history" target="_blank">
+                <i class="fa fa-fw fa-link"></i>{% trans 'iOS Version History' %}</a>
+        </li>
+    </ul>
+{% endblock %}

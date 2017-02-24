@@ -13,6 +13,7 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/WEIPDCRM/static" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -22,7 +23,19 @@
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/templates" />
+        <option value="$MODULE_DIR$/WEIPDCRM/templates" />
+        <option value="$MODULE_DIR$/WEIPDCRM/templates/admin" />
+        <option value="$MODULE_DIR$/WEIPDCRM/templates/admin/help" />
+        <option value="$MODULE_DIR$/WEIPDCRM/templates/admin/release" />
+        <option value="$MODULE_DIR$/WEIPDCRM/templates/admin/section" />
+        <option value="$MODULE_DIR$/WEIPDCRM/templates/admin/version" />
+        <option value="$MODULE_DIR$/WEIPDCRM/templates/admin/device_type" />
+        <option value="$MODULE_DIR$/WEIPDCRM/templates/admin/help" />
+        <option value="$MODULE_DIR$/WEIPDCRM/templates/admin/os_version" />
+        <option value="$MODULE_DIR$/WEIPDCRM/templates/admin/release" />
+        <option value="$MODULE_DIR$/WEIPDCRM/templates/admin/section" />
+        <option value="$MODULE_DIR$/WEIPDCRM/templates/admin/version" />
+        <option value="$MODULE_DIR$/WEIPDCRM/templates/admin/settings" />
       </list>
     </option>
   </component>

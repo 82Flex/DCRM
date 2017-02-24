@@ -1,0 +1,21 @@
+{% extends 'admin/new_change_form.html' %}
+{% load i18n admin_urls %}
+
+{% block object-tools %}
+    {{ block.super }}
+    <ul class="object-tools">
+        <li class="heading">{% trans 'Links' %}</li>
+        <li>
+            <a href="https://manpages.debian.org/jessie/dpkg-dev/deb-control.5.en.html" target="_blank">
+                <i class="fa fa-fw fa-link"></i>{% trans 'About Deb-Control' %}</a>
+        </li>
+        <li>
+            <a href="https://manpages.debian.org/jessie/dpkg-dev/deb-version.5.en.html" target="_blank">
+                <i class="fa fa-fw fa-link"></i>{% trans 'About Deb-Version' %}</a>
+        </li>
+        <li>
+            <a href="http://www.saurik.com/id/7" target="_blank">
+                <i class="fa fa-fw fa-link"></i>{% trans "Saurik's Cydia" %}</a>
+        </li>
+    </ul>
+{% endblock %}

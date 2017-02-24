@@ -56,13 +56,13 @@ class Setting(Preferences):
     packages_compression = models.IntegerField(
         verbose_name=_("packages Compression"),
         choices=(
-            (0, _("plain")),
-            (1, _("gzip")),
-            (2, _("plain and gzip")),
-            (3, _("bzip")),
-            (4, _("plain and bzip")),
-            (5, _("gzip and bzip")),
-            (6, _("all")),
+            (0, _("Plain")),
+            (1, _("Gzip")),
+            (2, _("Plain and Gzip")),
+            (3, _("Bzip")),
+            (4, _("Plain and Bzip")),
+            (5, _("Gzip and Bzip")),
+            (6, _("All (Recommended)")),
         ),
         default=6,
         help_text=_(

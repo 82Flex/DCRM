@@ -40,3 +40,5 @@ class SettingsAdmin(PreferencesAdmin):
 
     def has_delete_permission(self, request, obj=None):
         return False
+
+    change_form_template = "admin/setting/change_form.html"

@@ -1,0 +1,8 @@
+{% extends 'admin/new_change_form.html' %}
+
+{% load setting_submit_row i18n admin_urls %}
+
+{% block submit_buttons_bottom %}
+    {# Currently only way extending submit_row.html is by custom template tag #}
+    {% submit_row %}
+{% endblock %}

@@ -213,4 +213,5 @@ class VersionAdmin(admin.ModelAdmin):
         os.unlink(obj.storage.name)
         super(VersionAdmin, self).delete_model(request, obj)
 
-    change_list_template = 'admin/version_change_list.html'
+    change_list_template = 'admin/version/change_list.html'
+    change_form_template = 'admin/version/change_form.html'
