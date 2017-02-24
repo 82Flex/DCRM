@@ -1,4 +1,6 @@
-<h1 align="center">![DCRMv4](Documents/logo.png)</h1>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/82Flex/DCRM/master/Documents/logo.png"/>
+</p>
 <p align="center">Darwin Cydia Repository Manager (Version 4)</p>
 
 ## WARNING 警告
