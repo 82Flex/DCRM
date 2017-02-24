@@ -5,4 +5,5 @@ resources/
 *.pyc
 WEIPDCRM/static/
 .idea/
+*.ini
 
