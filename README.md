@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/82Flex/DCRM/master/Documents/logo.png"/>
+  <img src="https://raw.githubusercontent.com/82Flex/DCRM/master/Documents/logo.png" width="160"/>
 </p>
 <p align="center">Darwin Cydia Repository Manager (Version 4)</p>
 
