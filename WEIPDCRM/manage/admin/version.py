@@ -47,6 +47,9 @@ class VersionForm(ModelForm):
 
 @job("high")
 def hash_update_job(queryset):
+    """
+    Batch hash updating job.
+    """
     succeed = True
     for e in queryset:
         try:
@@ -210,6 +213,11 @@ class VersionAdmin(admin.ModelAdmin):
         # hash update
         obj.update_hash()
         super(VersionAdmin, self).save_model(request, obj, form, change)
+        
+        """
+        Remove all excluded column (which are not in standard debian control part)
+        to determine whether the related .deb file on file system should be updated.
+        """
         excluded_column = ['enabled', 'created_at', 'os_compatibility', 'device_compatibility',
                            'update_logs', 'storage', 'c_icon', 'c_md5', 'c_sha1', 'c_sha256', 'c_sha512',
                            'c_size', 'download_times']

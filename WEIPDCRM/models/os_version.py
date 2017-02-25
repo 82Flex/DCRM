@@ -30,6 +30,7 @@ from django.core.validators import validate_slug
 class OSVersion(models.Model):
     """
     For DCRM Compatibility Module
+    This model manages all iOS Versions.
     """
     class Meta(object):
         verbose_name = _("iOS Version")

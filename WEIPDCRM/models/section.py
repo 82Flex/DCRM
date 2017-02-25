@@ -40,6 +40,13 @@ def validator_underscore(value):
 class Section(models.Model):
     """
     DCRM Base Model: Section
+    This model manages all sections, which is important in Cydia interface.
+    
+    But you cannot edit its name due to the duplicated section field in .deb
+    control part, if you force DCRM to change the section name, DCRM has to
+    generate all .deb files and calculate their hashes under this section again,
+    which may causes huge cost. So you should create some Sections first, and
+    then assign versions to them.
     """
     class Meta(object):
         verbose_name = _("Section")

@@ -50,6 +50,9 @@ from WEIPDCRM.models.debian_package import DebianPackage
 def write_to_package_job(control, path, callback_version_id):
     # copy to temporary
     """
+    This job will be called when any field in .deb file control part
+    has been edited.
+    
     :param control: New Control Dict
     :type control: dict
     :param path: Original Package Path
@@ -69,6 +72,9 @@ def write_to_package_job(control, path, callback_version_id):
 
 
 def validate_reversed_domain(value):
+    """
+    Apple's identifier.
+    """
     pattern = re.compile(r"^[0-9A-Za-z.+\-]{2,}$")
     if not pattern.match(value):
         raise ValidationError(
@@ -77,6 +83,9 @@ def validate_reversed_domain(value):
 
 
 def validate_version(value):
+    """
+    Debian standard version format.
+    """
     try:
         NativeVersion(value)
     except ValueError as e:
@@ -86,6 +95,9 @@ def validate_version(value):
 
 
 def validate_name(value):
+    """
+    Value-Detail based names.
+    """
     pattern = re.compile(r"[^<>]")
     if not pattern.match(value):
         raise ValidationError(
@@ -94,6 +106,9 @@ def validate_name(value):
 
 
 def validate_relations(value):
+    """
+    Package Lists
+    """
     relations = PkgRelation.parse_relations(value)
     for relation in relations:
         for rel in relation:
@@ -111,12 +126,19 @@ bugs_validator = URLValidator(
 
 
 def validate_bugs(value):
+    """
+    Inherits from a Built-in URLValidator
+    """
     return bugs_validator(value)
 
 
 class Version(models.Model):
     """
     DCRM Base Model: Version
+    This model manages all versions generated from .deb files.
+    
+    All database fields corresponding to the original control
+    part in deb files will be prefixed by 'c_' except foreign keys.
     """
     class Meta(object):
         verbose_name = _("Version")
@@ -150,6 +172,9 @@ class Version(models.Model):
     
     def get_external_storage_link(self):
         """
+        This getter method for storage_link property generates outer
+        link for frontend downloads.
+        
         :return: External Storage Link
          :rtype: str
         """
@@ -260,6 +285,9 @@ class Version(models.Model):
         :rtype: dict
         :return: No return value
         """
+        """
+        Standard Keys
+        """
         control_field = {
             "Package": self.c_package,
             "Version": self.c_version,
@@ -295,8 +323,14 @@ class Version(models.Model):
         for (k, v) in control_field.items():
             if v is not None and len(unicode(v)) > 0:
                 control[k] = unicode(v)
+        """
+        Foreign Keys
+        """
         if self.c_section is not None:
             control.update({"Section": self.c_section.name})
+        """
+        Value-Detail Keys
+        """
         if (self.maintainer_name is not None and len(self.maintainer_name) > 0) and \
                 (self.maintainer_email is not None and len(self.maintainer_email) > 0):
             control.update({"Maintainer": self.maintainer_name + " <" + self.maintainer_email + ">"})
@@ -358,6 +392,9 @@ class Version(models.Model):
         p_sha1 = ''
         p_sha256 = ''
         p_sha512 = ''
+        """
+        To check hash type for .deb file
+        """
         hash_type = preferences.Setting.packages_validation
         if hash_type == 0:
             pass

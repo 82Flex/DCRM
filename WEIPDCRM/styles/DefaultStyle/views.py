@@ -31,6 +31,8 @@ from WEIPDCRM.models.package import Package
 class Index(ListView):
     """
     Notice: Class name should use CamelCase name method.
+            Changed model to Package because it should list all
+            enabled package and the latest version control once only.
     """
     model = Package
     context_object_name = 'package_list'

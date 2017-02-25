@@ -30,6 +30,7 @@ from WEIPDCRM.models.version import Version
 
 class SectionAdmin(admin.ModelAdmin):
     def generate_icon_package(self, request, queryset):
+        # TODO: Generate icon package
         self.message_user(request, _("Icon package generating job has been added to the \"default\" queue."))
     generate_icon_package.short_description = _("Generate icon package for selected sections")
     
@@ -51,6 +52,8 @@ class SectionAdmin(admin.ModelAdmin):
 
     def get_readonly_fields(self, request, obj=None):
         """
+        You cannot edit section name if any version has assigned to it.
+        
         :type obj: Section
         """
         if Version.objects.filter(c_section=obj).count() > 0:

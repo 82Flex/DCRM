@@ -54,7 +54,11 @@ def validate_alias(value):
 class Setting(Preferences):
     """
     DCRM Base Model: Setting
-    Preferences single instance, just for global settings
+    This is a single instance, just for global settings.
+    
+    Normally, it will has only one instance with primary key id=1,
+    and it will be assigned to a specific site instance. You should
+    not delete the site and this instance.
     """
     class Meta(object):
         verbose_name = _("Setting")

@@ -30,6 +30,9 @@ from django.core.validators import validate_slug
 class Release(models.Model):
     """
     DCRM Base Model: Release
+    This model manages releases (repository control info),
+    and all package list builds will be assigned to one of
+    these instances.
     """
 
     class Meta(object):

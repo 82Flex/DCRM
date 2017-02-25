@@ -38,7 +38,11 @@ class Package(models.Model):
     """
 
     class Meta(object):
-        # proxy = True
+        """
+        Using Database VIEW to make it.
+        This is an unmanaged model, and `package_view` is actually a Database VIEW.
+        Its creating query which select only useful fields and latest version below from each package.
+        """
         managed = False
         verbose_name = _("Package")
         verbose_name_plural = _("Packages")

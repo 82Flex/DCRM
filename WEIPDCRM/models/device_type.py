@@ -24,12 +24,12 @@ from django.db import models
 from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext as _
-from django.core.validators import validate_slug
 
 
 class DeviceType(models.Model):
     """
     For DCRM Compatibility Module
+    This model manages all iOS Device Types.
     """
     class Meta(object):
         verbose_name = _("Device Type")

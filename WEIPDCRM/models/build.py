@@ -33,6 +33,12 @@ from WEIPDCRM.models.release import Release
 class Build(models.Model):
     """
     DCRM Base Model: Build
+    Build model manages package builds history like
+     - Packages (Plain Text)
+     - Packages Compressions (gz, bz2, lzma, xz)
+     - Packages Diff (PDiff Feature)
+    Each valid Build instance is under an active release.
+    You can only create or delete builds, and you cannot edit them.
     """
     
     class Meta(object):

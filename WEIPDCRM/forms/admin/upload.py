@@ -24,4 +24,7 @@ from django import forms
 
 
 class UploadForm(forms.Form):
+    """
+    A simple form, just designed to receive and validate the package file.
+    """
     package = forms.FileField()

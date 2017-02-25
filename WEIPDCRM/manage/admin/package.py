@@ -30,6 +30,9 @@ from WEIPDCRM.models.version import Version
 class PackageAdmin(admin.ModelAdmin):
     def package_(self, instance):
         """
+        Give a special url redirecting to Version model which shows all
+        versions under this package.
+        
         :type instance: Package
         """
         if instance.c_package is None:
@@ -41,6 +44,8 @@ class PackageAdmin(admin.ModelAdmin):
     
     def version_(self, instance):
         """
+        Return the admin url of the latest version.
+        
         :type instance: Package
         """
         if instance.c_version is None:
@@ -59,6 +64,10 @@ class PackageAdmin(admin.ModelAdmin):
     actions = []
     
     def has_add_permission(self, request):
+        """
+        You cannot add, delete or edit any package instance because it
+        is an unmanaged model. You have to add a new version via Version model.
+        """
         return False
     
     def has_delete_permission(self, request, obj=None):

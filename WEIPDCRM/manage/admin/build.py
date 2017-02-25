@@ -30,6 +30,8 @@ from WEIPDCRM.models.build import Build
 class BuildAdmin(admin.ModelAdmin):
     def active_release_(self, instance):
         """
+        Show current active release before build a new package list.
+        
         :type instance: Build
         """
         if instance.active_release is None:
@@ -56,6 +58,7 @@ class BuildAdmin(admin.ModelAdmin):
     
     def save_model(self, request, obj, form, change):
         """
+        Set the active release, call building procedure, and then save.
         :type obj: Build
         """
         obj.active_release = preferences.Setting.active_release

@@ -33,6 +33,9 @@ from debian.copyright import parse_multiline, format_multiline
 
 class DebianPackage(object):
     """
+    This class manages every thing related to .deb files on file system and
+    their control part in Debian RFC822 format.
+    
     Some adjustment to package: https://packages.debian.org/sid/python-debian
     Which is really helpful because in python-debian, Debfile is read-only.
     """
@@ -249,4 +252,7 @@ class DebianPackage(object):
         data_tar.close()
         new_deb.close()
         os.unlink(self.path)
+        """
+        !!! To keep its path original !!!
+        """
         os.rename(new_deb.name, self.path)

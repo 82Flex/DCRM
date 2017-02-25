@@ -54,6 +54,10 @@ class SettingsAdmin(PreferencesAdmin):
     )
 
     def has_add_permission(self, request):
+        """
+        This is a single instance so you cannot add or delete it.
+        """
+        
         return False
 
     def has_delete_permission(self, request, obj=None):
