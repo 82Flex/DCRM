@@ -28,6 +28,8 @@ from WEIPDCRM.views.admin.help import statistics
 urlpatterns = [
     # Notice: Good Bro! Use 'include' to import urls from other apps.
     url(r'^', include('WEIPDCRM.styles.DefaultStyle.urls')),
+    
+    # Admin Panel
     url(r'^admin/', admin.site.urls),
     url(r'^admin/sites/django-rq/', include('django_rq.urls')),
     url(r'^admin/upload/$', upload.upload_view, name='upload'),

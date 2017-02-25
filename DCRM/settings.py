@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
 
+# Just set this to the first Site instance's id in database.
 SITE_ID = 1
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -116,6 +117,7 @@ WSGI_APPLICATION = 'DCRM.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+# You cannot use SQLite3 due to the lack of advanced database supports.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
