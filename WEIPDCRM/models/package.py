@@ -43,7 +43,7 @@ class Package(models.Model):
         verbose_name = _("Package")
         verbose_name_plural = _("Packages")
         db_table = "package_view"
-
+    
     c_name = models.CharField(
         verbose_name=_("Name"),
         max_length=255,

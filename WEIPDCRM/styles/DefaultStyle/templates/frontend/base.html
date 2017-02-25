@@ -1,0 +1,57 @@
+{% load i18n staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- TODO: Extra Meta Info -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="generator" content="DCRM" />
+    <meta name="template" content="DefaultStyle" />
+    <!-- TODO: Shortcut Icon -->
+    <!-- link rel="shortcut icon" href="/favicon.ico" /-->
+    {% block stylesheet %}
+        <link rel="stylesheet" href="{% static "frontend/css/style.css" %}">
+        <link rel="stylesheet" href="{% static "frontend/css/font.css" %}">
+    {% endblock %}
+    <title>{% block title %}DCRM{% endblock %}</title>
+</head>
+<body class="main">
+<div class="header">
+    <div class="nav">
+        <div class="title"><h1><a href="/">{% trans 'DCRM' %}</a></h1></div>
+        <div class="links">
+            <ul>
+                <li><a href="/">{% trans 'Home' %}</a></li>
+                <li><a href="#">{% trans 'Chart' %}</a></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="primary">
+    {% block content %}{% endblock %}
+    <div class="widget-area">
+        <div class="comments">
+            <div class="title"><h2>{% trans "Latest Comments" %}</h2></div>
+            <div class="list"></div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+{% block footer %}
+    <div class="footer">
+        <ul>
+            <li>{% trans 'Copyright © 2017 82Flex' %}</li>
+        </ul>
+    </div>
+{% endblock %}
+</body>
+</html>
+

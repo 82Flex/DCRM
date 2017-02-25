@@ -103,7 +103,7 @@ class MenuManager(object):
                     self.aligned_right_menu_items.append(parent_item)
 
         if self.suit_config.menu_show_home:
-            home_item = ParentItem(_('Home'), url='admin:index', icon='fa fa-home')
+            home_item = ParentItem(_('Home'), url='admin:index', icon='fa fa-frontend')
             menu_items.insert(0, self.handle_user_url(home_item))
 
         return self.mark_active(menu_items)

@@ -1,0 +1,60 @@
+{% extends "frontend/base.html" %}
+{% load i18n %}
+{% block title %}{% blocktrans with package_info.c_name as c_name %}Package {{ c_name }} | DCRM{% endblocktrans %}{% endblock %}
+{% block content %}
+    <div class="content">
+        <div class="article">
+            <div class="icon">
+                <!-- TODO: Package Icon Module -->
+                <!-- Notice: Use package_info.icon_link instead of icon for frontend use! -->
+                <img class="icon" src=""/>
+            </div>
+            <div class="intro">
+                <div class="title"><h1>{{ package_info.c_name }}</h1></div>
+                <div class="details">
+                    <ul>
+                        <li>{% trans "Version" %}: {{ package_info.c_version }}</li>
+                        <li>{% trans "Size" %}: {{ package_info.c_size }}</li>
+                        <li>{% trans "Author" %}: {{ package_info.author_name }}</li>
+                        <li>{% trans "Section" %}: {{ package_info.c_section }}</li>
+                        <li>{% trans "Downloads" %}: {{ package_info.download_times }}</li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="download">
+                    <!-- Notice: Use storage_link instead of storage for frontend use! -->
+                    <a rel="nofollow" href="{{ package_info.storage_link }}" id="downloadlink"
+                       target="_blank">{% trans "Download" %}</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <h2>{% trans "Description" %}</h2>
+            <div class="description">
+                <p>
+                    {{ package_info.c_description }}
+                </p>
+            </div>
+            <h2>{% trans "What's New" %}</h2>
+            <div class="whatsnew">
+                <p>
+                    <!-- TODO: Update Logs Module -->
+                </p>
+            </div>
+            <h2>{% trans "Screenshot" %}</h2>
+            <div class="screenshot">
+                <div class="image-wrapper">
+                    <!-- TODO: Screenshot Module -->
+                </div>
+            </div>
+            <div class="similar">
+                <!-- TODO: Similar Package Module -->
+            </div>
+            <h2>{% trans "Comments" %}</h2>
+            <div class="comment">
+                <div id="comments">
+                    <!-- TODO: Duoshuo Comment Module -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

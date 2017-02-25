@@ -1,9 +1,25 @@
+# Temp Files
 temp/
+
+# Site Resources
 resources/
+wwwroot/
+
+# IDE Configrations
+.idea/
+
+# Static Files
+WEIPDCRM/static/
+
+# Databases
 *.sqlite3
 *.rdb
-*.pyc
-WEIPDCRM/static/
-.idea/
-*.ini
 
+# Compiled Python Scripts
+*.pyc
+
+# Logs
+*.log
+
+# Configrations
+*.ini

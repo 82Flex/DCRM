@@ -34,7 +34,7 @@ class DjangoSuitConfig(AppConfig):
     #: :type: list of suit.menu.ParentItem
     menu = []
 
-    # Automatically add home link
+    # Automatically add frontend link
     menu_show_home = True
 
     # Define callback / handler to change menu before it is getting rendered

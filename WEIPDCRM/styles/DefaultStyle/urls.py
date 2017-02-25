@@ -18,20 +18,14 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from django.conf.urls import url, include
-from django.contrib import admin
+from django.conf.urls import url
 
-from WEIPDCRM.views.admin import upload
-from WEIPDCRM.views.admin.help import about
-from WEIPDCRM.views.admin.help import statistics
+import views
 
 urlpatterns = [
-    # Notice: Good Bro! Use 'include' to import urls from other apps.
-    url(r'^', include('WEIPDCRM.styles.DefaultStyle.urls')),
-    url(r'^admin/', admin.site.urls),
-    url(r'^admin/sites/django-rq/', include('django_rq.urls')),
-    url(r'^admin/upload/$', upload.upload_view, name='upload'),
-    url(r'^admin/upload/version/$', upload.upload_version_view, name='version_add'),
-    url(r'^admin/help/about/$', about.about_view, name='help_about'),
-    url(r'^admin/help/statistics/$', statistics.statistics_view, name='help_statistics'),
+    url(r'^$', views.Index.as_view()),
+    url(r'^index/$', views.Index.as_view()),
+    url(r'^package/(?P<package_id>\d+)$', views.PackageView.as_view(), name='package_id'),
+    # url(r'^version/(.*)', frontend.version_view, name='package_histroy'),
+    # url(r'^section/(.*)', frontend.section_view, name='section_view'),
 ]

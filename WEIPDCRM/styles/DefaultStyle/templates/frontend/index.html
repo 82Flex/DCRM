@@ -1,0 +1,26 @@
+{% extends "frontend/base.html" %}
+{% load i18n paginate_tags %}
+{% block title %}{% trans 'Index' %} | DCRM{% endblock %}
+{% block content %}
+    <div class="content">
+        <div class="title"><h2>{% trans "Package List" %}</h2></div>
+        <ul class="list">
+            {% paginate package_list 16 %}
+            {% for package in package_list %}
+                <li class="list">
+                    <div class="icon">
+                        <a href="package/{{ package.id }}"><img src="{{ package.c_icon }}"/></a>
+                    </div>
+                    <div class="title">
+                        <h4><a href="package/{{ package.id }}">{{ package.c_name }}</a></h4>
+                    </div>
+                    <div class="tag">
+                        <a href="section/{{ package.c_section.id }}">{{ package.c_section }}</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="clear"></div>
+        {% include 'frontend/pagination.html' %}
+    </div>
+{% endblock %}
