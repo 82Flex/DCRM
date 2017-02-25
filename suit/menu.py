@@ -277,14 +277,14 @@ class MenuManager(object):
                     if opts_key == child_item._key():
                         active_child = child_item
                         break
-                    elif not active_child_by_url and request_path == child_item.url:
+                    elif not active_child_by_url and request_path.find(child_item.url) == 0:
                         active_child_by_url = child_item
 
             if active_child:
                 break
 
             if not active_parent:
-                if url_name == parent_item._url_name or request_path == parent_item.url:
+                if (url_name is not None and url_name == parent_item._url_name) or request_path == parent_item.url:
                     active_parent = parent_item
 
         if not active_child:

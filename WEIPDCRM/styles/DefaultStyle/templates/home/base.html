@@ -1,0 +1,54 @@
+{% load i18n staticfiles %}
+<!DOCTYPE>
+<html>
+<head>
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static "home/css/style.css" %}">
+<link rel="stylesheet" href="{% static "home/css/font.css" %}">
+{% endblock %}
+
+<body class="main">
+  <div class="header">
+    <div class="nav">
+      <div class="title"><h1><a href="/">DCRM</a></h1></div>
+      <div class="links">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/chart/">Chart</a></li>
+          <li></li><li></li>
+        </ul>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</head>
+<div class="primary">
+{% block content %}{% endblock %}
+{% block footer %}
+<div class="widget-area">
+  <div class="comments">
+    <div class="title"><h2>{% trans "Latest Comments" %}</h2></div>
+    <div class="list">
+      <ul>
+          <div class="ds-recent-comments" data-num-items="6" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
+          <div class="ds-share flat"
+          data-thread-key="apt-index"
+          data-title=""
+          data-images=""
+          data-content=""
+          data-url="">
+        </div>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer">
+  <ul>
+    <li>© 2017</a></li>
+</div>
+</body>
+</html>
+{% endblock %}

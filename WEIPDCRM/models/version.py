@@ -1,6 +1,21 @@
 # coding=utf-8
+
 """
-DCRM Version Module
+DCRM - Darwin Cydia Repository Manager
+Copyright (C) 2017  WU Zheng <i.82@me.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 from __future__ import unicode_literals
@@ -19,7 +34,7 @@ from django.core import urlresolvers
 from django.core.validators import URLValidator
 from django.core.validators import validate_slug
 from django.contrib.contenttypes.models import ContentType
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
 from django_rq import job
 
@@ -184,7 +199,7 @@ class Version(models.Model):
     update_logs = models.TextField(
         verbose_name=_("Update Logs"),
         blank=True,
-        default=_("")
+        default=""
     )  # OK
     
     # File System
@@ -444,7 +459,7 @@ class Version(models.Model):
         help_text=_("List of tags describing the qualities of the package. The "
                     "description and list of supported tags can be found in the "
                     "debtags package."),
-        default=_("")
+        default=""
     )  # OK
     c_architecture = models.CharField(
         verbose_name=_("Architecture"),
@@ -586,7 +601,7 @@ class Version(models.Model):
                     "depend on them. On the opposite, in a removal, the prerm "
                     "script of a package is run before those of the packages listed "
                     "in its Depends field."),
-        default=_(""),
+        default="",
         validators=[
             validate_relations
         ]
@@ -599,7 +614,7 @@ class Version(models.Model):
                     "this one can be installed. This is usually used in the case "
                     "where this package requires another package for running its "
                     "preinst script."),
-        default=_(""),
+        default="",
         validators=[
             validate_relations
         ]
@@ -612,7 +627,7 @@ class Version(models.Model):
                     "all but unusual installations. The package maintenance "
                     "software will warn the user if they install a package without "
                     "those listed in its Recommends field."),
-        default=_(""),
+        default="",
         validators=[
             validate_relations
         ]
@@ -624,7 +639,7 @@ class Version(models.Model):
         help_text=_("Lists packages that are related to this one and can perhaps "
                     "enhance its usefulness, but without which installing this "
                     "package is perfectly reasonable."),
-        default=_(""),
+        default="",
         validators=[
             validate_relations
         ]
@@ -638,7 +653,7 @@ class Version(models.Model):
                     "maintenance software will not allow broken packages to be "
                     "configured; generally the resolution is to upgrade the "
                     "packages named in a Breaks field."),
-        default=_(""),
+        default="",
         validators=[
             validate_relations
         ]
@@ -652,7 +667,7 @@ class Version(models.Model):
                     "software will not allow conflicting packages to be installed "
                     "at the same time. Two conflicting packages should each include "
                     "a Conflicts line mentioning the other."),
-        default=_(""),
+        default="",
         validators=[
             validate_relations
         ]
@@ -666,7 +681,7 @@ class Version(models.Model):
                     "another package and is usually used with the Conflicts field "
                     "to force removal of the other package, if this one also has "
                     "the same files as the conflicted package."),
-        default=_(""),
+        default="",
         validators=[
             validate_relations
         ]
@@ -684,7 +699,7 @@ class Version(models.Model):
                     "satisfy the dependency.  This prevents the packages that "
                     "depend on a mail server from having to know the package names "
                     "for all of them, and using \'|\' to separate the list."),
-        default=_(""),
+        default="",
         validators=[
             validate_relations
         ]
@@ -697,7 +712,7 @@ class Version(models.Model):
         null=True,
         max_length=255,
         help_text=_("The name of the distribution this package is originating from."),
-        default=_("")
+        default=""
     )  # OK
     c_source = models.CharField(
         verbose_name=_("Source"),
@@ -709,14 +724,14 @@ class Version(models.Model):
                     "If the source version differs from the binary version, then "
                     "the source-name will be followed by a source-version in "
                     "parenthesis."),
-        default=_("")
+        default=""
     )  # OK
     c_build_essential = models.CharField(
         verbose_name=_("Build-Essential"),
         blank=True,
         null=True,
         max_length=255,
-        default=_(""),
+        default="",
         choices=(
             (None, '-'),
             ("yes", "Yes"),
@@ -734,7 +749,7 @@ class Version(models.Model):
         help_text=_("The url of the bug tracking system for this package. The "
                     "current used format is bts-type://bts-address, like "
                     "debbugs://bugs.debian.org."),
-        default=_(""),
+        default="",
         validators=[
             validate_bugs
         ]
@@ -769,14 +784,14 @@ class Version(models.Model):
                     "foreign architecture by qualifying the package name "
                     "with :any, but has no effect otherwise.</li>"
                     "</ul>"),
-        default=_("")
+        default=""
     )
     c_subarchitecture = models.CharField(
         verbose_name=_("Subarchitecture"),
         max_length=255,
         blank=True,
         null=True,
-        default=_(""),
+        default="",
         validators=[
             validate_slug
         ],
@@ -786,7 +801,7 @@ class Version(models.Model):
         max_length=255,
         blank=True,
         null=True,
-        default=_(""),
+        default="",
         validators=[
             validate_version
         ]
@@ -799,7 +814,7 @@ class Version(models.Model):
                     "not needed. See "
                     "/usr/share/doc/debian-installer/devel/modules.txt from the "
                     "debian-installer package for more details about them."),
-        default=_("")
+        default=""
     )  # OK
     c_built_using = models.TextField(
         verbose_name=_("Built-Using"),
@@ -814,7 +829,7 @@ class Version(models.Model):
                     "maintenance software is likely to refuse to accept an upload "
                     "which declares a Built-Using relationship which cannot be "
                     "satisfied within the archive."),
-        default=_(""),
+        default="",
         validators=[
             validate_relations
         ]
@@ -825,5 +840,5 @@ class Version(models.Model):
         null=True,
         help_text=_("This field specifies a whitespace separated list of build "
                     "profiles that this binary packages was built with."),
-        default=_(""),
+        default="",
     )  # OK

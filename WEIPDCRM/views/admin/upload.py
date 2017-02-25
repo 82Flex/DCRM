@@ -1,6 +1,21 @@
 # coding=utf-8
+
 """
-DCRM Upload handling Module
+DCRM - Darwin Cydia Repository Manager
+Copyright (C) 2017  WU Zheng <i.82@me.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 from __future__ import unicode_literals
@@ -33,6 +48,91 @@ def handle_uploaded_package(path):
     :rtype: dict
     """
     result_dict = {}
+<<<<<<< HEAD
+    # try:
+    uploaded_package = DebianPackage(path)
+    # uploaded_package.load()
+    control = uploaded_package.control
+    target_dir = 'resources/versions/' + str(uuid.uuid1()) + '/'
+    os.mkdir(target_dir)
+    target_path = target_dir + control.get('Package', 'undefined') + '_' + \
+                  control.get('Version', 'undefined') + '_' + \
+                  control.get('Architecture', 'undefined') + '.deb'
+    with transaction.atomic():
+        p_section = Section.objects.filter(name=control.get('Section', None)).last()
+        if p_section:
+            pass
+        else:
+            # create a new section
+            p_section_name = control.get('Section', None)
+            if p_section_name:
+                p_section = Section(name=p_section_name)
+                p_section.save()
+        # search version
+        p_version = Version.objects.filter(
+            c_package=control.get('Package', None),
+            c_version=control.get('Version', None)
+        ).last()
+        if p_version:
+            # version conflict
+            result_dict.update({
+                "success": False,
+                "exception": _("Version Conflict: %s") % p_version.c_version
+            })
+        else:
+            os.rename(path, target_path)
+            p_version = Version()
+            p_version.c_package = control.get('Package', None)
+            p_version.c_version = control.get('Version', None)
+            p_version.storage = target_path
+            p_version.maintainer_name = DebianPackage.value_for_field(control.get('Maintainer', None))
+            p_version.maintainer_email = DebianPackage.detail_for_field(control.get('Maintainer', None))
+            p_version.c_description = control.get('Description', "")
+            p_version.c_section = p_section
+            p_version.c_tag = control.get('Tag', None)
+            p_version.c_architecture = control.get('Architecture', None)
+            p_version.c_name = control.get('Name', None)
+            p_version.author_name = DebianPackage.value_for_field(control.get('Author', None))
+            p_version.author_email = DebianPackage.detail_for_field(control.get('Author', None))
+            p_version.sponsor_name = DebianPackage.value_for_field(control.get('Sponsor', None))
+            p_version.sponsor_site = DebianPackage.detail_for_field(control.get('Sponsor', None))
+            p_version.c_depiction = control.get('Depiction', None)
+            p_version.c_homepage = control.get('Homepage', None)
+            p_version.c_priority = control.get('Priority', None)
+            p_version.c_installed_size = control.get('Installed-Size', None)
+            p_version.c_essential = control.get('Essential', None)
+            p_version.c_depends = control.get('Depends', None)
+            p_version.c_pre_depends = control.get('Pre-Depends', None)
+            p_version.c_recommends = control.get('Recommends', None)
+            p_version.c_suggests = control.get('Suggests', None)
+            p_version.c_breaks = control.get('Breaks', None)
+            p_version.c_conflicts = control.get('Conflicts', None)
+            p_version.c_replaces = control.get('Replaces', None)
+            p_version.c_provides = control.get('Provides', None)
+            p_version.c_build_essential = control.get('Build-Essential', None)
+            p_version.c_origin = control.get('Origin', None)
+            p_version.c_bugs = control.get('Bugs', None)
+            p_version.c_multi_arch = control.get('Multi-Arch', None)
+            p_version.c_source = control.get('Source', None)
+            p_version.c_subarchitecture = control.get('Subarchitecture', None)
+            p_version.c_kernel_version = control.get('Kernel-Version', None)
+            p_version.c_installer_menu_item = control.get('Installer-Menu-Item', None)
+            p_version.c_built_using = control.get('Built-Using', None)
+            p_version.c_built_for_profiles = control.get('Built-For-Profiles', None)
+            p_version.update_hash()
+            p_version.save()
+            # move resource
+            result_dict.update({
+                "success": True,
+                "version": p_version.id
+            })
+    # except Exception as e:
+    #     # error handler
+    #     result_dict.update({
+    #         "success": False,
+    #         "exception": e.message
+    #     })
+=======
     try:
         uploaded_package = DebianPackage(path)
         # uploaded_package.load()
@@ -114,8 +214,9 @@ def handle_uploaded_package(path):
         # error handler
         result_dict.update({
             "success": False,
-            "exception": e.message
+            "exception": unicode(e)
         })
+>>>>>>> origin/master
     return result_dict
 
 
@@ -125,6 +226,8 @@ def handle_uploaded_file(request):
     :type request: HttpRequest
     """
     f = request.FILES['package']
+    if not os.path.exists('temp'):
+        os.mkdir('temp')
     package_temp_path = 'temp/' + str(uuid.uuid1()) + '.deb'
     with open(package_temp_path, 'wb+') as destination:
         for chunk in f.chunks():

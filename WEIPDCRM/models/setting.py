@@ -1,6 +1,21 @@
 # coding:utf-8
+
 """
-DCRM Setting Module
+DCRM - Darwin Cydia Repository Manager
+Copyright (C) 2017  WU Zheng <i.82@me.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 from __future__ import unicode_literals
@@ -54,15 +69,15 @@ class Setting(Preferences):
                     "recognized by any advanced package tools.")
     )
     packages_compression = models.IntegerField(
-        verbose_name=_("packages Compression"),
+        verbose_name=_("Packages Compression"),
         choices=(
-            (0, _("plain")),
-            (1, _("gzip")),
-            (2, _("plain and gzip")),
-            (3, _("bzip")),
-            (4, _("plain and bzip")),
-            (5, _("gzip and bzip")),
-            (6, _("all")),
+            (0, _("Plain")),
+            (1, _("Gzip")),
+            (2, _("Plain and Gzip")),
+            (3, _("Bzip")),
+            (4, _("Plain and Bzip")),
+            (5, _("Gzip and Bzip")),
+            (6, _("All (Recommended)")),
         ),
         default=6,
         help_text=_(
