@@ -17,13 +17,16 @@
     <div class="card-block">
         <h4 class="card-title">{% trans "Darwin Cydia Repository Manager (DCRM)" %}</h4>
         <p class="card-text">
-            {% trans "Version: " %}{{ version }}<br />
-            {% trans "Open source Repository Manager for Cydia™/APT." %}<br /><br />
-            {% trans "Designer: " %}<a href="http://weibo.com/82flex">@i_82</a><br />
-            {% trans "Special Thanks: Saurik IT/Django/Django Suit/Django RQ/jQuery/Bootstrap 4" %}<br /><br />
-            {% trans "Copyright &copy; 2017 82Flex.com All Rights Reserved. " %}<br />
+            {% blocktrans %}
+            Version: {{ version }}<br />
+            Open source Repository Manager for Cydia™/APT.<br /><br />
+            <!-- We strongly recommend you to use https instead of http to ensure transfer security.<br /-->
+            Designer: <a href="http://weibo.com/82flex">@i_82</a><br />
+            Special Thanks: <a href="https://twitter.com/saurik">Saurik</a>/<a href="https://www.djangoproject.com/">Django</a>/<a href="https://github.com/darklow/django-suit">Django Suit</a>/<a href="https://github.com/ui/django-rq">Django RQ</a><br /><br />
+            Copyright &copy; 2017 82Flex.com All Rights Reserved.<br />
+            {% endblocktrans %}
         </p>
-        <p>{% trans 'This program is free software, you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/licenses">GNU Affero General Public License</a> as published by the Free Software Foundation either version 3 of the License.' %}</p>
+        <p>{% blocktrans %}This program is free software, you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/licenses">GNU Affero General Public License</a> as published by the Free Software Foundation either version 3 of the License.{% endblocktrans %}</p>
         <a href="https://github.com/82Flex/DCRM" class="btn btn-primary-outline" target="_blank">View on Github</a>
     </div>
 </div>
