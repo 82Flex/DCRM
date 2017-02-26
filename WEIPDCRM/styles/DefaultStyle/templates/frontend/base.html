@@ -26,9 +26,7 @@
         <div class="links">
             <ul>
                 <li><a href="/">{% trans 'Home' %}</a></li>
-                <li><a href="#">{% trans 'Chart' %}</a></li>
-                <li></li>
-                <li></li>
+                <li><a href="chart/">{% trans 'Chart' %}</a></li>
             </ul>
         </div>
         <div class="clear"></div>
@@ -36,8 +34,22 @@
 </div>
 
 <div class="primary">
-    {% block content %}{% endblock %}
+    {% block content %}
+    {% endblock %}
     <div class="widget-area">
+        <div class="repoinfo">
+            <div class="avatar-panel">
+                <div class="repo_pic">
+                    <!-- TODO: Repo's Logo -->
+                    <img src=""/>
+                </div>
+                <div class="repo_name">
+                    <!-- TODO: Repo's Name and description -->
+                    <h2>Repo Name</h2>
+                    <p>Repo Description</p>
+                </div>
+            </div>
+        </div>
         <div class="comments">
             <div class="title"><h2>{% trans "Latest Comments" %}</h2></div>
             <div class="list"></div>

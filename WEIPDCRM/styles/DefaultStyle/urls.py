@@ -27,5 +27,5 @@ urlpatterns = [
     url(r'^index/$', views.Index.as_view()),
     url(r'^package/(?P<package_id>\d+)$', views.PackageView.as_view(), name='package_id'),
     # url(r'^version/(.*)', frontend.version_view, name='package_histroy'),
-    # url(r'^section/(.*)', frontend.section_view, name='section_view'),
+    url(r'^section/(?P<section_id>\d+)$', views.SectionView.as_view(), name='section_view'),
 ]

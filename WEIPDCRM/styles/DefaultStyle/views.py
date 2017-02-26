@@ -24,6 +24,7 @@ Notice: You have used class-based views, that's awesome.
 
 from django.views.generic import ListView, DetailView
 
+from WEIPDCRM.models.section import Section
 from WEIPDCRM.models.version import Version
 from WEIPDCRM.models.package import Package
 
@@ -45,6 +46,12 @@ class PackageView(DetailView):
             because they remained their default behaviour.
     """
     model = Version
-    context_object_name = "package_info"
+    context_object_name = 'package_info'
     pk_url_kwarg = 'package_id'
     template_name = 'frontend/package.html'
+
+class SectionView(ListView):
+    model = Section
+    context_object_name = 'package_list'
+    pk_url_kwarg = 'section_id'
+    template_name = 'frontend/section.html'
