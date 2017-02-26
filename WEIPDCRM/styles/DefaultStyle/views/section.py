@@ -22,36 +22,34 @@ Notice: You have used class-based views, that's awesome.
         You may add lines above as license.
 """
 
-from django.views.generic import ListView, DetailView
-
-from WEIPDCRM.models.section import Section
-from WEIPDCRM.models.version import Version
+from django.views.generic import ListView
 from WEIPDCRM.models.package import Package
 
+from preferences import preferences
 
-class Index(ListView):
-    """
-    Notice: Class name should use CamelCase name method.
-            Changed model to Package because it should list all
-            enabled package and the latest version control once only.
-    """
-    model = Package
-    context_object_name = 'package_list'
-    template_name = 'frontend/index.html'
-
-
-class PackageView(DetailView):
-    """
-    Notice: There is no need to override the default get_queryset method,
-            because they remained their default behaviour.
-    """
-    model = Version
-    context_object_name = 'package_info'
-    pk_url_kwarg = 'package_id'
-    template_name = 'frontend/package.html'
 
 class SectionView(ListView):
-    model = Section
+    allow_empty = True
+    paginate_by = 16
+    model = Package
     context_object_name = 'package_list'
     pk_url_kwarg = 'section_id'
     template_name = 'frontend/section.html'
+    
+    def get_queryset(self):
+        """
+        Get Package from specific section.
+
+        :return: QuerySet
+        """
+        section_id = self.kwargs.get('section_id')
+        queryset = super(SectionView, self).get_queryset().filter(c_section__id=section_id)
+        return queryset
+    
+    def get_context_data(self, **kwargs):
+        """
+        Merge global settings to current context
+        """
+        context = super(SectionView, self).get_context_data(**kwargs)
+        context['settings'] = preferences.Setting
+        return context

@@ -25,6 +25,9 @@ from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext as _
 from django.core.validators import validate_slug
+from django.conf import settings
+
+from preferences import preferences
 
 
 class Release(models.Model):
@@ -160,3 +163,18 @@ class Release(models.Model):
             "admin:%s_%s_change" % (content_type.app_label, content_type.model),
             args=(self.id,)
         )
+    
+    def get_external_icon_link(self):
+        """
+        This getter method for icon_link property generates outer
+        link for frontend icon display.
+
+        :return: External Icon Link
+         :rtype: str
+        """
+        if not self.icon:
+            return None
+        file_path = self.icon.name
+        return unicode(preferences.Setting.resources_alias) + file_path
+    
+    icon_link = property(get_external_icon_link)

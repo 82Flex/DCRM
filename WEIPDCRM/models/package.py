@@ -30,6 +30,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext as _
 
 from WEIPDCRM.models.version import Version
+from WEIPDCRM.models.section import Section
 
 
 class Package(models.Model):
@@ -62,6 +63,10 @@ class Package(models.Model):
     c_version = models.CharField(
         verbose_name=_("Version"),
         max_length=255
+    )
+    c_section = models.ForeignKey(
+        Section,
+        verbose_name=_("Section")
     )
     
     def get_version_admin_url(self):

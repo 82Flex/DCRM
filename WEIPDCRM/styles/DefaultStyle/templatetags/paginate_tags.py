@@ -19,33 +19,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 from django import template
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-
 register = template.Library()
 
 
 @register.simple_tag(takes_context=True)
-def paginate(context, object_list, page_count):
+def paginate(context):
     left = 3
     right = 3
 
-    paginator = Paginator(object_list, page_count)
-    # Security: Check if param 'page' is a valid page number
-    page = context['request'].GET.get('page')
-
-    try:
-        object_list = paginator.page(page)
-        context['current_page'] = int(page)
-        pages = get_left(context['current_page'], left, paginator.num_pages) + get_right(context['current_page'], right,
-                                                                                         paginator.num_pages)
-    except PageNotAnInteger:
-        object_list = paginator.page(1)
-        context['current_page'] = 1
-        pages = get_right(context['current_page'], right, paginator.num_pages)
-    except EmptyPage:
-        object_list = paginator.page(paginator.num_pages)
-        context['current_page'] = paginator.num_pages
-        pages = get_left(context['current_page'], left, paginator.num_pages)
+    paginator = context['paginator']
+    page = context['page_obj'].number
+    object_list = context['object_list']
+    context['current_page'] = int(page)
+    pages = get_left(context['current_page'], left, paginator.num_pages) + get_right(context['current_page'], right,
+                                                                                     paginator.num_pages)
 
     context['package_list'] = object_list
     context['pages'] = pages

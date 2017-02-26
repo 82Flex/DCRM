@@ -20,12 +20,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from django.conf.urls import url
 
-import views
+from views.index import IndexView
+from views.package import PackageView
+from views.section import SectionView
 
 urlpatterns = [
-    url(r'^$', views.Index.as_view()),
-    url(r'^index/$', views.Index.as_view()),
-    url(r'^package/(?P<package_id>\d+)$', views.PackageView.as_view(), name='package_id'),
+    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^index/(?P<page>\d+)$', IndexView.as_view(), name='index_page'),
+    url(r'^package/(?P<package_id>\d+)$', PackageView.as_view(), name='package_id'),
     # url(r'^version/(.*)', frontend.version_view, name='package_histroy'),
-    url(r'^section/(?P<section_id>\d+)$', views.SectionView.as_view(), name='section_view'),
+    url(r'^section/(?P<section_id>\d+)$', SectionView.as_view(), name='section_id'),
 ]

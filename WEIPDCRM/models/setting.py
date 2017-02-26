@@ -124,6 +124,7 @@ class Setting(Preferences):
         default=False
     )
     resources_alias = models.CharField(
+        # You should not change this field unless you are not using debug server.
         verbose_name=_("Resources Alias"),
         help_text=_("You can specify alias for resources path in Nginx or "
                     "other HTTP servers, which is necessary for CDN speedup."),

@@ -13,18 +13,19 @@
                 <div class="title"><h1>{{ package_info.c_name }}</h1></div>
                 <div class="details">
                     <ul>
+                        <li>{% trans "Package" %}: {{ package_info.c_package }}</li>
                         <li>{% trans "Version" %}: {{ package_info.c_version }}</li>
                         <li>{% trans "Size" %}: {{ package_info.c_size }}</li>
                         <li>{% trans "Author" %}: {{ package_info.author_name }}</li>
                         <li>{% trans "Section" %}: {{ package_info.c_section }}</li>
-                        <li>{% trans "Downloads" %}: {{ package_info.download_times }}</li>
                     </ul>
                     <div class="clear"></div>
                 </div>
+                <!-- Notice: I have edited css style here. -->
                 <div class="download">
                     <!-- Notice: Use storage_link instead of storage for frontend use! -->
                     <a rel="nofollow" href="{{ package_info.storage_link }}" id="downloadlink"
-                       target="_blank">{% trans "Download" %}</a>
+                       target="_blank">{% trans "Download" %}<br />{{ package_info.download_times }}</a>
                 </div>
             </div>
             <div class="clear"></div>

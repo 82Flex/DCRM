@@ -20,6 +20,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 from WEIPDCRM.views.admin import upload
 from WEIPDCRM.views.admin.help import about
@@ -36,4 +38,4 @@ urlpatterns = [
     url(r'^admin/upload/version/$', upload.upload_version_view, name='version_add'),
     url(r'^admin/help/about/$', about.about_view, name='help_about'),
     url(r'^admin/help/statistics/$', statistics.statistics_view, name='help_statistics'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

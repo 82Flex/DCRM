@@ -1,25 +1,27 @@
 {% extends "frontend/base.html" %}
-{% load i18n paginate_tags %}
+{% load i18n staticfiles %}
+{% block headerscript %}
+    <script src="{% static 'frontend/js/masonry.pkgd.min.js' %}"></script>
+{% endblock %}
 {% block title %}{% trans 'Index' %} | DCRM{% endblock %}
 {% block content %}
     <div class="content">
         <div class="title"><h2>{% trans "Package List" %}</h2></div>
-        <ul class="list">
-            {% paginate package_list 16 %}
+        <div class="list grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 160 }'>
             {% for package in package_list %}
-                <li class="list">
+                <div class="list-item grid-item">
                     <div class="icon">
-                        <a href="package/{{ package.id }}"><img src="{{ package.icon_link }}"/></a>
+                        <a href="{% url "package_id" package.id %}"><img src="{{ package.icon_link }}"/></a>
                     </div>
                     <div class="title">
-                        <h4><a href="package/{{ package.id }}">{{ package.c_name }}</a></h4>
+                        <a href="{% url "package_id" package.id %}">{{ package.c_name }}</a>
                     </div>
                     <div class="tag">
-                        <a href="section/{{ package.c_section.id }}">{{ package.c_section }}</a>
+                        <a href="{% url "section_id" package.c_section.id %}">{{ package.c_section }}</a>
                     </div>
-                </li>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
         <div class="clear"></div>
         {% include 'frontend/pagination.html' %}
     </div>

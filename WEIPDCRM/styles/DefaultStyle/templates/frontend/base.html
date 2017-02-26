@@ -1,6 +1,6 @@
 {% load i18n staticfiles %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -17,16 +17,19 @@
         <link rel="stylesheet" href="{% static "frontend/css/style.css" %}">
         <link rel="stylesheet" href="{% static "frontend/css/font.css" %}">
     {% endblock %}
+    {% block headerscript %}{% endblock %}
     <title>{% block title %}DCRM{% endblock %}</title>
 </head>
 <body class="main">
 <div class="header">
     <div class="nav">
-        <div class="title"><h1><a href="/">{% trans 'DCRM' %}</a></h1></div>
+        <div class="title">
+            <h1><a href="{% url 'index' %}">DCRM</a></h1>
+        </div>
         <div class="links">
             <ul>
-                <li><a href="/">{% trans 'Home' %}</a></li>
-                <li><a href="chart/">{% trans 'Chart' %}</a></li>
+                <li><a href="{% url 'index' %}">{% trans 'Home' %}</a></li>
+                <li><a href="#">{% trans 'Chart' %}</a></li>
             </ul>
         </div>
         <div class="clear"></div>
@@ -41,13 +44,19 @@
             <div class="avatar-panel">
                 <div class="repo_pic">
                     <!-- TODO: Repo's Logo -->
-                    <img src=""/>
+                    <img src="{{ settings.active_release.icon_link }}" />
                 </div>
-                <div class="repo_name">
-                    <!-- TODO: Repo's Name and description -->
-                    <h2>Repo Name</h2>
-                    <p>Repo Description</p>
-                </div>
+                {% if settings.active_release %}
+                    <div class="repo_name">
+                        <h2>{{ settings.active_release.label }}</h2>
+                        <p>{{ settings.active_release.description }}</p>
+                    </div>
+                {% else %}
+                    <div class="repo_name">
+                        <h2>No Repo Name</h2>
+                        <p>No Repo Description</p>
+                    </div>
+                {% endif %}
             </div>
         </div>
         <div class="comments">

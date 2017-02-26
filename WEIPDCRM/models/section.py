@@ -27,6 +27,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_slug
 
+from preferences import preferences
+
 
 def validator_underscore(value):
     """
@@ -88,3 +90,18 @@ class Section(models.Model):
             "admin:%s_%s_change" % (content_type.app_label, content_type.model),
             args=(self.id,)
         )
+
+    def get_external_icon_link(self):
+        """
+        This getter method for icon_link property generates outer
+        link for frontend icon display.
+
+        :return: External Icon Link
+         :rtype: str
+        """
+        if not self.icon:
+            return None
+        file_path = self.icon.name
+        return unicode(preferences.Setting.resources_alias) + file_path
+
+    icon_link = property(get_external_icon_link)
