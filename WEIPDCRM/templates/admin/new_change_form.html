@@ -7,10 +7,10 @@
         <a href="{% add_preserved_filters history_url %}" class="historylink">
             <i class="fa fa-fw fa-history"></i>{% trans "History" %}</a>
     </li>
-
-    {# TODO: Implement View On Site For This Model #}
     {% if has_absolute_url %}
-        <li><a href="{{ absolute_url }}" class="viewsitelink">{% trans "View on site" %}</a>
+        <li>
+            <a href="{{ absolute_url }}" class="viewsitelink">
+                <i class="fa fa-fw fa-search"></i>{% trans "View on site" %}</a>
         </li>
     {% endif %}
 {% endblock %}

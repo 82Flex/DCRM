@@ -910,3 +910,7 @@ class Version(models.Model):
                     "profiles that this binary packages was built with."),
         default="",
     )  # OK
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('package_id', args=[self.id])

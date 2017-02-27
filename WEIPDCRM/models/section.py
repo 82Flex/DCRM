@@ -109,3 +109,7 @@ class Section(models.Model):
         return unicode(preferences.Setting.resources_alias) + file_path
 
     icon_link = property(get_external_icon_link)
+    
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('section_id', args=[self.id])

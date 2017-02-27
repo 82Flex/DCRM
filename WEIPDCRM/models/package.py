@@ -102,3 +102,7 @@ class Package(models.Model):
         return None
     
     display_icon = property(get_display_icon)
+    
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('package_id', args=[self.id])
