@@ -65,7 +65,9 @@ class DeviceType(models.Model):
         verbose_name=_("Icon"),
         max_length=255,
         upload_to="device-icons",
-        help_text=_("Choose an Icon (*.png) to upload")
+        help_text=_("Choose an Icon (*.png) to upload"),
+        blank=True,
+        null=True,
     )
 
     def __unicode__(self):

@@ -61,7 +61,8 @@ class OSVersion(models.Model):
         max_length=255,
         upload_to="os-icons",
         help_text=_("Choose an Icon (*.png) to upload"),
-        blank=True
+        blank=True,
+        null=True,
     )
 
     def __unicode__(self):

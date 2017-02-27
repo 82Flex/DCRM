@@ -41,6 +41,11 @@ class SettingsAdmin(PreferencesAdmin):
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['advanced_mode']
         }),
+        # Advanced
+        ('Cache', {
+            'classes': ('suit-tab suit-tab-advanced',),
+            'fields': ['enable_cache', 'cache_time']
+        }),
         # Rest API
         ('Global', {
             'classes': ('suit-tab suit-tab-api',),
@@ -50,6 +55,7 @@ class SettingsAdmin(PreferencesAdmin):
 
     suit_form_tabs = (
         ('common', 'Common'),
+        ('advanced', 'Advanced'),
         ('api', 'Rest API')
     )
 

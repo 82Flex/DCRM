@@ -77,7 +77,8 @@ class Section(models.Model):
         max_length=255,
         upload_to="section-icons",
         help_text=_("Choose an Icon (*.png) to upload"),
-        blank=True
+        blank=True,
+        null=True,
     )
 
     def __unicode__(self):

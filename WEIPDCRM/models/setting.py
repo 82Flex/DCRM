@@ -145,6 +145,19 @@ class Setting(Preferences):
         help_text=_("Upload packages using HTTP, manage your repositories, snapshots, published repositories etc."),
         default=False
     )
+    enable_cache = models.BooleanField(
+        verbose_name=_("Enable Cache"),
+        help_text=_("Save the rendered results of all frontend pages so that "
+                    "the server don't have to perform the calculation each time.<br />"
+                    "Restart server after editing this field."),
+        default=False
+    )
+    cache_time = models.IntegerField(
+        verbose_name=_("Cache Time"),
+        help_text=_("Minimum rendering interval, in seconds.<br />"
+                    "Restart server after editing this field."),
+        default=3600
+    )
 
     def get_admin_url(self):
         """

@@ -23,11 +23,19 @@ from django.conf.urls import url
 from views.index import IndexView
 from views.package import PackageView
 from views.section import SectionView
+from django.views.decorators.cache import cache_page
+from preferences import preferences
+
+
+def cache():
+    return cache_page(preferences.Setting.cache_time) \
+        if preferences.Setting.enable_cache else lambda x: x
+
 
 urlpatterns = [
-    url(r'^$', IndexView.as_view(), name='index'),
-    url(r'^index/(?P<page>\d+)$', IndexView.as_view(), name='index_page'),
-    url(r'^package/(?P<package_id>\d+)$', PackageView.as_view(), name='package_id'),
+    url(r'^$', cache()(IndexView.as_view()), name='index'),
+    url(r'^index/(?P<page>\d+)$', cache()(IndexView.as_view()), name='index_page'),
+    url(r'^package/(?P<package_id>\d+)$', cache()(PackageView.as_view()), name='package_id'),
     # url(r'^version/(.*)', frontend.version_view, name='package_histroy'),
-    url(r'^section/(?P<section_id>\d+)$', SectionView.as_view(), name='section_id'),
+    url(r'^section/(?P<section_id>\d+)$', cache()(SectionView.as_view()), name='section_id'),
 ]

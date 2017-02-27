@@ -242,7 +242,8 @@ class Version(models.Model):
         upload_to="package-icons",
         help_text=_("Choose an Icon (*.png) to upload"),
         max_length=255,
-        blank=True
+        blank=True,
+        null=True,
     )  # OK
 
     def get_display_icon(self):
