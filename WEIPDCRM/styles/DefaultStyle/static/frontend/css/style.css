@@ -168,7 +168,8 @@ img {
 
 .primary .content .list .list-item .icon img {
     width: 88px;
-    height: 88px
+    height: 88px;
+    border-radius: 12px
 }
 
 .primary .content .list .list-item .title {
@@ -195,7 +196,7 @@ img {
 
 .primary .content .list .list-item .tag a {
     color: #888;
-    font-size: 10px
+    font-size: 11px
 }
 
 .primary .article {
@@ -237,7 +238,8 @@ img {
 
 .primary .article .icon img {
     width: 128px;
-    height: 128px
+    height: 128px;
+    border-radius: 18px;
 }
 
 .primary .article .intro {

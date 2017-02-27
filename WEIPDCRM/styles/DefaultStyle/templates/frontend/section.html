@@ -6,24 +6,8 @@
 {% block title %}{% trans 'Section' %} {{ package_list.0.c_section.name }} | DCRM{% endblock %}
 {% block content %}
     <div class="content">
-        <div class="title">
-            <h2>{{ package_list.0.c_section.name }}</h2>
-        </div>
-        <div class="list grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 160 }'>
-            {% for package in package_list %}
-                <div class="list-item grid-item">
-                    <div class="icon">
-                        <a href="{% url "package_id" package.id %}"><img src="{{ package.icon_link }}"/></a>
-                    </div>
-                    <div class="title">
-                        <a href="{% url "package_id" package.id %}">{{ package.c_name }}</a>
-                    </div>
-                    <div class="tag">
-                        <a>{{ package.c_section }}</a>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+        <div class="title"><h2>{{ package_list.0.c_section.name }}</h2></div>
+        {% include 'frontend/grid-list.html' %}
         <div class="clear"></div>
         {% include 'frontend/pagination.html' %}
     </div>

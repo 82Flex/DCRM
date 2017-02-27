@@ -58,11 +58,14 @@ class DeviceType(models.Model):
         help_text=_("Example: A1661/A1784/A1785"),
         blank=True
     )
-    icon = models.ImageField(
+
+    # Warning: this field will store icon/file relative to MEDIA_URL,
+    #          defined in settings.py.
+    icon = models.FileField(
         verbose_name=_("Icon"),
+        max_length=255,
         upload_to="device-icons",
-        help_text=_("Choose an Icon (*.png) to upload"),
-        blank=True
+        help_text=_("Choose an Icon (*.png) to upload")
     )
 
     def __unicode__(self):

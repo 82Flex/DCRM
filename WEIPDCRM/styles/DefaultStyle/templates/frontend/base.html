@@ -44,7 +44,11 @@
             <div class="avatar-panel">
                 <div class="repo_pic">
                     <!-- TODO: Repo's Logo -->
-                    <img src="{{ settings.active_release.icon_link }}" />
+                    {% if settings.active_release.icon_link %}
+                        <img src="{{ settings.active_release.icon_link }}" />
+                    {% else %}
+                        <img src="" />
+                    {% endif %}
                 </div>
                 {% if settings.active_release %}
                     <div class="repo_name">

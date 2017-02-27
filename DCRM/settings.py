@@ -200,3 +200,7 @@ CACHES = {
         'LOCATION': '127.0.0.1:11211',
     }
 }
+
+# Temp files
+
+TEMP_ROOT = os.path.join(BASE_DIR, 'temp')

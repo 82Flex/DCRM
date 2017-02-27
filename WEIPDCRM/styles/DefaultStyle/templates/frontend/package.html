@@ -5,9 +5,12 @@
     <div class="content">
         <div class="article">
             <div class="icon">
-                <!-- TODO: Package Icon Module -->
-                <!-- Notice: Use package_info.icon_link instead of icon for frontend use! -->
-                <img class="icon" src="{{ package_info.icon_link }}"/>
+                {% if package_info.display_icon %}
+                    <img class="icon" src="{{ package_info.display_icon }}"/>
+                {% else %}
+                    <!-- TODO: Default Icon -->
+                    <img class="icon" src=""/>
+                {% endif %}
             </div>
             <div class="intro">
                 <div class="title"><h1>{{ package_info.c_name }}</h1></div>
@@ -15,7 +18,7 @@
                     <ul>
                         <li>{% trans "Package" %}: {{ package_info.c_package }}</li>
                         <li>{% trans "Version" %}: {{ package_info.c_version }}</li>
-                        <li>{% trans "Size" %}: {{ package_info.c_size }}</li>
+                        <li>{% trans "Size" %}: {{ package_info.c_size|filesizeformat }}</li>
                         <li>{% trans "Author" %}: {{ package_info.author_name }}</li>
                         <li>{% trans "Section" %}: {{ package_info.c_section }}</li>
                     </ul>
@@ -32,13 +35,13 @@
             <h2>{% trans "Description" %}</h2>
             <div class="description">
                 <p>
-                    {{ package_info.c_description }}
+                    {{ package_info.c_description|safe }}
                 </p>
             </div>
             <h2>{% trans "What's New" %}</h2>
             <div class="whatsnew">
                 <p>
-                    <!-- TODO: Update Logs Module -->
+                    {{ package_info.update_logs|safe }}
                 </p>
             </div>
             <h2>{% trans "Screenshot" %}</h2>

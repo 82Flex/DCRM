@@ -143,8 +143,11 @@ class Release(models.Model):
         blank=True
     )
 
-    icon = models.ImageField(
+    # Warning: this field will store icon/file relative to MEDIA_URL,
+    #          defined in settings.py.
+    icon = models.FileField(
         verbose_name=_("Repository Icon"),
+        max_length=255,
         upload_to="repository-icons",
         help_text=_("Choose an Icon (*.png) to upload"),
         blank=True

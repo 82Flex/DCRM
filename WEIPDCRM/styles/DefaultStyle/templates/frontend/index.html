@@ -7,21 +7,7 @@
 {% block content %}
     <div class="content">
         <div class="title"><h2>{% trans "Package List" %}</h2></div>
-        <div class="list grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 160 }'>
-            {% for package in package_list %}
-                <div class="list-item grid-item">
-                    <div class="icon">
-                        <a href="{% url "package_id" package.id %}"><img src="{{ package.icon_link }}"/></a>
-                    </div>
-                    <div class="title">
-                        <a href="{% url "package_id" package.id %}">{{ package.c_name }}</a>
-                    </div>
-                    <div class="tag">
-                        <a href="{% url "section_id" package.c_section.id %}">{{ package.c_section }}</a>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+        {% include 'frontend/grid-list.html' %}
         <div class="clear"></div>
         {% include 'frontend/pagination.html' %}
     </div>

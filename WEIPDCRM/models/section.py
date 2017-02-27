@@ -69,12 +69,15 @@ class Section(models.Model):
             validator_underscore
         ]
     )
-    icon = models.ImageField(
+
+    # Warning: this field will store icon/file relative to MEDIA_URL,
+    #          defined in settings.py.
+    icon = models.FileField(
         verbose_name=_("Icon"),
+        max_length=255,
         upload_to="section-icons",
         help_text=_("Choose an Icon (*.png) to upload"),
-        blank=True,
-        null=True
+        blank=True
     )
 
     def __unicode__(self):

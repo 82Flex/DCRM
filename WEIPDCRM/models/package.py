@@ -32,6 +32,8 @@ from django.utils.translation import ugettext as _
 from WEIPDCRM.models.version import Version
 from WEIPDCRM.models.section import Section
 
+from preferences import preferences
+
 
 class Package(models.Model):
     """
@@ -68,6 +70,11 @@ class Package(models.Model):
         Section,
         verbose_name=_("Section")
     )
+    online_icon = models.ImageField(
+        verbose_name=_("Online Icon"),
+        max_length=255,
+        blank=True
+    )
     
     def get_version_admin_url(self):
         """
@@ -79,3 +86,19 @@ class Package(models.Model):
             "admin:%s_%s_change" % (content_type.app_label, "version"),
             args=(self.id,)
         )
+    
+    def get_display_icon(self):
+        """
+        Get display icon from online_icon field, if not set, then
+        return its section icon field
+        :return:
+        """
+        if self.online_icon.name:
+            file_path = self.online_icon.name
+            return unicode(preferences.Setting.resources_alias) + file_path
+        elif self.c_section:
+            # self.c_section.icon has been validated by icon_link getter.
+            return self.c_section.icon_link
+        return None
+    
+    display_icon = property(get_display_icon)

@@ -31,6 +31,7 @@ from preferences import preferences
 class SectionView(ListView):
     allow_empty = True
     paginate_by = 16
+    ordering = '-id'
     model = Package
     context_object_name = 'package_list'
     pk_url_kwarg = 'section_id'

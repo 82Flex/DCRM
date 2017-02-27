@@ -26,6 +26,7 @@ import os
 
 from django_rq import job, queues
 from django.db import transaction
+from django.conf import settings
 from django.contrib import admin
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
@@ -52,11 +53,12 @@ def handle_uploaded_package(path):
         uploaded_package = DebianPackage(path)
         # uploaded_package.load()
         control = uploaded_package.control
-        target_dir = 'resources/versions/' + str(uuid.uuid1()) + '/'
+        target_dir = os.path.join(settings.MEDIA_ROOT, 'versions', str(uuid.uuid1()))
         os.mkdir(target_dir)
-        target_path = target_dir + control.get('Package', 'undefined') + '_' + \
-                      control.get('Version', 'undefined') + '_' + \
-                      control.get('Architecture', 'undefined') + '.deb'
+        target_path = os.path.join(target_dir,
+                                   control.get('Package', 'undefined') + '_' +
+                                   control.get('Version', 'undefined') + '_' +
+                                   control.get('Architecture', 'undefined') + '.deb')
         with transaction.atomic():
             p_section = Section.objects.filter(name=control.get('Section', None)).last()
             if p_section:
@@ -140,9 +142,10 @@ def handle_uploaded_file(request):
     :type request: HttpRequest
     """
     f = request.FILES['package']
-    if not os.path.exists('temp'):
-        os.mkdir('temp')
-    package_temp_path = 'temp/' + str(uuid.uuid1()) + '.deb'
+    temp_root = settings.TEMP_ROOT
+    if not os.path.exists(temp_root):
+        os.mkdir(temp_root)
+    package_temp_path = os.path.join(temp_root, str(uuid.uuid1()) + '.deb')
     with open(package_temp_path, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)

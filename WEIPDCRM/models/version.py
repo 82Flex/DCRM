@@ -37,6 +37,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
 from django_rq import job
+from django.conf import settings
 
 from preferences import preferences
 
@@ -60,7 +61,7 @@ def write_to_package_job(control, path, callback_version_id):
     :param callback_version_id: Callback Version ID, for callback query
     :type callback_version_id: int
     """
-    temp_path = 'temp/' + str(uuid.uuid1()) + '.deb'
+    temp_path = os.path.join(settings.TEMP_ROOT, str(uuid.uuid1()) + '.deb')
     shutil.copyfile(path, temp_path)
     # read new package
     temp_package = DebianPackage(temp_path)
@@ -178,11 +179,11 @@ class Version(models.Model):
         :return: External Storage Link
          :rtype: str
         """
-        file_path = self.storage.name
+        file_path = os.path.relpath(self.storage.name, settings.BASE_DIR)
         slash_index = file_path.find("/")
         if slash_index > 0:
-            file_path = self.storage.name[slash_index + 1:]
-        return str(preferences.Setting.resources_alias) + file_path
+            file_path = file_path[slash_index + 1:]
+        return unicode(preferences.Setting.resources_alias) + file_path
     
     storage_link = property(get_external_storage_link)
     
@@ -233,13 +234,41 @@ class Version(models.Model):
         upload_to="debs",
         max_length=255
     )  # OK
-    c_icon = models.ImageField(
-        verbose_name=_("Icon"),
+
+    # Warning: this field will store icon/file relative to MEDIA_URL,
+    #          defined in settings.py.
+    online_icon = models.FileField(
+        verbose_name=_("Online Icon"),
         upload_to="package-icons",
         help_text=_("Choose an Icon (*.png) to upload"),
-        blank=True,
-        default=""
+        max_length=255,
+        blank=True
     )  # OK
+
+    def get_display_icon(self):
+        """
+        Get display icon from online_icon field, if not set, then
+        return its section icon field
+        :return:
+        """
+        if self.online_icon.name:
+            file_path = self.online_icon.name
+            return unicode(preferences.Setting.resources_alias) + file_path
+        elif self.c_section:
+            # self.c_section.icon has been validated by icon_link getter.
+            return self.c_section.icon_link
+        return None
+
+    display_icon = property(get_display_icon)
+    
+    c_icon = models.CharField(
+        verbose_name=_("Icon"),
+        help_text=_("If there is no \"Online Icon\", this field will be taken."),
+        max_length=255,
+        null=True,
+        blank=True,
+        default=None
+    )
     c_md5 = models.CharField(
         verbose_name=_("MD5Sum"),
         max_length=32,
@@ -360,11 +389,12 @@ class Version(models.Model):
         """
         atomic = preferences.Setting.atomic_storage
         if atomic:
-            target_dir = 'resources/versions/' + str(uuid.uuid1()) + '/'
+            target_dir = os.path.join(settings.MEDIA_ROOT, 'versions', str(uuid.uuid1()))
             os.mkdir(target_dir)
-            target_path = target_dir + self.c_package + '_' + \
-                          self.c_version + '_' + \
-                          self.c_architecture + '.deb'
+            target_path = os.path.join(target_dir,
+                                       self.c_package + '_' +
+                                       self.c_version + '_' +
+                                       self.c_architecture + '.deb')
             os.rename(temp_path, target_path)
             self.storage.name = target_path
         else:
