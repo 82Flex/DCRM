@@ -308,12 +308,35 @@ class Version(models.Model):
                     "in KiB units.")
     )  # OK
     
+    def get_advanced_control_dict(self):
+        """
+        Generate advanced control dictionary (contains download and verify information).
+        
+        :rtype: dict
+        :return: Advanced Control Dict
+        """
+        control_dict = self.get_control_dict()
+        advanced_dict = {
+            "Filename": self.storage_link,
+            "Size": self.c_size,
+            "MD5sum": self.c_md5,
+            "SHA1": self.c_sha1,
+            "SHA256": self.c_sha256,
+            "SHA512": self.c_sha512
+        }
+        for (k, v) in advanced_dict.items():
+            if v is not None and len(unicode(v)) > 0:
+                control_dict[k] = unicode(v)
+        return control_dict
+        
+    
     def get_control_dict(self):
         # original
         """
         Generate control dictionary from instance properties
+        
         :rtype: dict
-        :return: No return value
+        :return: Control Dict
         """
         """
         Standard Keys
@@ -506,6 +529,13 @@ class Version(models.Model):
                     "Optionally, one can choose to replace that description with "
                     "an arbitrarily long one that will be displayed on the package details "
                     "screen.")
+    )
+    rich_description = models.TextField(
+        verbose_name=_("Rich Description"),
+        blank=True,
+        null=True,
+        default="",
+        help_text=_("HTML Displayed on the auto depiction page (mobile).")
     )
     
     # Foreign Keys

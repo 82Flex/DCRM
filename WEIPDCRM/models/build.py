@@ -55,25 +55,8 @@ class Build(models.Model):
         verbose_name=_("Created At"),
         auto_now_add=True
     )
-    active_release = models.ForeignKey(
-        Release,
-        verbose_name=_("Active Release"),
-        on_delete=models.CASCADE,
-        null=True
-    )
-    compression = models.IntegerField(
-        verbose_name=_("Packages Compression"),
-        choices=(
-            (0, _("Plain")),
-            (1, _("Gzip")),
-            (2, _("Plain and Gzip")),
-            (3, _("Bzip")),
-            (4, _("Plain and Bzip")),
-            (5, _("Gzip and Bzip")),
-            (6, _("All (Recommended)")),
-        ),
-        default=6,
-    )
+    
+    # History Settings
     details = models.TextField(
         verbose_name=_("Details"),
         blank=True,

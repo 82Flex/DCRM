@@ -31,7 +31,7 @@ class SettingsAdmin(PreferencesAdmin):
         }),
         ('Packages List', {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['enable_pdiffs', 'packages_compression', 'packages_validation', 'downgrade_support']
+            'fields': ['enable_pdiffs', 'gpg_signature', 'packages_compression', 'packages_validation', 'downgrade_support']
         }),
         ('Resource', {
             'classes': ('suit-tab suit-tab-common',),
@@ -40,11 +40,6 @@ class SettingsAdmin(PreferencesAdmin):
         ('Display', {
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['advanced_mode']
-        }),
-        # Advanced
-        ('Cache', {
-            'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['enable_cache', 'cache_time']
         }),
         # Rest API
         ('Global', {
@@ -55,7 +50,6 @@ class SettingsAdmin(PreferencesAdmin):
 
     suit_form_tabs = (
         ('common', 'Common'),
-        ('advanced', 'Advanced'),
         ('api', 'Rest API')
     )
 

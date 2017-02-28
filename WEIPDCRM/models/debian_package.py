@@ -180,8 +180,11 @@ class DebianPackage(object):
             return ''
     
     @staticmethod
-    def get_control_content(control_dict):
+    def get_control_content(control_dict, fd=None):
         """
+        :param fd: If fd is None, returns a unicode object.  Otherwise, fd is assumed to
+        be a file-like object, and this method will write the data to it
+        instead of returning a unicode object.
         :type control_dict: Dictionary
         :rtype: str
         :return: Control in RFC822 Format
@@ -190,7 +193,10 @@ class DebianPackage(object):
         if "Description" in control_dict.keys():
             control_dict["Description"] = format_multiline(control_dict["Description"])
         rfc822 = Deb822(control_dict)
-        return rfc822.dump(encoding="utf-8") + "\n"  # Just add a blank line and encode
+        if fd is not None:
+            rfc822.dump(fd, "utf-8")
+        else:
+            return rfc822.dump(encoding="utf-8")
     
     def save(self):
         """

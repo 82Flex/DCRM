@@ -33,6 +33,7 @@ from django.contrib.admin.actions import delete_selected
 
 from suit import apps
 from suit_redactor.widgets import RedactorWidget
+from suit.widgets import AutosizedTextarea
 
 from WEIPDCRM.models.version import Version
 
@@ -40,8 +41,9 @@ from WEIPDCRM.models.version import Version
 class VersionForm(ModelForm):
     class Meta(object):
         widgets = {
-            'update_logs': RedactorWidget,
-            'c_description': RedactorWidget,
+            'rich_description': RedactorWidget,
+            'update_logs': AutosizedTextarea,
+            'c_description': AutosizedTextarea
         }
 
 
@@ -127,7 +129,7 @@ class VersionAdmin(admin.ModelAdmin):
         }),
         ('Links', {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['custom_depiction', 'c_depiction', 'c_homepage']
+            'fields': ['custom_depiction', 'c_depiction', 'c_homepage', 'rich_description']
         }),
         ('Compatibility', {
             'classes': ('suit-tab suit-tab-common',),
@@ -220,7 +222,7 @@ class VersionAdmin(admin.ModelAdmin):
         """
         excluded_column = ['enabled', 'created_at', 'os_compatibility', 'device_compatibility',
                            'update_logs', 'storage', 'online_icon', 'c_md5', 'c_sha1', 'c_sha256', 'c_sha512',
-                           'c_size', 'download_times']
+                           'c_size', 'download_times', 'rich_description']
         change_list = form.changed_data
         change_num = len(change_list)
         for change_var in change_list:

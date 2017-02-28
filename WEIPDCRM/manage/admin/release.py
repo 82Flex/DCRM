@@ -42,13 +42,13 @@ class ReleaseAdmin(admin.ModelAdmin):
     readonly_fields = ['created_at']
     fieldsets = [
         ('General', {
-            'fields': ['origin', 'label', 'version', 'codename', 'description']
+            'fields': ['origin', 'label', 'version', 'codename']
         }),
         ('Appearance', {
-            'fields': ['icon']
+            'fields': ['icon', 'description']
         }),
         ('Cydia', {
-            'fields': ['suite', 'components']
+            'fields': ['suite', 'components', "support"]
         }),
         ('SEO', {
             'fields': ['keywords']

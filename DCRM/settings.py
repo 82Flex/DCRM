@@ -201,6 +201,9 @@ CACHES = {
     }
 }
 
+ENABLE_CACHE = True
+CACHE_TIME = 3600
+
 # Temp files
 
 TEMP_ROOT = os.path.join(BASE_DIR, 'temp')

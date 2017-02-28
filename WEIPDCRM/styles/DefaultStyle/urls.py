@@ -24,12 +24,12 @@ from views.index import IndexView
 from views.package import PackageView
 from views.section import SectionView
 from django.views.decorators.cache import cache_page
-from preferences import preferences
+from django.conf import settings
 
 
 def cache():
-    return cache_page(preferences.Setting.cache_time) \
-        if preferences.Setting.enable_cache else lambda x: x
+    return cache_page(settings.CACHE_TIME) \
+        if settings.ENABLE_CACHE else lambda x: x
 
 
 urlpatterns = [

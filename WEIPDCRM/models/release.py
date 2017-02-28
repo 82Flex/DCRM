@@ -25,7 +25,6 @@ from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext as _
 from django.core.validators import validate_slug
-from django.conf import settings
 
 from preferences import preferences
 
@@ -108,10 +107,7 @@ class Release(models.Model):
                     "architectures that appear in your Packages file here. Again, we use "
                     "darwin-arm for 1.1.x and iphoneos-arm for 2.x."),
         default=_("iphoneos-arm"),
-        blank=True,
-        validators=[
-            validate_slug
-        ]
+        blank=True
     )
 
     components = models.CharField(
@@ -154,6 +150,14 @@ class Release(models.Model):
         null=True,
     )
 
+    support = models.URLField(
+        verbose_name=_("Support"),
+        max_length=255,
+        help_text=_("Official Site to provide support."),
+        blank=True,
+        null=True
+    )
+
     def __unicode__(self):
         return self.label + " (" + self.origin + ")"
 
@@ -182,3 +186,31 @@ class Release(models.Model):
         return unicode(preferences.Setting.resources_alias) + file_path
     
     icon_link = property(get_external_icon_link)
+    
+    def get_control_field(self):
+        # original
+        """
+        Generate control dictionary from instance properties
+
+        :rtype: dict
+        :return: No return value
+        """
+        """
+        Standard Keys
+        """
+        control_field = {
+            "Origin": self.origin,
+            "Label": self.label,
+            "Suite": self.suite,
+            "Version": self.version,
+            "Codename": self.codename,
+            "Architectures": self.architectures,
+            "Components": self.components,
+            "Description": self.description,
+            "Support": self.support
+        }
+        control = {}
+        for (k, v) in control_field.items():
+            if v is not None and len(unicode(v)) > 0:
+                control[k] = unicode(v)
+        return control
