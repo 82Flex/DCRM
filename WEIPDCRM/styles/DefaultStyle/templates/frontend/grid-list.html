@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <div class="list grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 160 }'>
     {% for package in package_list %}
         <div class="list-item grid-item">
@@ -7,7 +8,7 @@
                         <img src="{{ package.display_icon }}"/>
                     {% else %}
                         <!-- TODO: Default Icon -->
-                        <img src=""/>
+                        <img src="{% static 'frontend/img/default-package-icon.png' %}"/>
                     {% endif %}
                 </a>
             </div>
