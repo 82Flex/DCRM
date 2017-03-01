@@ -22,8 +22,12 @@ from __future__ import unicode_literals
 
 import os
 import gzip
+
+# You can comment this line and disable bz2 compression if you don't have a bz2 module.
 import bz2
+
 import hashlib
+import subprocess
 
 from django_rq import job
 from django.conf import settings
@@ -42,17 +46,14 @@ from WEIPDCRM.models.release import Release
 
 
 @job('high')
-def build_procedure(
-        build_uuid, build_all, build_p_diff,
-        build_compression, build_secure, build_validation,
-        build_release):
+def build_procedure(conf):
     """
     This is the main package list building procedure.
     """
     
-    if not build_p_diff:
+    if not conf["build_p_diff"]:
         # Preparing Temp Directory
-        build_temp_path = os.path.join(settings.TEMP_ROOT, str(build_uuid))
+        build_temp_path = os.path.join(settings.TEMP_ROOT, str(conf["build_uuid"]))
         if not os.path.exists(build_temp_path):
             os.mkdir(build_temp_path)
         
@@ -60,7 +61,7 @@ def build_procedure(
         build_temp_package = open(os.path.join(build_temp_path, "Packages"), "wb+")
         
         # Build Package file
-        build_all_versions_enabled = build_all
+        build_all_versions_enabled = conf["build_all"]
         
         # Get Package List QuerySet
         if build_all_versions_enabled:
@@ -77,7 +78,10 @@ def build_procedure(
         
         # Compression Gzip
         build_temp_package.seek(0)
-        if build_compression == 1 or build_compression == 2 or build_compression == 5 or build_compression == 6:
+        if conf["build_compression"] == 1 \
+                or conf["build_compression"] == 2 \
+                or conf["build_compression"] == 5 \
+                or conf["build_compression"] == 6:
             build_temp_package_gz = gzip.open(os.path.join(build_temp_path, "Packages.gz"), mode="wb")
             while True:
                 cache = build_temp_package.read(16 * 1024)  # 16k cache
@@ -88,7 +92,10 @@ def build_procedure(
         
         # Compression Bzip
         build_temp_package.seek(0)
-        if build_compression == 3 or build_compression == 4 or build_compression == 5 or build_compression == 6:
+        if conf["build_compression"] == 3 \
+                or conf["build_compression"] == 4 \
+                or conf["build_compression"] == 5 \
+                or conf["build_compression"] == 6:
             build_temp_package_bz2 = bz2.BZ2File(os.path.join(build_temp_path, "Packages.bz2"), mode="wb")
             while True:
                 cache = build_temp_package.read(16 * 1024)  # 16k cache
@@ -101,14 +108,13 @@ def build_procedure(
         build_temp_package.close()
 
         # Release
-        build_temp_release_path = os.path.join(build_temp_path, "Release")
-        active_release = Release.objects.get(id=build_release)
+        active_release = Release.objects.get(id=conf["build_release"])
         active_release_control_dict = active_release.get_control_field()
-        build_temp_release = open(build_temp_release_path, mode="wb")
+        build_temp_release = open(os.path.join(build_temp_path, "Release"), mode="wb")
         DebianPackage.get_control_content(active_release_control_dict, build_temp_release)
         
         # Checksum
-        if build_secure:
+        if conf["build_secure"]:
             def hash_file(hash_obj, file_path):
                 with open(file_path, "rb") as f:
                     for block in iter(lambda: f.read(65535), b""):
@@ -126,8 +132,9 @@ def build_procedure(
                 hashlib.md5, hashlib.sha1, hashlib.sha256, hashlib.sha512
             ]
             
+            # Using a loop to iter different validation methods
             for build_validation_index in range(0, 3):
-                if build_validation > build_validation_index:
+                if conf["build_validation"] > build_validation_index:
                     build_temp_release.write((build_validation_titles[build_validation_index] + ":\n").encode("utf-8"))
                     for checksum_instance in checksum_list:
                         checksum_path = os.path.join(build_temp_path, checksum_instance)
@@ -145,13 +152,22 @@ def build_procedure(
         
         build_temp_release.close()
         
-        # TODO: GPG Signature
+        # GPG Signature
+        """
+        Use 'gpg --gen-key' to generate GnuPG key before using this function.
+        """
+        subprocess.check_call(
+            ["gpg", "-abs", "--batch", "--yes", "-o",
+             os.path.join(build_temp_path, "Release.gpg"),
+             os.path.join(build_temp_path, "Release"),
+             ]
+        )
         
         # Preparing Directory
         build_root_path = os.path.join(settings.MEDIA_ROOT, "builds")
         if not os.path.isdir(build_root_path):
             os.mkdir(build_root_path)
-        build_path = os.path.join(build_root_path, str(build_uuid))
+        build_path = os.path.join(build_root_path, str(conf["build_uuid"]))
         if not os.path.isdir(build_path):
             os.mkdir(build_path)
         
@@ -170,8 +186,6 @@ def build_procedure(
                 os.rename(rename_path, rename_to_path)
         
         # TODO: Pubish
-        
-        # TODO: Callback
         
     else:
         # TODO: Pdiffs Feature
@@ -204,13 +218,13 @@ class BuildAdmin(admin.ModelAdmin):
         
         obj.active_release = preferences.Setting.active_release
         super(BuildAdmin, self).save_model(request, obj, form, change)
-        build_procedure(
-            obj.uuid,  # build_uuid
-            setting.downgrade_support,  # build_all
-            setting.enable_pdiffs,  # build_p_diff
-            setting.packages_compression,  # build_compression
-            setting.gpg_signature,  # build_secure
-            setting.packages_validation,  # build_validation
-            obj.active_release.id,  # build_release
-        )
+        build_procedure({
+            "build_uuid": obj.uuid,
+            "build_all": setting.downgrade_support,
+            "build_p_diff": setting.enable_pdiffs,
+            "build_compression": setting.packages_compression,
+            "build_secure": setting.gpg_signature,
+            "build_validation": setting.packages_validation,
+            "build_release": obj.active_release.id,
+        })
         messages.info(request, _("Build %s generating job has been added to the \"high\" queue.") % str(obj))

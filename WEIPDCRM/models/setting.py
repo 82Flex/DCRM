@@ -21,6 +21,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from __future__ import unicode_literals
 
 import re
+import subprocess
+
 from django.db import models
 from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
@@ -49,6 +51,37 @@ def validate_alias(value):
     """
     if value[len(value) - 1:] != '/':
         raise ValidationError(_("Path alias should be suffixed by a slash char."))
+
+
+def validate_gpg(value):
+    """
+    Check if gpg command has been installed.
+    """
+    if value:
+        try:
+            subprocess.check_call(['gpg', '--version', '--batch', '--yes'])
+        except Exception as e:
+            raise ValidationError(_("Cannot find command 'gpg': %s") % unicode(e))
+
+
+def validate_web_server(value):
+    if value != 0:
+        raise ValidationError(_("Only Nginx is supported now."))
+
+
+def validate_pdiffs(value):
+    if value:
+        raise ValidationError(_("Pdiffs is not supported now."))
+
+
+def validate_advanced_mode(value):
+    if value:
+        raise ValidationError(_("Auto Depiction is not supported now."))
+
+
+def validate_rest_api(value):
+    if value:
+        raise ValidationError(_("Rest API is not supported now."))
 
 
 class Setting(Preferences):
@@ -114,7 +147,10 @@ class Setting(Preferences):
         help_text=_(
             "Check it to generate awesome depiction page for each version."
         ),
-        default=True
+        default=False,
+        validators=[
+            validate_advanced_mode
+        ]
     )
     atomic_storage = models.BooleanField(
         verbose_name=_("Atomic Storage"),
@@ -127,7 +163,7 @@ class Setting(Preferences):
         # You should not change this field unless you are not using debug server.
         verbose_name=_("Resources Alias"),
         help_text=_("You can specify alias for resources path in Nginx or "
-                    "other HTTP servers, which is necessary for CDN speedup."),
+                    "other HTTP servers, which is also necessary for CDN speedup."),
         max_length=255,
         default="/resources/",
         validators=[
@@ -138,17 +174,58 @@ class Setting(Preferences):
     enable_pdiffs = models.BooleanField(
         verbose_name=_("Enable pdiffs"),
         help_text=_("If package list is extremely large, you should enable this to allow incremental update."),
-        default=False
+        default=False,
+        validators=[
+            validate_pdiffs
+        ]
     )
     rest_api = models.BooleanField(
         verbose_name=_("Enable Rest API"),
         help_text=_("Upload packages using HTTP, manage your repositories, snapshots, published repositories etc."),
-        default=False
+        default=False,
+        validators=[
+            validate_rest_api
+        ]
     )
     gpg_signature = models.BooleanField(
         verbose_name=_("Enable GPG Signature"),
-        help_text=_("Verify the integrity of the repository."),
-        default=False
+        help_text=_("Verify the integrity of the repository. Run 'gpg --gen-key' before you enable this feature."),
+        default=False,
+        validators=[
+            validate_gpg
+        ]
+    )
+    web_server = models.IntegerField(
+        verbose_name=_("Web Server"),
+        choices=(
+            (0, _("Nginx")),
+            (1, _("Apache")),
+            (2, _("Tomcat")),
+            (3, _("Lighttpd")),
+        ),
+        default=0,
+        help_text=_("This will help DCRM redirect download request properly."),
+        validators=[
+            validate_web_server
+        ]
+    )
+    download_count = models.BooleanField(
+        verbose_name=_("Download Count"),
+        help_text=_("Count every download. "
+                    "You should configure Nginx or other HTTP servers before you enable this feature."),
+        default=False,
+        validators=[
+            
+        ]
+    )
+    download_cydia_only = models.BooleanField(
+        verbose_name=_("Cydia Only"),
+        help_text=_("Protect downloading from any other tools except Cydia. "
+                       "You should configure Nginx or other HTTP servers before you enable this feature."),
+        default=False,
+        validators=[
+            
+        ]
     )
 
     def get_admin_url(self):

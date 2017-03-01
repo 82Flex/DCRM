@@ -41,13 +41,16 @@ class SuitConfig(DjangoSuitConfig):
             ChildItem(model='auth.group'),
         ]),
         ParentItem('WEIPDCRM', children=[
+            ChildItem(model='WEIPDCRM.release'),
+            ChildItem(model='WEIPDCRM.build'),
+            
             ChildItem(model='WEIPDCRM.package'),
             ChildItem(model='WEIPDCRM.version'),
             ChildItem(model='WEIPDCRM.section'),
-            ChildItem(model='WEIPDCRM.release'),
-            ChildItem(model='WEIPDCRM.build'),
+            
             ChildItem(model='WEIPDCRM.osversion'),
             ChildItem(model='WEIPDCRM.devicetype'),
+            
             ChildItem(model='WEIPDCRM.setting'),
         ]),
         ParentItem('Upload', children=[

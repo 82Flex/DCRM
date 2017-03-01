@@ -33,13 +33,18 @@ class SettingsAdmin(PreferencesAdmin):
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['enable_pdiffs', 'gpg_signature', 'packages_compression', 'packages_validation', 'downgrade_support']
         }),
-        ('Resource', {
-            'classes': ('suit-tab suit-tab-common',),
-            'fields': ['atomic_storage', 'resources_alias']
-        }),
         ('Display', {
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['advanced_mode']
+        }),
+        # Advanced
+        ('Resource', {
+            'classes': ('suit-tab suit-tab-advanced',),
+            'fields': ['atomic_storage', 'resources_alias']
+        }),
+        ('Server', {
+            'classes': ('suit-tab suit-tab-advanced',),
+            'fields': ['web_server', 'download_count', 'download_cydia_only']
         }),
         # Rest API
         ('Global', {
@@ -50,7 +55,9 @@ class SettingsAdmin(PreferencesAdmin):
 
     suit_form_tabs = (
         ('common', 'Common'),
-        ('api', 'Rest API')
+        ('advanced', 'Advanced'),
+        ('api', 'Rest API'),
+        ('third-party', 'Third-Party')
     )
 
     def has_add_permission(self, request):

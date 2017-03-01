@@ -48,19 +48,25 @@ class ReleaseAdmin(admin.ModelAdmin):
     readonly_fields = ['created_at']
     fieldsets = [
         ('General', {
+            'classes': ('suit-tab suit-tab-common',),
             'fields': ['origin', 'label', 'version', 'codename']
         }),
         ('Appearance', {
+            'classes': ('suit-tab suit-tab-common',),
             'fields': ['icon', 'description']
         }),
+        ('History', {
+            'classes': ('suit-tab suit-tab-common',),
+            'fields': ['created_at']
+        }),
+        # Advanced
         ('Cydia', {
+            'classes': ('suit-tab suit-tab-advanced',),
             'fields': ['suite', 'components', "support"]
         }),
         ('SEO', {
+            'classes': ('suit-tab suit-tab-advanced',),
             'fields': ['keywords']
-        }),
-        ('History', {
-            'fields': ['created_at']
         }),
     ]
     suit_form_size = {
@@ -68,6 +74,10 @@ class ReleaseAdmin(admin.ModelAdmin):
             'AutosizedTextarea': apps.SUIT_FORM_SIZE_X_LARGE,
         },
     }
+    suit_form_tabs = (
+        ('common', 'Common'),
+        ('advanced', 'Advanced'),
+    )
     
     def save_model(self, request, obj, form, change):
         super(ReleaseAdmin, self).save_model(request, obj, form, change)
