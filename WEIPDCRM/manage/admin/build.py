@@ -39,7 +39,6 @@ from WEIPDCRM.models.build import Build
 from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.version import Version
 from WEIPDCRM.models.release import Release
-from WEIPDCRM.models.setting import Setting
 
 
 @job('high')
@@ -120,68 +119,29 @@ def build_procedure(
                 "Packages.gz",
                 "Packages.bz2"
             ]
-
-            # Perform Checksum Operation
-            if build_validation >= 1:
-                build_temp_release.write("MD5Sum:\n".encode("utf-8"))
-                for checksum_instance in checksum_list:
-                    checksum_path = os.path.join(build_temp_path, checksum_instance)
-                    if os.path.exists(checksum_path):
-                        m2 = hashlib.md5()
-                        hash_file(m2, checksum_path)
-                        p_hash = m2.hexdigest()
-                        p_size = os.path.getsize(checksum_path)
-                        build_temp_release.write(
-                            (" " + p_hash +
-                             " " + str(p_size) +
-                             " " + checksum_instance +
-                             "\n").encode("utf-8")
-                        )
-            if build_validation >= 2:
-                build_temp_release.write("SHA1:\n".encode("utf-8"))
-                for checksum_instance in checksum_list:
-                    checksum_path = os.path.join(build_temp_path, checksum_instance)
-                    if os.path.exists(checksum_path):
-                        m2 = hashlib.sha1()
-                        hash_file(m2, checksum_path)
-                        p_hash = m2.hexdigest()
-                        p_size = os.path.getsize(checksum_path)
-                        build_temp_release.write(
-                            (" " + p_hash +
-                             " " + str(p_size) +
-                             " " + checksum_instance +
-                             "\n").encode("utf-8")
-                        )
-            if build_validation >= 3:
-                build_temp_release.write("SHA256:\n".encode("utf-8"))
-                for checksum_instance in checksum_list:
-                    checksum_path = os.path.join(build_temp_path, checksum_instance)
-                    if os.path.exists(checksum_path):
-                        m2 = hashlib.sha256()
-                        hash_file(m2, checksum_path)
-                        p_hash = m2.hexdigest()
-                        p_size = os.path.getsize(checksum_path)
-                        build_temp_release.write(
-                            (" " + p_hash +
-                             " " + str(p_size) +
-                             " " + checksum_instance +
-                             "\n").encode("utf-8")
-                        )
-            if build_validation >= 4:
-                build_temp_release.write("SHA512:\n".encode("utf-8"))
-                for checksum_instance in checksum_list:
-                    checksum_path = os.path.join(build_temp_path, checksum_instance)
-                    if os.path.exists(checksum_path):
-                        m2 = hashlib.sha512()
-                        hash_file(m2, checksum_path)
-                        p_hash = m2.hexdigest()
-                        p_size = os.path.getsize(checksum_path)
-                        build_temp_release.write(
-                            (" " + p_hash +
-                             " " + str(p_size) +
-                             " " + checksum_instance +
-                             "\n").encode("utf-8")
-                        )
+            build_validation_titles = [
+                "MD5Sum", "SHA1", "SHA256", "SHA512"
+            ]
+            build_validation_methods = [
+                hashlib.md5, hashlib.sha1, hashlib.sha256, hashlib.sha512
+            ]
+            
+            for build_validation_index in range(0, 3):
+                if build_validation > build_validation_index:
+                    build_temp_release.write((build_validation_titles[build_validation_index] + ":\n").encode("utf-8"))
+                    for checksum_instance in checksum_list:
+                        checksum_path = os.path.join(build_temp_path, checksum_instance)
+                        if os.path.exists(checksum_path):
+                            m2 = build_validation_methods[build_validation_index]()
+                            hash_file(m2, checksum_path)
+                            p_hash = m2.hexdigest()
+                            p_size = os.path.getsize(checksum_path)
+                            build_temp_release.write(
+                                (" " + p_hash +
+                                 " " + str(p_size) +
+                                 " " + checksum_instance +
+                                 "\n").encode("utf-8")
+                            )
         
         build_temp_release.close()
         
@@ -189,8 +149,10 @@ def build_procedure(
         
         # Preparing Directory
         build_root_path = os.path.join(settings.MEDIA_ROOT, "builds")
+        if not os.path.isdir(build_root_path):
+            os.mkdir(build_root_path)
         build_path = os.path.join(build_root_path, str(build_uuid))
-        if not os.path.exists(build_path):
+        if not os.path.isdir(build_path):
             os.mkdir(build_path)
         
         # Move Directory
@@ -220,10 +182,10 @@ class BuildAdmin(admin.ModelAdmin):
     actions = [delete_selected]
     list_display = ('uuid', 'created_at')
     search_fields = ['uuid']
-    readonly_fields = ['uuid', 'created_at']
+    readonly_fields = ['created_at']
     fieldsets = [
         ('General', {
-            'fields': ['uuid', 'details']
+            'fields': ['details']
         }),
         ('History', {
             'fields': ['created_at']
@@ -242,7 +204,7 @@ class BuildAdmin(admin.ModelAdmin):
         
         obj.active_release = preferences.Setting.active_release
         super(BuildAdmin, self).save_model(request, obj, form, change)
-        build_procedure.delay(
+        build_procedure(
             obj.uuid,  # build_uuid
             setting.downgrade_support,  # build_all
             setting.enable_pdiffs,  # build_p_diff
