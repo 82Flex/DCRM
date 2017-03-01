@@ -26,6 +26,7 @@ from django.conf.urls.static import static
 from WEIPDCRM.views.admin import upload
 from WEIPDCRM.views.admin.help import about
 from WEIPDCRM.views.admin.help import statistics
+from WEIPDCRM.views.admin import release
 
 urlpatterns = [
     # Notice: Good Bro! Use 'include' to import urls from other apps.
@@ -36,6 +37,7 @@ urlpatterns = [
     url(r'^admin/sites/django-rq/', include('django_rq.urls')),
     url(r'^admin/upload/$', upload.upload_view, name='upload'),
     url(r'^admin/upload/version/$', upload.upload_version_view, name='version_add'),
+    url(r'^admin/release/set-default/(?P<release_id>\d+)$', release.set_default_view, name='set_default_release'),
     url(r'^admin/help/about/$', about.about_view, name='help_about'),
     url(r'^admin/help/statistics/$', statistics.statistics_view, name='help_statistics'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

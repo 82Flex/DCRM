@@ -201,8 +201,12 @@ CACHES = {
     }
 }
 
-ENABLE_CACHE = True
-CACHE_TIME = 3600
+if not DEBUG:
+    ENABLE_CACHE = True
+    CACHE_TIME = 3600
+else:
+    ENABLE_CACHE = False
+    CACHE_TIME = 0
 
 # Temp files
 

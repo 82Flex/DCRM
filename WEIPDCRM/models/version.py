@@ -329,7 +329,6 @@ class Version(models.Model):
                 control_dict[k] = unicode(v)
         return control_dict
         
-    
     def get_control_dict(self):
         # original
         """
@@ -413,8 +412,12 @@ class Version(models.Model):
         """
         atomic = preferences.Setting.atomic_storage
         if atomic:
-            target_dir = os.path.join(settings.MEDIA_ROOT, 'versions', str(uuid.uuid1()))
-            os.mkdir(target_dir)
+            root_res = os.path.join(settings.MEDIA_ROOT, 'versions')
+            if not os.path.isdir(root_res):
+                os.mkdir(root_res)
+            target_dir = os.path.join(root_res, str(uuid.uuid1()))
+            if not os.path.isdir(target_dir):
+                os.mkdir(target_dir)
             target_path = os.path.join(target_dir,
                                        self.c_package + '_' +
                                        self.c_version + '_' +

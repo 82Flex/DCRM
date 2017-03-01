@@ -207,6 +207,8 @@ def build_procedure(
                 rename_to_path = os.path.join(build_path, rename_instance)
                 os.rename(rename_path, rename_to_path)
         
+        # TODO: Pubish
+        
         # TODO: Callback
         
     else:

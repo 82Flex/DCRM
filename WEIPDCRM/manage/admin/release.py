@@ -22,9 +22,15 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 from django.contrib.admin.actions import delete_selected
+from django.contrib import messages
+from django.urls import reverse
+from django.utils.safestring import mark_safe
+from django.utils.translation import ugettext_lazy as _
 from django.forms import ModelForm
 from suit import apps
 from suit.widgets import AutosizedTextarea
+
+from preferences import preferences
 
 
 class ReleaseForm(ModelForm):
@@ -62,5 +68,16 @@ class ReleaseAdmin(admin.ModelAdmin):
             'AutosizedTextarea': apps.SUIT_FORM_SIZE_X_LARGE,
         },
     }
+    
+    def save_model(self, request, obj, form, change):
+        super(ReleaseAdmin, self).save_model(request, obj, form, change)
+        messages.warning(request, mark_safe(_(
+            "There is no active release. " +
+            "<a href=\"" +
+            reverse("set_default_release", args=[obj.id]) +
+            "\">" +
+            "Set current release as active release." +
+            "</a>"
+        )))
     
     change_form_template = "admin/release/change_form.html"

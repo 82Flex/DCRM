@@ -51,10 +51,13 @@ def handle_uploaded_package(path):
     result_dict = {}
     try:
         uploaded_package = DebianPackage(path)
-        # uploaded_package.load()
         control = uploaded_package.control
+        version_dir = os.path.join(settings.MEDIA_ROOT, 'versions')
+        if not os.path.isdir(version_dir):
+            os.mkdir(version_dir)
         target_dir = os.path.join(settings.MEDIA_ROOT, 'versions', str(uuid.uuid1()))
-        os.mkdir(target_dir)
+        if not os.path.isdir(target_dir):
+            os.mkdir(target_dir)
         target_path = os.path.join(target_dir,
                                    control.get('Package', 'undefined') + '_' +
                                    control.get('Version', 'undefined') + '_' +
@@ -158,7 +161,7 @@ def upload_version_view(request):
     :param request: Django Request
     :return: Redirect Response
     """
-    messages.info(request, _('Upload a Package File to add new version.'))
+    messages.info(request, _('Upload package files to add new versions.'))
     return redirect('upload')
 
 
