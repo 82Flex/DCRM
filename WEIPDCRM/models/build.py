@@ -61,6 +61,9 @@ class Build(models.Model):
         verbose_name=_("Details"),
         blank=True,
         null=True,
+        help_text=_("Tell others what did you do this time "
+                    "before you rebuild the repository."),
+        default=""
     )
     
     def __unicode__(self):
