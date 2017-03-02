@@ -16,7 +16,7 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 The initial version of DCRM is now under the development, and for now, only Chinese Installation Guideline is available. But DCRM is now in English, and you can try it if you know how to use Django and test its project.
 
 ### DCRM 的基本环境要求是什么？
-- Python 2.7 及标准库
+- Python 2.7
 - Django 1.10.5 final
 - 如果您开启了此压缩方式，还需要额外的 bz2 模块
 - 缓存：Redis (Required), memcached (Recommended)
@@ -35,7 +35,7 @@ The initial version of DCRM is now under the development, and for now, only Chin
 DCRM 尚处于开发阶段，暂不支持一键配置，请按照以下步骤进行部署：
 
 1. 完成基本环境的配置
-2. 配置 Nginx 或其它 Web 服务，将 resources 目录映射到站点可访问路径下
+2. 配置 Nginx 或其它 Web 服务，将 resources 目录映射到站点可访问路径下，配置范例：https://github.com/82Flex/DCRM/blob/master/docs/example_nginx.conf
 3. 设置 settings.py
     1. 设置随机 SECRET_KEY
     2. 将测试域名添加到 ALLOWED_HOSTS
@@ -48,6 +48,8 @@ DCRM 尚处于开发阶段，暂不支持一键配置，请按照以下步骤进
     1. ./manage.py collectstatic
     2. ./manage.py migrate
     3. ./manage.py createsuperuser
+    4. nohup ./manage.py rqworker high &
+    5. nohup ./manage.py rqworker default &
 5. 登录管理后台，配置 WEIPDCRM -> Settings
 6. 配置 WEIPDCRM -> Releases 源信息
 7. 通过 Upload 上传 Deb 文件
@@ -69,7 +71,7 @@ DCRM 尚处于开发阶段，暂不支持一键配置，请按照以下步骤进
 - ALTER TABLE tbl_name CHANGE c_name c_name CHARACTER SET character_name [COLLATE ...];
 
 ### 出现 Permission Denied 如何解决？
-- 由于 rqworker 无法工作在 uwsgi 同一用户组，建议将 temp、resources 等目录赋予 0777 权限，并将用户组置为 uwsgi 所在用户组。
+- 请让 rqworker 工作在 uwsgi 同一用户组。例如 uwsgi 用户为 www，则启动 rqworker 时请采用 _sudo -u www nohup ./manage.py rqworker high &_。
 
 ## LICENSE 版权声明
 
