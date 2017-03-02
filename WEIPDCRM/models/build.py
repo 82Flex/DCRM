@@ -44,6 +44,7 @@ class Build(models.Model):
     class Meta(object):
         verbose_name = _("Build")
         verbose_name_plural = _("Builds")
+        ordering = ("-created_at", )
 
     # Base Property
     uuid = models.UUIDField(

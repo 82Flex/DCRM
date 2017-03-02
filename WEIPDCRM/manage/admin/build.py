@@ -61,11 +61,20 @@ def build_procedure(conf):
         # Get Package List QuerySet
         if build_all_versions_enabled:
             version_set = Version.objects.filter(enabled=True).order_by('-id')
+            version_count = version_set.count()
         else:
-            version_set = Package.objects.order_by('-id')
+            version_set = Version.objects.raw(
+                "SELECT * FROM `WEIPDCRM_version` "
+                "WHERE `enabled` = TRUE "
+                "GROUP BY `c_package` DESC "
+                "ORDER BY `id` DESC"
+            )
+            version_count = 0
+            for version in version_set:
+                version_count += 1
         
         # Check Empty
-        if version_set.count() == 0:
+        if version_count == 0:
             raise ValueError(_("No enabled package available."))
 
         # Preparing Temp Directory
