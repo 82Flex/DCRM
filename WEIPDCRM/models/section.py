@@ -65,7 +65,6 @@ class Section(models.Model):
                     "be able to edit its name after assigning any package under it."),
         unique=True,
         validators=[
-            validate_slug,
             validator_underscore
         ]
     )
