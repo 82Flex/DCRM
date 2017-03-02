@@ -55,6 +55,14 @@ class Build(models.Model):
         verbose_name=_("Created At"),
         auto_now_add=True
     )
+    active_release = models.ForeignKey(
+        Release,
+        verbose_name=_("Active Release"),
+        on_delete=models.CASCADE,
+        blank=False,
+        null=True,
+        default=None
+    )
     
     # History Settings
     details = models.TextField(

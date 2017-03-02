@@ -44,6 +44,8 @@ from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.version import Version
 from WEIPDCRM.models.release import Release
 
+from WEIPDCRM.tools import mkdir_p
+
 
 @job('high')
 def build_procedure(conf):
@@ -55,7 +57,7 @@ def build_procedure(conf):
         # Preparing Temp Directory
         build_temp_path = os.path.join(settings.TEMP_ROOT, str(conf["build_uuid"]))
         if not os.path.exists(build_temp_path):
-            os.mkdir(build_temp_path)
+            mkdir_p(build_temp_path)
         
         # Create Temp Package file
         build_temp_package = open(os.path.join(build_temp_path, "Packages"), "wb+")
@@ -164,12 +166,15 @@ def build_procedure(conf):
         )
         
         # Preparing Directory
-        build_root_path = os.path.join(settings.MEDIA_ROOT, "builds")
-        if not os.path.isdir(build_root_path):
-            os.mkdir(build_root_path)
-        build_path = os.path.join(build_root_path, str(conf["build_uuid"]))
+        build_path = os.path.join(
+            settings.MEDIA_ROOT,
+            "releases",
+            str(active_release.id),
+            "builds",
+            str(conf["build_uuid"])
+        )
         if not os.path.isdir(build_path):
-            os.mkdir(build_path)
+            mkdir_p(build_path)
         
         # Move Directory
         rename_list = [
@@ -193,13 +198,18 @@ def build_procedure(conf):
 
 
 class BuildAdmin(admin.ModelAdmin):
+    def active_release_(self, instance):
+        if instance.active_release is None:
+            return unicode(preferences.Setting.active_release)
+        return unicode(instance.active_release)
+    
     actions = [delete_selected]
-    list_display = ('uuid', 'created_at')
+    list_display = ('uuid', 'active_release', 'created_at')
     search_fields = ['uuid']
-    readonly_fields = ['created_at']
+    readonly_fields = ['active_release_', 'created_at']
     fieldsets = [
         ('General', {
-            'fields': ['details']
+            'fields': ['active_release_', 'details']
         }),
         ('History', {
             'fields': ['created_at']
