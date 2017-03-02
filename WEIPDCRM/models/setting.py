@@ -201,7 +201,6 @@ class Setting(Preferences):
             (0, _("Nginx")),
             (1, _("Apache")),
             (2, _("Tomcat")),
-            (3, _("Lighttpd")),
         ),
         default=0,
         help_text=_("This will help DCRM redirect download request properly."),
@@ -209,10 +208,25 @@ class Setting(Preferences):
             validate_web_server
         ]
     )
+    redirect_resources = models.IntegerField(
+        verbose_name=_("Redirect Methods"),
+        choices=(
+            (0, _("None")),
+            (1, _("Moved")),
+            (2, _("Accel"))
+        ),
+        help_text=_("None - Read resources and return."
+                    "Moved - Return 301/302 responses to the real resource urls.<br />"
+                    "Accel - Redirect resource requests to WEB servers without changing urls."),
+        default=0,
+        validators=[
+            
+        ]
+    )
     download_count = models.BooleanField(
         verbose_name=_("Download Count"),
         help_text=_("Count every download. "
-                    "You should configure Nginx or other HTTP servers before you enable this feature."),
+                    "You should configure Nginx or other Web servers before you enable this feature."),
         default=False,
         validators=[
             
@@ -221,7 +235,7 @@ class Setting(Preferences):
     download_cydia_only = models.BooleanField(
         verbose_name=_("Cydia Only"),
         help_text=_("Protect downloading from any other tools except Cydia. "
-                       "You should configure Nginx or other HTTP servers before you enable this feature."),
+                       "You should configure Nginx or other Web servers before you enable this feature."),
         default=False,
         validators=[
             

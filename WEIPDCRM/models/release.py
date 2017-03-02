@@ -161,6 +161,17 @@ class Release(models.Model):
     def __unicode__(self):
         return self.label + " (" + self.origin + ")"
 
+    @staticmethod
+    def get_change_list_url():
+        """
+        :return: URL String
+        :rtype: str
+        """
+        content_type = ContentType.objects.get_for_model(Release)
+        return urlresolvers.reverse(
+            "admin:%s_%s_changelist" % (content_type.app_label, content_type.model)
+        )
+    
     def get_admin_url(self):
         """
         :return: URL String

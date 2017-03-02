@@ -179,7 +179,6 @@ STATICFILES_FINDERS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'resources')
 MEDIA_URL = '/resources/'
 TEMP_ROOT = os.path.join(BASE_DIR, 'temp')
-
 if not DEBUG:
     ENABLE_CACHE = True
     CACHE_TIME = 3600

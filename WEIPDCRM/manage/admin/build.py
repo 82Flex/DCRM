@@ -174,10 +174,10 @@ def build_procedure(conf):
         release_root = os.path.join(
             settings.MEDIA_ROOT,
             "releases",
+            str(active_release.id),
         )
         build_path = os.path.join(
             release_root,
-            str(active_release.id),
             "builds",
             str(conf["build_uuid"])
         )
@@ -207,18 +207,13 @@ def build_procedure(conf):
 
 
 class BuildAdmin(admin.ModelAdmin):
-    def active_release_(self, instance):
-        if instance.active_release is None:
-            return unicode(preferences.Setting.active_release)
-        return unicode(instance.active_release)
-    
     actions = [delete_selected]
     list_display = ('uuid', 'active_release', 'created_at')
     search_fields = ['uuid']
-    readonly_fields = ['active_release_', 'job_id', 'created_at']
+    readonly_fields = ['active_release', 'job_id', 'created_at']
     fieldsets = [
         ('General', {
-            'fields': ['active_release_', 'job_id', 'details']
+            'fields': ['active_release', 'job_id', 'details']
         }),
         ('History', {
             'fields': ['created_at']
@@ -227,6 +222,9 @@ class BuildAdmin(admin.ModelAdmin):
     change_form_template = "admin/build/change_form.html"
     change_list_template = "admin/build/change_list.html"
     
+    def has_add_permission(self, request):
+        return preferences.Setting.active_release is not None and Package.objects.count() != 0
+    
     def save_model(self, request, obj, form, change):
         """
         Set the active release, call building procedure, and then save.
@@ -234,17 +232,19 @@ class BuildAdmin(admin.ModelAdmin):
         :type obj: Build
         """
         setting = preferences.Setting
-        
-        obj.active_release = preferences.Setting.active_release
-        build_job = build_procedure.delay({
-            "build_uuid": obj.uuid,
-            "build_all": setting.downgrade_support,
-            "build_p_diff": setting.enable_pdiffs,
-            "build_compression": setting.packages_compression,
-            "build_secure": setting.gpg_signature,
-            "build_validation": setting.packages_validation,
-            "build_release": obj.active_release.id,
-        })
-        obj.job_id = build_job.id
+        obj.active_release = setting.active_release
         super(BuildAdmin, self).save_model(request, obj, form, change)
-        messages.info(request, _("Build %s generating job has been added to the \"high\" queue.") % str(obj))
+        
+        if setting.active_release is not None:
+            build_job = build_procedure.delay({
+                "build_uuid": obj.uuid,
+                "build_all": setting.downgrade_support,
+                "build_p_diff": setting.enable_pdiffs,
+                "build_compression": setting.packages_compression,
+                "build_secure": setting.gpg_signature,
+                "build_validation": setting.packages_validation,
+                "build_release": obj.active_release.id,
+            })
+            obj.job_id = build_job.id
+            obj.save()
+            messages.info(request, _("Build %s generating job has been added to the \"high\" queue.") % str(obj))

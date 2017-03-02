@@ -60,8 +60,7 @@ class Build(models.Model):
         verbose_name=_("Active Release"),
         on_delete=models.CASCADE,
         blank=False,
-        null=True,
-        default=None
+        null=None,
     )
     job_id = models.CharField(
         verbose_name=_("Job ID"),

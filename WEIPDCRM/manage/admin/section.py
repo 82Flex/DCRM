@@ -27,6 +27,8 @@ from django.utils.translation import ugettext as _
 from WEIPDCRM.models.section import Section
 from WEIPDCRM.models.version import Version
 
+from preferences import preferences
+
 
 class SectionAdmin(admin.ModelAdmin):
     def generate_icon_package(self, request, queryset):
@@ -49,7 +51,10 @@ class SectionAdmin(admin.ModelAdmin):
         }),
     ]
     actions = [generate_icon_package, delete_selected]
-
+    
+    def has_add_permission(self, request):
+        return preferences.Setting.active_release is not None
+    
     def get_readonly_fields(self, request, obj=None):
         """
         You cannot edit section name if any version has assigned to it.

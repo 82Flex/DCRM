@@ -28,14 +28,14 @@ from django.conf import settings
 
 
 def cache():
-    return cache_page(settings.CACHE_TIME) \
-        if settings.ENABLE_CACHE else lambda x: x
+    return cache_page(getattr(settings, 'CACHE_TIME', 0)) \
+        if getattr(settings, 'ENABLE_CACHE', False) else lambda x: x
 
 
 urlpatterns = [
     url(r'^$', cache()(IndexView.as_view()), name='index'),
-    url(r'^index/(?P<page>\d+)$', cache()(IndexView.as_view()), name='index_page'),
-    url(r'^package/(?P<package_id>\d+)$', cache()(PackageView.as_view()), name='package_id'),
+    url(r'^index/(?P<page>\d?)/?$', cache()(IndexView.as_view()), name='index_page'),
+    url(r'^package/(?P<package_id>\d+)/?$', cache()(PackageView.as_view()), name='package_id'),
     # url(r'^version/(.*)', frontend.version_view, name='package_histroy'),
-    url(r'^section/(?P<section_id>\d+)$', cache()(SectionView.as_view()), name='section_id'),
+    url(r'^section/(?P<section_id>\d+)/?$', cache()(SectionView.as_view()), name='section_id'),
 ]

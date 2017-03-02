@@ -38,6 +38,9 @@ from WEIPDCRM.forms.admin.upload import UploadForm
 from WEIPDCRM.models.debian_package import DebianPackage
 from WEIPDCRM.models.section import Section
 from WEIPDCRM.models.version import Version
+from WEIPDCRM.tools import mkdir_p
+
+from preferences import preferences
 
 
 @job('high')
@@ -54,10 +57,10 @@ def handle_uploaded_package(path):
         control = uploaded_package.control
         version_dir = os.path.join(settings.MEDIA_ROOT, 'versions')
         if not os.path.isdir(version_dir):
-            os.mkdir(version_dir)
+            mkdir_p(version_dir)
         target_dir = os.path.join(settings.MEDIA_ROOT, 'versions', str(uuid.uuid1()))
         if not os.path.isdir(target_dir):
-            os.mkdir(target_dir)
+            mkdir_p(target_dir)
         target_path = os.path.join(target_dir,
                                    control.get('Package', 'undefined') + '_' +
                                    control.get('Version', 'undefined') + '_' +
@@ -147,7 +150,7 @@ def handle_uploaded_file(request):
     f = request.FILES['package']
     temp_root = settings.TEMP_ROOT
     if not os.path.exists(temp_root):
-        os.mkdir(temp_root)
+        mkdir_p(temp_root)
     package_temp_path = os.path.join(temp_root, str(uuid.uuid1()) + '.deb')
     with open(package_temp_path, 'wb+') as destination:
         for chunk in f.chunks():
@@ -161,12 +164,15 @@ def upload_version_view(request):
     :param request: Django Request
     :return: Redirect Response
     """
-    messages.info(request, _('Upload package files to add new versions.'))
     return redirect('upload')
 
 
 @staff_member_required
 def upload_view(request):
+    if preferences.Setting.active_release is None:
+        messages.error(request, _("Active release not set: you cannot publish your "
+                                  "repository without an active release."))
+    
     """
     :param request: Django Request
     :return: Http Response

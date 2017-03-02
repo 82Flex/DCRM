@@ -31,7 +31,8 @@ class SettingsAdmin(PreferencesAdmin):
         }),
         ('Packages List', {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['enable_pdiffs', 'gpg_signature', 'packages_compression', 'packages_validation', 'downgrade_support']
+            'fields': ['enable_pdiffs', 'gpg_signature', 'packages_compression',
+                       'packages_validation', 'downgrade_support']
         }),
         ('Display', {
             'classes': ('suit-tab suit-tab-common',),
@@ -44,7 +45,8 @@ class SettingsAdmin(PreferencesAdmin):
         }),
         ('Server', {
             'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['web_server', 'download_count', 'download_cydia_only']
+            'fields': ['web_server', 'redirect_resources',
+                       'download_count', 'download_cydia_only']
         }),
         # Rest API
         ('Global', {
