@@ -209,7 +209,9 @@ def build_procedure(conf):
                 if os.path.exists(active_path):
                     os.unlink(active_path)
                 shutil.copyfile(rename_path, active_path)
+                os.chmod(active_path, mode=0755)
                 os.rename(rename_path, rename_to_path)
+                os.chmod(rename_to_path, mode=0755)
     else:
         # TODO: Pdiffs Feature
         pass
