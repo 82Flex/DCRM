@@ -324,7 +324,8 @@ class Version(models.Model):
             "MD5sum": self.c_md5,
             "SHA1": self.c_sha1,
             "SHA256": self.c_sha256,
-            "SHA512": self.c_sha512
+            "SHA512": self.c_sha512,
+            "Icon": self.get_display_icon()
         }
         for (k, v) in advanced_dict.items():
             if v is not None and len(unicode(v)) > 0:
@@ -951,3 +952,17 @@ class Version(models.Model):
     def get_absolute_url(self):
         from django.urls import reverse
         return reverse('package_id', args=[self.id])
+    
+    def get_display_icon(self):
+        """
+        Get display icon from online_icon field, if not set, then
+        return its section icon field
+        :return:
+        """
+        if self.online_icon.name:
+            file_path = self.online_icon.name
+            return unicode(preferences.Setting.resources_alias) + file_path
+        elif self.c_section:
+            # self.c_section.icon has been validated by icon_link getter.
+            return self.c_section.icon_link
+        return None
