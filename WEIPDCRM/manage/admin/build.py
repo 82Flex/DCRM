@@ -30,6 +30,8 @@ import bz2
 import hashlib
 import subprocess
 
+from PIL import Image
+
 from django_rq import job
 from django.conf import settings
 
@@ -212,7 +214,12 @@ def build_procedure(conf):
                 os.chmod(active_path, 0755)
                 os.rename(rename_path, rename_to_path)
                 os.chmod(rename_to_path, 0755)
-        
+
+        def thumb_png(png_path):
+            img = Image.open(png_path)
+            img.thumbnail((60, 60), Image.ANTIALIAS)
+            img.save(png_path)
+                
         # Cydia Icon
         cydia_icon_path = os.path.join(release_root, "CydiaIcon.png")
         if os.path.exists(cydia_icon_path):
@@ -221,6 +228,8 @@ def build_procedure(conf):
             os.path.join(settings.MEDIA_ROOT, active_release.icon.name),
             cydia_icon_path
         )
+        thumb_png(cydia_icon_path)
+        os.chmod(cydia_icon_path, 0755)
     else:
         # TODO: Pdiffs Feature
         pass
