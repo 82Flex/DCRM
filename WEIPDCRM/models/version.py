@@ -46,6 +46,8 @@ from WEIPDCRM.models.device_type import DeviceType
 from WEIPDCRM.models.section import Section
 from WEIPDCRM.models.debian_package import DebianPackage
 
+from WEIPDCRM.tools import mkdir_p
+
 
 @job("high")
 def write_to_package_job(control, path, callback_version_id):
@@ -414,19 +416,21 @@ class Version(models.Model):
         if atomic:
             root_res = os.path.join(settings.MEDIA_ROOT, 'versions')
             if not os.path.isdir(root_res):
-                os.mkdir(root_res)
+                mkdir_p(root_res)
             target_dir = os.path.join(root_res, str(uuid.uuid1()))
             if not os.path.isdir(target_dir):
-                os.mkdir(target_dir)
+                mkdir_p(target_dir)
             target_path = os.path.join(target_dir,
                                        self.c_package + '_' +
                                        self.c_version + '_' +
                                        self.c_architecture + '.deb')
             os.rename(temp_path, target_path)
+            os.chmod(target_path, 0755)
             self.storage.name = target_path
         else:
             os.unlink(self.storage.name)
             os.rename(temp_path, self.storage.name)
+            os.chmod(self.storage.name, 0755)
         self.update_hash()
         self.save()
     

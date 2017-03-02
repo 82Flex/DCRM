@@ -209,9 +209,17 @@ def build_procedure(conf):
                 if os.path.exists(active_path):
                     os.unlink(active_path)
                 shutil.copyfile(rename_path, active_path)
-                os.chmod(active_path, mode=0755)
+                os.chmod(active_path, 0755)
                 os.rename(rename_path, rename_to_path)
-                os.chmod(rename_to_path, mode=0755)
+                os.chmod(rename_to_path, 0755)
+        
+        # Cydia Icon
+        cydia_icon_path = os.path.join(release_root, "CydiaIcon.png")
+        os.unlink(cydia_icon_path)
+        shutil.copyfile(
+            os.path.join(settings.MEDIA_ROOT, active_release.icon.name),
+            cydia_icon_path
+        )
     else:
         # TODO: Pdiffs Feature
         pass

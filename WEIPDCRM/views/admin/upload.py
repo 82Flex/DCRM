@@ -155,7 +155,7 @@ def handle_uploaded_file(request):
     with open(package_temp_path, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
-    os.chmod(package_temp_path, mode=0777)
+    os.chmod(package_temp_path, 0755)
     return handle_uploaded_package.delay(package_temp_path)
 
 

@@ -38,7 +38,9 @@ def basic_resource_fetch(request, resource_name):
         "Release.gpg",
         "Packages",
         "Packages.gz",
-        "Packages.bz2"
+        "Packages.bz2",
+        "CydiaIcon",
+        "CydiaIcon.png"
     ]
     if resource_name not in rename_list:
         return HttpResponseNotFound()
