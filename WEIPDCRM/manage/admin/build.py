@@ -215,7 +215,8 @@ def build_procedure(conf):
         
         # Cydia Icon
         cydia_icon_path = os.path.join(release_root, "CydiaIcon.png")
-        os.unlink(cydia_icon_path)
+        if os.path.exists(cydia_icon_path):
+            os.unlink(cydia_icon_path)
         shutil.copyfile(
             os.path.join(settings.MEDIA_ROOT, active_release.icon.name),
             cydia_icon_path
