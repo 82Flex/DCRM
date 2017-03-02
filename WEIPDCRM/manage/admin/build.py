@@ -22,6 +22,7 @@ from __future__ import unicode_literals
 
 import os
 import gzip
+import shutil
 
 # You can comment this line and disable bz2 compression if you don't have a bz2 module.
 import bz2
@@ -54,14 +55,6 @@ def build_procedure(conf):
     """
     
     if not conf["build_p_diff"]:
-        # Preparing Temp Directory
-        build_temp_path = os.path.join(settings.TEMP_ROOT, str(conf["build_uuid"]))
-        if not os.path.exists(build_temp_path):
-            mkdir_p(build_temp_path)
-        
-        # Create Temp Package file
-        build_temp_package = open(os.path.join(build_temp_path, "Packages"), "wb+")
-        
         # Build Package file
         build_all_versions_enabled = conf["build_all"]
         
@@ -70,6 +63,18 @@ def build_procedure(conf):
             version_set = Version.objects.filter(enabled=True).order_by('-id')
         else:
             version_set = Package.objects.order_by('-id')
+        
+        # Check Empty
+        if version_set.count() == 0:
+            raise ValueError(_("No enabled package available."))
+
+        # Preparing Temp Directory
+        build_temp_path = os.path.join(settings.TEMP_ROOT, str(conf["build_uuid"]))
+        if not os.path.exists(build_temp_path):
+            mkdir_p(build_temp_path)
+
+        # Create Temp Package file
+        build_temp_package = open(os.path.join(build_temp_path, "Packages"), "wb+")
         
         # Generate Control List
         for version_instance in version_set:
@@ -166,9 +171,12 @@ def build_procedure(conf):
         )
         
         # Preparing Directory
-        build_path = os.path.join(
+        release_root = os.path.join(
             settings.MEDIA_ROOT,
             "releases",
+        )
+        build_path = os.path.join(
+            release_root,
             str(active_release.id),
             "builds",
             str(conf["build_uuid"])
@@ -176,7 +184,7 @@ def build_procedure(conf):
         if not os.path.isdir(build_path):
             mkdir_p(build_path)
         
-        # Move Directory
+        # Publish
         rename_list = [
             "Release",
             "Release.gpg",
@@ -188,10 +196,11 @@ def build_procedure(conf):
             rename_path = os.path.join(build_temp_path, rename_instance)
             if os.path.exists(rename_path):
                 rename_to_path = os.path.join(build_path, rename_instance)
+                active_path = os.path.join(release_root, rename_instance)
+                if os.path.exists(active_path):
+                    os.unlink(active_path)
+                shutil.copyfile(rename_path, active_path)
                 os.rename(rename_path, rename_to_path)
-        
-        # TODO: Pubish
-        
     else:
         # TODO: Pdiffs Feature
         pass
@@ -206,10 +215,10 @@ class BuildAdmin(admin.ModelAdmin):
     actions = [delete_selected]
     list_display = ('uuid', 'active_release', 'created_at')
     search_fields = ['uuid']
-    readonly_fields = ['active_release_', 'created_at']
+    readonly_fields = ['active_release_', 'job_id', 'created_at']
     fieldsets = [
         ('General', {
-            'fields': ['active_release_', 'details']
+            'fields': ['active_release_', 'job_id', 'details']
         }),
         ('History', {
             'fields': ['created_at']
@@ -227,8 +236,7 @@ class BuildAdmin(admin.ModelAdmin):
         setting = preferences.Setting
         
         obj.active_release = preferences.Setting.active_release
-        super(BuildAdmin, self).save_model(request, obj, form, change)
-        build_procedure({
+        build_job = build_procedure.delay({
             "build_uuid": obj.uuid,
             "build_all": setting.downgrade_support,
             "build_p_diff": setting.enable_pdiffs,
@@ -237,4 +245,6 @@ class BuildAdmin(admin.ModelAdmin):
             "build_validation": setting.packages_validation,
             "build_release": obj.active_release.id,
         })
+        obj.job_id = build_job.id
+        super(BuildAdmin, self).save_model(request, obj, form, change)
         messages.info(request, _("Build %s generating job has been added to the \"high\" queue.") % str(obj))

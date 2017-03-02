@@ -63,6 +63,13 @@ class Build(models.Model):
         null=True,
         default=None
     )
+    job_id = models.CharField(
+        verbose_name=_("Job ID"),
+        max_length=64,
+        blank=False,
+        null=True,
+        default=None
+    )
     
     # History Settings
     details = models.TextField(
