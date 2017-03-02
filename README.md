@@ -58,7 +58,7 @@ DCRM 尚处于开发阶段，暂不支持一键配置，请按照以下步骤进
 10. 通过 WEIPDCRM -> Builds 发布源信息
 
 ### 如何开启 gpg 签名？
-- 安装 gpg，然后在终端执行 gpg --gen-key 生成密钥对，即可开启 gpg 签名选项。
+- 安装 gpg，然后在终端，**使用 rqworker 所在用户**执行 gpg --gen-key 生成密钥对。如服务器生成较慢，可在本地生成并在服务器上导入，即可开启 gpg 签名选项。此内容请参考：https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Step_by_Step_Guide/s1-gnupg-export.html
 
 ### 如何配置下载次数统计或防盗链保护？
 - Nginx 请参考：https://www.nginx.com/resources/wiki/start/topics/examples/x-accel/
@@ -71,7 +71,7 @@ DCRM 尚处于开发阶段，暂不支持一键配置，请按照以下步骤进
 - ALTER TABLE tbl_name CHANGE c_name c_name CHARACTER SET character_name [COLLATE ...];
 
 ### 出现 Permission Denied 如何解决？
-- 请让 rqworker 工作在 uwsgi 同一用户组。例如 uwsgi 用户为 www，则启动 rqworker 时请采用 _sudo -u www nohup ./manage.py rqworker high &_。
+- 请**让 rqworker 工作在 uwsgi 同一用户下**。例如 uwsgi 用户为 www，则启动 rqworker 时请采用 _sudo -u www nohup ./manage.py rqworker high &_。
 
 ## LICENSE 版权声明
 
