@@ -38,7 +38,6 @@ class SectionAdmin(admin.ModelAdmin):
     
     list_display = ('name', 'created_at')
     search_fields = ['name']
-    readonly_fields = ['created_at']
     fieldsets = [
         ('General', {
             'fields': ['name']
@@ -61,7 +60,7 @@ class SectionAdmin(admin.ModelAdmin):
         
         :type obj: Section
         """
-        if Version.objects.filter(c_section=obj).count() > 0:
+        if obj is not None and Version.objects.filter(c_section=obj).count() > 0:
             return ['created_at', 'name']
         else:
             return ['created_at']
