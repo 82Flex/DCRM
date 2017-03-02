@@ -324,7 +324,7 @@ class Version(models.Model):
             "MD5sum": self.c_md5,
             "SHA1": self.c_sha1,
             "SHA256": self.c_sha256,
-            "SHA512": self.c_sha512
+            "SHA512": self.c_sha512  # TODO: Online Icon
         }
         for (k, v) in advanced_dict.items():
             if v is not None and len(unicode(v)) > 0:

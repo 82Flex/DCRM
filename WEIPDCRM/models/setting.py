@@ -215,7 +215,7 @@ class Setting(Preferences):
             (1, _("Moved")),
             (2, _("Accel"))
         ),
-        help_text=_("None - Read resources and return."
+        help_text=_("None - Read resources and return.<br />"
                     "Moved - Return 301/302 responses to the real resource urls.<br />"
                     "Accel - Redirect resource requests to WEB servers without changing urls."),
         default=0,
