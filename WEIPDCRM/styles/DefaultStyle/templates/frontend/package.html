@@ -3,6 +3,9 @@
 {% block title %}{% blocktrans with package_info.c_name as c_name %}Package {{ c_name }} | DCRM{% endblocktrans %}{% endblock %}
 {% block content %}
     <div class="content">
+    <div class="breadcrumbs">
+        <p><i class="fa fa-location-arrow"></i> Home <i class="fa fa-angle-right"></i> {{ package_info.c_section }} <i class="fa fa-angle-right"></i> {{ package_info.c_name }}</p>
+    </div>
         <div class="article">
             <div class="icon">
                 {% if package_info.display_icon %}
@@ -15,11 +18,11 @@
                 <div class="title"><h1>{{ package_info.c_name }}</h1></div>
                 <div class="details">
                     <ul>
-                        <li>{% trans "Package" %}: {{ package_info.c_package }}</li>
                         <li>{% trans "Version" %}: {{ package_info.c_version }}</li>
                         <li>{% trans "Size" %}: {{ package_info.c_size|filesizeformat }}</li>
                         <li>{% trans "Author" %}: {{ package_info.author_name }}</li>
                         <li>{% trans "Section" %}: {{ package_info.c_section }}</li>
+                        <li>{% trans "Package" %}: {{ package_info.c_package }}</li>
                     </ul>
                     <div class="clear"></div>
                 </div>
@@ -31,33 +34,37 @@
                 </div>
             </div>
             <div class="clear"></div>
-            <h2>{% trans "Description" %}</h2>
             <div class="description">
+                <h2>{% trans "Description" %}</h2>
                 <p>
                     {{ package_info.c_description }}
                 </p>
             </div>
-            <h2>{% trans "What's New" %}</h2>
             <div class="whatsnew">
+                <h2>{% trans "What's New" %}</h2>
                 <p>
                     {{ package_info.update_logs }}
                 </p>
             </div>
-            <h2>{% trans "Screenshot" %}</h2>
             <div class="screenshot">
+                <h2>{% trans "Screenshot" %}</h2>
+                <div class="image">
                 <div class="image-wrapper">
+                    <ul>
                     <!-- TODO: Screenshot Module -->
+                    </ul>
+                </div>
                 </div>
             </div>
             <div class="similar">
                 <!-- TODO: Similar Package Module -->
             </div>
-            <h2>{% trans "Comments" %}</h2>
-            <div class="comment">
+            </div>
+            <div class="comments">
+                <h2>{% trans "Comments" %}</h2>
                 <div id="comments">
                     <!-- TODO: Duoshuo Comment Module -->
                 </div>
             </div>
-        </div>
     </div>
 {% endblock %}

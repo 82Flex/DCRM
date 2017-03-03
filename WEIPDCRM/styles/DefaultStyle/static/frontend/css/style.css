@@ -48,7 +48,7 @@ img {
     background-color: #fdfdfd;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: default;
-    -webkit-user-select: none;
+    #-webkit-user-select: none;
     -webkit-font-smoothing: antialiased
 }
 
@@ -126,9 +126,6 @@ img {
     float: left;
     width: 640px;
     min-height: 320px;
-    border-radius: 6px;
-    background-color: #fff;
-    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25)
 }
 
 .primary .content .label {
@@ -199,8 +196,23 @@ img {
     font-size: 11px
 }
 
+.primary .content .breadcrumbs {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25);
+}
+
+.primary .content .breadcrumbs p {
+    color: #333;
+    font-size: 13.5px
+}
 .primary .article {
-    margin: 20px 30px
+    padding: 20px 30px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25)
 }
 
 .primary .article h1 {
@@ -262,11 +274,11 @@ img {
 }
 
 .primary .article .details li {
-    width: 100%;
+    width: 150px;
     color: #555;
     font-size: 13px;
     line-height: 31px;
-
+    float: left;
 }
 
 .primary .article .details a {
@@ -316,49 +328,52 @@ img {
 }
 
 .primary .article .screenshot {
+
+}
+.primary .article .screenshot .image {
     background: #f9f9f9;
-    padding: 12px 0;
-    width: 100%;
-    -webkit-border-radius: 10px;
-    margin-top: 15px;
-    margin-bottom: 15px
+	padding: 12px 0;
+	width: 100%;
+	-webkit-border-radius: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px
 }
 
-.primary .article .screenshot .image-wrapper {
-    margin-left: 14px;
-    margin-right: 14px;
-    margin-top: 15px;
-    width: 550px;
-    overflow: auto;
-    overflow-y: hidden;
+.primary .article .screenshot .image .image-wrapper {
+    margin-left:14px;
+	margin-right:14px;
+	margin-top: 15px;
+	width:550px;
+	overflow:auto;
+	overflow-y:hidden;
 }
 
-.primary .article .screenshot .image-wrapper::-webkit-scrollbar-track-piece {
+.primary .article .screenshot .image .image-wrapper::-webkit-scrollbar-track-piece {
     background: #ececec;
     border-radius: 4px;
 }
 
-.primary .article .screenshot .image-wrapper::-webkit-scrollbar {
+.primary .article .screenshot .image .image-wrapper::-webkit-scrollbar {
     height: 6px;
     width: 6px;
 }
 
-.primary .article .screenshot .image-wrapper::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal {
+.primary .article .screenshot .image .image-wrapper::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal {
     background: #999;
     border-radius: 4px;
 }
 
-.primary .article .screenshot .image-wrapper::-webkit-scrollbar-thumb:hover {
+.primary .article .screenshot .image .image-wrapper::-webkit-scrollbar-thumb:hover {
     background: #20A4F1;
 }
 
-.primary .article .screenshot .image-wrapper ul {
+.primary .article .screenshot .image .image-wrapper ul {
     font-size: 0;
     white-space: nowrap;
     word-break: normal;
 }
 
-.primary .article .screenshot .image-wrapper li {
+.primary .article .screenshot .image .image-wrapper li {
     display: inline-block;
     padding: 0 22px 15px 4px;
     vertical-align: top;
@@ -367,11 +382,11 @@ img {
     *padding-bottom: 30px;
 }
 
-.primary .article .screenshot .image-wrapper li:last-child {
+.primary .article .screenshot .image .image-wrapper li:last-child {
     padding-right: 4px;
 }
 
-.primary .article .screenshot .image-wrapper img {
+.primary .article .screenshot .image .image-wrapper img {
     display: block;
     border: 1px solid #FFF;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
@@ -418,6 +433,21 @@ img {
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap
+}
+
+.primary .content .comments {
+    padding: 20px 30px;
+    margin-top: 15px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25);
+}
+
+.primary .content .comments h2 {
+    font-size: 1.2em;
+    font-weight: 500;
+    line-height: 18px;
+    color: #474747;
 }
 
 .primary .chart {
@@ -496,7 +526,7 @@ img {
     width: 300px
 }
 
-/* widget repo description start */
+/* Repo Description Widget Start */
 .primary .widget-area .repoinfo {
     position: relative;
     padding: 20px 20px 15px;
@@ -557,7 +587,7 @@ img {
     padding: 0 15px 10px
 }
 
-/* Repo description end */
+/* Repo Description Widget End */
 
 .primary .widget-area .days {
     padding: 20px 20px 15px;
