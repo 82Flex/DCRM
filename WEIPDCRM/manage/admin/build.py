@@ -34,6 +34,7 @@ from PIL import Image
 
 from django_rq import job
 from django.conf import settings
+from django.forms import ModelForm
 
 from WEIPDCRM.models.debian_package import DebianPackage
 from django.contrib import admin
@@ -41,6 +42,8 @@ from preferences import preferences
 from django.contrib.admin.actions import delete_selected
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
+
+from suit.widgets import AutosizedTextarea
 
 from WEIPDCRM.models.build import Build
 from WEIPDCRM.models.package import Package
@@ -235,7 +238,15 @@ def build_procedure(conf):
         pass
 
 
+class BuildForm(ModelForm):
+    class Meta(object):
+        widgets = {
+            'details': AutosizedTextarea,
+        }
+
+
 class BuildAdmin(admin.ModelAdmin):
+    form = BuildForm
     actions = [delete_selected]
     list_display = ('uuid', 'active_release', 'created_at')
     search_fields = ['uuid']

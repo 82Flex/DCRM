@@ -216,7 +216,7 @@ class Setting(Preferences):
             (2, _("Accel"))
         ),
         help_text=_("None - Read resources and return.<br />"
-                    "Moved - Return 301/302 responses to the real resource urls.<br />"
+                    "Moved - Return 301/302 responses and redirect to the real resource urls.<br />"
                     "Accel - Redirect resource requests to WEB servers without changing urls."),
         default=0,
         validators=[

@@ -43,7 +43,19 @@ class VersionForm(ModelForm):
         widgets = {
             'rich_description': RedactorWidget,
             'update_logs': AutosizedTextarea,
-            'c_description': AutosizedTextarea
+            'c_description': AutosizedTextarea,
+            'c_tag': AutosizedTextarea,
+            'c_depends': AutosizedTextarea,
+            'c_pre_depends': AutosizedTextarea,
+            'c_conflicts': AutosizedTextarea,
+            'c_replaces': AutosizedTextarea,
+            'c_provides': AutosizedTextarea,
+            'c_recommends': AutosizedTextarea,
+            'c_suggests': AutosizedTextarea,
+            'c_breaks': AutosizedTextarea,
+            'c_installer_menu_item': AutosizedTextarea,
+            'c_built_using': AutosizedTextarea,
+            'c_built_for_profiles': AutosizedTextarea,
         }
 
 
