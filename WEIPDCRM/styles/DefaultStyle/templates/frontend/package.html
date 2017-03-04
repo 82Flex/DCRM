@@ -1,11 +1,12 @@
 {% extends "frontend/base.html" %}
 {% load i18n staticfiles %}
 {% block title %}{% blocktrans with package_info.c_name as c_name %}Package {{ c_name }} | DCRM{% endblocktrans %}{% endblock %}
-{% block content %}
-    <div class="content">
+{% block breadcrumbs %}
     <div class="breadcrumbs">
-        <p><i class="fa fa-location-arrow"></i> Home <i class="fa fa-angle-right"></i> {{ package_info.c_section }} <i class="fa fa-angle-right"></i> {{ package_info.c_name }}</p>
+    <p><i class="fa fa-location-arrow"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a> <i class="fa fa-angle-right"></i> <a href="{% url "section_id" package_info.c_section.id %}">{{ package_info.c_section }}</a> <i class="fa fa-angle-right"></i> {{ package_info.c_name }}</p>
     </div>
+ {% endblock %}
+{% block content %}
         <div class="article">
             <div class="icon">
                 {% if package_info.display_icon %}
@@ -66,5 +67,7 @@
                     <!-- TODO: Duoshuo Comment Module -->
                 </div>
             </div>
-    </div>
+{% endblock %}
+{% block section_list %}
+<!-- TODO: Section List -->
 {% endblock %}

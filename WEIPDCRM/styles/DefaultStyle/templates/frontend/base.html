@@ -30,18 +30,22 @@
         <div class="links">
             <ul>
                 <li><a href="{% url 'index' %}">{% trans 'Home' %}</a></li>
-                <li><a href="#">{% trans 'Chart' %}</a></li>
+                <li><a href="{% url 'chart' %}">{% trans 'Chart' %}</a></li>
             </ul>
         </div>
+        {% block search %}{% endblock %}
+    </div>
         <div class="clear"></div>
     </div>
 </div>
 
 <div class="primary">
-    {% block content %}
-    {% endblock %}
+    <div class="content">
+    {% block breadcrumbs %} {% endblock %}
+        {% block content %}{% endblock %}
+    </div>
     <div class="widget-area">
-        <div class="repoinfo">
+    <div class="repo-card">
             <div class="avatar-panel">
                 <div class="repo_pic">
                     <!-- TODO: Repo's Logo -->
@@ -64,10 +68,8 @@
                 {% endif %}
             </div>
         </div>
-        <div class="comments">
-            <div class="title"><h2>{% trans "Latest Comments" %}</h2></div>
-            <div class="list"></div>
-        </div>
+    {% block latest_comments %}{% endblock %}
+    {% block section_list %}{% endblock %}
     </div>
 </div>
 <div class="clear"></div>

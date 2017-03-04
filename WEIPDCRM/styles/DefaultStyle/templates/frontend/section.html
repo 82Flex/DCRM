@@ -4,9 +4,14 @@
     <script src="{% static 'frontend/js/masonry.pkgd.min.js' %}"></script>
 {% endblock %}
 {% block title %}{% trans 'Section' %} {{ package_list.0.c_section.name }} | DCRM{% endblock %}
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+    <p><i class="fa fa-location-arrow"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a> <i class="fa fa-angle-right"></i> <a href="{% url "section_id" package_list.0.c_section.id %}">{{ package_list.0.c_section }}</a></p>
+    </div>
+ {% endblock %}
 {% block content %}
-    <div class="content">
-        <div class="title"><h2>{{ package_list.0.c_section.name }}</h2></div>
+     <div class="content-list">
+        <div class="title"><h2>{{ package_list }}</h2></div>
         {% include 'frontend/grid-list.html' %}
         <div class="clear"></div>
         {% include 'frontend/pagination.html' %}

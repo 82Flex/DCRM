@@ -5,7 +5,7 @@
     <script type="text/javascript" src="{% static 'frontend/js/masonry.pkgd.min.js' %}"></script>
     <script type="text/javascript" src="{% static "frontend/js/main.js" %}"></script>
 {% endblock %}
-{% block title %}{% trans 'Index' %} | DCRM{% endblock %}
+{% block title %}{% trans 'Search' %} | DCRM{% endblock %}
 {% block search %}
     <div id="search" class="search">
         <form id="search-form" method="post" action="{% url 'search' %}">{% csrf_token %}
@@ -14,19 +14,15 @@
         </form>
     </div>
 {% endblock %}
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+    <p><i class="fa fa-location-arrow"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a> <i class="fa fa-angle-right"></i> <a href="{% url 'chart' %}">{% trans 'Search' %}</a> <i class="fa fa-angle-right"></i> {{ request }}</p>
+    </div>
+ {% endblock %}
 {% block content %}
-    <div class="content-list">
-    {% block breadcrumbs %}{% endblock %}
-        <div class="title"><h2>{% trans "Package List" %}</h2></div>
+     <div class="content-list">
+        <div class="title"><h2>{% trans 'Search Result' %}</h2></div>
         {% include 'frontend/grid-list.html' %}
         <div class="clear"></div>
-        {% include 'frontend/pagination.html' %}
     </div>
 {% endblock %}
-    {% block latest_comments %}
-        <!--TODO: TODO: Duoshuo Latest Module -->
-        <div class="comments">
-            <div class="title"><h2>{% trans "Latest Comments" %}</h2></div>
-            <div class="list"></div>
-        </div>
-    {% endblock %}

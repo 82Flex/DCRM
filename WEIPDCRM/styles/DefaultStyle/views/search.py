@@ -1,4 +1,6 @@
-/*
+# coding=utf-8
+
+"""
 DCRM - Darwin Cydia Repository Manager
 Copyright (C) 2017  WU Zheng <i.82@me.com> & 0xJacky <jacky-943572677@qq.com>
 
@@ -14,22 +16,23 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 
-function show_search() {
-    $("#search-form").show();
-    $("#search-input").show();
-    $("#icon").attr("onclick", "do_search()");
-    $(".links").hide();
-}
+Notice: You have used class-based views, that's awesome.
+        If not necessary, you can try function-based views.
+        You may add lines above as license.
+"""
 
-function do_search() {
-    var input = $("#search-input").val();
-    if (input == "" || input == "null" || input == "NULL") {
-        $("#search-input").hide();
-        $("#icon").attr("onclick", "show_search()");
-        $(".links").show();
-    } else {
-        $("#search-form").submit();
-    }
-}
+from django.shortcuts import render
+from django.template.context_processors import csrf
+
+from WEIPDCRM.models.version import Version
+from preferences import preferences
+
+def SearchView(request):
+    content = {}
+    if request.POST:
+        content.update(csrf(request))
+        content['package_list'] = Version.objects.filter(c_name__icontains=request.POST['package'])
+        content['request'] = request.POST['package']
+        content['settings'] = preferences.Setting
+    return render(request, 'frontend/search.html', content)

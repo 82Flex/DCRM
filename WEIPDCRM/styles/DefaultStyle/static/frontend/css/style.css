@@ -1,10 +1,15 @@
 a {
-    color: #08c;
-    text-decoration: none
+    color: #444;
+    text-decoration: none;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease
 }
 
 a:hover {
-    text-decoration: underline
+    color: #19B5FE
 }
 
 a:focus {
@@ -46,7 +51,7 @@ img {
     margin: 0;
     padding: 0;
     background-color: #fdfdfd;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Myriad Pro", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: default;
     #-webkit-user-select: none;
     -webkit-font-smoothing: antialiased
@@ -56,7 +61,7 @@ img {
     width: 100%;
     height: 50px;
     background-color: #fff;
-    box-shadow: 0 0 3px rgba(153, 153, 153, 0.75);
+    box-shadow: 0 0 1px rgba(153, 153, 153, 0.75);
     position: fixed;
     top: 0;
     z-index: 20;
@@ -85,7 +90,7 @@ img {
     margin-right: 25px;
     font-weight: 100;
     font-size: 24px;
-    font-family: "Myriad Pro", serif
+    font-family: "Myriad Pro", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .header .links {
@@ -98,8 +103,8 @@ img {
 }
 
 .header .links li:nth-last-of-type(1) {
-    font-family: "Myriad Pro", serif;
-    font-size: 14px
+    font-family: "Myriad Pro", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px
 }
 
 .header .links a {
@@ -112,9 +117,24 @@ img {
 }
 
 .header .search {
-    float: right;
     margin-right: 80px;
     line-height: 50px
+}
+
+.header .search a {
+    float: right;
+    color: #555;
+    display: inline
+}
+
+.header .search input {
+	padding: 2px 5px;
+	width: 60%;
+    height: 25px;
+	outline: 0;
+	color: #555;
+    border:0px;
+    font-size: 0.75em
 }
 
 .primary {
@@ -128,6 +148,14 @@ img {
     min-height: 320px;
 }
 
+.primary .content-list {
+    float: left;
+    width: 640px;
+    min-height: 320px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25)
+}
 .primary .content .label {
     padding-top: 10px
 }
@@ -160,7 +188,7 @@ img {
 .primary .content .list .list-item .icon a {
     display: block;
     color: #555;
-    font-size: 13px;
+    font-size: 13px
 }
 
 .primary .content .list .list-item .icon img {
@@ -173,14 +201,21 @@ img {
     margin-top: 5px;
     overflow: hidden;
     text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    height: 20px;
+    #text-overflow: ellipsis;
+    word-break: normal;
+    height: 40px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2
 }
 
 .primary .content .list .list-item .title a {
     color: #444;
     font-size: 14px
+}
+
+.primary .content .list .list-item .title a:hover {
+    color: #19B5FE
 }
 
 .primary .content .list .list-item .tag {
@@ -208,6 +243,7 @@ img {
     color: #333;
     font-size: 13.5px
 }
+
 .primary .article {
     padding: 20px 30px;
     border-radius: 6px;
@@ -527,7 +563,7 @@ img {
 }
 
 /* Repo Description Widget Start */
-.primary .widget-area .repoinfo {
+.primary .widget-area .repo-card {
     position: relative;
     padding: 20px 20px 15px;
     border-radius: 6px;
@@ -536,12 +572,12 @@ img {
     margin-bottom: 20px
 }
 
-.primary .widget-area .repoinfo .avatar-panel {
+.primary .widget-area .repo-card .avatar-panel {
     position: relative;
     height: 160px;
 }
 
-.primary .widget-area .repoinfo .repo_pic {
+.primary .widget-area .repo-card .repo_pic {
     width: 88px;
     height: 88px;
     border-radius: 50%;
@@ -551,7 +587,7 @@ img {
     border: 4px solid rgba(255, 255, 255, .3)
 }
 
-.primary .widget-area .repoinfo .repo_pic img {
+.primary .widget-area .repo-card .repo_pic img {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -560,7 +596,7 @@ img {
     height: 80px
 }
 
-.primary .widget-area .repoinfo .repo_name {
+.primary .widget-area .repo-card .repo_name {
     font-size: 18px;
     display: block;
     bottom: 10px;
@@ -568,20 +604,20 @@ img {
     text-align: center;
 }
 
-.primary .widget-area .repoinfo .repo_name h2 {
+.primary .widget-area .repo-card .repo_name h2 {
     color: #444;
     font-size: 15px;
     font-weight: 300
 }
 
-.primary .widget-area .repoinfo .repo_name p {
+.primary .widget-area .repo-card .repo_name p {
     margin-top: 10px;
     color: #444;
     font-size: 13px;
     font-weight: 200
 }
 
-.primary .widget-area .repoinfo .repo_dec {
+.primary .widget-area .repo-card .repo_dec {
     text-align: center;
     font-size: 13px;
     padding: 0 15px 10px
@@ -767,7 +803,7 @@ img {
     margin-right: 20px;
     color: #555;
     font-size: 14px;
-    font-family: "Myriad Pro", serif;
+    font-family: "Myriad Pro", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 50px
 }
 
@@ -780,6 +816,7 @@ img {
     display: none !important
 }
 
+/* DuoShuo Style */
 #ds-thread #ds-reset li.ds-tab a.ds-current {
     border: none !important;
     font-size: 12px !important
