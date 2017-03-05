@@ -16,35 +16,3 @@
         {% include 'frontend/pagination.html' %}
     </div>
 {% endblock %}
-{% block latest_comments %}
-    <!--TODO: TODO: Duoshuo Latest Comments Module -->
-    <div class="comments">
-        <div class="title"><h2>{% trans "Latest Comments" %}</h2></div>
-        <div class="list"></div>
-    </div>
-{% endblock %}
-{% block section_list %}
-    <!-- TODO: Section List Widget  -->
-    {% if Sections_num > 0 %}
-    <div class="section_list">
-        <h2>Section List</h2>
-        <div class="list">
-            <ul>
-                {% for section in Section_list %}
-                <li>
-                <div class="icon">
-                    {% if section.icon %}
-                        <!-- TODO: Section Icon  -->
-                        <img src="{{ section.icon }}"/>
-                    {% else %}
-                        <img src="{% static 'frontend/img/default-package-icon.png' %}"/>
-                    {% endif %}
-                    <div class="title"><a href="{% url "section_id" section.id %}">{{ section.name }}</a></div>
-                </div>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-    {% endif %}
-{% endblock %}

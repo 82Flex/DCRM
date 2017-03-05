@@ -198,13 +198,17 @@ img {
     border-radius: 12px
 }
 
-.primary .content .list .list-item .title {
+.primary .content .list .list-item .title-tag {
     margin-top: 5px;
+    height: 60px;
+}
+
+.primary .content .list .list-item .title {
     overflow: hidden;
     text-align: center;
-    #text-overflow: ellipsis;
+    text-overflow: ellipsis;
     word-break: normal;
-    height: 40px;
+    max-height: 40px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2
@@ -566,7 +570,7 @@ img {
 /* Repo Description Widget Start */
 .primary .widget-area .repo-card {
     position: relative;
-    padding: 20px 20px 15px;
+    padding: 20px 20px 20px;
     border-radius: 6px;
     background-color: #fff;
     box-shadow: 0 0 3px rgba(200, 200, 200, 0.25);
@@ -627,24 +631,20 @@ img {
 /* Repo Description Widget End */
 
 .primary .widget-area .section_list {
-    padding: 20px 20px 15px;
+    padding: 20px 20px 20px;
     border-radius: 6px;
     background-color: #fff;
     box-shadow: 0 0 3px rgba(200, 200, 200, 0.25);
-    margin-top: 20px
+    margin-bottom: 20px;
 }
 
 .primary .widget-area .section_list ul {
-    margin-left: 18px
+    margin-left: 18px;
+    margin-top: 36px;
 }
 
 .primary .widget-area .section_list li {
-    margin: 36px 0;
-    height: 26px
-}
-
-.primary .widget-area .section_list li:nth-last-of-type(1) {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .primary .widget-area .section_list h2 {
@@ -664,20 +664,19 @@ img {
 }
 
 .primary .widget-area .section_list .icon {
-    float: left;
     height: 48px
 }
 
 .primary .widget-area .section_list .icon img {
     width: 48px;
-    height: 48px
+    height: 48px;
+    float: left;
+    border-radius: 7px;
 }
 
 .primary .widget-area .section_list .list .title {
-    margin-top: 10px;
-    margin-left: 10px;
-    width: 146px;
-    float: right
+    margin-left: 12px;
+    line-height: 48px;
 }
 
 .primary .widget-area .section_list h4 {
@@ -694,10 +693,11 @@ img {
 }
 
 .primary .widget-area .comments {
-    padding: 20px 20px 15px;
+    padding: 20px 20px 20px;
     border-radius: 6px;
     background-color: #fff;
-    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25)
+    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25);
+    margin-bottom: 20px;
 }
 
 .primary .widget-area .comments .title {

@@ -24,6 +24,7 @@ Notice: You have used class-based views, that's awesome.
 
 from django.views.generic import DetailView
 from WEIPDCRM.models.version import Version
+from WEIPDCRM.models.section import Section
 
 from preferences import preferences
 
@@ -44,4 +45,5 @@ class PackageView(DetailView):
         """
         context = super(PackageView, self).get_context_data(**kwargs)
         context['settings'] = preferences.Setting
+        context['section_list'] = Section.objects.all().order_by('name')[:16]
         return context

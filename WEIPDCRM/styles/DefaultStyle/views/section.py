@@ -24,13 +24,14 @@ Notice: You have used class-based views, that's awesome.
 
 from django.views.generic import ListView
 from WEIPDCRM.models.package import Package
+from WEIPDCRM.models.section import Section
 
 from preferences import preferences
 
 
 class SectionView(ListView):
     allow_empty = True
-    paginate_by = 16
+    paginate_by = 24
     ordering = '-id'
     model = Package
     context_object_name = 'package_list'
@@ -51,6 +52,9 @@ class SectionView(ListView):
         """
         Merge global settings to current context
         """
+        section_id = self.kwargs.get('section_id')
         context = super(SectionView, self).get_context_data(**kwargs)
         context['settings'] = preferences.Setting
+        context['section_list'] = Section.objects.all().order_by('name')[:16]
+        context['c_section'] = Section.objects.get(id=section_id)
         return context

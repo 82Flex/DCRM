@@ -36,7 +36,7 @@ class IndexView(ListView):
             enabled package and the latest version control once only.
     """
     allow_empty = True
-    paginate_by = 16
+    paginate_by = 24
     ordering = '-id'
     model = Package
     context_object_name = 'package_list'
@@ -48,6 +48,5 @@ class IndexView(ListView):
         """
         context = super(IndexView, self).get_context_data(**kwargs)
         context['settings'] = preferences.Setting
-        context['Section_list'] = Section.objects.all().order_by('name')
-        context['Sections_num'] = Section.objects.all().count()
+        context['section_list'] = Section.objects.all().order_by('name')[:16]
         return context

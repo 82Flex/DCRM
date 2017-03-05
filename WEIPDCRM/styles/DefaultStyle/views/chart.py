@@ -24,6 +24,7 @@ Notice: You have used class-based views, that's awesome.
 
 from django.views.generic import ListView
 from WEIPDCRM.models.version import Version
+from WEIPDCRM.models.section import Section
 
 from preferences import preferences
 
@@ -36,12 +37,12 @@ class ChartView(ListView):
 
     def get_queryset(self):
         """
-        Get 12 packages ordering by download times.
+        Get 24 packages ordering by download times.
 
         :return: QuerySet
         """
 
-        queryset = super(ChartView, self).get_queryset().all()[:12]
+        queryset = super(ChartView, self).get_queryset().all()[:24]
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -50,4 +51,5 @@ class ChartView(ListView):
         """
         context = super(ChartView, self).get_context_data(**kwargs)
         context['settings'] = preferences.Setting
+        context['section_list'] = Section.objects.all().order_by('name')[:16]
         return context

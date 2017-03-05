@@ -12,13 +12,15 @@
                     {% endif %}
                 </a>
             </div>
-            <div class="title">
-                <a href="{% url "package_id" package.id %}">{{ package.c_name }}</a>
-            </div>
-            <div class="tag">
-                {% if package.c_section %}
-                    <a href="{% url "section_id" package.c_section.id %}">{{ package.c_section }}</a>
-                {% endif %}
+            <div class="title-tag">
+                <div class="title">
+                    <a href="{% url "package_id" package.id %}">{{ package.c_name }}</a>
+                </div>
+                <div class="tag">
+                    {% if package.c_section %}
+                        <a href="{% url "section_id" package.c_section.id %}">{{ package.c_section }}</a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     {% endfor %}
