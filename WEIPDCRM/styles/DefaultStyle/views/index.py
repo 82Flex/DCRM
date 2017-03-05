@@ -24,6 +24,7 @@ Notice: You have used class-based views, that's awesome.
 
 from django.views.generic import ListView
 from WEIPDCRM.models.package import Package
+from WEIPDCRM.models.section import Section
 
 from preferences import preferences
 
@@ -47,4 +48,6 @@ class IndexView(ListView):
         """
         context = super(IndexView, self).get_context_data(**kwargs)
         context['settings'] = preferences.Setting
+        context['Section_list'] = Section.objects.all().order_by('name')
+        context['Sections_num'] = Section.objects.all().count()
         return context

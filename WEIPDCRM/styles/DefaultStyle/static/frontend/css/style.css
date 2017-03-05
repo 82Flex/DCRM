@@ -626,32 +626,34 @@ img {
 
 /* Repo Description Widget End */
 
-.primary .widget-area .days {
+.primary .widget-area .section_list {
     padding: 20px 20px 15px;
     border-radius: 6px;
     background-color: #fff;
-    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25)
+    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25);
+    margin-top: 20px
 }
 
-.primary .widget-area .days ul {
-    margin-left: 22px
+.primary .widget-area .section_list ul {
+    margin-left: 18px
 }
 
-.primary .widget-area .days li {
-    margin: 20px 0
+.primary .widget-area .section_list li {
+    margin: 36px 0;
+    height: 26px
 }
 
-.primary .widget-area .days li:nth-last-of-type(1) {
-    margin-bottom: 0
+.primary .widget-area .section_list li:nth-last-of-type(1) {
+    margin-bottom: 20px;
 }
 
-.primary .widget-area .days h2 {
+.primary .widget-area .section_list h2 {
     color: #444;
     font-weight: 300;
     font-size: 15px
 }
 
-.primary .widget-area .days i {
+.primary .widget-area .section_list i {
     float: left;
     margin-left: -26px;
     width: 20px;
@@ -661,24 +663,24 @@ img {
     font-size: 14px
 }
 
-.primary .widget-area .days .icon {
+.primary .widget-area .section_list .icon {
     float: left;
-    height: 68px
+    height: 48px
 }
 
-.primary .widget-area .days .icon img {
-    width: 68px;
-    height: 68px
+.primary .widget-area .section_list .icon img {
+    width: 48px;
+    height: 48px
 }
 
-.primary .widget-area .days .list .title {
-    float: left;
+.primary .widget-area .section_list .list .title {
     margin-top: 10px;
     margin-left: 10px;
-    width: 146px
+    width: 146px;
+    float: right
 }
 
-.primary .widget-area .days h4 {
+.primary .widget-area .section_list h4 {
     overflow: hidden;
     margin-bottom: 5px;
     color: #444;
@@ -686,15 +688,9 @@ img {
     white-space: nowrap
 }
 
-.primary .widget-area .days a {
+.primary .widget-area .section_list a {
     color: #444;
     font-size: 13px
-}
-
-.primary .widget-area .days b {
-    margin-left: 2px;
-    color: #777;
-    font-size: 12px
 }
 
 .primary .widget-area .comments {
