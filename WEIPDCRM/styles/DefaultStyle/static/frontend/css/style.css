@@ -121,10 +121,11 @@ img {
     line-height: 50px
 }
 
-.header .search a {
+.header .search .search-btn {
     float: right;
     color: #555;
-    display: inline
+    display: inline;
+    line-height: 50px;
 }
 
 .header .search input {
@@ -133,7 +134,7 @@ img {
     height: 25px;
 	outline: 0;
 	color: #555;
-    border:0px;
+    border:0;
     font-size: 0.75em
 }
 
@@ -241,7 +242,7 @@ img {
 
 .primary .content .breadcrumbs p {
     color: #333;
-    font-size: 13.5px
+    font-size: 14px
 }
 
 .primary .article {

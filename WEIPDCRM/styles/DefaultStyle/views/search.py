@@ -23,16 +23,20 @@ Notice: You have used class-based views, that's awesome.
 """
 
 from django.shortcuts import render
+from django.http import HttpResponseBadRequest
 from django.template.context_processors import csrf
 
 from WEIPDCRM.models.version import Version
 from preferences import preferences
 
-def SearchView(request):
+
+def search_view(request):
     content = {}
     if request.POST:
         content.update(csrf(request))
         content['package_list'] = Version.objects.filter(c_name__icontains=request.POST['package'])
         content['request'] = request.POST['package']
         content['settings'] = preferences.Setting
+    else:
+        return HttpResponseBadRequest()
     return render(request, 'frontend/search.html', content)

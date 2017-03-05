@@ -2,15 +2,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta name="renderer" content="webkit" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <!-- TODO: Extra Meta Info -->
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="generator" content="DCRM" />
-    <meta name="template" content="DefaultStyle" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="generator" content="DCRM"/>
+    <meta name="template" content="DefaultStyle"/>
     <!-- TODO: Shortcut Icon -->
     <!-- link rel="shortcut icon" href="/favicon.ico" /-->
     {% block stylesheet %}
@@ -18,7 +18,11 @@
         <link rel="stylesheet" href="{% static "frontend/css/font.css" %}">
         <link rel="stylesheet" href="{% static "frontend/css/font-awesome.min.css" %}">
     {% endblock %}
-    {% block headerscript %}{% endblock %}
+    {% block headerscript %}
+        <!-- Jquery and Main JS -->
+        <script type="text/javascript" src="{% static "frontend/js/jquery.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "frontend/js/main.js" %}"></script>
+    {% endblock %}
     <title>{% block title %}DCRM{% endblock %}</title>
 </head>
 <body class="main">
@@ -33,26 +37,34 @@
                 <li><a href="{% url 'chart' %}">{% trans 'Chart' %}</a></li>
             </ul>
         </div>
-        {% block search %}{% endblock %}
+        {% block search %}
+            <div id="search" class="search">
+                <form id="search-form" method="post" action="{% url 'search' %}">{% csrf_token %}
+                    <input class="search-input" id="search-input" style="display: none" name="package"
+                           placeholder="{% trans "Search packages" %}" autofocus/>
+                    <div class="fa fa-search search-btn" id="icon" onclick="show_search()"></div>
+                </form>
+            </div>
+        {% endblock %}
     </div>
-        <div class="clear"></div>
-    </div>
+    <div class="clear"></div>
 </div>
-
 <div class="primary">
     <div class="content">
-    {% block breadcrumbs %} {% endblock %}
+        <div class="breadcrumbs">
+        <p>{% block breadcrumbs %}{% endblock %}</p>
+        </div>
         {% block content %}{% endblock %}
     </div>
     <div class="widget-area">
-    <div class="repo-card">
+        <div class="repo-card">
             <div class="avatar-panel">
                 <div class="repo_pic">
                     <!-- TODO: Repo's Logo -->
                     {% if settings.active_release.icon_link %}
-                        <img src="{{ settings.active_release.icon_link }}" />
+                        <img src="{{ settings.active_release.icon_link }}"/>
                     {% else %}
-                        <img src="" />
+                        <img src=""/>
                     {% endif %}
                 </div>
                 {% if settings.active_release %}
@@ -68,8 +80,8 @@
                 {% endif %}
             </div>
         </div>
-    {% block latest_comments %}{% endblock %}
-    {% block section_list %}{% endblock %}
+        {% block latest_comments %}{% endblock %}
+        {% block section_list %}{% endblock %}
     </div>
 </div>
 <div class="clear"></div>

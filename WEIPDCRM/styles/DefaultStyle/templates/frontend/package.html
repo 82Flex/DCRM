@@ -1,73 +1,78 @@
 {% extends "frontend/base.html" %}
 {% load i18n staticfiles %}
-{% block title %}{% blocktrans with package_info.c_name as c_name %}Package {{ c_name }} | DCRM{% endblocktrans %}{% endblock %}
+{% block title %}{% blocktrans with package_info.c_name as c_name %}Package {{ c_name }} | DCRM
+{% endblocktrans %}{% endblock %}
+{% block headerscript %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'frontend/js/masonry.pkgd.min.js' %}"></script>
+{% endblock %}
 {% block breadcrumbs %}
-    <div class="breadcrumbs">
-    <p><i class="fa fa-location-arrow"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a> <i class="fa fa-angle-right"></i> <a href="{% url "section_id" package_info.c_section.id %}">{{ package_info.c_section }}</a> <i class="fa fa-angle-right"></i> {{ package_info.c_name }}</p>
-    </div>
- {% endblock %}
+    <i class="fa fa-home"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a>
+    <i class="fa fa-angle-right"></i> <a href="{% url "section_id" package_info.c_section.id %}">{{ package_info.c_section }}</a>
+    <i class="fa fa-angle-right"></i> {{ package_info.c_name }}
+{% endblock %}
 {% block content %}
-        <div class="article">
-            <div class="icon">
-                {% if package_info.display_icon %}
-                    <img class="icon" src="{{ package_info.display_icon }}"/>
-                {% else %}
-                    <img class="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
-                {% endif %}
+    <div class="article">
+        <div class="icon">
+            {% if package_info.display_icon %}
+                <img class="icon" src="{{ package_info.display_icon }}"/>
+            {% else %}
+                <img class="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
+            {% endif %}
+        </div>
+        <div class="intro">
+            <div class="title"><h1>{{ package_info.c_name }}</h1></div>
+            <div class="details">
+                <ul>
+                    <li>{% trans "Version" %}: {{ package_info.c_version }}</li>
+                    <li>{% trans "Size" %}: {{ package_info.c_size|filesizeformat }}</li>
+                    <li>{% trans "Author" %}: {{ package_info.author_name }}</li>
+                    <li>{% trans "Section" %}: {{ package_info.c_section }}</li>
+                    <li>{% trans "Package" %}: {{ package_info.c_package }}</li>
+                </ul>
+                <div class="clear"></div>
             </div>
-            <div class="intro">
-                <div class="title"><h1>{{ package_info.c_name }}</h1></div>
-                <div class="details">
-                    <ul>
-                        <li>{% trans "Version" %}: {{ package_info.c_version }}</li>
-                        <li>{% trans "Size" %}: {{ package_info.c_size|filesizeformat }}</li>
-                        <li>{% trans "Author" %}: {{ package_info.author_name }}</li>
-                        <li>{% trans "Section" %}: {{ package_info.c_section }}</li>
-                        <li>{% trans "Package" %}: {{ package_info.c_package }}</li>
-                    </ul>
-                    <div class="clear"></div>
-                </div>
-                <!-- Notice: I have edited css style here. -->
-                <div class="download">
-                    <!-- Notice: Use storage_link instead of storage for frontend use! -->
-                    <a rel="nofollow" href="{{ package_info.storage_link }}" id="downloadlink"
-                       target="_blank">{% trans "Download" %}<br />{{ package_info.download_times }}</a>
-                </div>
+            <!-- Notice: I have edited css style here. -->
+            <div class="download">
+                <!-- Notice: Use storage_link instead of storage for frontend use! -->
+                <a rel="nofollow" href="{{ package_info.storage_link }}" id="downloadlink"
+                   target="_blank">{% trans "Download" %}<br/>{{ package_info.download_times }}</a>
             </div>
-            <div class="clear"></div>
-            <div class="description">
-                <h2>{% trans "Description" %}</h2>
-                <p>
-                    {{ package_info.c_description }}
-                </p>
-            </div>
-            <div class="whatsnew">
-                <h2>{% trans "What's New" %}</h2>
-                <p>
-                    {{ package_info.update_logs }}
-                </p>
-            </div>
-            <div class="screenshot">
-                <h2>{% trans "Screenshot" %}</h2>
-                <div class="image">
+        </div>
+        <div class="clear"></div>
+        <div class="description">
+            <h2>{% trans "Description" %}</h2>
+            <p>
+                {{ package_info.c_description }}
+            </p>
+        </div>
+        <div class="whatsnew">
+            <h2>{% trans "What's New" %}</h2>
+            <p>
+                {{ package_info.update_logs }}
+            </p>
+        </div>
+        <div class="screenshot">
+            <h2>{% trans "Screenshot" %}</h2>
+            <div class="image">
                 <div class="image-wrapper">
                     <ul>
-                    <!-- TODO: Screenshot Module -->
+                        <!-- TODO: Screenshot Module -->
                     </ul>
                 </div>
-                </div>
             </div>
-            <div class="similar">
-                <!-- TODO: Similar Package Module -->
-            </div>
-            </div>
-            <div class="comments">
-                <h2>{% trans "Comments" %}</h2>
-                <div id="comments">
-                    <!-- TODO: Duoshuo Comment Module -->
-                </div>
-            </div>
+        </div>
+        <div class="similar">
+            <!-- TODO: Similar Package Module -->
+        </div>
+    </div>
+    <div class="comments">
+        <h2>{% trans "Comments" %}</h2>
+        <div id="comments">
+            <!-- TODO: Duoshuo Comment Module -->
+        </div>
+    </div>
 {% endblock %}
 {% block section_list %}
-<!-- TODO: Section List -->
+    <!-- TODO: Section List -->
 {% endblock %}

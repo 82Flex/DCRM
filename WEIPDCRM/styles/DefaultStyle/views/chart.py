@@ -27,6 +27,7 @@ from WEIPDCRM.models.version import Version
 
 from preferences import preferences
 
+
 class ChartView(ListView):
     model = Version
     context_object_name = 'package_list'

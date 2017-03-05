@@ -1,24 +1,14 @@
 {% extends "frontend/base.html" %}
 {% load i18n staticfiles %}
-{% block headerscript %}
-    <script type="text/javascript" src="{% static "frontend/js/jquery.min.js" %}"></script>
-    <script type="text/javascript" src="{% static 'frontend/js/masonry.pkgd.min.js' %}"></script>
-    <script type="text/javascript" src="{% static "frontend/js/main.js" %}"></script>
-{% endblock %}
 {% block title %}{% trans 'Chart' %} | DCRM{% endblock %}
-{% block search %}
-    <div id="search" class="search">
-        <form id="search-form" method="post" action="{% url 'search' %}">{% csrf_token %}
-        <input class="search-input" id="search-input" style="display: none" name="package" placeholder="{% trans "Search packages" %}" autofocus />
-        <a class="fa fa-search" id="icon" href="#" onclick="show_search()"></a>
-        </form>
-    </div>
+{% block headerscript %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'frontend/js/masonry.pkgd.min.js' %}"></script>
 {% endblock %}
 {% block breadcrumbs %}
-    <div class="breadcrumbs">
-    <p><i class="fa fa-location-arrow"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a> <i class="fa fa-angle-right"></i> <a href="{% url 'chart' %}">{% trans 'Chart' %}</a></p>
-    </div>
- {% endblock %}
+    <i class="fa fa-home"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a>
+    <i class="fa fa-angle-right"></i> <a href="{% url 'chart' %}">{% trans 'Chart' %}</a>
+{% endblock %}
 {% block content %}
      <div class="content-list">
         <div class="title"><h2>{% trans 'Chart' %}</h2></div>
