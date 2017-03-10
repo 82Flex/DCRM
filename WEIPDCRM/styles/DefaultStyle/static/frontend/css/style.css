@@ -485,6 +485,8 @@ img {
 }
 
 .primary .content .comments h2 {
+    margin-top: 8px;
+    margin-bottom: 16px;
     font-size: 1.2em;
     font-weight: 500;
     line-height: 18px;

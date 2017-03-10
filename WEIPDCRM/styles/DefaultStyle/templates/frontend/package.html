@@ -66,10 +66,13 @@
             <!-- TODO: Similar Package Module -->
         </div>
     </div>
-    <div class="comments">
-        <h2>{% trans "Comments" %}</h2>
-        <div id="comments">
-            <!-- TODO: Duoshuo Comment Module -->
+    {% if settings.duoshuo_comments %}
+        <div class="comments">
+            <h2>{% trans "Comments" %}</h2>
+            <div id="comments">
+                <div class="ds-thread" data-thread-key="{{ package_info.id }}" data-title="{{ package_info.c_name }}" data-url="{{ package_info.get_absolute_url }}"></div>
+            </div>
         </div>
-    </div>
+    {% endif %}
 {% endblock %}
+{% block latest_comments %}{% endblock %}

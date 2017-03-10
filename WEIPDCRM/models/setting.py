@@ -241,6 +241,24 @@ class Setting(Preferences):
             
         ]
     )
+    duoshuo_comments = models.BooleanField(
+        verbose_name=_("DuoShuo Comments"),
+        help_text=_("Enable DuoShuo comments"),
+        default=False,
+        validators=[
+
+        ]
+    )
+    duoshuo_shortname = models.CharField(
+        verbose_name=_("DuoShuo Short Name"),
+        help_text=_("Please go to %s for get short name (registration required)" % "<a href=\"http://duoshuo.com/\">http://duoshuo.com</a>"),
+        max_length=255,
+        default="",
+        validators=[
+
+        ]
+    )
+
 
     def get_admin_url(self):
         """
