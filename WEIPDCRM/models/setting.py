@@ -101,6 +101,7 @@ class Setting(Preferences):
         verbose_name=_("Active Release"),
         null=True,
         blank=True,
+        default=None,
         on_delete=models.SET_NULL,
         help_text=_("Each repository should have an active release, otherwise it will not be "
                     "recognized by any advanced package tools.")
@@ -245,20 +246,14 @@ class Setting(Preferences):
         verbose_name=_("DuoShuo Comments"),
         help_text=_("Enable DuoShuo comments"),
         default=False,
-        validators=[
-
-        ]
     )
     duoshuo_shortname = models.CharField(
         verbose_name=_("DuoShuo Short Name"),
-        help_text=_("Please go to %s for get short name (registration required)" % "<a href=\"http://duoshuo.com/\">http://duoshuo.com</a>"),
+        help_text=_("Please visit %s and register to use Duoshuo."
+                    "" % "<a href=\"http://duoshuo.com/\">http://duoshuo.com</a>"),
         max_length=255,
-        default="",
-        validators=[
-
-        ]
+        default=""
     )
-
 
     def get_admin_url(self):
         """
