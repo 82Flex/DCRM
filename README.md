@@ -73,6 +73,131 @@ DCRM 尚处于开发阶段，暂不支持一键配置，请按照以下步骤进
 ### 出现 Permission Denied 如何解决？
 - 请**让 rqworker 工作在 uwsgi 同一用户下**。例如 uwsgi 用户为 www，则启动 rqworker 时请采用 _sudo -u www nohup ./manage.py rqworker high &_。
 
+### 配置示例
+
+#### 环境配置指令示例
+
+```shell
+apt-get update
+apt-get upgrade
+pip install django==1.10.5
+apt-get install mysql-server
+apt-get install libmysqlclient-dev
+apt-get install python-dev
+pip install rq
+pip install mysql
+pip install python-debian --upgrade
+pip install sqlparse
+apt-get install memcached
+pip install python-memcached
+apt-get install nginx
+pip install uwsgi
+apt-get install git
+apt-get install redis-server
+apt-get install libjpeg-dev
+pip install Pillow
+```
+
+#### nginx 配置示例 (https://apt.82flex.com)
+
+```nginx
+upstream django {
+    server 127.0.0.1:8001; 
+}
+server {
+    listen 80;
+    server_name apt.82flex.com;
+    rewrite ^/(.*)$ https://apt.82flex.com/$1 permanent;
+}
+server {
+    listen 443 ssl;
+
+    ssl_certificate /wwwdata/ssl/1_apt.82flex.com_bundle.crt;
+    ssl_certificate_key /wwwdata/ssl/2_apt.82flex.com.key;
+    ssl_session_timeout 5m;
+    ssl_protocols SSLv2 SSLv3 TLSv1;
+    ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
+    ssl_prefer_server_ciphers on;
+
+    server_name apt.82flex.com;
+    root /wwwdata/wwwroot;
+    error_page 497 https://$host$uri?$args;
+    server_name_in_redirect off;
+    index index.html index.htm;
+    
+    location = / {
+        rewrite ^ /index/ last;
+    }
+    
+    location / {
+        try_files $uri $uri/ @djangosite;
+    }	
+    
+    location ~^/static/(.*)$ {
+        alias /wwwdata/DCRM/WEIPDCRM/static/$1;
+    }
+
+    location ~^/resources/(.*)$ {
+        alias /wwwdata/DCRM/resources/$1;
+    }
+    
+    location ~^/((Release(.gpg)?)|(Packages(.gz|.bz2)?))$ {
+        alias /wwwdata/DCRM/resources/releases/$1;
+    }
+    
+    location @djangosite {
+        uwsgi_pass django;
+        include /etc/nginx/uwsgi_params;
+    }
+    
+    location ~* .(ico|gif|bmp|jpg|jpeg|png|swf|js|css|mp3|m4a|m4v|mp4|ogg|aac)$ {
+        expires 30d;
+        valid_referers none blocked *.82flex.com 127.0.0.1 localhost;
+        if ($invalid_referer) {
+            return 403;
+        }
+    }
+}
+```
+
+nginx 工作用户及组均为 www-data，启动 nginx：
+```shell
+sudo /etc/init.d/nginx start
+```
+
+#### uwsgi 配置示例
+
+```ini
+[uwsgi]
+
+chdir = /wwwdata/DCRM
+module = DCRM.wsgi
+
+master = true
+processes = 4
+socket = :8001
+vaccum = true
+uid = www-data
+gid = www-data
+```
+
+启动 uwsgi：
+```shell
+sudo -u www-data -g www-data uwsgi --ini uwsgi.ini --daemonize=/dev/null
+```
+
+#### GnuPG 配置示例
+```shell
+su www-data
+gpg --gen-key / gpg --allow-secret-key-import --import private.key
+```
+
+#### 启动后台队列进程
+```shell
+nohup ./manage.py rqworker high > /dev/null &
+nohup ./manage.py rqworker default > /dev/null &
+```
+
 ## LICENSE 版权声明
 
 Copyright © 2013-2017 Zheng Wu
