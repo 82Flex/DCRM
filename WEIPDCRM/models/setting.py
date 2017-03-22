@@ -252,6 +252,7 @@ class Setting(Preferences):
         help_text=_("Please visit %s and register to use Duoshuo."
                     "" % "<a href=\"http://duoshuo.com/\">http://duoshuo.com</a>"),
         max_length=255,
+        blank=True,
         default=""
     )
 
