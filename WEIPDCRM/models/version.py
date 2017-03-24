@@ -70,7 +70,7 @@ def write_to_package_job(control, path, callback_version_id):
     temp_package.control = control
     # save new package
     temp_package.save()
-    t_version = Version.objects.filter(id=callback_version_id).last()
+    t_version = Version.objects.get(id=callback_version_id)
     t_version.write_callback(temp_package.path)
 
 
