@@ -1,13 +1,13 @@
 {% load staticfiles %}
 <fieldset>
-{% for package in package_list %}
-    <a href="{% url "package_id" package.id %}">
-        {% if package.display_icon %}
-            <img class="icon" src="{{ package.display_icon }}"/>
-        {% else %}
-            <!-- TODO: Default Icon -->
-            <img class="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
-        {% endif %}
+    {% for package in package_list %}
+        <a href="{% url "package_id" package.id %}">
+            {% if package.display_icon %}
+                <img class="icon" src="{{ package.display_icon }}"/>
+            {% else %}
+                <!-- TODO: Default Icon -->
+                <img class="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
+            {% endif %}
             <div>
                 <div>
                     <label>
@@ -15,6 +15,6 @@
                     </label>
                 </div>
             </div>
-    </a>
-{% endfor %}
+        </a>
+    {% endfor %}
 </fieldset>

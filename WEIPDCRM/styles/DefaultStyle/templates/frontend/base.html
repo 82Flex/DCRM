@@ -1,4 +1,5 @@
-{% load i18n staticfiles %}
+{% load i18n staticfiles section_list global_settings %}
+{% global_settings %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,8 +81,8 @@
                 {% endif %}
             </div>
         </div>
+        {% section_list %}
         {% block section_list %}
-            <!-- TODO: Section List Widget  -->
             <div class="section_list">
                 <h2>{% trans "Section List" %}</h2>
                 <div class="list">

@@ -26,8 +26,8 @@ from django.views.generic import ListView
 from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.section import Section
 
-from preferences import preferences
 from django.utils.translation import ugettext_lazy as _
+
 
 class SectionView(ListView):
     allow_empty = True
@@ -57,11 +57,10 @@ class SectionView(ListView):
         """
         Merge global settings to current context
         """
+        context = super(SectionView, self).get_context_data(**kwargs)
+        
         section_id = self.kwargs.get('section_id')
         packages_num = Package.objects.filter(c_section_id=section_id).count()
-        context = super(SectionView, self).get_context_data(**kwargs)
-        context['settings'] = preferences.Setting
-        context['section_list'] = Section.objects.all().order_by('name')[:16]
         context['c_section'] = Section.objects.get(id=section_id)
         context['packages_num'] = _("%d packages in this section." % packages_num)
         return context

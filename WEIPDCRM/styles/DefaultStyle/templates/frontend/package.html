@@ -8,7 +8,9 @@
 {% endblock %}
 {% block breadcrumbs %}
     <i class="fa fa-home"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a>
-    <i class="fa fa-angle-right"></i> <a href="{% url "section_id" package_info.c_section.id %}">{{ package_info.c_section }}</a>
+    {% if package_info.c_section %}
+        <i class="fa fa-angle-right"></i> <a href="{% url "section_id" package_info.c_section.id %}">{{ package_info.c_section }}</a>
+    {% endif %}
     <i class="fa fa-angle-right"></i> {{ package_info.c_name }}
 {% endblock %}
 {% block content %}
@@ -77,4 +79,6 @@
         </div>
     {% endif %}
 {% endblock %}
-{% block latest_comments %}{% endblock %}
+{% block latest_comments %}
+
+{% endblock %}

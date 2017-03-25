@@ -27,18 +27,14 @@ from django.http import HttpResponseBadRequest
 from django.template.context_processors import csrf
 
 from WEIPDCRM.models.version import Version
-from WEIPDCRM.models.section import Section
-from preferences import preferences
 
 
 def search_view(request):
     context = {}
     if request.POST:
         context.update(csrf(request))
-        context['package_list'] = Version.objects.filter(c_name__icontains=request.POST['package'])[:24]
-        context['section_list'] = Section.objects.all().order_by('name')[:16]
         context['request'] = request.POST['package']
-        context['settings'] = preferences.Setting
+        context['package_list'] = Version.objects.filter(c_name__icontains=request.POST['package'])[:24]
     else:
         return HttpResponseBadRequest()
     return render(request, 'frontend/search.html', context)

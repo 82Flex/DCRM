@@ -1,12 +1,22 @@
 {% extends "mobile/base.html" %}
 {% load i18n staticfiles %}
 {% block content %}
-<label><p>{{ c_section.name }}</p></label>
-<block>
-        <p>{{ packages_num }}</p>
-        <p>{% trans "Create time: " %}{{ c_section.created_at | date:"Y-m-d H:i:s" }}</p>
-</block>
-    {% include 'mobile/grid-list.html' %}
+    <label>
+        <p>
+            {{ c_section.name }}
+        </p>
+    </label>
+    <block>
+        <p>
+            {{ packages_num }}
+        </p>
+        <p>
+            {% trans "Create time: " %}{{ c_section.created_at | date:"Y-m-d H:i:s" }}
+        </p>
+    </block>
+    {% include "mobile/grid-list.html" %}
     <!--TODO: Paginate -->
 {% endblock %}
-{% block sourceinfo %}{% endblock %}
+{% block sourceinfo %}
+
+{% endblock %}

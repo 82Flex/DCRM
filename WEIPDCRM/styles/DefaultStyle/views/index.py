@@ -24,11 +24,8 @@ Notice: You have used class-based views, that's awesome.
 
 from django.views.generic import ListView
 from WEIPDCRM.models.package import Package
-from WEIPDCRM.models.section import Section
 from WEIPDCRM.models.build import Build
 
-from preferences import preferences
-from django.contrib.sites.models import Site
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -55,9 +52,6 @@ class IndexView(ListView):
         Merge global settings to current context
         """
         context = super(IndexView, self).get_context_data(**kwargs)
-        context['settings'] = preferences.Setting
-        context['site'] = Site.objects.get(id=1)
-        context['section_list'] = Section.objects.all().order_by('name')[:16]
         context['packages_num'] = _("%d packages in total." % Package.objects.all().count())
         latest_build = Build.objects.order_by('-created_at')
         if latest_build:

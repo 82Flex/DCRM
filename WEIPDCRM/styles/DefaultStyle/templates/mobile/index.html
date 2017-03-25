@@ -1,79 +1,80 @@
 {% extends "mobile/base.html" %}
-{% load i18n staticfiles %}
+{% load i18n staticfiles section_list %}
 {% block content %}
-<panel>
     <fieldset>
-            <a href="cydia://url/https://cydia.saurik.com/api/share#?source={{ site }}" target="_blank" class="">
+        <a href="cydia://url/https://cydia.saurik.com/api/share#?source={{ site }}" target="_blank" class="">
             <img class="icon" src="{% static "mobile/img/cydia7.png" %}">
+            <div>
                 <div>
-                    <div>
-                        <label>
-                            <p>
-                                {% trans "Add in Cydia<sup><small>™</small></sup>" %}
-                            </p>
-                        </label>
-                    </div>
+                    <label>
+                        <p>
+                            {% trans "Add in Cydia<sup><small>™</small></sup>" %}
+                        </p>
+                    </label>
                 </div>
-            </a>
+            </div>
+        </a>
     </fieldset>
     <fieldset>
-            <div>
-                <div style="float: right; vertical-align: middle; text-align: center; margin-top: 15px; width: 200px">
-                    <span style="font-size: 24px">{{ settings.active_release.origin }}</span>
-                    <br />
-                    <span style="font-size: 16px">
-                        <a class="panel" href="mailto:{{ settings.active_release.email }}">{{ settings.active_release.email }}</a>
-                    </span>
-                </div>
-                <img class="icon" src="{{ settings.active_release.icon_link }}" style="width:64px; height:64px; vertical-align: top;">
-                <hr>
-                <p>
-                    {% trans "Add this URL via Cydia<sup><small>™</small></sup>" %}<br/>
-                    <strong><a href="{% url "index" %}" class="">{{ site }}</a></strong>
-                </p>
+        <div>
+            <div style="float: right; vertical-align: middle; text-align: center; margin-top: 15px; width: 300px">
+                <span style="font-size: 24px">{{ settings.active_release.origin }}</span>
+                <br/>
+                <span style="font-size: 14px">
+                    {{ settings.active_release.description }}
+                </span>
             </div>
+            <img class="icon" src="{{ settings.active_release.icon_link }}"
+                 style="width:64px; height:64px; vertical-align: top;">
+            <hr />
+            <p>
+                {% trans "Add this URL via Cydia<sup><small>™</small></sup>" %}<br/>
+                <strong><a href="{% url "index" %}" class="">{{ site }}</a></strong>
+            </p>
+        </div>
     </fieldset>
     <block>
-            <p>
-                {{ packages_num }}
-            </p>
-            <p>
-                {% trans "Last updated: " %}{{ release_lastest_updated | date:"Y-m-d H:i:s" }}
-            </p>
+        <p>
+            {{ packages_num }}
+        </p>
+        <p>
+            {% trans "Last updated: " %}{{ release_lastest_updated | date:"Y-m-d H:i:s" }}
+        </p>
     </block>
     <fieldset>
-				<a href="mailto:{{ settings.active_release.email }}?subject={{ settings.active_release.origin }}" target="_blank" class="">
-				<img class="icon" src="{% static "mobile/img/email.png" %}">
-					<div>
-						<div>
-							<label>
-								<p>{% trans "Contact us" %}</p>
-							</label>
-						</div>
-					</div>
-				</a>
-				<a href="" target="_blank" class="">
-				<img class="icon" src="{% static "mobile/img/weibo.png" %}">
-					<div>
-						<div>
-							<label>
-								<!--TODO: Social contact module-->
-							</label>
-						</div>
-					</div>
-				</a>
-
+        <a href="mailto:{{ settings.active_release.email }}?subject={{ settings.active_release.origin }}"
+           target="_blank" class="">
+            <img class="icon" src="{% static "mobile/img/email.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>{% trans "Contact us" %}</p>
+                    </label>
+                </div>
+            </div>
+        </a>
+        <a href="" target="_blank" class="">
+            <img class="icon" src="{% static "mobile/img/weibo.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <!-- TODO: Social contact module -->
+                    </label>
+                </div>
+            </div>
+        </a>
     </fieldset>
+    {% section_list %}
     <label>{% trans "Section List" %}</label>
     <fieldset>
         {% for section in section_list %}
             <a href="{% url "section_id" section.id %}">
-            {% if section.icon %}
-                <!-- TODO: Section Icon  -->
-                <img class="icon" src="{{ section.icon_link }}"/>
-            {% else %}
-                <img class="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
-            {% endif %}
+                {% if section.icon %}
+                    <!-- TODO: Section Icon  -->
+                    <img class="icon" src="{{ section.icon_link }}"/>
+                {% else %}
+                    <img class="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
+                {% endif %}
                 <div>
                     <div>
                         <label>

@@ -16,23 +16,14 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-Notice: You have used class-based views, that's awesome.
-        If not necessary, you can try function-based views.
-        You may add lines above as license.
 """
 
-from django.views.generic import DetailView
-from WEIPDCRM.models.version import Version
+from django import template
+from WEIPDCRM.models.section import Section
+register = template.Library()
 
 
-class PackageView(DetailView):
-    model = Version
-    context_object_name = 'package_info'
-    pk_url_kwarg = 'package_id'
-    template_name = 'frontend/package.html'
-
-    def get(self, request, *args, **kwargs):
-        if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
-            self.template_name = 'mobile/package.html'
-        return super(PackageView, self).get(request, *args, **kwargs)
+@register.simple_tag(takes_context=True)
+def section_list(context):
+    context['section_list'] = Section.objects.all().order_by('name')[:16]
+    return ''

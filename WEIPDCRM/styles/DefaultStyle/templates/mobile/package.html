@@ -1,137 +1,138 @@
 {% extends "mobile/base.html" %}
 {% load i18n staticfiles %}
 {% block content %}
-<fieldset id="cydialink" style="">
-				<a href="cydia://url/https://cydia.saurik.com/api/share#?source={{ site }}&amp;{{ package_info.c_package }}" target="_blank" class="">
-				<img class="icon" src="{% static "mobile/img/cydia7.png" %}">
-					<div>
-						<div>
-							<label>
-								<p>{% trans "View in Cydia<sup><small>™</small></sup>" %}</p>
-							</label>
-						</div>
-					</div>
-				</a>
-</fieldset>
-<div id="header" style="">
-    {% if package_info.display_icon %}
-        <img id="icon" src="{{ package_info.display_icon }}"/>
-    {% else %}
-        <img id="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
-    {% endif %}
-    <div id="content">
-        <p id="name">{{ package_info.c_name }}</p>
-        <p id="latest">{{ package_info.c_version }}</p>
-        <div id="extra">
-            <p>{{ package_info.c_size|filesizeformat }}</p>
+    <fieldset id="cydialink" style="">
+        <a href="cydia://url/https://cydia.saurik.com/api/share#?source={{ site }}&amp;{{ package_info.c_package }}"
+           target="_blank" class="">
+            <img class="icon" src="{% static "mobile/img/cydia7.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>{% trans "View in Cydia<sup><small>™</small></sup>" %}</p>
+                    </label>
+                </div>
+            </div>
+        </a>
+    </fieldset>
+    <div id="header" style="">
+        {% if package_info.display_icon %}
+            <img id="icon" src="{{ package_info.display_icon }}"/>
+        {% else %}
+            <img id="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
+        {% endif %}
+        <div id="content">
+            <p id="name">{{ package_info.c_name }}</p>
+            <p id="latest">{{ package_info.c_version }}</p>
+            <div id="extra">
+                <p>{{ package_info.c_size|filesizeformat }}</p>
+            </div>
         </div>
     </div>
-</div>
-<fieldset id="contact" style="">
-				<a href="mailto:{{ package_info.author_email }}" class="">
-					<img class="icon" src="{% static "mobile/img/email.png" %}">
-					<div>
-						<div>
-							<label>
-								<p>{% trans "Author" %}</p>
-							</label>
-							<label class="detail">
-									<p id="contact">{{ package_info.author_name }}</p>
-							</label>
-						</div>
-					</div>
-				</a>
-			</fieldset>
+    <fieldset id="contact" style="">
+        <a href="mailto:{{ package_info.author_email }}" class="">
+            <img class="icon" src="{% static "mobile/img/email.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>{% trans "Author" %}</p>
+                    </label>
+                    <label class="detail">
+                        <p id="contact">{{ package_info.author_name }}</p>
+                    </label>
+                </div>
+            </div>
+        </a>
+    </fieldset>
     <fieldset>
-				<a href="//apt.sunbelife.com/debs/243.deb" id="downloadlink" style="" target="_blank" class="">
-				<img class="icon" src="{% static "mobile/img/package.png" %}">
-					<div>
-						<div>
-							<label>
-								<p>{% trans "Download" %}</p>
-							</label>
-							<label class="detail">
-									<p>
-                                        {{ package_info.c_size|filesizeformat }}
-                                    </p>
-							</label>
-						</div>
-					</div>
-				</a>
-			</fieldset>
+        <a rel="nofollow" href="{{ package_info.storage_link }}" id="downloadlink" target="_blank">
+            <img class="icon" src="{% static "mobile/img/package.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>{% trans "Download" %}</p>
+                    </label>
+                    <label class="detail">
+                        <p>
+                            {{ package_info.c_size|filesizeformat }}
+                        </p>
+                    </label>
+                </div>
+            </div>
+        </a>
+    </fieldset>
     <fieldset>
-				<div>
-                    {% autoescape off %}
-                        {{ package_info.rich_description }}
-                    {% endautoescape %}
-				</div>
-			</fieldset>
+        <div>
+            {% autoescape off %}
+                {{ package_info.rich_description }}
+            {% endautoescape %}
+        </div>
+    </fieldset>
     <label><p>{% trans "Change Log" %}</p></label>
     <fieldset class="changelog">
-				<a>
-					<div>
-						<div>
-							<label>
-								<p>
-                                    {{ package_info.update_logs }}
-                                </p>
-							</label>
-						</div>
-					</div>
-				</a>
-            <a href="" id="historylink" class="">
-                        <img class="icon" src="{% static "mobile/img/changelog.png" %}">
-                            <div>
-                                <div>
-                                    <label>
-                                        <p>{% trans "History" %}</p>
-                                    </label>
-                                </div>
-                            </div>
-                        </a>
-			</fieldset>
-            <block>
-					<p>{% trans "Version" %}: {{ package_info.c_version }} | {% trans "Downloads" %}: {{ package_info.download_times }}</p>
-					<p>{% trans "Last Updated" %}: {{ package_info.created_at | date:"Y-m-d H:i:s" }}</p>
-
-			</block>
-            <fieldset>
-                        <a href="" target="_blank" class="">
-                        <img class="icon" src="{% static "mobile/img/qq.png" %}">
-                            <div>
-                                <div>
-                                    <label>
-                                        <p>QQ Group</p>
-                                    </label>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="" target="_blank" class="">
-                        <img class="icon" src="{% static "mobile/img/weibo.png" %}">
-                            <div>
-                                <div>
-                                    <label>
-                                        <p>@0xJacky</p>
-                                    </label>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="" target="_blank" class="">
-                        <img class="icon" src="{% static "mobile/img/alipay.png" %}">
-                            <div>
-                                <div>
-                                    <label>
-                                        <p>
-                                            {% trans "Donate Via Alipay" %}
-                                        </p>
-                                    </label>
-                                </div>
-                            </div>
-                        </a>
-                    </fieldset>
-    <!--<fieldset>
-				<div id="comments">
-                    TODO: Comments Module
+        <a>
+            <div>
+                <div>
+                    <label>
+                        <p>
+                            {{ package_info.update_logs }}
+                        </p>
+                    </label>
                 </div>
-			</fieldset>-->
+            </div>
+        </a>
+        <a href="" id="historylink" class="">
+            <img class="icon" src="{% static "mobile/img/changelog.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>{% trans "History" %}</p>
+                    </label>
+                </div>
+            </div>
+        </a>
+    </fieldset>
+    <block>
+        <p>{% trans "Version" %}: {{ package_info.c_version }}
+            | {% trans "Downloads" %}: {{ package_info.download_times }}</p>
+        <p>{% trans "Last Updated" %}: {{ package_info.created_at | date:"Y-m-d H:i:s" }}</p>
+    </block>
+    <fieldset>
+        <a href="" target="_blank" class="">
+            <img class="icon" src="{% static "mobile/img/qq.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>QQ Group</p>
+                    </label>
+                </div>
+            </div>
+        </a>
+        <a href="" target="_blank" class="">
+            <img class="icon" src="{% static "mobile/img/weibo.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>@0xJacky</p>
+                    </label>
+                </div>
+            </div>
+        </a>
+        <a href="" target="_blank" class="">
+            <img class="icon" src="{% static "mobile/img/alipay.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>
+                            {% trans "Donate Via Alipay" %}
+                        </p>
+                    </label>
+                </div>
+            </div>
+        </a>
+    </fieldset>
+    <!--fieldset>
+        <div id="comments">
+            TODO: Comments Module
+        </div>
+    </fieldset-->
 {% endblock %}

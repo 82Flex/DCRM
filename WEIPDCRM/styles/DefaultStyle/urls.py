@@ -42,4 +42,5 @@ urlpatterns = [
     url(r'^search/?$', cache()(search_view), name='search'),
     url(r'^chart/?$', cache()(ChartView.as_view()), name='chart'),
     url(r'^section/(?P<section_id>\d+)/?$', cache()(SectionView.as_view()), name='section_id'),
+    url(r'^section/(?P<section_id>\d+)/(?P<page>\d?)/?$', cache()(SectionView.as_view()), name='section_id_page'),
 ]

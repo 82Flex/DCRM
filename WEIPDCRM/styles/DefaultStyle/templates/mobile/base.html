@@ -1,26 +1,33 @@
-{% load i18n staticfiles %}
+{% load i18n staticfiles global_settings %}
+{% global_settings %}
 <!DOCTYPE html "about:legacy-compat">
 <html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Cydia</title>
-  <!-- TODO: Shortcut Icon -->
-  <!-- link rel="shortcut icon" href="/favicon.ico" /-->
-  <link rel="stylesheet" type="text/css" href="{% static "mobile/css/style.css" %}" />
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="format-detection" content="telephone=no" />
-  <script type="text/javascript" src="{% static "mobile/js/fastclick.js" %}"></script>
-  <script type="text/javascript" src="{% static "mobile/js/style.js" %}"></script>
-  <script type="text/javascript">if(navigator.userAgent.search(/Cydia/)!=-1){var title=document.title;var dot=title.indexOf('·');if(dot!=-1)
-document.title=title.substring(0,dot);}</script>
-  <script type="text/javascript" src="{% static "mobile/js/menes.js" %}"></script>
- </head>
- <body class="pinstripe">
- <panel>
- {% block content %}{% endblock %}
- {% block sourceinfo %}
-     <label>{% trans "Source Info" %}</label>
-    <fieldset class="source">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Cydia</title>
+    <!-- TODO: Shortcut Icon -->
+    <!-- link rel="shortcut icon" href="/favicon.ico" /-->
+    <link rel="stylesheet" type="text/css" href="{% static "mobile/css/style.css" %}"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <script type="text/javascript" src="{% static "mobile/js/fastclick.js" %}"></script>
+    <script type="text/javascript" src="{% static "mobile/js/style.js" %}"></script>
+    <script type="text/javascript">
+        if (navigator.userAgent.search(/Cydia/) != -1) {
+            var title = document.title;
+            var dot = title.indexOf('·');
+            if (dot != -1)
+                document.title = title.substring(0, dot);
+        }
+    </script>
+    <script type="text/javascript" src="{% static "mobile/js/menes.js" %}"></script>
+</head>
+<body class="pinstripe">
+<panel>
+    {% block content %}{% endblock %}
+    {% block sourceinfo %}
+        <label>{% trans "Source Info" %}</label>
+        <fieldset class="source">
             <a href="/" class="">
                 <img class="icon" src="{{ settings.active_release.icon_link }}">
                 <div>
@@ -38,17 +45,19 @@ document.title=title.substring(0,dot);}</script>
                     {{ settings.active_release.description }}
                 </p>
             </div>
-    </fieldset>
- {% endblock %}
-<footer id="footer" style="">
-        <span id="id">{% trans "Home" %}</span>
-        <br />
-        <span class="source-name"><!--TODO: custom footer text--></span>·
-        <span id="section">{% trans 'Copyright © 2017 82Flex Team.' %}</span>
-        <br />
-        <span id="code"><!--TODO: ICP--></span>
-</footer>
- </panel>
+        </fieldset>
+    {% endblock %}
+    {% block footer %}
+        <footer id="footer">
+            <span id="id">{% trans "Home" %}</span>
+            <br/>
+            <span class="source-name"><!--TODO: custom footer text--></span>·
+            <span id="section">{% trans 'Copyright © 2017 82Flex Team.' %}</span>
+            <br/>
+            <span id="code"><!--TODO: ICP--></span>
+        </footer>
+    {% endblock %}
+</panel>
 <!--TODO: Statstics-->
- </body>
+</body>
 </html>
