@@ -2,12 +2,12 @@
 {% load i18n staticfiles %}
 {% block content %}
 <fieldset id="cydialink" style="">
-				<a href="cydia://url/https://cydia.saurik.com/api/share#?source=http://apt.uozi.org/&amp;package=org.uozi.qqpatch" target="_blank" class="">
-				<img class="icon" src="//apt.uozi.org/icon/default/cydia.png">
+				<a href="cydia://url/https://cydia.saurik.com/api/share#?source={{ site }}&amp;{{ package_info.c_package }}" target="_blank" class="">
+				<img class="icon" src="{% static "mobile/img/cydia7.png" %}">
 					<div>
 						<div>
 							<label>
-								<p>在 Cydia<sup><small>™</small></sup> 中查看</p>
+								<p>{% trans "View in Cydia<sup><small>™</small></sup>" %}</p>
 							</label>
 						</div>
 					</div>
@@ -122,7 +122,8 @@
                                 <div>
                                     <label>
                                         <p>
-                                            前往 <span style="font-style: italic; font-weight: bold"><img class="alipay" src="{% static "mobile/img/alipay_text.png" %}"><sup><small>™</small></sup></span> 捐助								</p>
+                                            {% trans "Donate Via Alipay" %}
+                                        </p>
                                     </label>
                                 </div>
                             </div>

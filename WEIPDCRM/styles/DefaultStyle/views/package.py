@@ -27,7 +27,7 @@ from WEIPDCRM.models.version import Version
 from WEIPDCRM.models.section import Section
 
 from preferences import preferences
-
+from django.contrib.sites.models import Site
 
 class PackageView(DetailView):
     """
@@ -51,4 +51,5 @@ class PackageView(DetailView):
         context = super(PackageView, self).get_context_data(**kwargs)
         context['settings'] = preferences.Setting
         context['section_list'] = Section.objects.all().order_by('name')[:16]
+        context['site'] = Site.objects.get(id=1)
         return context
