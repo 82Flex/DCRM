@@ -153,19 +153,18 @@ class Release(models.Model):
     support = models.URLField(
         verbose_name=_("Support"),
         max_length=255,
-        help_text=_("Official Site to provide support."),
+        help_text=_("Official site to provide support."),
         blank=True,
         null=True
     )
 
     email = models.EmailField(
-        verbose_name=_("E-Mail"),
+        verbose_name=_("E-mail"),
         max_length=255,
-        help_text=_("Maintainer's E-Mail to provide support."),
+        help_text=_("Maintainer's E-mail to provide support."),
         blank=True,
         null=True
     )
-
 
     def __unicode__(self):
         return self.label + " (" + self.origin + ")"
@@ -228,7 +227,6 @@ class Release(models.Model):
             "Components": self.components,
             "Description": self.description,
             "Support": self.support,
-            "E-Mail": self.email
         }
         control = {}
         for (k, v) in control_field.items():

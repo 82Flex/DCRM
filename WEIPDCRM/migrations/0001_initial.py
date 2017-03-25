@@ -98,8 +98,8 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(blank=True, help_text='On the package source screen a short description is listed of the repository. This description may eventually work similarly to that of a package (with a long/short variety and the aforementioned encoding), but for right now only the shorter description is displayed directly on the list.', verbose_name='Description')),
                 ('keywords', models.CharField(blank=True, default='', help_text='Separated by commas.', max_length=255, verbose_name='Keywords')),
                 ('icon', models.FileField(blank=True, help_text='Choose an Icon (*.png) to upload', max_length=255, null=True, upload_to='repository-icons', verbose_name='Repository Icon')),
-                ('support', models.URLField(blank=True, help_text='Official Site to provide support.', max_length=255, null=True, verbose_name='Support')),
-                ('email', models.EmailField(blank=True, help_text="Maintainer's E-Mail to provide support.", max_length=255, null=True, verbose_name='E-Mail')),
+                ('support', models.URLField(blank=True, help_text='Official site to provide support.', max_length=255, null=True, verbose_name='Support')),
+                ('email', models.EmailField(blank=True, help_text="Maintainer's E-mail to provide support.", max_length=255, null=True, verbose_name='E-mail')),
             ],
             options={
                 'verbose_name': 'Release',
