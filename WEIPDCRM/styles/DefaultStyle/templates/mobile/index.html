@@ -84,24 +84,4 @@
             </a>
         {% endfor %}
     </fieldset>
-    <label>{% trans "Source Info" %}</label>
-    <fieldset class="source">
-            <a href="/" class="">
-                <img class="icon" src="{{ settings.active_release.icon_link }}">
-                <div>
-                    <div>
-                        <label>
-                            <p id="source-name">
-                                {{ settings.active_release.origin }}
-                            </p>
-                        </label>
-                    </div>
-                </div>
-            </a>
-            <div class="source-description" id="source-description">
-                <p>
-                    {{ settings.active_release.description }}
-                </p>
-            </div>
-    </fieldset>
 {% endblock %}

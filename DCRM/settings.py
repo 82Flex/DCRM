@@ -42,6 +42,7 @@ ALLOWED_HOSTS = [
 ]
 
 # Redis
+# !!! Change the 'DB' number here if you have multiple DCRM installed !!!
 RQ_QUEUES = {
     'default': {
         'HOST': 'localhost',
@@ -61,6 +62,7 @@ RQ_QUEUES = {
 
 # Database
 # You cannot use SQLite3 due to the lack of advanced database supports.
+# !!! Change the 'NAME' here if you have multiple DCRM installed !!!
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

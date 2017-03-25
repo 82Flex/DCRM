@@ -43,7 +43,9 @@
         <div class="description">
             <h2>{% trans "Description" %}</h2>
             <p>
-                {{ package_info.c_description }}
+                {% autoescape off %}
+                     {{ package_info.rich_description }}
+                {% endautoescape %}
             </p>
         </div>
         <div class="whatsnew">

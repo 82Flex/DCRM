@@ -38,7 +38,12 @@ class PackageView(DetailView):
     context_object_name = 'package_info'
     pk_url_kwarg = 'package_id'
     template_name = 'frontend/package.html'
-    
+
+    def get(self, request, *args, **kwargs):
+        if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
+            self.template_name = 'mobile/package.html'
+        return super(PackageView, self).get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         """
         Merge global settings to current context

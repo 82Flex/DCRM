@@ -1173,3 +1173,57 @@ p,input[type="password"],input[type="text"],select {
 .cytyle-flat fieldset>a>div>div>label:first-child,.cytyle-flat fieldset>a>div>div>label.lower,.cytyle-flat fieldset>a>div>div>label.url {
 	left: -.05882em
 }
+
+#header {
+    position: relative;
+    margin: 9px
+}
+
+#icon {
+    display: inline-block;
+    vertical-align: top;
+    height: 64px;
+    width: 64px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px
+}
+
+#content {
+    display: inline-block;
+    padding: 6px
+}
+
+#name {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 17px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+#latest {
+    display: inline;
+    color: #358
+}
+
+#extra {
+    display: inline-block;
+    color: #358;
+    font-size: 12px;
+    position: absolute;
+    bottom: 6px;
+    right: 6px
+}
+
+#id, #contact {
+    white-space: nowrap
+}
+
+.alipay {
+    height: auto;
+    max-height: 20px;
+    vertical-align: text-bottom;
+}
