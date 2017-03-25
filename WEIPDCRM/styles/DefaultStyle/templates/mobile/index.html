@@ -67,7 +67,7 @@
     <label>{% trans "Section List" %}</label>
     <fieldset>
         {% for section in section_list %}
-            <a href="{% url "section_id" section.id , 1 %}">
+            <a href="{% url "section_id" section.id %}">
             {% if section.icon %}
                 <!-- TODO: Section Icon  -->
                 <img class="icon" src="{{ section.icon_link }}"/>
