@@ -4,6 +4,8 @@
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Cydia</title>
+  <!-- TODO: Shortcut Icon -->
+  <!-- link rel="shortcut icon" href="/favicon.ico" /-->
   <link rel="stylesheet" type="text/css" href="{% static "mobile/css/style.css" %}" />
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="format-detection" content="telephone=no" />
@@ -14,8 +16,17 @@ document.title=title.substring(0,dot);}</script>
   <script type="text/javascript" src="{% static "mobile/js/menes.js" %}"></script>
  </head>
  <body class="pinstripe">
+ <panel>
  {% block content %}{% endblock %}
-  </panel>
+<footer id="footer" style="">
+        <span id="id">{% trans "Home" %}</span>
+        <br />
+        <span class="source-name"><!--TODO: custom footer text--></span>·
+        <span id="section">{% trans 'Copyright © 2017 82Flex Team.' %}</span>
+        <br />
+        <span id="code"><!--TODO: ICP--></span>
+</footer>
+ </panel>
 <!--TODO: Statstics-->
  </body>
 </html>

@@ -67,7 +67,7 @@
     <label>{% trans "Section List" %}</label>
     <fieldset>
         {% for section in section_list %}
-            <a href="{% url "section_id" section.id %}">
+            <a href="{% url "section_id" section.id , 1 %}">
             {% if section.icon %}
                 <!-- TODO: Section Icon  -->
                 <img class="icon" src="{{ section.icon_link }}"/>
@@ -104,12 +104,4 @@
                 </p>
             </div>
     </fieldset>
-    <footer id="footer" style="">
-            <span id="id">{% trans "Home" %}</span>
-            <br />
-            <span class="source-name"><!--TODO: custom footer text--></span>·
-            <span id="section">{% trans 'Copyright © 2017 82Flex Team.' %}</span>
-            <br />
-            <span id="code"><!--TODO: ICP--></span>
-    </footer>
 {% endblock %}
