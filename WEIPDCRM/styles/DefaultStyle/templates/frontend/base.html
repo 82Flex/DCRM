@@ -104,11 +104,11 @@
             </div>
         {% endblock %}
         {% block latest_comments %}
-            {% if settings.duoshuo_comments %}
+            {% if settings.comments %}
                 <div class="comments">
                     <div class="title"><h2>{% trans "Latest Comments" %}</h2></div>
                       <div class="list">
-                          <div class="ds-recent-comments" data-num-items="4" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="20"></div>
+                          <!--TODO: Comments Module-->
                       </div>
                 </div>
             {% endif %}
@@ -125,19 +125,9 @@
         </ul>
     </div>
 {% endblock %}
-{% block DuoShuoComments %}
-    {% if settings.duoshuo_comments %}
-        <script type="text/javascript">
-        var duoshuoQuery = {short_name:"{{ settings.duoshuo_shortname }}"};
-            (function() {
-                var ds = document.createElement('script');
-                ds.type = 'text/javascript';ds.async = true;
-                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-                ds.charset = 'UTF-8';
-                (document.getElementsByTagName('head')[0]
-                 || document.getElementsByTagName('body')[0]).appendChild(ds);
-            })();
-        </script>
+{% block Comments %}
+    {% if settings.comments %}
+        <!--TODO: Comments Module-->
     {% endif %}
 {% endblock %}
 </body>

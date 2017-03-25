@@ -38,6 +38,10 @@ class SettingsAdmin(PreferencesAdmin):
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['advanced_mode']
         }),
+        ('Comments', {
+            'classes': ('suit-tab suit-tab-common',),
+            'fields': ['comments']
+        }),
         # Advanced
         ('Resource', {
             'classes': ('suit-tab suit-tab-advanced',),
@@ -54,10 +58,6 @@ class SettingsAdmin(PreferencesAdmin):
             'fields': ['rest_api']
         }),
         # Third Party
-        ('Comments', {
-           'classes': ('suit-tab suit-tab-third-party',),
-           'fields': ['duoshuo_comments', 'duoshuo_shortname']
-        }),
     ]
 
     suit_form_tabs = (
