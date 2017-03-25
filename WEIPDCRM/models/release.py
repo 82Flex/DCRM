@@ -158,6 +158,15 @@ class Release(models.Model):
         null=True
     )
 
+    email = models.EmailField(
+        verbose_name=_("E-Mail"),
+        max_length=255,
+        help_text=_("Maintainer's E-Mail to provide support."),
+        blank=True,
+        null=True
+    )
+
+
     def __unicode__(self):
         return self.label + " (" + self.origin + ")"
 
@@ -218,7 +227,8 @@ class Release(models.Model):
             "Architectures": self.architectures,
             "Components": self.components,
             "Description": self.description,
-            "Support": self.support
+            "Support": self.support,
+            "E-Mail": self.email
         }
         control = {}
         for (k, v) in control_field.items():

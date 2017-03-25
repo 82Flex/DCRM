@@ -106,6 +106,7 @@ class Setting(Preferences):
         help_text=_("Each repository should have an active release, otherwise it will not be "
                     "recognized by any advanced package tools.")
     )
+
     packages_compression = models.IntegerField(
         verbose_name=_("Packages Compression"),
         choices=(

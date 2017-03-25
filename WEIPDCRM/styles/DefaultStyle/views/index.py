@@ -25,9 +25,11 @@ Notice: You have used class-based views, that's awesome.
 from django.views.generic import ListView
 from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.section import Section
+from WEIPDCRM.models.build import Build
 
 from preferences import preferences
-
+from django.contrib.sites.models import Site
+from django.utils.translation import ugettext_lazy as _
 
 class IndexView(ListView):
     """
@@ -41,6 +43,12 @@ class IndexView(ListView):
     model = Package
     context_object_name = 'package_list'
     template_name = 'frontend/index.html'
+    packages_num = Package.objects.all().count()
+    lastest_release_time = Build.objects.all().reverse()[0]
+    def get(self, request, *args, **kwargs):
+        if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
+            self.template_name = 'mobile/index.html'
+        return super(IndexView, self).get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         """
@@ -48,5 +56,8 @@ class IndexView(ListView):
         """
         context = super(IndexView, self).get_context_data(**kwargs)
         context['settings'] = preferences.Setting
+        context['site'] = Site.objects.filter(id=1)[0]
         context['section_list'] = Section.objects.all().order_by('name')[:16]
+        context['packages_num'] = _("%d packages in total." % self.packages_num )
+        context['release_lastest_updated'] = self.lastest_release_time.created_at
         return context

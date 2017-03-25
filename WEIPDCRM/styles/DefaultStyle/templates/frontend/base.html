@@ -69,13 +69,13 @@
                 </div>
                 {% if settings.active_release %}
                     <div class="repo_name">
-                        <h2>{{ settings.active_release.label }}</h2>
+                        <h2>{{ settings.active_release.origin }}</h2>
                         <p>{{ settings.active_release.description }}</p>
                     </div>
                 {% else %}
                     <div class="repo_name">
-                        <h2>No Repo Name</h2>
-                        <p>No Repo Description</p>
+                        <h2>{% trans "No Repo Name" %}</h2>
+                        <p>{% trans "No Repo Description" %}</p>
                     </div>
                 {% endif %}
             </div>
@@ -83,7 +83,7 @@
         {% block section_list %}
             <!-- TODO: Section List Widget  -->
             <div class="section_list">
-                <h2>Section List</h2>
+                <h2>{% trans "Section List" %}</h2>
                 <div class="list">
                     <ul>
                         {% for section in section_list %}

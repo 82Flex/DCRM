@@ -1,0 +1,21 @@
+{% load i18n staticfiles %}
+<!DOCTYPE html "about:legacy-compat">
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Cydia</title>
+  <link rel="stylesheet" type="text/css" href="{% static "mobile/css/style.css" %}" />
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <script type="text/javascript" src="{% static "mobile/js/fastclick.js" %}"></script>
+  <script type="text/javascript" src="{% static "mobile/js/style.js" %}"></script>
+  <script type="text/javascript">if(navigator.userAgent.search(/Cydia/)!=-1){var title=document.title;var dot=title.indexOf('·');if(dot!=-1)
+document.title=title.substring(0,dot);}</script>
+  <script type="text/javascript" src="{% static "mobile/js/menes.js" %}"></script>
+ </head>
+ <body class="pinstripe">
+ {% block content %}{% endblock %}
+  </panel>
+<!--TODO: Statstics-->
+ </body>
+</html>

@@ -51,11 +51,12 @@ DCRM 尚处于开发阶段，暂不支持一键配置，请按照以下步骤进
     4. nohup ./manage.py rqworker high &
     5. nohup ./manage.py rqworker default &
 5. 登录管理后台，配置 WEIPDCRM -> Settings
-6. 配置 WEIPDCRM -> Releases 源信息
-7. 通过 Upload 上传 Deb 文件
-8. 通过 WEIPDCRM -> Versions 启用并管理包
-9. 通过 WEIPDCRM -> Sections 管理分类
-10. 通过 WEIPDCRM -> Builds 发布源信息
+6. 配置 Sites, 将 example.com 修改为当前域名(e.g https://apt.82flex.com)，example 修改为软件源名称
+7. 配置 WEIPDCRM -> Releases 源信息
+8. 通过 Upload 上传 Deb 文件
+9. 通过 WEIPDCRM -> Versions 启用并管理包
+10. 通过 WEIPDCRM -> Sections 管理分类
+11. 通过 WEIPDCRM -> Builds 发布源信息
 
 ### 如何开启 gpg 签名？
 - 安装 gpg，然后在终端，**使用 rqworker 所在用户**执行 gpg --gen-key 生成密钥对。如服务器生成较慢，可在本地生成并在服务器上导入，即可开启 gpg 签名选项。此内容请参考：https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Step_by_Step_Guide/s1-gnupg-export.html

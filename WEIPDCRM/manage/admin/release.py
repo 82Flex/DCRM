@@ -62,7 +62,7 @@ class ReleaseAdmin(admin.ModelAdmin):
         # Advanced
         ('Cydia', {
             'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['suite', 'components', "support"]
+            'fields': ['suite', 'components', "support", "email"]
         }),
         ('SEO', {
             'classes': ('suit-tab suit-tab-advanced',),
