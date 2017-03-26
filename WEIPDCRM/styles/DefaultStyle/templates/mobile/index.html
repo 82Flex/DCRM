@@ -5,18 +5,19 @@
             <a href="cydia://url/https://cydia.saurik.com/api/share#?source={{ site }}" target="_blank" class="">
             <img class="icon" src="{% static "mobile/img/cydia.png" %}">
                 <div>
-                    <label>
-                        <p>
-                            {% trans "Add in Cydia<sup><small>™</small></sup>" %}
-                        </p>
-                    </label>
-                </div>
+                    <div>
+                        <label>
+                            <p>
+                                {% trans "Add in Cydia<sup><small>™</small></sup>" %}
+                            </p>
+                        </label>
+                    </div>
             </div>
         </a>
     </fieldset>
     <fieldset>
         <div>
-            <div style="float: right; vertical-align: middle; text-align: center; margin-top: 15px; width: 300px">
+            <div style="float: right; vertical-align: middle; text-align: center; margin-top: 15px; width: 200px">
                 <span style="font-size: 24px">{{ settings.active_release.origin }}</span>
                 <br/>
                 <span style="font-size: 14px">

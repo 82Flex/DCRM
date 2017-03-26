@@ -40,7 +40,7 @@ class SettingsAdmin(PreferencesAdmin):
         }),
         ('Social', {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['qq_group_name', 'qq_group_number',
+            'fields': ['qq_group_name', 'qq_group_url',
                        'weibo_name', 'weibo_url',
                        'alipay_url']
         }),

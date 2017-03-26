@@ -26,6 +26,7 @@
             <p>{{ package_info.c_size|filesizeformat }}</p>
         </div>
     </div>
+</div>
     <fieldset id="contact" style="">
         <a href="mailto:{{ package_info.author_email }}" class="">
             <img class="icon" src="{% static "mobile/img/email.png" %}">
@@ -42,53 +43,8 @@
         </a>
     </fieldset>
     <fieldset>
-<<<<<<< Updated upstream
-        <a rel="nofollow" href="{{ package_info.storage_link }}" id="downloadlink" target="_blank">
+        <a href="{{ package_info.storage_link }}" id="downloadlink" style="" target="_blank" class="">
             <img class="icon" src="{% static "mobile/img/package.png" %}">
-            <div>
-                <div>
-                    <label>
-                        <p>{% trans "Download" %}</p>
-                    </label>
-                    <label class="detail">
-                        <p>
-                            {{ package_info.c_size|filesizeformat }}
-                        </p>
-                    </label>
-                </div>
-            </div>
-        </a>
-    </fieldset>
-    <fieldset>
-        <div>
-            {% autoescape off %}
-                {{ package_info.rich_description }}
-            {% endautoescape %}
-        </div>
-    </fieldset>
-    <label><p>{% trans "Change Log" %}</p></label>
-    <fieldset class="changelog">
-        <a>
-            <div>
-                <div>
-                    <label>
-                        <p>
-                            {{ package_info.update_logs }}
-                        </p>
-                    </label>
-                </div>
-            </div>
-        </a>
-        <a href="" id="historylink" class="">
-            <img class="icon" src="{% static "mobile/img/changelog.png" %}">
-            <div>
-                <div>
-                    <label>
-                        <p>{% trans "History" %}</p>
-                    </label>
-=======
-				<a href="{{ package_info.storage_link }}" id="downloadlink" style="" target="_blank" class="">
-				<img class="icon" src="{% static "mobile/img/package.png" %}">
 					<div>
 						<div>
 							<label>
@@ -103,6 +59,18 @@
 					</div>
 				</a>
 			</fieldset>
+    <block>
+					<p>{% trans "Version" %}: {{ package_info.c_version }} | {% trans "Downloads" %}: {{ package_info.download_times }}</p>
+					<p>{% trans "Last Updated" %}: {{ package_info.created_at | date:"Y-m-d H:i:s" }}</p>
+    {% if package_info.rich_description == '' %}
+            <hr />
+                {% if package_info.c_description %}
+                    <p>{{ package_info.c_description }}</p>
+                {% else %}
+                    <p>No description</p>
+                {% endif %}
+    {% endif %}
+    </block>
     {% if package_info.rich_description %}
     <fieldset>
 				<div>
@@ -125,7 +93,7 @@
 			</fieldset>
     {% endif %}
     {% if package_info.update_logs %}
-    <label><p>{% trans "Change Log" %}</p></label>
+    <label>{% trans "Change Log" %}</label>
     <fieldset class="changelog">
 					<div>
 						<div>
@@ -151,38 +119,29 @@
                         </a>
 			</fieldset>
     {% endif %}
-            <block>
-					<p>{% trans "Version" %}: {{ package_info.c_version }} | {% trans "Downloads" %}: {{ package_info.download_times }}</p>
-					<p>{% trans "Last Updated" %}: {{ package_info.created_at | date:"Y-m-d H:i:s" }}</p>
-            <hr />
-                {% if package_info.c_description %}
-                    <p>{{ package_info.c_description }}</p>
-                {% else %}
-                    <p>No description</p>
-                {% endif %}
-			</block>
+    <label>{% trans "Support" %}</label>
             <fieldset>
-                        <a href="" target="_blank" class="">
+                        <a href="{{ settings.qq_group_url }}" target="_blank" class="">
                         <img class="icon" src="{% static "mobile/img/qq.png" %}">
                             <div>
                                 <div>
                                     <label>
-                                        <p>QQ Group</p>
+                                        <p>{{ settings.qq_group_name }}</p>
                                     </label>
                                 </div>
                             </div>
                         </a>
-                        <a href="" target="_blank" class="">
+                        <a href="{{ settings.weibo_url }}" target="_blank" class="">
                         <img class="icon" src="{% static "mobile/img/weibo.png" %}">
                             <div>
                                 <div>
                                     <label>
-                                        <p>@0xJacky</p>
+                                        <p>{{ settings.weibo_name }}</p>
                                     </label>
                                 </div>
                             </div>
                         </a>
-                        <a href="" target="_blank" class="">
+                        <a href="{{ settings.alipay_url }}" target="_blank" class="">
                         <img class="icon" src="{% static "mobile/img/alipay.png" %}">
                             <div>
                                 <div>
@@ -195,53 +154,6 @@
                             </div>
                         </a>
                     </fieldset>
-    <!--<fieldset>
-				<div id="comments">
-                    TODO: Comments Module
->>>>>>> Stashed changes
-                </div>
-            </div>
-        </a>
-    </fieldset>
-    <block>
-        <p>{% trans "Version" %}: {{ package_info.c_version }}
-            | {% trans "Downloads" %}: {{ package_info.download_times }}</p>
-        <p>{% trans "Last Updated" %}: {{ package_info.created_at | date:"Y-m-d H:i:s" }}</p>
-    </block>
-    <fieldset>
-        <a href="" target="_blank" class="">
-            <img class="icon" src="{% static "mobile/img/qq.png" %}">
-            <div>
-                <div>
-                    <label>
-                        <p>QQ Group</p>
-                    </label>
-                </div>
-            </div>
-        </a>
-        <a href="" target="_blank" class="">
-            <img class="icon" src="{% static "mobile/img/weibo.png" %}">
-            <div>
-                <div>
-                    <label>
-                        <p>@0xJacky</p>
-                    </label>
-                </div>
-            </div>
-        </a>
-        <a href="" target="_blank" class="">
-            <img class="icon" src="{% static "mobile/img/alipay.png" %}">
-            <div>
-                <div>
-                    <label>
-                        <p>
-                            {% trans "Donate Via Alipay" %}
-                        </p>
-                    </label>
-                </div>
-            </div>
-        </a>
-    </fieldset>
     <!--fieldset>
         <div id="comments">
             TODO: Comments Module

@@ -254,8 +254,8 @@ class Setting(Preferences):
         max_length=128,
         null=True
     )
-    qq_group_number = models.CharField(
-        verbose_name=_("QQ Group Number"),
+    qq_group_url = models.URLField(
+        verbose_name=_("QQ Group URL"),
         help_text=_("Show QQ Group link in mobile package info page"),
         max_length=255,
         null=True

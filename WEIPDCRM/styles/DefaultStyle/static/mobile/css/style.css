@@ -11,19 +11,15 @@ fieldset>a[href] {
 	-o-border-radius: 0;
 	border-radius: 0;
 	color: inherit;
-	font-family: "Myriad Pro", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "PingFang SC", "Myriad Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: inherit;
 	font-style: inherit;
 	font-weight: inherit;
-    color: #444;
 	margin: 0;
 	outline: 0;
 	padding: 0;
 	text-decoration: none;
 	vertical-align: baseline
-}
-
-p {
-	font-size: 15px;
 }
 
 .clearfix:after,fieldset>a>div>div:after {
@@ -1140,8 +1136,6 @@ fieldset>a.cytyle-dn label,fieldset>a.cytyle-dn span,fieldset>a.cytyle-in label,
 
 .cytyle-flat fieldset>a.cytyle-dn img,.cytyle-flat fieldset>a.cytyle-in img {
 	-webkit-transform: translateZ(0);
-	-webkit-filter: grayscale(100%);
-	filter: grayscale(100%)
 }
 
 p,input[type="password"],input[type="text"],select {

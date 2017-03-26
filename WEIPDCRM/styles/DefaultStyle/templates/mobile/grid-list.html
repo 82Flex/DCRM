@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% if package_list %}
 <fieldset>
     {% for package in package_list %}
         <a href="{% url "package_id" package.id %}">
@@ -18,3 +19,4 @@
         </a>
     {% endfor %}
 </fieldset>
+{% endif %}
