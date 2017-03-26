@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Cydia</title>
+    <title>{% block title %}DCRM{% endblock %}</title>
     <!-- TODO: Shortcut Icon -->
     <!-- link rel="shortcut icon" href="/favicon.ico" /-->
     <link rel="stylesheet" type="text/css" href="{% static "mobile/css/style.css" %}"/>
@@ -49,7 +49,7 @@
     {% endblock %}
     {% block footer %}
         <footer id="footer">
-            <span id="id">{% trans "Home" %}</span>
+            <span id="id">{% block page_name %}{% endblock %}</span>
             <br/>
             <span id="copyright">{% trans "Copyright" %} &copy;
                 {% if settings.copyright_name %}
@@ -62,9 +62,10 @@
                 {% else %}
                     {{ this_year }}
                 {% endif %}
+            · <a href="https://github.com/82Flex/DCRM">Power By DCRM</a>
             </span>
             <br/>
-            <span id="code"><a href="https://github.com/82Flex/DCRM">Power By DCRM</a>
+            <span id="code">
                 {% if settings.footer_icp %}
                 · {{ settings.footer_icp }}</span>
                 {% endif %}

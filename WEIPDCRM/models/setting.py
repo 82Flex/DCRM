@@ -250,7 +250,7 @@ class Setting(Preferences):
         default=False,
     )
     display_social = models.BooleanField(
-        verbose_name=_("Display Social Module"),
+        verbose_name=_("Social Module"),
         help_text=_("Display social module"),
         default=False,
     )
@@ -262,7 +262,7 @@ class Setting(Preferences):
     )
     qq_group_url = models.URLField(
         verbose_name=_("QQ Group URL"),
-        help_text=_("Show QQ Group link in mobile package info page."),
+        help_text=_("Display QQ Group link on the package info page."),
         max_length=255,
         null=True,
         blank=True
@@ -275,14 +275,14 @@ class Setting(Preferences):
     )
     weibo_url = models.URLField(
         verbose_name=_("Weibo URL"),
-        help_text=_("Show Weibo link in mobile package info page."),
+        help_text=_("Display Weibo link on the package info page."),
         max_length=255,
         null=True,
         blank=True
     )
     alipay_url = models.URLField(
         verbose_name=_("Alipay URL"),
-        help_text=_("Show donate via Alipay link in mobile package info page"),
+        help_text=_("Display donate via Alipay link on the package info page"),
         max_length=255,
         null=True,
         blank=True
@@ -295,14 +295,14 @@ class Setting(Preferences):
     )
     copyright_name = models.CharField(
         verbose_name=_("Copyright Name"),
-        help_text=_("Corpyright name is displayed on the footer of the page, leave a blank will display the source name."),
+        help_text=_("Corpyright name is displayed on the footer, leave a blank will display the source name."),
         max_length=255,
         null=True,
         blank = True
     )
     footer_icp = models.CharField(
         verbose_name=_("ICP Number"),
-        help_text=_("ICP Number is displayed on the footer of the page."),
+        help_text=_("ICP Number is displayed on the footer."),
         max_length=255,
         null=True,
         blank = True

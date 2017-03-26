@@ -1,5 +1,6 @@
 {% extends "mobile/base.html" %}
 {% load i18n staticfiles %}
+{% block title %}{% trans 'Section' %} {{ c_section.name }} | DCRM{% endblock %}
 {% block content %}
     <label>
         <p>
@@ -17,6 +18,5 @@
     {% include "mobile/grid-list.html" %}
     <!--TODO: Paginate -->
 {% endblock %}
-{% block sourceinfo %}
-
-{% endblock %}
+{% block sourceinfo %}{% endblock %}
+{% block page_name %}{{ c_section.name }}{% endblock %}
