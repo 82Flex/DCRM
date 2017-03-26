@@ -81,13 +81,14 @@ class ReleaseAdmin(admin.ModelAdmin):
     
     def save_model(self, request, obj, form, change):
         super(ReleaseAdmin, self).save_model(request, obj, form, change)
-        messages.warning(request, mark_safe(_(
-            "There is no active release. " +
-            "<a href=\"" +
-            reverse("set_default_release", args=[obj.id]) +
-            "\">" +
-            "Set current release as active release." +
-            "</a>"
-        )))
+        if not preferences.Setting.active_release:
+            messages.warning(request, mark_safe(_(
+                "There is no active release. " +
+                "<a href=\"" +
+                reverse("set_default_release", args=[obj.id]) +
+                "\">" +
+                "Set current release as active release." +
+                "</a>"
+            )))
     
     change_form_template = "admin/release/change_form.html"

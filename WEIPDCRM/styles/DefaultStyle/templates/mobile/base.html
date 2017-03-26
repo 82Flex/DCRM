@@ -7,20 +7,24 @@
     <title>{% block title %}DCRM{% endblock %}</title>
     <!-- TODO: Shortcut Icon -->
     <!-- link rel="shortcut icon" href="/favicon.ico" /-->
-    <link rel="stylesheet" type="text/css" href="{% static "mobile/css/style.css" %}"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="format-detection" content="telephone=no"/>
-    <script type="text/javascript" src="{% static "mobile/js/fastclick.js" %}"></script>
-    <script type="text/javascript" src="{% static "mobile/js/style.js" %}"></script>
-    <script type="text/javascript">
-        if (navigator.userAgent.search(/Cydia/) != -1) {
-            var title = document.title;
-            var dot = title.indexOf('·');
-            if (dot != -1)
-                document.title = title.substring(0, dot);
-        }
-    </script>
-    <script type="text/javascript" src="{% static "mobile/js/menes.js" %}"></script>
+    {% block stylesheet %}
+        <link rel="stylesheet" type="text/css" href="{% static "mobile/css/style.css" %}"/>
+    {% endblock %}
+    {% block headerscript %}
+        <script type="text/javascript" src="{% static "mobile/js/fastclick.js" %}"></script>
+        <script type="text/javascript" src="{% static "mobile/js/style.js" %}"></script>
+        <script type="text/javascript">
+            if (navigator.userAgent.search(/Cydia/) != -1) {
+                var title = document.title;
+                var dot = title.indexOf('·');
+                if (dot != -1)
+                    document.title = title.substring(0, dot);
+            }
+        </script>
+        <script type="text/javascript" src="{% static "mobile/js/menes.js" %}"></script>
+    {% endblock %}
 </head>
 <body class="pinstripe">
 <panel>
@@ -58,16 +62,16 @@
                     {{ settings.active_release.origin }}
                 {% endif %}
                 {% if settings.copyright_year %}
-                    {{ settings.copyright_year }} - {{ this_year }}
+                    {{ settings.copyright_year }} - {% now "Y" %}
                 {% else %}
-                    {{ this_year }}
+                    {% now "Y" %}
                 {% endif %}
-            · <a href="https://github.com/82Flex/DCRM">Power By DCRM</a>
+                · <a href="https://github.com/82Flex/DCRM">Powered By DCRM</a>
             </span>
             <br/>
             <span id="code">
                 {% if settings.footer_icp %}
-                · {{ settings.footer_icp }}</span>
+                    · {{ settings.footer_icp }}</span>
                 {% endif %}
         </footer>
     {% endblock %}

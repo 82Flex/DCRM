@@ -34,18 +34,19 @@ class SettingsAdmin(PreferencesAdmin):
             'fields': ['enable_pdiffs', 'gpg_signature', 'packages_compression',
                        'packages_validation', 'downgrade_support']
         }),
+        # Mobile
         ('Display', {
-            'classes': ('suit-tab suit-tab-common',),
+            'classes': ('suit-tab suit-tab-mobile',),
             'fields': ['advanced_mode', 'comments']
         }),
         ('Social', {
-            'classes': ('suit-tab suit-tab-common',),
-            'fields': ['display_social','qq_group_name',
-                       'qq_group_url','weibo_name',
+            'classes': ('suit-tab suit-tab-mobile',),
+            'fields': ['display_social', 'qq_group_name',
+                       'qq_group_url', 'weibo_name',
                        'weibo_url', 'alipay_url']
         }),
         ('Footer', {
-            'classes': ('suit-tab suit-tab-common',),
+            'classes': ('suit-tab suit-tab-mobile',),
             'fields': ['copyright_name', 'copyright_year',
                        'footer_icp']
         }),
@@ -70,8 +71,9 @@ class SettingsAdmin(PreferencesAdmin):
     suit_form_tabs = (
         ('common', 'Common'),
         ('advanced', 'Advanced'),
+        ('mobile', 'Mobile'),
         ('api', 'Rest API'),
-        ('third-party', 'Third-Party')
+        ('third-party', 'Third-Party'),
     )
 
     def has_add_permission(self, request):

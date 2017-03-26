@@ -310,6 +310,11 @@ class Version(models.Model):
                     "in KiB units.")
     )  # OK
     
+    def get_c_installed_size_in_bytes(self):
+        return self.c_installed_size * 1024
+
+    c_installed_size_in_bytes = property(get_c_installed_size_in_bytes)
+    
     def get_advanced_control_dict(self):
         """
         Generate advanced control dictionary (contains download and verify information).

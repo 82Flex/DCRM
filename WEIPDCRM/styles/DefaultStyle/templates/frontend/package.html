@@ -9,7 +9,8 @@
 {% block breadcrumbs %}
     <i class="fa fa-home"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a>
     {% if package_info.c_section %}
-        <i class="fa fa-angle-right"></i> <a href="{% url "section_id" package_info.c_section.id %}">{{ package_info.c_section }}</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="{% url "section_id" package_info.c_section.id %}">{{ package_info.c_section }}</a>
     {% endif %}
     <i class="fa fa-angle-right"></i> {{ package_info.c_name }}
 {% endblock %}
@@ -34,35 +35,36 @@
                 </ul>
                 <div class="clear"></div>
             </div>
-            <!-- Notice: I have edited css style here. -->
-            <div class="download">
-                <!-- Notice: Use storage_link instead of storage for frontend use! -->
-                <a rel="nofollow" href="{{ package_info.storage_link }}" id="downloadlink"
-                   target="_blank">{% trans "Download" %}<br/>{{ package_info.download_times }}</a>
-            </div>
+            {% if not settings.download_cydia_only %}
+                <div class="download">
+                    <!-- Notice: Use storage_link instead of storage for frontend use! -->
+                    <a rel="nofollow" href="{{ package_info.storage_link }}" id="downloadlink"
+                       target="_blank">{% trans "Download" %}<br/>{{ package_info.download_times }}</a>
+                </div>
+            {% endif %}
         </div>
         <div class="clear"></div>
         <div class="description">
             <h2>{% trans "Description" %}</h2>
             <p>
-            {% if package_info.rich_description %}
-                {% autoescape off %}
-                     {{ package_info.rich_description }}
-                {% endautoescape %}
-            {% elif package_info.c_description %}
-                {{ package_info.c_description }}
-            {% else %}
-                {% trans "No description" %}
-            {% endif %}
+                {% if package_info.rich_description %}
+                    {% autoescape off %}
+                        {{ package_info.rich_description }}
+                    {% endautoescape %}
+                {% elif package_info.c_description %}
+                    {{ package_info.c_description }}
+                {% else %}
+                    {% trans "No description" %}
+                {% endif %}
             </p>
         </div>
         {% if package_info.update_logs %}
-        <div class="whatsnew">
-            <h2>{% trans "What's New" %}</h2>
-            <p>
-                {{ package_info.update_logs }}
-            </p>
-        </div>
+            <div class="whatsnew">
+                <h2>{% trans "What's New" %}</h2>
+                <p>
+                    {{ package_info.update_logs }}
+                </p>
+            </div>
         {% endif %}
         <div class="screenshot">
             <h2>{% trans "Screenshot" %}</h2>

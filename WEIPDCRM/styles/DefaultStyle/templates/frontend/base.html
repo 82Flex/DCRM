@@ -128,13 +128,13 @@
                     {{ settings.active_release.origin }}
                 {% endif %}
                 {% if settings.copyright_year %}
-                    {{ settings.copyright_year }} - {{ this_year }}
+                    {{ settings.copyright_year }} - {% now "Y" %}
                 {% else %}
-                    {{ this_year }}
+                    {% now "Y" %}
                 {% endif %}
-                · <a href="https://github.com/82Flex/DCRM">Power By DCRM</a>
+                · <a href="https://github.com/82Flex/DCRM">Powered By DCRM</a>
                 {% if settings.footer_icp %}
-                · {{ settings.footer_icp }}</span>
+                · {{ settings.footer_icp }}
                 {% endif %}
             </li>
         </ul>

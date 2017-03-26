@@ -251,7 +251,7 @@ class Setting(Preferences):
     )
     display_social = models.BooleanField(
         verbose_name=_("Social Module"),
-        help_text=_("Display social module"),
+        help_text=_("Enable social module"),
         default=False,
     )
     qq_group_name = models.CharField(
@@ -262,7 +262,7 @@ class Setting(Preferences):
     )
     qq_group_url = models.URLField(
         verbose_name=_("QQ Group URL"),
-        help_text=_("Display QQ Group link on the package info page."),
+        help_text=_("Display QQ group link on the package info page."),
         max_length=255,
         null=True,
         blank=True
@@ -282,30 +282,30 @@ class Setting(Preferences):
     )
     alipay_url = models.URLField(
         verbose_name=_("Alipay URL"),
-        help_text=_("Display donate via Alipay link on the package info page"),
+        help_text=_("Display \"Donate via Alipay\" link on the package info page."),
         max_length=255,
         null=True,
         blank=True
     )
     copyright_year = models.PositiveIntegerField(
         verbose_name=_("Starting Year of Copyright"),
-        help_text=_("If input 2016, the final display is © 2016-%s, leave a blank will display the current year." % time.strftime('%Y',time.localtime(time.time()))),
+        help_text=_("Leave blank to display current year."),
         null=True,
-        blank = True
+        blank=True
     )
     copyright_name = models.CharField(
         verbose_name=_("Copyright Name"),
         help_text=_("Corpyright name is displayed on the footer, leave a blank will display the source name."),
         max_length=255,
         null=True,
-        blank = True
+        blank=True
     )
     footer_icp = models.CharField(
         verbose_name=_("ICP Number"),
-        help_text=_("ICP Number is displayed on the footer."),
+        help_text=_("The ICP Number displayed on the footer."),
         max_length=255,
         null=True,
-        blank = True
+        blank=True
     )
 
     def get_admin_url(self):

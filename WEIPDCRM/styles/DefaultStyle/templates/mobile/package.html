@@ -3,166 +3,177 @@
 {% block title %}{% blocktrans with package_info.c_name as c_name %}Package {{ c_name }} | DCRM
 {% endblocktrans %}{% endblock %}
 {% block content %}
-<fieldset id="cydialink" style="">
-				<a href="cydia://url/https://cydia.saurik.com/api/share#?source={{ site }}&amp;{{ package_info.c_package }}" target="_blank" class="">
-				<img class="icon" src="{% static "mobile/img/cydia.png" %}">
-					<div>
-						<div>
-							<label>
-								<p>{% trans "View in Cydia<sup><small>™</small></sup>" %}</p>
-							</label>
-						</div>
-					</div>
-				</a>
-</fieldset>
-<div id="header" style="">
-    {% if package_info.display_icon %}
-        <img id="icon" src="{{ package_info.display_icon }}"/>
-    {% else %}
-        <img id="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
-    {% endif %}
-    <div id="content">
-        <p id="name">{{ package_info.c_name }}</p>
-        <p id="latest">{{ package_info.c_version }}</p>
-        <div id="extra">
-            <p>{{ package_info.c_size|filesizeformat }}</p>
+    <fieldset id="cydialink">
+        <a href="cydia://url/https://cydia.saurik.com/api/share#?source={{ request.scheme }}://{{ site }}/?package={{ package_info.c_package }}"
+           target="_blank">
+            <img class="icon" src="{% static "mobile/img/cydia.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>{% trans "View in Cydia<sup><small>™</small></sup>" %}</p>
+                    </label>
+                </div>
+            </div>
+        </a>
+    </fieldset>
+    <div id="header">
+        {% if package_info.display_icon %}
+            <img id="icon" src="{{ package_info.display_icon }}"/>
+        {% else %}
+            <img id="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
+        {% endif %}
+        <div id="content">
+            <p id="name">{{ package_info.c_name }}</p>
+            <p id="latest">{{ package_info.c_version }}</p>
+            {% if package_info.c_installed_size == 0 %}
+                <div id="extra">
+                    <p>{{ package_info.c_installed_size_in_bytes|filesizeformat }}</p>
+                </div>
+            {% endif %}
         </div>
     </div>
-</div>
-    <fieldset id="contact" style="">
-        <a href="mailto:{{ package_info.author_email }}" class="">
-            <img class="icon" src="{% static "mobile/img/email.png" %}">
-            <div>
+    {% if package_info.author_email and package_info.author_name %}
+        <fieldset id="contact">
+            <a href="mailto:{{ package_info.author_email }}">
+                <img class="icon" src="{% static "mobile/img/email.png" %}">
                 <div>
-                    <label>
-                        <p>{% trans "Author" %}</p>
-                    </label>
-                    <label class="detail">
-                        <p id="contact">{{ package_info.author_name }}</p>
-                    </label>
+                    <div>
+                        <label>
+                            <p>{% trans "Author" %}</p>
+                        </label>
+                        <label class="detail">
+                            <p id="contact">{{ package_info.author_name }}</p>
+                        </label>
+                    </div>
                 </div>
-            </div>
-        </a>
-    </fieldset>
-    <fieldset>
-        <a href="{{ package_info.storage_link }}" id="downloadlink" style="" target="_blank" class="">
-            <img class="icon" src="{% static "mobile/img/package.png" %}">
-					<div>
-						<div>
-							<label>
-								<p>{% trans "Download" %}</p>
-							</label>
-							<label class="detail">
-									<p>
-                                        {{ package_info.c_size|filesizeformat }}
-                                    </p>
-							</label>
-						</div>
-					</div>
-				</a>
-			</fieldset>
-    <block>
-					<p>{% trans "Version" %}: {{ package_info.c_version }} | {% trans "Downloads" %}: {{ package_info.download_times }}</p>
-					<p>{% trans "Last Updated" %}: {{ package_info.created_at | date:"Y-m-d H:i:s" }}</p>
-    {% if package_info.rich_description == '' %}
-            <hr />
-                {% if package_info.c_description %}
-                    <p>{{ package_info.c_description }}</p>
-                {% else %}
-                    <p>{% trans "No description" %}</p>
-                {% endif %}
+            </a>
+        </fieldset>
     {% endif %}
+    {% if not settings.download_cydia_only %}
+        <fieldset>
+            <a href="{{ package_info.storage_link }}" id="downloadlink" target="_blank">
+                <img class="icon" src="{% static "mobile/img/package.png" %}">
+                <div>
+                    <div>
+                        <label>
+                            <p>{% trans "Download" %}</p>
+                        </label>
+                        <label class="detail">
+                            <p>
+                                {{ package_info.c_size|filesizeformat }}
+                            </p>
+                        </label>
+                    </div>
+                </div>
+            </a>
+        </fieldset>
+    {% endif %}
+    <block>
+        <p>{% trans "Version" %}: {{ package_info.c_version }}
+            | {% trans "Downloads" %}: {{ package_info.download_times }}</p>
+        <p>{% trans "Last Updated" %}: {{ package_info.created_at | date:"Y-m-d H:i:s" }}</p>
+        {% if package_info.rich_description == '' %}
+            <hr/>
+            {% if package_info.c_description %}
+                <p>{{ package_info.c_description }}</p>
+            {% else %}
+                <p>{% trans "No description" %}</p>
+            {% endif %}
+        {% endif %}
     </block>
     {% if package_info.rich_description %}
-    <fieldset>
-				<div>
-                    {% autoescape off %}
-                        <p>{{ package_info.rich_description }}</p>
-                    {% endautoescape %}
-				</div>
+        <fieldset>
+            <div>
+                {% autoescape off %}
+                    <p>{{ package_info.rich_description }}</p>
+                {% endautoescape %}
+            </div>
+        </fieldset>
     {% endif %}
     {% if package_info.c_homepage %}
-    <a href="{{ package_info.c_homepage }}" target="_blank">
-                        <img class="icon" src="{% static "mobile/img/safari.png" %}">
-                            <div>
-                                <div>
-                                    <label>
-                                        <p>{% trans "More Info" %}</p>
-                                    </label>
-                                </div>
-                            </div>
-                        </a>
-			</fieldset>
+        <fieldset>
+
+            <a href="{{ package_info.c_homepage }}" target="_blank">
+                <img class="icon" src="{% static "mobile/img/safari.png" %}">
+                <div>
+                    <div>
+                        <label>
+                            <p>{% trans "More Info" %}</p>
+                        </label>
+                    </div>
+                </div>
+            </a>
+        </fieldset>
     {% endif %}
     {% if package_info.update_logs %}
-    <label>{% trans "Change Log" %}</label>
-    <fieldset class="changelog">
-					<div>
-						<div>
-							<label>
-								<strong>
-                                    <p>
-                                        {{ package_info.c_version }}
-                                    </p>
-                                </strong>
-                            </label>
-                            {{ package_info.update_logs }}
-						</div>
-					</div>
+        <label>{% trans "Change Log" %}</label>
+        <fieldset class="changelog">
+            <div>
+                <div>
+                    <label>
+                        <strong>
+                            <p>
+                                {{ package_info.c_version }}
+                            </p>
+                        </strong>
+                    </label>
+                    {{ package_info.update_logs }}
+                </div>
+            </div>
             <a href="" id="historylink">
-                        <img class="icon" src="{% static "mobile/img/changelog.png" %}">
-                            <div>
-                                <div>
-                                    <label>
-                                        <p>{% trans "History" %}</p>
-                                    </label>
-                                </div>
-                            </div>
-                        </a>
-			</fieldset>
-    {% endif %}
-    <label>{% trans "Support" %}</label>
-            {% if settings.display_social %}
-    <fieldset>
-    {% if settings.qq_group_name and settings.qq_group_url %}
-        <a href="{{ settings.qq_group_url }}" target="_blank" class="">
-        <img class="icon" src="{% static "mobile/img/qq.png" %}">
-            <div>
+                <img class="icon" src="{% static "mobile/img/changelog.png" %}">
                 <div>
-                    <label>
-                        <p>{{ settings.qq_group_name }}</p>
-                    </label>
+                    <div>
+                        <label>
+                            <p>{% trans "History" %}</p>
+                        </label>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
+        </fieldset>
     {% endif %}
-    {% if settings.weibo_name and settings.weibo_url %}
-        <a href="{{ settings.weibo_url }}" target="_blank" class="">
-        <img class="icon" src="{% static "mobile/img/weibo.png" %}">
-            <div>
-                <div>
-                    <label>
-                        <p>{{ settings.weibo_name }}</p>
-                    </label>
-                </div>
-            </div>
-        </a>
-    {% endif %}
-    {% if settings.alipay_url %}
-        <a href="{{ settings.alipay_url }}" target="_blank" class="">
-        <img class="icon" src="{% static "mobile/img/alipay.png" %}">
-            <div>
-                <div>
-                    <label>
-                        <p>
-                            {% trans "Donate Via Alipay" %}
-                        </p>
-                    </label>
-                </div>
-            </div>
-        </a>
-    {% endif %}
-    </fieldset>
+    {% if settings.display_social %}
+        <label>{% trans "Support" %}</label>
+        <fieldset>
+            {% if settings.qq_group_name and settings.qq_group_url %}
+                <a href="{{ settings.qq_group_url }}" target="_blank">
+                    <img class="icon" src="{% static "mobile/img/qq.png" %}">
+                    <div>
+                        <div>
+                            <label>
+                                <p>{{ settings.qq_group_name }}</p>
+                            </label>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if settings.weibo_name and settings.weibo_url %}
+                <a href="{{ settings.weibo_url }}" target="_blank">
+                    <img class="icon" src="{% static "mobile/img/weibo.png" %}">
+                    <div>
+                        <div>
+                            <label>
+                                <p>{{ settings.weibo_name }}</p>
+                            </label>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if settings.alipay_url %}
+                <a href="{{ settings.alipay_url }}" target="_blank">
+                    <img class="icon" src="{% static "mobile/img/alipay.png" %}">
+                    <div>
+                        <div>
+                            <label>
+                                <p>
+                                    {% trans "Donate via Alipay" %}
+                                </p>
+                            </label>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+        </fieldset>
     {% endif %}
     <!--fieldset>
         <div id="comments">
@@ -170,4 +181,4 @@
         </div>
     </fieldset-->
 {% endblock %}
-{% block page_name %}{{ package_info.c_package }}<br />{{ package_info.c_section }}{% endblock %}
+{% block page_name %}{{ package_info.c_package }}<br/>{{ package_info.c_section }}{% endblock %}
