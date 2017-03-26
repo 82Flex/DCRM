@@ -249,6 +249,35 @@ class Setting(Preferences):
         default=False,
     )
 
+    qq_group_name = models.CharField(
+        verbose_name=_("QQ Group Name"),
+        max_length=128,
+        null=True
+    )
+    qq_group_number = models.CharField(
+        verbose_name=_("QQ Group Number"),
+        help_text=_("Show QQ Group link in mobile package info page"),
+        max_length=255,
+        null=True
+    )
+    weibo_name = models.CharField(
+        verbose_name=_("Weibo Name"),
+        max_length=128,
+        null=True
+    )
+    weibo_url = models.URLField(
+        verbose_name=_("Weibo URL"),
+        help_text=_("Show Weibo link in mobile package info page"),
+        max_length=255,
+        null=True
+    )
+    alipay_url = models.URLField(
+        verbose_name=_("Alipay URL"),
+        help_text=_("Show donate via Alipay link in mobile package info page"),
+        max_length=255,
+        null=True
+    )
+
     def get_admin_url(self):
         """
         :return: URL String

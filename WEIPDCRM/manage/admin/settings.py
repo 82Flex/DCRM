@@ -36,11 +36,13 @@ class SettingsAdmin(PreferencesAdmin):
         }),
         ('Display', {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['advanced_mode']
+            'fields': ['advanced_mode', 'comments']
         }),
-        ('Comments', {
+        ('Social', {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['comments']
+            'fields': ['qq_group_name', 'qq_group_number',
+                       'weibo_name', 'weibo_url',
+                       'alipay_url']
         }),
         # Advanced
         ('Resource', {
