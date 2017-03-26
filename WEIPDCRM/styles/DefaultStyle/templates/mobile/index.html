@@ -41,7 +41,9 @@
             {% trans "Last updated: " %}{{ release_lastest_updated | date:"Y-m-d H:i:s" }}
         </p>
     </block>
+    {% if settings.display_social %}
     <fieldset>
+    {% if settings.active_release.email and settings.active_release.origin %}
         <a href="mailto:{{ settings.active_release.email }}?subject={{ settings.active_release.origin }}"
            target="_blank" class="">
             <img class="icon" src="{% static "mobile/img/email.png" %}">
@@ -53,8 +55,47 @@
                 </div>
             </div>
         </a>
-        <!-- TODO: Social contact module -->
+    {% endif %}
+    {% if settings.qq_group_name and settings.qq_group_url %}
+        <a href="{{ settings.qq_group_url }}" target="_blank" class="">
+        <img class="icon" src="{% static "mobile/img/qq.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>{{ settings.qq_group_name }}</p>
+                    </label>
+                </div>
+            </div>
+        </a>
+    {% endif %}
+    {% if settings.weibo_name and settings.weibo_url %}
+        <a href="{{ settings.weibo_url }}" target="_blank" class="">
+        <img class="icon" src="{% static "mobile/img/weibo.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>{{ settings.weibo_name }}</p>
+                    </label>
+                </div>
+            </div>
+        </a>
+    {% endif %}
+    {% if settings.alipay_url %}
+        <a href="{{ settings.alipay_url }}" target="_blank" class="">
+        <img class="icon" src="{% static "mobile/img/alipay.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>
+                            {% trans "Donate Via Alipay" %}
+                        </p>
+                    </label>
+                </div>
+            </div>
+        </a>
+    {% endif %}
     </fieldset>
+    {% endif %}
     {% section_list %}
     <label>{% trans "Section List" %}</label>
     <fieldset>

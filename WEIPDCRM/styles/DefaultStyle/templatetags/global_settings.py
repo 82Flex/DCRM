@@ -17,6 +17,7 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
+import time
 
 from django import template
 from preferences import preferences
@@ -28,4 +29,5 @@ register = template.Library()
 def global_settings(context):
     context['settings'] = preferences.Setting
     context['site'] = Site.objects.get(id=1)
+    context['this_year'] = time.strftime('%Y',time.localtime(time.time()))
     return ''

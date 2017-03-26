@@ -22,6 +22,7 @@ from __future__ import unicode_literals
 
 import re
 import subprocess
+import time
 
 from django.db import models
 from django.core import urlresolvers
@@ -248,34 +249,63 @@ class Setting(Preferences):
         help_text=_("Enable comments"),
         default=False,
     )
-
+    display_social = models.BooleanField(
+        verbose_name=_("Display Social Module"),
+        help_text=_("Display social module"),
+        default=False,
+    )
     qq_group_name = models.CharField(
         verbose_name=_("QQ Group Name"),
         max_length=128,
-        null=True
+        null=True,
+        blank=True
     )
     qq_group_url = models.URLField(
         verbose_name=_("QQ Group URL"),
-        help_text=_("Show QQ Group link in mobile package info page"),
+        help_text=_("Show QQ Group link in mobile package info page."),
         max_length=255,
-        null=True
+        null=True,
+        blank=True
     )
     weibo_name = models.CharField(
         verbose_name=_("Weibo Name"),
         max_length=128,
-        null=True
+        null=True,
+        blank=True
     )
     weibo_url = models.URLField(
         verbose_name=_("Weibo URL"),
-        help_text=_("Show Weibo link in mobile package info page"),
+        help_text=_("Show Weibo link in mobile package info page."),
         max_length=255,
-        null=True
+        null=True,
+        blank=True
     )
     alipay_url = models.URLField(
         verbose_name=_("Alipay URL"),
         help_text=_("Show donate via Alipay link in mobile package info page"),
         max_length=255,
-        null=True
+        null=True,
+        blank=True
+    )
+    copyright_year = models.PositiveIntegerField(
+        verbose_name=_("Starting Year of Copyright"),
+        help_text=_("If input 2016, the final display is © 2016-%s, leave a blank will display the current year." % time.strftime('%Y',time.localtime(time.time()))),
+        null=True,
+        blank = True
+    )
+    copyright_name = models.CharField(
+        verbose_name=_("Copyright Name"),
+        help_text=_("Corpyright name is displayed on the footer of the page, leave a blank will display the source name."),
+        max_length=255,
+        null=True,
+        blank = True
+    )
+    footer_icp = models.CharField(
+        verbose_name=_("ICP Number"),
+        help_text=_("ICP Number is displayed on the footer of the page."),
+        max_length=255,
+        null=True,
+        blank = True
     )
 
     def get_admin_url(self):

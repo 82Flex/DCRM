@@ -121,7 +121,21 @@
     <div class="footer">
         <ul>
             <li>
-                {% trans 'Copyright © 2017 82Flex Team.' %}
+                {% trans "Copyright" %} &copy;
+                {% if settings.copyright_name %}
+                    {{ settings.copyright_name }}
+                {% else %}
+                    {{ settings.active_release.origin }}
+                {% endif %}
+                {% if settings.copyright_year %}
+                    {{ settings.copyright_year }} - {{ this_year }}
+                {% else %}
+                    {{ this_year }}
+                {% endif %}
+                · <a href="https://github.com/82Flex/DCRM">Power By DCRM</a>
+                {% if settings.footer_icp %}
+                · {{ settings.footer_icp }}</span>
+                {% endif %}
             </li>
         </ul>
     </div>

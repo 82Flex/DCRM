@@ -51,10 +51,23 @@
         <footer id="footer">
             <span id="id">{% trans "Home" %}</span>
             <br/>
-            <span class="source-name"><!--TODO: custom footer text--></span>·
-            <span id="section">{% trans 'Copyright © 2017 82Flex Team.' %}</span>
+            <span id="copyright">{% trans "Copyright" %} &copy;
+                {% if settings.copyright_name %}
+                    {{ settings.copyright_name }}
+                {% else %}
+                    {{ settings.active_release.origin }}
+                {% endif %}
+                {% if settings.copyright_year %}
+                    {{ settings.copyright_year }} - {{ this_year }}
+                {% else %}
+                    {{ this_year }}
+                {% endif %}
+            </span>
             <br/>
-            <span id="code"><!--TODO: ICP--></span>
+            <span id="code"><a href="https://github.com/82Flex/DCRM">Power By DCRM</a>
+                {% if settings.footer_icp %}
+                · {{ settings.footer_icp }}</span>
+                {% endif %}
         </footer>
     {% endblock %}
 </panel>
