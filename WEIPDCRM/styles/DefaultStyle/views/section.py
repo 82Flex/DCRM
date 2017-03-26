@@ -60,6 +60,8 @@ class SectionView(ListView):
         context = super(SectionView, self).get_context_data(**kwargs)
         
         section_id = self.kwargs.get('section_id')
+        context['section_id'] = section_id
+        context['page'] = self.kwargs.get('page')
         packages_num = Package.objects.filter(c_section_id=section_id).count()
         context['c_section'] = Section.objects.get(id=section_id)
         context['packages_num'] = _("%d packages in this section." % packages_num)

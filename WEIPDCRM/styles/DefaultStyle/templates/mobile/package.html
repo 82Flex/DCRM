@@ -67,7 +67,7 @@
                 {% if package_info.c_description %}
                     <p>{{ package_info.c_description }}</p>
                 {% else %}
-                    <p>No description</p>
+                    <p>{% trans "No description" %}</p>
                 {% endif %}
     {% endif %}
     </block>
@@ -120,40 +120,48 @@
 			</fieldset>
     {% endif %}
     <label>{% trans "Support" %}</label>
-            <fieldset>
-                        <a href="{{ settings.qq_group_url }}" target="_blank" class="">
-                        <img class="icon" src="{% static "mobile/img/qq.png" %}">
-                            <div>
-                                <div>
-                                    <label>
-                                        <p>{{ settings.qq_group_name }}</p>
-                                    </label>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="{{ settings.weibo_url }}" target="_blank" class="">
-                        <img class="icon" src="{% static "mobile/img/weibo.png" %}">
-                            <div>
-                                <div>
-                                    <label>
-                                        <p>{{ settings.weibo_name }}</p>
-                                    </label>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="{{ settings.alipay_url }}" target="_blank" class="">
-                        <img class="icon" src="{% static "mobile/img/alipay.png" %}">
-                            <div>
-                                <div>
-                                    <label>
-                                        <p>
-                                            {% trans "Donate Via Alipay" %}
-                                        </p>
-                                    </label>
-                                </div>
-                            </div>
-                        </a>
-                    </fieldset>
+            {% if settings.display_social %}
+    <fieldset>
+    {% if settings.qq_group_name and settings.qq_group_url %}
+        <a href="{{ settings.qq_group_url }}" target="_blank" class="">
+        <img class="icon" src="{% static "mobile/img/qq.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>{{ settings.qq_group_name }}</p>
+                    </label>
+                </div>
+            </div>
+        </a>
+    {% endif %}
+    {% if settings.weibo_name and settings.weibo_url %}
+        <a href="{{ settings.weibo_url }}" target="_blank" class="">
+        <img class="icon" src="{% static "mobile/img/weibo.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>{{ settings.weibo_name }}</p>
+                    </label>
+                </div>
+            </div>
+        </a>
+    {% endif %}
+    {% if settings.alipay_url %}
+        <a href="{{ settings.alipay_url }}" target="_blank" class="">
+        <img class="icon" src="{% static "mobile/img/alipay.png" %}">
+            <div>
+                <div>
+                    <label>
+                        <p>
+                            {% trans "Donate Via Alipay" %}
+                        </p>
+                    </label>
+                </div>
+            </div>
+        </a>
+    {% endif %}
+    </fieldset>
+    {% endif %}
     <!--fieldset>
         <div id="comments">
             TODO: Comments Module

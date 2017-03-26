@@ -45,17 +45,25 @@
         <div class="description">
             <h2>{% trans "Description" %}</h2>
             <p>
+            {% if package_info.rich_description %}
                 {% autoescape off %}
                      {{ package_info.rich_description }}
                 {% endautoescape %}
+            {% elif package_info.c_description %}
+                {{ package_info.c_description }}
+            {% else %}
+                {% trans "No description" %}
+            {% endif %}
             </p>
         </div>
+        {% if package_info.update_logs %}
         <div class="whatsnew">
             <h2>{% trans "What's New" %}</h2>
             <p>
                 {{ package_info.update_logs }}
             </p>
         </div>
+        {% endif %}
         <div class="screenshot">
             <h2>{% trans "Screenshot" %}</h2>
             <div class="image">
