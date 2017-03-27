@@ -34,7 +34,7 @@
     </div>
     {% if package_info.author_email and package_info.author_name %}
         <fieldset id="contact">
-            <a href="mailto:{{ package_info.author_email }}">
+            <a href="{% url "package_action" package_info.id "contact" %}">
                 <img class="icon" src="{% static "mobile/img/email.png" %}">
                 <div>
                     <div>
@@ -69,8 +69,12 @@
         </fieldset>
     {% endif %}
     <block>
-        <p>{% trans "Version" %}: {{ package_info.c_version }}
-            | {% trans "Downloads" %}: {{ package_info.download_times }}</p>
+        <p>
+            {% trans "Version" %}: {{ package_info.c_version }}
+            {% if settings.download_count %}
+            | {% trans "Downloads" %}: {{ package_info.downlDoad_times }}
+            {% endif %}
+        </p>
         <p>{% trans "Last Updated" %}: {{ package_info.created_at | date:"Y-m-d H:i:s" }}</p>
         {% if package_info.rich_description == '' %}
             <hr/>
@@ -92,7 +96,6 @@
     {% endif %}
     {% if package_info.c_homepage %}
         <fieldset>
-
             <a href="{{ package_info.c_homepage }}" target="_blank">
                 <img class="icon" src="{% static "mobile/img/safari.png" %}">
                 <div>

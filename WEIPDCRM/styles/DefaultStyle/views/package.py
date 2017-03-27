@@ -34,5 +34,8 @@ class PackageView(DetailView):
 
     def get(self, request, *args, **kwargs):
         if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
-            self.template_name = 'mobile/package.html'
+            if self.kwargs.get('action_name') == "contact":
+                self.template_name = 'mobile/contact.html'
+            else:
+                self.template_name = 'mobile/package.html'
         return super(PackageView, self).get(request, *args, **kwargs)
