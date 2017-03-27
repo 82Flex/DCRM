@@ -198,6 +198,7 @@ gpg --gen-key / gpg --allow-secret-key-import --import private.key
 
 #### 启动后台队列进程
 ```shell
+su www-data
 nohup ./manage.py rqworker high > /dev/null &
 nohup ./manage.py rqworker default > /dev/null &
 ```
