@@ -53,6 +53,13 @@ class SuitConfig(DjangoSuitConfig):
             
             ChildItem(model='WEIPDCRM.setting'),
         ]),
+        ParentItem('Photologue', children=[
+            ChildItem(model='photologue.gallery'),
+            ChildItem(model='photologue.photo'),
+            ChildItem(model='photologue.photoeffect'),
+            ChildItem(model='photologue.photosize'),
+            ChildItem(model='photologue.watermark'),
+        ]),
         ParentItem('Upload', children=[
             ChildItem('New Package', url='/admin/upload/'),
         ], align_right=True),

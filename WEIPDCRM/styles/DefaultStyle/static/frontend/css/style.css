@@ -319,7 +319,7 @@ img {
     color: #555;
     font-size: 13px;
     line-height: 31px;
-    float: left;
+    /* float: left; */
 }
 
 .primary .article .details a {

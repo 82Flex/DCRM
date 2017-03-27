@@ -265,6 +265,12 @@ class BuildAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         return preferences.Setting.active_release is not None and Package.objects.count() != 0
     
+    def get_readonly_fields(self, request, obj=None):
+        if not obj:
+            return ['active_release', 'job_id', 'created_at']
+        else:
+            return ['active_release', 'job_id', 'created_at', 'details']
+    
     def save_model(self, request, obj, form, change):
         """
         Set the active release, call building procedure, and then save.

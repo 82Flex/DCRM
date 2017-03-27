@@ -75,11 +75,6 @@ def validate_pdiffs(value):
         raise ValidationError(_("Pdiffs is not supported now."))
 
 
-def validate_advanced_mode(value):
-    if value:
-        raise ValidationError(_("Auto Depiction is not supported now."))
-
-
 def validate_rest_api(value):
     if value:
         raise ValidationError(_("Rest API is not supported now."))
@@ -150,10 +145,7 @@ class Setting(Preferences):
         help_text=_(
             "Check it to generate awesome depiction page for each version."
         ),
-        default=False,
-        validators=[
-            validate_advanced_mode
-        ]
+        default=False
     )
     atomic_storage = models.BooleanField(
         verbose_name=_("Atomic Storage"),

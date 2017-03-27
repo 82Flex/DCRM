@@ -101,6 +101,8 @@ INSTALLED_APPS = [
     'preferences',
     "django_rq",
     "suit_redactor",
+    'sortedm2m',
+    'photologue',
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',

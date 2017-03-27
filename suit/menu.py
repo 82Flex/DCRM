@@ -67,7 +67,6 @@ class MenuManager(object):
                     raise TypeError('Django Suit "menu_handler" must callable')
                 self.menu_items = self.suit_config.menu_handler(
                     self.menu_items, self.request, self.context)
-
         return self.menu_items
 
     def build_menu(self):

@@ -48,4 +48,5 @@ urlpatterns = [
     url(r'^admin/release/set-default/(?P<release_id>\d+)/?$', release.set_default_view, name='set_default_release'),
     url(r'^admin/help/about/$', about.about_view, name='help_about'),
     url(r'^admin/help/statistics/$', statistics.statistics_view, name='help_statistics'),
+    url(r'^photologue/', include('photologue.urls', namespace='photologue')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

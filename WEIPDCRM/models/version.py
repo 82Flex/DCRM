@@ -399,6 +399,11 @@ class Version(models.Model):
         if (self.sponsor_name is not None and len(self.sponsor_name) > 0) and \
                 (self.sponsor_site is not None and len(self.sponsor_site) > 0):
             control.update({"Sponsor": self.sponsor_name + " <" + self.sponsor_site + ">"})
+        """
+        Auto Depiction
+        """
+        if (not self.custom_depiction) and preferences.Setting.advanced_mode:
+            control.update({"Depiction": self.get_absolute_url()})
         return control
     
     def update_storage(self):
@@ -446,7 +451,12 @@ class Version(models.Model):
         """
 
         def hash_file(hash_obj, file_path):
-            with open(file_path, "rb") as f:
+            """
+            :param hash_obj: Hash processing instance
+            :param file_path: File to be processed
+            :type file_path: str
+            """
+            with open(file_path, str("rb")) as f:
                 for block in iter(lambda: f.read(65535), b""):
                     hash_obj.update(block)
         

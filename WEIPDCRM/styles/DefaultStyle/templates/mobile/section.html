@@ -12,7 +12,7 @@
             {{ packages_num }}
         </p>
         <p>
-            {% trans "Create time: " %}{{ c_section.created_at | date:"Y-m-d H:i:s" }}
+            {% trans "Created at: " %}{{ c_section.created_at | date:"Y-m-d H:i:s" }}
         </p>
     </block>
     {% include "mobile/grid-list.html" %}
