@@ -23,14 +23,6 @@ The initial version of DCRM is now under the development, and for now, only Chin
 - 关系型数据库：MySQL 或 PostgreSQL，无法使用 Django 自带的 SQLite3
 - 在生产环境下强烈推荐您正确配置 uwsgi、Nginx 与 CDN 加速
 
-### DCRM 所需的 Python 扩展包有哪些？
-- pip install django
-- pip install rq
-- pip install mysql
-- pip install python-debian --upgrade
-- pip install sqlparse
-- pip install python-memcached
-
 ### 如何安装 DCRM？
 DCRM 尚处于开发阶段，暂不支持一键配置，请按照以下步骤进行部署：
 
@@ -83,6 +75,31 @@ apt-get update
 apt-get upgrade
 apt-get install mysql-server libmysqlclient-dev python-dev memcached nginx git redis-server libjpeg-dev
 pip install django==1.10.5 chardet rq mysql sqlparse python-memcached uwsgi Pillow python-debian --upgrade
+```
+
+#### 测试环境 python 包版本
+
+```
+appdirs==1.4.3
+chardet==2.3.0
+click==6.7
+Django==1.10.5
+django-photologue==3.6
+django-sortedm2m==1.3.3
+ExifRead==2.1.2
+mysql==0.0.1
+MySQL-python==1.2.5
+olefile==0.44
+packaging==16.8
+Pillow==4.0.0
+pyparsing==2.2.0
+python-debian==0.1.28
+python-memcached==1.58
+redis==2.10.5
+rq==0.7.1
+six==1.10.0
+sqlparse==0.2.3
+uWSGI==2.0.14
 ```
 
 #### nginx 配置示例 (https://apt.82flex.com)
