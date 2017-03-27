@@ -55,10 +55,6 @@ class MenuManager(object):
         self.active_parent_item = None
         self._available_apps = {'apps': {}, 'models': {}}
 
-    def __iter__(self):
-        for each in self.get_menu_items():
-            yield each
-
     def get_menu_items(self):
         if self.menu_items is None:
             self.menu_items = self.build_menu()
@@ -68,6 +64,10 @@ class MenuManager(object):
                 self.menu_items = self.suit_config.menu_handler(
                     self.menu_items, self.request, self.context)
         return self.menu_items
+    
+    def __iter__(self):
+        for each in self.get_menu_items():
+            yield each
 
     def build_menu(self):
         if not self.user_menu:
