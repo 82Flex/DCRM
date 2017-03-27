@@ -81,22 +81,8 @@ DCRM 尚处于开发阶段，暂不支持一键配置，请按照以下步骤进
 ```shell
 apt-get update
 apt-get upgrade
-pip install django==1.10.5
-apt-get install mysql-server
-apt-get install libmysqlclient-dev
-apt-get install python-dev
-pip install rq
-pip install mysql
-pip install python-debian --upgrade
-pip install sqlparse
-apt-get install memcached
-pip install python-memcached
-apt-get install nginx
-pip install uwsgi
-apt-get install git
-apt-get install redis-server
-apt-get install libjpeg-dev
-pip install Pillow
+apt-get install mysql-server libmysqlclient-dev python-dev memcached nginx git redis-server libjpeg-dev
+pip install django==1.10.5 chardet rq mysql sqlparse python-memcached uwsgi Pillow python-debian --upgrade
 ```
 
 #### nginx 配置示例 (https://apt.82flex.com)
