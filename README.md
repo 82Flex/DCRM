@@ -74,7 +74,8 @@ DCRM 尚处于开发阶段，暂不支持一键配置，请按照以下步骤进
 apt-get update
 apt-get upgrade
 apt-get install mysql-server libmysqlclient-dev python-dev memcached nginx git redis-server libjpeg-dev
-pip install django==1.10.5 chardet rq mysql sqlparse python-memcached uwsgi Pillow python-debian --upgrade
+pip install django==1.10.5 chardet rq mysql sqlparse python-memcached uwsgi Pillow pytz python-debian --upgrade
+mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
 ```
 
 #### 测试环境 python 包版本
@@ -95,6 +96,7 @@ Pillow==4.0.0
 pyparsing==2.2.0
 python-debian==0.1.28
 python-memcached==1.58
+pytz==2016.10
 redis==2.10.5
 rq==0.7.1
 six==1.10.0
