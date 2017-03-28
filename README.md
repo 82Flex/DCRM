@@ -19,6 +19,9 @@ The initial version of DCRMv4 is now under the development, and for now, only En
 
 - https://apt.82flex.com
 
+Username: demo
+Password: demodemo
+
 ### ENVIRONMENT OF DCRM 的基本环境要求是什么？
 - Python 2.7
 - Django 1.10.5 final
