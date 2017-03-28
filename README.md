@@ -13,39 +13,22 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 
 ## GUIDE 使用说明
 
-The initial version of DCRM is now under the development, and for now, only Chinese Installation Guideline is available. But DCRM is now in English, and you can try it if you know how to use Django and test its project.
+The initial version of DCRMv4 is now under the development, and for now, only English version is available. You can try it if you know how to use Django and test its project.
 
-### Demo 示例站点
+### DEMO SITE 示例站点
 
 - https://apt.82flex.com
 
-### DCRM 的基本环境要求是什么？
+### ENVIRONMENT OF DCRM 的基本环境要求是什么？
 - Python 2.7
 - Django 1.10.5 final
-- 如果您开启了此压缩方式，还需要额外的 bz2 模块
-- 缓存：Redis (Required), memcached (Recommended)
-- 关系型数据库：MySQL 或 PostgreSQL，无法使用 Django 自带的 SQLite3
-- 在生产环境下强烈推荐您正确配置 uwsgi、Nginx 与 CDN 加速
+- Redis (Required)
+- memcached (Recommended)
+- MySQL / PostgreSQL
+- uwsgi, Nginx
 
-### 如何安装 DCRM？
-DCRM 尚处于开发阶段，暂不支持一键配置，请按照以下步骤进行部署：
+### INSTALL 如何安装 DCRM？
 
-1. 完成基本环境的配置
-2. 配置 Nginx 或其它 Web 服务，将 resources 目录映射到站点可访问路径下，配置范例：https://github.com/82Flex/DCRM/blob/master/docs/example_nginx.conf
-3. 设置 settings.py
-    1. 设置随机 SECRET_KEY
-    2. 将测试域名添加到 ALLOWED_HOSTS
-    3. 配置 Redis：RQ_QUEUES
-    4. 配置数据库：DATABASES
-    5. 配置缓存：CACHES
-    6. 配置语言及时区：LANGUAGE_CODE、TIME_ZONE
-    7. Debug 置为 True 进行测试
-4. 终端切换到本文件所在目录
-    1. ./manage.py collectstatic
-    2. ./manage.py migrate
-    3. ./manage.py createsuperuser
-    4. nohup ./manage.py rqworker high &
-    5. nohup ./manage.py rqworker default &
 5. 登录管理后台，配置 WEIPDCRM -> Settings
 6. 配置 Sites, 将 example.com 修改为当前域名，example 修改为软件源名称
 7. 配置 WEIPDCRM -> Releases 源信息
@@ -54,43 +37,41 @@ DCRM 尚处于开发阶段，暂不支持一键配置，请按照以下步骤进
 10. 通过 WEIPDCRM -> Sections 管理分类
 11. 通过 WEIPDCRM -> Builds 发布源信息
 
-### 如何开启 gpg 签名？
-- 安装 gpg，然后在终端，**使用 rqworker 所在用户**执行 gpg --gen-key 生成密钥对。如服务器生成较慢，可在本地生成并在服务器上导入，即可开启 gpg 签名选项。此内容请参考：https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Step_by_Step_Guide/s1-gnupg-export.html
+### CONFIGURATIONS 配置示例
 
-### 如何配置下载次数统计或防盗链保护？
-- Nginx 请参考：https://www.nginx.com/resources/wiki/start/topics/examples/x-accel/
-
-### 如何压缩传输页面尺寸？
-- 安装 Django 扩展包：https://github.com/cobrateam/django-htmlmin/
-
-### 如何让 DCRM 支持 emoji？
-- 执行数据库语句，修改需要支持 emoji 字段的字符集：
-- ALTER TABLE tbl_name CHANGE c_name c_name CHARACTER SET character_name [COLLATE ...];
-
-### 出现 Permission Denied 如何解决？
-- 请**让 rqworker 工作在 uwsgi 同一用户下**。例如 uwsgi 用户为 www，则启动 rqworker 时请采用 _sudo -u www nohup ./manage.py rqworker high &_。
-
-### 配置示例
-
-#### 环境配置指令示例
+#### INSTALL MIDDLEWARES 环境配置指令示例
 
 ```shell
 apt-get update
 apt-get upgrade
+```
+
+```shell
 apt-get install mysql-server libmysqlclient-dev python-dev memcached nginx git redis-server libjpeg-dev
-pip install django==1.10.5 chardet rq mysql sqlparse python-memcached uwsgi Pillow pytz python-debian --upgrade
+```
+
+```shell
+pip install django==1.10.5 chardet rq bzip2 mysql sqlparse python-memcached uwsgi Pillow pytz python-debian --upgrade
+```
+
+```shell
 mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
 ```
 
-#### 测试环境 python 包版本
+#### CHECK PYPI PACKAGE VERSIONS 测试环境 python 包版本
 
+```shell
+pip freeze
 ```
+
+Check the PyPI package versions to avoid any problem.
+
+```shell
 appdirs==1.4.3
+bzip2==0.0.1
 chardet==2.3.0
 click==6.7
 Django==1.10.5
-django-photologue==3.6
-django-sortedm2m==1.3.3
 ExifRead==2.1.2
 mysql==0.0.1
 MySQL-python==1.2.5
@@ -108,7 +89,57 @@ sqlparse==0.2.3
 uWSGI==2.0.14
 ```
 
-#### nginx 配置示例 (https://apt.82flex.com)
+#### CONFIGURE DATABASE MYSQL 配置示例
+
+```shell
+mysql -uroot -p
+```
+
+Create different databases for each DCRM instance.
+
+```sql
+CREATE DATABASE DCRM DEFAULT CHARSET UTF8;
+```
+
+#### CONFIGURE DCRM 配置示例
+
+```shell
+git clone https://github.com/82Flex/DCRM.git
+cd DCRM
+```
+
+修改 DCRM/settings.py:
+Edit DCRM/settings.py:
+    1. Set SECRET_KEY, it must be unique.
+    2. Add your domain into ALLOWED_HOSTS
+    3. Configure Redis: RQ_QUEUES, you may use different 'DB' number for different DCRM instances.
+    4. Configure Database: DATABASES, you may use different 'DATABASE' for different DCRM instances.
+    5. Configure Caches: CACHES
+    6. Configure Language & Timezone: LANGUAGE_CODE、TIME_ZONE
+    7. Set Debug = True
+
+执行下列语句，以创建数据库结构并创建超级用户：
+Execute following commands to sync database structure and create new super user:
+
+```shell
+./manage.py collectstatic
+./manage.py migrate
+./manage.py createsuperuser
+```
+
+每次更新时，请执行下列语句：
+Each time when you want to update DCRM, you should execute following commands:
+
+```shell
+git pull
+./manage.py migrate
+killall -s INT uwsgi
+uwsgi --ini uwsgi.ini
+```
+
+#### CONFIGURE NGINX 配置示例
+
+This is the configuration of 82Flex Repo, with SSL.
 
 ```nginx
 upstream django {
@@ -170,12 +201,13 @@ server {
 }
 ```
 
-nginx 工作用户及组均为 www-data，启动 nginx：
+#### LAUNCH NGINX
+
 ```shell
 sudo /etc/init.d/nginx start
 ```
 
-#### uwsgi 配置示例
+#### CONFIGURE UWSGI 配置示例
 
 ```ini
 [uwsgi]
@@ -191,20 +223,35 @@ uid = www-data
 gid = www-data
 ```
 
-启动 uwsgi：
+#### LAUNCH UWSGI 启动 UWSGI
+
 ```shell
-sudo -u www-data -g www-data uwsgi --ini uwsgi.ini --daemonize=/dev/null
+uwsgi --ini uwsgi.ini --daemonize=/dev/null
 ```
 
-#### GnuPG 配置示例
+#### CONFIGURE GnuPG 配置示例
+
+Make sure to launch background queue with the same nginx working user (www/www-data).
+
 ```shell
 su www-data
-gpg --gen-key / gpg --allow-secret-key-import --import private.key
 ```
 
-#### 启动后台队列进程
+```shell
+gpg --gen-key
+# or
+gpg --allow-secret-key-import --import private.key
+```
+
+#### LAUNCH BACKGROUND QUEUE 启动后台队列进程
+
+Make sure to launch background queue with the same nginx working user (www/www-data).
+
 ```shell
 su www-data
+```
+
+```shell
 nohup ./manage.py rqworker high > /dev/null &
 nohup ./manage.py rqworker default > /dev/null &
 ```
