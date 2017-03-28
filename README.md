@@ -27,16 +27,6 @@ The initial version of DCRMv4 is now under the development, and for now, only En
 - MySQL / PostgreSQL
 - uwsgi, Nginx
 
-### INSTALL 如何安装 DCRM？
-
-5. 登录管理后台，配置 WEIPDCRM -> Settings
-6. 配置 Sites, 将 example.com 修改为当前域名，example 修改为软件源名称
-7. 配置 WEIPDCRM -> Releases 源信息
-8. 通过 Upload 上传 Deb 文件
-9. 通过 WEIPDCRM -> Versions 启用并管理包
-10. 通过 WEIPDCRM -> Sections 管理分类
-11. 通过 WEIPDCRM -> Builds 发布源信息
-
 ### CONFIGURATIONS 配置示例
 
 #### INSTALL MIDDLEWARES 环境配置指令示例
@@ -110,6 +100,7 @@ cd DCRM
 
 修改 DCRM/settings.py:
 Edit DCRM/settings.py:
+
     1. Set SECRET_KEY, it must be unique.
     2. Add your domain into ALLOWED_HOSTS
     3. Configure Redis: RQ_QUEUES, you may use different 'DB' number for different DCRM instances.
@@ -255,6 +246,16 @@ su www-data
 nohup ./manage.py rqworker high > /dev/null &
 nohup ./manage.py rqworker default > /dev/null &
 ```
+
+#### PUBLISH A REPOSITORY RELEASE 发布软件源
+
+1. WEIPDCRM -> Settings
+2. Sites: Set domains and site names
+3. WEIPDCRM -> Releases: Add a new release and set it as an active release
+4. WEIPDCRM -> Sections: Add sections
+5. Upload: Upload deb files
+6. WEIPDCRM -> Versions: Enable Packages and assign them into sections
+9. WEIPDCRM -> Builds: Build the repository to apply all the changes
 
 ## LICENSE 版权声明
 
