@@ -15,7 +15,7 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 
 The initial version of DCRM is now under the development, and for now, only Chinese Installation Guideline is available. But DCRM is now in English, and you can try it if you know how to use Django and test its project.
 
-## Demo 示例站点
+### Demo 示例站点
 
 - https://apt.82flex.com
 
