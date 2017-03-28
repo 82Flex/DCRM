@@ -15,6 +15,10 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 
 The initial version of DCRM is now under the development, and for now, only Chinese Installation Guideline is available. But DCRM is now in English, and you can try it if you know how to use Django and test its project.
 
+## Demo 示例站点
+
+- https://apt.82flex.com
+
 ### DCRM 的基本环境要求是什么？
 - Python 2.7
 - Django 1.10.5 final
@@ -43,7 +47,7 @@ DCRM 尚处于开发阶段，暂不支持一键配置，请按照以下步骤进
     4. nohup ./manage.py rqworker high &
     5. nohup ./manage.py rqworker default &
 5. 登录管理后台，配置 WEIPDCRM -> Settings
-6. 配置 Sites, 将 example.com 修改为当前域名(e.g https://apt.82flex.com)，example 修改为软件源名称
+6. 配置 Sites, 将 example.com 修改为当前域名，example 修改为软件源名称
 7. 配置 WEIPDCRM -> Releases 源信息
 8. 通过 Upload 上传 Deb 文件
 9. 通过 WEIPDCRM -> Versions 启用并管理包
