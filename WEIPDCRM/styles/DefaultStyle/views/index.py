@@ -52,7 +52,7 @@ class IndexView(ListView):
         Merge global settings to current context
         """
         context = super(IndexView, self).get_context_data(**kwargs)
-        context['packages_num'] = _("%d packages in total." % Package.objects.all().count())
+        context['packages_num'] = Package.objects.all().count()
         latest_build = Build.objects.order_by('-created_at')
         if latest_build:
             context['release_lastest_updated'] = latest_build[0].created_at

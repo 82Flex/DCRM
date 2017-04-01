@@ -34,19 +34,19 @@ class SettingsAdmin(PreferencesAdmin):
             'fields': ['enable_pdiffs', 'gpg_signature', 'packages_compression',
                        'packages_validation', 'downgrade_support']
         }),
-        # Mobile
+        # Frontend
         ('Display', {
-            'classes': ('suit-tab suit-tab-mobile',),
+            'classes': ('suit-tab suit-tab-frontend',),
             'fields': ['advanced_mode', 'comments']
         }),
         ('Social', {
-            'classes': ('suit-tab suit-tab-mobile',),
+            'classes': ('suit-tab suit-tab-frontend',),
             'fields': ['display_social', 'qq_group_name',
                        'qq_group_url', 'weibo_name',
                        'weibo_url', 'alipay_url']
         }),
         ('Footer', {
-            'classes': ('suit-tab suit-tab-mobile',),
+            'classes': ('suit-tab suit-tab-frontend',),
             'fields': ['copyright_name', 'copyright_year',
                        'footer_icp']
         }),
@@ -71,7 +71,7 @@ class SettingsAdmin(PreferencesAdmin):
     suit_form_tabs = (
         ('common', 'Common'),
         ('advanced', 'Advanced'),
-        ('mobile', 'Mobile'),
+        ('frontend', 'Frontend'),
         ('api', 'Rest API'),
         ('third-party', 'Third-Party'),
     )

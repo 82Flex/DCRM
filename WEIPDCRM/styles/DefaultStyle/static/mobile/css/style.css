@@ -327,6 +327,7 @@ fieldset > div > * , panel > block > * {
 
 fieldset > div > p, panel > block > p {
     text-align: center;
+	font-size: 16px
 }
 
 fieldset > div > ul, panel > block > ul {

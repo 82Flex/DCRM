@@ -44,7 +44,7 @@ apt-get install mysql-server libmysqlclient-dev python-dev memcached nginx git r
 ```
 
 ```shell
-pip install django==1.10.5 chardet rq bzip2 mysql sqlparse python-memcached uwsgi Pillow pytz python-debian --upgrade
+pip install django==1.10.5 chardet rq bzip2 mysql sqlparse python-memcached uwsgi Pillow pytz python-debian exifread --upgrade
 ```
 
 ```shell

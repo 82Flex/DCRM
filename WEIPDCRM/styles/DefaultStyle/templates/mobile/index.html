@@ -57,10 +57,10 @@
     </fieldset>
     <block>
         <p>
-            {{ packages_num }}
+            {% blocktrans %}<strong>{{ packages_num }}</strong> packages in total{% endblocktrans %}
         </p>
         <p>
-            {% trans "Last updated: " %}{{ release_lastest_updated | date:"Y-m-d H:i:s" }}
+            {% trans "Last updated: " %}<strong>{{ release_lastest_updated | date:"Y-m-d H:i:s" }}</strong>
         </p>
     </block>
     {% if settings.display_social %}
