@@ -76,13 +76,9 @@
             {% endif %}
         </p>
         <p>{% trans "Last Updated" %}: <strong>{{ package_info.created_at | date:"Y-m-d H:i:s" }}</strong></p>
-        {% if package_info.rich_description == '' %}
+        {% if package_info.rich_description == '' and package_info.c_description %}
             <hr/>
-            {% if package_info.c_description %}
-                <p>{{ package_info.c_description }}</p>
-            {% else %}
-                <p>{% trans "No description" %}</p>
-            {% endif %}
+            <p>{{ package_info.c_description }}</p>
         {% endif %}
     </block>
     {% if package_info.rich_description %}
