@@ -242,6 +242,7 @@ img {
     border-radius: 6px;
     background-color: #fff;
     box-shadow: 0 0 3px rgba(200, 200, 200, 0.25);
+    height: 20px;
 }
 
 .primary .content .breadcrumbs p {

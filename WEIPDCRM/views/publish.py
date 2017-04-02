@@ -38,7 +38,7 @@ def package_file_fetch(request, package_id):
     pkg = Version.objects.get(id=int(package_id))
     if not pkg:
         return HttpResponseNotFound()
-    file_path = os.path.relpath(pkg.storage.name, settings.BASE_DIR)
+    file_path = os.path.join(settings.MEDIA_ROOT, pkg.storage.name)
     if not os.path.exists(file_path):
         return HttpResponseNotFound()
     if pref.download_cydia_only:
@@ -57,7 +57,7 @@ def package_file_fetch(request, package_id):
         if pref.web_server == 0:
             response['X-Accel-Redirect'] = request_url
         elif pref.web_server == 1:
-            # You may set Send File Path to settings.BASE_DIR
+            # You may set Send File Path to settings.MEDIA_ROOT
             response['X-sendfile'] = request_path
         elif pref.web_server == 2:
             pass
@@ -66,7 +66,7 @@ def package_file_fetch(request, package_id):
         response = serve(
             request,
             path=request_path,
-            document_root=settings.BASE_DIR,
+            document_root=settings.MEDIA_ROOT,
         )
     response['Content-Type'] = 'application/octet-stream'
     response['Content-Transfer-Encoding'] = "binary"

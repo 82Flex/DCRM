@@ -63,8 +63,9 @@ def write_to_package_job(control, path, callback_version_id):
     :param callback_version_id: Callback Version ID, for callback query
     :type callback_version_id: int
     """
+    abs_path = os.path.join(settings.MEDIA_ROOT, path)
     temp_path = os.path.join(settings.TEMP_ROOT, str(uuid.uuid1()) + '.deb')
-    shutil.copyfile(path, temp_path)
+    shutil.copyfile(abs_path, temp_path)
     # read new package
     temp_package = DebianPackage(temp_path)
     temp_package.control = control
@@ -181,7 +182,7 @@ class Version(models.Model):
         :return: External Storage Link
          :rtype: str
         """
-        file_path = os.path.relpath(self.storage.name, settings.BASE_DIR)
+        file_path = os.path.relpath(self.storage.name, settings.MEDIA_ROOT)
         slash_index = file_path.find("/")
         if slash_index > 0:
             file_path = file_path[slash_index + 1:]
@@ -451,11 +452,12 @@ class Version(models.Model):
             target_path = os.path.join(target_dir, self.base_filename())
             os.rename(temp_path, target_path)
             os.chmod(target_path, 0755)
-            self.storage.name = target_path
+            self.storage.name = os.path.relpath(target_path, settings.MEDIA_ROOT)
         else:
-            os.unlink(self.storage.name)
-            os.rename(temp_path, self.storage.name)
-            os.chmod(self.storage.name, 0755)
+            abs_path = os.path.join(settings.MEDIA_ROOT, self.storage.name)
+            os.unlink(abs_path)
+            os.rename(temp_path, abs_path)
+            os.chmod(abs_path, 0755)
         self.update_hash()
         self.save()
     
@@ -475,7 +477,7 @@ class Version(models.Model):
                 for block in iter(lambda: f.read(65535), b""):
                     hash_obj.update(block)
         
-        path = self.storage.name
+        path = os.path.join(settings.MEDIA_ROOT, self.storage.name)
         if not os.path.exists(path):
             return
         p_size = os.path.getsize(path)

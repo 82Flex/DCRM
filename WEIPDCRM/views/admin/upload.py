@@ -91,7 +91,7 @@ def handle_uploaded_package(path):
                 p_version = Version()
                 p_version.c_package = control.get('Package', None)
                 p_version.c_version = control.get('Version', None)
-                p_version.storage = target_path
+                p_version.storage = os.path.relpath(target_path, settings.MEDIA_ROOT)
                 p_version.maintainer_name = DebianPackage.value_for_field(control.get('Maintainer', None))
                 p_version.maintainer_email = DebianPackage.detail_for_field(control.get('Maintainer', None))
                 p_version.c_description = control.get('Description', "")
