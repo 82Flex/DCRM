@@ -25,6 +25,7 @@ Notice: You have used class-based views, that's awesome.
 from django.views.generic import DetailView
 from WEIPDCRM.models.version import Version
 
+
 class PackageView(DetailView):
     model = Version
     context_object_name = 'package_info'
