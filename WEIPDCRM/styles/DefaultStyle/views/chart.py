@@ -29,7 +29,7 @@ from WEIPDCRM.models.package import Package
 class ChartView(ListView):
     model = Package
     context_object_name = 'package_list'
-    ordering = '-download_times'
+    ordering = '-download_count'
     template_name = 'frontend/chart.html'
 
     def get_queryset(self):
