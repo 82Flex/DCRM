@@ -72,7 +72,7 @@
         <p>
             {% trans "Version" %}: <strong>{{ package_info.c_version }}</strong>
             {% if settings.download_count %}
-                | {% trans "Downloads" %}: <strong>{{ package_info.downlDoad_times }}</strong>
+                | {% trans "Downloads" %}: <strong>{{ package_info.download_times }}</strong>
             {% endif %}
         </p>
         <p>{% trans "Last Updated" %}: <strong>{{ package_info.created_at | date:"Y-m-d H:i:s" }}</strong></p>
