@@ -24,6 +24,7 @@ Notice: You have used class-based views, that's awesome.
 
 from django.views.generic import DetailView
 from WEIPDCRM.models.version import Version
+from user_agents import parse
 
 
 class PackageView(DetailView):

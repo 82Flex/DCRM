@@ -1222,3 +1222,30 @@ p,input[type="password"],input[type="text"],select {
     max-height: 20px;
     vertical-align: text-bottom;
 }
+
+.equipment {
+    background: #f1f1f1;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.equipment h2 {
+    background: #5ba744;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 10px 0;
+}
+
+.not_supported h2 {
+    background: #FF4A4A;
+}
+
+.equipment img {
+    display: inline-block;
+    margin: -3px 10px 0 25px;
+    height: 25px;
+    width: 25px;
+    background-size: 25px auto;
+    vertical-align: middle;
+}
