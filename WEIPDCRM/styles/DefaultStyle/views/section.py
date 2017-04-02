@@ -26,8 +26,6 @@ from django.views.generic import ListView
 from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.section import Section
 
-from django.utils.translation import ugettext_lazy as _
-
 
 class SectionView(ListView):
     allow_empty = True
@@ -63,6 +61,5 @@ class SectionView(ListView):
         context['section_id'] = section_id
         context['page'] = self.kwargs.get('page')
         context['c_section'] = Section.objects.get(id=section_id)
-        packages_num = Package.objects.filter(c_section_id=section_id).count()
-        context['packages_num'] = _("%d packages in this section." % packages_num)
+        context['packages_num'] = Package.objects.filter(c_section_id=section_id).count()
         return context

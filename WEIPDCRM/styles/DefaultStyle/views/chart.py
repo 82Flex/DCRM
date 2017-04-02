@@ -23,20 +23,26 @@ Notice: You have used class-based views, that's awesome.
 """
 
 from django.views.generic import ListView
-from WEIPDCRM.models.package import Package
+from WEIPDCRM.models.version import Version
 
 
 class ChartView(ListView):
-    model = Package
+    model = Version
     context_object_name = 'package_list'
-    ordering = '-download_count'
+    ordering = '-download_times'
     template_name = 'frontend/chart.html'
+
+    #def get(self, request, *args, **kwargs):
+    #    if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
+    #        self.template_name = 'mobile/chart.html'
+    #   return super(ChartView, self).get(request, *args, **kwargs)
 
     def get_queryset(self):
         """
-        Get 24 packages ordering by download times.
+        Get 5 packages ordering by download times.
 
         :return: QuerySet
         """
-        queryset = super(ChartView, self).get_queryset().all()[:24]
+        queryset = super(ChartView, self).get_queryset().all()[:5]
         return queryset
+

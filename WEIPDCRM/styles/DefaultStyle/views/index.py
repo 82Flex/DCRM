@@ -26,8 +26,6 @@ from django.views.generic import ListView
 from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.build import Build
 
-from django.utils.translation import ugettext_lazy as _
-
 
 class IndexView(ListView):
     """

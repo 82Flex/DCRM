@@ -200,7 +200,7 @@ img {
 
 .primary .content .list .list-item .title-tag {
     margin-top: 5px;
-    height: 60px;
+    height: 100px;
 }
 
 .primary .content .list .list-item .title {
@@ -235,6 +235,91 @@ img {
     color: #888;
     font-size: 11px
 }
+
+.primary .content .list .chart-item {
+    margin-bottom: 36px;
+    padding: 0 36px;
+    width: auto;
+    height: 120px
+}
+
+.primary .content .list .chart-item .icon {
+    height: 100px;
+    width: 100px;
+    float: left
+}
+
+.primary .content .list .chart-item .icon img {
+    height: 100px;
+    width: 100px;
+}
+
+.primary .content .list .chart-item .title-tag {
+    float: left
+}
+
+.primary .content .list .chart-item .title-tag .title {
+    margin-left: 20px;
+    text-align: left;
+}
+
+.primary .content .list .chart-item .title-tag .title a {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.primary .content .list .chart-item .tag {
+    margin-left: 20px;
+    float: left;
+    height: 80px;
+    width: 320px;
+    text-align: left;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: normal;
+    text-overflow: ellipsis;
+    word-break: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2
+}
+
+.primary .content .list .chart-item .tag a {
+    font-size: 13px
+}
+
+.primary .content .list .chart-item .tag p {
+    color: #888;
+    text-align: left;
+    font-size: 14px
+}
+
+.primary .content .list .chart-item .download {
+    float: right
+}
+
+.primary .content .list .chart-item .download a {
+    display: block;
+    margin: 30px auto 10px;
+    width: 100px;
+    text-align: center;
+    border: 1px solid #cce9ff;
+    border-radius: 12px;
+    color: #2e9fff;
+    font-size: 13px;
+    line-height: 24px;
+    transition: all 200ms ease-in-out
+}
+
+.primary .content .list .chart-item .download a:hover {
+    border: 1px solid #2e9fff;
+    background-color: #f5fdff;
+    color: #2e87e7;
+    text-decoration: none;
+    transition: all 200ms ease-in-out
+}
+
+.primary .content .list .chart-item .download p {}
 
 .primary .content .breadcrumbs {
     padding: 15px;
