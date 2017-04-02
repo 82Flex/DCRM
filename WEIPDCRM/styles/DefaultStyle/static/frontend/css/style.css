@@ -767,6 +767,12 @@ img {
     line-height: 48px;
 }
 
+.primary .widget-area .section_list .list .more a {
+    float: right;
+    margin: -15px 20px
+}
+
+
 .primary .widget-area .section_list h4 {
     overflow: hidden;
     margin-bottom: 5px;
@@ -776,7 +782,6 @@ img {
 }
 
 .primary .widget-area .section_list a {
-    color: #444;
     font-size: 13px
 }
 

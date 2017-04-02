@@ -1,0 +1,20 @@
+{% extends "frontend/base.html" %}
+{% load i18n staticfiles %}
+{% block title %}{% trans 'Sections List' %} | DCRM{% endblock %}
+{% block headerscript %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'frontend/js/masonry.pkgd.min.js' %}"></script>
+{% endblock %}
+{% block breadcrumbs %}
+    <i class="fa fa-home"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a>
+    <i class="fa fa-angle-right"></i> <a href="{% url "section_list" %}">{% trans 'Sections List' %}</a>
+{% endblock %}
+{% block content %}
+    <div class="content-list">
+        <div class="title"><h2>{% trans 'Sections List' %}</h2></div>
+        {% include 'frontend/grid-list-in-sections.html' %}
+        <div class="clear"></div>
+        {% include 'frontend/pagination-in-sections.html' %}
+    </div>
+{% endblock %}
+{% block section_list %}{% endblock %}

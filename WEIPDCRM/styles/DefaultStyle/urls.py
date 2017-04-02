@@ -25,6 +25,7 @@ from views.package import PackageView
 from views.section import SectionView
 from views.search import search_view
 from views.chart import ChartView
+from views.sections import SectionsView
 
 from django.views.decorators.cache import cache_page
 from django.conf import settings
@@ -42,6 +43,8 @@ urlpatterns = [
     url(r'^package/(?P<package_id>\d+)/(?P<action_name>[0-9A-Za-z]+)/?$', cache()(PackageView.as_view()), name='package_action'),
     url(r'^search/?$', cache()(search_view), name='search'),
     url(r'^chart/?$', cache()(ChartView.as_view()), name='chart'),
+    url(r'^sections/?$', cache()(SectionsView.as_view()), name='section_list'),
+    url(r'^sections/(?P<page>\d?)/?$', cache()(SectionsView.as_view()), name='section_list_page'),
     url(r'^section/(?P<section_id>\d+)/?$', cache()(SectionView.as_view()), name='section_id'),
     url(r'^section/(?P<section_id>\d+)/(?P<page>\d?)/?$', cache()(SectionView.as_view()), name='section_id_page'),
 ]

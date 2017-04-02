@@ -51,13 +51,9 @@
             <h2>{% trans "Description" %}</h2>
             <p>
                 {% if package_info.rich_description %}
-                    {% autoescape off %}
-                        {{ package_info.rich_description }}
-                    {% endautoescape %}
-                {% elif package_info.c_description %}
-                    {{ package_info.c_description }}
+                    {% autoescape off %}{{ package_info.rich_description }}{% endautoescape %}
                 {% else %}
-                    {% trans "No description" %}
+                    {{ package_info.c_description | default:_('No description') }}
                 {% endif %}
             </p>
         </div>

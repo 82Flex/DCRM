@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<div class="list grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 160 }'>
+    {% for section in section_list %}
+        <div class="list-item grid-item">
+            <div class="icon">
+                <a href="{% url "section_id" section.id %}">
+                    {% if section.icon %}
+                        <img src="{{ section.icon_link }}"/>
+                    {% else %}
+                        <!-- TODO: Default Icon -->
+                        <img src="{% static 'frontend/img/default-package-icon.png' %}"/>
+                    {% endif %}
+                </a>
+            </div>
+            <div class="title-tag">
+                <div class="title">
+                    <a href="{% url "section_id" section.id %}">{{ section.name }}</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
