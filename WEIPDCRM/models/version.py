@@ -182,8 +182,7 @@ class Version(models.Model):
         :return: External Storage Link
          :rtype: str
         """
-        file_path = os.path.relpath(self.storage.name, settings.MEDIA_ROOT)
-        ext_path = os.path.join(unicode(preferences.Setting.resources_alias), file_path)
+        ext_path = os.path.join(unicode(preferences.Setting.resources_alias), self.storage.name)
         return ext_path
     
     storage_link = property(get_external_storage_link)
