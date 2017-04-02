@@ -58,7 +58,7 @@ def handle_uploaded_package(path):
         version_dir = os.path.join(settings.MEDIA_ROOT, 'versions')
         if not os.path.isdir(version_dir):
             mkdir_p(version_dir)
-        target_dir = os.path.join(settings.MEDIA_ROOT, 'versions', str(uuid.uuid1()))
+        target_dir = os.path.join(version_dir, str(uuid.uuid1()))
         if not os.path.isdir(target_dir):
             mkdir_p(target_dir)
         target_path = os.path.join(target_dir,
