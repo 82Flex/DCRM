@@ -9,7 +9,7 @@
     </label>
     <block>
         <p>
-    {% blocktrans %}<strong>{{ packages_num }}</strong> packages in this section.{% endblocktrans %}
+            {% blocktrans %}<strong>{{ packages_num }}</strong> packages in this section.{% endblocktrans %}
         </p>
         <p>
             {% trans "Created at: " %}<strong>{{ c_section.created_at | date:"Y-m-d H:i:s" }}</strong>
@@ -18,5 +18,4 @@
     {% include "mobile/grid-list.html" %}
     <!--TODO: Paginate -->
 {% endblock %}
-{% block sourceinfo %}{% endblock %}
 {% block page_name %}{{ c_section.name }}{% endblock %}

@@ -35,7 +35,7 @@
         <div class="links">
             <ul>
                 <li><a href="{% url 'index' %}">{% trans 'Home' %}</a></li>
-                <li><a href="{% url 'section_list' %}">{% trans 'Sections' %}</a></li>
+                <li><a href="{% url 'section_list' %}">{% trans 'Section List' %}</a></li>
                 <li><a href="{% url 'chart' %}">{% trans 'Chart' %}</a></li>
             </ul>
         </div>
@@ -54,7 +54,7 @@
 <div class="primary">
     <div class="content">
         <div class="breadcrumbs">
-        <p>{% block breadcrumbs %}{% endblock %}</p>
+            <p>{% block breadcrumbs %}{% endblock %}</p>
         </div>
         {% block content %}{% endblock %}
     </div>
@@ -71,13 +71,13 @@
                 </div>
                 {% if settings.active_release %}
                     <div class="repo_name">
-                        <h2>{{ settings.active_release.origin }}</h2>
-                        <p>{{ settings.active_release.description }}</p>
+                        <h2>{{ settings.active_release.origin | default:_("Untitled Origin") }}</h2>
+                        <p>{{ settings.active_release.description | default:_("No description.") }}</p>
                     </div>
                 {% else %}
                     <div class="repo_name">
-                        <h2>{% trans "No Repo Name" %}</h2>
-                        <p>{% trans "No Repo Description" %}</p>
+                        <h2>{% trans "No repository created." %}</h2>
+                        <p>{% trans "No repository description." %}</p>
                     </div>
                 {% endif %}
             </div>
@@ -89,17 +89,18 @@
                 <div class="list">
                     <ul>
                         {% for section in section_list %}
-                        <li>
-                        <div class="icon">
-                            {% if section.icon %}
-                                <!-- TODO: Section Icon  -->
-                                <img src="{{ section.icon_link }}"/>
-                            {% else %}
-                                <img src="{% static 'frontend/img/default-package-icon.png' %}"/>
-                            {% endif %}
-                            <span class="title"><a href="{% url "section_id" section.id %}">{{ section.name }}</a></span>
-                        </div>
-                        </li>
+                            <li>
+                                <div class="icon">
+                                    {% if section.icon %}
+                                        <!-- TODO: Section Icon  -->
+                                        <img src="{{ section.icon_link }}"/>
+                                    {% else %}
+                                        <img src="{% static 'frontend/img/default-package-icon.png' %}"/>
+                                    {% endif %}
+                                    <span class="title"><a
+                                            href="{% url "section_id" section.id %}">{{ section.name }}</a></span>
+                                </div>
+                            </li>
                         {% endfor %}
                     </ul>
                 {% if section_num > 4 %}
@@ -111,10 +112,12 @@
         {% block latest_comments %}
             {% if settings.comments %}
                 <div class="comments">
-                    <div class="title"><h2>{% trans "Latest Comments" %}</h2></div>
-                      <div class="list">
-                          <!--TODO: Comments Module-->
-                      </div>
+                    <div class="title">
+                        <h2>{% trans "Latest Comments" %}</h2>
+                    </div>
+                    <div class="list">
+                        <!--TODO: Comments Module-->
+                    </div>
                 </div>
             {% endif %}
         {% endblock %}
@@ -138,7 +141,7 @@
                 {% endif %}
                 · <a href="https://github.com/82Flex/DCRM">Powered By DCRM</a>
                 {% if settings.footer_icp %}
-                · {{ settings.footer_icp }}
+                    · {{ settings.footer_icp }}
                 {% endif %}
             </li>
         </ul>

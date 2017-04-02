@@ -238,9 +238,9 @@ class Setting(Preferences):
         ]
         # TODO: Configuration Tutorial for Cydia Only
     )
-    comments = models.BooleanField(
+    enable_comments = models.BooleanField(
         verbose_name=_("Comments"),
-        help_text=_("Enable comments"),
+        help_text=_("Enable comments module"),
         default=False,
     )
     display_social = models.BooleanField(
@@ -300,6 +300,11 @@ class Setting(Preferences):
         max_length=255,
         null=True,
         blank=True
+    )
+    version_history = models.BooleanField(
+        verbose_name=_("Version History"),
+        help_text=_("Enable version history module"),
+        default=False,
     )
 
     def get_admin_url(self):

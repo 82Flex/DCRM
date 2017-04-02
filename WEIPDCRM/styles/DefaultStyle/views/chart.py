@@ -22,6 +22,8 @@ Notice: You have used class-based views, that's awesome.
         You may add lines above as license.
 """
 
+from __future__ import unicode_literals
+
 from django.views.generic import ListView
 from WEIPDCRM.models.version import Version
 
@@ -32,17 +34,12 @@ class ChartView(ListView):
     ordering = '-download_times'
     template_name = 'frontend/chart.html'
 
-    #def get(self, request, *args, **kwargs):
-    #    if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
-    #        self.template_name = 'mobile/chart.html'
-    #   return super(ChartView, self).get(request, *args, **kwargs)
-
     def get_queryset(self):
         """
-        Get 5 packages ordering by download times.
+        Get 12 packages ordering by download times.
 
         :return: QuerySet
         """
-        queryset = super(ChartView, self).get_queryset().all()[:5]
+        queryset = super(ChartView, self).get_queryset().all()[:12]
         return queryset
 

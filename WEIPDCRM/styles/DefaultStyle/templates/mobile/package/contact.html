@@ -1,6 +1,6 @@
-{% extends "mobile/base.html" %}
+{% extends "mobile/package/package.html" %}
 {% load i18n staticfiles %}
-{% block title %}{% trans 'Contact' %} {{ package_info.c_name }} | DCRM{% endblock %}
+{% block title %}{% blocktrans with package_info.c_name as c_name %}Contact {{ c_name }} | DCRM{% endblocktrans %}{% endblock %}
 {% block content %}
     {% if package_info.author_name and package_info.author_email %}
         <fieldset class="author">
@@ -73,5 +73,3 @@
         </fieldset>
     {% endif %}
 {% endblock %}
-{% block sourceinfo %}{% endblock %}
-{% block page_name %}{{ package_info.c_name }}{% endblock %}

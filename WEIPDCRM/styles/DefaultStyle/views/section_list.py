@@ -22,27 +22,24 @@ Notice: You have used class-based views, that's awesome.
         You may add lines above as license.
 """
 
+from __future__ import unicode_literals
+
 from django.views.generic import ListView
 from WEIPDCRM.models.section import Section
 
 
-class SectionsView(ListView):
+class SectionListView(ListView):
     allow_empty = True
     paginate_by = 12
     ordering = '-id'
     model = Section
     context_object_name = 'section_list'
-    template_name = 'frontend/sections.html'
-
-    def get(self, request, *args, **kwargs):
-        if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
-            self.template_name = 'mobile/sections.html'
-        return super(SectionsView, self).get(request, *args, **kwargs)
+    template_name = 'frontend/section-list.html'
 
     def get_context_data(self, **kwargs):
         """
         Merge global settings to current context
         """
-        context = super(SectionsView, self).get_context_data(**kwargs)
+        context = super(SectionListView, self).get_context_data(**kwargs)
         context['page'] = self.kwargs.get('page')
         return context

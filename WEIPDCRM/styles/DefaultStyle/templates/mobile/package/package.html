@@ -23,7 +23,7 @@
             <img id="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
         {% endif %}
         <div id="content">
-            <p id="name">{{ package_info.c_name }}</p>
+            <p id="name">{{ package_info.c_name|default:"Untitled Package" }}</p>
             <p id="latest">{{ package_info.c_version }}</p>
             {% if package_info.c_installed_size == 0 %}
                 <div id="extra">
@@ -104,31 +104,35 @@
             </a>
         </fieldset>
     {% endif %}
-    {% if package_info.update_logs %}
+    {% if package_info.update_logs or settings.version_history %}
         <label>{% trans "Change Log" %}</label>
         <fieldset>
-            <div>
-                <div>
-                    <label>
-                        <strong>
-                            <p>
-                                {{ package_info.c_version }}
-                            </p>
-                        </strong>
-                    </label>
-                    <p>{{ package_info.update_logs }}</p>
-                </div>
-            </div>
-            <a href="" id="historylink">
-                <img class="icon" src="{% static "mobile/img/changelog.png" %}">
+            {% if package_info.update_logs %}
                 <div>
                     <div>
                         <label>
-                            <p>{% trans "History" %}</p>
+                            <strong>
+                                <p>
+                                    {{ package_info.c_version }}
+                                </p>
+                            </strong>
                         </label>
+                        <p>{{ package_info.update_logs }}</p>
                     </div>
                 </div>
-            </a>
+            {% endif %}
+            {% if settings.version_history %}
+                <a href="{% url "package_action" package_info.id "history" %}" id="historylink">
+                    <img class="icon" src="{% static "mobile/img/changelog.png" %}">
+                    <div>
+                        <div>
+                            <label>
+                                <p>{% trans "History" %}</p>
+                            </label>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
         </fieldset>
     {% endif %}
     {% if settings.display_social %}
@@ -180,4 +184,4 @@
         </div>
     </fieldset-->
 {% endblock %}
-{% block page_name %}{{ package_info.c_package }}<br/>{{ package_info.c_section }}{% endblock %}
+{% block page_name %}{{ package_info.c_package }}<br/>{{ package_info.c_section | default:"No Section" }}{% endblock %}

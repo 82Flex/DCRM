@@ -27,27 +27,27 @@
                     </div>
                     <div class="title-tag">
                         <div class="title">
-                            <a href="{% url "package_id" package.id %}">{{ package.c_name }}</a>
+                            <a href="{% url "package_id" package.id %}">{{ package.c_name | default:_("Untitled Package") }}</a>
                         </div>
                         <div class="tag">
-                        {% if package.c_section %}
-                            <a href="{% url "section_id" package.c_section.id %}">{{ package.c_section }}</a>
-                        {% endif %}
+                            {% if package.c_section %}
+                                <a href="{% url "section_id" package.c_section.id %}">{{ package.c_section | default:_("No section") }}</a>
+                            {% endif %}
                             <p>
-                                {{ package.c_description | default:_("No description") }}
+                                {{ package.c_description | default:_("No description.") }}
                             </p>
                         </div>
                     </div>
-                {% if not settings.download_cydia_only %}
-                <div class="download">
-                    <a rel="nofollow" href="{{ package.frontend_link }}" id="downloadlink"
-                       target="_blank">{% trans "Download" %}
-                        {% if settings.download_count %}<br />
-                            {{ package.download_times }}
-                        {% endif %}
-                    </a>
-                </div>
-            {% endif %}
+                    {% if not settings.download_cydia_only %}
+                        <div class="download">
+                            <a rel="nofollow" href="{{ package.frontend_link }}" id="downloadlink"
+                               target="_blank">{% trans "Download" %}
+                                {% if settings.download_count %}<br/>
+                                    {{ package.download_times }}
+                                {% endif %}
+                            </a>
+                        </div>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>

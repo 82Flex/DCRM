@@ -38,7 +38,7 @@
                     <div>
                         <label>
                             <p id="source-name">
-                                {{ settings.active_release.origin }}
+                                {{ settings.active_release.origin | default:_("Untitled Origin") }}
                             </p>
                         </label>
                     </div>
@@ -46,7 +46,7 @@
             </a>
             <div class="source-description" id="source-description">
                 <p>
-                    {{ settings.active_release.description }}
+                    {{ settings.active_release.description | default:_("No description.") }}
                 </p>
             </div>
         </fieldset>

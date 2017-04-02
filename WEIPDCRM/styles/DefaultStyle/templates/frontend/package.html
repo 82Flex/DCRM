@@ -1,7 +1,6 @@
 {% extends "frontend/base.html" %}
 {% load i18n staticfiles %}
-{% block title %}{% blocktrans with package_info.c_name as c_name %}Package {{ c_name }} | DCRM
-{% endblocktrans %}{% endblock %}
+{% block title %}{% trans "Package" %} {{ package_info.c_name | default:_("Untitled Package") }} | DCRM{% endblock %}
 {% block headerscript %}
     {{ block.super }}
     <script type="text/javascript" src="{% static 'frontend/js/masonry.pkgd.min.js' %}"></script>
@@ -12,7 +11,7 @@
         <i class="fa fa-angle-right"></i>
         <a href="{% url "section_id" package_info.c_section.id %}">{{ package_info.c_section }}</a>
     {% endif %}
-    <i class="fa fa-angle-right"></i> {{ package_info.c_name }}
+    <i class="fa fa-angle-right"></i> {{ package_info.c_name | default:_("Untitled Package") }}
 {% endblock %}
 {% block content %}
     <div class="article">
@@ -24,14 +23,18 @@
             {% endif %}
         </div>
         <div class="intro">
-            <div class="title"><h1>{{ package_info.c_name }}</h1></div>
+            <div class="title"><h1>{{ package_info.c_name | default:_("Untitled Package") }}</h1></div>
             <div class="details">
                 <ul>
-                    <li>{% trans "Version" %}: {{ package_info.c_version }}</li>
-                    <li>{% trans "Size" %}: {{ package_info.c_size|filesizeformat }}</li>
-                    <li>{% trans "Author" %}: {{ package_info.author_name }}</li>
-                    <li>{% trans "Section" %}: {{ package_info.c_section }}</li>
                     <li>{% trans "Package" %}: {{ package_info.c_package }}</li>
+                    <li>{% trans "Version" %}: {{ package_info.c_version }}</li>
+                    {% if package_info.c_section %}
+                        <li>{% trans "Section" %}: {{ package_info.c_section }}</li>
+                    {% endif %}
+                    <li>{% trans "Size" %}: {{ package_info.c_size|filesizeformat }}</li>
+                    {% if package_info.author_name %}
+                        <li>{% trans "Author" %}: {{ package_info.author_name }}</li>
+                    {% endif %}
                 </ul>
                 <div class="clear"></div>
             </div>
@@ -51,9 +54,11 @@
             <h2>{% trans "Description" %}</h2>
             <p>
                 {% if package_info.rich_description %}
-                    {% autoescape off %}{{ package_info.rich_description }}{% endautoescape %}
+                    {% autoescape off %}
+                        {{ package_info.rich_description }}
+                    {% endautoescape %}
                 {% else %}
-                    {{ package_info.c_description | default:_('No description') }}
+                    {{ package_info.c_description | default:_("No description.") }}
                 {% endif %}
             </p>
         </div>

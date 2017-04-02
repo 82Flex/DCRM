@@ -39,7 +39,7 @@
     <fieldset>
         <div>
             <div class="site-name">
-                <span style="font-size: 24px">{{ settings.active_release.origin }}</span>
+                <span style="font-size: 24px">{{ settings.active_release.origin | default:_("Untitled Origin") }}</span>
                 <br/>
                 <span style="font-size: 18px">
                     <a href="mailto:{{ settings.active_release.email }}">{{ settings.active_release.email }}</a>
@@ -58,7 +58,7 @@
     </fieldset>
     <block>
         <p>
-            {% blocktrans %}<strong>{{ packages_num }}</strong> packages in total{% endblocktrans %}
+            {% blocktrans %}<strong>{{ packages_num }}</strong> packages in total.{% endblocktrans %}
         </p>
         {% if release_lastest_updated %}
             <p>

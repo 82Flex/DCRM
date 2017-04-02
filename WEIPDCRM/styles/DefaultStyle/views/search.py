@@ -22,6 +22,8 @@ Notice: You have used class-based views, that's awesome.
         You may add lines above as license.
 """
 
+from __future__ import unicode_literals
+
 from django.shortcuts import render
 from django.http import HttpResponseBadRequest
 from django.template.context_processors import csrf

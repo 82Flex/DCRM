@@ -22,6 +22,8 @@ Notice: You have used class-based views, that's awesome.
         You may add lines above as license.
 """
 
+from __future__ import unicode_literals
+
 from django.views.generic import ListView
 from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.section import Section
@@ -34,7 +36,7 @@ class SectionView(ListView):
     model = Package
     context_object_name = 'package_list'
     pk_url_kwarg = 'section_id'
-    template_name = 'frontend/section.html'
+    template_name = 'frontend/package-in-section.html'
 
     def get(self, request, *args, **kwargs):
         if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:

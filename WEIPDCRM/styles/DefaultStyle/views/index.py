@@ -22,6 +22,8 @@ Notice: You have used class-based views, that's awesome.
         You may add lines above as license.
 """
 
+from __future__ import unicode_literals
+
 from django.views.generic import ListView
 from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.build import Build

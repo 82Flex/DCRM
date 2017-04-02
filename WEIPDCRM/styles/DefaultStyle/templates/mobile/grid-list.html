@@ -12,7 +12,7 @@
                 <div>
                     <div>
                         <label>
-                            <p>{{ package.c_name }}</p>
+                            <p>{{ package.c_name | default:_("Untitled Package") }}</p>
                         </label>
                     </div>
                 </div>
