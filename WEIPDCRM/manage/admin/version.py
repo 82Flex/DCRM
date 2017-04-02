@@ -31,6 +31,8 @@ from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.admin.actions import delete_selected
 
+from preferences import preferences
+
 from suit import apps
 from suit_redactor.widgets import RedactorWidget
 from suit.widgets import AutosizedTextarea
@@ -108,13 +110,6 @@ class VersionAdmin(admin.ModelAdmin):
     filter_horizontal = (
         'os_compatibility',
         'device_compatibility'
-    )
-    list_display = (
-        'enabled',
-        'c_version',
-        'c_package',
-        'c_name',
-        'c_section'
     )
     list_filter = ('enabled', 'c_section')
     list_display_links = ('c_version', )
@@ -252,6 +247,25 @@ class VersionAdmin(admin.ModelAdmin):
         """
         os.unlink(obj.storage.name)
         super(VersionAdmin, self).delete_model(request, obj)
-
+        
+    def get_list_display(self, request):
+        if preferences.Setting.download_count:
+            return (
+                'enabled',
+                'c_version',
+                'c_package',
+                'c_name',
+                'c_section',
+                'download_times'
+            )
+        else:
+            return (
+                'enabled',
+                'c_version',
+                'c_package',
+                'c_name',
+                'c_section'
+            )
+        
     change_list_template = 'admin/version/change_list.html'
     change_form_template = 'admin/version/change_form.html'

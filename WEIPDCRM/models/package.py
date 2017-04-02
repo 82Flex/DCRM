@@ -75,6 +75,9 @@ class Package(models.Model):
         max_length=255,
         blank=True
     )
+    download_count = models.IntegerField(
+        verbose_name=_("Download Times"),
+    )
     
     def get_version_admin_url(self):
         """

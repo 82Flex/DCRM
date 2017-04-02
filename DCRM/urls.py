@@ -39,6 +39,11 @@ urlpatterns = [
         publish.basic_resource_fetch,
         name='basic_resource_fetch'
     ),
+    url(
+        r'^version/(?P<package_id>\d+)\.deb$',
+        publish.package_file_fetch,
+        name='package_file_fetch'
+    ),
     
     # Admin Panel
     url(r'^admin/', admin.site.urls),

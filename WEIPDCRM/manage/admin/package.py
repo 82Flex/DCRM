@@ -22,6 +22,7 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 from django.utils.safestring import mark_safe
+from preferences import preferences
 
 from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.version import Version
@@ -53,12 +54,6 @@ class PackageAdmin(admin.ModelAdmin):
         return mark_safe('<a href="' + instance.get_version_admin_url() + '" target="_blank">' +
                          instance.c_version + '</a>')
     
-    list_display = (
-        "package_",
-        "version_",
-        "c_name",
-        "created_at"
-    )
     list_display_links = None
     search_fields = ['c_package', 'c_version', 'c_name']
     actions = []
@@ -72,5 +67,22 @@ class PackageAdmin(admin.ModelAdmin):
     
     def has_delete_permission(self, request, obj=None):
         return False
+    
+    def get_list_display(self, request):
+        if preferences.Setting.download_count:
+            return (
+                "package_",
+                "version_",
+                "c_name",
+                "c_section",
+                "download_count"
+            )
+        else:
+            return (
+                "package_",
+                "version_",
+                "c_name",
+                "c_section"
+            )
     
     change_list_template = 'admin/version/change_list.html'

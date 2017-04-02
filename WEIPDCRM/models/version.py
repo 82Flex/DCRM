@@ -176,7 +176,7 @@ class Version(models.Model):
     def get_external_storage_link(self):
         """
         This getter method for storage_link property generates outer
-        link for frontend downloads.
+        link for actual downloads.
         
         :return: External Storage Link
          :rtype: str
@@ -188,6 +188,21 @@ class Version(models.Model):
         return unicode(preferences.Setting.resources_alias) + file_path
     
     storage_link = property(get_external_storage_link)
+    
+    def get_frontend_storage_link(self):
+        """
+        This getter method for frontend_link property generates outer
+        link for frontend jumps.
+        
+        :return: External Storage Link
+         :rtype: str
+        """
+        if preferences.Setting.download_count:
+            return reverse("package_file_fetch", args=(self.id,))
+        else:
+            return self.storage_link
+    
+    frontend_link = property(get_frontend_storage_link)
     
     def get_admin_url(self):
         """
@@ -324,7 +339,7 @@ class Version(models.Model):
         """
         control_dict = self.get_control_dict()
         advanced_dict = {
-            "Filename": self.storage_link,
+            "Filename": self.frontend_link,
             "Size": self.c_size,
             "MD5sum": self.c_md5,
             "SHA1": self.c_sha1,
@@ -415,6 +430,9 @@ class Version(models.Model):
         path = self.storage.name
         write_to_package_job.delay(control, path, self.id)
     
+    def base_filename(self):
+        return self.c_package + '_' + self.c_version + '_' + self.c_architecture + '.deb'
+        
     def write_callback(self, temp_path):
         """
         The async callback for method update_storage
@@ -430,10 +448,7 @@ class Version(models.Model):
             target_dir = os.path.join(root_res, str(uuid.uuid1()))
             if not os.path.isdir(target_dir):
                 mkdir_p(target_dir)
-            target_path = os.path.join(target_dir,
-                                       self.c_package + '_' +
-                                       self.c_version + '_' +
-                                       self.c_architecture + '.deb')
+            target_path = os.path.join(target_dir, self.base_filename())
             os.rename(temp_path, target_path)
             os.chmod(target_path, 0755)
             self.storage.name = target_path

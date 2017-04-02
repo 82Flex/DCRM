@@ -37,9 +37,12 @@
             </div>
             {% if not settings.download_cydia_only %}
                 <div class="download">
-                    <!-- Notice: Use storage_link instead of storage for frontend use! -->
-                    <a rel="nofollow" href="{{ package_info.storage_link }}" id="downloadlink"
-                       target="_blank">{% trans "Download" %}<br/>{{ package_info.download_times }}</a>
+                    <a rel="nofollow" href="{{ package_info.frontend_link }}" id="downloadlink"
+                       target="_blank">{% trans "Download" %}
+                        {% if settings.download_count %}
+                            <br/>{{ package_info.download_times }}
+                        {% endif %}
+                    </a>
                 </div>
             {% endif %}
         </div>

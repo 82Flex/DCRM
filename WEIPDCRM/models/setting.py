@@ -210,7 +210,7 @@ class Setting(Preferences):
             (1, _("Moved")),
             (2, _("Accel"))
         ),
-        help_text=_("None - Read resources and return.<br />"
+        help_text=_("None - Read resources and return, without partical support, not recommended.<br />"
                     "Moved - Return 301/302 responses and redirect to the real resource urls.<br />"
                     "Accel - Redirect resource requests to WEB servers without changing urls."),
         default=0,
@@ -226,6 +226,7 @@ class Setting(Preferences):
         validators=[
             
         ]
+        # TODO: Configuration Tutorial for Download Count
     )
     download_cydia_only = models.BooleanField(
         verbose_name=_("Cydia Only"),
@@ -235,6 +236,7 @@ class Setting(Preferences):
         validators=[
             
         ]
+        # TODO: Configuration Tutorial for Cydia Only
     )
     comments = models.BooleanField(
         verbose_name=_("Comments"),
