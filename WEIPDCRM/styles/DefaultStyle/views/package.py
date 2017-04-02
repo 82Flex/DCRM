@@ -25,7 +25,6 @@ Notice: You have used class-based views, that's awesome.
 from django.views.generic import DetailView
 from WEIPDCRM.models.version import Version
 
-
 class PackageView(DetailView):
     model = Version
     context_object_name = 'package_info'
@@ -39,7 +38,7 @@ class PackageView(DetailView):
             else:
                 self.template_name = 'mobile/package.html'
         return super(PackageView, self).get(request, *args, **kwargs)
-    
+
     def get_queryset(self):
         package_id = self.kwargs.get('package_id')
         queryset = super(PackageView, self).get_queryset().filter(id=package_id, enabled=True)

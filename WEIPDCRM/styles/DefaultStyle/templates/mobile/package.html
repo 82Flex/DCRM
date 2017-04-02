@@ -110,7 +110,7 @@
     {% endif %}
     {% if package_info.update_logs %}
         <label>{% trans "Change Log" %}</label>
-        <fieldset class="changelog">
+        <fieldset>
             <div>
                 <div>
                     <label>
@@ -120,7 +120,7 @@
                             </p>
                         </strong>
                     </label>
-                    {{ package_info.update_logs }}
+                    <p>{{ package_info.update_logs }}</p>
                 </div>
             </div>
             <a href="" id="historylink">
