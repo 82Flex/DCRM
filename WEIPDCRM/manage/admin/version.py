@@ -23,21 +23,18 @@ from __future__ import unicode_literals
 import os
 
 from django.contrib import admin
+from django.contrib import messages
+from django.contrib.admin.actions import delete_selected
 from django.forms import ModelForm
 from django.utils.safestring import mark_safe
-
-from django_rq import job
-from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.admin.actions import delete_selected
-
-from preferences import preferences
-
-from suit import apps
-from suit_redactor.widgets import RedactorWidget
-from suit.widgets import AutosizedTextarea
 
 from WEIPDCRM.models.version import Version
+from django_rq import job
+from preferences import preferences
+from suit import apps
+from suit.widgets import AutosizedTextarea
+from suit_redactor.widgets import RedactorWidget
 
 
 class VersionForm(ModelForm):
@@ -82,23 +79,26 @@ class VersionAdmin(admin.ModelAdmin):
         :type queryset: QuerySet
         """
         queryset.update(enabled=True)
+    
     make_enabled.short_description = _("Mark selected versions as enabled")
-
+    
     def make_disabled(self, request, queryset):
         """
         :type queryset: QuerySet
         """
         queryset.update(enabled=False)
+    
     make_disabled.short_description = _("Mark selected versions as disabled")
-
+    
     def batch_hash_update(self, request, queryset):
         """
         :type queryset: QuerySet
         """
         hash_update_job.delay(queryset)
         self.message_user(request, _("Hash updating job has been added to the \"high\" queue."))
+    
     batch_hash_update.short_description = _("Update hashes of selected versions")
-
+    
     def storage_(self, instance):
         """
         :type instance: Version
@@ -111,8 +111,15 @@ class VersionAdmin(admin.ModelAdmin):
         'os_compatibility',
         'device_compatibility'
     )
+    list_display = (
+        'enabled',
+        'c_version',
+        'c_package',
+        'c_name',
+        'c_section'
+    )
     list_filter = ('enabled', 'c_section')
-    list_display_links = ('c_version', )
+    list_display_links = ('c_version',)
     search_fields = ['c_version', 'c_package', 'c_name']
     readonly_fields = [
         'storage_',
@@ -208,10 +215,10 @@ class VersionAdmin(admin.ModelAdmin):
         ('others', 'Others'),
         ('statistics', 'Statistics')
     )
-
+    
     def has_add_permission(self, request):
         return False
-
+    
     def save_model(self, request, obj, form, change):
         # field update
         """
@@ -247,7 +254,7 @@ class VersionAdmin(admin.ModelAdmin):
         """
         os.unlink(obj.storage.name)
         super(VersionAdmin, self).delete_model(request, obj)
-        
+    
     def get_list_display(self, request):
         if preferences.Setting.download_count:
             return (
@@ -266,6 +273,6 @@ class VersionAdmin(admin.ModelAdmin):
                 'c_name',
                 'c_section'
             )
-        
+    
     change_list_template = 'admin/version/change_list.html'
     change_form_template = 'admin/version/change_form.html'

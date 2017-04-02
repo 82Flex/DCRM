@@ -39,3 +39,8 @@ class PackageView(DetailView):
             else:
                 self.template_name = 'mobile/package.html'
         return super(PackageView, self).get(request, *args, **kwargs)
+    
+    def get_queryset(self):
+        package_id = self.kwargs.get('package_id')
+        queryset = super(PackageView, self).get_queryset().filter(id=package_id, enabled=True)
+        return queryset

@@ -22,10 +22,10 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from preferences import preferences
 
 from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.version import Version
+from preferences import preferences
 
 
 class PackageAdmin(admin.ModelAdmin):
@@ -54,6 +54,12 @@ class PackageAdmin(admin.ModelAdmin):
         return mark_safe('<a href="' + instance.get_version_admin_url() + '" target="_blank">' +
                          instance.c_version + '</a>')
     
+    list_display = (
+        "package_",
+        "version_",
+        "c_name",
+        "c_section"
+    )
     list_display_links = None
     search_fields = ['c_package', 'c_version', 'c_name']
     actions = []
