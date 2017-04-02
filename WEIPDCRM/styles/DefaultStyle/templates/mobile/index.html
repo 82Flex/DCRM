@@ -141,6 +141,18 @@
                 </div>
             </a>
         {% endfor %}
+    {% if section_num > 4 %}
+        <a href="{% url 'section_list' %}">
+            <img class="icon" src="{% static 'mobile/img/more.png' %}">
+                <div>
+                    <div>
+                        <label>
+                            <p>{% trans 'More' %}</p>
+                        </label>
+                    </div>
+                </div>
+            </a>
+    {% endif %}
     </fieldset>
 {% endblock %}
 {% block page_name %}{% trans "Home" %}{% endblock %}

@@ -103,7 +103,7 @@
                         {% endfor %}
                     </ul>
                 {% if section_num > 4 %}
-                    <div class="more"><a href="{% url 'section_list' %}">More...</a></div>
+                    <div class="more"><a href="{% url 'section_list' %}">{% trans 'More...' %}</a></div>
                 {% endif %}
                 </div>
             </div>
