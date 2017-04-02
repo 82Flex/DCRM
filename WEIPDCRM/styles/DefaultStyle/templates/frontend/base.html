@@ -102,7 +102,9 @@
                         </li>
                         {% endfor %}
                     </ul>
-                    <div class="more"><a href="{% url 'section_list' %}" class="more">More...</a></div>
+                {% if section_num > 4 %}
+                    <div class="more"><a href="{% url 'section_list' %}">More...</a></div>
+                {% endif %}
                 </div>
             </div>
         {% endblock %}
