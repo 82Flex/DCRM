@@ -23,11 +23,11 @@ Notice: You have used class-based views, that's awesome.
 """
 
 from django.views.generic import ListView
-from WEIPDCRM.models.version import Version
+from WEIPDCRM.models.package import Package
 
 
 class ChartView(ListView):
-    model = Version
+    model = Package
     context_object_name = 'package_list'
     ordering = '-download_times'
     template_name = 'frontend/chart.html'
