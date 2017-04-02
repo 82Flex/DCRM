@@ -183,10 +183,8 @@ class Version(models.Model):
          :rtype: str
         """
         file_path = os.path.relpath(self.storage.name, settings.MEDIA_ROOT)
-        slash_index = file_path.find("/")
-        if slash_index > 0:
-            file_path = file_path[slash_index + 1:]
-        return unicode(preferences.Setting.resources_alias) + file_path
+        ext_path = os.path.join(unicode(preferences.Setting.resources_alias), file_path)
+        return ext_path
     
     storage_link = property(get_external_storage_link)
     
