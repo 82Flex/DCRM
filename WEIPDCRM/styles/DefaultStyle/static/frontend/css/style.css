@@ -167,7 +167,7 @@ img {
     color: #444;
     text-indent: 34px;
     font-weight: 300;
-    font-size: 15px
+    font-size: 16px
 }
 
 .primary .content .list {
@@ -819,6 +819,7 @@ img {
 
 .page-navi {
     overflow: hidden;
+    margin-top: 20px;
     margin-bottom: 20px
 }
 
