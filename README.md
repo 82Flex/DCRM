@@ -13,9 +13,15 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 
 ## TODOs 计划任务
 
+手机端：
+
 - 截图展示模块
 - 评论模块
 - SEO模块
+- 兼容性检查模块
+
+全局：
+
 - 预计支持语言：简体中文、English
 - 软件包列表 PDiff
 - 一键部署脚本
