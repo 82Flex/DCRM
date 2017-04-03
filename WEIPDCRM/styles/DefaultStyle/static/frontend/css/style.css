@@ -270,18 +270,18 @@ img {
 
 .primary .content .list .chart-item .tag {
     margin-left: 20px;
-    float: left;
+    /* float: left; */
     height: 80px;
     width: 320px;
     text-align: left;
-    overflow: hidden;
-    word-wrap: break-word;
+    overflow: scroll;
+    /* word-wrap: normal; */
     white-space: normal;
-    text-overflow: ellipsis;
-    word-break: normal;
+    /* text-overflow: ellipsis; */
+    /* word-break: normal; */
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2
+    -webkit-line-clamp: 2;
 }
 
 .primary .content .list .chart-item .tag a {
