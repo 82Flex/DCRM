@@ -47,4 +47,5 @@ class SectionListView(ListView):
         """
         context = super(SectionListView, self).get_context_data(**kwargs)
         context['page'] = self.kwargs.get('page')
+        context['section_num'] = Section.objects.all().count()
         return context
