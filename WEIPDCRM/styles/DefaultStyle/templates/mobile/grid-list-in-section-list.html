@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load i18n staticfiles %}
 {% if section_list %}
     <fieldset id="section-list">
         {% for section in section_list %}
@@ -18,5 +18,17 @@
                 </div>
             </a>
         {% endfor %}
+    </fieldset>
+    <fieldset id="loadMore">
+    <a id="loadMore" href="javascript:loadMore(2)">
+            <img class="icon" src="{% static 'mobile/img/more.png' %}">
+                <div>
+                    <div>
+                        <label>
+                            <p>{% trans 'Load More' %}</p>
+                        </label>
+                    </div>
+                </div>
+            </a>
     </fieldset>
 {% endif %}
