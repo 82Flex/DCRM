@@ -1,6 +1,6 @@
-{% load staticfiles %}
+{% load i18n staticfiles %}
 {% if package_list %}
-    <fieldset>
+    <fieldset id="grid-list">
         {% for package in package_list %}
             <a href="{% url "package_id" package.id %}">
                 {% if package.display_icon %}
@@ -18,5 +18,17 @@
                 </div>
             </a>
         {% endfor %}
+    </fieldset>
+    <fieldset id="loadMore">
+    <a href="#" id="loadMore" onclick="loadMore(2)">
+            <img class="icon" src="{% static 'mobile/img/more.png' %}">
+                <div>
+                    <div>
+                        <label>
+                            <p>{% trans 'Load More' %}</p>
+                        </label>
+                    </div>
+                </div>
+            </a>
     </fieldset>
 {% endif %}

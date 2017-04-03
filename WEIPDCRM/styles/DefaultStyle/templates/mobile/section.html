@@ -16,6 +16,33 @@
         </p>
     </block>
     {% include "mobile/grid-list.html" %}
-    <!--TODO: Paginate -->
 {% endblock %}
 {% block page_name %}{{ c_section.name }}{% endblock %}
+{% block footerscript %}
+    <script type="text/javascript">
+    $(function(){
+        var list = $("#grid-list").children();
+        var sum = $(list).length;
+        if (sum < 24) {
+            $("#loadMore").hide();
+        }
+    });
+    function loadMore(offset){
+      $.ajax({
+        type:"GET",
+        url:'{% url 'section_id' c_section.id %}'+'/'+offset,
+        dataType:"html",
+        success:function(msg){
+            var list = $(msg).find("#grid-list").children();
+            var sum = $(list).length;
+            offset = offset + 1;
+            $("#grid-list").append(list);
+            $("#loadMore").children("a").attr("onClick", "loadMore(" + offset + ")");
+            if (sum < 24) {
+                $("#loadMore").hide();
+            }
+        }
+      });
+    }
+    </script>
+{% endblock %}

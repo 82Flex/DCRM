@@ -24,6 +24,7 @@
             }
         </script>
         <script type="text/javascript" src="{% static "mobile/js/menes.js" %}"></script>
+        <script type="text/javascript" src="{% static "frontend/js/jquery.min.js" %}"></script>
     {% endblock %}
 </head>
 <body class="pinstripe">
@@ -76,6 +77,8 @@
         </footer>
     {% endblock %}
 </panel>
+{% block footerscript %}
 <!--TODO: Statstics-->
+{% endblock %}
 </body>
 </html>

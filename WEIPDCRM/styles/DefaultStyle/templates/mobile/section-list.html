@@ -1,0 +1,15 @@
+{% extends "mobile/base.html" %}
+{% load i18n staticfiles section_list %}
+{% block title %}{% trans 'Section' %} {{ c_section.name }} | DCRM{% endblock %}
+{% block content %}
+    <label><p>{% trans 'Section List' %}</p></label>
+    <block>
+        <p>
+        {% section_list %}
+            {% blocktrans %}<strong>{{ section_num }}</strong> sections in total{% endblocktrans %}
+        </p>
+    </block>
+    {% include "mobile/grid-list-in-section-list.html" %}
+    <!--TODO: Paginate -->
+{% endblock %}
+{% block page_name %}{% trans 'Section List' %}{% endblock %}
