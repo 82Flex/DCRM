@@ -785,6 +785,12 @@ img {
     font-size: 13px
 }
 
+.primary .widget-area .section_more {
+    height: 24px;
+    text-align: right;
+    margin-right: 15px;
+}
+
 .primary .widget-area .comments {
     padding: 20px 20px 20px;
     border-radius: 6px;
