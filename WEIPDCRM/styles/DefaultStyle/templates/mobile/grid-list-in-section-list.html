@@ -1,34 +1,20 @@
 {% load i18n staticfiles %}
-{% if section_list %}
-    <fieldset id="section-list">
-        {% for section in section_list %}
-            <a href="{% url "section_id" section.id %}">
-                {% if section.icon_link %}
-                    <img class="icon" src="{{ section.icon_link }}"/>
-                {% else %}
-                    <!-- TODO: Default Icon -->
-                    <img class="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
-                {% endif %}
+<fieldset id="section-list">
+    {% for section in section_list %}
+        <a href="{% url "section_id" section.id %}">
+            {% if section.icon_link %}
+                <img class="icon" src="{{ section.icon_link }}"/>
+            {% else %}
+                <!-- TODO: Default Icon -->
+                <img class="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
+            {% endif %}
+            <div>
                 <div>
-                    <div>
-                        <label>
-                            <p>{{ section.name | default:_("Untitled Section") }}</p>
-                        </label>
-                    </div>
+                    <label>
+                        <p>{{ section.name | default:_("Untitled Section") }}</p>
+                    </label>
                 </div>
-            </a>
-        {% endfor %}
-    </fieldset>
-    <fieldset id="loadMore">
-    <a id="loadMore" href="javascript:loadMore(2)">
-            <img class="icon" src="{% static 'mobile/img/more.png' %}">
-                <div>
-                    <div>
-                        <label>
-                            <p>{% trans 'Load More' %}</p>
-                        </label>
-                    </div>
-                </div>
-            </a>
-    </fieldset>
-{% endif %}
+            </div>
+        </a>
+    {% endfor %}
+</fieldset>

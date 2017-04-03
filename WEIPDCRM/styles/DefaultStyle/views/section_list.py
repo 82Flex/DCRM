@@ -46,6 +46,6 @@ class SectionListView(ListView):
         Merge global settings to current context
         """
         context = super(SectionListView, self).get_context_data(**kwargs)
-        context['page'] = self.kwargs.get('page')
+        context['page'] = (self.kwargs.get('page') or 1)
         context['section_num'] = Section.objects.all().count()
         return context

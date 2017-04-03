@@ -1,41 +1,50 @@
 {% extends "mobile/base.html" %}
 {% load i18n staticfiles %}
-{% block title %}{% trans 'Section' %} {{ section_list.c_section.name }} | DCRM{% endblock %}
+{% block title %}{% trans 'Section' %} | DCRM{% endblock %}
 {% block content %}
     <label><p>{% trans 'Section List' %}</p></label>
     <block>
         <p>
-            {% blocktrans %}<strong>{{ section_num }}</strong> sections in total{% endblocktrans %}
+            {% blocktrans %}<strong>{{ section_num }}</strong> sections in total.{% endblocktrans %}
         </p>
     </block>
-    {% include "mobile/grid-list-in-section-list.html" %}
+    {% if section_list %}
+        {% include "mobile/grid-list-in-section-list.html" %}
+    {% endif %}
 {% endblock %}
 {% block page_name %}{% trans 'Section List' %}{% endblock %}
 {% block footerscript %}
+    {{ block.super }}
     <script type="text/javascript">
-    $(function(){
-        var list = $("#section-list").children();
-        var sum = $(list).length;
-        if (sum < 12) {
-            $("#loadMore").hide();
-        }
-    });
-    function loadMore(offset){
-      $.ajax({
-        type:"GET",
-        url:'{% url 'section_list' %}'+'/'+offset,
-        dataType:"html",
-        success:function(msg){
-            var list = $(msg).find("#section-list").children();
+        $(function () {
+            var list = $("#section-list").children();
             var sum = $(list).length;
-            offset = offset + 1;
-            $("#section-list").append(list);
-            $("#loadMore").children("a").attr("onClick", "loadMore(" + offset + ")");
             if (sum < 12) {
-                $("#loadMore").hide();
+                $("#loadfield").hide();
             }
-        }
-      });
-    }
+        });
+        var offset = ({{ page }});
+        var loading = false;
+        $(window).scroll(function () {
+            if (loading) {
+                return;
+            }
+            if ($(this).scrollTop() + $(window).height() >= $(document).height()) {
+                loading = true;
+                $.ajax({
+                    type: "GET",
+                    url: '{% url 'section_list' %}' + '/' + (offset + 1).toString(),
+                    dataType: "html",
+                    success: function (msg) {
+                        var list = $(msg).find("#section-list").children();
+                        offset = offset + 1;
+                        $("#section-list").append(list);
+                        if ($(list).length >= 12) {
+                            loading = false;
+                        }
+                    }
+                });
+            }
+        });
     </script>
 {% endblock %}
