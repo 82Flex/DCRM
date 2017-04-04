@@ -80,7 +80,7 @@ apt-get install memcached
 pip install python-memcached
 ```
 
-ENABLE_SCREENSHOT = False
+ENABLE_SCREENSHOT = True
 
 ```shell
 apt-get install libjpeg-dev
