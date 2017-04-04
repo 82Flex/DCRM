@@ -186,6 +186,9 @@ LANGUAGES = (
     ('en', u'English'),
     ('zh_Hans', u'中文简体'),
 )
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, "WEIPDCRM/locale"),
+)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'WEIPDCRM/static')
 STATICFILES_DIRS = [
