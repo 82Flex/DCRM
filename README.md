@@ -41,7 +41,7 @@ Password: demodemo
 ### ENVIRONMENT OF DCRM 的基本环境要求是什么？
 - Python 2.7
 - Django 1.10.5 final
-- Redis (Required)
+- Redis (Recommended)
 - memcached (Recommended)
 - MySQL / PostgreSQL
 - uwsgi, Nginx
@@ -56,11 +56,15 @@ apt-get upgrade
 ```
 
 ```shell
-apt-get install mysql-server libmysqlclient-dev python-dev memcached nginx git redis-server libjpeg-dev
+apt-get install git nginx mysql-server libmysqlclient-dev python-dev libjpeg-dev
+# Optional
+apt-get install redis-server memcached gnupg2
 ```
 
 ```shell
-pip install django==1.10.5 chardet rq bzip2 mysql sqlparse python-memcached uwsgi Pillow pytz python-debian exifread --upgrade
+pip install django==1.10.5 MySQL-python chardet sqlparse uwsgi pytz python-debian --upgrade
+# Optional
+pip install rq python-memcached Pillow exifread
 ```
 
 ```shell
@@ -77,22 +81,17 @@ Check the PyPI package versions to avoid any problem.
 
 ```shell
 appdirs==1.4.3
-bzip2==0.0.1
 chardet==2.3.0
 click==6.7
 Django==1.10.5
 ExifRead==2.1.2
-mysql==0.0.1
 MySQL-python==1.2.5
 olefile==0.44
 packaging==16.8
 Pillow==4.0.0
 pyparsing==2.2.0
 python-debian==0.1.28
-python-memcached==1.58
 pytz==2016.10
-redis==2.10.5
-rq==0.7.1
 six==1.10.0
 sqlparse==0.2.3
 uWSGI==2.0.14
