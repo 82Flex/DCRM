@@ -33,7 +33,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '$!#)nxr8rv83s(b%#kg*8a)m%igd+o%2=mgvqkba_zbc3(bpan'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'apt.82flex.com',
@@ -86,7 +86,7 @@ CACHES = {
 }
 
 # Internationalization
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'zh_Hans'
 TIME_ZONE = 'Europe/Paris'
 
 """
@@ -160,6 +160,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# LOCALE_PATHS = (
+#     os.path.join(BASE_DIR, 'WEIPDCRM/locale')
+# )
+
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -168,9 +172,6 @@ LANGUAGES = (
     ('zh_Hans', u'中文简体'),
 )
 
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
-)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'WEIPDCRM/static')
 STATICFILES_DIRS = [

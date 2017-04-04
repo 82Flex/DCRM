@@ -1,0 +1,1535 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-03 23:10+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: manage/admin/build.py:83
+msgid "No enabled package available."
+msgstr ""
+
+#: manage/admin/build.py:296
+#, python-format
+msgid "Build %s generating job has been added to the \"high\" queue."
+msgstr ""
+
+#: manage/admin/release.py:86
+msgid "There is no active release. <a href=\""
+msgstr ""
+
+#: manage/admin/section.py:36
+msgid "Icon package generating job has been added to the \"default\" queue."
+msgstr ""
+
+#: manage/admin/section.py:37
+msgid "Generate icon package for selected sections"
+msgstr ""
+
+#: manage/admin/version.py:83
+msgid "Mark selected versions as enabled"
+msgstr ""
+
+#: manage/admin/version.py:91
+msgid "Mark selected versions as disabled"
+msgstr ""
+
+#: manage/admin/version.py:98
+msgid "Hash updating job has been added to the \"high\" queue."
+msgstr ""
+
+#: manage/admin/version.py:100
+msgid "Update hashes of selected versions"
+msgstr ""
+
+#: manage/admin/version.py:247
+#, python-format
+msgid "%s storage updating job has been added to the \"high\" queue."
+msgstr ""
+
+#: models/build.py:45 models/os_version.py:52
+msgid "Build"
+msgstr ""
+
+#: models/build.py:46
+msgid "Builds"
+msgstr ""
+
+#: models/build.py:51
+msgid "UUID"
+msgstr ""
+
+#: models/build.py:56 models/device_type.py:42 models/os_version.py:43
+#: models/package.py:59 models/release.py:47 models/section.py:59
+#: models/version.py:170
+msgid "Created At"
+msgstr ""
+
+#: models/build.py:61 models/setting.py:97
+msgid "Active Release"
+msgstr ""
+
+#: models/build.py:67
+msgid "Job ID"
+msgstr ""
+
+#: models/build.py:76
+msgid "Details"
+msgstr ""
+
+#: models/build.py:79
+msgid ""
+"Tell others what did you do this time before you rebuild the repository."
+msgstr ""
+
+#: models/debian_package.py:64
+msgid "Not a Debian Package"
+msgstr ""
+
+#: models/debian_package.py:92 models/debian_package.py:96
+#: models/debian_package.py:136
+msgid "Malformed Debian Package"
+msgstr ""
+
+#: models/device_type.py:35
+msgid "Device Type"
+msgstr ""
+
+#: models/device_type.py:36
+msgid "Device Types"
+msgstr ""
+
+#: models/device_type.py:40 models/os_version.py:41 models/version.py:165
+msgid "Enabled"
+msgstr ""
+
+#: models/device_type.py:46
+msgid "Descriptor"
+msgstr ""
+
+#: models/device_type.py:48
+msgid "Example: iPhone 7 Plus"
+msgstr ""
+
+#: models/device_type.py:51
+msgid "Subtype"
+msgstr ""
+
+#: models/device_type.py:53
+msgid "Example: iPhone9,2"
+msgstr ""
+
+#: models/device_type.py:56
+msgid "Platform"
+msgstr ""
+
+#: models/device_type.py:58
+msgid "Example: A1661/A1784/A1785"
+msgstr ""
+
+#: models/device_type.py:65 models/os_version.py:60 models/section.py:75
+#: models/version.py:281
+msgid "Icon"
+msgstr ""
+
+#: models/device_type.py:68 models/os_version.py:63 models/release.py:148
+#: models/section.py:78 models/version.py:258
+msgid "Choose an Icon (*.png) to upload"
+msgstr ""
+
+#: models/os_version.py:36
+msgid "iOS Version"
+msgstr ""
+
+#: models/os_version.py:37
+msgid "iOS Versions"
+msgstr ""
+
+#: models/os_version.py:47 models/package.py:66 models/release.py:83
+#: models/version.py:148 models/version.py:526
+#: styles/DefaultStyle/templates/frontend/package.html:30
+#: styles/DefaultStyle/templates/mobile/package/package.html:73
+msgid "Version"
+msgstr ""
+
+#: models/os_version.py:49
+msgid "Example: 10.2"
+msgstr ""
+
+#: models/os_version.py:54
+msgid "Example: 14C92/11A466"
+msgstr ""
+
+#: models/package.py:50 models/package.py:62 models/version.py:515
+#: styles/DefaultStyle/templates/frontend/package.html:3
+#: styles/DefaultStyle/templates/frontend/package.html:29
+msgid "Package"
+msgstr ""
+
+#: models/package.py:51
+msgid "Packages"
+msgstr ""
+
+#: models/package.py:55 models/section.py:61 models/version.py:615
+msgid "Name"
+msgstr ""
+
+#: models/package.py:71 models/section.py:54 models/version.py:580
+#: styles/DefaultStyle/templates/frontend/package-in-section.html:3
+#: styles/DefaultStyle/templates/frontend/package.html:32
+#: styles/DefaultStyle/templates/mobile/section-list.html:3
+#: styles/DefaultStyle/templates/mobile/section.html:3
+msgid "Section"
+msgstr ""
+
+#: models/package.py:74 models/version.py:256
+msgid "Online Icon"
+msgstr ""
+
+#: models/package.py:79 models/version.py:314
+msgid "Download Times"
+msgstr ""
+
+#: models/release.py:41
+msgid "Release"
+msgstr ""
+
+#: models/release.py:42
+msgid "Releases"
+msgstr ""
+
+#: models/release.py:52 models/version.py:844
+msgid "Origin"
+msgstr ""
+
+#: models/release.py:54
+msgid ""
+"This is used by Cydia as the name of the repository as shown in the source "
+"editor (and elsewhere). This should be a longer, but not insanely long, "
+"description of the repository."
+msgstr ""
+
+#: models/release.py:61
+msgid "Label"
+msgstr ""
+
+#: models/release.py:63
+msgid ""
+"On the package list screens, Cydia shows what repository and section "
+"packages came from. This location doesn't have much room, though, so this "
+"field should contain a shorter/simpler version of the name of the repository "
+"that can be used as a tag."
+msgstr ""
+
+#: models/release.py:71
+msgid "Suite"
+msgstr ""
+
+#: models/release.py:73
+msgid ""
+"Just set this to \"stable\". This field might not be required, but who "
+"really knows? I, for certain, do not."
+msgstr ""
+
+#: models/release.py:75
+msgid "stable"
+msgstr ""
+
+#: models/release.py:85
+msgid ""
+"This is an arbitrary version number that nothing actually parses. I am going "
+"to look into seeing how required it is."
+msgstr ""
+
+#: models/release.py:87
+msgid "0.0.1-1"
+msgstr ""
+
+#: models/release.py:91
+msgid "Codename"
+msgstr ""
+
+#: models/release.py:95
+msgid ""
+"In an \"automatic\" repository you might store multiple distributions of "
+"software for different target systems. For example: apt.saurik.com's main "
+"repository houses content both for desktop Debian Etch systems as well as "
+"the iPhone. This codename then describes what distribution we are currently "
+"looking for."
+msgstr ""
+
+#: models/release.py:103
+msgid "Architectures"
+msgstr ""
+
+#: models/release.py:105
+msgid ""
+"To verify a repository is for the specific device you are working with APT "
+"looks in the release file for this list. You must specify all of the "
+"architectures that appear in your Packages file here. Again, we use darwin-"
+"arm for 1.1.x and iphoneos-arm for 2.x."
+msgstr ""
+
+#: models/release.py:109
+msgid "iphoneos-arm"
+msgstr ""
+
+#: models/release.py:114
+msgid "Components"
+msgstr ""
+
+#: models/release.py:116
+msgid ""
+"Just set this to \"main\". This field might not be required, but who really "
+"knows? I, for certain, do not."
+msgstr ""
+
+#: models/release.py:118
+msgid "main"
+msgstr ""
+
+#: models/release.py:126 models/version.py:559
+#: styles/DefaultStyle/templates/frontend/package.html:54
+msgid "Description"
+msgstr ""
+
+#: models/release.py:128
+msgid ""
+"On the package source screen a short description is listed of the "
+"repository. This description may eventually work similarly to that of a "
+"package (with a long/short variety and the aforementioned encoding), but for "
+"right now only the shorter description is displayed directly on the list."
+msgstr ""
+
+#: models/release.py:135
+msgid "Keywords"
+msgstr ""
+
+#: models/release.py:137
+msgid "Separated by commas."
+msgstr ""
+
+#: models/release.py:145
+msgid "Repository Icon"
+msgstr ""
+
+#: models/release.py:154
+#: styles/DefaultStyle/templates/mobile/package/package.html:139
+msgid "Support"
+msgstr ""
+
+#: models/release.py:156
+msgid "Official site to provide support."
+msgstr ""
+
+#: models/release.py:162
+msgid "E-mail"
+msgstr ""
+
+#: models/release.py:164
+msgid "Maintainer's E-mail to provide support."
+msgstr ""
+
+#: models/section.py:39
+msgid "Section name should not contain any underscore."
+msgstr ""
+
+#: models/section.py:55
+msgid "Sections"
+msgstr ""
+
+#: models/section.py:63
+msgid ""
+"This is a general field that gives the package a category based on the "
+"software that it installs. You will not be able to edit its name after "
+"assigning any package under it."
+msgstr ""
+
+#: models/setting.py:45
+msgid "Only these characters are allowed: 0-9A-Za-z_.-/"
+msgstr ""
+
+#: models/setting.py:54
+msgid "Path alias should be suffixed by a slash char."
+msgstr ""
+
+#: models/setting.py:65
+#, python-format
+msgid "Cannot find command 'gpg': %s"
+msgstr ""
+
+#: models/setting.py:70
+msgid "Only Nginx is supported now."
+msgstr ""
+
+#: models/setting.py:75
+msgid "Pdiffs is not supported now."
+msgstr ""
+
+#: models/setting.py:80
+msgid "Rest API is not supported now."
+msgstr ""
+
+#: models/setting.py:93
+msgid "Setting"
+msgstr ""
+
+#: models/setting.py:94
+msgid "Settings"
+msgstr ""
+
+#: models/setting.py:102
+msgid ""
+"Each repository should have an active release, otherwise it will not be "
+"recognized by any advanced package tools."
+msgstr ""
+
+#: models/setting.py:107
+msgid "Packages Compression"
+msgstr ""
+
+#: models/setting.py:109
+msgid "Plain"
+msgstr ""
+
+#: models/setting.py:110
+msgid "Gzip"
+msgstr ""
+
+#: models/setting.py:111
+msgid "Plain and Gzip"
+msgstr ""
+
+#: models/setting.py:112
+msgid "Bzip"
+msgstr ""
+
+#: models/setting.py:113
+msgid "Plain and Bzip"
+msgstr ""
+
+#: models/setting.py:114
+msgid "Gzip and Bzip"
+msgstr ""
+
+#: models/setting.py:115
+msgid "All (Recommended)"
+msgstr ""
+
+#: models/setting.py:119
+msgid ""
+"Please change the compression method if error occurred when try to rebuild "
+"the list."
+msgstr ""
+
+#: models/setting.py:123
+msgid "Packages Validation"
+msgstr ""
+
+#: models/setting.py:125
+msgid "No validation"
+msgstr ""
+
+#: models/setting.py:126 models/version.py:289
+msgid "MD5Sum"
+msgstr ""
+
+#: models/setting.py:127
+msgid "MD5Sum & SHA1"
+msgstr ""
+
+#: models/setting.py:128
+msgid "MD5Sum & SHA1 & SHA256 (Recommended)"
+msgstr ""
+
+#: models/setting.py:129
+msgid "MD5Sum & SHA1 & SHA256 & SHA512"
+msgstr ""
+
+#: models/setting.py:133
+msgid "You need to update hashes manually."
+msgstr ""
+
+#: models/setting.py:137
+msgid "Downgrade Support"
+msgstr ""
+
+#: models/setting.py:139
+msgid "Allow multiple versions to exist in the latest package list."
+msgstr ""
+
+#: models/setting.py:144
+msgid "Auto Depiction"
+msgstr ""
+
+#: models/setting.py:146
+msgid "Check it to generate awesome depiction page for each version."
+msgstr ""
+
+#: models/setting.py:151
+msgid "Atomic Storage"
+msgstr ""
+
+#: models/setting.py:153
+msgid "Generate a new copy of package after editing control columns."
+msgstr ""
+
+#: models/setting.py:159
+msgid "Resources Alias"
+msgstr ""
+
+#: models/setting.py:160
+msgid ""
+"You can specify alias for resources path in Nginx or other HTTP servers, "
+"which is also necessary for CDN speedup."
+msgstr ""
+
+#: models/setting.py:170
+msgid "Enable pdiffs"
+msgstr ""
+
+#: models/setting.py:171
+msgid ""
+"If package list is extremely large, you should enable this to allow "
+"incremental update."
+msgstr ""
+
+#: models/setting.py:178
+msgid "Enable Rest API"
+msgstr ""
+
+#: models/setting.py:179
+msgid ""
+"Upload packages using HTTP, manage your repositories, snapshots, published "
+"repositories etc."
+msgstr ""
+
+#: models/setting.py:186
+msgid "Enable GPG Signature"
+msgstr ""
+
+#: models/setting.py:187
+msgid ""
+"Verify the integrity of the repository. Run 'gpg --gen-key' before you "
+"enable this feature."
+msgstr ""
+
+#: models/setting.py:194
+msgid "Web Server"
+msgstr ""
+
+#: models/setting.py:196
+msgid "Nginx"
+msgstr ""
+
+#: models/setting.py:197
+msgid "Apache"
+msgstr ""
+
+#: models/setting.py:198
+msgid "Tomcat"
+msgstr ""
+
+#: models/setting.py:201
+msgid "This will help DCRM redirect download request properly."
+msgstr ""
+
+#: models/setting.py:207
+msgid "Redirect Methods"
+msgstr ""
+
+#: models/setting.py:209
+msgid "None"
+msgstr ""
+
+#: models/setting.py:210
+msgid "Moved"
+msgstr ""
+
+#: models/setting.py:211
+msgid "Accel"
+msgstr ""
+
+#: models/setting.py:213
+msgid ""
+"None - Read resources and return, without partical support, not recommended."
+"<br />Moved - Return 301/302 responses and redirect to the real resource "
+"urls.<br />Accel - Redirect resource requests to WEB servers without "
+"changing urls."
+msgstr ""
+
+#: models/setting.py:222
+msgid "Download Count"
+msgstr ""
+
+#: models/setting.py:223
+msgid ""
+"Count every download. You should configure Nginx or other Web servers before "
+"you enable this feature."
+msgstr ""
+
+#: models/setting.py:232
+msgid "Cydia Only"
+msgstr ""
+
+#: models/setting.py:233
+msgid ""
+"Protect downloading from any other tools except Cydia. You should configure "
+"Nginx or other Web servers before you enable this feature."
+msgstr ""
+
+#: models/setting.py:242 styles/DefaultStyle/templates/frontend/package.html:89
+msgid "Comments"
+msgstr ""
+
+#: models/setting.py:243
+msgid "Enable comments module"
+msgstr ""
+
+#: models/setting.py:247
+msgid "Social Module"
+msgstr ""
+
+#: models/setting.py:248
+msgid "Enable social module"
+msgstr ""
+
+#: models/setting.py:252
+msgid "QQ Group Name"
+msgstr ""
+
+#: models/setting.py:258
+msgid "QQ Group URL"
+msgstr ""
+
+#: models/setting.py:259
+msgid "Display QQ group link on the package info page."
+msgstr ""
+
+#: models/setting.py:265
+msgid "Weibo Name"
+msgstr ""
+
+#: models/setting.py:271
+msgid "Weibo URL"
+msgstr ""
+
+#: models/setting.py:272
+msgid "Display Weibo link on the package info page."
+msgstr ""
+
+#: models/setting.py:278
+msgid "Alipay URL"
+msgstr ""
+
+#: models/setting.py:279
+msgid "Display \"Donate via Alipay\" link on the package info page."
+msgstr ""
+
+#: models/setting.py:285
+msgid "Starting Year of Copyright"
+msgstr ""
+
+#: models/setting.py:286
+msgid "Leave blank to display current year."
+msgstr ""
+
+#: models/setting.py:291
+msgid "Copyright Name"
+msgstr ""
+
+#: models/setting.py:292
+msgid ""
+"Corpyright name is displayed on the footer, leave a blank will display the "
+"source name."
+msgstr ""
+
+#: models/setting.py:298
+msgid "ICP Number"
+msgstr ""
+
+#: models/setting.py:299
+msgid "The ICP Number displayed on the footer."
+msgstr ""
+
+#: models/setting.py:305
+msgid "Version History"
+msgstr ""
+
+#: models/setting.py:306
+msgid "Enable version history module"
+msgstr ""
+
+#: models/version.py:85
+msgid ""
+"We recommend using a reverse-domain name style string (i.e., com.domainname."
+"appname)."
+msgstr ""
+
+#: models/version.py:97
+msgid "Invalid version number."
+msgstr ""
+
+#: models/version.py:108
+msgid "Name cannot contain < or >."
+msgstr ""
+
+#: models/version.py:121
+#, python-format
+msgid "Cannot parse package relationship \"%s\""
+msgstr ""
+
+#: models/version.py:127
+msgid "Enter a valid url of the bug tracking system."
+msgstr ""
+
+#: models/version.py:149
+msgid "Versions"
+msgstr ""
+
+#: models/version.py:230
+msgid "OS Compatibility"
+msgstr ""
+
+#: models/version.py:235
+msgid "Device Compatibility"
+msgstr ""
+
+#: models/version.py:241
+msgid "Update Logs"
+msgstr ""
+
+#: models/version.py:248
+msgid "Storage"
+msgstr ""
+
+#: models/version.py:282
+msgid "If there is no \"Online Icon\", this field will be taken."
+msgstr ""
+
+#: models/version.py:294
+msgid "SHA1"
+msgstr ""
+
+#: models/version.py:299
+msgid "SHA256"
+msgstr ""
+
+#: models/version.py:304
+msgid "SHA512"
+msgstr ""
+
+#: models/version.py:309 styles/DefaultStyle/templates/frontend/package.html:34
+msgid "Size"
+msgstr ""
+
+#: models/version.py:311
+msgid "The exact size of the package, in bytes."
+msgstr ""
+
+#: models/version.py:318
+msgid "Installed-Size"
+msgstr ""
+
+#: models/version.py:322
+msgid ""
+"The approximate total size of the package's installed files, in KiB units."
+msgstr ""
+
+#: models/version.py:517
+msgid ""
+"This is the \"identifier\" of the package. This should be, entirely in lower "
+"case, a reversed hostname (much like a \"bundleIdentifier\" in Apple's Info."
+"plist files)."
+msgstr ""
+
+#: models/version.py:528
+msgid ""
+"A package's version indicates two separate values: the version of the "
+"software in the package, and the version of the package itself. These "
+"version numbers are separated by a hyphen."
+msgstr ""
+
+#: models/version.py:531
+msgid "1.0-1"
+msgstr ""
+
+#: models/version.py:540
+#: styles/DefaultStyle/templates/mobile/package/contact.html:43
+msgid "Maintainer"
+msgstr ""
+
+#: models/version.py:544
+msgid ""
+"It is typically the person who created the package, as opposed to the author "
+"of the software that was packaged."
+msgstr ""
+
+#: models/version.py:552
+msgid "Maintainer Email"
+msgstr ""
+
+#: models/version.py:563
+msgid ""
+"The first line (after the colon) should contain a short description to be "
+"displayed on the package lists underneath the name of the package. "
+"Optionally, one can choose to replace that description with an arbitrarily "
+"long one that will be displayed on the package details screen."
+msgstr ""
+
+#: models/version.py:570
+msgid "Rich Description"
+msgstr ""
+
+#: models/version.py:574
+msgid "HTML Displayed on the auto depiction page (mobile)."
+msgstr ""
+
+#: models/version.py:584
+msgid ""
+"Under the \"Install\" tab in Cydia, packages are listed by \"Section\". If "
+"you would like to encode a space into your section name, use an underscore "
+"(Cydia will automatically convert these)."
+msgstr ""
+
+#: models/version.py:590
+msgid "Tag"
+msgstr ""
+
+#: models/version.py:593
+msgid ""
+"List of tags describing the qualities of the package. The description and "
+"list of supported tags can be found in the debtags package."
+msgstr ""
+
+#: models/version.py:599
+msgid "Architecture"
+msgstr ""
+
+#: models/version.py:603
+msgid ""
+"This describes what system a package is designed for, as .deb files are used "
+"on everything from the iPhone to your desktop computer. The correct value "
+"for iPhoneOS 1.0.x/1.1.x is \"darwin-arm\". If you are deploying to iPhoneOS "
+"1.2/2.x you should use \"iphoneos-arm\"."
+msgstr ""
+
+#: models/version.py:619
+msgid ""
+"When the package is shown in Cydia's lists, it is convenient to have a "
+"prettier name. This field allows you to override this display with an "
+"arbitrary string. This field may change often, whereas the \"Package\" field "
+"is fixed for the lifetime of the package."
+msgstr ""
+
+#: models/version.py:624 styles/DefaultStyle/templates/frontend/chart.html:30
+#: styles/DefaultStyle/templates/frontend/grid-list.html:17
+#: styles/DefaultStyle/templates/frontend/package.html:3
+#: styles/DefaultStyle/templates/frontend/package.html:14
+#: styles/DefaultStyle/templates/frontend/package.html:26
+#: styles/DefaultStyle/templates/mobile/grid-list.html:15
+msgid "Untitled Package"
+msgstr ""
+
+#: models/version.py:627 styles/DefaultStyle/templates/frontend/package.html:36
+#: styles/DefaultStyle/templates/mobile/package/contact.html:19
+#: styles/DefaultStyle/templates/mobile/package/package.html:42
+msgid "Author"
+msgstr ""
+
+#: models/version.py:631
+msgid ""
+"In contrast, the person who wrote the original software is called the "
+"\"author\". This name will be shown underneath the name of the package on "
+"the details screen. The field is in the same format as \"Maintainer\"."
+msgstr ""
+
+#: models/version.py:641
+msgid "Author Email"
+msgstr ""
+
+#: models/version.py:648
+#: styles/DefaultStyle/templates/mobile/package/contact.html:65
+msgid "Sponsor"
+msgstr ""
+
+#: models/version.py:652
+msgid ""
+"Finally, there might be someone who is simply providing the influence or the "
+"cash to make the package happen. This person should be listed here in the "
+"form of \"Maintainer\" except using a resource URI instead of an e-mail "
+"address."
+msgstr ""
+
+#: models/version.py:662
+msgid "Sponsor Site"
+msgstr ""
+
+#: models/version.py:669
+msgid "Depiction"
+msgstr ""
+
+#: models/version.py:672
+msgid ""
+"This is a URL that is loaded into an iframe, replacing the Description: and "
+"Homepage: ."
+msgstr ""
+
+#: models/version.py:676
+msgid "Custom Depiction"
+msgstr ""
+
+#: models/version.py:677
+msgid "Exclude this version from Auto Depiction feature."
+msgstr ""
+
+#: models/version.py:681
+msgid "Homepage"
+msgstr ""
+
+#: models/version.py:685
+msgid ""
+"Cydia supports a \"More Info\" field on the details screen that shunts users "
+"off to a website of the packager's choice."
+msgstr ""
+
+#: models/version.py:691
+msgid "Priority"
+msgstr ""
+
+#: models/version.py:703
+msgid ""
+"Sets the importance of this package in relation to the system as a whole.  "
+"Common priorities are required, standard, optional, extra, etc."
+msgstr ""
+
+#: models/version.py:708
+msgid "Essential"
+msgstr ""
+
+#: models/version.py:718
+msgid ""
+"This field is usually only needed when the answer is yes. It denotes a "
+"package that is required for proper operation of the system. Dpkg or any "
+"other installation tool will not allow an Essential package to be removed "
+"(at least not without using one of the force options)."
+msgstr ""
+
+#: models/version.py:725
+msgid "Depends"
+msgstr ""
+
+#: models/version.py:728
+msgid ""
+"List of packages that are required for this package to provide a non-trivial "
+"amount of functionality. The package maintenance software will not allow a "
+"package to be installed if the packages listed in its Depends field aren't "
+"installed (at least not without using the force options).  In an "
+"installation, the postinst scripts of packages listed in Depends fields are "
+"run before those of the packages which depend on them. On the opposite, in a "
+"removal, the prerm script of a package is run before those of the packages "
+"listed in its Depends field."
+msgstr ""
+
+#: models/version.py:744
+msgid "Pre-Depends"
+msgstr ""
+
+#: models/version.py:747
+msgid ""
+"List of packages that must be installed and configured before this one can "
+"be installed. This is usually used in the case where this package requires "
+"another package for running its preinst script."
+msgstr ""
+
+#: models/version.py:757
+msgid "Recommends"
+msgstr ""
+
+#: models/version.py:760
+msgid ""
+"Lists packages that would be found together with this one in all but unusual "
+"installations. The package maintenance software will warn the user if they "
+"install a package without those listed in its Recommends field."
+msgstr ""
+
+#: models/version.py:770
+msgid "Suggests"
+msgstr ""
+
+#: models/version.py:773
+msgid ""
+"Lists packages that are related to this one and can perhaps enhance its "
+"usefulness, but without which installing this package is perfectly "
+"reasonable."
+msgstr ""
+
+#: models/version.py:782
+msgid "Breaks"
+msgstr ""
+
+#: models/version.py:785
+msgid ""
+"Lists packages that this one breaks, for example by exposing bugs when the "
+"named packages rely on this one. The package maintenance software will not "
+"allow broken packages to be configured; generally the resolution is to "
+"upgrade the packages named in a Breaks field."
+msgstr ""
+
+#: models/version.py:796
+msgid "Conflicts"
+msgstr ""
+
+#: models/version.py:799
+msgid ""
+"Lists packages that conflict with this one, for example by containing files "
+"with the same names. The package maintenance software will not allow "
+"conflicting packages to be installed at the same time. Two conflicting "
+"packages should each include a Conflicts line mentioning the other."
+msgstr ""
+
+#: models/version.py:810
+msgid "Replaces"
+msgstr ""
+
+#: models/version.py:813
+msgid ""
+"List of packages files from which this one replaces. This is used for "
+"allowing this package to overwrite the files of another package and is "
+"usually used with the Conflicts field to force removal of the other package, "
+"if this one also has the same files as the conflicted package."
+msgstr ""
+
+#: models/version.py:824
+msgid "Provides"
+msgstr ""
+
+#: models/version.py:827
+msgid ""
+"This is a list of virtual packages that this one provides. Usually this is "
+"used in the case of several packages all providing the same service. For "
+"example, sendmail and exim can serve as a mail server, so they provide a "
+"common package (\"mail-transport-agent\") on which other packages can "
+"depend. This will allow sendmail or exim to serve as a valid option to "
+"satisfy the dependency.  This prevents the packages that depend on a mail "
+"server from having to know the package names for all of them, and using '|' "
+"to separate the list."
+msgstr ""
+
+#: models/version.py:848
+msgid "The name of the distribution this package is originating from."
+msgstr ""
+
+#: models/version.py:852
+msgid "Source"
+msgstr ""
+
+#: models/version.py:856
+msgid ""
+"The name of the source package that this binary package came from, if it is "
+"different than the name of the package itself. If the source version differs "
+"from the binary version, then the source-name will be followed by a source-"
+"version in parenthesis."
+msgstr ""
+
+#: models/version.py:864
+msgid "Build-Essential"
+msgstr ""
+
+#: models/version.py:874
+msgid ""
+"This field is usually only needed when the answer is yes, and is commonly "
+"injected by the archive software.  It denotes a package that is required "
+"when building other packages."
+msgstr ""
+
+#: models/version.py:879
+msgid "Bugs"
+msgstr ""
+
+#: models/version.py:883
+msgid ""
+"The url of the bug tracking system for this package. The current used format "
+"is bts-type://bts-address, like debbugs://bugs.debian.org."
+msgstr ""
+
+#: models/version.py:892
+msgid "Multi-Arch"
+msgstr ""
+
+#: models/version.py:902
+msgid ""
+"This field is used to indicate how this package should behave on a multi-"
+"arch installations.<br /><ul><li>no - This value is the default when the "
+"field is omitted, in which case adding the field with an explicit no value "
+"is generally not needed.</li><li>same - This package is co-installable with "
+"itself, but it must not be used to satisfy the dependency of any package of "
+"a different architecture from itself.</li><li>foreign - This package is not "
+"co-installable with itself, but should be allowed to satisfy a non-arch-"
+"qualified dependency of a package of a different arch from itself (if a "
+"dependency has an explicit arch-qualifier then the value foreign is ignored)."
+"</li><li>allowed - This allows reverse-dependencies to indicate in their "
+"Depends field that they accept this package from a foreign architecture by "
+"qualifying the package name with :any, but has no effect otherwise.</li></ul>"
+msgstr ""
+
+#: models/version.py:924
+msgid "Subarchitecture"
+msgstr ""
+
+#: models/version.py:934
+msgid "Kernel-Version"
+msgstr ""
+
+#: models/version.py:944
+msgid "Installer-Menu-Item"
+msgstr ""
+
+#: models/version.py:947
+msgid ""
+"These fields are used by the debian-installer and are usually not needed. "
+"See /usr/share/doc/debian-installer/devel/modules.txt from the debian-"
+"installer package for more details about them."
+msgstr ""
+
+#: models/version.py:954
+msgid "Built-Using"
+msgstr ""
+
+#: models/version.py:957
+msgid ""
+"This field lists extra source packages that were used during the build of "
+"this binary package.  This is an indication to the archive maintenance "
+"software that these extra source packages must be kept whilst this binary "
+"package is maintained. This field must be a list of source package names "
+"with strict '=' version relationships.  Note that the archive maintenance "
+"software is likely to refuse to accept an upload which declares a Built-"
+"Using relationship which cannot be satisfied within the archive."
+msgstr ""
+
+#: models/version.py:972
+msgid "Built-For-Profiles"
+msgstr ""
+
+#: models/version.py:975
+msgid ""
+"This field specifies a whitespace separated list of build profiles that this "
+"binary packages was built with."
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/base.html:37
+#: styles/DefaultStyle/templates/frontend/chart.html:9
+#: styles/DefaultStyle/templates/frontend/index.html:9
+#: styles/DefaultStyle/templates/frontend/package-in-section.html:9
+#: styles/DefaultStyle/templates/frontend/package.html:9
+#: styles/DefaultStyle/templates/frontend/search.html:9
+#: styles/DefaultStyle/templates/frontend/section-list.html:9
+#: styles/DefaultStyle/templates/mobile/index.html:157
+#: templates/admin/help/about.html:7 templates/admin/help/statistics.html:7
+#: templates/admin/upload.html:38
+msgid "Home"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/base.html:38
+#: styles/DefaultStyle/templates/frontend/base.html:88
+#: styles/DefaultStyle/templates/frontend/section-list.html:3
+#: styles/DefaultStyle/templates/frontend/section-list.html:10
+#: styles/DefaultStyle/templates/frontend/section-list.html:14
+#: styles/DefaultStyle/templates/mobile/index.html:125
+#: styles/DefaultStyle/templates/mobile/section-list.html:5
+#: styles/DefaultStyle/templates/mobile/section-list.html:15
+msgid "Section List"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/base.html:39
+#: styles/DefaultStyle/templates/frontend/chart.html:3
+#: styles/DefaultStyle/templates/frontend/chart.html:10
+#: styles/DefaultStyle/templates/frontend/chart.html:14
+msgid "Chart"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/base.html:46
+msgid "Search packages"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/base.html:74
+#: styles/DefaultStyle/templates/mobile/base.html:42
+#: styles/DefaultStyle/templates/mobile/index.html:42
+msgid "Untitled Origin"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/base.html:75
+#: styles/DefaultStyle/templates/frontend/chart.html:37
+#: styles/DefaultStyle/templates/frontend/package.html:61
+#: styles/DefaultStyle/templates/mobile/base.html:50
+msgid "No description."
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/base.html:79
+msgid "No repository created."
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/base.html:80
+msgid "No repository description."
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/base.html:107
+msgid "More..."
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/base.html:116
+msgid "Latest Comments"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/base.html:131
+#: styles/DefaultStyle/templates/mobile/base.html:59
+msgid "Copyright"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/chart.html:34
+msgid "No section"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/chart.html:44
+#: styles/DefaultStyle/templates/frontend/package.html:44
+#: styles/DefaultStyle/templates/mobile/package/package.html:59
+msgid "Download"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/grid-list.html:21
+msgid "No Section"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/index.html:3
+msgid "Index"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/index.html:13
+msgid "Package List"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/package.html:67
+msgid "What's New"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/package.html:74
+msgid "Screenshot"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/search.html:3
+#: styles/DefaultStyle/templates/frontend/search.html:10
+msgid "Search"
+msgstr ""
+
+#: styles/DefaultStyle/templates/frontend/search.html:15
+msgid "Search Result"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/base.html:34
+msgid "Source Info"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/grid-list-in-section-list.html:14
+msgid "Untitled Section"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/grid-list.html:28
+msgid "Load More"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/index.html:32
+msgid "Add in Cydia<sup><small>™</small></sup>"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/index.html:54
+msgid "Add this URL via Cydia<sup><small>™</small></sup>"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/index.html:61
+#, python-format
+msgid "<strong>%(packages_num)s</strong> packages in total."
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/index.html:65
+msgid "Last updated: "
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/index.html:78
+msgid "Contact Us"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/index.html:115
+msgid "Donate Via Alipay"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/index.html:149
+msgid "More"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/package/contact.html:3
+#, python-format
+msgid "Contact %(c_name)s | DCRM"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/package/contact.html:9
+msgid ""
+"Source manager can <strong>NOT</strong> solve the function problem of "
+"package: you <strong>MUST</strong> contact the author."
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/package/contact.html:33
+msgid ""
+"If you have questions when install or uninstall this package, please contact "
+"the maintainer."
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/package/contact.html:57
+msgid ""
+"If the package is a commercial package, you can contact the sponsor to "
+"obtain commercial support."
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/package/history.html:3
+#, python-format
+msgid "History %(c_name)s | DCRM"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/package/history.html:28
+msgid "View this version"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/package/package.html:3
+#, python-format
+msgid "Package %(c_name)s | DCRM\n"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/package/package.html:13
+msgid "View in Cydia<sup><small>™</small></sup>"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/package/package.html:75
+msgid "Downloads"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/package/package.html:78
+msgid "Last Updated"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/package/package.html:100
+msgid "More Info"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/package/package.html:108
+msgid "Change Log"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/package/package.html:130
+#: templates/admin/new_change_form.html:8
+msgid "History"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/package/package.html:172
+msgid "Donate via Alipay"
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/section-list.html:8
+#, python-format
+msgid "<strong>%(section_num)s</strong> sections in total."
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/section.html:12
+#, python-format
+msgid "<strong>%(packages_num)s</strong> packages in this section."
+msgstr ""
+
+#: styles/DefaultStyle/templates/mobile/section.html:15
+msgid "Created at: "
+msgstr ""
+
+#: templates/admin/build/change_action.html:7
+msgid "Delete"
+msgstr ""
+
+#: templates/admin/build/change_action.html:11
+msgid "Build Now"
+msgstr ""
+
+#: templates/admin/build/change_list.html:10
+msgid "Build Active Release"
+msgstr ""
+
+#: templates/admin/device_type/change_form.html:7
+#: templates/admin/os_version/change_form.html:7
+#: templates/admin/release/change_form.html:8
+#: templates/admin/version/change_form.html:7
+msgid "Links"
+msgstr ""
+
+#: templates/admin/device_type/change_form.html:10
+msgid "List of iOS Devices"
+msgstr ""
+
+#: templates/admin/help/about.html:15
+msgid "About DCRM"
+msgstr ""
+
+#: templates/admin/help/about.html:18
+msgid "Darwin Cydia Repository Manager (DCRM)"
+msgstr ""
+
+#: templates/admin/help/about.html:20
+#, python-format
+msgid ""
+"\n"
+"            Version: %(version)s<br />\n"
+"            Open source Repository Manager for Cydia™/APT.<br /><br />\n"
+"            <!-- We strongly recommend you to use https instead of http to "
+"ensure transfer security.<br /-->\n"
+"            Designer: <a href=\"http://weibo.com/82flex\">@i_82</a><br />\n"
+"            Frontend: <a href=\"http://weibo.com/jacky189\">@0xJacky</a><br /"
+">\n"
+"            Special Thanks: <a href=\"https://twitter.com/saurik\">Saurik</"
+"a>/<a href=\"https://www.djangoproject.com/\">Django</a>/<a href=\"https://"
+"github.com/darklow/django-suit\">Django Suit</a>/<a href=\"https://github."
+"com/ui/django-rq\">Django RQ</a><br /><br />\n"
+"            Copyright &copy; 2017 82Flex.com All Rights Reserved.<br />\n"
+"            "
+msgstr ""
+
+#: templates/admin/help/about.html:30
+msgid ""
+"This program is free software, you can redistribute it and/or modify it "
+"under the terms of the <a href=\"http://www.gnu.org/licenses\">GNU Affero "
+"General Public License</a> as published by the Free Software Foundation "
+"either version 3 of the License."
+msgstr ""
+
+#: templates/admin/help/statistics.html:15 views/admin/help/statistics.py:36
+msgid "Statistics"
+msgstr ""
+
+#: templates/admin/new_change_form.html:13
+msgid "View on site"
+msgstr ""
+
+#: templates/admin/os_version/change_form.html:10
+msgid "iOS Version History"
+msgstr ""
+
+#: templates/admin/release/change_form.html:11
+#: templates/admin/version/change_form.html:14
+msgid "Saurik's Cydia"
+msgstr ""
+
+#: templates/admin/release/change_form.html:15
+msgid "Repository Format"
+msgstr ""
+
+#: templates/admin/upload.html:54
+msgid "Upload New Package"
+msgstr ""
+
+#: templates/admin/upload.html:65 templates/admin/upload.html:227
+#: templates/admin/upload.html:234
+msgid "Debian Package (*.deb)"
+msgstr ""
+
+#: templates/admin/upload.html:106
+msgid "Exception: "
+msgstr ""
+
+#: templates/admin/upload.html:107
+msgid "An error occured."
+msgstr ""
+
+#: templates/admin/upload.html:111
+msgid "Service Unavailable."
+msgstr ""
+
+#: templates/admin/upload.html:119
+msgid "Invalid Job."
+msgstr ""
+
+#: templates/admin/upload.html:139
+msgid "Uploading..."
+msgstr ""
+
+#: templates/admin/upload.html:149
+msgid "Transfer Timeout"
+msgstr ""
+
+#: templates/admin/upload.html:172
+msgid "Service Unavailable: "
+msgstr ""
+
+#: templates/admin/upload.html:180
+msgid "Operation Completed."
+msgstr ""
+
+#: templates/admin/upload.html:189
+msgid "Only Debian Package (*.deb) is allowed."
+msgstr ""
+
+#: templates/admin/upload.html:220
+msgid "Drop Here!"
+msgstr ""
+
+#: templates/admin/upload.html:247
+msgid "Too many files."
+msgstr ""
+
+#: templates/admin/version/change_form.html:10
+msgid "About Deb-Control"
+msgstr ""
+
+#: templates/admin/version/change_list.html:10
+#, python-format
+msgid "Add %(name)s"
+msgstr ""
+
+#: views/admin/help/about.py:36
+msgid "About"
+msgstr ""
+
+#: views/admin/release.py:43
+msgid "Active release "
+msgstr ""
+
+#: views/admin/upload.py:87
+#, python-format
+msgid "Version Conflict: %s"
+msgstr ""
+
+#: views/admin/upload.py:174
+msgid ""
+"Active release not set: you cannot publish your repository without an active "
+"release."
+msgstr ""
+
+#: views/admin/upload.py:192
+msgid "No such job"
+msgstr ""
+
+#: views/admin/upload.py:213 views/admin/upload.py:233
+msgid "Upload succeed, proceeding..."
+msgstr ""
+
+#: views/admin/upload.py:222 views/admin/upload.py:237
+msgid "Upload failed, invalid form."
+msgstr ""
+
+#: views/admin/upload.py:242 views/admin/upload.py:253
+msgid "Upload"
+msgstr ""

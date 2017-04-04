@@ -1,7 +1,6 @@
 {% extends "mobile/base.html" %}
 {% load i18n staticfiles %}
-{% block title %}{% blocktrans with package_info.c_name as c_name %}Package {{ c_name }} | DCRM
-{% endblocktrans %}{% endblock %}
+{% block title %}{% blocktrans with package_info.c_name as c_name %}Package {{ c_name }} | DCRM{% endblocktrans %}{% endblock %}
 {% block content %}
     <fieldset id="cydialink">
         <a href="cydia://url/https://cydia.saurik.com/api/share#?source={{ request.scheme }}://{{ site }}/?package={{ package_info.c_package }}"

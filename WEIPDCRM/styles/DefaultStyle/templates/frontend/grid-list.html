@@ -17,7 +17,7 @@
                 </div>
                 <div class="tag">
                     {% if package.c_section %}
-                        <a href="{% url "section_id" package.c_section.id %}">{{ package.c_section | default:_("No Section") }}</a>
+                        <a href="{% url "section_id" package.c_section.id %}">{{ package.c_section | default:_("No section") }}</a>
                     {% endif %}
                 </div>
             </div>
