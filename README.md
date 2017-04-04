@@ -56,9 +56,9 @@ apt-get upgrade
 ```
 
 ```shell
-apt-get install git nginx mysql-server libmysqlclient-dev python-dev libjpeg-dev
+apt-get install git nginx mysql-server libmysqlclient-dev python-dev
 # Optional
-apt-get install redis-server memcached gnupg2
+apt-get install redis-server memcached gnupg2 libjpeg-dev
 ```
 
 ```shell
