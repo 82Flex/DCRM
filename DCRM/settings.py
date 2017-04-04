@@ -31,7 +31,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # FEATURES
 ENABLE_REDIS = False  # redis-server, rq are required.
 ENABLE_CACHE = False  # memcached, python-memcached are required.
-ENABLE_SCREENSHOT = False  # Pillow, exifread are required.
+ENABLE_SCREENSHOT = False  # libjpeg-dev, Pillow, exifread are required.
 
 # SECURITY
 # WARNING: keep the secret key used in production secret!

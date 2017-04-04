@@ -1,0 +1,13 @@
+appdirs==1.4.3
+chardet==2.3.0
+click==6.7
+Django==1.10.5
+MySQL-python==1.2.5
+olefile==0.44
+packaging==16.8
+pyparsing==2.2.0
+python-debian==0.1.28
+pytz==2017.2
+six==1.10.0
+sqlparse==0.2.3
+uWSGI==2.0.14
