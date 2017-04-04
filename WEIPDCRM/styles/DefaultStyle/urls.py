@@ -30,6 +30,7 @@ from views.section_list import SectionListView
 from django.views.decorators.cache import cache_page
 from django.conf import settings
 
+
 def cache():
     return cache_page(getattr(settings, 'CACHE_TIME', 0)) \
         if getattr(settings, 'ENABLE_CACHE', False) else lambda x: x
