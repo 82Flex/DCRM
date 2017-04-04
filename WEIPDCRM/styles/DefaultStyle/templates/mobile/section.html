@@ -19,30 +19,30 @@
 {% endblock %}
 {% block page_name %}{{ c_section.name }}{% endblock %}
 {% block footerscript %}
+    {{ block.super }}
     <script type="text/javascript">
-    $(function(){
-        var list = $("#grid-list").children();
-        var sum = $(list).length;
-        if (sum < 24) {
-            $("#loadMore").hide();
-        }
-    });
-    function loadMore(offset){
-      $.ajax({
-        type:"GET",
-        url:'{% url 'section_id' c_section.id %}'+'/'+offset,
-        dataType:"html",
-        success:function(msg){
-            var list = $(msg).find("#grid-list").children();
-            var sum = $(list).length;
-            offset = offset + 1;
-            $("#grid-list").append(list);
-            $("#loadMore").children("a").attr("onClick", "loadMore(" + offset + ")");
-            if (sum < 24) {
-                $("#loadMore").hide();
+        var offset = ({{ page }});
+        var loading = false;
+        $(window).scroll(function () {
+            if (loading) {
+                return;
             }
-        }
-      });
-    }
+            if ($(this).scrollTop() + $(window).height() >= $(document).height()) {
+                loading = true;
+                $.ajax({
+                    type: "GET",
+                    url: '{% url 'section_id' c_section.id %}' + '/' + (offset + 1).toString(),
+                    dataType: "html",
+                    success: function (msg) {
+                        var list = $(msg).find("#grid-list").children();
+                        offset = offset + 1;
+                        $("#grid-list").append(list);
+                        if ($(list).length >= 12) {
+                            loading = false;
+                        }
+                    }
+                });
+            }
+        });
     </script>
 {% endblock %}

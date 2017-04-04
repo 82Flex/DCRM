@@ -16,13 +16,6 @@
 {% block footerscript %}
     {{ block.super }}
     <script type="text/javascript">
-        $(function () {
-            var list = $("#section-list").children();
-            var sum = $(list).length;
-            if (sum < 12) {
-                $("#loadfield").hide();
-            }
-        });
         var offset = ({{ page }});
         var loading = false;
         $(window).scroll(function () {
