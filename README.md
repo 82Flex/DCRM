@@ -31,7 +31,7 @@ The initial version of DCRMv4 is now under the development, and up to now, only 
 
 ### DEMO SITE 示例站点
 
-- https://apt.82flex.com
+- https://apt.82flex.com/admin
 
 Username: demo
 
