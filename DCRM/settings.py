@@ -28,6 +28,11 @@ SITE_ID = 1
 # TIPS: Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# FEATURES
+ENABLE_REDIS = False  # redis-server, rq are required.
+ENABLE_CACHE = False  # memcached, python-memcached are required.
+ENABLE_SCREENSHOT = False  # Pillow, exifread are required.
+
 # SECURITY
 # WARNING: keep the secret key used in production secret!
 SECRET_KEY = '$!#)nxr8rv83s(b%#kg*8a)m%igd+o%2=mgvqkba_zbc3(bpan'
@@ -44,12 +49,11 @@ ALLOWED_HOSTS = [
 ]
 
 # INTERNATIONAL
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True  # pytz is required.
 LANGUAGE_CODE = 'zh_Hans'
 TIME_ZONE = 'Europe/Paris'
-
-# FEATURES
-ENABLE_REDIS = False
-ENABLE_CACHE = False
 
 # Database
 # You cannot use SQLite3 due to the lack of advanced database supports.
@@ -115,8 +119,6 @@ INSTALLED_APPS = [
     'WEIPDCRM.styles.DefaultStyle',
     'preferences',
     "suit_redactor",
-    'sortedm2m',
-    'photologue',
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -127,7 +129,11 @@ INSTALLED_APPS = [
 ]
 
 if ENABLE_REDIS is True:
-    INSTALLED_APPS.append("django_rq")
+    INSTALLED_APPS.append('django_rq')
+
+if ENABLE_SCREENSHOT is True:
+    INSTALLED_APPS.append('sortedm2m')
+    INSTALLED_APPS.append('photologue')
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -176,9 +182,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-USE_I18N = True
-USE_L10N = True
-USE_TZ = True
 LANGUAGES = (
     ('en', u'English'),
     ('zh_Hans', u'中文简体'),

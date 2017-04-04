@@ -70,7 +70,7 @@ class Package(models.Model):
         Section,
         verbose_name=_("Section")
     )
-    online_icon = models.ImageField(
+    online_icon = models.FileField(
         verbose_name=_("Online Icon"),
         max_length=255,
         blank=True

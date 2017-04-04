@@ -38,9 +38,7 @@ except ImportError:
         from PIL import ImageFilter
         from PIL import ImageEnhance
     except ImportError:
-        raise ImportError(
-            'Photologue was unable to import the Python Imaging Library. Please confirm it`s installed and available '
-            'on your current Python path.')
+        pass
 
 from sortedm2m.fields import SortedManyToManyField
 
