@@ -57,44 +57,34 @@ apt-get upgrade
 
 ```shell
 apt-get install git nginx mysql-server libmysqlclient-dev python-dev
-# Optional
-apt-get install redis-server memcached gnupg2 libjpeg-dev
 ```
 
 ```shell
-pip install django==1.10.5 MySQL-python chardet sqlparse uwsgi pytz python-debian --upgrade
-# Optional
-pip install rq python-memcached Pillow exifread
-```
-
-```shell
+pip install -r requirements.txt
 mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
 ```
 
-#### CHECK PYPI PACKAGE VERSIONS 测试环境 python 包版本
+#### OPTIONAL FEATURES 可选功能
+
+ENABLE_REDIS = True
 
 ```shell
-pip freeze
+apt-get install redis-server
+pip install rq
 ```
 
-Check the PyPI package versions to avoid any problem.
+ENABLE_CACHE = True
 
 ```shell
-appdirs==1.4.3
-chardet==2.3.0
-click==6.7
-Django==1.10.5
-ExifRead==2.1.2
-MySQL-python==1.2.5
-olefile==0.44
-packaging==16.8
-Pillow==4.0.0
-pyparsing==2.2.0
-python-debian==0.1.28
-pytz==2016.10
-six==1.10.0
-sqlparse==0.2.3
-uWSGI==2.0.14
+apt-get install memcached
+pip install python-memcached
+```
+
+ENABLE_SCREENSHOT = False
+
+```shell
+apt-get install libjpeg-dev
+pip install Pillow exifread
 ```
 
 #### CONFIGURE DATABASE MYSQL 配置示例
@@ -239,6 +229,10 @@ uwsgi --ini uwsgi.ini --daemonize=/dev/null
 ```
 
 #### CONFIGURE GnuPG 配置示例
+
+```shell
+apt-get install gnupg2
+```
 
 Make sure to launch background queue with the same nginx working user (www/www-data).
 
