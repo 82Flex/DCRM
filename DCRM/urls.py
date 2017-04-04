@@ -55,3 +55,7 @@ urlpatterns = [
     url(r'^admin/help/statistics/$', statistics.statistics_view, name='help_statistics'),
     url(r'^photologue/', include('photologue.urls', namespace='photologue')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler400 = 'WEIPDCRM.views.error.bad_request'
+handler404 = 'WEIPDCRM.views.error.page_not_found'
+handler500 = 'WEIPDCRM.views.error.server_error'

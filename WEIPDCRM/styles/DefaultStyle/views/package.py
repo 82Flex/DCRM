@@ -23,9 +23,9 @@ Notice: You have used class-based views, that's awesome.
 """
 
 from __future__ import unicode_literals
-
 from django.http import HttpResponseNotFound
 from django.views.generic import DetailView
+
 from WEIPDCRM.models.version import Version
 
 
