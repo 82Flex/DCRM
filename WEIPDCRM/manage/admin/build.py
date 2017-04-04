@@ -21,22 +21,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from __future__ import unicode_literals
 
 import os
+import bz2
 import gzip
 import shutil
-
-# You can comment this line and disable bz2 compression if you don't have a bz2 module.
-import bz2
 
 import hashlib
 import subprocess
 
 from PIL import Image
 
-from django_rq import job
 from django.conf import settings
 from django.forms import ModelForm
 
-from WEIPDCRM.models.debian_package import DebianPackage
 from django.contrib import admin
 from preferences import preferences
 from django.contrib.admin.actions import delete_selected
@@ -49,11 +45,14 @@ from WEIPDCRM.models.build import Build
 from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.version import Version
 from WEIPDCRM.models.release import Release
+from WEIPDCRM.models.debian_package import DebianPackage
 
 from WEIPDCRM.tools import mkdir_p
 
+if settings.ENABLE_REDIS is True:
+    import django_rq
 
-@job('high')
+
 def build_procedure(conf):
     """
     This is the main package list building procedure.
@@ -282,7 +281,7 @@ class BuildAdmin(admin.ModelAdmin):
         super(BuildAdmin, self).save_model(request, obj, form, change)
         
         if setting.active_release is not None:
-            build_job = build_procedure.delay({
+            build_args = {
                 "build_uuid": obj.uuid,
                 "build_all": setting.downgrade_support,
                 "build_p_diff": setting.enable_pdiffs,
@@ -290,7 +289,13 @@ class BuildAdmin(admin.ModelAdmin):
                 "build_secure": setting.gpg_signature,
                 "build_validation": setting.packages_validation,
                 "build_release": obj.active_release.id,
-            })
-            obj.job_id = build_job.id
+            }
+            if settings.ENABLE_REDIS is True:
+                queue = django_rq.get_queue('high')
+                build_job = queue.enqueue(build_procedure, build_args)
+                obj.job_id = build_job.id
+                messages.info(request, _("Build %s generating job has been added to the \"high\" queue.") % str(obj))
+            else:
+                build_procedure(build_args)
+                messages.info(request, _("Build %s generating job has been finished.") % str(obj))
             obj.save()
-            messages.info(request, _("Build %s generating job has been added to the \"high\" queue.") % str(obj))

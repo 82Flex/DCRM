@@ -36,7 +36,6 @@ from django.core.validators import validate_slug
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
-from django_rq import job
 from django.conf import settings
 
 from preferences import preferences
@@ -48,8 +47,10 @@ from WEIPDCRM.models.debian_package import DebianPackage
 
 from WEIPDCRM.tools import mkdir_p
 
+if settings.ENABLE_REDIS is True:
+    import django_rq
 
-@job("high")
+
 def write_to_package_job(control, path, callback_version_id):
     # copy to temporary
     """
@@ -426,7 +427,11 @@ class Version(models.Model):
         """
         control = self.get_control_dict()
         path = self.storage.name
-        write_to_package_job.delay(control, path, self.id)
+        if settings.ENABLE_REDIS is True:
+            queue = django_rq.get_queue('high')
+            queue.enqueue(write_to_package_job, control, path, self.id)
+        else:
+            write_to_package_job(control, path, self.id)
     
     def base_filename(self):
         return self.c_package + '_' + self.c_version + '_' + self.c_architecture + '.deb'

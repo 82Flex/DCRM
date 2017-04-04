@@ -2,9 +2,12 @@ from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.utils import six
 
-import redis
-from rq.utils import import_attribute
-from rq.queue import FailedQueue, Queue
+try:
+    import redis
+    from rq.utils import import_attribute
+    from rq.queue import FailedQueue, Queue
+except ImportError:
+    pass
 
 from django_rq import thread_queue
 

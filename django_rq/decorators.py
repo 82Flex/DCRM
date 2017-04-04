@@ -1,5 +1,9 @@
 from django.utils import six
-from rq.decorators import job as _rq_job
+
+try:
+    from rq.decorators import job as _rq_job
+except ImportError:
+    pass
 
 from .queues import get_queue
 

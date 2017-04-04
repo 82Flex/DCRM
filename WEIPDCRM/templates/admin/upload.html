@@ -1,6 +1,6 @@
 {% extends 'admin/change_form.html' %}
 
-{% load suit_forms jquery_path admin_static i18n %}
+{% load suit_forms admin_static i18n %}
 
 {% block extrastyle %}
     {{ block.super }}
@@ -29,7 +29,7 @@
 
 {% block extrahead %}
     {{ block.super }}
-    <script type="text/javascript" src="{% get_jquery_path as jquery_path %}{% static jquery_path %}"></script>
+    <script type="text/javascript" src="{% static "admin/js/vendor/jquery/jquery.js" %}"></script>
     <script type="text/javascript" src="{% static "admin/js/jquery.init.js" %}"></script>
 {% endblock %}
 
@@ -96,9 +96,9 @@
                         'job': job_id
                     },
                     success: function (d) {
-                        if (d['result'] == true) {
-                            if (d['job']['is_finished'] == true) {
-                                if (d['job']['result']['success'] == true) {
+                        if (d['result'] === true) {
+                            if (d['job']['is_finished'] === true) {
+                                if (d['job']['result']['success'] === true) {
                                     // Success, jump to version control
                                     var version_id = d['job']['result']['version'];
                                     window.location.href = '../WEIPDCRM/version/' + version_id + '/change/';
@@ -107,7 +107,7 @@
                                     box_alert("{% trans 'An error occured.' %}");
                                     isUpload = false;
                                 }
-                            } else if (d['job']['is_failed'] == true) {
+                            } else if (d['job']['is_failed'] === true) {
                                 box_alert("{% trans 'Service Unavailable.' %}");
                                 isUpload = false;
                             } else {
@@ -137,7 +137,7 @@
                 var node = document.getElementById("file_id_" + current_index);
                 xhr.upload.onloadstart = function (e) {
                     box_display("{% trans 'Uploading...' %}");
-                    node.style.color = "#5bb0ed";
+                    node.style.color = "#5BB0ED";
                     node.innerText = "[Uploading] " + file.name;
                 };
                 xhr.upload.onprogress = function (e) {
@@ -151,24 +151,38 @@
                     node.innerText = "[Timeout] " + file.name;
                 };
                 xhr.onload = function (e) {
-                    if (this.status == 200) {
-                        if (this.response['status'] == true) {
-                            if (this.response['job'] != null) {
+                    var single_file = (file_list.length === 1);
+                    if (this.status === 200) {
+                        if (this.response['status'] === true) {
+                            if (this.response['job'] !== null) {
                                 job_id = this.response['job']['id'];
-                                if (file_list.length == 1) {
-                                    window.setTimeout(function () {
-                                        job_test(job_id);
-                                    }, 3000);
-                                }
                                 node.style.color = "#27AE60";
-                                node.innerText = "[Uploaded] " + file.name;
+                                if (job_id) {
+                                    if (single_file) {
+                                        window.setTimeout(function () {
+                                            job_test(job_id);
+                                        }, 3000);
+                                    }
+                                    node.innerText = "[Uploaded] " + file.name;
+                                } else {
+                                    if (single_file) {
+                                        var version_id = this.response['job']['result']['version'];
+                                        window.location.href = '../WEIPDCRM/version/' + version_id + '/change/';
+                                    }
+                                }
                             }
-                        }
-                        if (file_list.length == 1) {
-                            box_display(this.response['msg']);
+                            if (single_file) {
+                                box_display(this.response['msg']);
+                            }
+                        } else {
+                            if (single_file) {
+                                box_alert(this.response['msg']);
+                            }
+                            node.style.color = "#C0392B";
+                            node.innerText = "[Error] " + file.name;
                         }
                     } else {
-                        if (file_list.length == 1) {
+                        if (single_file) {
                             box_alert("{% trans 'Service Unavailable: ' %}" + this.status);
                         }
                         node.style.color = "#C0392B";
@@ -176,8 +190,10 @@
                     }
                     if (current_index < file_list.length - 1) {
                         ajax_upload(file_list, current_index + 1);
-                    } else if (file_list.length != 1) {
+                    } else if (!single_file) {
                         box_display("{% trans 'Operation Completed.' %}");
+                        isUpload = false;
+                    } else {
                         isUpload = false;
                     }
                 };
@@ -185,7 +201,7 @@
             }
 
             function check_form(file_name) {
-                if (file_name.indexOf('.deb') == -1 || file_name.indexOf('.deb') != file_name.length - 4) {
+                if (file_name.indexOf('.deb') === -1 || file_name.indexOf('.deb') !== file_name.length - 4) {
                     box_alert("{% trans 'Only Debian Package (*.deb) is allowed.' %}");
                     return false;
                 }
@@ -241,7 +257,7 @@
                         upload_list.push(file);
                     }
                 }
-                if (upload_list.length == 0) {
+                if (upload_list.length === 0) {
                     return;
                 } else if (upload_list.length > 500) {
                     box_alert("{% trans "Too many files." %}");
@@ -271,11 +287,6 @@
                 uform.submit();
             }, false);
             var msg = "{{ msg }}";
-            // Display redirect message
-            if (msg.length > 0) {
-                isUpload = true;
-                box_display(msg);
-            }
             var job_id = "{{ job_id }}";
             // Do redirect job test
             if (job_id.length > 0) {
@@ -283,6 +294,14 @@
                 window.setTimeout(function () {
                     job_test(job_id);
                 }, 3000);
+                if (msg.length > 0) {
+                    box_display(msg);
+                }
+            } else {
+                isUpload = false;
+                if (msg.length > 0) {
+                    box_alert(msg);
+                }
             }
         })(django.jQuery);
     </script>

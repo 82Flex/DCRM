@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-03 23:10+0200\n"
+"POT-Creation-Date: 2017-04-04 10:52+0200\n"
 "PO-Revision-Date: 2017-04-03 23:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: 82Flex Team <i.82@me.com>\n"
@@ -161,8 +161,6 @@ msgstr ""
 
 #: models/os_version.py:47 models/package.py:66 models/release.py:83
 #: models/version.py:148 models/version.py:526
-#: styles/DefaultStyle/templates/frontend/package.html:30
-#: styles/DefaultStyle/templates/mobile/package/package.html:73
 msgid "Version"
 msgstr ""
 
@@ -175,8 +173,6 @@ msgid "Example: 14C92/11A466"
 msgstr ""
 
 #: models/package.py:50 models/package.py:62 models/version.py:515
-#: styles/DefaultStyle/templates/frontend/package.html:3
-#: styles/DefaultStyle/templates/frontend/package.html:29
 msgid "Package"
 msgstr ""
 
@@ -189,10 +185,6 @@ msgid "Name"
 msgstr ""
 
 #: models/package.py:71 models/section.py:54 models/version.py:580
-#: styles/DefaultStyle/templates/frontend/package-in-section.html:3
-#: styles/DefaultStyle/templates/frontend/package.html:32
-#: styles/DefaultStyle/templates/mobile/section-list.html:3
-#: styles/DefaultStyle/templates/mobile/section.html:3
 msgid "Section"
 msgstr ""
 
@@ -303,7 +295,6 @@ msgid "main"
 msgstr ""
 
 #: models/release.py:126 models/version.py:559
-#: styles/DefaultStyle/templates/frontend/package.html:54
 msgid "Description"
 msgstr ""
 
@@ -328,7 +319,6 @@ msgid "Repository Icon"
 msgstr ""
 
 #: models/release.py:154
-#: styles/DefaultStyle/templates/mobile/package/package.html:139
 msgid "Support"
 msgstr ""
 
@@ -593,7 +583,6 @@ msgid ""
 msgstr ""
 
 #: models/setting.py:242
-#: styles/DefaultStyle/templates/frontend/package.html:89
 msgid "Comments"
 msgstr ""
 
@@ -735,7 +724,6 @@ msgid "SHA512"
 msgstr ""
 
 #: models/version.py:309
-#: styles/DefaultStyle/templates/frontend/package.html:34
 msgid "Size"
 msgstr ""
 
@@ -771,7 +759,6 @@ msgid "1.0-1"
 msgstr ""
 
 #: models/version.py:540
-#: styles/DefaultStyle/templates/mobile/package/contact.html:43
 msgid "Maintainer"
 msgstr ""
 
@@ -838,19 +825,11 @@ msgid ""
 "is fixed for the lifetime of the package."
 msgstr ""
 
-#: models/version.py:624 styles/DefaultStyle/templates/frontend/chart.html:30
-#: styles/DefaultStyle/templates/frontend/grid-list.html:17
-#: styles/DefaultStyle/templates/frontend/package.html:3
-#: styles/DefaultStyle/templates/frontend/package.html:14
-#: styles/DefaultStyle/templates/frontend/package.html:26
-#: styles/DefaultStyle/templates/mobile/grid-list.html:15
+#: models/version.py:624
 msgid "Untitled Package"
 msgstr ""
 
 #: models/version.py:627
-#: styles/DefaultStyle/templates/frontend/package.html:36
-#: styles/DefaultStyle/templates/mobile/package/contact.html:19
-#: styles/DefaultStyle/templates/mobile/package/package.html:42
 msgid "Author"
 msgstr ""
 
@@ -866,7 +845,6 @@ msgid "Author Email"
 msgstr ""
 
 #: models/version.py:648
-#: styles/DefaultStyle/templates/mobile/package/contact.html:65
 msgid "Sponsor"
 msgstr ""
 
@@ -1134,235 +1112,6 @@ msgid ""
 "binary packages was built with."
 msgstr ""
 
-#: styles/DefaultStyle/templates/frontend/base.html:37
-#: styles/DefaultStyle/templates/frontend/chart.html:9
-#: styles/DefaultStyle/templates/frontend/index.html:9
-#: styles/DefaultStyle/templates/frontend/package-in-section.html:9
-#: styles/DefaultStyle/templates/frontend/package.html:9
-#: styles/DefaultStyle/templates/frontend/search.html:9
-#: styles/DefaultStyle/templates/frontend/section-list.html:9
-#: styles/DefaultStyle/templates/mobile/index.html:157
-#: templates/admin/help/about.html:7 templates/admin/help/statistics.html:7
-#: templates/admin/upload.html:38
-msgid "Home"
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/base.html:38
-#: styles/DefaultStyle/templates/frontend/base.html:88
-#: styles/DefaultStyle/templates/frontend/section-list.html:3
-#: styles/DefaultStyle/templates/frontend/section-list.html:10
-#: styles/DefaultStyle/templates/frontend/section-list.html:14
-#: styles/DefaultStyle/templates/mobile/index.html:125
-#: styles/DefaultStyle/templates/mobile/section-list.html:5
-#: styles/DefaultStyle/templates/mobile/section-list.html:15
-msgid "Section List"
-msgstr "分类"
-
-#: styles/DefaultStyle/templates/frontend/base.html:39
-#: styles/DefaultStyle/templates/frontend/chart.html:3
-#: styles/DefaultStyle/templates/frontend/chart.html:10
-#: styles/DefaultStyle/templates/frontend/chart.html:14
-msgid "Chart"
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/base.html:46
-msgid "Search packages"
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/base.html:74
-#: styles/DefaultStyle/templates/mobile/base.html:42
-#: styles/DefaultStyle/templates/mobile/index.html:42
-msgid "Untitled Origin"
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/base.html:75
-#: styles/DefaultStyle/templates/frontend/chart.html:37
-#: styles/DefaultStyle/templates/frontend/package.html:61
-#: styles/DefaultStyle/templates/mobile/base.html:50
-msgid "No description."
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/base.html:79
-msgid "No repository created."
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/base.html:80
-msgid "No repository description."
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/base.html:107
-msgid "More..."
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/base.html:116
-msgid "Latest Comments"
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/base.html:131
-#: styles/DefaultStyle/templates/mobile/base.html:59
-msgid "Copyright"
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/chart.html:34
-msgid "No section"
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/chart.html:44
-#: styles/DefaultStyle/templates/frontend/package.html:44
-#: styles/DefaultStyle/templates/mobile/package/package.html:59
-msgid "Download"
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/grid-list.html:21
-msgid "No Section"
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/index.html:3
-msgid "Index"
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/index.html:13
-msgid "Package List"
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/package.html:67
-msgid "What's New"
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/package.html:74
-msgid "Screenshot"
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/search.html:3
-#: styles/DefaultStyle/templates/frontend/search.html:10
-msgid "Search"
-msgstr ""
-
-#: styles/DefaultStyle/templates/frontend/search.html:15
-msgid "Search Result"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/base.html:34
-msgid "Source Info"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/grid-list-in-section-list.html:14
-msgid "Untitled Section"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/grid-list.html:28
-msgid "Load More"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/index.html:32
-msgid "Add in Cydia<sup><small>™</small></sup>"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/index.html:54
-msgid "Add this URL via Cydia<sup><small>™</small></sup>"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/index.html:61
-#, python-format
-msgid "<strong>%(packages_num)s</strong> packages in total."
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/index.html:65
-msgid "Last updated: "
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/index.html:78
-msgid "Contact Us"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/index.html:115
-msgid "Donate Via Alipay"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/index.html:149
-msgid "More"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/package/contact.html:3
-#, python-format
-msgid "Contact %(c_name)s | DCRM"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/package/contact.html:9
-msgid ""
-"Source manager can <strong>NOT</strong> solve the function problem of "
-"package: you <strong>MUST</strong> contact the author."
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/package/contact.html:33
-msgid ""
-"If you have questions when install or uninstall this package, please contact "
-"the maintainer."
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/package/contact.html:57
-msgid ""
-"If the package is a commercial package, you can contact the sponsor to "
-"obtain commercial support."
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/package/history.html:3
-#, python-format
-msgid "History %(c_name)s | DCRM"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/package/history.html:28
-msgid "View this version"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/package/package.html:3
-#, python-format
-msgid "Package %(c_name)s | DCRM\n"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/package/package.html:13
-msgid "View in Cydia<sup><small>™</small></sup>"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/package/package.html:75
-msgid "Downloads"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/package/package.html:78
-msgid "Last Updated"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/package/package.html:100
-msgid "More Info"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/package/package.html:108
-msgid "Change Log"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/package/package.html:130
-#: templates/admin/new_change_form.html:8
-msgid "History"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/package/package.html:172
-msgid "Donate via Alipay"
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/section-list.html:8
-#, python-format
-msgid "<strong>%(section_num)s</strong> sections in total."
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/section.html:12
-#, python-format
-msgid "<strong>%(packages_num)s</strong> packages in this section."
-msgstr ""
-
-#: styles/DefaultStyle/templates/mobile/section.html:15
-msgid "Created at: "
-msgstr ""
-
 #: templates/admin/build/change_action.html:7
 msgid "Delete"
 msgstr ""
@@ -1384,6 +1133,11 @@ msgstr ""
 
 #: templates/admin/device_type/change_form.html:10
 msgid "List of iOS Devices"
+msgstr ""
+
+#: templates/admin/help/about.html:7 templates/admin/help/statistics.html:7
+#: templates/admin/upload.html:38
+msgid "Home"
 msgstr ""
 
 #: templates/admin/help/about.html:15
@@ -1423,6 +1177,10 @@ msgstr ""
 
 #: templates/admin/help/statistics.html:15 views/admin/help/statistics.py:36
 msgid "Statistics"
+msgstr ""
+
+#: templates/admin/new_change_form.html:8
+msgid "History"
 msgstr ""
 
 #: templates/admin/new_change_form.html:13
@@ -1504,6 +1262,22 @@ msgstr ""
 msgid "Add %(name)s"
 msgstr ""
 
+#: templates/error/400.html:8 templates/error/400.html:14
+msgid "Bad Request"
+msgstr ""
+
+#: templates/error/404.html:8 templates/error/404.html:14
+msgid "Page Not Found"
+msgstr ""
+
+#: templates/error/404.html:15
+msgid "Back to home page"
+msgstr ""
+
+#: templates/error/500.html:8 templates/error/500.html:14
+msgid "Internal Server Error"
+msgstr ""
+
 #: views/admin/help/about.py:36
 msgid "About"
 msgstr ""
@@ -1538,3 +1312,6 @@ msgstr ""
 #: views/admin/upload.py:242 views/admin/upload.py:253
 msgid "Upload"
 msgstr ""
+
+#~ msgid "Section List"
+#~ msgstr "分类"

@@ -20,45 +20,36 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
 
+# SITE
 # Just set this to the first Site instance's id in database.
 SITE_ID = 1
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# PATH
+# TIPS: Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY
+# WARNING: keep the secret key used in production secret!
 SECRET_KEY = '$!#)nxr8rv83s(b%#kg*8a)m%igd+o%2=mgvqkba_zbc3(bpan'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# SECURITY
+# WARNING: don't run with debug turned on in production!
+DEBUG = True
 
+# SECURITY
 ALLOWED_HOSTS = [
     'apt.82flex.com',
     '127.0.0.1',
     'localhost'
 ]
 
-# Redis
-# !!! Change the 'DB' number here if you have multiple DCRM installed !!!
-RQ_QUEUES = {
-    'default': {
-        'HOST': 'localhost',
-        'PORT': 6379,
-        'DB': 0,
-        'PASSWORD': '',
-        'DEFAULT_TIMEOUT': 360,
-    },
-    'high': {
-        'HOST': 'localhost',
-        'PORT': 6379,
-        'DB': 0,
-        'PASSWORD': '',
-        'DEFAULT_TIMEOUT': 360,
-    },
-}
+# INTERNATIONAL
+LANGUAGE_CODE = 'zh_Hans'
+TIME_ZONE = 'Europe/Paris'
+
+# FEATURES
+ENABLE_REDIS = False
+ENABLE_CACHE = False
 
 # Database
 # You cannot use SQLite3 due to the lack of advanced database supports.
@@ -77,17 +68,41 @@ DATABASES = {
     }
 }
 
-# Cache
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
+if ENABLE_REDIS is True:
+    # Redis
+    # !!! Change the 'DB' number here if you have multiple DCRM installed !!!
+    RQ_QUEUES = {
+        'default': {
+            'HOST': 'localhost',
+            'PORT': 6379,
+            'DB': 0,
+            'PASSWORD': '',
+            'DEFAULT_TIMEOUT': 360,
+        },
+        'high': {
+            'HOST': 'localhost',
+            'PORT': 6379,
+            'DB': 0,
+            'PASSWORD': '',
+            'DEFAULT_TIMEOUT': 360,
+        },
     }
-}
+else:
+    print("Django Redis Queue: Disabled")
 
-# Internationalization
-LANGUAGE_CODE = 'zh_Hans'
-TIME_ZONE = 'Europe/Paris'
+if ENABLE_CACHE is True:
+    # Cache
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+            'LOCATION': '127.0.0.1:11211',
+        }
+    }
+    CACHE_TIME = 600
+    if DEBUG:
+        CACHE_TIME = 0
+else:
+    print("Django Cache: Disabled")
 
 """
 !!! DO NOT EDIT ANYTHING BELOW !!!
@@ -99,7 +114,6 @@ INSTALLED_APPS = [
     'WEIPDCRM.apps.SuitConfig',
     'WEIPDCRM.styles.DefaultStyle',
     'preferences',
-    "django_rq",
     "suit_redactor",
     'sortedm2m',
     'photologue',
@@ -111,6 +125,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+if ENABLE_REDIS is True:
+    INSTALLED_APPS.append("django_rq")
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -159,11 +176,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-# LOCALE_PATHS = (
-#     os.path.join(BASE_DIR, 'WEIPDCRM/locale')
-# )
-
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -171,7 +183,6 @@ LANGUAGES = (
     ('en', u'English'),
     ('zh_Hans', u'中文简体'),
 )
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'WEIPDCRM/static')
 STATICFILES_DIRS = [
@@ -184,9 +195,3 @@ STATICFILES_FINDERS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'resources')
 MEDIA_URL = '/resources/'
 TEMP_ROOT = os.path.join(BASE_DIR, 'temp')
-if not DEBUG:
-    ENABLE_CACHE = True
-    CACHE_TIME = 3600
-else:
-    ENABLE_CACHE = False
-    CACHE_TIME = 0

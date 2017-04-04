@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-03 23:29+0200\n"
+"POT-Creation-Date: 2017-04-04 10:52+0200\n"
 "PO-Revision-Date: 2017-04-03 23:30+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: 82Flex <i.82@me.com>\n"
@@ -19,178 +19,200 @@ msgstr ""
 "X-Generator: Poedit 1.7.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: templates/frontend/base.html:37 templates/frontend/chart.html:9
-#: templates/frontend/index.html:9
-#: templates/frontend/package-in-section.html:9
-#: templates/frontend/package.html:9 templates/frontend/search.html:9
-#: templates/frontend/section-list.html:9 templates/mobile/index.html:157
+#: styles/DefaultStyle/templates/frontend/base.html:37
+#: styles/DefaultStyle/templates/frontend/chart.html:9
+#: styles/DefaultStyle/templates/frontend/index.html:9
+#: styles/DefaultStyle/templates/frontend/package-in-section.html:9
+#: styles/DefaultStyle/templates/frontend/package.html:9
+#: styles/DefaultStyle/templates/frontend/search.html:9
+#: styles/DefaultStyle/templates/frontend/section-list.html:9
+#: styles/DefaultStyle/templates/mobile/index.html:157
 msgid "Home"
 msgstr "首页"
 
-#: templates/frontend/base.html:38 templates/frontend/base.html:88
-#: templates/frontend/section-list.html:3
-#: templates/frontend/section-list.html:10
-#: templates/frontend/section-list.html:14 templates/mobile/index.html:125
-#: templates/mobile/section-list.html:5 templates/mobile/section-list.html:15
+#: styles/DefaultStyle/templates/frontend/base.html:38
+#: styles/DefaultStyle/templates/frontend/base.html:88
+#: styles/DefaultStyle/templates/frontend/section-list.html:3
+#: styles/DefaultStyle/templates/frontend/section-list.html:10
+#: styles/DefaultStyle/templates/frontend/section-list.html:14
+#: styles/DefaultStyle/templates/mobile/index.html:125
+#: styles/DefaultStyle/templates/mobile/section-list.html:5
+#: styles/DefaultStyle/templates/mobile/section-list.html:15
 msgid "Section List"
 msgstr "分类"
 
-#: templates/frontend/base.html:39 templates/frontend/chart.html:3
-#: templates/frontend/chart.html:10 templates/frontend/chart.html:14
+#: styles/DefaultStyle/templates/frontend/base.html:39
+#: styles/DefaultStyle/templates/frontend/chart.html:3
+#: styles/DefaultStyle/templates/frontend/chart.html:10
+#: styles/DefaultStyle/templates/frontend/chart.html:14
 msgid "Chart"
 msgstr "排行"
 
-#: templates/frontend/base.html:46
+#: styles/DefaultStyle/templates/frontend/base.html:46
 msgid "Search packages"
 msgstr "搜索软件包"
 
-#: templates/frontend/base.html:74 templates/mobile/base.html:42
-#: templates/mobile/index.html:42
+#: styles/DefaultStyle/templates/frontend/base.html:74
+#: styles/DefaultStyle/templates/mobile/base.html:42
+#: styles/DefaultStyle/templates/mobile/index.html:42
 msgid "Untitled Origin"
 msgstr "未命名源"
 
-#: templates/frontend/base.html:75 templates/frontend/chart.html:37
-#: templates/frontend/package.html:61 templates/mobile/base.html:50
+#: styles/DefaultStyle/templates/frontend/base.html:75
+#: styles/DefaultStyle/templates/frontend/chart.html:37
+#: styles/DefaultStyle/templates/frontend/package.html:61
+#: styles/DefaultStyle/templates/mobile/base.html:50
 msgid "No description."
 msgstr "无描述。"
 
-#: templates/frontend/base.html:79
+#: styles/DefaultStyle/templates/frontend/base.html:79
 msgid "No repository created."
 msgstr "无软件源。"
 
-#: templates/frontend/base.html:80
+#: styles/DefaultStyle/templates/frontend/base.html:80
 msgid "No repository description."
 msgstr "无源描述。"
 
-#: templates/frontend/base.html:107
+#: styles/DefaultStyle/templates/frontend/base.html:107
 msgid "More..."
 msgstr "更多..."
 
-#: templates/frontend/base.html:116
+#: styles/DefaultStyle/templates/frontend/base.html:116
 msgid "Latest Comments"
 msgstr "最新评论"
 
-#: templates/frontend/base.html:131 templates/mobile/base.html:59
+#: styles/DefaultStyle/templates/frontend/base.html:131
+#: styles/DefaultStyle/templates/mobile/base.html:59
 msgid "Copyright"
 msgstr "版权所有"
 
-#: templates/frontend/chart.html:30 templates/frontend/grid-list.html:17
-#: templates/frontend/package.html:3 templates/frontend/package.html:14
-#: templates/frontend/package.html:26 templates/mobile/grid-list.html:15
+#: styles/DefaultStyle/templates/frontend/chart.html:30
+#: styles/DefaultStyle/templates/frontend/grid-list.html:16
+#: styles/DefaultStyle/templates/frontend/package.html:3
+#: styles/DefaultStyle/templates/frontend/package.html:14
+#: styles/DefaultStyle/templates/frontend/package.html:26
+#: styles/DefaultStyle/templates/mobile/grid-list.html:14
 msgid "Untitled Package"
 msgstr "未命名软件包"
 
-#: templates/frontend/chart.html:34 templates/frontend/grid-list.html:21
+#: styles/DefaultStyle/templates/frontend/chart.html:34
+#: styles/DefaultStyle/templates/frontend/grid-list.html:20
 msgid "No section"
 msgstr "未分类"
 
-#: templates/frontend/chart.html:44 templates/frontend/package.html:44
-#: templates/mobile/package/package.html:58
+#: styles/DefaultStyle/templates/frontend/chart.html:44
+#: styles/DefaultStyle/templates/frontend/package.html:44
+#: styles/DefaultStyle/templates/mobile/package/package.html:58
 msgid "Download"
 msgstr "下载"
 
-#: templates/frontend/index.html:3
+#: styles/DefaultStyle/templates/frontend/index.html:3
 msgid "Index"
 msgstr "首页"
 
-#: templates/frontend/index.html:13
+#: styles/DefaultStyle/templates/frontend/index.html:13
 msgid "Package List"
 msgstr "软件包"
 
-#: templates/frontend/package-in-section.html:3
-#: templates/frontend/package.html:32 templates/mobile/section-list.html:3
-#: templates/mobile/section.html:3
+#: styles/DefaultStyle/templates/frontend/package-in-section.html:3
+#: styles/DefaultStyle/templates/frontend/package.html:32
+#: styles/DefaultStyle/templates/mobile/section-list.html:3
+#: styles/DefaultStyle/templates/mobile/section.html:3
 msgid "Section"
 msgstr "分类"
 
-#: templates/frontend/package.html:3 templates/frontend/package.html:29
+#: styles/DefaultStyle/templates/frontend/package.html:3
+#: styles/DefaultStyle/templates/frontend/package.html:29
 msgid "Package"
 msgstr "软件包"
 
-#: templates/frontend/package.html:30 templates/mobile/package/package.html:72
+#: styles/DefaultStyle/templates/frontend/package.html:30
+#: styles/DefaultStyle/templates/mobile/package/package.html:72
 msgid "Version"
 msgstr "版本"
 
-#: templates/frontend/package.html:34
+#: styles/DefaultStyle/templates/frontend/package.html:34
 msgid "Size"
 msgstr "尺寸"
 
-#: templates/frontend/package.html:36 templates/mobile/package/contact.html:19
-#: templates/mobile/package/package.html:41
+#: styles/DefaultStyle/templates/frontend/package.html:36
+#: styles/DefaultStyle/templates/mobile/package/contact.html:19
+#: styles/DefaultStyle/templates/mobile/package/package.html:41
 msgid "Author"
 msgstr "作者"
 
-#: templates/frontend/package.html:54
+#: styles/DefaultStyle/templates/frontend/package.html:54
 msgid "Description"
 msgstr "描述"
 
-#: templates/frontend/package.html:67
+#: styles/DefaultStyle/templates/frontend/package.html:67
 msgid "What's New"
 msgstr "更新日志"
 
-#: templates/frontend/package.html:74
+#: styles/DefaultStyle/templates/frontend/package.html:74
 msgid "Screenshot"
 msgstr "截图"
 
-#: templates/frontend/package.html:89
+#: styles/DefaultStyle/templates/frontend/package.html:89
 msgid "Comments"
 msgstr "评论"
 
-#: templates/frontend/search.html:3 templates/frontend/search.html:10
+#: styles/DefaultStyle/templates/frontend/search.html:3
+#: styles/DefaultStyle/templates/frontend/search.html:10
 msgid "Search"
 msgstr "搜索"
 
-#: templates/frontend/search.html:15
+#: styles/DefaultStyle/templates/frontend/search.html:15
 msgid "Search Result"
 msgstr "搜索结果"
 
-#: templates/mobile/base.html:34
+#: styles/DefaultStyle/templates/mobile/base.html:34
 msgid "Source Info"
 msgstr "源信息"
 
-#: templates/mobile/grid-list-in-section-list.html:14
+#: styles/DefaultStyle/templates/mobile/grid-list-in-section-list.html:26
 msgid "Untitled Section"
 msgstr "未命名分类"
 
-#: templates/mobile/grid-list.html:28
+#: styles/DefaultStyle/templates/mobile/grid-list.html:27
 msgid "Load More"
 msgstr "加载更多"
 
-#: templates/mobile/index.html:32
+#: styles/DefaultStyle/templates/mobile/index.html:32
 msgid "Add in Cydia<sup><small>™</small></sup>"
 msgstr "在 Cydia<sup><small>™</small></sup> 中添加"
 
-#: templates/mobile/index.html:54
+#: styles/DefaultStyle/templates/mobile/index.html:54
 msgid "Add this URL via Cydia<sup><small>™</small></sup>"
 msgstr "在 Cydia<sup><small>™</small></sup> 中添加该URL"
 
-#: templates/mobile/index.html:61
+#: styles/DefaultStyle/templates/mobile/index.html:61
 #, python-format
 msgid "<strong>%(packages_num)s</strong> packages in total."
 msgstr "总计 <strong>%(packages_num)s</strong> 个软件包。"
 
-#: templates/mobile/index.html:65
+#: styles/DefaultStyle/templates/mobile/index.html:65
 msgid "Last updated: "
 msgstr "最后更新："
 
-#: templates/mobile/index.html:78
+#: styles/DefaultStyle/templates/mobile/index.html:78
 msgid "Contact Us"
 msgstr "联系我们"
 
-#: templates/mobile/index.html:115
+#: styles/DefaultStyle/templates/mobile/index.html:115
 msgid "Donate Via Alipay"
 msgstr "通过支付宝<sup><small>™</small></sup>捐助"
 
-#: templates/mobile/index.html:149
+#: styles/DefaultStyle/templates/mobile/index.html:149
 msgid "More"
 msgstr "更多"
 
-#: templates/mobile/package/contact.html:3
+#: styles/DefaultStyle/templates/mobile/package/contact.html:3
 #, python-format
 msgid "Contact %(c_name)s | DCRM"
 msgstr "联系信息 %(c_name)s | DCRM"
 
-#: templates/mobile/package/contact.html:9
+#: styles/DefaultStyle/templates/mobile/package/contact.html:9
 msgid ""
 "Source manager can <strong>NOT</strong> solve the function problem of "
 "package: you <strong>MUST</strong> contact the author."
@@ -198,83 +220,83 @@ msgstr ""
 "源管理者<strong>无法</strong>为你解决软件包功能上出现的问题：你<strong>必须</"
 "strong>联系其开发者或设计者。"
 
-#: templates/mobile/package/contact.html:33
+#: styles/DefaultStyle/templates/mobile/package/contact.html:33
 msgid ""
 "If you have questions when install or uninstall this package, please contact "
 "the maintainer."
 msgstr "安装、卸载过程中出现的问题，你需要将其发送给制作软件包的提供者。"
 
-#: templates/mobile/package/contact.html:43
+#: styles/DefaultStyle/templates/mobile/package/contact.html:43
 msgid "Maintainer"
 msgstr "提供者"
 
-#: templates/mobile/package/contact.html:57
+#: styles/DefaultStyle/templates/mobile/package/contact.html:57
 msgid ""
 "If the package is a commercial package, you can contact the sponsor to "
 "obtain commercial support."
 msgstr "如果该软件包为商业软件包，你可以联系其担保人获取商业支持。"
 
-#: templates/mobile/package/contact.html:65
+#: styles/DefaultStyle/templates/mobile/package/contact.html:65
 msgid "Sponsor"
 msgstr "担保人"
 
-#: templates/mobile/package/history.html:3
+#: styles/DefaultStyle/templates/mobile/package/history.html:3
 #, python-format
 msgid "History %(c_name)s | DCRM"
 msgstr "版本历史 %(c_name)s | DCRM"
 
-#: templates/mobile/package/history.html:28
+#: styles/DefaultStyle/templates/mobile/package/history.html:28
 msgid "View this version"
 msgstr "查看此版本"
 
-#: templates/mobile/package/package.html:3
+#: styles/DefaultStyle/templates/mobile/package/package.html:3
 #, python-format
 msgid "Package %(c_name)s | DCRM"
 msgstr "软件包 %(c_name)s | DCRM"
 
-#: templates/mobile/package/package.html:12
+#: styles/DefaultStyle/templates/mobile/package/package.html:12
 msgid "View in Cydia<sup><small>™</small></sup>"
 msgstr "在 Cydia<sup><small>™</small></sup> 中查看"
 
-#: templates/mobile/package/package.html:74
+#: styles/DefaultStyle/templates/mobile/package/package.html:74
 msgid "Downloads"
 msgstr "下载"
 
-#: templates/mobile/package/package.html:77
+#: styles/DefaultStyle/templates/mobile/package/package.html:77
 msgid "Last Updated"
 msgstr "最后更新"
 
-#: templates/mobile/package/package.html:99
+#: styles/DefaultStyle/templates/mobile/package/package.html:99
 msgid "More Info"
 msgstr "更多信息"
 
-#: templates/mobile/package/package.html:107
+#: styles/DefaultStyle/templates/mobile/package/package.html:107
 msgid "Change Log"
 msgstr "更新日志"
 
-#: templates/mobile/package/package.html:129
+#: styles/DefaultStyle/templates/mobile/package/package.html:129
 msgid "History"
 msgstr "版本历史"
 
-#: templates/mobile/package/package.html:138
+#: styles/DefaultStyle/templates/mobile/package/package.html:138
 msgid "Support"
 msgstr "支持"
 
-#: templates/mobile/package/package.html:171
+#: styles/DefaultStyle/templates/mobile/package/package.html:171
 msgid "Donate via Alipay"
 msgstr "通过支付宝<sup><small>™</small></sup>捐助"
 
-#: templates/mobile/section-list.html:8
+#: styles/DefaultStyle/templates/mobile/section-list.html:8
 #, python-format
 msgid "<strong>%(section_num)s</strong> sections in total."
 msgstr "总计 <strong>%(section_num)s</strong> 个分类。"
 
-#: templates/mobile/section.html:12
+#: styles/DefaultStyle/templates/mobile/section.html:12
 #, python-format
 msgid "<strong>%(packages_num)s</strong> packages in this section."
 msgstr "此分类中总计 <strong>%(packages_num)s</strong>  个软件包。"
 
-#: templates/mobile/section.html:15
+#: styles/DefaultStyle/templates/mobile/section.html:15
 msgid "Created at: "
 msgstr "创建时间："
 

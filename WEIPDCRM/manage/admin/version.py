@@ -28,13 +28,17 @@ from django.contrib.admin.actions import delete_selected
 from django.forms import ModelForm
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 
-from WEIPDCRM.models.version import Version
-from django_rq import job
 from preferences import preferences
 from suit import apps
 from suit.widgets import AutosizedTextarea
 from suit_redactor.widgets import RedactorWidget
+
+from WEIPDCRM.models.version import Version
+
+if settings.ENABLE_REDIS is True:
+    import django_rq
 
 
 class VersionForm(ModelForm):
@@ -58,7 +62,6 @@ class VersionForm(ModelForm):
         }
 
 
-@job("high")
 def hash_update_job(queryset):
     """
     Batch hash updating job.
@@ -94,8 +97,13 @@ class VersionAdmin(admin.ModelAdmin):
         """
         :type queryset: QuerySet
         """
-        hash_update_job.delay(queryset)
-        self.message_user(request, _("Hash updating job has been added to the \"high\" queue."))
+        if settings.ENABLE_REDIS is True:
+            queue = django_rq.get_queue('high')
+            queue.enqueue(hash_update_job, queryset)
+            self.message_user(request, _("Hash updating job has been added to the \"high\" queue."))
+        else:
+            hash_update_job(queryset)
+            self.message_user(request, _("Hash updating job has been finished."))
     
     batch_hash_update.short_description = _("Update hashes of selected versions")
     
@@ -252,7 +260,8 @@ class VersionAdmin(admin.ModelAdmin):
         """
         :type obj: Version
         """
-        os.unlink(obj.storage.name)
+        abs_path = os.path.join(settings.MEDIA_ROOT, obj.storage.name)
+        os.unlink(abs_path)
         super(VersionAdmin, self).delete_model(request, obj)
     
     def get_list_display(self, request):

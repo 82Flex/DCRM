@@ -47,7 +47,6 @@ urlpatterns = [
     
     # Admin Panel
     url(r'^admin/', admin.site.urls),
-    url(r'^admin/sites/django-rq/', include('django_rq.urls')),
     url(r'^admin/upload/$', upload.upload_view, name='upload'),
     url(r'^admin/upload/version/$', upload.upload_version_view, name='version_add'),
     url(r'^admin/release/set-default/(?P<release_id>\d+)/?$', release.set_default_view, name='set_default_release'),
@@ -55,6 +54,9 @@ urlpatterns = [
     url(r'^admin/help/statistics/$', statistics.statistics_view, name='help_statistics'),
     url(r'^photologue/', include('photologue.urls', namespace='photologue')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.ENABLE_REDIS is True:
+    urlpatterns.append(url(r'^admin/sites/django-rq/', include('django_rq.urls')))
 
 handler400 = 'WEIPDCRM.views.error.bad_request'
 handler404 = 'WEIPDCRM.views.error.page_not_found'
