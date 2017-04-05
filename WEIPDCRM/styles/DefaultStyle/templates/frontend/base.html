@@ -3,13 +3,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{% block title %}DCRM{% endblock %}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta name="renderer" content="webkit"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <!-- TODO: Extra Meta Info -->
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="title" content="{{ settings.active_release.label }}"/>
+    <meta name="description" content="{{ settings.active_release.description }}"/>
+    <meta name="keywords" content="{{ settings.active_release.keywords }}"/>
     <meta name="generator" content="DCRM"/>
     <meta name="template" content="DefaultStyle"/>
     <!-- TODO: Shortcut Icon -->
@@ -24,7 +27,6 @@
         <script type="text/javascript" src="{% static "frontend/js/jquery.min.js" %}"></script>
         <script type="text/javascript" src="{% static "frontend/js/main.js" %}"></script>
     {% endblock %}
-    <title>{% block title %}DCRM{% endblock %}</title>
 </head>
 <body class="main">
 <div class="header">
@@ -103,9 +105,9 @@
                             </li>
                         {% endfor %}
                     </ul>
-                {% if section_num > 8 %}
-                    <div class="section_more"><a href="{% url 'section_list' %}">{% trans 'More...' %}</a></div>
-                {% endif %}
+                    {% if section_num > 8 %}
+                        <div class="section_more"><a href="{% url 'section_list' %}">{% trans 'More...' %}</a></div>
+                    {% endif %}
                 </div>
             </div>
         {% endblock %}
@@ -139,7 +141,7 @@
                 {% else %}
                     {% now "Y" %}
                 {% endif %}
-                · <a href="https://github.com/82Flex/DCRM">Powered By DCRM</a>
+                · <a href="https://github.com/82Flex/DCRM">{% trans "Powered By DCRM" %}</a>
                 {% if settings.footer_icp %}
                     · {{ settings.footer_icp }}
                 {% endif %}
@@ -147,7 +149,7 @@
         </ul>
     </div>
 {% endblock %}
-{% block Comments %}
+{% block comments %}
     {% if settings.comments %}
         <!--TODO: Comments Module-->
     {% endif %}

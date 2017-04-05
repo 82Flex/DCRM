@@ -52,7 +52,7 @@ ALLOWED_HOSTS = [
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True  # pytz is required.
-LANGUAGE_CODE = 'zh_Hans'
+LANGUAGE_CODE = 'zh-Hans'
 TIME_ZONE = 'Europe/Paris'
 
 # Database

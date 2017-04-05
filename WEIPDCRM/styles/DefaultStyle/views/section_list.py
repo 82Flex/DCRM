@@ -31,7 +31,7 @@ from WEIPDCRM.models.section import Section
 class SectionListView(ListView):
     allow_empty = True
     paginate_by = 12
-    ordering = '-id'
+    ordering = 'name'
     model = Section
     context_object_name = 'section_list'
     template_name = 'frontend/section-list.html'

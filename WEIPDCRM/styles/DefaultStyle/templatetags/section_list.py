@@ -26,5 +26,5 @@ register = template.Library()
 @register.simple_tag(takes_context=True)
 def section_list(context):
     context['section_num'] = Section.objects.all().count()
-    context['section_list'] = Section.objects.all().order_by('name')[:4]
+    context['section_list'] = Section.objects.all().order_by('name')[:12]
     return ''
