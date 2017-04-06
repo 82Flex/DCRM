@@ -172,17 +172,18 @@ def build_procedure(conf):
                             )
         
         build_temp_release.close()
-        
-        # GPG Signature
-        """
-        Use 'gpg --gen-key' to generate GnuPG key before using this function.
-        """
-        subprocess.check_call(
-            ["gpg", "-abs", "--batch", "--yes", "-o",
-             os.path.join(build_temp_path, "Release.gpg"),
-             os.path.join(build_temp_path, "Release"),
-             ]
-        )
+
+        if conf["build_secure"]:
+            # GPG Signature
+            """
+            Use 'gpg --gen-key' to generate GnuPG key before using this function.
+            """
+            subprocess.check_call(
+                ["gpg", "-abs", "--batch", "--yes", "-o",
+                 os.path.join(build_temp_path, "Release.gpg"),
+                 os.path.join(build_temp_path, "Release"),
+                 ]
+            )
         
         # Preparing Directory
         release_root = os.path.join(
