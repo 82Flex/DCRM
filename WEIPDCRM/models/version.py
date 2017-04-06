@@ -413,11 +413,6 @@ class Version(models.Model):
         if (self.sponsor_name is not None and len(self.sponsor_name) > 0) and \
                 (self.sponsor_site is not None and len(self.sponsor_site) > 0):
             control.update({"Sponsor": self.sponsor_name + " <" + self.sponsor_site + ">"})
-        """
-        Auto Depiction
-        """
-        if (not self.custom_depiction) and preferences.Setting.advanced_mode:
-            control.update({"Depiction": self.get_absolute_url()})
         return control
     
     def update_storage(self):

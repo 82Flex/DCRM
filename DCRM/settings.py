@@ -47,6 +47,8 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost'
 ]
+if DEBUG is not True:
+    SECURE_SSL_REDIRECT = True
 
 # INTERNATIONAL
 USE_I18N = True

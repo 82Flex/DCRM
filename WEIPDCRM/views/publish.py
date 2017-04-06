@@ -70,6 +70,7 @@ def package_file_fetch(request, package_id):
         )
     response['Content-Type'] = 'application/octet-stream'
     response['Content-Transfer-Encoding'] = "binary"
+    response['Cache-Control'] = "public, must-revalidate, max-age=0"
     response['Content-Disposition'] = "attachment; filename=\"" + urllib.quote_plus(pkg.base_filename()) + "\""
     return response
 

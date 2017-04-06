@@ -29,6 +29,7 @@ import hashlib
 import subprocess
 
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.forms import ModelForm
 
 from django.contrib import admin
@@ -91,9 +92,18 @@ def build_procedure(conf):
         build_temp_package = open(os.path.join(build_temp_path, "Packages"), "wb+")
         
         # Generate Control List
+        depiction_url = ""
+        if preferences.Setting.advanced_mode:
+            site = Site.objects.get(id=settings.SITE_ID)
+            scheme = "http"
+            if settings.SECURE_SSL_REDIRECT is True:
+                scheme = "https"
+            depiction_url = scheme + "://" + site.domain
         for version_instance in version_set:
             # !!! HERE WE SHOULD USE ADVANCED CONTROL DICT !!!
             control_dict = version_instance.get_advanced_control_dict()
+            if (not version_instance.custom_depiction) and len(depiction_url) != 0:
+                control_dict["Depiction"] = depiction_url
             DebianPackage.get_control_content(control_dict, build_temp_package)
             build_temp_package.write("\n".encode("utf-8"))
         
