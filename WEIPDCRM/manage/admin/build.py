@@ -209,15 +209,20 @@ def build_procedure(conf):
         ]
         for rename_instance in rename_list:
             rename_path = os.path.join(build_temp_path, rename_instance)
+            rename_to_path = os.path.join(build_path, rename_instance)
+            active_path = os.path.join(release_root, rename_instance)
             if os.path.exists(rename_path):
-                rename_to_path = os.path.join(build_path, rename_instance)
-                active_path = os.path.join(release_root, rename_instance)
                 if os.path.exists(active_path):
                     os.unlink(active_path)
                 shutil.copyfile(rename_path, active_path)
                 os.chmod(active_path, 0755)
                 os.rename(rename_path, rename_to_path)
                 os.chmod(rename_to_path, 0755)
+            else:
+                if os.path.exists(rename_to_path):
+                    os.unlink(rename_to_path)
+                if os.path.exists(active_path):
+                    os.unlink(active_path)
 
         def thumb_png(png_path):
             img = Image.open(png_path)
