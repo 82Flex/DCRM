@@ -103,7 +103,7 @@ def build_procedure(conf):
             # !!! HERE WE SHOULD USE ADVANCED CONTROL DICT !!!
             control_dict = version_instance.get_advanced_control_dict()
             if (not version_instance.custom_depiction) and len(depiction_url) != 0:
-                control_dict["Depiction"] = depiction_url
+                control_dict["Depiction"] = depiction_url + control_dict["Depiction"]
             DebianPackage.get_control_content(control_dict, build_temp_package)
             build_temp_package.write("\n".encode("utf-8"))
         
