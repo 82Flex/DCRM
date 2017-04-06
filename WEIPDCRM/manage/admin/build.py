@@ -135,7 +135,7 @@ def build_procedure(conf):
         DebianPackage.get_control_content(active_release_control_dict, build_temp_release)
         
         # Checksum
-        if conf["build_secure"]:
+        if conf["build_secure"] is True:
             def hash_file(hash_obj, file_path):
                 with open(file_path, "rb") as f:
                     for block in iter(lambda: f.read(65535), b""):
@@ -173,7 +173,7 @@ def build_procedure(conf):
         
         build_temp_release.close()
 
-        if conf["build_secure"]:
+        if conf["build_secure"] is True:
             # GPG Signature
             """
             Use 'gpg --gen-key' to generate GnuPG key before using this function.
