@@ -40,6 +40,6 @@ class ChartView(ListView):
 
         :return: QuerySet
         """
-        queryset = super(ChartView, self).get_queryset().all()[:12]
+        queryset = super(ChartView, self).get_queryset().filter(enabled=1)[:12]
         return queryset
 

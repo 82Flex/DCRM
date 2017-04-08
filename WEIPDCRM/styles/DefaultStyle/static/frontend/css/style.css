@@ -451,7 +451,10 @@ img {
 }
 
 .primary .article .description {
-    border-top: 1px solid #fdfdfd
+    border-top: 1px solid #fdfdfd;
+    color: #333;
+    font-size: 13px;
+    line-height: 26px
 }
 
 .primary .article .screenshot {
