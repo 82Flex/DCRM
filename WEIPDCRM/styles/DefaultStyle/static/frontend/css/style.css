@@ -667,7 +667,7 @@ img {
 
 .primary .widget-area .repo-card .avatar-panel {
     position: relative;
-    height: 160px;
+    min-height: 160px;
 }
 
 .primary .widget-area .repo-card .repo_pic {
