@@ -23,3 +23,6 @@ WEIPDCRM/static/
 
 # Configrations
 *.ini
+
+# Settings
+DCRM/settings.py
