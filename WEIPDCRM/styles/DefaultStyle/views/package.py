@@ -46,6 +46,7 @@ class PackageView(DetailView):
                 self.template_name = 'mobile/package/package.html'
             else:
                 return HttpResponseNotFound()
+
         return super(PackageView, self).get(request, *args, **kwargs)
 
     def get_queryset(self):

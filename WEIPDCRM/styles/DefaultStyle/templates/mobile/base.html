@@ -1,7 +1,6 @@
-{% load i18n staticfiles global_settings %}
-{% global_settings %}
 <!DOCTYPE html>
 <html>
+{% load i18n staticfiles global_settings %}{% global_settings %}
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>{% block title %}{{ settings.active_release.origin }} | DCRM{% endblock %}</title>
@@ -26,14 +25,6 @@
     {% block headerscript %}
         <script type="text/javascript" src="{% static "mobile/js/fastclick.js" %}"></script>
         <script type="text/javascript" src="{% static "mobile/js/style.js" %}"></script>
-        <script type="text/javascript">
-            if (navigator.userAgent.search(/Cydia/) !== -1) {
-                var title = document.title;
-                var dot = title.indexOf('·');
-                if (dot !== -1)
-                    document.title = title.substring(0, dot);
-            }
-        </script>
         <script type="text/javascript" src="{% static "mobile/js/menes.js" %}"></script>
         <script type="text/javascript" src="{% static "frontend/js/jquery.min.js" %}"></script>
     {% endblock %}
@@ -83,7 +74,7 @@
             <br/>
             <span id="code">
                 {% if settings.footer_icp %}
-                    · {{ settings.footer_icp }}</span>
+                    {{ settings.footer_icp }}</span>
                 {% endif %}
         </footer>
     {% endblock %}

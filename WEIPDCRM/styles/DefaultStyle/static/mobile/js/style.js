@@ -227,6 +227,4 @@ if (navigator.userAgent.search(/Linux/) != -1)
     //var over = 3.0; // Medium
     //var desc = font * 0.25;
     //var down = (desc - over) / font;
-
-    document.write('<style type="text/css"> p, input[type="password"], input[type="text"], select { top: ' + down + 'em; } </style>');
 })();

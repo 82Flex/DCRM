@@ -125,7 +125,7 @@ img {
     float: right;
     color: #555;
     display: inline;
-    line-height: 50px;
+    line-height: 50px
 }
 
 .header .search input {
@@ -146,7 +146,7 @@ img {
 .primary .content {
     float: left;
     width: 640px;
-    min-height: 320px;
+    min-height: 320px
 }
 
 .primary .content-list {
@@ -178,7 +178,7 @@ img {
     margin-bottom: 36px;
     padding: 0 36px;
     width: 88px;
-    height: 133px;
+    height: 133px
 }
 
 .primary .content .list .list-item .icon {
@@ -200,7 +200,7 @@ img {
 
 .primary .content .list .list-item .title-tag {
     margin-top: 5px;
-    height: 100px;
+    height: 100px
 }
 
 .primary .content .list .list-item .title {
@@ -228,7 +228,7 @@ img {
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
-    height: 20px;
+    height: 20px
 }
 
 .primary .content .list .list-item .tag a {
@@ -251,7 +251,7 @@ img {
 
 .primary .content .list .chart-item .icon img {
     height: 100px;
-    width: 100px;
+    width: 100px
 }
 
 .primary .content .list .chart-item .title-tag {
@@ -260,28 +260,25 @@ img {
 
 .primary .content .list .chart-item .title-tag .title {
     margin-left: 20px;
-    text-align: left;
+    text-align: left
 }
 
 .primary .content .list .chart-item .title-tag .title a {
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 300
 }
 
 .primary .content .list .chart-item .tag {
     margin-left: 20px;
-    /* float: left; */
     height: 80px;
     width: 320px;
     text-align: left;
-    overflow: scroll;
-    /* word-wrap: normal; */
+    overflow-x: hidden;
+    overflow-y: auto;
     white-space: normal;
-    /* text-overflow: ellipsis; */
-    /* word-break: normal; */
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 2
 }
 
 .primary .content .list .chart-item .tag a {
