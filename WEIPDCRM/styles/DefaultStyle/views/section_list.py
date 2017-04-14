@@ -26,7 +26,7 @@ from __future__ import unicode_literals
 
 from django.views.generic import ListView
 from WEIPDCRM.models.section import Section
-
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 class SectionListView(ListView):
     allow_empty = True
@@ -36,6 +36,7 @@ class SectionListView(ListView):
     context_object_name = 'section_list'
     template_name = 'frontend/section-list.html'
 
+    @xframe_options_exempt
     def get(self, request, *args, **kwargs):
         if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
             self.template_name = 'mobile/section-list.html'

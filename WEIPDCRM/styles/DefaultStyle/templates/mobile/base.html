@@ -56,8 +56,7 @@
     {% endblock %}
     {% block footer %}
         <footer id="footer">
-            <span id="id">{% block page_name %}{% endblock %}</span>
-            <br/>
+            <span id="id">{% block page_name %}{% endblock %}<br/></span>
             <span id="copyright">{% trans "Copyright" %} &copy;
                 {% if settings.copyright_name %}
                     {{ settings.copyright_name }}
@@ -71,11 +70,9 @@
                 {% endif %}
                 · <a href="https://github.com/82Flex/DCRM">Powered By DCRM</a>
             </span>
-            <br/>
-            <span id="code">
-                {% if settings.footer_icp %}
-                    {{ settings.footer_icp }}</span>
-                {% endif %}
+            {% if settings.footer_icp %}<br/>
+            <span id="code">{{ settings.footer_icp }}</span>
+            {% endif %}
         </footer>
     {% endblock %}
 </panel>

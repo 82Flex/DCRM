@@ -49,7 +49,7 @@
         </fieldset>
     {% endif %}
     {% if not settings.download_cydia_only %}
-        <fieldset>
+        <fieldset id="downloadlink">
             <a href="{{ package_info.frontend_link }}" id="downloadlink" target="_blank">
                 <img class="icon" src="{% static "mobile/img/package.png" %}">
                 <div>
@@ -182,5 +182,16 @@
             TODO: Comments Module
         </div>
     </fieldset-->
+{% endblock %}
+{% block footerscript %}
+    <script type="text/javascript">
+        if(navigator.userAgent.search(/Cydia/)!=-1) {
+            $('#header').hide();
+            $('#cydialink').hide();
+            $('#contact').hide();
+            $('#downloadlink').hide();
+            $('#id').hide()
+        }
+    </script>
 {% endblock %}
 {% block page_name %}{{ package_info.c_package }}<br/>{{ package_info.c_section | default:"No Section" }}{% endblock %}
