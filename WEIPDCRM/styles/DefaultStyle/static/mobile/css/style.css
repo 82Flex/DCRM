@@ -261,10 +261,6 @@ panel>fieldset {
 	font-size: 16px
 }
 
-.cytyle-flat panel>fieldset {
-	font-size: 17px
-}
-
 .cytyle-faux panel>fieldset {
 	-webkit-border-radius: 9px;
 	-moz-border-radius: 9px;
@@ -1211,6 +1207,11 @@ p,input[type="password"],input[type="text"],select {
     position: absolute;
     bottom: 6px;
     right: 6px
+}
+
+#rich_description {
+	text-align: center;
+	font-size: 16px
 }
 
 #id, #contact {
