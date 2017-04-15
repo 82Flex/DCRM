@@ -17,8 +17,9 @@
     <link rel="apple-touch-icon" href="{{ settings.active_release.icon_link }}">
     <meta name="generator" content="DCRM"/>
     <meta name="template" content="DefaultStyle"/>
-    <!-- TODO: Shortcut Icon -->
-    <!-- link rel="shortcut icon" href="/favicon.ico" /-->
+    {% if settings.favicon_link %}
+    <link rel="shortcut icon" href="{{ settings.favicon_link }}" />
+    {% endif %}
     {% block stylesheet %}
         <link rel="stylesheet" type="text/css" href="{% static "mobile/css/style.css" %}"/>
     {% endblock %}

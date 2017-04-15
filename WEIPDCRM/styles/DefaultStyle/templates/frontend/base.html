@@ -15,8 +15,9 @@
     <meta name="keywords" content="{{ settings.active_release.keywords }}"/>
     <meta name="generator" content="DCRM"/>
     <meta name="template" content="DefaultStyle"/>
-    <!-- TODO: Shortcut Icon -->
-    <!-- link rel="shortcut icon" href="/favicon.ico" /-->
+    {% if settings.favicon_link %}
+    <link rel="shortcut icon" href="{{ settings.favicon_link }}" />
+    {% endif %}
     {% block stylesheet %}
         <link rel="stylesheet" href="{% static "frontend/css/style.css" %}">
         <link rel="stylesheet" href="{% static "frontend/css/font.css" %}">

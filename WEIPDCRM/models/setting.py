@@ -31,6 +31,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
 
 from preferences.models import Preferences
+from preferences import preferences
 
 from WEIPDCRM.models.release import Release
 
@@ -306,6 +307,22 @@ class Setting(Preferences):
         help_text=_("Enable version history module"),
         default=False,
     )
+    favicon = models.FileField(
+        verbose_name=_("Favicon"),
+        max_length=255,
+        upload_to="favicon",
+        help_text=_("Choose an Icon (*.png) to upload"),
+        blank=True,
+        null=True,
+    )
+    def get_external_favicon_link(self):
+        if not self.favicon:
+            return None
+        file_path = self.favicon.name
+        return unicode(preferences.Setting.resources_alias) + file_path
+
+    favicon_link = property(get_external_favicon_link)
+
 
     def get_admin_url(self):
         """

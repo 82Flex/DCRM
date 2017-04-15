@@ -37,7 +37,7 @@ class SettingsAdmin(PreferencesAdmin):
         # Frontend
         ('Display', {
             'classes': ('suit-tab suit-tab-frontend',),
-            'fields': ['advanced_mode', 'version_history', 'enable_comments']
+            'fields': ['advanced_mode', 'version_history', 'enable_comments', 'favicon']
         }),
         ('Social', {
             'classes': ('suit-tab suit-tab-frontend',),

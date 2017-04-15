@@ -15,7 +15,6 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 
 手机端：
 
-- SEO模块
 - 截图展示模块
 - 评论模块
 - 兼容性检查模块
@@ -23,6 +22,7 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 全局：
 
 - pdiff
+- 统计
 - 一键部署脚本
 
 ## GUIDE 使用说明
