@@ -37,6 +37,8 @@ Username: demo
 
 Password: demodemo
 
+- https://beta.uozi.org
+
 ### ENVIRONMENT OF DCRM 的基本环境要求是什么？
 - Python 2.7
 - Django 1.10.5 final
@@ -131,6 +133,8 @@ Each time when you want to update DCRM, you should execute following commands:
 ```shell
 git pull
 ./manage.py migrate
+rm -rf WEIPDCRM/static
+./manage.py collectstatic
 killall -s INT uwsgi
 uwsgi --ini uwsgi.ini
 ```
