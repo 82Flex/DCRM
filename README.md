@@ -57,7 +57,7 @@ apt-get upgrade
 ```
 
 ```shell
-apt-get install git nginx mysql-server libmysqlclient-dev python-dev
+apt-get install git nginx mysql-server libmysqlclient-dev python-dev python-pip
 ```
 
 ```shell
