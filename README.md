@@ -100,6 +100,14 @@ Create different databases for each DCRM instance.
 CREATE DATABASE DCRM DEFAULT CHARSET UTF8;
 ```
 
+Create user and grant privileges for them.
+
+```sql
+CREATE USER 'dcrm'@'localhost' IDENTIFIED BY 'thisisthepassword';
+GRANT ALL PRIVILEGES ON `DCRM`.* TO 'dcrm'@'localhost';
+FLUSH PRIVILEGES;
+```
+
 #### CONFIGURE DCRM 配置示例
 
 ```shell
