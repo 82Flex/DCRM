@@ -1,0 +1,174 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-03 15:38+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+
+#: admin.py:45
+msgid "Content"
+msgstr "Obsah"
+
+#: admin.py:48
+msgid "Account information"
+msgstr "Informace o účtu"
+
+#: admin.py:51
+msgid "Moderation"
+msgstr "Moderování"
+
+#: admin.py:62
+msgid "Hierarchy"
+msgstr "Hierarchie"
+
+#: admin.py:84
+msgid "Page"
+msgstr "Strana"
+
+#: admin.py:99
+msgid "user's name"
+msgstr "jméno uživatele"
+
+#: forms/base.py:57
+msgid "Submit"
+msgstr ""
+
+#: forms/base.py:69 templates/comments/form.html:22
+#: templates/comments/preview.html:27
+msgid "Preview"
+msgstr "Náhled"
+
+#: templates/comments/comment.html:22 templates/comments/preview.html:12
+msgid "Preview of your comment"
+msgstr "Náhled komentáře"
+
+#: templates/comments/comment.html:26
+msgid "Anonymous"
+msgstr "Anonymní"
+
+#: templates/comments/comment.html:29
+#, python-format
+msgid "on %(submit_date)s"
+msgstr "poslal %(submit_date)s"
+
+#: templates/comments/comment.html:30
+msgid "moderated"
+msgstr "moderován"
+
+#: templates/comments/comment.html:31
+msgid "reply"
+msgstr "odpovědět"
+
+#: templates/comments/deleted.html:4
+msgid "Thanks for removing"
+msgstr "Děkujeme za odstranění"
+
+#: templates/comments/deleted.html:12
+msgid "Thanks for removing the comment"
+msgstr "Děkujeme za odstranění komentáře"
+
+#: templates/comments/deleted.html:14 templates/comments/flagged.html:14
+msgid ""
+"\n"
+"      Thanks for taking the time to improve the quality of discussion on our "
+"site.<br/>\n"
+"      You will be sent back to the article...\n"
+"    "
+msgstr ""
+"\n"
+"      Děkuji za váš čas věnovaný na zlepšení kvality diskuze na naší stránce."
+"<br/>\n"
+"      Budete přesměrováni zpět na článek...\n"
+"    "
+
+#: templates/comments/deleted.html:20 templates/comments/flagged.html:20
+#: templates/comments/posted.html:24
+msgid "Back to the article"
+msgstr "Zpět na článek"
+
+#: templates/comments/flagged.html:4
+msgid "Thanks for flagging"
+msgstr "Děkujeme za označkování"
+
+#: templates/comments/flagged.html:12
+msgid "Thanks for flagging the comment"
+msgstr "Děkujeme za označkování komentáře"
+
+#: templates/comments/form.html:4
+msgid "Comments are closed."
+msgstr "Komentáře jsou uzavřené"
+
+#: templates/comments/form.html:21 templates/comments/preview.html:26
+msgid "Post"
+msgstr "Odeslat"
+
+#: templates/comments/posted.html:3
+msgid "Thanks for commenting"
+msgstr "Děkujeme za komentář"
+
+#: templates/comments/posted.html:11
+msgid "Thanks for posting your comment"
+msgstr "Děkujeme za odeslání komentáře"
+
+#: templates/comments/posted.html:13
+msgid ""
+"\n"
+"      We have received your comment, and posted it on the web site.<br/>\n"
+"      You will be sent back to the article...\n"
+"      "
+msgstr ""
+"\n"
+"      Váš komentář byl přijat a publikován na naší stránce<br/>\n"
+"      Budete přesměrován zpět na článek...\n"
+"      "
+
+#: templates/comments/preview.html:3
+msgid "Preview your comment"
+msgstr "Náhled vašeho komentáře"
+
+#: templates/comments/preview.html:10
+msgid "Please correct the error below"
+msgid_plural "Please correct the errors below"
+msgstr[0] "Prosím opravte chybu níže"
+msgstr[1] "Prosím opravte chyby níže"
+
+#: templates/comments/preview.html:17
+msgid "Post your comment"
+msgstr "Odeslat váš komentář"
+
+#: templates/comments/preview.html:20
+msgid "Or make changes"
+msgstr "Nebo udělat změny"
+
+#: templates/fluent_comments/templatetags/ajax_comment_tags.html:2
+msgid "cancel reply"
+msgstr "zrušit odpověď"
+
+#: templates/fluent_comments/templatetags/ajax_comment_tags.html:4
+msgid "Please wait . . ."
+msgstr "Prosím čekejte . . ."
+
+#: templates/fluent_comments/templatetags/ajax_comment_tags.html:6
+msgid "Your comment has been posted!"
+msgstr "Váš komentář byl publikován!"
+
+#: templates/fluent_comments/templatetags/ajax_comment_tags.html:7
+msgid ""
+"Your comment has been posted, it will be visible for other users after "
+"approval."
+msgstr ""
+"Váš komentář byl odeslán, bude zobrazen dalším uživatelům jakmile bude "
+"schválen."

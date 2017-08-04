@@ -1,0 +1,30 @@
+{% extends "comments/base.html" %}{% load i18n crispy_forms_tags comments %}
+
+{% block title %}{% trans "Preview your comment" %}{% endblock %}
+
+{% block content %}
+  <form action="{% comment_form_target %}" method="post" class="form-horizontal">{% csrf_token %}
+    {% if next %}<div><input type="hidden" name="next" value="{{ next }}" /></div>{% endif %}
+
+    {% if form.errors %}
+      <h2>{% blocktrans count form.errors|length as counter %}Please correct the error below{% plural %}Please correct the errors below{% endblocktrans %}</h2>
+    {% else %}
+      <h2>{% trans "Preview of your comment" %}</h2>
+
+      <blockquote class="comment-preview">{{ comment|linebreaks }}</blockquote>
+
+      <div class="form-actions">
+        <input type="submit" name="submit" class="btn btn-primary" value="{% trans "Post your comment" %}" id="submit" />
+      </div>
+
+      <p>{% trans "Or make changes" %}:</p>
+    {% endif %}
+
+    {{ form|crispy }}
+
+    <div class="form-actions">
+      <input type="submit" name="post" class="btn btn-primary" value="{% trans "Post" %}" />
+      <input type="submit" name="preview" class="btn" value="{% trans "Preview" %}" />
+    </div>
+  </form>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% comment %}
+  Something that django_comments does not provide:
+  An individual template for a single comment, to easily be reused.
+
+  This include is also used by the Ajax comments view.
+  The div id should be "c{id}", because the comment.get_absolute_url() points to it.
+
+  NOTE: to override the displayed date format, don't replace this template.
+  Instead, define DATETIME_FORMAT in a locale file. Requires setting:
+
+   FORMAT_MODULE_PATH = 'settings.locale'
+
+  Then create 'settings/locale/XY/formats.py' with:
+
+   DATETIME_FORMAT = '...'
+
+  This should give you consistent dates across all views.
+{% endcomment %}
+{% load i18n staticfiles gravatar %}
+        {%  if comment.user_email %}
+        <div><div class="gravatar"><img src="{{ comment.user_email|gravatar_url:48}}" onerror="javascript:this.onerror=null;javascript:this.src='{% static "frontend/img/default_avatar.png" %}'"></div>
+        {% endif %}
+        <div{% if preview %} id="comment-preview"{% else %} id="c{{ comment.id }}"{% endif %} class="comment-item">
+          {% block comment_item %}
+            {% if preview %}<h3>{% trans "Preview of your comment" %}</h3>{% endif %}
+              <h4>
+                {% block comment_title %}
+                  {% if comment.url %}<a href="{{ comment.url }}" rel="nofollow">{% endif %}
+                  {% if comment.name %}{{ comment.name }}{% else %}{% trans "Anonymous" %}{% endif %}{% comment %}
+                  {% endcomment %}{% if comment.url %}</a>{% endif %}
+                  <span class="comment-date">{% blocktrans with submit_date=comment.submit_date %}on {{ submit_date }}{% endblocktrans %}</span>
+                  {% if not comment.is_public %}<span class="comment-moderated-flag">({% trans "moderated" %})</span>{% endif %}
+                  {% if USE_THREADEDCOMMENTS and not preview %}<a href="#c{{ comment.id }}" data-comment-id="{{ comment.id }}" class="comment-reply-link">{% trans "reply" %}</a>{% endif %}
+                {% endblock %}
+              </h4>
+
+              <div class="comment-text">{{ comment.comment|linebreaks }}</div>
+          {% endblock %}
+        </div>

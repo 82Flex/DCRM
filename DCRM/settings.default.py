@@ -56,6 +56,9 @@ USE_L10N = True
 USE_TZ = True  # pytz is required.
 LANGUAGE_CODE = 'en'
 TIME_ZONE = 'Europe/Paris'
+COMMENTS_APP = 'fluent_comments'
+FLUENT_COMMENTS_EXCLUDE_FIELDS = ('url','title')
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Database
 # You cannot use SQLite3 due to the lack of advanced database supports.
@@ -128,6 +131,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'fluent_comments',
+    'threadedcomments',
+    'crispy_forms',
+    'django_comments',
 ]
 
 if ENABLE_REDIS is True:

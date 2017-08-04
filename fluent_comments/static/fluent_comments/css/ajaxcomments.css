@@ -1,0 +1,143 @@
+h4 {
+  font-size: 15px;
+}
+#comment-waiting {
+  line-height: 16px;
+}
+
+#comment-waiting img {
+  vertical-align: middle;
+  padding: 0 4px 0 10px;
+}
+
+#comment-added-message,
+#comment-thanks {
+  padding-left: 10px;
+}
+
+.comment-moderated-flag {
+  font-variant: small-caps;
+  margin-left: 5px;
+}
+
+#div_id_honeypot {
+  /* Hide the honeypot from django_comments by default */
+  display: none;
+}
+
+.comment-item{
+  min-height: 48px;
+  position: relative;
+  margin-left: 64px
+}
+
+.comment-item span {
+  padding-left: 6px;
+  color: #A8A8A8;
+  font-size: 12px;
+  font-style: normal
+}
+
+.comment-text p {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.comments input {
+  height: 40px;
+  width: 33.3333%;
+  border: 1px solid #e5e7ec;
+  padding: 0 10px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  box-shadow: none;
+  outline:none;
+}
+
+.comments .btn {
+  -webkit-appearance: none;
+  border-radius: 2px;
+  background: #19B5FE;
+  color: #fff;
+  padding: 14px 0;
+  border: 0;
+  font-size: 16px;
+  font-weight: bold;
+  width: 120px;
+  line-height: 1;
+  height: auto;
+  letter-spacing: .1em;
+  -webkit-transition: color .2s ease-out, background .2s ease-out, border-color .2s ease-out;
+  -moz-transition: color .2s ease-out, background .2s ease-out, border-color .2s ease-out;
+  transition: color .2s ease-out, background .2s ease-out, border-color .2s ease-out;
+  cursor: pointer;
+  margin-right: 0px;
+  float: right;
+}
+
+.comments label{
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 10px;
+  font-weight: 400;
+  color: #4d4d4d;
+}
+.comments .form-group {
+  margin-bottom: 20px;
+}
+
+.comments .btn:hover {
+  background: #5d6478;
+  color: #fff;
+}
+
+.comments textarea {
+  display: block;
+  height: 100px;
+  width: 100%;
+  padding: 10px 14px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  border-color: rgb(239, 239, 239);
+  margin: 0px -1px 0px 0px;
+  -webkit-appearance: none;
+  outline:none;
+}
+/* ---- threaded comments ---- */
+
+ul.comment-list-wrapper {
+  /* to avoid touching our own "ul" tags, our tags are explicitly decorated with a class selector */
+  margin-left: 0;
+  padding-left: 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eceef1;
+  padding-bottom: 20px;
+}
+
+ul.comment-list-wrapper ul.comment-list-wrapper {
+  margin-left: 1em;
+  padding-left: 0;
+  border: 1px solid #E4E4E4;
+  border-radius: 2px;
+  background-color: #fbfbfb;
+  margin-top: 15px;
+  padding: 12px;
+}
+
+li.comment-wrapper {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.js-comments-form-orig-position .comment-cancel-reply-link {
+  display: none;
+}

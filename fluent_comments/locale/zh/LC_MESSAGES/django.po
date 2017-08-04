@@ -1,0 +1,171 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-03 15:38+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Zhiwei Wang <wangzw04@126.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: Chinese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: admin.py:45
+msgid "Content"
+msgstr "内容"
+
+#: admin.py:48
+msgid "Account information"
+msgstr "账户信息"
+
+#: admin.py:51
+msgid "Moderation"
+msgstr "审核"
+
+#: admin.py:62
+msgid "Hierarchy"
+msgstr "层级"
+
+#: admin.py:84
+msgid "Page"
+msgstr "页面"
+
+#: admin.py:99
+msgid "user's name"
+msgstr "用户名称"
+
+#: forms/base.py:57
+msgid "Submit"
+msgstr ""
+
+#: forms/base.py:69 templates/comments/form.html:22
+#: templates/comments/preview.html:27
+msgid "Preview"
+msgstr "预览"
+
+#: templates/comments/comment.html:22 templates/comments/preview.html:12
+msgid "Preview of your comment"
+msgstr "预览评论"
+
+#: templates/comments/comment.html:26
+msgid "Anonymous"
+msgstr "匿名"
+
+#: templates/comments/comment.html:29
+#, python-format
+msgid "on %(submit_date)s"
+msgstr "于%(submit_date)s"
+
+#: templates/comments/comment.html:30
+msgid "moderated"
+msgstr "正在审核"
+
+#: templates/comments/comment.html:31
+msgid "reply"
+msgstr "回复"
+
+#: templates/comments/deleted.html:4
+msgid "Thanks for removing"
+msgstr "感谢移除"
+
+#: templates/comments/deleted.html:12
+msgid "Thanks for removing the comment"
+msgstr "感谢移除该评论"
+
+#: templates/comments/deleted.html:14 templates/comments/flagged.html:14
+msgid ""
+"\n"
+"      Thanks for taking the time to improve the quality of discussion on our "
+"site.<br/>\n"
+"      You will be sent back to the article...\n"
+"    "
+msgstr ""
+"\n"
+"      感谢您花时间提升我们网站的评论质量。<br/>\n"
+"      您将回到文章页面。。。\n"
+"    "
+
+#: templates/comments/deleted.html:20 templates/comments/flagged.html:20
+#: templates/comments/posted.html:24
+msgid "Back to the article"
+msgstr "返回文章"
+
+#: templates/comments/flagged.html:4
+msgid "Thanks for flagging"
+msgstr "感谢标记"
+
+#: templates/comments/flagged.html:12
+msgid "Thanks for flagging the comment"
+msgstr "感谢标记该评论"
+
+#: templates/comments/form.html:4
+msgid "Comments are closed."
+msgstr "评论已关闭"
+
+#: templates/comments/form.html:21 templates/comments/preview.html:26
+msgid "Post"
+msgstr "发布"
+
+#: templates/comments/posted.html:3
+msgid "Thanks for commenting"
+msgstr "感谢评论"
+
+#: templates/comments/posted.html:11
+msgid "Thanks for posting your comment"
+msgstr "感谢发布您的评论"
+
+#: templates/comments/posted.html:13
+msgid ""
+"\n"
+"      We have received your comment, and posted it on the web site.<br/>\n"
+"      You will be sent back to the article...\n"
+"      "
+msgstr ""
+"\n"
+"      我们已经收到您的评论并发布在了网站上。<br/>\n"
+"      您将回到文章页面。。。\n"
+"      "
+
+#: templates/comments/preview.html:3
+msgid "Preview your comment"
+msgstr "预览评论"
+
+#: templates/comments/preview.html:10
+msgid "Please correct the error below"
+msgid_plural "Please correct the errors below"
+msgstr[0] "请修正下面的错误"
+msgstr[1] "请修正以下这些错误"
+
+#: templates/comments/preview.html:17
+msgid "Post your comment"
+msgstr "发布评论"
+
+#: templates/comments/preview.html:20
+msgid "Or make changes"
+msgstr "修改"
+
+#: templates/fluent_comments/templatetags/ajax_comment_tags.html:2
+msgid "cancel reply"
+msgstr "取消回复"
+
+#: templates/fluent_comments/templatetags/ajax_comment_tags.html:4
+msgid "Please wait . . ."
+msgstr "请稍候。。。"
+
+#: templates/fluent_comments/templatetags/ajax_comment_tags.html:6
+msgid "Your comment has been posted!"
+msgstr "您的评论已发布！"
+
+#: templates/fluent_comments/templatetags/ajax_comment_tags.html:7
+msgid ""
+"Your comment has been posted, it will be visible for other users after "
+"approval."
+msgstr "您的评论已发布，待审核后可见。"

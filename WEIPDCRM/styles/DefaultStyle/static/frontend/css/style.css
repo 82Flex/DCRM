@@ -50,7 +50,7 @@ img {
 .main {
     margin: 0;
     padding: 0;
-    background-color: #fdfdfd;
+    background-color: #fcfcfc;
     font-family: "Myriad Pro", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: default;
     #-webkit-user-select: none;
@@ -61,7 +61,7 @@ img {
     width: 100%;
     height: 50px;
     background-color: #fff;
-    box-shadow: 0 0 1px rgba(153, 153, 153, 0.75);
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.08);
     position: fixed;
     top: 0;
     z-index: 20;
@@ -129,18 +129,18 @@ img {
 }
 
 .header .search input {
-	padding: 2px 5px;
-	width: 60%;
+    padding: 2px 5px;
+    width: 60%;
     height: 25px;
-	outline: 0;
-	color: #555;
-    border:0;
+    outline: 0;
+    color: #555;
+    border: 0;
     font-size: 0.75em
 }
 
 .primary {
-    margin: 72px auto 0;
-    width: 960px
+    margin: 82px auto 0;
+    width: 978px
 }
 
 .primary .content {
@@ -155,8 +155,9 @@ img {
     min-height: 320px;
     border-radius: 6px;
     background-color: #fff;
-    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25)
+    box-shadow: 0 0 30px rgba(200, 200, 200, 0.25)
 }
+
 .primary .content .label {
     padding-top: 10px
 }
@@ -316,14 +317,15 @@ img {
     transition: all 200ms ease-in-out
 }
 
-.primary .content .list .chart-item .download p {}
+.primary .content .list .chart-item .download p {
+}
 
 .primary .content .breadcrumbs {
     padding: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     border-radius: 6px;
     background-color: #fff;
-    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25);
+    box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
     height: 20px;
 }
 
@@ -336,7 +338,7 @@ img {
     padding: 20px 30px;
     border-radius: 6px;
     background-color: #fff;
-    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25)
+    box-shadow: 0 0 30px rgba(200, 200, 200, 0.25)
 }
 
 .primary .article h1 {
@@ -457,22 +459,23 @@ img {
 .primary .article .screenshot {
 
 }
+
 .primary .article .screenshot .image {
     background: #f9f9f9;
-	padding: 12px 0;
-	width: 100%;
-	-webkit-border-radius: 10px;
-	margin-top: 15px;
-	margin-bottom: 15px
+    padding: 12px 0;
+    width: 100%;
+    -webkit-border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px
 }
 
 .primary .article .screenshot .image .image-wrapper {
-    margin-left:14px;
-	margin-right:14px;
-	margin-top: 15px;
-	width:550px;
-	overflow:auto;
-	overflow-y:hidden;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 15px;
+    width: 550px;
+    overflow: auto;
+    overflow-y: hidden;
 }
 
 .primary .article .screenshot .image .image-wrapper::-webkit-scrollbar-track-piece {
@@ -564,10 +567,10 @@ img {
 
 .primary .content .comments {
     padding: 20px 30px;
-    margin-top: 15px;
+    margin-top: 30px;
     border-radius: 6px;
     background-color: #fff;
-    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25);
+    box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
 }
 
 .primary .content .comments h2 {
@@ -579,12 +582,22 @@ img {
     color: #474747;
 }
 
+.primary .content .comments .gravatar {
+    position: absolute;
+    width: 48px;
+}
+
+.primary .content .comments .gravatar img {
+    width: 48px;
+    border-radius: 6px;
+}
+
 .primary .chart {
     padding: 30px 70px 0;
     min-height: 960px;
     border-radius: 6px;
     background-color: #fff;
-    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25)
+    box-shadow: 0 0 30px rgba(200, 200, 200, 0.25)
 }
 
 .primary .chart .title h2 {
@@ -661,8 +674,8 @@ img {
     padding: 20px 20px 20px;
     border-radius: 6px;
     background-color: #fff;
-    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25);
-    margin-bottom: 20px
+    box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
+    margin-bottom: 30px
 }
 
 .primary .widget-area .repo-card .avatar-panel {
@@ -722,7 +735,7 @@ img {
     padding: 20px 20px 20px;
     border-radius: 6px;
     background-color: #fff;
-    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25);
+    box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
     margin-bottom: 20px;
 }
 
@@ -772,7 +785,6 @@ img {
     margin: -15px 20px
 }
 
-
 .primary .widget-area .section_list h4 {
     overflow: hidden;
     margin-bottom: 5px;
@@ -795,7 +807,7 @@ img {
     padding: 20px 20px 20px;
     border-radius: 6px;
     background-color: #fff;
-    box-shadow: 0 0 3px rgba(200, 200, 200, 0.25);
+    box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
     margin-bottom: 20px;
 }
 

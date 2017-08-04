@@ -32,6 +32,7 @@ from WEIPDCRM.views import publish
 urlpatterns = [
     # Notice: Good Bro! Use 'include' to import urls from other apps.
     url(r'^', include('WEIPDCRM.styles.DefaultStyle.urls')),
+    url(r'^comments/', include('fluent_comments.urls')),
     
     # Basic List
     url(

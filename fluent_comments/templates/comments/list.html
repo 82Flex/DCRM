@@ -1,0 +1,14 @@
+{% comment %}
+
+  Since we support both flat comments, and threadedcomments,
+  the 'fluent_comments_list' templatetag loads the proper template.
+
+  It either loads:
+  - fluent_comments/templatetags/flat_html.html
+  - fluent_comments/templatetags/threaded_list.html
+
+  Both reuse comments/comment.html eventually.
+  To style comments, consider overwriting the comment.html template.
+
+{% endcomment %}
+{% load fluent_comments_tags %}{% fluent_comments_list %}

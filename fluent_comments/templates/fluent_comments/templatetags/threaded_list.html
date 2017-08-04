@@ -1,0 +1,20 @@
+{% comment %}
+
+  The template for threadedcomments, spiced up.
+  This is included via comments/list.html
+
+  The id="comments-..." is required for JavaScript,
+  the 'comments/comment.html template is also used by the Ajax view.
+
+{% endcomment %}
+{% load fluent_comments_tags threadedcomments_tags gravatar staticfiles %}
+<div id="comments-{{ target_object_id }}" data-object-id="{{ target_object_id }}" class="{% if not comment_list %} empty{% endif %}">
+    {% for comment in comment_list|fill_tree|annotate_tree %}
+      {% ifchanged comment.parent_id %}{% else %}</li>{% endifchanged %}
+      {% if not comment.open and not comment.close %}</li>{% endif %}
+      {% if comment.open %}<ul class="comment-list-wrapper">{% endif %}
+          <li class="comment-wrapper">
+              {% render_comment comment %}</div>
+          {% for close in comment.close %}</li></ul>{% endfor %}
+    {% endfor %}
+</div>

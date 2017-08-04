@@ -11,3 +11,4 @@ pytz==2017.2
 six==1.10.0
 sqlparse==0.2.3
 uWSGI==2.0.14
+django-fluent-comments

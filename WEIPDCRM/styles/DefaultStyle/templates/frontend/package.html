@@ -81,11 +81,15 @@
             </div>
         </div>
     </div>
-    {% if settings.comments %}
-        <div class="comments">
+    {% if settings.enable_comments %}
+        <div class="comments" id="comments">
             <h2>{% trans "Comments" %}</h2>
-            <div id="comments">
-                <!--TODO: Comments Module-->
+            <div id="comments" style="padding: 12px">
+                {% load comments static threadedcomments_tags %}
+                <link rel="stylesheet" type="text/css" href="{% static 'fluent_comments/css/ajaxcomments.css' %}"/>
+                <script type="text/javascript" src="{% static 'fluent_comments/js/ajaxcomments.js' %}"></script>
+                {% render_comment_list for object %}
+                {% render_comment_form for object %}
             </div>
         </div>
     {% endif %}

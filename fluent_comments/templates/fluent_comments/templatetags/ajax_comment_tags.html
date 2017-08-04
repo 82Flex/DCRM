@@ -1,0 +1,7 @@
+{% load i18n staticfiles %}
+<a href="#c0" class="comment-cancel-reply-link">{% trans "cancel reply" %}</a>
+<span class="comment-waiting" id="comment-waiting-{{ target_object.pk }}" style="display: none;">
+  <img src="{% static 'fluent_comments/img/ajax-wait.gif' %}" alt="" class="ajax-loader" />{% trans "Please wait . . ." %}
+</span>
+<span class="comment-added-message" id="comment-added-message-{{ target_object.pk }}" style="display: none;">{% trans "Your comment has been posted!" %}</span>
+<div class="comment-moderated-message" id="comment-moderated-message-{{ target_object.pk }}" style="display: none;">{% trans "Your comment has been posted, it will be visible for other users after approval." %}</div>

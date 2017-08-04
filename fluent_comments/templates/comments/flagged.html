@@ -1,0 +1,21 @@
+{% extends "comments/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Thanks for flagging" %}.{% endblock %}
+
+{% block extrahead %}
+  {{ block.super }}
+  <meta http-equiv="Refresh" content="5; url={{ comment.content_object.get_absolute_url }}#c{{ comment.id }}" />
+{% endblock %}
+
+{% block content %}
+  <h2>{% trans "Thanks for flagging the comment" %}</h2>
+  <p>
+    {% blocktrans %}
+      Thanks for taking the time to improve the quality of discussion on our site.<br/>
+      You will be sent back to the article...
+    {% endblocktrans %}
+  </p>
+
+  <p><a href="{{ comment.content_object.get_absolute_url }}#c{{ comment.id }}">{% trans "Back to the article" %}</a></p>
+{% endblock %}

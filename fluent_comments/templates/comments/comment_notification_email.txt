@@ -1,0 +1,20 @@
+{% autoescape off %}{% comment %}
+{% endcomment %}A new comment has been posted on your site "{{ site }}, to the page entitled "{{ content_object }}".
+Link to the page: http://{{ site.domain }}{{ content_object.get_absolute_url }}
+
+IP-address: 95.97.240.121{% if comment.title %}
+Title: {{ comment.title }}{% endif %}
+Name: {{ comment.user_name|default:comment.user }}
+Email: {{ comment.user_email }}
+Homepage: {{ comment.user_url }}
+Moderated: {{ comment.is_public|yesno:'no,yes' }}
+
+Comment:
+{{ comment.comment }}
+
+----
+You have the following options available:
+  View comment    -- http://{{ site.domain }}{{ comment.get_absolute_url }}
+  Flag comment    -- http://{{ site.domain }}{% url 'comments-flag' comment.pk %}
+  Delete comment  -- http://{{ site.domain }}{% url 'comments-delete' comment.pk %}
+{% endautoescape %}
