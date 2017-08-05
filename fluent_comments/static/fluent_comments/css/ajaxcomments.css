@@ -132,6 +132,14 @@ ul.comment-list-wrapper ul.comment-list-wrapper {
   padding: 12px;
 }
 
+ul.comment-list-wrapper ul.comment-list-wrapper li.comment-wrapper {
+  margin-bottom: 15px;
+}
+
+ul.comment-list-wrapper ul.comment-list-wrapper li.comment-wrapper:last-child {
+  margin-bottom: 0;
+}
+
 li.comment-wrapper {
   list-style: none;
   margin-left: 0;
