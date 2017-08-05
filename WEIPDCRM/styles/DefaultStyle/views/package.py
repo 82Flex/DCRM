@@ -25,6 +25,7 @@ Notice: You have used class-based views, that's awesome.
 from __future__ import unicode_literals
 from django.http import HttpResponseNotFound
 from django.views.generic import DetailView
+from django.views.decorators.vary import vary_on_headers
 from django.views.decorators.clickjacking import xframe_options_exempt
 
 from WEIPDCRM.models.version import Version
@@ -36,6 +37,7 @@ class PackageView(DetailView):
     template_name = 'frontend/package.html'
 
     @xframe_options_exempt
+    @vary_on_headers('User-Agent')
     def get(self, request, *args, **kwargs):
         if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
             action_name = self.kwargs.get('action_name')

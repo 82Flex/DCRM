@@ -25,6 +25,8 @@ Notice: You have used class-based views, that's awesome.
 from __future__ import unicode_literals
 
 from django.views.generic import ListView
+from django.views.decorators.vary import vary_on_headers
+from django.views.decorators.clickjacking import xframe_options_exempt
 from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.build import Build
 
@@ -41,7 +43,9 @@ class IndexView(ListView):
     model = Package
     context_object_name = 'package_list'
     template_name = 'frontend/index.html'
-    
+
+    @xframe_options_exempt
+    @vary_on_headers('User-Agent')
     def get(self, request, *args, **kwargs):
         if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
             self.template_name = 'mobile/index.html'

@@ -25,8 +25,9 @@ Notice: You have used class-based views, that's awesome.
 from __future__ import unicode_literals
 
 from django.views.generic import ListView
-from WEIPDCRM.models.section import Section
+from django.views.decorators.vary import vary_on_headers
 from django.views.decorators.clickjacking import xframe_options_exempt
+from WEIPDCRM.models.section import Section
 
 class SectionListView(ListView):
     allow_empty = True
@@ -37,6 +38,7 @@ class SectionListView(ListView):
     template_name = 'frontend/section-list.html'
 
     @xframe_options_exempt
+    @vary_on_headers('User-Agent')
     def get(self, request, *args, **kwargs):
         if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
             self.template_name = 'mobile/section-list.html'
