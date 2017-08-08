@@ -67,6 +67,13 @@
             </a>
         </fieldset>
     {% endif %}
+    <fieldset id="compatibility" style="background-color:#66B3FF">
+        <div>
+            <p>
+                <span style='color:white'></span>
+            </p>
+        </div>
+    </fieldset>
     <block>
         <p>
             {% trans "Version" %}: <strong>{{ package_info.c_version }}</strong>
@@ -185,6 +192,8 @@
 {% endblock %}
 {% block footerscript %}
     <script type="text/javascript">
+    $(function () {
+        // In Cydia
         if(navigator.userAgent.search(/Cydia/)!=-1) {
             $('#header').hide();
             $('#cydialink').hide();
@@ -192,6 +201,31 @@
             $('#downloadlink').hide();
             $('#id').hide()
         }
+
+        var os_compatibility = new Array();
+        var version = (navigator.userAgent.match(/.+(?:Version)[\/: ]([\d.]+)/) || [])[1];
+        var device = '{{ request.META.HTTP_X_MACHINE | default:"UNDEFINE" }}';
+        var device_type = '';
+         // Print os compatibility list as an array
+        {% for os in package_info.os_compatibility.all %}
+           os_compatibility[{{ forloop.counter }}] = '{{ os.descriptor }}';
+        {% endfor %}
+        // Print device compatibility list as a string
+        {% for device in package_info.device_compatibility.all %}
+            device_type += '{{ device.subtype }} ';
+        {% endfor %}
+        // Check os compatibility
+        if (device != "UNDEFINE") {
+            $('#compatibility').show();
+            if ($.inArray(version, os_compatibility) != -1 && device_type.search(device) != -1) {
+                $('#compatibility span').html("{% trans 'Your device supports this package' %}");
+            } else {
+                $('#compatibility span').html("{% trans "Your device doesn't support this package" %}");
+            }
+        } else {
+            $('#compatibility').hide();
+        }
+    })
     </script>
 {% endblock %}
-{% block page_name %}{{ package_info.c_package }}<br/>{{ package_info.c_section | default:"No Section" }}{% endblock %}
+{% block page_name %}{{ package_info.c_package }}<br/>{{ package_info.c_section | default:_("No Section") }}{% endblock %}

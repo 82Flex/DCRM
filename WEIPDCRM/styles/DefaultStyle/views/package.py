@@ -37,7 +37,7 @@ class PackageView(DetailView):
     template_name = 'frontend/package.html'
 
     @xframe_options_exempt
-    @vary_on_headers('User-Agent')
+    @vary_on_headers('User-Agent','X-MACHINE')
     def get(self, request, *args, **kwargs):
         if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
             action_name = self.kwargs.get('action_name')

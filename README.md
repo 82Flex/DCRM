@@ -17,7 +17,6 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 
 - 截图展示模块
 - 评论模块
-- 兼容性检查模块
 
 全局：
 
@@ -166,8 +165,8 @@ server {
     ssl_certificate /wwwdata/ssl/1_apt.82flex.com_bundle.crt;
     ssl_certificate_key /wwwdata/ssl/2_apt.82flex.com.key;
     ssl_session_timeout 5m;
-    ssl_protocols SSLv2 SSLv3 TLSv1;
-    ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers "EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5";
     ssl_prefer_server_ciphers on;
 
     server_name apt.82flex.com;
@@ -192,7 +191,7 @@ server {
         alias /wwwdata/DCRM/resources/$1;
     }
     
-    location ~^/((Release(.gpg)?)|(Packages(.gz|.bz2)?))$ {
+    location ~^/((CydiaIcon.png)|(Release(.gpg)?)|(Packages(.gz|.bz2)?))$ {
         alias /wwwdata/DCRM/resources/releases/$1;
     }
     
