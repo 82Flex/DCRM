@@ -244,7 +244,7 @@ def handle_uploaded_image(request, package_id):
             'id': package_id,
             'path': image_temp_path
         }
-        if settings.ENABLE_REDIS is False:
+        if settings.ENABLE_REDIS is True:
             queue = django_rq.get_queue('high')
             return queue.enqueue(handle_uploaded_screenshot, content)
         else:
@@ -418,7 +418,7 @@ def upload_screenshots_view(request, package_id):
                 if form.is_valid():
                     # Handle File
 
-                    if settings.ENABLE_REDIS is False:
+                    if settings.ENABLE_REDIS is True:
                         m_job = handle_uploaded_image(request, package_id)
                         result_dict.update({
                             'status': True,
@@ -460,7 +460,7 @@ def upload_screenshots_view(request, package_id):
             form = UploadForm(request.POST, request.FILES)
             if form.is_valid():
                 # Handle File
-                if settings.ENABLE_REDIS is False:
+                if settings.ENABLE_REDIS is True:
                     m_job = handle_uploaded_image(request, package_id)
                     job_id = m_job.id
                     msg = _('Upload succeed, proceeding...')
@@ -496,4 +496,5 @@ def upload_screenshots_view(request, package_id):
             'job_id': ''
         })
         template = 'admin/upload_image.html'
+
         return render(request, template, context)

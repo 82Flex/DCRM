@@ -70,16 +70,24 @@
                 </p>
             </div>
         {% endif %}
-        <div class="screenshot">
-            <h2>{% trans "Screenshot" %}</h2>
-            <div class="image">
-                <div class="image-wrapper">
-                    <ul>
-                        <!-- TODO: Screenshot Module -->
-                    </ul>
+        {% if gallery %}
+            <div class="screenshot">
+                <h2>{% trans "Screenshot" %}</h2>
+                <div class="image">
+                    <div class="image-wrapper">
+                        <ul>
+                            {% for photo in gallery.public %}
+                                <li>
+                                    <a href="{{ photo.get_absolute_url }}">
+                                        <img src="{{ photo.get_display_url }}" alt="{{ photo.title }}">
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
     </div>
     {% if settings.enable_comments %}
         <div class="comments" id="comments">

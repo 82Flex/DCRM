@@ -3,6 +3,10 @@
 
 {% block object-tools-items %}
     <li>
+        <a href="{% url 'screenshots_add' original.pk %}">
+            <i class="fa fa-fw fa-history"></i>{% trans "Upload Screenshot" %}</a>
+    </li>
+    <li>
         {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
         <a href="{% add_preserved_filters history_url %}" class="historylink">
             <i class="fa fa-fw fa-history"></i>{% trans "History" %}</a>

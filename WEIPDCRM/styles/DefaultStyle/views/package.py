@@ -27,6 +27,7 @@ from django.http import HttpResponseNotFound
 from django.views.generic import DetailView
 from django.views.decorators.vary import vary_on_headers
 from django.views.decorators.clickjacking import xframe_options_exempt
+from photologue.models import Gallery
 
 from WEIPDCRM.models.version import Version
 
@@ -61,6 +62,10 @@ class PackageView(DetailView):
         context = super(PackageView, self).get_context_data(**kwargs)
         package_id = self.kwargs.get('package_id')
         action_name = self.kwargs.get('action_name')
+        try:
+            context['gallery'] = Gallery.objects.get(title=package_id)
+        except Gallery.DoesNotExist:
+            context['gallery'] = ''
         if action_name == "history":
             version = Version.objects.get(id=package_id)
             version_list = Version.objects.filter(c_package=version.c_package, enabled=True).order_by("-created_at")

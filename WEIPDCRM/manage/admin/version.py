@@ -219,7 +219,6 @@ class VersionAdmin(admin.ModelAdmin):
         ('common', 'Common'),
         ('contact', 'Contact'),
         ('advanced', 'Advanced'),
-        ('screenshot', 'Screenshots'),
         ('file-system', 'File System'),
         ('others', 'Others'),
         ('statistics', 'Statistics')

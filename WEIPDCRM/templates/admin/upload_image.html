@@ -27,11 +27,15 @@
             </div>
             <div class="drop-list-area">
                 <ul id="drop-list"></ul>
+                <a href="javascript:;" onclick="javascript:history.back();"> &lt; {% trans "Edit package info" %}</a>
             </div>
         </div>
     </div>
     <script>
         (function ($) {
+            var nav = document.getElementById('suit-sub-nav');
+            nav.parentNode.removeChild(nav);
+
             var isUpload = false;
             var box = document.getElementById('drop-title');
             var finput = document.getElementById("id_image");
@@ -62,7 +66,7 @@
                                 if (d['job']['result']['success'] === true) {
                                     // Success, jump to version control
                                     var version_id = d['job']['result']['version'];
-                                    window.location.href = '../WEIPDCRM/version/' + version_id + '/change/';
+                                    window.location.href = '../../WEIPDCRM/version/' + version_id + '/change/';
                                 } else {
                                     alert("{% trans 'Exception: ' %}" + d['job']['result']['exception']);
                                     box_alert("{% trans 'An error occured.' %}");
@@ -128,7 +132,7 @@
                                 } else {
                                     if (single_file) {
                                         var version_id = this.response['job']['result']['version'];
-                                        window.location.href = '../WEIPDCRM/version/' + version_id + '/change/';
+                                        window.location.href = '../../WEIPDCRM/version/' + version_id + '/change/';
                                     }
                                 }
                             }
@@ -172,7 +176,7 @@
 
             function check_form(file_name) {
                 var extension = file_name.substring(file_name.lastIndexOf('.'), file_name.length).toLowerCase();
-                var allow_ext = new Array('.png','.jpg','.gif', '.PNG', '.JPG', '.GIF');
+                var allow_ext = new Array('.png','.jpg','.gif');
                 if(in_array(extension,allow_ext)){
                     return true;
                 }
@@ -278,3 +282,4 @@
         })(django.jQuery);
     </script>
 {% endblock %}
+
