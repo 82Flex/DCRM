@@ -1,57 +1,18 @@
-{% extends 'admin/change_form.html' %}
+{% extends 'admin/upload.html' %}
 
 {% load suit_forms admin_static i18n %}
-
-{% block extrastyle %}
-    {{ block.super }}
-    <style type="text/css">
-        .drop-area {
-            margin: 50px auto;
-            width: 500px;
-        }
-
-        #drop-title {
-            width: 100%;
-            height: 75pt;
-            border: 3px dashed silver;
-            color: #d3d3d3;
-            text-align: center;
-            font-size: 20px;
-            line-height: 75pt;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-    </style>
-{% endblock %}
-
-{% block extrahead %}
-    {{ block.super }}
-    <script type="text/javascript" src="{% static "admin/js/vendor/jquery/jquery.js" %}"></script>
-    <script type="text/javascript" src="{% static "admin/js/jquery.init.js" %}"></script>
-{% endblock %}
 
 {% block breadcrumbs %}
     <div class="breadcrumbs">
         <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> &rsaquo;
-        {% trans "Upload" %} &rsaquo; {% trans "New Package" %}
+        {% trans "Upload" %} &rsaquo; {% trans "Screenshots" %}
     </div>
 {% endblock %}
-
-{% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
 
 {% block content %}
     <div class="card">
         <div class="card-header">
-            {% trans "Upload New Package" %}
+            {% trans "Upload Screenshots" %}
         </div>
         <div class="card-block">
             <form style="display:none;" enctype="multipart/form-data" action="" method="post" id="upload_form"
@@ -62,7 +23,7 @@
                 <input type="submit">
             </form>
             <div class="drop-area">
-                <div id="drop-title">{% trans 'Debian Package (*.deb)' %}</div>
+                <div id="drop-title">{{ drop_title }}</div>
             </div>
             <div class="drop-list-area">
                 <ul id="drop-list"></ul>
@@ -73,7 +34,7 @@
         (function ($) {
             var isUpload = false;
             var box = document.getElementById('drop-title');
-            var finput = document.getElementById("id_package");
+            var finput = document.getElementById("id_image");
 
             function box_display(msg) {
                 box.style.color = "#D3D3D3";
@@ -132,7 +93,7 @@
                 xhr.open("POST", "", true);
                 var body = new FormData();
                 body.append("ajax", true);
-                body.append("package", file);
+                body.append("image", file);
                 body.append("csrfmiddlewaretoken", '{{ csrf_token }}');
                 var node = document.getElementById("file_id_" + current_index);
                 xhr.upload.onloadstart = function (e) {
@@ -200,12 +161,23 @@
                 xhr.send(body);
             }
 
-            function check_form(file_name) {
-                if (file_name.indexOf('.deb') === -1 || file_name.indexOf('.deb') !== file_name.length - 4) {
-                    box_alert("{% trans 'Only Debian Package (*.deb) is allowed.' %}");
-                    return false;
+            function in_array(str,arr) {
+                for (var i = 0, k = arr.length; i < k; i++) {
+                    if (str == arr[i]) {
+                        return true;
+                    }
                 }
-                return true;
+                return false;
+            }
+
+            function check_form(file_name) {
+                var extension = file_name.substring(file_name.lastIndexOf('.'), file_name.length).toLowerCase();
+                var allow_ext = new Array('.png','.jpg','.gif', '.PNG', '.JPG', '.GIF');
+                if(in_array(extension,allow_ext)){
+                    return true;
+                }
+                box_alert("{% trans 'Unsupported file extension.' %}");
+                return false;
             }
 
             $(document).on({
@@ -240,14 +212,14 @@
                 if (isUpload) {
                     return;
                 }
-                box_display("{% trans 'Debian Package (*.deb)' %}");
+                box_display("{{ drop_title }}");
             }, false);
             box.addEventListener("drop", function (e) {
                 e.preventDefault();
                 if (isUpload) {
                     return;
                 }
-                box_display("{% trans 'Debian Package (*.deb)' %}");
+                box_display("{{ drop_title }}");
                 var upload_list = [];
                 var file_list = e.dataTransfer.files;
                 // Check list

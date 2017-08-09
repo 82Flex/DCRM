@@ -23,23 +23,27 @@ from __future__ import unicode_literals
 import json
 import uuid
 import os
+import re, time
 
 from django.db import transaction
 from django.conf import settings
 from django.contrib import admin
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.sites.models import Site
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.utils.translation import ugettext as _
+from django.core.files.base import ContentFile
 
 from preferences import preferences
 
-from WEIPDCRM.forms.admin.upload import UploadForm
+from WEIPDCRM.forms.admin.upload import UploadForm, ImageForm
 from WEIPDCRM.models.debian_package import DebianPackage
 from WEIPDCRM.models.section import Section
 from WEIPDCRM.models.version import Version
 from WEIPDCRM.tools import mkdir_p
+from photologue.models import Gallery, Photo
 
 if settings.ENABLE_REDIS is True:
     import django_rq
@@ -143,6 +147,60 @@ def handle_uploaded_package(path):
         })
     return result_dict
 
+def handle_uploaded_screenshot(content):
+    """
+        :param content: Image info
+        :type content: dict
+        :return: Result Dict
+        :rtype: dict
+        """
+    result_dict = {}
+    try:
+        image_dir = os.path.join(settings.MEDIA_ROOT, 'photologue', 'photos')
+        if not os.path.isdir(image_dir):
+            mkdir_p(image_dir)
+        file_name = os.path.basename(content['path'])
+        target_path = os.path.join(image_dir, file_name)
+        with transaction.atomic():
+            id = content['id']
+            gallery = Gallery.objects.filter(title=id).last()
+            current_site = Site.objects.get(id=settings.SITE_ID)
+            p_version = Version.objects.get(id=id)
+            c_name = re.sub('[^A-Za-z]', '', p_version.c_name)  # Filter out Chinese
+            if gallery:
+                pass
+            else:
+                # create a new gallery
+                gallery = Gallery.objects.create(title=id,
+                                                 slug=c_name.lower(),
+                                                 description=p_version.c_depiction if p_version.c_depiction else 'None',
+                                                 is_public=1)
+                gallery.sites.add(current_site)
+            # save
+            #os.rename(content['path'], target_path)
+            photo = Photo(title=c_name.title()+'_'+str(int(time.time())),
+                          slug=c_name.lower()+'_'+str(int(time.time())),
+                          caption='',
+                          is_public=1)
+            data = open(content['path'])
+            contentfile = ContentFile(data.read())
+            photo.image.save(file_name, contentfile)
+            photo.save()
+            photo.sites.add(current_site)
+            gallery.photos.add(photo)
+            data.close()
+            result_dict.update({
+                "success": True,
+                "version": p_version.id
+            })
+    except Exception as e:
+        # error handler
+        result_dict.update({
+            "success": False,
+            "exception": unicode(e)
+        })
+    return result_dict
+
 
 def handle_uploaded_file(request):
     """
@@ -164,6 +222,40 @@ def handle_uploaded_file(request):
     else:
         return handle_uploaded_package(package_temp_path)
 
+
+def handle_uploaded_image(request, package_id):
+    """
+    :param request: Django Request
+    :type request: HttpRequest
+    """
+    i = request.FILES['image']
+    temp_root = settings.TEMP_ROOT
+    allow_ext = ['.png', '.jpg', '.gif']
+    ext = os.path.splitext(i.name)[1].lower()
+    if ext in allow_ext:
+        if not os.path.exists(temp_root):
+            mkdir_p(temp_root)
+        image_temp_path = os.path.join(temp_root, str(uuid.uuid1()) + ext)
+        with open(image_temp_path, 'wb+') as destination:
+            for chunk in i.chunks():
+                destination.write(chunk)
+        os.chmod(image_temp_path, 0755)
+        content = {
+            'id': package_id,
+            'path': image_temp_path
+        }
+        if settings.ENABLE_REDIS is False:
+            queue = django_rq.get_queue('high')
+            return queue.enqueue(handle_uploaded_screenshot, content)
+        else:
+            return handle_uploaded_screenshot(content)
+    else:
+        result_dict = {}
+        result_dict.update({
+            'success': False,
+            'exception': _('Upload failed, Unsupported file extension.')
+        })
+        return result_dict
 
 @staff_member_required
 def upload_version_view(request):
@@ -272,7 +364,7 @@ def upload_view(request):
             form = UploadForm()
             context = admin.site.each_context(request)
             context.update({
-                'title': _('Upload'),
+                'title': _('Upload New Packages'),
                 'form': form,
                 'job_id': job_id,
                 'msg': msg
@@ -283,9 +375,125 @@ def upload_view(request):
         form = UploadForm()
         context = admin.site.each_context(request)
         context.update({
-            'title': _('Upload'),
+            'title': _('Upload New Packages'),
             'form': form,
             'job_id': ''
         })
         template = 'admin/upload.html'
+        return render(request, template, context)
+
+@staff_member_required
+def upload_screenshots_view(request, package_id):
+    """
+    :param request: Django Request
+    :return: Http Response
+    """
+    if request.method == "POST":
+        # Save Images To Resource Base
+        if 'ajax' in request.POST and request.POST['ajax'] == 'true':
+            result_dict = {}
+            if 'job' in request.POST:
+                job_id = request.POST['job']
+                result_dict = {}
+                m_job = queues.get_queue('high').fetch_job(job_id)
+                if m_job is None:
+                    result_dict.update({
+                        'result': False,
+                        'msg': _('No such job'),
+                        'job': None
+                    })
+                else:
+                    result_dict.update({
+                        'result': True,
+                        'msg': '',
+                        'job': {
+                            'id': m_job.id,
+                            'is_failed': m_job.is_failed,
+                            'is_finished': m_job.is_finished,
+                            'result': m_job.result
+                        }
+                    })
+            else:
+                form = ImageForm(request.POST, request.FILES)
+                if form.is_valid():
+                    # Handle File
+
+                    if settings.ENABLE_REDIS is False:
+                        m_job = handle_uploaded_image(request, package_id)
+                        result_dict.update({
+                            'status': True,
+                            'msg': _('Upload succeed, proceeding...'),
+                            'job': {
+                                'id': m_job.id,
+                                'result': m_job.result
+                            }
+                        })
+                    else:
+                        m_result = handle_uploaded_image(request, package_id)
+                        succeed = m_result['success']
+                        if succeed:
+                            result_dict.update({
+                                'status': True,
+                                'msg': _('Upload succeed, proceeding...'),
+                                'job': {
+                                    'id': None,
+                                    'result': {
+                                        'version': m_result['version']
+                                    }
+                                }
+                            })
+                        else:
+                            result_dict.update({
+                                'status': False,
+                                'msg': m_result['exception'],
+                                'job': None
+                            })
+                else:
+                    result_dict.update({
+                        'status': False,
+                        'msg': _('Upload failed, invalid form.'),
+                        'job': None
+                    })
+            return HttpResponse(json.dumps(result_dict), content_type='application/json')
+        else:
+            # render upload result
+            form = UploadForm(request.POST, request.FILES)
+            if form.is_valid():
+                # Handle File
+                if settings.ENABLE_REDIS is False:
+                    m_job = handle_uploaded_image(request, package_id)
+                    job_id = m_job.id
+                    msg = _('Upload succeed, proceeding...')
+                else:
+                    m_result = handle_uploaded_image(request, package_id)
+                    if m_result["success"] is True:
+                        return redirect(Version.objects.get(id=int(m_result["version"])).get_admin_url())
+                    else:
+                        job_id = ''
+                        msg = m_result["exception"]
+            else:
+                job_id = ''
+                msg = _('Upload failed, invalid form.')
+            form = ImageForm()
+            context = admin.site.each_context(request)
+            context.update({
+                'title': _('Upload Screenshots'),
+                'form': form,
+                'job_id': job_id,
+                'msg': msg
+            })
+            template = 'admin/upload_image.html'
+            return render(request, template, context)
+    else:
+        version = Version.objects.get(id=int(package_id))
+        name = version.c_name
+        form = ImageForm()
+        context = admin.site.each_context(request)
+        context.update({
+            'title': _('Upload Screenshots'),
+            'form': form,
+            'drop_title': _('Upload Screeshots for %s') % name,
+            'job_id': ''
+        })
+        template = 'admin/upload_image.html'
         return render(request, template, context)

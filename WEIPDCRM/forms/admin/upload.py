@@ -28,3 +28,9 @@ class UploadForm(forms.Form):
     A simple form, just designed to receive and validate the package file.
     """
     package = forms.FileField()
+
+class ImageForm(forms.Form):
+    """
+    A simple form, just designed to receive and validate the image file.
+    """
+    image = forms.FileField()

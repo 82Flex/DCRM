@@ -208,17 +208,18 @@ class VersionAdmin(admin.ModelAdmin):
         ('History', {
             'classes': ('suit-tab suit-tab-statistics',),
             'fields': ['created_at', 'download_times']
-        }),
+        })
     ]
     suit_form_size = {
         'widgets': {
             'RedactorWidget': apps.SUIT_FORM_SIZE_X_LARGE,
-        },
+        }
     }
     suit_form_tabs = (
         ('common', 'Common'),
         ('contact', 'Contact'),
         ('advanced', 'Advanced'),
+        ('screenshot', 'Screenshots'),
         ('file-system', 'File System'),
         ('others', 'Others'),
         ('statistics', 'Statistics')
@@ -282,6 +283,6 @@ class VersionAdmin(admin.ModelAdmin):
                 'c_name',
                 'c_section'
             )
-    
+
     change_list_template = 'admin/version/change_list.html'
     change_form_template = 'admin/version/change_form.html'

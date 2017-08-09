@@ -50,6 +50,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^admin/upload/$', upload.upload_view, name='upload'),
     url(r'^admin/upload/version/$', upload.upload_version_view, name='version_add'),
+    url(r'^admin/upload/screenshots/(?P<package_id>\d+)/?$', upload.upload_screenshots_view, name='screenshots_add'),
     url(r'^admin/release/set-default/(?P<release_id>\d+)/?$', release.set_default_view, name='set_default_release'),
     url(r'^admin/help/about/$', about.about_view, name='help_about'),
     url(r'^admin/help/statistics/$', statistics.statistics_view, name='help_statistics'),
