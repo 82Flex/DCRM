@@ -95,18 +95,18 @@
                         <p>{{ package_info.rich_description }}</p>
                     {% endautoescape %}
                 </div>
+                <hr/>
                 {% if gallery %}
                     <div class="screenshot">
-                        <div class="image">
-                            <div class="image-wrapper">
-                                <ul>
-                                    {% for photo in gallery.public %}
-                                        <li>
-                                            <img src="{{ photo.get_display_url }}" alt="{{ photo.title }}">
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
+                        <h2>{% trans "Preview" %}</h2>
+                        <div class="image-wrapper">
+                            <ul>
+                                {% for photo in gallery.public %}
+                                    <li>
+                                        <img src="{{ photo.get_display_url }}" alt="{{ photo.title }}">
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         </div>
                     </div>
                 {% endif %}
@@ -201,11 +201,18 @@
             {% endif %}
         </fieldset>
     {% endif %}
-    <!--fieldset>
-        <div id="comments">
-            TODO: Comments Module
+    <fieldset>
+        <div id="foldcomments">
+            <p style="height: 21px;"><span class="cmsswitch" style="display: inline;">折叠评论</span></p>
         </div>
-    </fieldset-->
+        <div class="comments" id="comments">
+            {% load comments static threadedcomments_tags %}
+            <link rel="stylesheet" type="text/css" href="{% static 'fluent_comments/css/ajaxcomments.css' %}"/>
+            <script type="text/javascript" src="{% static 'fluent_comments/js/ajaxcomments.js' %}"></script>
+            {% render_comment_list for object %}
+            {% render_comment_form for object %}
+        </div>
+    </fieldset>
 {% endblock %}
 {% block footerscript %}
     <script type="text/javascript">
@@ -220,7 +227,7 @@
         }
 
         var width = $('#compatibility').width();
-        width = width*0.87;
+        width = width-30
         $('.image-wrapper').css('max-width',width+'px');
 
         var os_compatibility = new Array();

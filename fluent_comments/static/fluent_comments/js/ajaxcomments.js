@@ -307,7 +307,6 @@
     {
         var parent_id = data['parent_id'];
         var object_id = data['object_id'];
-        alert('p_id:'+parent_id+'  o_id:'+ object_id + ' td:'+data['use_threadedcomments'] + 'p_div_id:'+"#c" + parseInt(parent_id));
         var $parent;
         if(parent_id) {
             $parent = $($("#c" + parseInt(parent_id)).parent()).parent('li.comment-wrapper');

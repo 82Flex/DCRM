@@ -15,6 +15,20 @@ h4 {
   padding-left: 10px;
 }
 
+.comments label {
+  height: 20px
+}
+
+#div_id_name{
+  float: left;
+  width: 45%;
+}
+
+#div_id_email{
+  float: right;
+  width: 45%;
+}
+
 .comment-moderated-flag {
   font-variant: small-caps;
   margin-left: 5px;
@@ -23,6 +37,16 @@ h4 {
 #div_id_honeypot {
   /* Hide the honeypot from django_comments by default */
   display: none;
+}
+
+.comments .gravatar {
+    position: absolute;
+    width: 48px;
+}
+
+.comments .gravatar img {
+    width: 48px;
+    border-radius: 6px;
 }
 
 .comment-item{
@@ -46,8 +70,8 @@ h4 {
 
 .comments input {
   height: 40px;
-  width: 33.3333%;
   border: 1px solid #e5e7ec;
+  width: 100%;
   padding: 0 10px;
   -webkit-transition: all .3s ease;
   -moz-transition: all .3s ease;
@@ -106,6 +130,7 @@ h4 {
   padding: 10px 14px;
   line-height: 1.5;
   box-sizing: border-box;
+  border: 1px solid #e5e7ec;
   border-color: rgb(239, 239, 239);
   margin: 0px -1px 0px 0px;
   -webkit-appearance: none;

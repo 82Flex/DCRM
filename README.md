@@ -13,10 +13,6 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 
 ## TODOs 计划任务
 
-手机端：
-
-- 评论模块
-
 全局：
 
 - pdiff

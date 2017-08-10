@@ -456,10 +456,6 @@ img {
     line-height: 26px
 }
 
-.primary .article .screenshot {
-
-}
-
 .primary .article .screenshot .image {
     background: #f9f9f9;
     padding: 12px 0;
@@ -505,7 +501,7 @@ img {
 
 .primary .article .screenshot .image .image-wrapper li {
     display: inline-block;
-    padding: 0 22px 15px 4px;
+    padding: 0 10px 15px 4px;
     vertical-align: top;
     *display: inline;
     *zoom: 1;
@@ -521,8 +517,7 @@ img {
     border: 1px solid #FFF;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
     height: auto;
-    max-width: 480px;
-    max-height: 572px;
+    max-height: 400px;
     vertical-align: top;
 }
 
@@ -580,16 +575,6 @@ img {
     font-weight: 500;
     line-height: 18px;
     color: #474747;
-}
-
-.primary .content .comments .gravatar {
-    position: absolute;
-    width: 48px;
-}
-
-.primary .content .comments .gravatar img {
-    width: 48px;
-    border-radius: 6px;
 }
 
 .primary .chart {
@@ -668,7 +653,6 @@ img {
     width: 300px
 }
 
-/* Repo Description Widget Start */
 .primary .widget-area .repo-card {
     position: relative;
     padding: 20px 20px 20px;
@@ -728,8 +712,6 @@ img {
     font-size: 13px;
     padding: 0 15px 10px
 }
-
-/* Repo Description Widget End */
 
 .primary .widget-area .section_list {
     padding: 20px 20px 20px;
