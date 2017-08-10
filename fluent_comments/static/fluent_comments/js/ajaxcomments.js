@@ -13,7 +13,6 @@
         throw Error("jQuery needs to be loaded before ajaxcomments.js");
     }
 
-
     $(document).ready(function()
     {
         var commentform = $('form.js-comments-form');

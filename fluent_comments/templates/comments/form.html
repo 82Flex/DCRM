@@ -13,7 +13,11 @@
         {% block form_fields %}
           {% crispy form %}
         {% endblock %}
-
+          <script type="text/javascript">
+          $(function() {
+              $('.comments textarea').attr('placeholder','{% trans "Say something..." %}')
+          })
+          </script>
         {% block form_actions %}
           {% if not form.helper.inputs %}
             <div>

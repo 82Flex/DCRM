@@ -124,6 +124,7 @@ h4 {
 }
 
 .comments textarea {
+  font-size: 13px;
   display: block;
   height: 100px;
   width: 100%;
@@ -134,7 +135,7 @@ h4 {
   border-color: rgb(239, 239, 239);
   margin: 0px -1px 0px 0px;
   -webkit-appearance: none;
-  outline:none;
+  outline:none
 }
 /* ---- threaded comments ---- */
 

@@ -5,17 +5,19 @@
 {% block breadcrumbs %}
 <div class="breadcrumbs">
     <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> &rsaquo;
-    Help &rsaquo; Statistics
+    {% trans "Help" %} &rsaquo; {% trans "Statistics" %}
 </div>
 {% endblock %}
 
 {% block content %}
 <div class="card">
     <div class="card-header">
-        {% trans "Statistics" %}
+        {% trans "DataBase Status" %}
     </div>
     <div class="card-block">
-
+        {% for key,value in status.items %}
+            <p style="margin-bottom: 5px">{{ key }}: {{ value }}</p>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

@@ -17,12 +17,30 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-
+from __future__ import division
 from django.contrib import admin
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render
 from django.utils.translation import ugettext as _
 
+from django.db import connection, transaction
+
+def db_status():
+    cursor = connection.cursor()
+    status = {}
+    query = ['Queries','Uptime','Threads_running','Slow_queries','Flush_commands','Open_tables']
+
+    for key in query:
+        sql = ("SHOW STATUS LIKE '%s'") % key
+        cursor.execute(sql)
+        for (Variable_name, Value) in cursor:
+            status[Variable_name] = int(Value)
+    try:
+        status['QPS'] = round(status['Queries']/status['Uptime'],2)
+    except:
+        status['QPS'] = 0
+
+    return status
 
 @staff_member_required
 def statistics_view(request):
@@ -34,6 +52,7 @@ def statistics_view(request):
     context = admin.site.each_context(request)
     context.update({
         'title': _('Statistics'),
+        'status': db_status()
     })
 
     template = 'admin/help/statistics.html'
