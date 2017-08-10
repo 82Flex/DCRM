@@ -15,7 +15,6 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 
 手机端：
 
-- 截图展示模块
 - 评论模块
 
 全局：

@@ -1250,3 +1250,64 @@ p,input[type="password"],input[type="text"],select {
     background-size: 25px auto;
     vertical-align: middle;
 }
+
+.screenshot .image {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px
+}
+
+.screenshot .image .image-wrapper {
+    max-width: 370px;
+    overflow: auto;
+    overflow-y: hidden;
+	margin: 0 auto
+}
+
+.screenshot .image .image-wrapper::-webkit-scrollbar-track-piece {
+    background: #ececec;
+    border-radius: 4px;
+}
+
+.screenshot .image .image-wrapper::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+
+.screenshot .image .image-wrapper::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal {
+    background: #999;
+    border-radius: 4px;
+}
+
+.screenshot .image .image-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #20A4F1;
+}
+
+.screenshot .image .image-wrapper ul {
+    font-size: 0;
+    white-space: nowrap;
+    word-break: normal
+}
+
+.screenshot .image .image-wrapper li {
+    display: inline-block;
+    padding: 0 10px 15px 4px;
+    vertical-align: top;
+    *display: inline;
+    *zoom: 1;
+    *padding-bottom: 30px
+}
+
+.screenshot .image .image-wrapper li:last-child {
+    padding-right: 4px
+}
+
+.screenshot .image .image-wrapper img {
+    display: block;
+    border: 1px solid #FFF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    height: auto;
+    max-width: 320px;
+    max-height: 360px;
+    vertical-align: top
+}

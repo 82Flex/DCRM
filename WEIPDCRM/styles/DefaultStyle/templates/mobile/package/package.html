@@ -78,21 +78,38 @@
         <p>
             {% trans "Version" %}: <strong>{{ package_info.c_version }}</strong>
             {% if settings.download_count %}
-                | {% trans "Downloads" %}: <strong>{{ package_info.download_times }}</strong>
+                | {% trans "Download Times" %}: <strong>{{ package_info.download_times }}</strong>
             {% endif %}
         </p>
         <p>{% trans "Last Updated" %}: <strong>{{ package_info.created_at | date:"Y-m-d H:i:s" }}</strong></p>
-        {% if package_info.rich_description == '' and package_info.c_description %}
+        {% if package_info.c_description %}
             <hr/>
             <p>{{ package_info.c_description }}</p>
         {% endif %}
     </block>
-    {% if package_info.rich_description %}
+    {% if package_info.rich_description or gallery %}
         <fieldset>
-            <div id="rich_description">
-                {% autoescape off %}
-                    <p>{{ package_info.rich_description }}</p>
-                {% endautoescape %}
+            <div>
+                <div id="rich_description">
+                    {% autoescape off %}
+                        <p>{{ package_info.rich_description }}</p>
+                    {% endautoescape %}
+                </div>
+                {% if gallery %}
+                    <div class="screenshot">
+                        <div class="image">
+                            <div class="image-wrapper">
+                                <ul>
+                                    {% for photo in gallery.public %}
+                                        <li>
+                                            <img src="{{ photo.get_display_url }}" alt="{{ photo.title }}">
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </fieldset>
     {% endif %}
@@ -201,6 +218,10 @@
             $('#downloadlink').hide();
             $('#id').hide()
         }
+
+        var width = $('#compatibility').width();
+        width = width*0.87;
+        $('.image-wrapper').css('max-width',width+'px');
 
         var os_compatibility = new Array();
         var version = (navigator.userAgent.match(/.+(?:Version)[\/: ]([\d.]+)/) || [])[1];

@@ -78,9 +78,7 @@
                         <ul>
                             {% for photo in gallery.public %}
                                 <li>
-                                    <a href="{{ photo.get_absolute_url }}">
-                                        <img src="{{ photo.get_display_url }}" alt="{{ photo.title }}">
-                                    </a>
+                                    <img src="{{ photo.get_display_url }}" alt="{{ photo.title }}">
                                 </li>
                             {% endfor %}
                         </ul>
