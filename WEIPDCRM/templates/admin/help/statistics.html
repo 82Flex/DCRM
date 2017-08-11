@@ -15,9 +15,43 @@
         {% trans "DataBase Status" %}
     </div>
     <div class="card-block">
-        {% for key,value in status.items %}
+        {% for key,value in db_status.items %}
             <p style="margin-bottom: 5px">{{ key }}: {{ value }}</p>
         {% endfor %}
     </div>
 </div>
+<div class="card">
+    <div class="card-header">
+        {% trans "Repo Statistics" %}
+    </div>
+    <div class="card-block">
+    {% autoescape off %}
+        {% for key,value in stat.items %}
+            <p style="margin-bottom: 5px">{% trans key %}: {{ value }}</p>
+        {% endfor %}
+    {% endautoescape %}
+    </div>
+</div>
+<script type="text/javascript">
+function clean() {
+    if (confirm("{% trans "Are you sure to clean the cache?" %}")) {
+        var xhr = new XMLHttpRequest();
+        xhr.timeout = 30000
+        xhr.responseType = "json";
+        xhr.open("POST", "", true);
+        var body = new FormData();
+        body.append("action", "clean");
+        body.append("csrfmiddlewaretoken", '{{ csrf_token }}');
+        xhr.onload = function (e) {
+            if (this.status === 200) {
+                if (this.response['status'] === true) {
+                    alert('{% trans "Cache cleanup completed!" %}')
+                    window.location.reload()
+                }
+            }
+        }
+        xhr.send(body);
+    }
+}
+</script>
 {% endblock %}

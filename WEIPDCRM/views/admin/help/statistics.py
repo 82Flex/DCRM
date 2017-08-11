@@ -18,17 +18,26 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 from __future__ import division
+import os, collections, shutil,json
+from os.path import join, getsize
+
 from django.contrib import admin
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render
 from django.utils.translation import ugettext as _
-
+from django.http import HttpResponse
 from django.db import connection, transaction
+from django.db.models import Sum
+
+from DCRM.settings import MEDIA_ROOT,TEMP_ROOT
+
+from WEIPDCRM.models.version import Version
+from WEIPDCRM.models.section import Section
 
 def db_status():
     cursor = connection.cursor()
-    status = {}
-    query = ['Queries','Uptime','Threads_running','Slow_queries','Flush_commands','Open_tables']
+    status = collections.OrderedDict()
+    query = ['Uptime','Queries','Threads_running','Slow_queries','Flush_commands','Open_tables']
 
     for key in query:
         sql = ("SHOW STATUS LIKE '%s'") % key
@@ -42,6 +51,40 @@ def db_status():
 
     return status
 
+def statistics():
+    stat = collections.OrderedDict()
+    # Get download pool size
+    version_path = os.path.join(MEDIA_ROOT, 'versions')
+    download_pool_size = getdirsize(version_path)
+
+    stat['Number of packages'] = Version.objects.count()
+    stat['Number of enabled packages'] = Version.objects.filter(enabled=1).count()
+    stat['Number of sections'] = Section.objects.count()
+    stat['Total download times'] = Version.objects.aggregate(Sum('download_times'))['download_times__sum']
+    stat['Temp pool size'] = nicesize(getdirsize(TEMP_ROOT)) + ' <a href="javascript:;" onclick="clean()">'+_("Clean")+"</a>"
+    stat['Download pool size'] = nicesize(download_pool_size)
+    stat['Total resource size'] = nicesize(getdirsize(MEDIA_ROOT))
+    return stat
+
+def getdirsize(dir):
+   size = 0L
+   for root, dirs, files in os.walk(dir):
+      size += sum([getsize(join(root, name)) for name in files])
+   return size
+
+def nicesize(size):
+    """
+    Convert the given byteCount into a string like: 233 bytes/KB/MB/GB
+    """
+    for (cutoff, label) in [(1024 * 1024 * 1024, "GB"),(1024 * 1024, "MB"),(1024, "KB")]:
+        if size >= cutoff:
+            return "%.1f %s" % (size * 1.0 / cutoff, label)
+    if size == 1:
+        return "1 byte"
+    else:
+        bytes = "%.1f" % (size or 0,)
+        return (bytes[:-2] if bytes.endswith('.0') else bytes) + ' bytes'
+
 @staff_member_required
 def statistics_view(request):
     """
@@ -49,11 +92,22 @@ def statistics_view(request):
     :return: Django HttpResponse
     :rtype: HttpResponse
     """
-    context = admin.site.each_context(request)
-    context.update({
-        'title': _('Statistics'),
-        'status': db_status()
-    })
+    if request.method == 'GET':
+        context = admin.site.each_context(request)
+        context.update({
+            'title': _('Statistics'),
+            'db_status': db_status(),
+            'stat': statistics()
 
-    template = 'admin/help/statistics.html'
-    return render(request, template, context)
+        })
+
+        template = 'admin/help/statistics.html'
+        return render(request, template, context)
+    else:
+        if 'action' in request.POST and request.POST['action'] == 'clean':
+            shutil.rmtree(TEMP_ROOT)
+            os.mkdir(TEMP_ROOT)
+            result_dict = {'status': True}
+            return HttpResponse(json.dumps(result_dict), content_type='application/json')
+
+
