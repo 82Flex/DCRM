@@ -1,6 +1,9 @@
 h4 {
   font-size: 15px;
 }
+input,textarea {
+  border-radius: 6px;
+}
 #comment-waiting {
   line-height: 16px;
 }
@@ -19,16 +22,6 @@ h4 {
   height: 20px
 }
 
-#div_id_name{
-  float: left;
-  width: 45%;
-}
-
-#div_id_email{
-  float: right;
-  width: 45%;
-}
-
 .comment-moderated-flag {
   font-variant: small-caps;
   margin-left: 5px;
@@ -41,22 +34,21 @@ h4 {
 
 .comments .gravatar {
     position: absolute;
-    width: 48px;
 }
 
 .comments .gravatar img {
-    width: 48px;
+    width: 46px;
     border-radius: 6px;
 }
 
 .comment-item{
   min-height: 48px;
   position: relative;
-  margin-left: 64px
+  margin-left: 58px
 }
 
 .comment-item span {
-  padding-left: 6px;
+  padding-left: 3px;
   color: #A8A8A8;
   font-size: 12px;
   font-style: normal
@@ -71,7 +63,7 @@ h4 {
 .comments input {
   height: 40px;
   border: 1px solid #e5e7ec;
-  width: 100%;
+  width: 50%;
   padding: 0 10px;
   -webkit-transition: all .3s ease;
   -moz-transition: all .3s ease;
@@ -123,10 +115,10 @@ h4 {
   color: #fff;
 }
 
-.comments textarea {
+.comments textarea,.textarea {
   font-size: 13px;
   display: block;
-  height: 100px;
+  height: 110px;
   width: 100%;
   padding: 10px 14px;
   line-height: 1.5;
@@ -135,41 +127,64 @@ h4 {
   border-color: rgb(239, 239, 239);
   margin: 0px -1px 0px 0px;
   -webkit-appearance: none;
-  outline:none
+  outline:none;
+  -webkit-user-select: auto;
 }
 /* ---- threaded comments ---- */
+ul.comment-list-wrapper:only-child {
+  /* to avoid touching our own "ul" tags, our tags are explicitly decorated with a class selector */
+  border-bottom: 1px solid #eceef1;
+  padding-bottom:15px!important;
+}
 
 ul.comment-list-wrapper {
   /* to avoid touching our own "ul" tags, our tags are explicitly decorated with a class selector */
   margin-left: 0;
   padding-left: 0;
-  margin-bottom: 20px;
   border-bottom: 1px solid #eceef1;
-  padding-bottom: 20px;
+  padding: 15px 0 15px;
+}
+
+ul.comment-list-wrapper:last-child {
+  /* to avoid touching our own "ul" tags, our tags are explicitly decorated with a class selector */
+  border-bottom: 1px solid #eceef1;
+  padding-bottom:15px;
 }
 
 ul.comment-list-wrapper ul.comment-list-wrapper {
-  margin-left: 1em;
+  margin-left: 46px;
   padding-left: 0;
-  border: 1px solid #E4E4E4;
-  border-radius: 2px;
-  background-color: #fbfbfb;
-  margin-top: 15px;
-  padding: 12px;
+  padding: 12px 0 0;
+  border-bottom:none
 }
 
+ul.comment-list-wrapper ul.comment-list-wrapper:last-child {
+  border-bottom: none;
+}
+ul.comment-list-wrapper ul.comment-list-wrapper .comments-context {
+  padding: 12px 0 0;
+}
 ul.comment-list-wrapper ul.comment-list-wrapper li.comment-wrapper {
   margin-bottom: 15px;
+  border-top: 1px solid #eceef1;
 }
 
 ul.comment-list-wrapper ul.comment-list-wrapper li.comment-wrapper:last-child {
   margin-bottom: 0;
 }
 
+ul.comment-list-wrapper ul.comment-list-wrapper ul.comment-list-wrapper {
+  margin-left: 0;
+}
+
 li.comment-wrapper {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
+}
+
+.js-comments-form-orig-position {
+  margin-top: 15px;
 }
 
 .js-comments-form-orig-position .comment-cancel-reply-link {

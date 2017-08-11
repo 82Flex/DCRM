@@ -1,6 +1,11 @@
 {% extends "frontend/base.html" %}
 {% load i18n staticfiles %}
 {% block title %}{% trans "Package" %} {{ package_info.c_name | default:_("Untitled Package") }} | DCRM{% endblock %}
+{% block stylesheet %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static "frontend/css/font-awesome.min.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "frontend/css/emoji.css" %}"/>
+{% endblock %}
 {% block headerscript %}
     {{ block.super }}
     <script type="text/javascript" src="{% static 'frontend/js/masonry.pkgd.min.js' %}"></script>
@@ -94,6 +99,10 @@
                 {% load comments static threadedcomments_tags %}
                 <link rel="stylesheet" type="text/css" href="{% static 'fluent_comments/css/ajaxcomments.css' %}"/>
                 <script type="text/javascript" src="{% static 'fluent_comments/js/ajaxcomments.js' %}"></script>
+                <script src="{% static 'frontend/js/config.js' %}"></script>
+                <script src="{% static 'frontend/js/util.js' %}"></script>
+                <script src="{% static 'frontend/js/jquery.emojiarea.js' %}"></script>
+                <script src="{% static 'frontend/js/emoji-picker.js' %}"></script>
                 {% render_comment_list for object %}
                 {% render_comment_form for object %}
             </div>
@@ -101,4 +110,29 @@
     {% endif %}
 {% endblock %}
 {% block latest_comments %}
+{% endblock %}
+{% block footerscript %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.comments textarea').attr('data-emojiable','true');
+            $('.comments textarea').attr('data-emoji-input','unicode');
+            $('.controls.col-sm-10').css('position','relative');
+        });
+        $(function() {
+            $('.comments textarea').attr('placeholder','{% trans "Say something..." %}');
+            // Initializes and creates emoji set from sprite sheet
+            window.emojiPicker = new EmojiPicker({
+              assetsPath: '{% static 'frontend/img' %}',
+              emojiable_selector: '[data-emojiable=true]',
+              popupButtonClasses: 'fa fa-smile-o'
+            });
+            // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+            // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+            // It can be called as many times as necessary; previously converted input fields will not be converted again
+            window.emojiPicker.discover();
+            $('.comments textarea').onclick(function() {
+              $('.comments textarea').onfocus;
+            })
+        })
+    </script>
 {% endblock %}

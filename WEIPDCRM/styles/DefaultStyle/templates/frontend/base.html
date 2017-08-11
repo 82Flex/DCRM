@@ -100,8 +100,7 @@
                                     {% else %}
                                         <img src="{% static 'frontend/img/default-package-icon.png' %}"/>
                                     {% endif %}
-                                    <span class="title"><a
-                                            href="{% url "section_id" section.id %}">{{ section.name }}</a></span>
+                                    <span class="title"><a href="{% url "section_id" section.id %}">{{ section.name }}</a></span>
                                 </div>
                             </li>
                         {% endfor %}
@@ -155,6 +154,7 @@
         <!--TODO: Comments Module-->
     {% endif %}
 {% endblock %}
+{% block footerscript %}{% endblock %}
 </body>
 </html>
 

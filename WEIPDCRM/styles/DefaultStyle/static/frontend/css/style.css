@@ -64,7 +64,7 @@ img {
     box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.08);
     position: fixed;
     top: 0;
-    z-index: 20;
+    z-index: 999999999;
 }
 
 .header .nav {
@@ -458,7 +458,7 @@ img {
 
 .primary .article .screenshot .image {
     background: #f9f9f9;
-    padding: 12px 0;
+    padding: 5px 0px 12px;
     width: 100%;
     -webkit-border-radius: 10px;
     margin-top: 15px;
@@ -561,7 +561,7 @@ img {
 }
 
 .primary .content .comments {
-    padding: 20px 30px;
+    padding: 30px 30px;
     margin-top: 30px;
     border-radius: 6px;
     background-color: #fff;
@@ -714,20 +714,27 @@ img {
 }
 
 .primary .widget-area .section_list {
-    padding: 20px 20px 20px;
+    padding: 20px;
     border-radius: 6px;
     background-color: #fff;
     box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
     margin-bottom: 20px;
 }
 
-.primary .widget-area .section_list ul {
-    margin-left: 18px;
-    margin-top: 36px;
+.primary .widget-area .section_list .list {
+    padding-top: 8px;
 }
 
-.primary .widget-area .section_list li {
-    margin-bottom: 16px;
+.primary .widget-area .section_list .list ul {
+    padding: 18px;
+}
+
+.primary .widget-area .section_list .list li {
+    padding-bottom: 16px;
+}
+
+.primary .widget-area .section_list .list li:last-child {
+    padding-bottom: 0;
 }
 
 .primary .widget-area .section_list h2 {
@@ -736,7 +743,7 @@ img {
     font-size: 15px
 }
 
-.primary .widget-area .section_list i {
+.primary .widget-area .section_list .list i {
     float: left;
     margin-left: -26px;
     width: 20px;
@@ -746,11 +753,11 @@ img {
     font-size: 14px
 }
 
-.primary .widget-area .section_list .icon {
+.primary .widget-area .section_list .list .icon {
     height: 48px
 }
 
-.primary .widget-area .section_list .icon img {
+.primary .widget-area .section_list .list .icon img {
     width: 48px;
     height: 48px;
     float: left;

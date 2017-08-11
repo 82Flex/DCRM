@@ -90,12 +90,14 @@
     {% if package_info.rich_description or gallery %}
         <fieldset>
             <div>
-                <div id="rich_description">
-                    {% autoescape off %}
-                        <p>{{ package_info.rich_description }}</p>
-                    {% endautoescape %}
-                </div>
-                <hr/>
+                {% if package_info.rich_descrition %}
+                    <div id="rich_description">
+                        {% autoescape off %}
+                            <p>{{ package_info.rich_description }}</p>
+                        {% endautoescape %}
+                    </div>
+                    <hr/>
+                {% endif %}
                 {% if gallery %}
                     <div class="screenshot">
                         <h2>{% trans "Preview" %}</h2>
@@ -201,18 +203,20 @@
             {% endif %}
         </fieldset>
     {% endif %}
-    <fieldset>
-        <div id="foldcomments">
-            <p style="height: 21px;"><span class="cmsswitch" style="display: inline;">折叠评论</span></p>
-        </div>
-        <div class="comments" id="comments">
-            {% load comments static threadedcomments_tags %}
-            <link rel="stylesheet" type="text/css" href="{% static 'fluent_comments/css/ajaxcomments.css' %}"/>
-            <script type="text/javascript" src="{% static 'fluent_comments/js/ajaxcomments.js' %}"></script>
-            {% render_comment_list for object %}
-            {% render_comment_form for object %}
-        </div>
-    </fieldset>
+    {% if settings.enable_comments %}
+        <fieldset>
+            <div id="foldcomments">
+                <p><span class="cmsswitch" style="display: inline;">{% trans "Fold Comments" %}</span></p>
+            </div>
+            <div class="comments" id="comments">
+                {% load comments static threadedcomments_tags %}
+                <link rel="stylesheet" type="text/css" href="{% static 'fluent_comments/css/ajaxcomments.css' %}"/>
+                <script type="text/javascript" src="{% static 'fluent_comments/js/ajaxcomments.js' %}"></script>
+                {% render_comment_list for object %}
+                {% render_comment_form for object %}
+            </div>
+        </fieldset>
+    {% endif %}
 {% endblock %}
 {% block footerscript %}
     <script type="text/javascript">
@@ -230,6 +234,20 @@
         width = width-30
         $('.image-wrapper').css('max-width',width+'px');
 
+        var comments = $("#comments");
+        var cmsswitch = $(".cmsswitch");
+        $("#foldcomments").click(function(){
+            cmsswitch.fadeOut(400);
+            if(comments.css("display")=="none"){
+                comments.slideDown(800);
+                setTimeout(function(){cmsswitch.html('{% trans "Fold Comments" %}').fadeIn(400);}, 400);
+            } else {
+                comments.slideUp(800);
+                setTimeout(function(){cmsswitch.html('{% trans "Unfold Comments" %}').fadeIn(400);}, 400);
+            }
+        });
+        $('.comments textarea').attr('placeholder','{% trans "Say something..." %}');
+        
         var os_compatibility = new Array();
         var version = (navigator.userAgent.match(/.+(?:Version)[\/: ]([\d.]+)/) || [])[1];
         var device = '{{ request.META.HTTP_X_MACHINE | default:"UNDEFINE" }}';

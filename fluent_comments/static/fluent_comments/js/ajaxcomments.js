@@ -165,10 +165,12 @@
         var $a = $(this);
         var comment_id = $a.attr('data-comment-id');
         var $comment = $a.closest('.comment-item');
+        var at = $($a.parent()).find("p").text();
 
         removeThreadedPreview();
         $('.js-comments-form').appendTo($comment);
         $($comment.find('#id_parent')[0]).val(comment_id);
+        $($comment.find('#id_comment')[0]).val('@'+at+' ');
     }
 
 
