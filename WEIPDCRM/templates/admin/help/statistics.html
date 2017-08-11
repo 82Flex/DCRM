@@ -36,7 +36,7 @@
 function clean() {
     if (confirm("{% trans "Are you sure to clean the cache?" %}")) {
         var xhr = new XMLHttpRequest();
-        xhr.timeout = 30000
+        xhr.timeout = 30000;
         xhr.responseType = "json";
         xhr.open("POST", "", true);
         var body = new FormData();
