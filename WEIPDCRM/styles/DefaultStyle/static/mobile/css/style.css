@@ -1317,10 +1317,14 @@ p,input[type="password"],input[type="text"],select {
 }
 
 .comments {
-	padding: 10px 25px!important;
+	padding: 0 25px 15px!important;
 	border-bottom: none !important;
 }
 
 .clear {
     clear: both
+}
+
+.external_statistics {
+    display: none;
 }

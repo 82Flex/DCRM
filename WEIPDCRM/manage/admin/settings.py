@@ -21,9 +21,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from __future__ import unicode_literals
 
 from preferences.admin import PreferencesAdmin
+from django.forms import ModelForm
+from suit.widgets import AutosizedTextarea
+from suit_redactor.widgets import RedactorWidget
 
-
+class SettingsForm(ModelForm):
+    class Meta(object):
+        widgets = {
+            'notice': RedactorWidget,
+            'advertisement': RedactorWidget,
+            'external_statistics': AutosizedTextarea,
+            'internal_statistics': AutosizedTextarea
+        }
 class SettingsAdmin(PreferencesAdmin):
+    form = SettingsForm
     fieldsets = [
         ('General', {
             'classes': ('suit-tab suit-tab-common',),
@@ -37,13 +48,18 @@ class SettingsAdmin(PreferencesAdmin):
         # Frontend
         ('Display', {
             'classes': ('suit-tab suit-tab-frontend',),
-            'fields': ['advanced_mode', 'version_history', 'enable_comments', 'favicon']
+            'fields': ['advanced_mode', 'version_history', 'enable_comments', 'favicon',
+                       'notice', 'advertisement']
         }),
         ('Social', {
             'classes': ('suit-tab suit-tab-frontend',),
-            'fields': ['display_social', 'qq_group_name',
-                       'qq_group_url', 'weibo_name',
-                       'weibo_url', 'alipay_url']
+            'fields': ['display_social', 'qq_group_name', 'qq_group_url',
+                       'weibo_name', 'weibo_url',  'alipay_url', 'twitter_name',
+                       'twitter_url', 'facebook_name', 'facebook_url', 'paypal_url']
+        }),
+        ('Statistics',{
+            'classes': ('suit-tab suit-tab-frontend',),
+            'fields': ['external_statistics', 'internal_statistics']
         }),
         ('Footer', {
             'classes': ('suit-tab suit-tab-frontend',),

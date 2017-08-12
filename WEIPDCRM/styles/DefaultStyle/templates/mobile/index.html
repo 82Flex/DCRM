@@ -153,25 +153,5 @@
             </a>
     {% endif %}
     </fieldset>
-    <label>{% trans "Source Info" %}</label>
-    <fieldset class="source">
-        <a href="/" class="">
-            <img class="icon" src="{{ settings.active_release.icon_link }}">
-            <div>
-                <div>
-                    <label>
-                        <p id="source-name">
-                            {{ settings.active_release.origin | default:_("Untitled Origin") }}
-                        </p>
-                    </label>
-                </div>
-            </div>
-        </a>
-        <div class="source-description" id="source-description">
-            <p>
-                {{ settings.active_release.description | default:_("No description.") }}
-            </p>
-        </div>
-    </fieldset>
 {% endblock %}
 {% block page_name %}{% trans "Home" %}{% endblock %}

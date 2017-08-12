@@ -44,11 +44,11 @@
             </ul>
         </div>
         {% block search %}
-            <div id="search" class="search">
+            <div class="search">
                 <form id="search-form" method="post" action="{% url 'search' %}">{% csrf_token %}
-                    <input class="search-input" id="search-input" style="display: none" name="package"
+                    <input class="search-input" name="package"
                            placeholder="{% trans "Search packages" %}" autofocus/>
-                    <div class="fa fa-search search-btn" id="icon" onclick="show_search()"></div>
+                    <div class="fa fa-search search-btn"></div>
                 </form>
             </div>
         {% endblock %}
@@ -156,6 +156,15 @@
     {% endif %}
 {% endblock %}
 {% block footerscript %}{% endblock %}
+{% block statistics %}
+    {% if settings.external_statistics %}
+        <div class="external_statistics">
+        {% autoescape off %}
+          {{ settings.external_statistics }}
+        {% endautoescape %}
+        </div>
+    {% endif %}
+{% endblock %}
 </body>
 </html>
 

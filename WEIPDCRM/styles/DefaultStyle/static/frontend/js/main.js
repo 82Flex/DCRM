@@ -15,21 +15,23 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-function show_search() {
-    $("#search-form").show();
-    $("#search-input").show();
-    $("#icon").attr("onclick", "do_search()");
-    $(".links").hide();
-}
-
-function do_search() {
-    var input = $("#search-input").val();
-    if (input == "" || input == "null" || input == "NULL") {
-        $("#search-input").hide();
-        $("#icon").attr("onclick", "show_search()");
-        $(".links").show();
-    } else {
-        $("#search-form").submit();
-    }
-}
+$(function() {
+    $(".search-btn").click(function() {
+        var $input =  $(".search-input");
+        if ($(".search").hasClass("active")) {
+            var value = $(".search-input").val();
+            if (value == "" || value == "null" || value == "NULL") {
+                $(".search").removeClass("active");
+                $input.hide();
+                $(".links").show();
+            } else {
+                $("#search-form").submit();
+            }
+        } else {
+            $("#search-form").show();
+            $input.show();
+            $(".search").addClass("active");
+            $(".links").hide();
+        }
+    });
+});

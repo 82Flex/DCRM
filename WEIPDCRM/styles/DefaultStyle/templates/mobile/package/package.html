@@ -82,10 +82,8 @@
             {% endif %}
         </p>
         <p>{% trans "Last Updated" %}: <strong>{{ package_info.created_at | date:"Y-m-d H:i:s" }}</strong></p>
-        {% if package_info.c_description %}
             <hr/>
-            <p>{{ package_info.c_description }}</p>
-        {% endif %}
+            <p>{{ package_info.c_description | default:_("No description.") }}</p>
     </block>
     {% if package_info.rich_description or gallery %}
         <fieldset>

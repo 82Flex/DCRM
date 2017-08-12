@@ -29,6 +29,9 @@
         {% for key,value in stat.items %}
             <p style="margin-bottom: 5px">{% trans key %}: {{ value }}</p>
         {% endfor %}
+        {% if settings.internal_statistics %}
+          {{ settings.internal_statistics }}
+        {% endif %}
     {% endautoescape %}
     </div>
 </div>

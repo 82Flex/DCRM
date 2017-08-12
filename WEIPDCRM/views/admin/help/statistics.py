@@ -28,6 +28,7 @@ from django.utils.translation import ugettext as _
 from django.http import HttpResponse
 from django.db import connection, transaction
 from django.db.models import Sum
+from preferences import preferences
 
 from DCRM.settings import MEDIA_ROOT,TEMP_ROOT
 
@@ -97,7 +98,8 @@ def statistics_view(request):
         context.update({
             'title': _('Statistics'),
             'db_status': db_status(),
-            'stat': statistics()
+            'stat': statistics(),
+            'settings': preferences.Setting
 
         })
 

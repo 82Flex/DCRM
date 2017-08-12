@@ -282,6 +282,39 @@ class Setting(Preferences):
         null=True,
         blank=True
     )
+    twitter_name = models.CharField(
+        verbose_name=_("Twitter Name"),
+        max_length=128,
+        null=True,
+        blank=True
+    )
+    twitter_url = models.URLField(
+        verbose_name=_("Twitter URL"),
+        help_text=_("Display Twitter link on the package info page."),
+        max_length=255,
+        null=True,
+        blank=True
+    )
+    facebook_name = models.CharField(
+        verbose_name=_("Facebook Name"),
+        max_length=128,
+        null=True,
+        blank=True
+    )
+    facebook_url = models.URLField(
+        verbose_name=_("Facebook URL"),
+        help_text=_("Display Facebook link on the package info page."),
+        max_length=255,
+        null=True,
+        blank=True
+    )
+    paypal_url = models.URLField(
+        verbose_name=_("Paypal URL"),
+        help_text=_("Display \"Donate via Paypal\" link on the package info page."),
+        max_length=255,
+        null=True,
+        blank=True
+    )
     copyright_year = models.PositiveIntegerField(
         verbose_name=_("Starting Year of Copyright"),
         help_text=_("Leave blank to display current year."),
@@ -315,6 +348,35 @@ class Setting(Preferences):
         blank=True,
         null=True,
     )
+    notice = models.TextField(
+        verbose_name=_("Notice"),
+        blank=True,
+        null=True,
+        default="",
+        help_text=_("HTML Displayed on the frontend widget and the auto depiction page (mobile).")
+    )
+    advertisement = models.TextField(
+        verbose_name=_("Advertisement"),
+        blank=True,
+        null=True,
+        default="",
+        help_text=_("HTML Displayed on the frontend widget and the auto depiction page (mobile).")
+    )
+    external_statistics = models.TextField(
+        verbose_name=_("External Statistics"),
+        blank=True,
+        null=True,
+        default="",
+        help_text=_("Invisible statistic code.")
+    )
+    internal_statistics = models.TextField(
+        verbose_name=_("Internal Statistics"),
+        blank=True,
+        null=True,
+        default="",
+        help_text=_("Statistics code of view information at statistics page.")
+    )
+
     def get_external_favicon_link(self):
         if not self.favicon:
             return None
