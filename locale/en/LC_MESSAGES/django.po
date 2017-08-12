@@ -1,0 +1,436 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-12 22:14+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: django_rq/templates/django_rq/clear_queue.html:19
+#: django_rq/templates/django_rq/confirm_action.html:19
+#: django_rq/templates/django_rq/delete_job.html:19
+#: django_rq/templates/django_rq/job_detail.html:21
+#: django_rq/templates/django_rq/jobs.html:27
+#: django_rq/templates/django_rq/requeue_all.html:19
+#: django_rq/templates/django_rq/stats.html:9 suit/menu.py:105
+#: suit/templates/registration/password_change_form.html:7
+msgid "Home"
+msgstr ""
+
+#: django_rq/templates/django_rq/clear_queue.html:20
+#: django_rq/templates/django_rq/confirm_action.html:20
+#: django_rq/templates/django_rq/delete_job.html:20
+#: django_rq/templates/django_rq/index.html:13
+#: django_rq/templates/django_rq/job_detail.html:22
+#: django_rq/templates/django_rq/jobs.html:28
+#: django_rq/templates/django_rq/requeue_all.html:20
+#: django_rq/templates/django_rq/stats.html:10 django_rq/views.py:61
+msgid "Django RQ"
+msgstr ""
+
+#: django_rq/templates/django_rq/clear_queue.html:26
+#: django_rq/templates/django_rq/confirm_action.html:26
+#: django_rq/templates/django_rq/delete_job.html:27
+#: django_rq/templates/django_rq/requeue_all.html:26
+msgid "Are you sure?"
+msgstr ""
+
+#: django_rq/templates/django_rq/clear_queue.html:32
+#, python-format
+msgid ""
+"Are you sure you want to clear the queue %(queue_name)s?\n"
+"        This action can not be undone."
+msgstr ""
+
+#: django_rq/templates/django_rq/clear_queue.html:38
+#: django_rq/templates/django_rq/confirm_action.html:46
+#: django_rq/templates/django_rq/delete_job.html:39
+#: django_rq/templates/django_rq/requeue_all.html:38
+msgid "Yes, I'm sure"
+msgstr ""
+
+#: django_rq/templates/django_rq/confirm_action.html:32
+#, python-format
+msgid ""
+"Are you sure you want to <b>%(cap_action)s</b> the selected jobs from "
+"%(queue.name)s? These jobs are selected:"
+msgstr ""
+
+#: django_rq/templates/django_rq/delete_job.html:33
+#, python-format
+msgid ""
+"Are you sure you want to delete %(job_id)s from %(queue_name)s?\n"
+"        This action can not be undone."
+msgstr ""
+
+#: django_rq/templates/django_rq/index.html:18
+msgid "Queues"
+msgstr ""
+
+#: django_rq/templates/django_rq/job_detail.html:28
+msgid "Job Info"
+msgstr ""
+
+#: django_rq/templates/django_rq/job_detail.html:35
+#: django_rq/templates/django_rq/jobs.html:69
+msgid "ID"
+msgstr ""
+
+#: django_rq/templates/django_rq/job_detail.html:39
+msgid "Queue"
+msgstr ""
+
+#: django_rq/templates/django_rq/job_detail.html:43
+msgid "Timeout"
+msgstr ""
+
+#: django_rq/templates/django_rq/job_detail.html:47
+msgid "Result TTL"
+msgstr ""
+
+#: django_rq/templates/django_rq/job_detail.html:51
+msgid "Created At"
+msgstr ""
+
+#: django_rq/templates/django_rq/job_detail.html:55
+msgid "Enqueued At"
+msgstr ""
+
+#: django_rq/templates/django_rq/job_detail.html:59
+#: django_rq/templates/django_rq/jobs.html:72
+msgid "Status"
+msgstr ""
+
+#: django_rq/templates/django_rq/job_detail.html:63
+#: django_rq/templates/django_rq/jobs.html:73
+msgid "Callable"
+msgstr ""
+
+#: django_rq/templates/django_rq/job_detail.html:67
+msgid "Args"
+msgstr ""
+
+#: django_rq/templates/django_rq/job_detail.html:81
+msgid "Kwargs"
+msgstr ""
+
+#: django_rq/templates/django_rq/job_detail.html:95
+msgid "Exception"
+msgstr ""
+
+#: django_rq/templates/django_rq/job_detail.html:101
+msgid "Result"
+msgstr ""
+
+#: django_rq/templates/django_rq/jobs.html:33
+#, python-format
+msgid "%(job_status)s jobs in %(queue_name)s"
+msgstr ""
+
+#: django_rq/templates/django_rq/jobs.html:40 django_rq/views.py:326
+msgid "Requeue All"
+msgstr ""
+
+#: django_rq/templates/django_rq/jobs.html:42
+msgid "Empty Queue"
+msgstr ""
+
+#: django_rq/templates/django_rq/jobs.html:48
+msgid "Actions:"
+msgstr ""
+
+#: django_rq/templates/django_rq/jobs.html:51
+msgid "Delete"
+msgstr ""
+
+#: django_rq/templates/django_rq/jobs.html:53
+msgid "Requeue"
+msgstr ""
+
+#: django_rq/templates/django_rq/jobs.html:57
+msgid "Go"
+msgstr ""
+
+#: django_rq/templates/django_rq/jobs.html:70
+msgid "Created"
+msgstr ""
+
+#: django_rq/templates/django_rq/jobs.html:71
+msgid "Enqueued"
+msgstr ""
+
+#: django_rq/templates/django_rq/jobs.html:106
+#, python-format
+msgid "%(num_jobs)s jobs"
+msgstr ""
+
+#: django_rq/templates/django_rq/requeue_all.html:32
+#, python-format
+msgid ""
+"Are you sure you want to requeue all %(t_job)s job%(t_jobs)s in the queue "
+"%(queue_name)s?\n"
+"        This action can not be undone."
+msgstr ""
+
+#: django_rq/templates/django_rq/stats.html:23
+msgid "Name"
+msgstr ""
+
+#: django_rq/templates/django_rq/stats.html:24
+msgid "Queued Jobs"
+msgstr ""
+
+#: django_rq/templates/django_rq/stats.html:25
+msgid "Active Jobs"
+msgstr ""
+
+#: django_rq/templates/django_rq/stats.html:26 django_rq/views.py:210
+msgid "Deferred Jobs"
+msgstr ""
+
+#: django_rq/templates/django_rq/stats.html:27 django_rq/views.py:128
+msgid "Finished Jobs"
+msgstr ""
+
+#: django_rq/templates/django_rq/stats.html:28
+msgid "Number of Workers"
+msgstr ""
+
+#: django_rq/templates/django_rq/stats.html:29
+msgid "Host"
+msgstr ""
+
+#: django_rq/templates/django_rq/stats.html:30
+msgid "Port"
+msgstr ""
+
+#: django_rq/templates/django_rq/stats.html:31
+msgid "DB"
+msgstr ""
+
+#: django_rq/views.py:87
+msgid "Jobs"
+msgstr ""
+
+#: django_rq/views.py:94
+msgid "Queued"
+msgstr ""
+
+#: django_rq/views.py:135
+msgid "Finished"
+msgstr ""
+
+#: django_rq/views.py:169
+msgid "Started Jobs"
+msgstr ""
+
+#: django_rq/views.py:176
+msgid "Started"
+msgstr ""
+
+#: django_rq/views.py:217
+msgid "Deferred"
+msgstr ""
+
+#: django_rq/views.py:229
+#, python-format
+msgid "Couldn't find job with this ID: %s"
+msgstr ""
+
+#: django_rq/views.py:233
+msgid "Job Detail"
+msgstr ""
+
+#: django_rq/views.py:251
+#, python-format
+msgid "You have successfully deleted %s"
+msgstr ""
+
+#: django_rq/views.py:256
+msgid "Delete Job"
+msgstr ""
+
+#: django_rq/views.py:272
+#, python-format
+msgid "You have successfully requeued %s"
+msgstr ""
+
+#: django_rq/views.py:291
+#, python-format
+msgid "You have successfully cleared the queue %s"
+msgstr ""
+
+#: django_rq/views.py:295
+msgid ""
+"This action is not supported on Redis versions < 2.6.0, please use the bulk "
+"delete command instead"
+msgstr ""
+
+#: django_rq/views.py:303
+msgid "Clear Queue"
+msgstr ""
+
+#: django_rq/views.py:321
+#, python-format
+msgid "You have successfully requeued all %d jobs!"
+msgstr ""
+
+#: django_rq/views.py:360
+#, python-format
+msgid "You have successfully deleted %s jobs!"
+msgstr ""
+
+#: django_rq/views.py:364
+#, python-format
+msgid "You have successfully requeued %d jobs!"
+msgstr ""
+
+#: suit/admin_filters.py:6
+msgid "Is present"
+msgstr ""
+
+#: suit/admin_filters.py:7
+msgid "Is Null"
+msgstr ""
+
+#: suit/admin_filters.py:21
+msgid "All"
+msgstr ""
+
+#: suit/templates/admin/auth/user/add_form.html:8
+msgid ""
+"First, enter a username and password. Then, you'll be able to edit more user "
+"options."
+msgstr ""
+
+#: suit/templates/admin/auth/user/add_form.html:10
+msgid "Enter a username and password."
+msgstr ""
+
+#: suit/templates/admin/auth/user/change_password.html:11
+#: suit/templates/admin/login.html:9
+#: suit/templates/registration/password_change_form.html:21
+msgid "Please correct the error below."
+msgstr ""
+
+#: suit/templates/admin/auth/user/change_password.html:11
+#: suit/templates/admin/login.html:10
+#: suit/templates/registration/password_change_form.html:21
+msgid "Please correct the errors below."
+msgstr ""
+
+#: suit/templates/admin/auth/user/change_password.html:15
+#, python-format
+msgid "Enter a new password for the user <strong>%(username)s</strong>."
+msgstr ""
+
+#: suit/templates/admin/auth/user/change_password.html:35
+#: suit/templates/admin/base.html:55
+msgid "Change password"
+msgstr ""
+
+#: suit/templates/admin/base.html:13
+msgid "Django site admin"
+msgstr ""
+
+#: suit/templates/admin/base.html:18 suit/templates/admin/base.html:97
+msgid "Django administration"
+msgstr ""
+
+#: suit/templates/admin/base.html:19
+msgid "Admin"
+msgstr ""
+
+#: suit/templates/admin/base.html:43
+msgid "View site"
+msgstr ""
+
+#: suit/templates/admin/base.html:50
+msgid "Documentation"
+msgstr ""
+
+#: suit/templates/admin/base.html:58
+msgid "Log out"
+msgstr ""
+
+#: suit/templates/admin/change_list.html:9
+msgid "Filter"
+msgstr ""
+
+#: suit/templates/admin/change_list_results.html:17
+msgid "Remove from sorting"
+msgstr ""
+
+#: suit/templates/admin/change_list_results.html:18
+#, python-format
+msgid "Sorting priority: %(priority_number)s"
+msgstr ""
+
+#: suit/templates/admin/change_list_results.html:19
+msgid "Toggle sorting"
+msgstr ""
+
+#: suit/templates/admin/login.html:26
+#, python-format
+msgid ""
+"You are authenticated as %(username)s, but are not authorized to access this "
+"page. Would you like to login to a different account?"
+msgstr ""
+
+#: suit/templates/admin/login.html:47
+msgid "Forgotten your password or username?"
+msgstr ""
+
+#: suit/templates/admin/login.html:51
+msgid "Log in"
+msgstr ""
+
+#: suit/templates/registration/password_change_form.html:8
+msgid "Password change"
+msgstr ""
+
+#: suit/templates/registration/password_change_form.html:26
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+
+#: suit/templates/registration/password_change_form.html:54
+msgid "Change my password"
+msgstr ""
+
+#: suit/templates/suit/search_form.html:15
+msgid "Search"
+msgstr ""
+
+#: suit/templates/suit/search_form.html:17
+#, python-format
+msgid ""
+"%(counter)s result\n"
+"                        "
+msgid_plural "%(counter)s results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: suit/templates/suit/search_form.html:20
+#, python-format
+msgid ""
+"%(full_result_count)s total\n"
+"                        "
+msgstr ""
+
+#: suit/templates/suit/search_form.html:21
+msgid "Show all"
+msgstr ""

@@ -1,6 +1,13 @@
 h4 {
   font-size: 15px;
 }
+
+.comment_name {
+  float: left
+}
+.comment-reply-link {
+    font-size: 14px;
+}
 input,textarea {
   border-radius: 6px;
 }

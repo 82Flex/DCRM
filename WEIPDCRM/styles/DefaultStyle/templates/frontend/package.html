@@ -6,10 +6,6 @@
     <link rel="stylesheet" type="text/css" href="{% static "frontend/css/font-awesome.min.css" %}"/>
     <link rel="stylesheet" type="text/css" href="{% static "frontend/css/emoji.css" %}"/>
 {% endblock %}
-{% block headerscript %}
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'frontend/js/masonry.pkgd.min.js' %}"></script>
-{% endblock %}
 {% block breadcrumbs %}
     <i class="fa fa-home"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a>
     {% if package_info.c_section %}
@@ -112,6 +108,7 @@
 {% block latest_comments %}
 {% endblock %}
 {% block footerscript %}
+    {{ block.super }}
     <script type="text/javascript">
         $(document).ready(function() {
             $('.comments textarea').attr('data-emojiable','true');
@@ -130,9 +127,6 @@
             // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
             // It can be called as many times as necessary; previously converted input fields will not be converted again
             window.emojiPicker.discover();
-            $('.comments textarea').onclick(function() {
-              $('.comments textarea').onfocus;
-            })
         })
     </script>
 {% endblock %}

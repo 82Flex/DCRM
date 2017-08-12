@@ -26,7 +26,7 @@
               <h4>
                 {% block comment_title %}
                   {% if comment.url %}<a href="{{ comment.url }}" rel="nofollow">{% endif %}
-                  {% if comment.name %}<p>{{ comment.name }}</p>{% else %}{% trans "Anonymous" %}{% endif %}{% comment %}
+                  {% if comment.name %}<p class="comment_name">{{ comment.name }}</p>{% else %}{% trans "Anonymous" %}{% endif %}{% comment %}
                   {% endcomment %}{% if comment.url %}</a>{% endif %}
                   <span class="comment-date">{% blocktrans with submit_date=comment.submit_date %}on {{ submit_date }}{% endblocktrans %}</span>
                   {% if not comment.is_public %}<span class="comment-moderated-flag">({% trans "moderated" %})</span>{% endif %}

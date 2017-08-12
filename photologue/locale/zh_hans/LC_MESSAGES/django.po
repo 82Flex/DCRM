@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-03 23:02+0200\n"
+"POT-Creation-Date: 2017-08-12 22:14+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -180,83 +180,83 @@ msgstr ""
 msgid "The photos have been added to gallery \"{0}\"."
 msgstr ""
 
-#: photologue/models.py:116
+#: photologue/models.py:114
 msgid "Very Low"
 msgstr ""
 
-#: photologue/models.py:117
+#: photologue/models.py:115
 msgid "Low"
 msgstr ""
 
-#: photologue/models.py:118
+#: photologue/models.py:116
 msgid "Medium-Low"
 msgstr ""
 
-#: photologue/models.py:119
+#: photologue/models.py:117
 msgid "Medium"
 msgstr ""
 
-#: photologue/models.py:120
+#: photologue/models.py:118
 msgid "Medium-High"
 msgstr ""
 
-#: photologue/models.py:121
+#: photologue/models.py:119
 msgid "High"
 msgstr ""
 
-#: photologue/models.py:122
+#: photologue/models.py:120
 msgid "Very High"
 msgstr ""
 
-#: photologue/models.py:127
+#: photologue/models.py:125
 msgid "Top"
 msgstr ""
 
-#: photologue/models.py:128
+#: photologue/models.py:126
 msgid "Right"
 msgstr ""
 
-#: photologue/models.py:129
+#: photologue/models.py:127
 msgid "Bottom"
 msgstr ""
 
-#: photologue/models.py:130
+#: photologue/models.py:128
 msgid "Left"
 msgstr ""
 
-#: photologue/models.py:131
+#: photologue/models.py:129
 msgid "Center (Default)"
 msgstr ""
 
-#: photologue/models.py:135
+#: photologue/models.py:133
 msgid "Flip left to right"
 msgstr ""
 
-#: photologue/models.py:136
+#: photologue/models.py:134
 msgid "Flip top to bottom"
 msgstr ""
 
-#: photologue/models.py:137
+#: photologue/models.py:135
 msgid "Rotate 90 degrees counter-clockwise"
 msgstr ""
 
-#: photologue/models.py:138
+#: photologue/models.py:136
 msgid "Rotate 90 degrees clockwise"
 msgstr ""
 
-#: photologue/models.py:139
+#: photologue/models.py:137
 msgid "Rotate 180 degrees"
 msgstr ""
 
-#: photologue/models.py:143
+#: photologue/models.py:141
 msgid "Tile"
 msgstr ""
 
-#: photologue/models.py:144
+#: photologue/models.py:142
 msgid "Scale"
 msgstr ""
 
-#: photologue/models.py:154
+#: photologue/models.py:152
 #, python-format
 msgid ""
 "Chain multiple filters using the following pattern \"FILTER_ONE->FILTER_TWO-"
@@ -264,294 +264,294 @@ msgid ""
 "filters are available: %s."
 msgstr ""
 
-#: photologue/models.py:178
+#: photologue/models.py:176
 msgid "date published"
 msgstr ""
 
-#: photologue/models.py:180 photologue/models.py:524
+#: photologue/models.py:178 photologue/models.py:522
 msgid "title"
 msgstr ""
 
-#: photologue/models.py:183
+#: photologue/models.py:181
 msgid "title slug"
 msgstr ""
 
-#: photologue/models.py:186 photologue/models.py:530
+#: photologue/models.py:184 photologue/models.py:528
 msgid "A \"slug\" is a unique URL-friendly title for an object."
 msgstr ""
 
-#: photologue/models.py:187 photologue/models.py:602
+#: photologue/models.py:185 photologue/models.py:600
 msgid "description"
 msgstr ""
 
-#: photologue/models.py:189 photologue/models.py:535
+#: photologue/models.py:187 photologue/models.py:533
 msgid "is public"
 msgstr ""
 
-#: photologue/models.py:191
+#: photologue/models.py:189
 msgid "Public galleries will be displayed in the default views."
 msgstr ""
 
-#: photologue/models.py:195 photologue/models.py:547
+#: photologue/models.py:193 photologue/models.py:545
 msgid "photos"
 msgstr ""
 
-#: photologue/models.py:197 photologue/models.py:538
+#: photologue/models.py:195 photologue/models.py:536
 msgid "sites"
 msgstr ""
 
-#: photologue/models.py:205
+#: photologue/models.py:203
 msgid "gallery"
 msgstr ""
 
-#: photologue/models.py:206
+#: photologue/models.py:204
 msgid "galleries"
 msgstr ""
 
-#: photologue/models.py:243
+#: photologue/models.py:241
 msgid "count"
 msgstr ""
 
-#: photologue/models.py:259 photologue/models.py:743
+#: photologue/models.py:257 photologue/models.py:741
 msgid "image"
 msgstr ""
 
-#: photologue/models.py:262
+#: photologue/models.py:260
 msgid "date taken"
 msgstr ""
 
-#: photologue/models.py:265
+#: photologue/models.py:263
 msgid "Date image was taken; is obtained from the image EXIF data."
 msgstr ""
 
-#: photologue/models.py:266
+#: photologue/models.py:264
 msgid "view count"
 msgstr ""
 
-#: photologue/models.py:269
+#: photologue/models.py:267
 msgid "crop from"
 msgstr ""
 
-#: photologue/models.py:278
+#: photologue/models.py:276
 msgid "effect"
 msgstr ""
 
-#: photologue/models.py:297
+#: photologue/models.py:295
 msgid "An \"admin_thumbnail\" photo size has not been defined."
 msgstr ""
 
-#: photologue/models.py:305
+#: photologue/models.py:303
 msgid "Thumbnail"
 msgstr ""
 
-#: photologue/models.py:527
+#: photologue/models.py:525
 msgid "slug"
 msgstr ""
 
-#: photologue/models.py:531
+#: photologue/models.py:529
 msgid "caption"
 msgstr ""
 
-#: photologue/models.py:533
+#: photologue/models.py:531
 msgid "date added"
 msgstr ""
 
-#: photologue/models.py:537
+#: photologue/models.py:535
 msgid "Public photographs will be displayed in the default views."
 msgstr ""
 
-#: photologue/models.py:546
+#: photologue/models.py:544
 msgid "photo"
 msgstr ""
 
-#: photologue/models.py:599 photologue/models.py:775
+#: photologue/models.py:597 photologue/models.py:773
 msgid "name"
 msgstr ""
 
-#: photologue/models.py:674
+#: photologue/models.py:672
 msgid "rotate or flip"
 msgstr ""
 
-#: photologue/models.py:678 photologue/models.py:706
+#: photologue/models.py:676 photologue/models.py:704
 msgid "color"
 msgstr ""
 
-#: photologue/models.py:680
+#: photologue/models.py:678
 msgid ""
 "A factor of 0.0 gives a black and white image, a factor of 1.0 gives the "
 "original image."
 msgstr ""
 
-#: photologue/models.py:682
+#: photologue/models.py:680
 msgid "brightness"
 msgstr ""
 
-#: photologue/models.py:684
+#: photologue/models.py:682
 msgid ""
 "A factor of 0.0 gives a black image, a factor of 1.0 gives the original "
 "image."
 msgstr ""
 
-#: photologue/models.py:686
+#: photologue/models.py:684
 msgid "contrast"
 msgstr ""
 
-#: photologue/models.py:688
+#: photologue/models.py:686
 msgid ""
 "A factor of 0.0 gives a solid grey image, a factor of 1.0 gives the original "
 "image."
 msgstr ""
 
-#: photologue/models.py:690
+#: photologue/models.py:688
 msgid "sharpness"
 msgstr ""
 
-#: photologue/models.py:692
+#: photologue/models.py:690
 msgid ""
 "A factor of 0.0 gives a blurred image, a factor of 1.0 gives the original "
 "image."
 msgstr ""
 
-#: photologue/models.py:694
+#: photologue/models.py:692
 msgid "filters"
 msgstr ""
 
-#: photologue/models.py:698
+#: photologue/models.py:696
 msgid "size"
 msgstr ""
 
-#: photologue/models.py:700
+#: photologue/models.py:698
 msgid ""
 "The height of the reflection as a percentage of the orignal image. A factor "
 "of 0.0 adds no reflection, a factor of 1.0 adds a reflection equal to the "
 "height of the orignal image."
 msgstr ""
 
-#: photologue/models.py:703
+#: photologue/models.py:701
 msgid "strength"
 msgstr ""
 
-#: photologue/models.py:705
+#: photologue/models.py:703
 msgid "The initial opacity of the reflection gradient."
 msgstr ""
 
-#: photologue/models.py:709
+#: photologue/models.py:707
 msgid ""
 "The background color of the reflection gradient. Set this to match the "
 "background color of your page."
 msgstr ""
 
-#: photologue/models.py:713 photologue/models.py:819
+#: photologue/models.py:711 photologue/models.py:817
 msgid "photo effect"
 msgstr ""
 
-#: photologue/models.py:714
+#: photologue/models.py:712
 msgid "photo effects"
 msgstr ""
 
-#: photologue/models.py:745
+#: photologue/models.py:743
 msgid "style"
 msgstr ""
 
-#: photologue/models.py:749
+#: photologue/models.py:747
 msgid "opacity"
 msgstr ""
 
-#: photologue/models.py:751
+#: photologue/models.py:749
 msgid "The opacity of the overlay."
 msgstr ""
 
-#: photologue/models.py:754
+#: photologue/models.py:752
 msgid "watermark"
 msgstr ""
 
-#: photologue/models.py:755
+#: photologue/models.py:753
 msgid "watermarks"
 msgstr ""
 
-#: photologue/models.py:779
+#: photologue/models.py:777
 msgid ""
 "Photo size name should contain only letters, numbers and underscores. "
 "Examples: \"thumbnail\", \"display\", \"small\", \"main_page_widget\"."
 msgstr ""
 
-#: photologue/models.py:786
+#: photologue/models.py:784
 msgid "width"
 msgstr ""
 
-#: photologue/models.py:789
+#: photologue/models.py:787
 msgid ""
 "If width is set to \"0\" the image will be scaled to the supplied height."
 msgstr ""
 
-#: photologue/models.py:790
+#: photologue/models.py:788
 msgid "height"
 msgstr ""
 
-#: photologue/models.py:793
+#: photologue/models.py:791
 msgid ""
 "If height is set to \"0\" the image will be scaled to the supplied width"
 msgstr ""
 
-#: photologue/models.py:794
+#: photologue/models.py:792
 msgid "quality"
 msgstr ""
 
-#: photologue/models.py:797
+#: photologue/models.py:795
 msgid "JPEG image quality."
 msgstr ""
 
-#: photologue/models.py:798
+#: photologue/models.py:796
 msgid "upscale images?"
 msgstr ""
 
-#: photologue/models.py:800
+#: photologue/models.py:798
 msgid ""
 "If selected the image will be scaled up if necessary to fit the supplied "
 "dimensions. Cropped sizes will be upscaled regardless of this setting."
 msgstr ""
 
-#: photologue/models.py:804
+#: photologue/models.py:802
 msgid "crop to fit?"
 msgstr ""
 
-#: photologue/models.py:806
+#: photologue/models.py:804
 msgid ""
 "If selected the image will be scaled and cropped to fit the supplied "
 "dimensions."
 msgstr ""
 
-#: photologue/models.py:808
+#: photologue/models.py:806
 msgid "pre-cache?"
 msgstr ""
 
-#: photologue/models.py:810
+#: photologue/models.py:808
 msgid "If selected this photo size will be pre-cached as photos are added."
 msgstr ""
 
-#: photologue/models.py:811
+#: photologue/models.py:809
 msgid "increment view count?"
 msgstr ""
 
-#: photologue/models.py:813
+#: photologue/models.py:811
 msgid ""
 "If selected the image's \"view_count\" will be incremented when this photo "
 "size is displayed."
 msgstr ""
 
-#: photologue/models.py:824
+#: photologue/models.py:822
 msgid "watermark image"
 msgstr ""
 
-#: photologue/models.py:828
+#: photologue/models.py:826
 msgid "photo size"
 msgstr ""
 
-#: photologue/models.py:829
+#: photologue/models.py:827
 msgid "photo sizes"
 msgstr ""
 
-#: photologue/models.py:846
+#: photologue/models.py:844
 msgid "Can only crop photos if both width and height dimensions are set."
 msgstr ""
 

@@ -13,6 +13,14 @@
         {% block form_fields %}
           {% crispy form %}
         {% endblock %}
+          <script type="text/javascript">
+          $(document).ready(function () {
+              $asterisk = "<span class=\"asteriskField\">*</span>";
+              $('#div_id_name label').html('{% trans "Name" %}'+$asterisk);
+              $('#div_id_email label').html('{% trans "Email" %}'+$asterisk);
+              $('#div_id_comment label').html('{% trans "Comment" %}'+$asterisk);
+          })
+          </script>
         {% block form_actions %}
           {% if not form.helper.inputs %}
             <div>

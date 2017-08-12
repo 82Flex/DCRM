@@ -12,7 +12,7 @@
             {% blocktrans %}<strong>{{ packages_num }}</strong> packages in this section.{% endblocktrans %}
         </p>
         <p>
-            {% trans "Created at: " %}<strong>{{ c_section.created_at | date:"Y-m-d H:i:s" }}</strong>
+            {% trans "Created at" %}: <strong>{{ c_section.created_at | date:"Y-m-d H:i:s" }}</strong>
         </p>
     </block>
     {% include "mobile/grid-list.html" %}

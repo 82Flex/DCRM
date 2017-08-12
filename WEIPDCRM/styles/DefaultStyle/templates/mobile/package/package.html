@@ -247,7 +247,7 @@
             }
         });
         $('.comments textarea').attr('placeholder','{% trans "Say something..." %}');
-        
+
         var os_compatibility = new Array();
         var version = (navigator.userAgent.match(/.+(?:Version)[\/: ]([\d.]+)/) || [])[1];
         var device = '{{ request.META.HTTP_X_MACHINE | default:"UNDEFINE" }}';

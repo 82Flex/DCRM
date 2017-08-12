@@ -458,7 +458,7 @@ img {
 
 .primary .article .screenshot .image {
     background: #f9f9f9;
-    padding: 5px 0px 12px;
+    padding: 5px 0px 3px;
     width: 100%;
     -webkit-border-radius: 10px;
     margin-top: 15px;
@@ -514,8 +514,7 @@ img {
 
 .primary .article .screenshot .image .image-wrapper img {
     display: block;
-    border: 1px solid #FFF;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    border-radius: 3px;
     height: auto;
     max-height: 400px;
     vertical-align: top;
