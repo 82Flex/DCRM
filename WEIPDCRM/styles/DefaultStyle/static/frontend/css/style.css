@@ -657,6 +657,12 @@ img {
     width: 300px
 }
 
+.primary .widget-area h2 {
+    color: #444;
+    font-weight: 300;
+    font-size: 15px
+}
+
 .primary .widget-area .repo-card {
     position: relative;
     padding: 20px 20px 20px;
@@ -715,6 +721,23 @@ img {
     text-align: center;
     font-size: 13px;
     padding: 0 15px 10px
+}
+
+.primary .widget-area .notice {
+    position: relative;
+    padding: 20px 20px 20px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
+    margin-bottom: 30px
+}
+
+.primary .widget-area .notice .notice-content {
+    position: relative;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #444;
+    font-weight: 400
 }
 
 .primary .widget-area .section_list {

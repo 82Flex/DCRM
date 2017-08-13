@@ -26,7 +26,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render
 from django.utils.translation import ugettext as _
 from django.http import HttpResponse
-from django.db import connection, transaction
+from django.db import connection
 from django.db.models import Sum
 from preferences import preferences
 
@@ -107,9 +107,21 @@ def statistics_view(request):
         return render(request, template, context)
     else:
         if 'action' in request.POST and request.POST['action'] == 'clean':
-            shutil.rmtree(TEMP_ROOT)
-            os.mkdir(TEMP_ROOT)
-            result_dict = {'status': True}
-            return HttpResponse(json.dumps(result_dict), content_type='application/json')
+            result_dict = {}
+            try:
+                if (os.path.exists(TEMP_ROOT)):
+                    shutil.rmtree(TEMP_ROOT)
+                    os.mkdir(TEMP_ROOT)
+                else:
+                    os.mkdir(TEMP_ROOT)
+                result_dict = {'status': True}
+                return HttpResponse(json.dumps(result_dict), content_type='application/json')
+            except Exception as e:
+                # error handler
+                result_dict.update({
+                    "success": False,
+                    "exception": unicode(e)
+                })
+                return HttpResponse(json.dumps(result_dict), content_type='application/json')
 
 

@@ -86,6 +86,18 @@
                 {% endif %}
             </div>
         </div>
+        {% block notice %}
+            {% if settings.notice %}
+            <div class="notice">
+                <h2>{% trans "Notice" %}</h2>
+                <div class="notice-content">
+                    {% autoescape off %}
+                        {{ settings.notice }}
+                    {% endautoescape %}
+                </div>
+            </div>
+            {% endif %}
+        {% endblock %}
         {% section_list %}
         {% block section_list %}
             <div class="section_list">
@@ -112,16 +124,13 @@
                 </div>
             </div>
         {% endblock %}
-        {% block latest_comments %}
-            {% if settings.comments %}
-                <div class="comments">
-                    <div class="title">
-                        <h2>{% trans "Latest Comments" %}</h2>
-                    </div>
-                    <div class="list">
-                        <!--TODO: Comments Module-->
-                    </div>
-                </div>
+        {% block ad %}
+            {% if settings.advertisement %}
+            <div class="advertisement">
+                {% autoescape off %}
+                    {{ settings.advertisement }}
+                {% endautoescape %}
+            </div>
             {% endif %}
         {% endblock %}
     </div>
@@ -149,11 +158,6 @@
             </li>
         </ul>
     </div>
-{% endblock %}
-{% block comments %}
-    {% if settings.comments %}
-        <!--TODO: Comments Module-->
-    {% endif %}
 {% endblock %}
 {% block footerscript %}{% endblock %}
 {% block statistics %}

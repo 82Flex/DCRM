@@ -199,6 +199,42 @@
                     </div>
                 </a>
             {% endif %}
+            {% if settings.twitter_name and settings.twitter_url %}
+                <a href="{{ settings.weibo_url }}" target="_blank">
+                    <img class="icon" src="{% static "mobile/img/twitter.png" %}">
+                    <div>
+                        <div>
+                            <label>
+                                <p>{{ settings.twitter_name }}</p>
+                            </label>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if settings.facebook_name and settings.facebook_url %}
+                <a href="{{ settings.weibo_url }}" target="_blank">
+                    <img class="icon" src="{% static "mobile/img/facebook.png" %}">
+                    <div>
+                        <div>
+                            <label>
+                                <p>{{ settings.weibo_name }}</p>
+                            </label>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+            {% if settings.paypal_url %}
+                <a href="{{ settings.paypal_url }}" target="_blank">
+                    <img class="icon" src="{% static "mobile/img/paypal.png" %}">
+                    <div>
+                        <div>
+                            <label>
+                                <p>{% trans "Donate via Paypal" %}</p>
+                            </label>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
         </fieldset>
     {% endif %}
     {% if settings.enable_comments %}
