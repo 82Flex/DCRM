@@ -23,13 +23,17 @@ Notice: You have used class-based views, that's awesome.
 """
 
 from __future__ import unicode_literals
+from django.conf import settings
 from django.http import HttpResponseNotFound
 from django.views.generic import DetailView
 from django.views.decorators.vary import vary_on_headers
 from django.views.decorators.clickjacking import xframe_options_exempt
-from photologue.models import Gallery
 
 from WEIPDCRM.models.version import Version
+
+if settings.ENABLE_SCREENSHOT is True:
+    from photologue.models import Gallery
+
 
 class PackageView(DetailView):
     model = Version

@@ -23,7 +23,8 @@ from __future__ import unicode_literals
 import json
 import uuid
 import os
-import re, time
+import re
+import time
 
 from django.db import transaction
 from django.conf import settings
@@ -43,7 +44,9 @@ from WEIPDCRM.models.debian_package import DebianPackage
 from WEIPDCRM.models.section import Section
 from WEIPDCRM.models.version import Version
 from WEIPDCRM.tools import mkdir_p
-from photologue.models import Gallery, Photo
+
+if settings.ENABLE_SCREENSHOT is True:
+    from photologue.models import Gallery, Photo
 
 if settings.ENABLE_REDIS is True:
     import django_rq
