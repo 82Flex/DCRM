@@ -171,6 +171,7 @@
         $('.js-comments-form').appendTo($comment);
         $($comment.find('#id_parent')[0]).val(comment_id);
         $($comment.find('#id_comment')[0]).val('@'+at+' ');
+        $($comment.find('.emoji-wysiwyg-editor')[0]).html('@'+at);
     }
 
 

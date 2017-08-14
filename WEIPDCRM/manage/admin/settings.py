@@ -54,8 +54,8 @@ class SettingsAdmin(PreferencesAdmin):
         ('Social', {
             'classes': ('suit-tab suit-tab-frontend',),
             'fields': ['display_social', 'qq_group_name', 'qq_group_url',
-                       'weibo_name', 'weibo_url',  'alipay_url', 'twitter_name',
-                       'twitter_url', 'facebook_name', 'facebook_url', 'paypal_url']
+                       'weibo_name', 'weibo_url',  'telegram_name', 'telegram_url', 'alipay_url',
+                       'twitter_name', 'twitter_url', 'facebook_name', 'facebook_url', 'paypal_url']
         }),
         ('Statistics',{
             'classes': ('suit-tab suit-tab-frontend',),

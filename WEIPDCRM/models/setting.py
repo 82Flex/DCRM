@@ -301,6 +301,19 @@ class Setting(Preferences):
         null=True,
         blank=True
     )
+    telegram_name = models.CharField(
+        verbose_name=_("Telegram Name"),
+        max_length=128,
+        null=True,
+        blank=True
+    )
+    telegram_url = models.URLField(
+        verbose_name=_("Telegram URL"),
+        help_text=_("Display Telegram link on the package info page."),
+        max_length=255,
+        null=True,
+        blank=True
+    )
     facebook_url = models.URLField(
         verbose_name=_("Facebook URL"),
         help_text=_("Display Facebook link on the package info page."),

@@ -57,7 +57,7 @@ USE_TZ = True  # pytz is required.
 LANGUAGE_CODE = 'en'
 TIME_ZONE = 'Europe/Paris'
 COMMENTS_APP = 'fluent_comments'
-FLUENT_COMMENTS_EXCLUDE_FIELDS = ('url','title')
+FLUENT_COMMENTS_EXCLUDE_FIELDS = ('url', 'title')
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Database

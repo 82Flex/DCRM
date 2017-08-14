@@ -185,6 +185,18 @@
                     </div>
                 </a>
             {% endif %}
+            {% if settings.telegram_name and settings.telegram_url %}
+                <a href="{{ settings.weibo_url }}" target="_blank">
+                    <img class="icon" src="{% static "mobile/img/telegram.png" %}">
+                    <div>
+                        <div>
+                            <label>
+                                <p>{{ settings.telegram_name }}</p>
+                            </label>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
             {% if settings.alipay_url %}
                 <a href="{{ settings.alipay_url }}" target="_blank">
                     <img class="icon" src="{% static "mobile/img/alipay.png" %}">
