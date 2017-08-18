@@ -3,6 +3,7 @@
 {% block title %}{% trans "Package" %} {{ package_info.c_name | default:_("Untitled Package") }} | DCRM{% endblock %}
 {% block stylesheet %}
     {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static "frontend/css/package-info.css" %}"/>
     <link rel="stylesheet" type="text/css" href="{% static "frontend/css/font-awesome.min.css" %}"/>
     <link rel="stylesheet" type="text/css" href="{% static "frontend/css/emoji.css" %}"/>
 {% endblock %}
@@ -12,7 +13,7 @@
         <i class="fa fa-angle-right"></i>
         <a href="{% url "section_id" package_info.c_section.id %}">{{ package_info.c_section }}</a>
     {% endif %}
-    <i class="fa fa-angle-right"></i> {{ package_info.c_name | default:_("Untitled Package") }}
+    <i class="fa fa-angle-right"></i> <a href="{{ package_info.get_absolute_url }}">{{ package_info.c_name | default:_("Untitled Package") }}</a>
 {% endblock %}
 {% block content %}
     <div class="article">
@@ -23,8 +24,8 @@
                 <img class="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
             {% endif %}
         </div>
+        <div class="title"><h1>{{ package_info.c_name | default:_("Untitled Package") }}</h1></div>
         <div class="intro">
-            <div class="title"><h1>{{ package_info.c_name | default:_("Untitled Package") }}</h1></div>
             <div class="details">
                 <ul>
                     <li>{% trans "Package" %}: {{ package_info.c_package }}</li>
@@ -34,7 +35,7 @@
                     {% endif %}
                     <li>{% trans "Size" %}: {{ package_info.c_size|filesizeformat }}</li>
                     {% if package_info.author_name %}
-                        <li>{% trans "Author" %}: {{ package_info.author_name }}</li>
+                        <li>{% trans "Author" %}: <a href="{% url "package_action" package_info.id "contact" %}">{{ package_info.author_name }}</a></li>
                     {% endif %}
                 </ul>
                 <div class="clear"></div>
@@ -51,8 +52,33 @@
             {% endif %}
         </div>
         <div class="clear"></div>
+        <div class="compatibility">
+            <p></p>
+        </div>
+        {% if package_info.update_logs %}
+            <div class="whatsnew">
+                <label>
+                <h2>{% trans "What's New" %}</h2>
+                {% if settings.version_history %}
+                    <a href="{% url "package_action" package_info.id "history" %}">{% trans "History" %}</a>
+                {% endif %}
+                </label>
+                <div class="clear"></div>
+                <div class="version"><p>{% trans "Version" %}: {{ package_info.c_version }}</p><span>{{ package_info.created_at | date:"Y-m-d H:i" }}</span></div>
+                <div class="clear"></div>
+                <p>
+                    {{ package_info.update_logs }}
+                </p>
+            </div>
+        {% endif %}
         <div class="description">
+            <label>
             <h2>{% trans "Description" %}</h2>
+            {% if package_info.c_homepage %}
+                <a href="{{ package_info.c_homepage }}">{% trans "More Info" %}</a>
+            {% endif %}
+            </label>
+            <div class="clear"></div>
             <p>
                 {% if package_info.rich_description %}
                     {% autoescape off %}
@@ -63,17 +89,11 @@
                 {% endif %}
             </p>
         </div>
-        {% if package_info.update_logs %}
-            <div class="whatsnew">
-                <h2>{% trans "What's New" %}</h2>
-                <p>
-                    {{ package_info.update_logs }}
-                </p>
-            </div>
-        {% endif %}
         {% if gallery %}
             <div class="screenshot">
-                <h2>{% trans "Screenshot" %}</h2>
+                <label>
+                    <h2>{% trans "Screenshot" %}</h2>
+                </label>
                 <div class="image">
                     <div class="image-wrapper">
                         <ul>
@@ -110,23 +130,68 @@
 {% block footerscript %}
     {{ block.super }}
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('.comments textarea').attr('data-emojiable','true');
-            $('.comments textarea').attr('data-emoji-input','unicode');
-            $('.controls.col-sm-10').css('position','relative');
+        $(document).ready(function () {
+            $('.comments textarea').attr('data-emojiable', 'true');
+            $('.comments textarea').attr('data-emoji-input', 'unicode');
+            $('.controls.col-sm-10').css('position', 'relative');
+            // In Cydia
+            if (navigator.userAgent.search(/Cydia/) != -1) {
+                $(".main").css("background-color","#efeff4");
+                var width = $(".content").width();
+                width = width - 30;
+                $('.image').css('width', width + 'px');
+                $('.breadcrumbs').remove();
+                $('.notice').css("margin-top","10px");
+                $('.download').hide();
+                $(".icon").hide();
+                $(".title").hide();
+            }
         });
-        $(function() {
-            $('.comments textarea').attr('placeholder','{% trans "Say something..." %}');
+        $(function () {
+            $('.comments textarea').attr('placeholder', '{% trans "Say something..." %}');
             // Initializes and creates emoji set from sprite sheet
             window.emojiPicker = new EmojiPicker({
-              assetsPath: '{% static 'frontend/img' %}',
-              emojiable_selector: '[data-emojiable=true]',
-              popupButtonClasses: 'fa fa-smile-o'
+                assetsPath: '{% static 'frontend/img' %}',
+                emojiable_selector: '[data-emojiable=true]',
+                popupButtonClasses: 'fa fa-smile-o'
             });
             // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
             // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
             // It can be called as many times as necessary; previously converted input fields will not be converted again
             window.emojiPicker.discover();
+
+            var os_compatibility = '';
+            var version = (navigator.userAgent.match(/.+(?:Version)[\/: ]([\d.]+)/) || [])[1];
+            if (!version) {
+                version = (navigator.userAgent.match(/.+(?:Mobile)[\/: ]([\S.]+)/) || [])[1];
+            }
+            var device = '{{ request.META.HTTP_X_MACHINE | default:"UNDEFINE" }}';
+            var device_type = '';
+            // Print os compatibility list as an array
+            {% for os in package_info.os_compatibility.all %}
+                os_compatibility += '{{ os.descriptor }}|' + '{{ os.build }}|';
+            {% endfor %}
+            // Print device compatibility list as a string
+            {% for device in package_info.device_compatibility.all %}
+                device_type += '{{ device.subtype }}|';
+            {% endfor %}
+            // Check os compatibility
+            if (device != "UNDEFINE") {
+                $('.compatibility').show();
+                if (os_compatibility.search(version) != -1 && device_type.search(device) != -1) {
+                    $('.compatibility p').removeClass("no");
+                    $('.compatibility p').addClass("ok");
+                    $('.compatibility p').html("<i class=\"fa fa-check\" aria-hidden=\"true\"></i>{% trans 'Your device supports this package' %}");
+
+                } else {
+                    $('.compatibility p').removeClass("ok");
+                    $('.compatibility p').addClass("no");
+                    $('.compatibility p').html("<i class=\"fa fa-times\" aria-hidden=\"true\"></i>{% trans "Your device doesn't support this package" %}");
+
+                }
+            } else {
+                $('.compatibility').hide();
+            }
         })
     </script>
 {% endblock %}

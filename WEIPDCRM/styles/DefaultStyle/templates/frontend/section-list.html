@@ -1,6 +1,10 @@
 {% extends "frontend/base.html" %}
 {% load i18n staticfiles %}
 {% block title %}{% trans 'Section List' %} | DCRM{% endblock %}
+{% block stylesheet %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "frontend/css/content-list.css" %}">
+{% endblock %}
 {% block breadcrumbs %}
     <i class="fa fa-home"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a>
     <i class="fa fa-angle-right"></i> <a href="{% url "section_list" %}">{% trans 'Section List' %}</a>

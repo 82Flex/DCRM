@@ -1,0 +1,83 @@
+{% extends "frontend/package.html" %}
+{% load i18n staticfiles %}
+{% block title %}{% blocktrans with package_info.c_name as c_name %}Contact {{ c_name }} | DCRM
+{% endblocktrans %}{% endblock %}
+{% block content %}
+    <div class="contact">
+        <div class="card">
+            <div class="card-wrapper">
+                <ul>
+                    {% if package_info.author_name and package_info.author_email %}
+                        <li>
+                        <div class="contact-card blue">
+                            <a href="mailto:{{ package_info.author_email }}?subject={{ "Cydia/APT(A): "|escape }}{{ package_info.c_name|escape }}{{ " ("|escape }}{{ package_info.c_version }}{{ ")"|escape }}" target="_blank">
+                                <div class="panel">
+                                    <div class="pic">
+                                        <img class="icon" src="{% static "mobile/img/email.png" %}">
+                                    </div>
+                                    <div class="name">
+                                        <h2>{% trans "Author" %}: {{ package_info.author_name }}</h2>
+                                        <p>
+                                            {% trans 'Source manager can <strong>NOT</strong> solve the function problem of package: you <strong>MUST</strong> contact the author.' %}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                    </li>
+                    <li>
+                        {% if package_info.maintainer_name and package_info.maintainer_email %}
+                            <div class="contact-card pink">
+                                <a href="mailto:{{ package_info.maintainer_email }}?subject={{ "Cydia/APT(A): "|escape }}{{ package_info.c_name|escape }}{{ " ("|escape }}{{ package_info.c_version }}{{ ")"|escape }}" target="_blank">
+                                    <div class="panel">
+                                        <div class="pic">
+                                            <img class="icon" src="{% static "mobile/img/email.png" %}">
+                                        </div>
+                                        <div class="name">
+                                            <h2>{% trans "Maintainer" %}: {{ package_info.maintainer_name }}</h2>
+                                            <p>
+                                                {% trans 'If you have questions when install or uninstall this package, please contact the maintainer.' %}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                    </li>
+                    <li>
+                        {% if package_info.sponsor_name and package_info.sponsor_site %}
+                            <div class="contact-card orange">
+                                <a href="{{ package_info.sponsor_site }}" target="_blank">
+                                    <div class="panel">
+                                        <div class="pic">
+                                            <img class="icon" src="{% static "mobile/img/safari.png" %}">
+                                        </div>
+                                        <div class="name">
+                                            <h2>{% trans "Sponsor" %}: {{ package_info.sponsor_name }}</h2>
+                                            <p>
+                                                {% trans 'If the package is a commercial package, you can contact the sponsor to obtain commercial support.' %}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footerscript %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (navigator.userAgent.search(/Cydia/) != -1) {
+                $(".main").css("background-color", "#efeff4");
+                var width = $(".content").width();
+                $('.card-wrapper').css('width', width + 'px');
+            }
+        });
+    </script>
+{% endblock %}

@@ -5,7 +5,14 @@
     <i class="fa fa-home"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a>
 {% endblock %}
 {% block content %}
-    <div class="content-list">
+    <div class="gotocydia">
+        <a href="cydia://url/https://cydia.saurik.com/api/share#?source={{ request.scheme }}://{{ site }}" target="_blank">
+            <img src="{% static "frontend/img/cydia.png" %}"/>
+            <div class="label"><p>{% trans "Add in Cydia<sup><small>™</small></sup>" %}</p></div>
+            <div class="clear"></div>
+        </a>
+    </div>
+    <div class="content-list index-package-list">
         <div class="title"><h2>{% trans "Package List" %}</h2></div>
         {% include 'frontend/grid-list.html' %}
         <div class="clear"></div>

@@ -42,18 +42,17 @@ class PackageView(DetailView):
     template_name = 'frontend/package.html'
 
     @xframe_options_exempt
-    @vary_on_headers('User-Agent','X-MACHINE')
+    @vary_on_headers('X-MACHINE')
     def get(self, request, *args, **kwargs):
-        if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
-            action_name = self.kwargs.get('action_name')
-            if action_name == "contact":
-                self.template_name = 'mobile/package/contact.html'
-            elif action_name == "history":
-                self.template_name = 'mobile/package/history.html'
-            elif action_name is None:
-                self.template_name = 'mobile/package/package.html'
-            else:
-                return HttpResponseNotFound()
+        action_name = self.kwargs.get('action_name')
+        if action_name == "contact":
+            self.template_name = 'frontend/package/contact.html'
+        elif action_name == "history":
+            self.template_name = 'frontend/package/history.html'
+        elif action_name is None:
+            self.template_name = 'frontend/package.html'
+        else:
+            return HttpResponseNotFound()
 
         return super(PackageView, self).get(request, *args, **kwargs)
 

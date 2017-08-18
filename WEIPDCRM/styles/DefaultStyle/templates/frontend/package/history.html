@@ -1,0 +1,30 @@
+{% extends "frontend/package.html" %}
+{% load i18n staticfiles %}
+{% block title %}{% blocktrans with package_info.c_name as c_name %}History {{ c_name }} | DCRM{% endblocktrans %}{% endblock %}
+
+{% block content %}
+    <div class="article">
+    {% for version in version_list %}
+        <div class="update-log">
+            <div class="version">
+                <p>{{ version.c_version }}</p>
+                <span>{{ version.created_at | date:"Y-m-d H:i:s" }}</span>
+            </div>
+            <div class="clear"></div>
+            <p>{{ version.update_logs }}</p>
+            <a href="{% url "package_id" version.id %}">
+                {% trans "View this version" %} <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+        </div>
+    {% endfor %}
+     </div>
+{% endblock %}
+{% block footerscript %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (navigator.userAgent.search(/Cydia/) != -1) {
+                $(".main").css("background-color", "#efeff4");
+            }
+        });
+    </script>
+{% endblock %}

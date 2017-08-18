@@ -5,7 +5,8 @@ a {
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
-    transition: all .3s ease
+    transition: all .3s ease;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
 a:hover {
@@ -143,18 +144,18 @@ img {
     display: block!important;
 }
 
-.primary {
+.container {
     margin: 82px auto 0;
     width: 978px
 }
 
-.primary .content {
+.container .content {
     float: left;
     width: 640px;
     min-height: 320px
 }
 
-.primary .content-list {
+.container .content .content-list {
     float: left;
     width: 640px;
     min-height: 320px;
@@ -163,53 +164,52 @@ img {
     box-shadow: 0 0 30px rgba(200, 200, 200, 0.25)
 }
 
-.primary .content .label {
+.container .content .label {
     padding-top: 10px
 }
 
-.primary .content .title h2 {
-    margin-top: 24px;
-    margin-bottom: 36px;
+.container .content .title h2 {
+    padding: 20px 0;
     color: #444;
     text-indent: 34px;
     font-weight: 300;
     font-size: 16px
 }
 
-.primary .content .list {
+.container .content .list {
 
 }
 
-.primary .content .list .list-item {
+.container .content .list .list-item {
     margin-bottom: 36px;
     padding: 0 36px;
     width: 88px;
     height: 133px
 }
 
-.primary .content .list .list-item .icon {
+.container .content .list .list-item .icon {
     width: 88px;
     height: 88px
 }
 
-.primary .content .list .list-item .icon a {
+.container .content .list .list-item .icon a {
     display: block;
     color: #555;
     font-size: 13px
 }
 
-.primary .content .list .list-item .icon img {
+.container .content .list .list-item .icon img {
     width: 88px;
     height: 88px;
     border-radius: 12px
 }
 
-.primary .content .list .list-item .title-tag {
+.container .content .list .list-item .title-tag {
     margin-top: 5px;
     height: 100px
 }
 
-.primary .content .list .list-item .title {
+.container .content .list .list-item .title {
     overflow: hidden;
     text-align: center;
     text-overflow: ellipsis;
@@ -217,19 +217,20 @@ img {
     max-height: 40px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2
+    -webkit-line-clamp: 2;
+    font-size: 13px
 }
 
-.primary .content .list .list-item .title a {
+.container .content .list .list-item .title a {
     color: #444;
     font-size: 14px
 }
 
-.primary .content .list .list-item .title a:hover {
+.container .content .list .list-item .title a:hover {
     color: #19B5FE
 }
 
-.primary .content .list .list-item .tag {
+.container .content .list .list-item .tag {
     overflow: hidden;
     text-align: center;
     text-overflow: ellipsis;
@@ -237,44 +238,44 @@ img {
     height: 20px
 }
 
-.primary .content .list .list-item .tag a {
+.container .content .list .list-item .tag a {
     color: #888;
     font-size: 11px
 }
 
-.primary .content .list .chart-item {
+.container .content .list .chart-item {
     margin-bottom: 36px;
     padding: 0 36px;
     width: auto;
     height: 120px
 }
 
-.primary .content .list .chart-item .icon {
+.container .content .list .chart-item .icon {
     height: 100px;
     width: 100px;
     float: left
 }
 
-.primary .content .list .chart-item .icon img {
+.container .content .list .chart-item .icon img {
     height: 100px;
     width: 100px
 }
 
-.primary .content .list .chart-item .title-tag {
+.container .content .list .chart-item .title-tag {
     float: left
 }
 
-.primary .content .list .chart-item .title-tag .title {
+.container .content .list .chart-item .title-tag .title {
     margin-left: 20px;
     text-align: left
 }
 
-.primary .content .list .chart-item .title-tag .title a {
+.container .content .list .chart-item .title-tag .title a {
     font-size: 18px;
     font-weight: 300
 }
 
-.primary .content .list .chart-item .tag {
+.container .content .list .chart-item .tag {
     margin-left: 20px;
     height: 80px;
     width: 320px;
@@ -287,21 +288,21 @@ img {
     -webkit-line-clamp: 2
 }
 
-.primary .content .list .chart-item .tag a {
+.container .content .list .chart-item .tag a {
     font-size: 13px
 }
 
-.primary .content .list .chart-item .tag p {
+.container .content .list .chart-item .tag p {
     color: #888;
     text-align: left;
     font-size: 14px
 }
 
-.primary .content .list .chart-item .download {
+.container .content .list .chart-item .download {
     float: right
 }
 
-.primary .content .list .chart-item .download a {
+.container .content .list .chart-item .download a {
     display: block;
     margin: 30px auto 10px;
     width: 100px;
@@ -314,7 +315,7 @@ img {
     transition: all 200ms ease-in-out
 }
 
-.primary .content .list .chart-item .download a:hover {
+.container .content .list .chart-item .download a:hover {
     border: 1px solid #2e9fff;
     background-color: #f5fdff;
     color: #2e87e7;
@@ -322,10 +323,10 @@ img {
     transition: all 200ms ease-in-out
 }
 
-.primary .content .list .chart-item .download p {
+.container .content .list .chart-item .download p {
 }
 
-.primary .content .breadcrumbs {
+.container .content .breadcrumbs {
     padding: 15px;
     margin-bottom: 30px;
     border-radius: 6px;
@@ -334,43 +335,41 @@ img {
     height: 20px;
 }
 
-.primary .content .breadcrumbs p {
+.container .content .breadcrumbs p {
     color: #333;
     font-size: 14px
 }
 
-.primary .article {
+.container .content .article {
     padding: 20px 30px;
     border-radius: 6px;
     background-color: #fff;
     box-shadow: 0 0 30px rgba(200, 200, 200, 0.25)
 }
 
-.primary .article h1 {
+.container .content .article h1 {
     overflow: hidden;
     color: #333;
     text-overflow: ellipsis;
-    white-space: nowrap;
     font-weight: 300;
     font-size: 22px
 }
 
-.primary .article h2 {
+.container .content .article label h2 {
     font-size: 17px;
     font-weight: 400;
     line-height: 18px;
-    padding-top: 18px;
-    margin-bottom: 18px;
+    padding: 18px 0 8px;
     color: #474747;
 }
 
-.primary .article p {
+.container .content .article p {
     color: #333;
     font-size: 13px;
     line-height: 26px
 }
 
-.primary .article .icon {
+.container .content .article .icon {
     float: left;
     margin: 10px 30px 21px 0;
     width: 128px;
@@ -379,32 +378,32 @@ img {
     font-size: 13px
 }
 
-.primary .article .icon img {
+.container .content .article .icon img {
     width: 128px;
     height: 128px;
     border-radius: 18px;
 }
 
-.primary .article .intro {
+.container .content .article .intro {
     float: left;
     margin: 10px 0 21px;
     width: 420px
 }
 
-.primary .article .title {
-    margin-bottom: 12px
+.container .content .article .title {
+    padding: 15px 0 0;
 }
 
-.primary .article .details {
+.container .content .article .intro .details {
     float: left;
-    width: 300px;
+    max-width: 55%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     word-wrap: break-word;
 }
 
-.primary .article .details li {
+.container .content .article .details li {
     width: 150px;
     color: #555;
     font-size: 13px;
@@ -412,21 +411,20 @@ img {
     /* float: left; */
 }
 
-.primary .article .details a {
-    color: #333
+.container .content .article .details a {
+    color: #2e9fff;
 }
 
-.primary .article .details li:nth-last-of-type(1) {
+/*.container .content .article .details li:nth-last-of-type(1) {
     width: 300px
-}
+}*/
 
-.primary .article .download {
+.container .content .article .download {
     float: right;
-    width: 120px;
     text-align: center
 }
 
-.primary .article .download a {
+.container .content .article .download a {
     display: block;
     margin: 19px auto 10px;
     width: 100px;
@@ -438,7 +436,7 @@ img {
     transition: all 200ms ease-in-out
 }
 
-.primary .article .download a:hover {
+.container .content .article .download a:hover {
     border: 1px solid #2e9fff;
     background-color: #f5fdff;
     color: #2e87e7;
@@ -446,65 +444,146 @@ img {
     transition: all 200ms ease-in-out
 }
 
-.primary .article .download i {
+.container .content .article .download i {
     color: #333;
     font-size: 13px;
     font-weight: 300;
     cursor: text;
     -webkit-user-select: auto
 }
+.container .content .article .compatibility {
+    text-align: center;
+}
 
-.primary .article .description {
+.container .content .article .compatibility .ok {
+    color: #5bb0ed;
+}
+
+.container .content .article .compatibility .no {
+    color: #a94442;
+}
+
+.container .content .article .compatibility p i {
+    padding-right: 10px;
+
+}
+
+.container .content .article .whatsnew {
+    margin-bottom: 6px;
+}
+
+.container .content .article .whatsnew label h2 {
+    float: left;
+}
+
+.container .content .article .version p {
+    float: left;
+    color: #5d6478;
+}
+
+.container .content .article .version span {
+    float: right;
+    font-size: 13px;
+    line-height: 26px;
+    color: #5d6478;
+}
+.container .content .article .update-log {
+    border-bottom: 1px solid rgba(153, 153, 153, 0.21);
+    padding: 10px 0
+}
+.container .content .article .update-log:only-child {
+    padding: 0 0 0!important;
+}
+.container .content .article .update-log:first-child {
+    padding: 0 0 10px;
+}
+.container .content .article .update-log:last-child {
+    border-bottom: 0;
+}
+
+.container .content .article .update-log a {
+    font-size: 13px;
+    color: #2e9fff;
+}
+.container .content .article .description h2 {
+    float: left;
+}
+
+.container .content .article .description label a {
+    float: right;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 18px;
+    padding-top: 18px;
+    margin-bottom: 12px;
+    color: #2e9fff;
+}
+
+.container .content .article .whatsnew label a {
+    float: right;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 18px;
+    padding: 18px 0 8px;
+    color: #2e9fff;
+}
+
+.container .content .article .whatsnew .version {
+    color: rgba(51, 51, 51, 0.7);
+    font-size: 14px;
+    line-height: 26px
+}
+.container .content .article .description {
     border-top: 1px solid #fdfdfd;
     color: #333;
     font-size: 13px;
     line-height: 26px
 }
 
-.primary .article .screenshot .image {
+.container .screenshot .image {
     background: #f9f9f9;
     padding: 5px 0px 3px;
     width: 100%;
     -webkit-border-radius: 10px;
     margin-top: 15px;
-    margin-bottom: 15px
+    margin-bottom: 15px;
 }
 
-.primary .article .screenshot .image .image-wrapper {
+.container .screenshot .image .image-wrapper {
     margin-left: 14px;
     margin-right: 14px;
     margin-top: 15px;
     width: 550px;
-    overflow: auto;
+    overflow-x: scroll;
     overflow-y: hidden;
 }
 
-.primary .article .screenshot .image .image-wrapper::-webkit-scrollbar-track-piece {
+.container .screenshot .image .image-wrapper::-webkit-scrollbar-track-piece {
     background: #ececec;
     border-radius: 4px;
 }
 
-.primary .article .screenshot .image .image-wrapper::-webkit-scrollbar {
+.container .screenshot .image .image-wrapper::-webkit-scrollbar {
     height: 6px;
     width: 6px;
 }
 
-.primary .article .screenshot .image .image-wrapper::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal {
+.container .screenshot .image .image-wrapper::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal {
     background: #999;
     border-radius: 4px;
 }
 
-.primary .article .screenshot .image .image-wrapper::-webkit-scrollbar-thumb:hover {
+.container .screenshot .image .image-wrapper::-webkit-scrollbar-thumb:hover {
     background: #20A4F1;
 }
 
-.primary .article .screenshot .image .image-wrapper ul {
+.container .screenshot .image .image-wrapper ul {
     font-size: 0;
     white-space: nowrap;
     word-break: normal;
 }
 
-.primary .article .screenshot .image .image-wrapper li {
+.container .screenshot .image .image-wrapper li {
     display: inline-block;
     padding: 0 10px 15px 4px;
     vertical-align: top;
@@ -513,11 +592,11 @@ img {
     *padding-bottom: 30px;
 }
 
-.primary .article .screenshot .image .image-wrapper li:last-child {
+.container .screenshot .image .image-wrapper li:last-child {
     padding-right: 4px;
 }
 
-.primary .article .screenshot .image .image-wrapper img {
+.container .screenshot .image .image-wrapper img {
     display: block;
     border-radius: 3px;
     height: auto;
@@ -525,36 +604,36 @@ img {
     vertical-align: top;
 }
 
-.primary .article .similar-c {
+.container .content .article .similar-c {
     overflow: auto;
     padding-top: 20px;
     padding-bottom: 10px
 }
 
-.primary .article .similar ul {
+.container .content .article .similar ul {
     width: 212%
 }
 
-.primary .article .similar li {
+.container .content .article .similar li {
     float: left;
     margin-right: 70px
 }
 
-.primary .article .similar li:nth-last-of-type(1) {
+.container .content .article .similar li:nth-last-of-type(1) {
     margin-right: 0
 }
 
-.primary .article .similar img {
+.container .content .article .similar img {
     width: 92px;
     height: 92px
 }
 
-.primary .article .similar a {
+.container .content .article .similar a {
     color: #555;
     font-size: 14px
 }
 
-.primary .article .similar h4 {
+.container .content .article .similar h4 {
     overflow: hidden;
     margin-top: 5px;
     width: 92px;
@@ -564,7 +643,7 @@ img {
     white-space: nowrap
 }
 
-.primary .content .comments {
+.container .content .comments {
     padding: 30px 30px;
     margin-top: 30px;
     border-radius: 6px;
@@ -572,16 +651,15 @@ img {
     box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
 }
 
-.primary .content .comments h2 {
+.container .content .comments h2 {
     margin-top: 8px;
-    margin-bottom: 16px;
     font-size: 1.2em;
     font-weight: 500;
     line-height: 18px;
     color: #474747;
 }
 
-.primary .chart {
+.container .chart {
     padding: 30px 70px 0;
     min-height: 960px;
     border-radius: 6px;
@@ -589,48 +667,48 @@ img {
     box-shadow: 0 0 30px rgba(200, 200, 200, 0.25)
 }
 
-.primary .chart .title h2 {
+.container .chart .title h2 {
     color: #444;
     font-weight: 300;
     font-size: 15px
 }
 
-.primary .chart .list {
+.container .chart .list {
     margin-top: 30px
 }
 
-.primary .chart .list li {
+.container .chart .list li {
     float: left;
     margin-right: 80px;
     margin-bottom: 50px;
     width: 100px
 }
 
-.primary .chart .list li:nth-child(5n) {
+.container .chart .list li:nth-child(5n) {
     margin-right: 0
 }
 
-.primary .chart .list .icon {
+.container .chart .list .icon {
     width: 100px;
     height: 100px
 }
 
-.primary .chart .list .icon a {
+.container .chart .list .icon a {
     display: block;
     color: #555;
     font-size: 13px
 }
 
-.primary .chart .list .icon img {
+.container .chart .list .icon img {
     width: 100px;
     height: 100px
 }
 
-.primary .chart .list .title {
+.container .chart .list .title {
     margin-top: 3px
 }
 
-.primary .chart .list .title h4 {
+.container .chart .list .title h4 {
     overflow: hidden;
     color: #555;
     text-align: center;
@@ -638,32 +716,32 @@ img {
     white-space: nowrap
 }
 
-.primary .chart .list .title a {
+.container .chart .list .title a {
     color: #444;
     font-size: 14px
 }
 
-.primary .chart .list .tag {
+.container .chart .list .tag {
     text-align: center
 }
 
-.primary .chart .list .tag a {
+.container .chart .list .tag a {
     color: #888;
     font-size: 12px
 }
 
-.primary .widget-area {
+.container .widget-area {
     float: right;
     width: 300px
 }
 
-.primary .widget-area h2 {
+.container .widget-area h2 {
     color: #444;
     font-weight: 300;
     font-size: 15px
 }
 
-.primary .widget-area .repo-card {
+.container .widget-area .repo-card {
     position: relative;
     padding: 20px 20px 20px;
     border-radius: 6px;
@@ -672,12 +750,12 @@ img {
     margin-bottom: 30px
 }
 
-.primary .widget-area .repo-card .avatar-panel {
+.container .widget-area .repo-card .avatar-panel {
     position: relative;
     min-height: 160px;
 }
 
-.primary .widget-area .repo-card .repo_pic {
+.container .widget-area .repo-card .repo_pic {
     width: 88px;
     height: 88px;
     border-radius: 50%;
@@ -687,7 +765,7 @@ img {
     border: 4px solid rgba(255, 255, 255, .3)
 }
 
-.primary .widget-area .repo-card .repo_pic img {
+.container .widget-area .repo-card .repo_pic img {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -696,7 +774,7 @@ img {
     height: 80px
 }
 
-.primary .widget-area .repo-card .repo_name {
+.container .widget-area .repo-card .repo_name {
     font-size: 18px;
     display: block;
     bottom: 10px;
@@ -704,26 +782,26 @@ img {
     text-align: center;
 }
 
-.primary .widget-area .repo-card .repo_name h2 {
+.container .widget-area .repo-card .repo_name h2 {
     color: #444;
     font-size: 15px;
     font-weight: 300
 }
 
-.primary .widget-area .repo-card .repo_name p {
+.container .widget-area .repo-card .repo_name p {
     margin-top: 10px;
     color: #444;
     font-size: 13px;
     font-weight: 200
 }
 
-.primary .widget-area .repo-card .repo_dec {
+.container .widget-area .repo-card .repo_dec {
     text-align: center;
     font-size: 13px;
     padding: 0 15px 10px
 }
 
-.primary .widget-area .notice {
+.container .widget-area .notice {
     position: relative;
     padding: 20px 20px 20px;
     border-radius: 6px;
@@ -732,7 +810,7 @@ img {
     margin-bottom: 30px
 }
 
-.primary .widget-area .notice .notice-content {
+.container .widget-area .notice .notice-content {
     position: relative;
     padding: 8px 0;
     font-size: 14px;
@@ -740,7 +818,7 @@ img {
     font-weight: 400
 }
 
-.primary .widget-area .section_list {
+.container .widget-area .section_list {
     padding: 20px;
     border-radius: 6px;
     background-color: #fff;
@@ -748,29 +826,29 @@ img {
     margin-bottom: 20px;
 }
 
-.primary .widget-area .section_list .list {
+.container .widget-area .section_list .list {
     padding-top: 8px;
 }
 
-.primary .widget-area .section_list .list ul {
+.container .widget-area .section_list .list ul {
     padding: 18px;
 }
 
-.primary .widget-area .section_list .list li {
+.container .widget-area .section_list .list li {
     padding-bottom: 16px;
 }
 
-.primary .widget-area .section_list .list li:last-child {
+.container .widget-area .section_list .list li:last-child {
     padding-bottom: 0;
 }
 
-.primary .widget-area .section_list h2 {
+.container .widget-area .section_list h2 {
     color: #444;
     font-weight: 300;
     font-size: 15px
 }
 
-.primary .widget-area .section_list .list i {
+.container .widget-area .section_list .list i {
     float: left;
     margin-left: -26px;
     width: 20px;
@@ -780,28 +858,28 @@ img {
     font-size: 14px
 }
 
-.primary .widget-area .section_list .list .icon {
+.container .widget-area .section_list .list .icon {
     height: 48px
 }
 
-.primary .widget-area .section_list .list .icon img {
+.container .widget-area .section_list .list .icon img {
     width: 48px;
     height: 48px;
     float: left;
     border-radius: 7px;
 }
 
-.primary .widget-area .section_list .list .title {
+.container .widget-area .section_list .list .title {
     margin-left: 12px;
     line-height: 48px;
 }
 
-.primary .widget-area .section_list .list .more a {
+.container .widget-area .section_list .list .more a {
     float: right;
     margin: -15px 20px
 }
 
-.primary .widget-area .section_list h4 {
+.container .widget-area .section_list h4 {
     overflow: hidden;
     margin-bottom: 5px;
     color: #444;
@@ -809,17 +887,17 @@ img {
     white-space: nowrap
 }
 
-.primary .widget-area .section_list a {
+.container .widget-area .section_list a {
     font-size: 13px
 }
 
-.primary .widget-area .section_more {
+.container .widget-area .section_more {
     height: 24px;
     text-align: right;
     margin-right: 15px;
 }
 
-.primary .widget-area .comments {
+.container .widget-area .comments {
     padding: 20px 20px 20px;
     border-radius: 6px;
     background-color: #fff;
@@ -827,17 +905,17 @@ img {
     margin-bottom: 20px;
 }
 
-.primary .widget-area .comments .title {
+.container .widget-area .comments .title {
     margin-bottom: 12px
 }
 
-.primary .widget-area .comments h2 {
+.container .widget-area .comments h2 {
     color: #444;
     font-size: 15px;
     font-weight: 300
 }
 
-.primary .widget-area .emergency {
+.container .widget-area .emergency {
     color: #444;
     font-size: 15px;
     font-weight: 300
@@ -858,8 +936,7 @@ img {
 
 .page-navi {
     overflow: hidden;
-    margin-top: 20px;
-    margin-bottom: 20px
+    padding: 20px 0;
 }
 
 .page-navi ul {
@@ -916,6 +993,119 @@ img {
     text-align: center
 }
 
+.container .content .contact .card .card-wrapper {
+    margin-top: 15px;
+    width: 100%;
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+.container .content .contact .card .card-wrapper::-webkit-scrollbar-track-piece {
+    background: #ececec;
+    border-radius: 4px;
+}
+
+.container .content .contact .card .card-wrapper::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+
+.container .content .contact .card .card-wrapper::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal {
+    background: #999;
+    border-radius: 4px;
+}
+
+.container .content .contact .card .card-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #20A4F1;
+}
+
+.container .content .contact .card .card-wrapper ul {
+    font-size: 0;
+    white-space: nowrap;
+    word-break: normal;
+}
+
+.container .content .contact .card .card-wrapper li {
+    display: inline-block;
+    padding: 0 10px 15px 4px;
+    vertical-align: top;
+    *display: inline;
+    *zoom: 1;
+    *padding-bottom: 30px;
+}
+
+.container .content .contact .card .card-wrapper li:last-child {
+    padding-right: 4px;
+}
+
+.container .content .contact .card .card-wrapper .blue {
+    background-image: -webkit-linear-gradient(120deg, #64bdf3, #97fedf);
+}
+.container .content .contact .card .card-wrapper .pink {
+    background-image: -webkit-linear-gradient(140deg, #fe7097 54.2%, #ff95cb);
+}
+.container .content .contact .card .card-wrapper .orange {
+    background-image: -webkit-linear-gradient(120deg, #ffc65d, #feef82);
+}
+.container .content .contact .card .card-wrapper .contact-card {
+    float: left;
+    position: relative;
+    padding: 20px 20px 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
+    width: 200px;
+    height: 256px
+}
+
+.container .content .contact .card .card-wrapper .contact-card .panel {
+    position: relative;
+    width: 200px;
+    height: 256px
+}
+
+.container .content .contact .card .card-wrapper .contact-card .pic {
+    width: 88px;
+    height: 88px;
+    overflow: hidden;
+    padding-top: 48px;
+    margin: 0 auto;
+}
+
+.container .content .contact .card .card-wrapper .contact-card .pic img {
+    padding: 2px;
+    width: 80px;
+    height: 80px
+}
+
+.container .content .contact .card .card-wrapper .contact-card .name {
+    font-size: 18px;
+    display: block;
+    bottom: 10px;
+    margin-top: 15px;
+    text-align: center;
+    white-space:normal;
+    word-break: break-all;
+}
+
+.container .content .contact .card .card-wrapper .contact-card .name h2 {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500
+}
+
+.container .content .contact .card .card-wrapper .contact-card .name p {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500
+}
+
+.container .content .contact .card .card-wrapper .contact-card .dec {
+    text-align: center;
+    font-size: 13px;
+    padding: 0 15px 10px
+}
+
 .footer {
     margin: 50px auto 0;
     width: 960px;
@@ -925,11 +1115,15 @@ img {
 
 .footer ul li {
     float: left;
-    margin-right: 20px;
+    #margin-right: 20px;
     color: #555;
     font-size: 14px;
     font-family: "Myriad Pro", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 50px
+}
+
+.footer ul li span {
+    margin: 3px
 }
 
 .footer ul li a {
@@ -939,4 +1133,92 @@ img {
 
 .external_statistics {
     display: none;
+}
+.go {
+    display: none;
+}
+@media screen and (min-width: 985px){
+    .container .content .gotocydia {
+        display: none;
+    }
+}
+@media screen and (min-width: 710px) and (max-width: 985px){
+    .container .content {
+        width: 90%!important;
+        float: none;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 985px) {
+    .header,.breadcrumbs, .index-package-list {
+        display: none;
+    }
+    .container {
+        margin:0 auto;
+        width: 100%;
+    }
+    .container .content {
+        float: none;
+        width: auto;
+        min-height: 0
+    }
+    .container .content .content-list {
+        float: none;
+        margin: 0 auto;
+        width: 90%;
+    }
+    .container .content .gotocydia {
+        height: 48px;
+        position: absolute;
+        top: 0;
+        z-index: 9999999;
+    }
+    .container .content .gotocydia img {
+        height: 32px;
+        padding: 15px 0 0 20px;
+        float: left;
+    }
+    .container .content .gotocydia .label {
+        padding: 18px 0 0 20px;
+    }
+    .container .content .gotocydia p {
+        padding: 0 0 0 48px;
+    }
+    .container .widget-area {
+        float: none;
+        width: 90%;
+        margin:0 auto;
+        padding: 15px 0 0;
+    }
+    .container .widget-area .repo-card {
+        margin-top: 43px;
+    }
+    .container .widget-area .repo-card,.container .widget-area .notice {
+        margin-bottom: 25px;
+    }
+    .page-navi {
+        padding: 10px 0;
+    }
+    .page-navi ul {
+        padding-right: 20px
+    }
+    .footer {
+        margin: 0 auto;
+        width: 100%;
+        height: 50px;
+        border-top: none;
+        text-align: center
+    }
+    .footer ul li {
+        float: none;
+        margin-right: 0;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .footer ul li span {
+        display: none;
+    }
+    .footer ul li a {
+        font-size: 12px
+    }
 }

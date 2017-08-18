@@ -1,0 +1,67 @@
+@media screen and (max-width: 985px) {
+    .breadcrumbs {
+        display: block!important;
+        margin: 0 auto;
+        border-radius: 0!important;
+        margin-bottom: 10px!important;
+        top: 0;
+        position: fixed;
+        z-index: 9999999;
+        width: 100%
+    }
+    .widget-area {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 694px){
+    .container .content {
+        padding-top: 50px;
+    }
+    .container .content .list .list-item {
+        width: 90%;
+        height: 38px;
+        padding: 0 16px;
+        margin-bottom:10px;
+    }
+
+    .container .content .content-list {
+        margin-bottom: 15px;
+        min-height: 100px;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .container .content .title {
+        display: none;
+    }
+    .container .list {
+        padding: 20px 0 0;
+    }
+    .container .content .list .list-item .icon {
+        float: left;
+        height: 30px;
+        width: 30px;
+    }
+    .container .content .list .list-item .icon img {
+        height: 30px;
+        width: 30px;
+    }
+    .container .content .list .list-item .tag {
+        display: none;
+    }
+    .container .content .list .list-item .title {
+        float: left;
+        text-align: left;
+        padding-left: 10px;
+    }
+    .container .content .list .list-item .title-tag {
+        height: auto;
+        margin-top: 3px;
+    }
+    .container .content .list .list-item .go {
+        display: block;
+        float: right;
+        color: #444;
+    }
+}

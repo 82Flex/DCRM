@@ -45,10 +45,9 @@ class IndexView(ListView):
     template_name = 'frontend/index.html'
 
     @xframe_options_exempt
-    @vary_on_headers('User-Agent')
     def get(self, request, *args, **kwargs):
-        if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
-            self.template_name = 'mobile/index.html'
+        #if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
+            #self.template_name = 'mobile/index.html'
         return super(IndexView, self).get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
