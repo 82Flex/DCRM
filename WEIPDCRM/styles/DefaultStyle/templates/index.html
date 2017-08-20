@@ -21,8 +21,19 @@
 {% endblock %}
 {% block footerscript %}
     <script type="text/javascript">
+    function breadcrumbs() {
+            if ($(window).width() <= 985) {
+                $('.breadcrumbs').hide();
+            }
+            else {
+                $('.breadcrumbs').show();
+            }
+    }
     $(document).ready(function () {
-        $(".breadcrumbs").remove();
+        breadcrumbs();
+    });
+    $(window).resize(function () {
+        breadcrumbs();
     });
     </script>
 {% endblock %}
