@@ -38,7 +38,7 @@ class SectionView(ListView):
     model = Package
     context_object_name = 'package_list'
     pk_url_kwarg = 'section_id'
-    template_name = 'package-in-section.html'
+    template_name = 'section.html'
 
     @xframe_options_exempt
     def get(self, request, *args, **kwargs):

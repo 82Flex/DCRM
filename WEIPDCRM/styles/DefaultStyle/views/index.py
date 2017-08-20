@@ -53,6 +53,7 @@ class IndexView(ListView):
         Merge global settings to current context
         """
         context = super(IndexView, self).get_context_data(**kwargs)
+        context['url_name'] = "index_page"
         context['packages_num'] = Package.objects.all().count()
         latest_build = Build.objects.order_by('-created_at')
         if latest_build:

@@ -1,5 +1,5 @@
 *{
-    -webkit-tap-highlight-color: transparent
+    -webkit-tap-highlight-color: transparent;
 }
 a {
     color: #444;
@@ -59,7 +59,9 @@ img {
 .orange {
     background-image: -webkit-linear-gradient(120deg, #ffc65d, #feef82);
 }
-
+body {
+    -webkit-text-size-adjust:none;
+}
 .main {
     margin: 0;
     padding: 0;
@@ -181,7 +183,7 @@ img {
 }
 
 .container .content .title h2 {
-    padding: 20px 0;
+    padding: 25px 0;
     color: #444;
     text-indent: 34px;
     font-weight: 300;
@@ -235,7 +237,7 @@ img {
 
 .container .content .list .list-item .title a {
     color: #444;
-    font-size: 14px
+    font-size: 13px
 }
 
 .container .content .list .list-item .title a:hover {
@@ -1164,18 +1166,18 @@ img {
     float: left;
     #margin-right: 20px;
     color: #555;
-    font-size: 14px;
+    font-size: 13px;
     font-family: "Myriad Pro", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 50px
 }
 
 .footer ul li span {
-    margin: 3px
+    margin: 0 3px;
 }
 
 .footer ul li a {
     color: #555;
-    font-size: 14px
+    font-size: 13px
 }
 
 .external_statistics {
@@ -1254,10 +1256,10 @@ img {
         margin-bottom: 25px;
     }
     .container .widget-area .section_list .list ul {
-        padding: 18px 0 0;
+        padding: 12px 0 0;
     }
     .container .widget-area .social .social-list {
-        padding: 18px 0 0;
+        padding: 12px 0 0;
     }
     .page-navi {
         padding: 10px 0;

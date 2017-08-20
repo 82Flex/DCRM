@@ -203,6 +203,8 @@
         var object_id = $form.attr('data-object-id');
         $($form[0].elements['comment']).val('');  // Wrapped in jQuery to silence errors for missing elements.
         $($form[0].elements['parent']).val('');   // Reset parent field in case threaded comments are used.
+        $("textarea[name='comment']").val();
+        $('.emoji-wysiwyg-editor').html('');
         $form.appendTo($('#comments-form-orig-position-' + object_id));
     }
 

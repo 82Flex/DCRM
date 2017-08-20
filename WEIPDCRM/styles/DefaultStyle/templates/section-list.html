@@ -12,9 +12,28 @@
 {% block content %}
     <div class="content-list">
         <div class="title"><h2>{% trans 'Section List' %}</h2></div>
-        {% include 'grid-list-in-section-list.html' %}
+        <div class="list grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 160 }'>
+            {% for section in section_list %}
+                <div class="list-item grid-item">
+                    <div class="icon">
+                        <a href="{% url "section_id" section.id %}">
+                            {% if section.icon %}
+                                <img src="{{ section.icon_link }}"/>
+                            {% else %}
+                                <img src="{% static 'img/default-package-icon.png' %}"/>
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="title-tag">
+                        <div class="title">
+                            <a href="{% url "section_id" section.id %}">{{ section.name }}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
         <div class="clear"></div>
-        {% include 'pagination-in-section-list.html' %}
+        {% include 'pagination.html' %}
     </div>
 {% endblock %}
 {% block section_list %}{% endblock %}

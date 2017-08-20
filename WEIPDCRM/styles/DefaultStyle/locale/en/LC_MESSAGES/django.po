@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-20 08:34+0800\n"
+"POT-Creation-Date: 2017-08-20 15:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,10 +20,10 @@ msgstr ""
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:42
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:5
 #: WEIPDCRM/styles/DefaultStyle/templates/index.html:5
-#: WEIPDCRM/styles/DefaultStyle/templates/package-in-section.html:9
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:11
 #: WEIPDCRM/styles/DefaultStyle/templates/search.html:5
 #: WEIPDCRM/styles/DefaultStyle/templates/section-list.html:9
+#: WEIPDCRM/styles/DefaultStyle/templates/section.html:9
 msgid "Home"
 msgstr ""
 
@@ -77,11 +77,11 @@ msgid "Powered By DCRM"
 msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:26
-#: WEIPDCRM/styles/DefaultStyle/templates/grid-list-in-section.html:15
 #: WEIPDCRM/styles/DefaultStyle/templates/grid-list.html:16
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:3
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:16
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:27
+#: WEIPDCRM/styles/DefaultStyle/templates/section.html:28
 msgid "Untitled Package"
 msgstr ""
 
@@ -105,11 +105,6 @@ msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/index.html:16
 msgid "Package List"
-msgstr ""
-
-#: WEIPDCRM/styles/DefaultStyle/templates/package-in-section.html:3
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:34
-msgid "Section"
 msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:3
@@ -165,6 +160,11 @@ msgstr ""
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:32
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:67
 msgid "Version"
+msgstr ""
+
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:34
+#: WEIPDCRM/styles/DefaultStyle/templates/section.html:3
+msgid "Section"
 msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:36

@@ -7,7 +7,6 @@
         margin-bottom: 15px;
     }
 }
-
 @media screen and (max-width: 694px){
     .container .content {
         padding-top: 50px;
@@ -51,7 +50,6 @@
     }
     .container .content .list .list-item .title-tag {
         height: auto;
-        margin-top: 3px;
     }
     .container .content .list .list-item .go {
         display: block;

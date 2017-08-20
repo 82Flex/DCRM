@@ -63,8 +63,10 @@ input,textarea {
 
 .comment-text p {
   margin-top: 5px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
+  word-wrap: break-word;
+  word-break: normal;
 }
 
 .comments input {
@@ -159,7 +161,7 @@ ul.comment-list-wrapper:last-child {
 }
 
 ul.comment-list-wrapper ul.comment-list-wrapper {
-  margin-left: 46px;
+  margin-left: 48px;
   padding-left: 0;
   padding: 12px 0 0;
   border-bottom:none
@@ -196,4 +198,17 @@ li.comment-wrapper {
 
 .js-comments-form-orig-position .comment-cancel-reply-link {
   display: none;
+}
+@media screen and (max-width: 430px){
+  .comments .gravatar img {
+    width: 36px;
+  }
+
+  .comment-item {
+    margin-left: 42px
+  }
+
+  ul.comment-list-wrapper ul.comment-list-wrapper {
+    margin-left: 36px;
+  }
 }
