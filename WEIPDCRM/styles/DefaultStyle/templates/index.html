@@ -1,4 +1,4 @@
-{% extends "frontend/base.html" %}
+{% extends "base.html" %}
 {% load i18n staticfiles %}
 {% block title %}{% trans 'Index' %} | DCRM{% endblock %}
 {% block breadcrumbs %}
@@ -7,15 +7,22 @@
 {% block content %}
     <div class="gotocydia">
         <a href="cydia://url/https://cydia.saurik.com/api/share#?source={{ request.scheme }}://{{ site }}" target="_blank">
-            <img src="{% static "frontend/img/cydia.png" %}"/>
+            <img src="{% static "img/cydia.png" %}"/>
             <div class="label"><p>{% trans "Add in Cydia<sup><small>™</small></sup>" %}</p></div>
             <div class="clear"></div>
         </a>
     </div>
     <div class="content-list index-package-list">
         <div class="title"><h2>{% trans "Package List" %}</h2></div>
-        {% include 'frontend/grid-list.html' %}
+        {% include 'grid-list.html' %}
         <div class="clear"></div>
-        {% include 'frontend/pagination-index.html' %}
+        {% include 'pagination-index.html' %}
     </div>
+{% endblock %}
+{% block footerscript %}
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $(".breadcrumbs").remove();
+    });
+    </script>
 {% endblock %}

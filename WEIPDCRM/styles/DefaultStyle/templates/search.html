@@ -1,4 +1,4 @@
-{% extends "frontend/base.html" %}
+{% extends "base.html" %}
 {% load i18n staticfiles %}
 {% block title %}{% trans 'Search' %} | DCRM{% endblock %}
 {% block breadcrumbs %}
@@ -9,7 +9,7 @@
 {% block content %}
     <div class="content-list">
         <div class="title"><h2>{% trans 'Search Result' %}</h2></div>
-        {% include 'frontend/grid-list.html' %}
+        {% include 'grid-list.html' %}
         <div class="clear"></div>
     </div>
 {% endblock %}

@@ -1,4 +1,4 @@
-{% extends "frontend/base.html" %}
+{% extends "base.html" %}
 {% load i18n staticfiles %}
 {% block title %}{% trans 'Chart' %} | DCRM{% endblock %}
 {% block breadcrumbs %}
@@ -17,7 +17,7 @@
                             {% if package.display_icon %}
                                 <img src="{{ package.display_icon }}"/>
                             {% else %}
-                                <img src="{% static 'frontend/img/default-package-icon.png' %}"/>
+                                <img src="{% static 'img/default-package-icon.png' %}"/>
                             {% endif %}
                         </a>
                     </div>

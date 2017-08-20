@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-12 22:14+0800\n"
+"POT-Creation-Date: 2017-08-20 08:34+0800\n"
 "PO-Revision-Date: 2017-04-03 23:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: 82Flex Team <i.82@me.com>\n"
@@ -159,7 +159,7 @@ msgstr ""
 
 #: WEIPDCRM/models/device_type.py:68 WEIPDCRM/models/os_version.py:63
 #: WEIPDCRM/models/release.py:148 WEIPDCRM/models/section.py:78
-#: WEIPDCRM/models/setting.py:314 WEIPDCRM/models/version.py:259
+#: WEIPDCRM/models/setting.py:360 WEIPDCRM/models/version.py:259
 msgid "Choose an Icon (*.png) to upload"
 msgstr ""
 
@@ -647,41 +647,114 @@ msgid "Display \"Donate via Alipay\" link on the package info page."
 msgstr ""
 
 #: WEIPDCRM/models/setting.py:286
-msgid "Starting Year of Copyright"
-msgstr ""
-
-#: WEIPDCRM/models/setting.py:287
-msgid "Leave blank to display current year."
+msgid "Twitter Name"
 msgstr ""
 
 #: WEIPDCRM/models/setting.py:292
-msgid "Copyright Name"
+msgid "Twitter URL"
 msgstr ""
 
 #: WEIPDCRM/models/setting.py:293
+msgid "Display Twitter link on the package info page."
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:299
+msgid "Facebook Name"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:305
+msgid "Telegram Name"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:311
+msgid "Telegram URL"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:312
+msgid "Display Telegram link on the package info page."
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:318
+msgid "Facebook URL"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:319
+msgid "Display Facebook link on the package info page."
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:325
+msgid "Paypal URL"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:326
+msgid "Display \"Donate via Paypal\" link on the package info page."
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:332
+msgid "Starting Year of Copyright"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:333
+msgid "Leave blank to display current year."
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:338
+msgid "Copyright Name"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:339
 msgid ""
 "Corpyright name is displayed on the footer, leave a blank will display the "
 "source name."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:299
+#: WEIPDCRM/models/setting.py:345
 msgid "ICP Number"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:300
+#: WEIPDCRM/models/setting.py:346
 msgid "The ICP Number displayed on the footer."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:306
+#: WEIPDCRM/models/setting.py:352
 msgid "Version History"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:307
+#: WEIPDCRM/models/setting.py:353
 msgid "Enable version history module"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:311
+#: WEIPDCRM/models/setting.py:357
 msgid "Favicon"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:365
+msgid "Notice"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:369 WEIPDCRM/models/setting.py:376
+msgid ""
+"HTML Displayed on the frontend widget and the auto depiction page (mobile)."
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:372
+msgid "Advertisement"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:379
+msgid "External Statistics"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:383
+msgid "Invisible statistic code."
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:386
+msgid "Internal Statistics"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:390
+msgid "Statistics code of view information at statistics page."
 msgstr ""
 
 #: WEIPDCRM/models/version.py:86
@@ -1202,7 +1275,7 @@ msgid "Help"
 msgstr ""
 
 #: WEIPDCRM/templates/admin/help/statistics.html:8
-#: WEIPDCRM/views/admin/help/statistics.py:98
+#: WEIPDCRM/views/admin/help/statistics.py:99
 msgid "Statistics"
 msgstr ""
 
@@ -1214,12 +1287,16 @@ msgstr ""
 msgid "Repo Statistics"
 msgstr ""
 
-#: WEIPDCRM/templates/admin/help/statistics.html:37
+#: WEIPDCRM/templates/admin/help/statistics.html:40
 msgid "Are you sure to clean the cache?"
 msgstr ""
 
-#: WEIPDCRM/templates/admin/help/statistics.html:48
+#: WEIPDCRM/templates/admin/help/statistics.html:51
 msgid "Cache cleanup completed!"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/help/statistics.html:54
+msgid "Fail to cleanup cache, error message has been written to the console"
 msgstr ""
 
 #: WEIPDCRM/templates/admin/new_change_form.html:8
@@ -1321,7 +1398,7 @@ msgid "Screenshots"
 msgstr ""
 
 #: WEIPDCRM/templates/admin/upload_image.html:15
-#: WEIPDCRM/views/admin/upload.py:480 WEIPDCRM/views/admin/upload.py:493
+#: WEIPDCRM/views/admin/upload.py:483 WEIPDCRM/views/admin/upload.py:496
 msgid "Upload Screenshots"
 msgstr ""
 
@@ -1362,7 +1439,7 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: WEIPDCRM/views/admin/help/statistics.py:64
+#: WEIPDCRM/views/admin/help/statistics.py:65
 msgid "Clean"
 msgstr ""
 
@@ -1370,41 +1447,41 @@ msgstr ""
 msgid "Active release "
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:93
+#: WEIPDCRM/views/admin/upload.py:96
 #, python-format
 msgid "Version Conflict: %s"
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:256
+#: WEIPDCRM/views/admin/upload.py:259
 msgid "Upload failed, Unsupported file extension."
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:272
+#: WEIPDCRM/views/admin/upload.py:275
 msgid ""
 "Active release not set: you cannot publish your repository without an active "
 "release."
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:290 WEIPDCRM/views/admin/upload.py:402
+#: WEIPDCRM/views/admin/upload.py:293 WEIPDCRM/views/admin/upload.py:405
 msgid "No such job"
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:312 WEIPDCRM/views/admin/upload.py:324
-#: WEIPDCRM/views/admin/upload.py:353 WEIPDCRM/views/admin/upload.py:425
-#: WEIPDCRM/views/admin/upload.py:437 WEIPDCRM/views/admin/upload.py:466
+#: WEIPDCRM/views/admin/upload.py:315 WEIPDCRM/views/admin/upload.py:327
+#: WEIPDCRM/views/admin/upload.py:356 WEIPDCRM/views/admin/upload.py:428
+#: WEIPDCRM/views/admin/upload.py:440 WEIPDCRM/views/admin/upload.py:469
 msgid "Upload succeed, proceeding..."
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:341 WEIPDCRM/views/admin/upload.py:363
-#: WEIPDCRM/views/admin/upload.py:454 WEIPDCRM/views/admin/upload.py:476
+#: WEIPDCRM/views/admin/upload.py:344 WEIPDCRM/views/admin/upload.py:366
+#: WEIPDCRM/views/admin/upload.py:457 WEIPDCRM/views/admin/upload.py:479
 msgid "Upload failed, invalid form."
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:367 WEIPDCRM/views/admin/upload.py:378
+#: WEIPDCRM/views/admin/upload.py:370 WEIPDCRM/views/admin/upload.py:381
 msgid "Upload New Packages"
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:495
+#: WEIPDCRM/views/admin/upload.py:498
 #, python-format
 msgid "Upload Screeshots for %s"
 msgstr ""

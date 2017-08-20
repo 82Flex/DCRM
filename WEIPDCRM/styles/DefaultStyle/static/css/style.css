@@ -1,3 +1,6 @@
+*{
+    -webkit-tap-highlight-color: transparent
+}
 a {
     color: #444;
     text-decoration: none;
@@ -6,7 +9,6 @@ a {
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
     transition: all .3s ease;
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
 a:hover {
@@ -46,6 +48,16 @@ img {
 
 .clear {
     clear: both
+}
+
+.blue {
+    background-image: -webkit-linear-gradient(120deg, #64bdf3, #97fedf);
+}
+.pink {
+    background-image: -webkit-linear-gradient(140deg, #fe7097 54.2%, #ff95cb);
+}
+.orange {
+    background-image: -webkit-linear-gradient(120deg, #ffc65d, #feef82);
 }
 
 .main {
@@ -541,11 +553,11 @@ img {
 }
 
 .container .screenshot .image {
-    background: #f9f9f9;
-    padding: 5px 0px 3px;
+    #background: #f9f9f9;
+    #padding: 5px 0px 3px;
     width: 100%;
-    -webkit-border-radius: 10px;
-    margin-top: 15px;
+    #-webkit-border-radius: 10px;
+    #margin-top: 15px;
     margin-bottom: 15px;
 }
 
@@ -554,7 +566,7 @@ img {
     margin-right: 14px;
     margin-top: 15px;
     width: 550px;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
 }
 
@@ -651,9 +663,17 @@ img {
     box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
 }
 
+.container .content label {
+    font-size: 14px;
+}
+
+.container .content a {
+    font-size: 13px;
+}
+
 .container .content .comments h2 {
     margin-top: 8px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 500;
     line-height: 18px;
     color: #474747;
@@ -831,11 +851,11 @@ img {
 }
 
 .container .widget-area .section_list .list ul {
-    padding: 18px;
+    padding: 18px 18px 0;
 }
 
 .container .widget-area .section_list .list li {
-    padding-bottom: 16px;
+    padding-bottom: 8px;
 }
 
 .container .widget-area .section_list .list li:last-child {
@@ -859,19 +879,19 @@ img {
 }
 
 .container .widget-area .section_list .list .icon {
-    height: 48px
+    height: 45px
 }
 
 .container .widget-area .section_list .list .icon img {
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
     float: left;
-    border-radius: 7px;
+    border-radius: 5px;
 }
 
 .container .widget-area .section_list .list .title {
     margin-left: 12px;
-    line-height: 48px;
+    line-height: 35px;
 }
 
 .container .widget-area .section_list .list .more a {
@@ -919,6 +939,42 @@ img {
     color: #444;
     font-size: 15px;
     font-weight: 300
+}
+
+.container .widget-area .social {
+    padding: 20px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
+    margin-bottom: 20px;
+}
+
+.container .widget-area .social .social-list {
+    padding: 18px 18px 0;
+}
+
+.container .widget-area .social .social-list .social-item {
+    margin-bottom: 8px;
+    height: 45px;
+}
+
+.container .widget-area .social .social-list .social-item:only-child,
+.container .widget-area .social .social-list .social-item:last-child {
+    margin-bottom: 0px;
+}
+
+.container .widget-area .social .social-list .social-item img {
+    width: 36px;
+    float: left;
+    padding-right: 10px;
+}
+
+.container .widget-area .social .social-list .social-item p {
+    font-size: 13px;
+    line-height: 32px
+}
+.container .widget-area .social .social-list .social-item sup {
+    line-height: normal;
 }
 
 .similar-c::-webkit-scrollbar {
@@ -1038,15 +1094,6 @@ img {
     padding-right: 4px;
 }
 
-.container .content .contact .card .card-wrapper .blue {
-    background-image: -webkit-linear-gradient(120deg, #64bdf3, #97fedf);
-}
-.container .content .contact .card .card-wrapper .pink {
-    background-image: -webkit-linear-gradient(140deg, #fe7097 54.2%, #ff95cb);
-}
-.container .content .contact .card .card-wrapper .orange {
-    background-image: -webkit-linear-gradient(120deg, #ffc65d, #feef82);
-}
 .container .content .contact .card .card-wrapper .contact-card {
     float: left;
     position: relative;
@@ -1150,7 +1197,17 @@ img {
     }
 }
 @media screen and (max-width: 985px) {
-    .header,.breadcrumbs, .index-package-list {
+    .breadcrumbs {
+        margin: 0 auto;
+        border-radius: 0;
+        margin-bottom: 10px;
+        top: 0;
+        left: 0;
+        position: fixed;
+        z-index: 9999999;
+        width: 100%
+    }
+    .header,.index-package-list {
         display: none;
     }
     .container {
@@ -1195,6 +1252,12 @@ img {
     }
     .container .widget-area .repo-card,.container .widget-area .notice {
         margin-bottom: 25px;
+    }
+    .container .widget-area .section_list .list ul {
+        padding: 18px 0 0;
+    }
+    .container .widget-area .social .social-list {
+        padding: 18px 0 0;
     }
     .page-navi {
         padding: 10px 0;

@@ -88,7 +88,7 @@ input,textarea {
 .comments .btn {
   -webkit-appearance: none;
   border-radius: 2px;
-  background: #19B5FE;
+  background: rgba(25, 182, 255, 0.9);
   color: #fff;
   padding: 14px 0;
   border: 0;

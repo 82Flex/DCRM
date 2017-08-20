@@ -1,0 +1,71 @@
+{% load i18n staticfiles global_settings %}{% global_settings %}
+{% if settings.display_social %}
+    <div class="social">
+        <label><h2>{% trans "Support" %}</h2></label>
+        <div class="social-list">
+            {% if settings.qq_group_name and settings.qq_group_url %}
+                <div class="social-item">
+                    <a href="{{ settings.qq_group_url }}" target="_blank">
+                        <img src="{% static "img/qq.png" %}">
+                        <p>{{ settings.qq_group_name }}</p>
+                        <div class="clear"></div>
+                    </a>
+                </div>
+            {% endif %}
+            {% if settings.weibo_name and settings.weibo_url %}
+                <div class="social-item">
+                    <a href="{{ settings.weibo_url }}" target="_blank">
+                        <img src="{% static "img/weibo.png" %}">
+                        <p>{{ settings.weibo_name }}</p>
+                        <div class="clear"></div>
+                    </a>
+                </div>
+            {% endif %}
+            {% if settings.telegram_name and settings.telegram_url %}
+                <div class="social-item">
+                    <a href="{{ settings.weibo_url }}" target="_blank">
+                        <img src="{% static "img/telegram.png" %}">
+                        <p>{{ settings.telegram_name }}</p>
+                        <div class="clear"></div>
+                    </a>
+                </div>
+            {% endif %}
+            {% if settings.alipay_url %}
+                <div class="social-item">
+                    <a href="{{ settings.alipay_url }}" target="_blank">
+                        <img src="{% static "img/alipay.png" %}">
+                        <p>{% trans "Donate via Alipay" %}</p>
+                        <div class="clear"></div>
+                    </a>
+                </div>
+            {% endif %}
+            {% if settings.twitter_name and settings.twitter_url %}
+                <div class="social-item">
+                    <a href="{{ settings.weibo_url }}" target="_blank">
+                        <img src="{% static "img/twitter.png" %}">
+                        <p>{{ settings.twitter_name }}</p>
+                        <div class="clear"></div>
+                    </a>
+                </div>
+            {% endif %}
+            {% if settings.facebook_name and settings.facebook_url %}
+                <div class="social-item">
+                    <a href="{{ settings.weibo_url }}" target="_blank">
+                        <img src="{% static "img/facebook.png" %}">
+                        <p>{{ settings.weibo_name }}</p>
+                        <div class="clear"></div>
+                    </a>
+                </div>
+            {% endif %}
+            {% if settings.paypal_url %}
+                <div class="social-item">
+                    <a href="{{ settings.paypal_url }}" target="_blank">
+                        <img src="{% static "img/paypal.png" %}">
+                        <p>{% trans "Donate via Paypal" %}</p>
+                        <div class="clear"></div>
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

@@ -38,12 +38,10 @@ class SectionView(ListView):
     model = Package
     context_object_name = 'package_list'
     pk_url_kwarg = 'section_id'
-    template_name = 'frontend/package-in-section.html'
+    template_name = 'package-in-section.html'
 
     @xframe_options_exempt
     def get(self, request, *args, **kwargs):
-        #if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
-            #self.template_name = 'mobile/section.html'
         return super(SectionView, self).get(request, *args, **kwargs)
     
     def get_queryset(self):

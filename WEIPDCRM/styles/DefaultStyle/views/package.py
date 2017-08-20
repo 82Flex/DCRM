@@ -39,18 +39,18 @@ class PackageView(DetailView):
     model = Version
     context_object_name = 'package_info'
     pk_url_kwarg = 'package_id'
-    template_name = 'frontend/package.html'
+    template_name = 'package/package.html'
 
     @xframe_options_exempt
     @vary_on_headers('X-MACHINE')
     def get(self, request, *args, **kwargs):
         action_name = self.kwargs.get('action_name')
         if action_name == "contact":
-            self.template_name = 'frontend/package/contact.html'
+            self.template_name = 'package/contact.html'
         elif action_name == "history":
-            self.template_name = 'frontend/package/history.html'
+            self.template_name = 'package/history.html'
         elif action_name is None:
-            self.template_name = 'frontend/package.html'
+            self.template_name = 'package/package.html'
         else:
             return HttpResponseNotFound()
 

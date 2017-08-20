@@ -1,9 +1,9 @@
-{% extends "frontend/base.html" %}
+{% extends "base.html" %}
 {% load i18n staticfiles %}
 {% block title %}{% trans 'Section List' %} | DCRM{% endblock %}
 {% block stylesheet %}
     {{ block.super }}
-    <link rel="stylesheet" href="{% static "frontend/css/content-list.css" %}">
+    <link rel="stylesheet" href="{% static "css/content-list.css" %}">
 {% endblock %}
 {% block breadcrumbs %}
     <i class="fa fa-home"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a>
@@ -12,9 +12,9 @@
 {% block content %}
     <div class="content-list">
         <div class="title"><h2>{% trans 'Section List' %}</h2></div>
-        {% include 'frontend/grid-list-in-section-list.html' %}
+        {% include 'grid-list-in-section-list.html' %}
         <div class="clear"></div>
-        {% include 'frontend/pagination-in-section-list.html' %}
+        {% include 'pagination-in-section-list.html' %}
     </div>
 {% endblock %}
 {% block section_list %}{% endblock %}

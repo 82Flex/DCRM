@@ -1,11 +1,11 @@
-{% extends "frontend/base.html" %}
+{% extends "base.html" %}
 {% load i18n staticfiles %}
 {% block title %}{% trans "Package" %} {{ package_info.c_name | default:_("Untitled Package") }} | DCRM{% endblock %}
 {% block stylesheet %}
     {{ block.super }}
-    <link rel="stylesheet" type="text/css" href="{% static "frontend/css/package-info.css" %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static "frontend/css/font-awesome.min.css" %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static "frontend/css/emoji.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/package-info.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/font-awesome.min.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/emoji.css" %}"/>
 {% endblock %}
 {% block breadcrumbs %}
     <i class="fa fa-home"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a>
@@ -21,7 +21,7 @@
             {% if package_info.display_icon %}
                 <img class="icon" src="{{ package_info.display_icon }}"/>
             {% else %}
-                <img class="icon" src="{% static 'frontend/img/default-package-icon.png' %}"/>
+                <img class="icon" src="{% static 'img/default-package-icon.png' %}"/>
             {% endif %}
         </div>
         <div class="title"><h1>{{ package_info.c_name | default:_("Untitled Package") }}</h1></div>
@@ -115,10 +115,10 @@
                 {% load comments static threadedcomments_tags %}
                 <link rel="stylesheet" type="text/css" href="{% static 'fluent_comments/css/ajaxcomments.css' %}"/>
                 <script type="text/javascript" src="{% static 'fluent_comments/js/ajaxcomments.js' %}"></script>
-                <script src="{% static 'frontend/js/config.js' %}"></script>
-                <script src="{% static 'frontend/js/util.js' %}"></script>
-                <script src="{% static 'frontend/js/jquery.emojiarea.js' %}"></script>
-                <script src="{% static 'frontend/js/emoji-picker.js' %}"></script>
+                <script src="{% static 'js/config.js' %}"></script>
+                <script src="{% static 'js/util.js' %}"></script>
+                <script src="{% static 'js/jquery.emojiarea.js' %}"></script>
+                <script src="{% static 'js/emoji-picker.js' %}"></script>
                 {% render_comment_list for object %}
                 {% render_comment_form for object %}
             </div>
@@ -130,28 +130,40 @@
 {% block footerscript %}
     {{ block.super }}
     <script type="text/javascript">
+        function nice() {
+            if ($(window).width() <= 985 && 482 <=$(window).width()) {
+                $('.image').css('width', '100%');
+            }
+            else if ($(window).width() <= 482) {
+                var width = $(".content").width();
+                width = width - 30;
+                $('.image').css('width', width + 'px');
+            }
+        }
         $(document).ready(function () {
             $('.comments textarea').attr('data-emojiable', 'true');
             $('.comments textarea').attr('data-emoji-input', 'unicode');
             $('.controls.col-sm-10').css('position', 'relative');
+            nice();
             // In Cydia
             if (navigator.userAgent.search(/Cydia/) != -1) {
-                $(".main").css("background-color","#efeff4");
-                var width = $(".content").width();
-                width = width - 30;
-                $('.image').css('width', width + 'px');
+                $('.main').css("background-color","#efeff4");
                 $('.breadcrumbs').remove();
                 $('.notice').css("margin-top","10px");
                 $('.download').hide();
-                $(".icon").hide();
-                $(".title").hide();
+                $('.icon').hide();
+                $('.title').hide();
+                $('.footer').css("color","#6d6d72");
             }
+        });
+        $(window).resize(function () {
+            nice();
         });
         $(function () {
             $('.comments textarea').attr('placeholder', '{% trans "Say something..." %}');
             // Initializes and creates emoji set from sprite sheet
             window.emojiPicker = new EmojiPicker({
-                assetsPath: '{% static 'frontend/img' %}',
+                assetsPath: '{% static 'img' %}',
                 emojiable_selector: '[data-emojiable=true]',
                 popupButtonClasses: 'fa fa-smile-o'
             });
@@ -176,7 +188,7 @@
                 device_type += '{{ device.subtype }}|';
             {% endfor %}
             // Check os compatibility
-            if (device != "UNDEFINE") {
+            if (device != "UNDEFINE" && os_compatibility && device_type) {
                 $('.compatibility').show();
                 if (os_compatibility.search(version) != -1 && device_type.search(device) != -1) {
                     $('.compatibility p').removeClass("no");

@@ -39,4 +39,4 @@ def search_view(request):
         context['package_list'] = Package.objects.filter(c_name__icontains=request.POST['package'])[:24]
     else:
         return HttpResponseBadRequest()
-    return render(request, 'frontend/search.html', context)
+    return render(request, 'search.html', context)

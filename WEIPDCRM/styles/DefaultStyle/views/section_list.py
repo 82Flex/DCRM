@@ -35,12 +35,10 @@ class SectionListView(ListView):
     ordering = 'name'
     model = Section
     context_object_name = 'section_list'
-    template_name = 'frontend/section-list.html'
+    template_name = 'section-list.html'
 
     @xframe_options_exempt
     def get(self, request, *args, **kwargs):
-        #if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
-        #    self.template_name = 'mobile/section-list.html'
         return super(SectionListView, self).get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):

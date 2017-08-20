@@ -42,12 +42,10 @@ class IndexView(ListView):
     ordering = '-id'
     model = Package
     context_object_name = 'package_list'
-    template_name = 'frontend/index.html'
+    template_name = 'index.html'
 
     @xframe_options_exempt
     def get(self, request, *args, **kwargs):
-        #if request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
-            #self.template_name = 'mobile/index.html'
         return super(IndexView, self).get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):

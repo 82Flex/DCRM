@@ -32,7 +32,7 @@ class ChartView(ListView):
     model = Version
     context_object_name = 'package_list'
     ordering = '-download_times'
-    template_name = 'frontend/chart.html'
+    template_name = 'chart.html'
 
     def get_queryset(self):
         """

@@ -1,4 +1,4 @@
-{% extends "frontend/package.html" %}
+{% extends "package/package.html" %}
 {% load i18n staticfiles %}
 {% block title %}{% blocktrans with package_info.c_name as c_name %}Contact {{ c_name }} | DCRM
 {% endblocktrans %}{% endblock %}
@@ -13,7 +13,7 @@
                             <a href="mailto:{{ package_info.author_email }}?subject={{ "Cydia/APT(A): "|escape }}{{ package_info.c_name|escape }}{{ " ("|escape }}{{ package_info.c_version }}{{ ")"|escape }}" target="_blank">
                                 <div class="panel">
                                     <div class="pic">
-                                        <img class="icon" src="{% static "mobile/img/email.png" %}">
+                                        <img class="icon" src="{% static "img/email.png" %}">
                                     </div>
                                     <div class="name">
                                         <h2>{% trans "Author" %}: {{ package_info.author_name }}</h2>
@@ -32,7 +32,7 @@
                                 <a href="mailto:{{ package_info.maintainer_email }}?subject={{ "Cydia/APT(A): "|escape }}{{ package_info.c_name|escape }}{{ " ("|escape }}{{ package_info.c_version }}{{ ")"|escape }}" target="_blank">
                                     <div class="panel">
                                         <div class="pic">
-                                            <img class="icon" src="{% static "mobile/img/email.png" %}">
+                                            <img class="icon" src="{% static "img/email.png" %}">
                                         </div>
                                         <div class="name">
                                             <h2>{% trans "Maintainer" %}: {{ package_info.maintainer_name }}</h2>
@@ -51,7 +51,7 @@
                                 <a href="{{ package_info.sponsor_site }}" target="_blank">
                                     <div class="panel">
                                         <div class="pic">
-                                            <img class="icon" src="{% static "mobile/img/safari.png" %}">
+                                            <img class="icon" src="{% static "img/safari.png" %}">
                                         </div>
                                         <div class="name">
                                             <h2>{% trans "Sponsor" %}: {{ package_info.sponsor_name }}</h2>
@@ -73,11 +73,18 @@
 {% block footerscript %}
     <script type="text/javascript">
         $(document).ready(function () {
+            nice();
             if (navigator.userAgent.search(/Cydia/) != -1) {
                 $(".main").css("background-color", "#efeff4");
-                var width = $(".content").width();
-                $('.card-wrapper').css('width', width + 'px');
             }
         });
+        $(window).resize(function () {
+            nice();
+        });
+
+        function nice() {
+            var width = $(".content").width();
+            $('.card-wrapper').css('width', width + 'px');
+        }
     </script>
 {% endblock %}

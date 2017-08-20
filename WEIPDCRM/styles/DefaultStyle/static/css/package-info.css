@@ -1,16 +1,4 @@
 @media screen and (max-width: 985px) {
-    .breadcrumbs {
-        display: block!important;
-        margin: 0 auto;
-        border-radius: 0!important;
-        margin-bottom: 10px!important;
-        top: 0;
-        left: 0;
-        position: fixed;
-        z-index: 9999999;
-        width: 100%;
-        box-shadow: 0 0 10px rgba(200, 200, 200, 0.25)!important;
-    }
     .container .widget-area .repo-card,
     .container .widget-area .section_list {
         display: none;

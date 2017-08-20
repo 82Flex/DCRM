@@ -18,7 +18,7 @@
 {% endcomment %}
 {% load i18n staticfiles gravatar %}
         {%  if comment.user_email %}
-        <div class="comments-context"><div class="gravatar"><img src="{{ comment.user_email|gravatar_url:128}}" onerror="javascript:this.onerror=null;javascript:this.src='{% static "frontend/img/default_avatar.png" %}'"></div>
+        <div class="comments-context"><div class="gravatar"><img src="{{ comment.user_email|gravatar_url:128}}" onerror="javascript:this.onerror=null;javascript:this.src='{% static "img/default_avatar.png" %}'"></div>
         {% endif %}
         <div{% if preview %} id="comment-preview"{% else %} id="c{{ comment.id }}"{% endif %} class="comment-item">
           {% block comment_item %}

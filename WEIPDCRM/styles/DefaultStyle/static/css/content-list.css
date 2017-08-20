@@ -1,16 +1,10 @@
 @media screen and (max-width: 985px) {
-    .breadcrumbs {
-        display: block!important;
-        margin: 0 auto;
-        border-radius: 0!important;
-        margin-bottom: 10px!important;
-        top: 0;
-        position: fixed;
-        z-index: 9999999;
-        width: 100%
-    }
     .widget-area {
         display: none;
+    }
+    .container .content {
+        padding-top: 90px;
+        margin-bottom: 15px;
     }
 }
 
