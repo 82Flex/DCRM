@@ -335,7 +335,7 @@
                     $commentUl = $parent.children('ul:last');
                 }
             } else {
-                if (parent_id == '') {
+                if (!parent_id) {
                     $parent.append('<ul class="comment-list-wrapper"></ul>');
                     $commentUl = $parent.children('ul:last');
                 }
