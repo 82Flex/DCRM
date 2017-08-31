@@ -109,7 +109,7 @@ def statistics_view(request):
         if 'action' in request.POST and request.POST['action'] == 'clean':
             result_dict = {}
             try:
-                if (os.path.exists(TEMP_ROOT)):
+                if os.path.exists(TEMP_ROOT):
                     shutil.rmtree(TEMP_ROOT)
                     os.mkdir(TEMP_ROOT)
                 else:

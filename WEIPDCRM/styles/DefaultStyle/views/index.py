@@ -25,7 +25,6 @@ Notice: You have used class-based views, that's awesome.
 from __future__ import unicode_literals
 
 from django.views.generic import ListView
-from django.views.decorators.vary import vary_on_headers
 from django.views.decorators.clickjacking import xframe_options_exempt
 from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.build import Build

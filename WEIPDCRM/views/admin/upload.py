@@ -24,7 +24,6 @@ import json
 import uuid
 import os
 import re
-import time
 
 from django.db import transaction
 from django.conf import settings
@@ -150,6 +149,7 @@ def handle_uploaded_package(path):
         })
     return result_dict
 
+
 def handle_uploaded_screenshot(content):
     """
         :param content: Image info
@@ -163,7 +163,6 @@ def handle_uploaded_screenshot(content):
         if not os.path.isdir(image_dir):
             mkdir_p(image_dir)
         file_name = os.path.basename(content['path'])
-        target_path = os.path.join(image_dir, file_name)
         with transaction.atomic():
             id = content['id']
             gallery = Gallery.objects.filter(title=id).last()
@@ -180,9 +179,8 @@ def handle_uploaded_screenshot(content):
                                                  is_public=1)
                 gallery.sites.add(current_site)
             # save
-            #os.rename(content['path'], target_path)
-            photo = Photo(title=c_name.title()+'_'+str(int(time.time())),
-                          slug=c_name.lower()+'_'+str(int(time.time())),
+            photo = Photo(title=c_name.title()+'_'+str(uuid.uuid1()),
+                          slug=c_name.lower()+'_'+str(uuid.uuid1()),
                           caption='',
                           is_public=1)
             data = open(content['path'])
