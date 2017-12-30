@@ -76,7 +76,7 @@ body {
     width: 100%;
     height: 50px;
     background-color: #fff;
-    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.05);
     position: fixed;
     top: 0;
     z-index: 999999999;
@@ -1081,6 +1081,7 @@ body {
     font-size: 0;
     white-space: nowrap;
     word-break: normal;
+    padding: 0 18px 0 18px;
 }
 
 .container .content .contact .card .card-wrapper li {
@@ -1247,7 +1248,7 @@ body {
         float: none;
         width: 90%;
         margin:0 auto;
-        padding: 15px 0 0;
+        padding: 20px 0 0;
     }
     .container .widget-area .repo-card {
         margin-top: 43px;

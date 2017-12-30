@@ -193,6 +193,10 @@ li.comment-wrapper {
   padding-left: 0;
 }
 
+.comments-form {
+  padding: 10px 0;
+}
+
 .js-comments-form-orig-position {
   margin-top: 15px;
 }

@@ -252,7 +252,8 @@ class VersionAdmin(admin.ModelAdmin):
                 change_num -= 1
         if change is True and change_num > 0:
             obj.update_storage()
-            messages.info(request, _("%s storage updating job has been added to the \"high\" queue.") % str(obj))
+            if settings.ENABLE_REDIS is True:
+                messages.info(request, _("%s storage updating job has been added to the \"high\" queue.") % str(obj))
         else:
             pass
     
