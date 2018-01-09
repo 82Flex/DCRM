@@ -26,12 +26,12 @@ msgstr "无可用软件包。"
 #: WEIPDCRM/manage/admin/build.py:315
 #, python-format
 msgid "Build %s generating job has been added to the \"high\" queue."
-msgstr ""
+msgstr "构建 %s 生成任务已被添加到 \"high\" 队列."
 
 #: WEIPDCRM/manage/admin/build.py:318
 #, python-format
 msgid "Build %s generating job has been finished."
-msgstr ""
+msgstr "构建 %s 生成任务已完成."
 
 #: WEIPDCRM/manage/admin/release.py:86
 msgid "There is no active release. <a href=\""
