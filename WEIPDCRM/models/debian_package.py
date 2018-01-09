@@ -24,6 +24,7 @@ import os
 import time
 import tarfile
 import tempfile
+import gzip
 
 from django.utils.translation import ugettext as _
 
@@ -46,7 +47,9 @@ class DebianPackage(object):
         self.control = {}
         self.size = os.path.getsize(path)
         self.offset_control = 0
+        self.length_control = 0
         self.offset_data = 0
+        self.length_data = 0
         self.load()
     
     def load(self):
@@ -98,6 +101,7 @@ class DebianPackage(object):
                     self.version = fd.read(4).rstrip()
             elif is_control:
                 self.offset_control = fd.tell() - 60
+                self.length_control = size
                 control_data = fd.read(size)
                 temp = tempfile.NamedTemporaryFile(delete=False)
                 temp.write(control_data)
@@ -129,6 +133,7 @@ class DebianPackage(object):
             else:
                 if is_data:
                     self.offset_data = fd.tell() - 60
+                    self.length_data = size
                 fd.seek(fd.tell() + size)
             if size % 2 == 1:
                 fd.read(1)  # Even Padding
@@ -202,19 +207,82 @@ class DebianPackage(object):
         """
         Save this deb file if you have replaced its control
         """
+
+        # control and its content
+
         control = self.control
         control_field = DebianPackage.get_control_content(control)
+
+        # temporary control file
+
         temp_control = tempfile.NamedTemporaryFile(delete=False)
         temp_control.write(control_field.encode("utf-8"))
         temp_control.close()
-        temp_control_gz = tempfile.NamedTemporaryFile(delete=False)
-        temp_control_gz.close()
-        control_tar = tarfile.open(temp_control_gz.name, "w:gz")
-        control_tar.add(temp_control.name, "./control")
-        control_tar.close()
-        control_tar_size = int(os.path.getsize(temp_control_gz.name))
+
+        # copy temporary control tar gz from original debian package
+
+        temp_control_tar_gz = tempfile.NamedTemporaryFile(delete=False)
+        deb_handler = open(self.path, "rb")
+        deb_handler.seek(self.offset_control + 60)
+        orig_control_len = 0
+        bytes_to_copy = self.length_control
+        while orig_control_len < bytes_to_copy:
+            bytes_left = bytes_to_copy - orig_control_len
+            if bytes_left < 16 * 1024:
+                bytes_to_read = bytes_left
+            else:
+                bytes_to_read = 16 * 1024  # 16k cache
+            cache = deb_handler.read(bytes_to_read)
+            if not cache:
+                break
+            orig_control_len = orig_control_len + bytes_to_read
+            temp_control_tar_gz.write(cache)
+        deb_handler.close()
+        temp_control_tar_gz.close()
+
+        # decompress original control tar gz to control tar
+
+        temp_control_tar = tempfile.NamedTemporaryFile(delete=False)
+        gz_control_tar_gz = gzip.open(temp_control_tar_gz.name, 'rb')
+        temp_control_tar.write(gz_control_tar_gz.read())
+        gz_control_tar_gz.close()
+        temp_control_tar.close()
+
+        # replace with new control file
+
+        new_control_tar = tarfile.open(temp_control_tar.name, "a:")
+        new_control_tar.add(temp_control.name, "./control")
+        new_control_tar.close()
+
+        # compress new control tar to control tar gz
+
+        temp_new_control_tar_gz = tempfile.NamedTemporaryFile(delete=False)
+        temp_new_control_tar_gz.close()
+
+        temp_control_tar = open(temp_control_tar.name, 'rb')
+        new_control_tar_gz = gzip.open(temp_new_control_tar_gz.name, "wb")
+        while True:
+            cache = temp_control_tar.read(16 * 1024)  # 16k cache
+            if not cache:
+                break
+            new_control_tar_gz.write(cache)
+        temp_control_tar.close()
+        new_control_tar_gz.close()
+
+        # build new debian package
+
+        control_tar_size = int(os.path.getsize(new_control_tar_gz.name))
+
+        # clean temporary control file
+
         os.unlink(temp_control.name)
+
+        # new debian package
+
         new_deb = tempfile.NamedTemporaryFile(delete=False)
+
+        # write debian header
+
         new_deb.write(
             b"\x21\x3C\x61\x72\x63\x68\x3E\x0A"  # 8
             b"\x64\x65\x62\x69\x61\x6E\x2D\x62"  # 16
@@ -238,26 +306,53 @@ class DebianPackage(object):
         )
         new_deb.write(str(control_tar_size).ljust(10))
         new_deb.write(b"\x60\x0A")
-        control_tar = open(temp_control_gz.name, "rb")
-        control_tar.seek(0)
+
+        # write new control tar gz
+
+        new_control_tar_gz = open(new_control_tar_gz.name, "rb")
+        new_control_tar_gz.seek(0)
         while True:
-            cache = control_tar.read(16 * 1024)  # 16k cache
+            cache = new_control_tar_gz.read(16 * 1024)  # 16k cache
             if not cache:
                 break
             new_deb.write(cache)
-        control_tar.close()
+        new_control_tar_gz.close()
+
+        # write control terminator
+
         if control_tar_size % 2 != 0:
             new_deb.write(b"\x0A")
-        data_tar = open(self.path, "rb")
-        data_tar.seek(self.offset_data)
-        while True:
-            cache = data_tar.read(16 * 1024)  # 16k cache
+
+        # write new data area
+
+        deb_handler = open(self.path, "rb")
+        deb_handler.seek(self.offset_data)
+        orig_data_len = 0
+        bytes_to_copy = self.length_data + 60
+        while orig_data_len < bytes_to_copy:
+            bytes_left = bytes_to_copy - orig_data_len
+            if bytes_left < 16 * 1024:
+                bytes_to_read = bytes_left
+            else:
+                bytes_to_read = 16 * 1024  # 16k cache
+            cache = deb_handler.read(bytes_to_read)  # 16k cache
             if not cache:
                 break
+            orig_data_len = orig_data_len + bytes_to_read
             new_deb.write(cache)
-        data_tar.close()
+        deb_handler.close()
+
+        # save
+
         new_deb.close()
+
+        # clean
+
+        os.unlink(gz_control_tar_gz.filename)
+        os.unlink(new_control_tar.name)
+        os.unlink(new_control_tar_gz.name)
         os.unlink(self.path)
+
         """
         !!! To keep its path original !!!
         """
