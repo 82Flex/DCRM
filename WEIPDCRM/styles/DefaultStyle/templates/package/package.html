@@ -141,12 +141,13 @@
             }
         }
         $(document).ready(function () {
-            $('.comments textarea').attr('data-emojiable', 'true');
-            $('.comments textarea').attr('data-emoji-input', 'unicode');
+            var $comment_area = $('.comments textarea');
+            $comment_area.attr('data-emojiable', 'true');
+            $comment_area.attr('data-emoji-input', 'unicode');
             $('.controls.col-sm-10').css('position', 'relative');
             nice();
             // In Cydia
-            if (navigator.userAgent.search(/Cydia/) != -1) {
+            if (navigator.userAgent.search(/Cydia/) !== -1) {
                 $('.main').css("background-color","#efeff4");
                 $('.breadcrumbs').remove();
                 $('.notice').css("margin-top","10px");
@@ -161,17 +162,20 @@
             nice();
         });
         $(function () {
-            $('.comments textarea').attr('placeholder', '{% trans "Say something..." %}');
-            // Initializes and creates emoji set from sprite sheet
-            window.emojiPicker = new EmojiPicker({
-                assetsPath: '{% static 'img' %}',
-                emojiable_selector: '[data-emojiable=true]',
-                popupButtonClasses: 'fa fa-smile-o'
-            });
-            // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
-            // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
-            // It can be called as many times as necessary; previously converted input fields will not be converted again
-            window.emojiPicker.discover();
+            var $comment_area = $('.comments textarea');
+            if ($comment_area.length) {
+                $comment_area.attr('placeholder', '{% trans "Say something..." %}');
+                // Initializes and creates emoji set from sprite sheet
+                window.emojiPicker = new EmojiPicker({
+                    assetsPath: '{% static 'img' %}',
+                    emojiable_selector: '[data-emojiable=true]',
+                    popupButtonClasses: 'fa fa-smile-o'
+                });
+                // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+                // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+                // It can be called as many times as necessary; previously converted input fields will not be converted again
+                window.emojiPicker.discover();
+            }
 
             var os_compatibility = '';
             var version = (navigator.userAgent.match(/.+(?:Version)[\/: ]([\d.]+)/) || [])[1];
@@ -189,18 +193,17 @@
                 device_type += '{{ device.subtype }}|';
             {% endfor %}
             // Check os compatibility
-            if (device != "UNDEFINE" && os_compatibility && device_type) {
+            if (device !== "UNDEFINE" && os_compatibility && device_type) {
                 $('.compatibility').show();
-                if (os_compatibility.search(version) != -1 && device_type.search(device) != -1) {
-                    $('.compatibility p').removeClass("no");
-                    $('.compatibility p').addClass("ok");
-                    $('.compatibility p').html("<i class=\"fa fa-check\" aria-hidden=\"true\"></i>{% trans 'Your device supports this package' %}");
-
+                var $comp = $('.compatibility p');
+                if (os_compatibility.search(version) !== -1 && device_type.search(device) !== -1) {
+                    $comp.removeClass("no");
+                    $comp.addClass("ok");
+                    $comp.html("<i class=\"fa fa-check\" aria-hidden=\"true\"></i>{% trans 'Your device supports this package' %}");
                 } else {
-                    $('.compatibility p').removeClass("ok");
-                    $('.compatibility p').addClass("no");
-                    $('.compatibility p').html("<i class=\"fa fa-times\" aria-hidden=\"true\"></i>{% trans "Your device doesn't support this package" %}");
-
+                    $comp.removeClass("ok");
+                    $comp.addClass("no");
+                    $comp.html("<i class=\"fa fa-times\" aria-hidden=\"true\"></i>{% trans "Your device doesn't support this package" %}");
                 }
             } else {
                 $('.compatibility').hide();

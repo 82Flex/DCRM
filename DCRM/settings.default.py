@@ -28,6 +28,9 @@ SITE_ID = 1
 # TIPS: Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# THEME
+THEME = 'DefaultStyle'
+
 # FEATURES
 ENABLE_REDIS = False  # redis-server, rq are required.
 ENABLE_CACHE = False  # memcached, python-memcached are required.
@@ -121,7 +124,7 @@ else:
 INSTALLED_APPS = [
     'WEIPDCRM',
     'WEIPDCRM.apps.SuitConfig',
-    'WEIPDCRM.styles.DefaultStyle',
+    'WEIPDCRM.styles.' + THEME,
     'preferences',
     "suit_redactor",
     'django.contrib.sites',

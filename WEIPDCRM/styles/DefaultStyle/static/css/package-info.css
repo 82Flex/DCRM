@@ -15,6 +15,9 @@
     .container .content .article .screenshot .image .image-wrapper {
         width: auto;
     }
+    .container .content .contact {
+        margin-top: 48px;
+    }
     .container .content .contact .card .card-wrapper::-webkit-scrollbar,
     .container .content .article .screenshot .image .image-wrapper::-webkit-scrollbar {
         display: none

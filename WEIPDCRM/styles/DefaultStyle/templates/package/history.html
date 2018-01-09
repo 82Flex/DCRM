@@ -22,7 +22,7 @@
 {% block footerscript %}
     <script type="text/javascript">
         $(document).ready(function () {
-            if (navigator.userAgent.search(/Cydia/) != -1) {
+            if (navigator.userAgent.search(/Cydia/) !== -1) {
                 $(".main").css("background-color", "#efeff4");
             }
         });

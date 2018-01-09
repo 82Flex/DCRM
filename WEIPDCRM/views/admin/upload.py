@@ -493,7 +493,7 @@ def upload_screenshots_view(request, package_id):
         context.update({
             'title': _('Upload Screenshots'),
             'form': form,
-            'drop_title': _('Upload Screeshots for %s') % name,
+            'drop_title': name,
             'job_id': ''
         })
         template = 'admin/upload_image.html'

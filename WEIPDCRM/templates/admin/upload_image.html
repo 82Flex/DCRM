@@ -27,7 +27,7 @@
             </div>
             <div class="drop-list-area">
                 <ul id="drop-list"></ul>
-                <a href="javascript:;" onclick="javascript:history.back();"> &lt; {% trans "Edit package info" %}</a>
+                <a href="javascript:" onclick="history.back();"> &lt; {% trans "Back" %}</a>
             </div>
         </div>
     </div>
@@ -167,7 +167,7 @@
 
             function in_array(str,arr) {
                 for (var i = 0, k = arr.length; i < k; i++) {
-                    if (str == arr[i]) {
+                    if (str === arr[i]) {
                         return true;
                     }
                 }
@@ -176,7 +176,7 @@
 
             function check_form(file_name) {
                 var extension = file_name.substring(file_name.lastIndexOf('.'), file_name.length).toLowerCase();
-                var allow_ext = new Array('.png','.jpg','.gif');
+                var allow_ext = ['.png','.jpg','.gif'];
                 if(in_array(extension,allow_ext)){
                     return true;
                 }

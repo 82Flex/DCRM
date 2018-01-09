@@ -29,9 +29,11 @@ from WEIPDCRM.views.admin.help import statistics
 from WEIPDCRM.views.admin import release
 from WEIPDCRM.views import publish
 
+theme_module = settings.THEME
+
 urlpatterns = [
     # Notice: Good Bro! Use 'include' to import urls from other apps.
-    url(r'^', include('WEIPDCRM.styles.DefaultStyle.urls')),
+    url(r'^', include('WEIPDCRM.styles.' + theme_module + '.urls')),
     url(r'^comments/', include('fluent_comments.urls')),
     
     # Basic List
