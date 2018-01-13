@@ -30,7 +30,7 @@ Username: demo
 
 Password: demodemo
 
-- https://beta.uozi.org
+- https://apt.uozi.org
 
 ### ENVIRONMENT OF DCRM 的基本环境要求是什么？
 - Python 2.7
@@ -186,7 +186,7 @@ server {
     }
     
     location ~^/((CydiaIcon.png)|(Release(.gpg)?)|(Packages(.gz|.bz2)?))$ {
-        alias /wwwdata/DCRM/resources/releases/$1;
+        alias /wwwdata/DCRM/resources/releases/1/$1;
     }
     
     location @djangosite {

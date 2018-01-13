@@ -176,7 +176,7 @@
 
             function check_form(file_name) {
                 var extension = file_name.substring(file_name.lastIndexOf('.'), file_name.length).toLowerCase();
-                var allow_ext = ['.png','.jpg','.gif'];
+                var allow_ext = ['.png','.jpg','.gif', '.jpeg'];
                 if(in_array(extension,allow_ext)){
                     return true;
                 }

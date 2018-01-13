@@ -79,7 +79,7 @@ body {
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.05);
     position: fixed;
     top: 0;
-    z-index: 999999999;
+    z-index: 9999;
 }
 
 .header .nav {
@@ -1207,7 +1207,7 @@ body {
         top: 0;
         left: 0;
         position: fixed;
-        z-index: 9999999;
+        z-index: 9999;
         width: 100%
     }
     .header,.index-package-list {

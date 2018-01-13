@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/package-info.css" %}"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/font-awesome.min.css" %}"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/emoji.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/jquery.fancybox.min.css" %}"/>
 {% endblock %}
 {% block breadcrumbs %}
     <i class="fa fa-home"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a>
@@ -99,7 +100,9 @@
                         <ul>
                             {% for photo in gallery.public %}
                                 <li>
-                                    <img src="{{ photo.get_display_url }}" alt="{{ photo.title }}">
+                                    <a data-fancybox="images" data-caption="{{ package_info.c_name | default:_("Untitled Package") }}" href="{{ photo.get_display_url }}">
+                                        <img src="{{ photo.get_display_url }}" alt="{{ photo.title }}">
+                                    </a>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -129,6 +132,7 @@
 {% endblock %}
 {% block footerscript %}
     {{ block.super }}
+    <script type="application/javascript" src="{% static 'js/jquery.fancybox.min.js' %}"></script>
     <script type="text/javascript">
         function nice() {
             if ($(window).width() <= 985 && 482 <=$(window).width()) {
@@ -148,14 +152,14 @@
             nice();
             // In Cydia
             if (navigator.userAgent.search(/Cydia/) !== -1) {
-                $('.main').css("background-color","#efeff4");
+                $('.main').css("background-color", "#efeff4");
                 $('.breadcrumbs').remove();
-                $('.notice').css("margin-top","10px");
+                $('.notice').css("margin-top", "10px");
                 $('.download').hide();
                 $('.icon').hide();
                 $('.title').hide();
-                $('.footer ul li').css("color","#6d6d72");
-                $('.footer ul li a').css("color","#6d6d72");
+                $('.footer ul li').css("color", "#6d6d72");
+                $('.footer ul li a').css("color", "#6d6d72");
             }
         });
         $(window).resize(function () {
