@@ -1247,7 +1247,7 @@ body {
     .container .widget-area {
         float: none;
         width: 90%;
-        margin:0 auto;
+        margin: 48px auto 0 auto;
         padding: 20px 0 0;
     }
     .container .widget-area .repo-card {
