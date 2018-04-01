@@ -211,7 +211,10 @@ def handle_uploaded_file(request):
     f = request.FILES['package']
     temp_root = settings.TEMP_ROOT
     if not os.path.exists(temp_root):
-        mkdir_p(temp_root)
+        try:
+            mkdir_p(temp_root)
+        except OSError:
+            pass
     package_temp_path = os.path.join(temp_root, str(uuid.uuid1()) + '.deb')
     with open(package_temp_path, 'wb+') as destination:
         for chunk in f.chunks():
