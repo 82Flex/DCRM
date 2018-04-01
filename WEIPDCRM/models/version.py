@@ -447,13 +447,15 @@ class Version(models.Model):
             if not os.path.isdir(target_dir):
                 mkdir_p(target_dir)
             target_path = os.path.join(target_dir, self.base_filename())
-            os.rename(temp_path, target_path)
+            # os.rename(temp_path, target_path)
+            shutil.move(temp_path, target_path)
             os.chmod(target_path, 0755)
             self.storage.name = os.path.relpath(target_path, settings.MEDIA_ROOT)
         else:
             abs_path = os.path.join(settings.MEDIA_ROOT, self.storage.name)
             os.unlink(abs_path)
-            os.rename(temp_path, abs_path)
+            # os.rename(temp_path, abs_path)
+            shutil.move(temp_path, abs_path)
             os.chmod(abs_path, 0755)
         self.update_hash()
         self.save()

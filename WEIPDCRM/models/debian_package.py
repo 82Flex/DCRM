@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from __future__ import unicode_literals
 
 import os
+import shutil
 import time
 import tarfile
 import tempfile
@@ -358,4 +359,5 @@ class DebianPackage(object):
         """
         !!! To keep its path original !!!
         """
-        os.rename(new_deb.name, self.path)
+        # os.rename(new_deb.name, self.path)
+        shutil.move(new_deb.name, self.path)

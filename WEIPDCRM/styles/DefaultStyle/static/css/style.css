@@ -483,7 +483,7 @@ body {
 }
 
 .container .content .article .whatsnew {
-    margin-bottom: 6px;
+    margin-bottom: 12px;
 }
 
 .container .content .article .whatsnew label h2 {
@@ -551,7 +551,8 @@ body {
     border-top: 1px solid #fdfdfd;
     color: #333;
     font-size: 13px;
-    line-height: 26px
+    line-height: 26px;
+    margin-bottom: 12px;
 }
 
 .container .screenshot .image {

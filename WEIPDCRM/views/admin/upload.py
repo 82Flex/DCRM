@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from __future__ import unicode_literals
 
 import json
+import shutil
 import uuid
 import os
 import re
@@ -95,7 +96,8 @@ def handle_uploaded_package(path):
                     "exception": _("Version Conflict: %s") % p_version.c_version
                 })
             else:
-                os.rename(path, target_path)
+                # os.rename(path, target_path)
+                shutil.move(path, target_path)
                 p_version = Version()
                 p_version.c_package = control.get('Package', None)
                 p_version.c_version = control.get('Version', None)

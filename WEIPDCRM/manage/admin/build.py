@@ -226,7 +226,8 @@ def build_procedure(conf):
                     os.unlink(active_path)
                 shutil.copyfile(rename_path, active_path)
                 os.chmod(active_path, 0755)
-                os.rename(rename_path, rename_to_path)
+                # os.rename(rename_path, rename_to_path)
+                shutil.move(rename_path, rename_to_path)
                 os.chmod(rename_to_path, 0755)
             else:
                 if os.path.exists(rename_to_path):
