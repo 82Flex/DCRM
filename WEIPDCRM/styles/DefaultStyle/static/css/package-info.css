@@ -3,8 +3,11 @@
     .container .widget-area .section_list {
         display: none;
     }
+    .container .widget-area div:nth-child(1) {
+        margin-top: 16px;
+    }
     .container .widget-area .notice {
-        margin-top: 60px
+        /* margin-top: 60px */
     }
     .container .content .article {
         margin-top: 20px

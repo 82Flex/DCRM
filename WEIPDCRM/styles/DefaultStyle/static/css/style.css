@@ -1248,13 +1248,13 @@ body {
         float: none;
         width: 90%;
         margin: 48px auto 0 auto;
-        padding: 20px 0 0;
+        padding: 32px 0 0;
     }
     .container .widget-area .repo-card {
-        margin-top: 43px;
+        /* margin-top: 43px; */
     }
     .container .widget-area .repo-card,.container .widget-area .notice {
-        margin-bottom: 25px;
+        /* margin-bottom: 25px; */
     }
     .container .widget-area .section_list .list ul {
         padding: 12px 0 0;
