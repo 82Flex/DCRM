@@ -56,22 +56,6 @@
         <div class="compatibility">
             <p></p>
         </div>
-        {% if package_info.update_logs %}
-            <div class="whatsnew">
-                <label>
-                <h2>{% trans "What's New" %}</h2>
-                {% if settings.version_history %}
-                    <a href="{% url "package_action" package_info.id "history" %}">{% trans "History" %}</a>
-                {% endif %}
-                </label>
-                <div class="clear"></div>
-                <div class="version"><p>{% trans "Version" %}: {{ package_info.c_version }}</p><span>{{ package_info.created_at | date:"Y-m-d H:i" }}</span></div>
-                <div class="clear"></div>
-                <p>
-                    {{ package_info.update_logs | linebreaksbr }}
-                </p>
-            </div>
-        {% endif %}
         <div class="description">
             <label>
             <h2>{% trans "Description" %}</h2>
@@ -90,6 +74,22 @@
                 {% endif %}
             </p>
         </div>
+        {% if package_info.update_logs %}
+            <div class="whatsnew">
+                <label>
+                <h2>{% trans "What's New" %}</h2>
+                {% if settings.version_history %}
+                    <a href="{% url "package_action" package_info.id "history" %}">{% trans "History" %}</a>
+                {% endif %}
+                </label>
+                <div class="clear"></div>
+                <div class="version"><p>{% trans "Version" %}: {{ package_info.c_version }}</p><span>{{ package_info.created_at | date:"Y-m-d H:i" }}</span></div>
+                <div class="clear"></div>
+                <p>
+                    {{ package_info.update_logs | linebreaksbr }}
+                </p>
+            </div>
+        {% endif %}
         {% if gallery %}
             <div class="screenshot">
                 <label>
