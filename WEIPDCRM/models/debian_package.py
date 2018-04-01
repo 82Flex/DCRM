@@ -26,6 +26,7 @@ import tarfile
 import tempfile
 import gzip
 
+from django.conf import settings
 from django.utils.translation import ugettext as _
 
 from debian.deb822 import Deb822
@@ -42,6 +43,7 @@ class DebianPackage(object):
     """
     
     def __init__(self, path):
+        tempfile.tempdir = settings.TEMP_ROOT
         self.path = path
         self.version = ""
         self.control = {}
