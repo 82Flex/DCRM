@@ -68,7 +68,7 @@
                 <div class="version"><p>{% trans "Version" %}: {{ package_info.c_version }}</p><span>{{ package_info.created_at | date:"Y-m-d H:i" }}</span></div>
                 <div class="clear"></div>
                 <p>
-                    {{ package_info.update_logs }}
+                    {{ package_info.update_logs | linebreaksbr }}
                 </p>
             </div>
         {% endif %}

@@ -11,7 +11,7 @@
                 <span>{{ version.created_at | date:"Y-m-d H:i:s" }}</span>
             </div>
             <div class="clear"></div>
-            <p>{{ version.update_logs }}</p>
+            <p>{{ version.update_logs | linebreaksbr }}</p>
             <a href="{% url "package_id" version.id %}">
                 {% trans "View this version" %} <i class="fa fa-angle-right" aria-hidden="true"></i>
             </a>
