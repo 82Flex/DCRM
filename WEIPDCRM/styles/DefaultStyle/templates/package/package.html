@@ -154,10 +154,11 @@
             if (navigator.userAgent.search(/Cydia/) !== -1) {
                 $('a').attr("target", "_blank");
                 $('.main').css("background-color", "#efeff4");
-                $('.breadcrumbs').remove();
-                $('.footer').remove();
 
-                if (history.length === 0) {
+                if (history.length === 1) {
+
+                    $('.footer').remove();
+                    $('.breadcrumbs').remove();
                     var $widget = $('.widget-area');
                     if ($widget.children().length) {
                         $widget.css("margin", "auto");
