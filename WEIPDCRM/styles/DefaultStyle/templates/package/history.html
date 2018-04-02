@@ -22,8 +22,22 @@
 {% block footerscript %}
     <script type="text/javascript">
         $(document).ready(function () {
+            // In Cydia
             if (navigator.userAgent.search(/Cydia/) !== -1) {
-                $(".main").css("background-color", "#efeff4");
+                $('a').attr("target", "_blank");
+                $('.main').css("background-color", "#efeff4");
+                $('.breadcrumbs').remove();
+                $('.footer').remove();
+
+                if (history.length === 0) {
+                    var $widget = $('.widget-area');
+                    if ($widget.children().length) {
+                        $widget.css("margin", "auto");
+                        $widget.css("padding", "0");
+                    } else {
+                        $widget.remove();
+                    }
+                }
             }
         });
     </script>

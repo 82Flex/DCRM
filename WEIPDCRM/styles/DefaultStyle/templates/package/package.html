@@ -155,17 +155,21 @@
                 $('a').attr("target", "_blank");
                 $('.main').css("background-color", "#efeff4");
                 $('.breadcrumbs').remove();
-                var $widget = $('.widget-area');
-                if ($widget.children().length) {
-                    $widget.css("margin", "auto");
-                    $widget.css("padding", "0");
-                } else {
-                    $widget.remove();
-                }
-                $('.icon').remove();
-                $('.title').remove();
-                $('.intro').remove();
                 $('.footer').remove();
+
+                if (history.length === 0) {
+                    var $widget = $('.widget-area');
+                    if ($widget.children().length) {
+                        $widget.css("margin", "auto");
+                        $widget.css("padding", "0");
+                    } else {
+                        $widget.remove();
+                    }
+
+                    $('.icon').remove();
+                    $('.title').remove();
+                    $('.intro').remove();
+                }
             }
         });
         $(window).resize(function () {

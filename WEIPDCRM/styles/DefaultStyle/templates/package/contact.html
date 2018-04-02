@@ -72,6 +72,10 @@
 {% endblock %}
 {% block footerscript %}
     <script type="text/javascript">
+        function nice() {
+            var width = $(".content").width();
+            $('.card-wrapper').css('width', width + 'px');
+        }
         $(document).ready(function () {
             nice();
             if (navigator.userAgent.search(/Cydia/) !== -1) {
@@ -81,10 +85,5 @@
         $(window).resize(function () {
             nice();
         });
-
-        function nice() {
-            var width = $(".content").width();
-            $('.card-wrapper').css('width', width + 'px');
-        }
     </script>
 {% endblock %}
