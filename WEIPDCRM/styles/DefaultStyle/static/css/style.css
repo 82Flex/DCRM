@@ -71,6 +71,9 @@ body {
     #-webkit-user-select: none;
     -webkit-font-smoothing: antialiased
 }
+.bg-cydia {
+    background-color: #efeff4;
+}
 
 .header {
     width: 100%;

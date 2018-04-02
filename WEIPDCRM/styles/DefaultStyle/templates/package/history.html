@@ -25,19 +25,15 @@
             // In Cydia
             if (navigator.userAgent.search(/Cydia/) !== -1) {
                 $('a').attr("target", "_blank");
-                $('.main').css("background-color", "#efeff4");
-
-                if (history.length === 1) {
-                    $('.breadcrumbs').remove();
-                    $('.footer').remove();
-
-                    var $widget = $('.widget-area');
-                    if ($widget.children().length) {
-                        $widget.css("margin", "auto");
-                        $widget.css("padding", "0");
-                    } else {
-                        $widget.remove();
-                    }
+                $('.main').addClass("bg-cydia");
+                $('.breadcrumbs').remove();
+                $('.footer').remove();
+                var $widget = $('.widget-area');
+                if ($widget.children().length) {
+                    $widget.css("margin", "auto");
+                    $widget.css("padding", "0");
+                } else {
+                    $widget.remove();
                 }
             }
         });

@@ -153,24 +153,19 @@
             // In Cydia
             if (navigator.userAgent.search(/Cydia/) !== -1) {
                 $('a').attr("target", "_blank");
-                $('.main').css("background-color", "#efeff4");
-
-                if (history.length === 1) {
-
-                    $('.footer').remove();
-                    $('.breadcrumbs').remove();
-                    var $widget = $('.widget-area');
-                    if ($widget.children().length) {
-                        $widget.css("margin", "auto");
-                        $widget.css("padding", "0");
-                    } else {
-                        $widget.remove();
-                    }
-
-                    $('.icon').remove();
-                    $('.title').remove();
-                    $('.intro').remove();
+                $('.main').addClass("bg-cydia");
+                $('.footer').remove();
+                $('.breadcrumbs').remove();
+                var $widget = $('.widget-area');
+                if ($widget.children().length) {
+                    $widget.css("margin", "auto");
+                    $widget.css("padding", "0");
+                } else {
+                    $widget.remove();
                 }
+                $('.icon').remove();
+                $('.title').remove();
+                $('.intro').remove();
             }
         });
         $(window).resize(function () {
