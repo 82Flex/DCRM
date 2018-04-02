@@ -495,13 +495,10 @@ body {
 
 .container .content .article .whatsnew {
     margin-bottom: 12px;
-    max-width: 100%;
 }
 
 .container .content .article .whatsnew p {
-    white-space: nowrap;
-    overflow: scroll;
-    max-width: 100%;
+
 }
 
 .container .content .article .whatsnew label h2 {
