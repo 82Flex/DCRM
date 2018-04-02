@@ -511,7 +511,9 @@ body {
 }
 .container .content .article .update-log {
     border-bottom: 1px solid rgba(153, 153, 153, 0.21);
-    padding: 10px 0
+    padding: 10px 0;
+    white-space: nowrap;
+    overflow-x: scroll;
 }
 .container .content .article .update-log:only-child {
     padding: 0 0 0!important;
