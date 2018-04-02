@@ -72,12 +72,7 @@
 {% endblock %}
 {% block footerscript %}
     <script type="text/javascript">
-        function nice() {
-            var width = $(".content").width();
-            $('.card-wrapper').css('width', width + 'px');
-        }
         $(document).ready(function () {
-            nice();
             // In Cydia
             if (navigator.userAgent.search(/Cydia/) !== -1) {
                 $('a').attr("target", "_blank");
@@ -92,9 +87,6 @@
                     $widget.remove();
                 }
             }
-        });
-        $(window).resize(function () {
-            nice();
         });
     </script>
 {% endblock %}
