@@ -387,8 +387,8 @@ body {
     color: #333;
     font-size: 13px;
     line-height: 22px;
-    white-space: nowrap;
-    overflow-x: scroll;
+    /*white-space: nowrap;*/
+    /*overflow-x: scroll;*/
 }
 
 .container .content .article .icon {
