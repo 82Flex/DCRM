@@ -36,7 +36,7 @@
                     {% endif %}
                     <li>{% trans "Size" %}: {{ package_info.c_size|filesizeformat }}</li>
                     {% if package_info.author_name %}
-                        <li>{% trans "Author" %}: <a href="{% url "package_action" package_info.id "contact" %}">{{ package_info.author_name }}</a></li>
+                        <li>{% trans "Author" %}: <a target="_blank" href="{% url "package_action" package_info.id "contact" %}">{{ package_info.author_name }}</a></li>
                     {% endif %}
                 </ul>
                 <div class="clear"></div>
@@ -60,7 +60,7 @@
             <label>
             <h2>{% trans "Description" %}</h2>
             {% if package_info.c_homepage %}
-                <a href="{{ package_info.c_homepage }}">{% trans "More Info" %}</a>
+                <a target="_blank" href="{{ package_info.c_homepage }}">{% trans "More Info" %}</a>
             {% endif %}
             </label>
             <div class="clear"></div>
@@ -79,7 +79,7 @@
                 <label>
                 <h2>{% trans "What's New" %}</h2>
                 {% if settings.version_history %}
-                    <a href="{% url "package_action" package_info.id "history" %}">{% trans "History" %}</a>
+                    <a target="_blank" href="{% url "package_action" package_info.id "history" %}">{% trans "History" %}</a>
                 {% endif %}
                 </label>
                 <div class="clear"></div>
