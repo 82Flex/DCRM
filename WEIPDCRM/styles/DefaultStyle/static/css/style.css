@@ -1095,16 +1095,24 @@ body {
     font-size: 0;
     white-space: nowrap;
     word-break: normal;
-    padding: 0 18px 0 18px;
+    /* padding: 0 18px 0 18px; */
+}
+
+.container .content .contact .card .card-wrapper ul li:nth-of-type(1) {
+    margin-left: 16px;
+}
+
+.container .content .contact .card .card-wrapper ul li:nth-last-of-type(1) {
+    margin-right: 16px;
 }
 
 .container .content .contact .card .card-wrapper li {
     display: inline-block;
-    padding: 0 10px 15px 4px;
+    padding: 0 4px 15px 4px;
     vertical-align: top;
     *display: inline;
     *zoom: 1;
-    *padding-bottom: 30px;
+    *padding-bottom: 20px;
 }
 
 .container .content .contact .card .card-wrapper li:last-child {
