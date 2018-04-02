@@ -783,7 +783,7 @@ body {
     border-radius: 6px;
     background-color: #fff;
     box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
-    margin-bottom: 30px
+    margin-bottom: 20px;
 }
 
 .container .widget-area .repo-card .avatar-panel {
@@ -843,7 +843,7 @@ body {
     border-radius: 6px;
     background-color: #fff;
     box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
-    margin-bottom: 30px
+    margin-bottom: 20px
 }
 
 .container .widget-area .notice .notice-content {
@@ -859,7 +859,7 @@ body {
     border-radius: 6px;
     background-color: #fff;
     box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .container .widget-area .section_list .list {
@@ -962,7 +962,7 @@ body {
     border-radius: 6px;
     background-color: #fff;
     box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .container .widget-area .social .social-list {
@@ -1171,7 +1171,7 @@ body {
 }
 
 .footer {
-    margin: 50px auto 0;
+    margin: 36px auto 0;
     width: 960px;
     height: 50px;
     border-top: 1px solid #f9f9f9
