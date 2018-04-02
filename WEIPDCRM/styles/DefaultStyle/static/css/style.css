@@ -1228,7 +1228,7 @@ body {
         display: none;
     }
     .container {
-        margin:0 auto;
+        margin: 20px auto 20px;
         width: 100%;
     }
     .container .content {
