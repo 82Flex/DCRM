@@ -383,7 +383,9 @@ body {
 .container .content .article p {
     color: #333;
     font-size: 13px;
-    line-height: 22px
+    line-height: 22px;
+    white-space: nowrap;
+    overflow-x: scroll;
 }
 
 .container .content .article .icon {
@@ -492,9 +494,6 @@ body {
 
 .container .content .article .whatsnew {
     margin-bottom: 12px;
-    white-space: nowrap;
-    overflow-x: scroll;
-    width: 100%;
 }
 
 .container .content .article .whatsnew label h2 {
