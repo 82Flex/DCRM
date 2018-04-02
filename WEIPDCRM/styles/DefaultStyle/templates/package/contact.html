@@ -10,7 +10,7 @@
                     {% if package_info.author_name and package_info.author_email %}
                         <li>
                         <div class="contact-card blue">
-                            <a href="mailto:{{ package_info.author_email }}?subject={{ "Cydia/APT(A): "|escape }}{{ package_info.c_name|escape }}{{ " ("|escape }}{{ package_info.c_version }}{{ ")"|escape }}" target="_blank">
+                            <a target="_blank" href="mailto:{{ package_info.author_email }}?subject={{ "Cydia/APT(A): "|escape }}{{ package_info.c_name|escape }}{{ " ("|escape }}{{ package_info.c_version }}{{ ")"|escape }}" target="_blank">
                                 <div class="panel">
                                     <div class="pic">
                                         <img class="icon" src="{% static "img/email.png" %}">
@@ -29,7 +29,7 @@
                     <li>
                         {% if package_info.maintainer_name and package_info.maintainer_email %}
                             <div class="contact-card pink">
-                                <a href="mailto:{{ package_info.maintainer_email }}?subject={{ "Cydia/APT(A): "|escape }}{{ package_info.c_name|escape }}{{ " ("|escape }}{{ package_info.c_version }}{{ ")"|escape }}" target="_blank">
+                                <a target="_blank" href="mailto:{{ package_info.maintainer_email }}?subject={{ "Cydia/APT(A): "|escape }}{{ package_info.c_name|escape }}{{ " ("|escape }}{{ package_info.c_version }}{{ ")"|escape }}" target="_blank">
                                     <div class="panel">
                                         <div class="pic">
                                             <img class="icon" src="{% static "img/email.png" %}">
@@ -48,7 +48,7 @@
                     <li>
                         {% if package_info.sponsor_name and package_info.sponsor_site %}
                             <div class="contact-card orange">
-                                <a href="{{ package_info.sponsor_site }}" target="_blank">
+                                <a target="_blank" href="{{ package_info.sponsor_site }}" target="_blank">
                                     <div class="panel">
                                         <div class="pic">
                                             <img class="icon" src="{% static "img/safari.png" %}">
