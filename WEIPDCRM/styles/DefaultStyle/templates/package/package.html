@@ -154,12 +154,12 @@
             if (navigator.userAgent.search(/Cydia/) !== -1) {
                 $('.main').css("background-color", "#efeff4");
                 $('.breadcrumbs').remove();
-                $('.notice').css("margin-top", "10px");
-                $('.download').hide();
-                $('.icon').hide();
-                $('.title').hide();
-                $('.footer ul li').css("color", "#6d6d72");
-                $('.footer ul li a').css("color", "#6d6d72");
+                // $('.widget-area').remove();
+                $('.widget-area').css("margin", "auto");
+                $('.icon').remove();
+                $('.title').remove();
+                $('.intro').remove();
+                $('.footer').remove();
             }
         });
         $(window).resize(function () {

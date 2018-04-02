@@ -671,13 +671,13 @@ body {
 }
 
 .container .content a {
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .container .content .comments h2 {
     margin-top: 8px;
-    font-size: 1.1em;
-    font-weight: 500;
+    font-size: 17px;
+    font-weight: 400;
     line-height: 18px;
     color: #474747;
 }
@@ -836,8 +836,8 @@ body {
 .container .widget-area .notice .notice-content {
     position: relative;
     padding: 8px 0;
-    font-size: 14px;
-    color: #444;
+    font-size: 13px;
+    color: #333;
     font-weight: 400
 }
 
@@ -1249,10 +1249,10 @@ body {
         float: none;
         width: 90%;
         margin: 48px auto 0 auto;
-        padding: 32px 0 0;
+        padding: 30px 0 0;
     }
     .container .widget-area .repo-card {
-        /* margin-top: 43px; */
+         /* margin-top: 44px; */
     }
     .container .widget-area .repo-card,.container .widget-area .notice {
         /* margin-bottom: 25px; */
@@ -1261,7 +1261,7 @@ body {
         padding: 12px 0 0;
     }
     .container .widget-area .social .social-list {
-        padding: 12px 0 0;
+        padding: 8px 0 0;
     }
     .page-navi {
         padding: 10px 0;
