@@ -489,6 +489,7 @@ body {
     margin-bottom: 12px;
     white-space: nowrap;
     overflow-x: scroll;
+    max-width: 100%;
 }
 
 .container .content .article .whatsnew label h2 {
