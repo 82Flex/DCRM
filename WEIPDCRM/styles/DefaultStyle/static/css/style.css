@@ -1243,7 +1243,7 @@ body {
     }
     .container .content {
         float: none;
-        width: auto;
+        width: 100%;
         min-height: 0
     }
     .container .content .content-list {
