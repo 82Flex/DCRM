@@ -60,7 +60,10 @@ img {
     background-image: -webkit-linear-gradient(120deg, #ffc65d, #feef82);
 }
 body {
-    -webkit-text-size-adjust:none;
+    -webkit-text-size-adjust: none;
+    height: 100%;
+    width: 100%;
+    overflow: hidden !important;
 }
 .main {
     margin: 0;
