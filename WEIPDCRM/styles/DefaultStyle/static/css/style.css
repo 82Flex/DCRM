@@ -495,12 +495,12 @@ body {
 
 .container .content .article .whatsnew {
     margin-bottom: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .container .content .article .whatsnew p {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /*white-space: nowrap;*/
 }
 
 .container .content .article .whatsnew label h2 {
