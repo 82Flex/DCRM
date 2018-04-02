@@ -18,6 +18,7 @@
 {% endblock %}
 {% block content %}
     <div class="article">
+
         <div class="icon">
             {% if package_info.display_icon %}
                 <img class="icon" src="{{ package_info.display_icon }}"/>
@@ -26,6 +27,8 @@
             {% endif %}
         </div>
         <div class="title"><h1>{{ package_info.c_name | default:_("Untitled Package") }}</h1></div>
+
+        <div class="clear"></div>
         <div class="intro">
             <div class="details">
                 <ul>
@@ -52,10 +55,13 @@
                 </div>
             {% endif %}
         </div>
+
         <div class="clear"></div>
         <div class="compatibility">
             <p></p>
         </div>
+
+        <div class="clear"></div>
         <div class="description">
             <label>
             <h2>{% trans "Description" %}</h2>
@@ -74,7 +80,9 @@
                 {% endif %}
             </p>
         </div>
+
         {% if package_info.update_logs %}
+            <div class="clear"></div>
             <div class="whatsnew">
                 <label>
                 <h2>{% trans "What's New" %}</h2>
@@ -90,7 +98,9 @@
                 </p>
             </div>
         {% endif %}
+
         {% if gallery %}
+            <div class="clear"></div>
             <div class="screenshot">
                 <label>
                     <h2>{% trans "Screenshot" %}</h2>
@@ -110,6 +120,7 @@
                 </div>
             </div>
         {% endif %}
+
     </div>
     {% if settings.enable_comments %}
         <div class="comments" id="comments">

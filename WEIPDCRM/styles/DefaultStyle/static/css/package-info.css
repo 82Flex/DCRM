@@ -71,9 +71,9 @@
         padding: 10px 15px;
     }
     .container .content .comments {
-        padding: 20px 15px;
+        padding: 10px 15px;
     }
     .comments input {
-        width: 60%!important;
+        width: 60% !important;
     }
 }
