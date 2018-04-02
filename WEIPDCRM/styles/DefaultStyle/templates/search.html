@@ -3,12 +3,12 @@
 {% block title %}{% trans 'Search' %} | DCRM{% endblock %}
 {% block breadcrumbs %}
     <i class="fa fa-home"></i> <a href="{% url 'index' %}">{% trans 'Home' %}</a>
-    <i class="fa fa-angle-right"></i> <a href="{% url 'chart' %}">{% trans 'Search' %}</a>
-    <i class="fa fa-angle-right"></i> {{ request }}
+    <i class="fa fa-angle-right"></i> {% trans 'Search Result' %}
 {% endblock %}
 {% block content %}
     <div class="content-list">
-        <div class="title"><h2>{% trans 'Search Result' %}</h2></div>
+        {% trans "Search" as the_title %}
+        <div class="title"><h2>{{ the_title }} {{ request }}</h2></div>
         {% include 'grid-list.html' %}
         <div class="clear"></div>
     </div>

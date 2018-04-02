@@ -470,11 +470,15 @@ body {
 }
 
 .container .content .article .compatibility .ok {
-    color: #5bb0ed;
+    color: #27AE60;
 }
 
 .container .content .article .compatibility .no {
-    color: #a94442;
+    color: #E74C3C;
+}
+
+.container .content .article .compatibility .undefined {
+    color: #3498DB;
 }
 
 .container .content .article .compatibility p i {
