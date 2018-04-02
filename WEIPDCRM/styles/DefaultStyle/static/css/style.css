@@ -493,7 +493,7 @@ body {
 .container .content .article .whatsnew {
     margin-bottom: 12px;
     white-space: nowrap;
-    overflow-x: hidden;
+    overflow-x: scroll;
     width: 100%;
 }
 
@@ -560,7 +560,9 @@ body {
 .container .content .article .whatsnew .version {
     color: rgba(51, 51, 51, 0.7);
     font-size: 13px;
-    line-height: 22px
+    line-height: 22px;
+    overflow: hidden;
+    width: 100%;
 }
 .container .content .article .description {
     border-top: 1px solid #fdfdfd;
