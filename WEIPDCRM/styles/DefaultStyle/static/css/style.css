@@ -387,8 +387,6 @@ body {
     color: #333;
     font-size: 13px;
     line-height: 22px;
-    /*white-space: nowrap;*/
-    /*overflow-x: scroll;*/
 }
 
 .container .content .article .icon {
@@ -499,6 +497,12 @@ body {
     margin-bottom: 12px;
 }
 
+.container .content .article .whatsnew p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .container .content .article .whatsnew label h2 {
     float: left;
 }
@@ -519,6 +523,8 @@ body {
 .container .content .article .update-log {
     border-bottom: 1px solid rgba(153, 153, 153, 0.21);
     padding: 10px 0;
+}
+.container .content .article .update-log p {
     white-space: nowrap;
     overflow-x: scroll;
 }
