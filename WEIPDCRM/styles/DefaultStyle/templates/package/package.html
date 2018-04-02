@@ -154,8 +154,12 @@
             if (navigator.userAgent.search(/Cydia/) !== -1) {
                 $('.main').css("background-color", "#efeff4");
                 $('.breadcrumbs').remove();
-                // $('.widget-area').remove();
-                $('.widget-area').css("margin", "auto");
+                var $widget = $('.widget-area');
+                if ($widget.children().length) {
+                    $widget.css("margin", "auto");
+                } else {
+                    $widget.remove();
+                }
                 $('.icon').remove();
                 $('.title').remove();
                 $('.intro').remove();
