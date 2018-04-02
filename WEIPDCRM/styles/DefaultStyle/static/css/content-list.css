@@ -17,13 +17,11 @@
         padding: 0 16px;
         margin-bottom:10px;
     }
-
     .container .content .content-list {
         margin-bottom: 15px;
         min-height: 100px;
         width: 100%;
         border-radius: 0;
-        box-shadow: none;
     }
     .container .content .title {
         display: none;
