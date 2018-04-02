@@ -88,9 +88,7 @@
                     <a href="{% url "package_action" package_info.id "history" %}">{% trans "History" %}</a>
                 {% endif %}
                 </label>
-                <div class="clear"></div>
                 <div class="version"><p>{% trans "Version" %}: {{ package_info.c_version }}</p><span>{{ package_info.created_at | date:"Y-m-d H:i" }}</span></div>
-                <div class="clear"></div>
                 <p>
                     {{ package_info.update_logs | linebreaksbr }}
                 </p>
