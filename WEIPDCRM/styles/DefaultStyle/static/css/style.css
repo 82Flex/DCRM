@@ -470,6 +470,8 @@ body {
 }
 .container .content .article .compatibility {
     text-align: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 .container .content .article .compatibility .ok {
