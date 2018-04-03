@@ -379,7 +379,7 @@ msgstr "路径别名需要以斜杠结尾. "
 #: WEIPDCRM/models/setting.py:66
 #, python-format
 msgid "Cannot find command 'gpg': %s"
-msgstr "找不到命令 \'gpg\': %s"
+msgstr "找不到命令 \"gpg\": %s"
 
 #: WEIPDCRM/models/setting.py:71
 msgid "Only Nginx is supported now."
@@ -535,7 +535,7 @@ msgstr "启用 GPG 签名"
 msgid ""
 "Verify the integrity of the repository. Run 'gpg --gen-key' before you "
 "enable this feature."
-msgstr "允许包管理工具验证该存储库的完整性. 在启用本功能前, 请先运行 \'gpg --gen-key\'. "
+msgstr "允许包管理工具验证该存储库的完整性. 在启用本功能前, 请先运行 \"gpg --gen-key\". "
 
 #: WEIPDCRM/models/setting.py:195
 msgid "Web Server"
@@ -772,7 +772,7 @@ msgstr "无效的版本数值. "
 
 #: WEIPDCRM/models/version.py:109
 msgid "Name cannot contain < or >."
-msgstr "名称中不得包含 \'<\' 或 \'>\'. "
+msgstr "名称中不得包含 \"<\" 或 \">\". "
 
 #: WEIPDCRM/models/version.py:122
 #, python-format
