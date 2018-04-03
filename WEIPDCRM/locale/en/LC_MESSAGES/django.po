@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-03 13:25+0800\n"
+"POT-Creation-Date: 2018-04-03 21:18+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,19 @@ msgstr ""
 msgid "No enabled package available."
 msgstr ""
 
+#: WEIPDCRM/manage/admin/build.py:273 WEIPDCRM/manage/admin/device_type.py:34
+#: WEIPDCRM/manage/admin/os_version.py:34 WEIPDCRM/manage/admin/release.py:50
+#: WEIPDCRM/manage/admin/section.py:42 WEIPDCRM/manage/admin/settings.py:41
+msgid "General"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/build.py:276 WEIPDCRM/manage/admin/device_type.py:40
+#: WEIPDCRM/manage/admin/os_version.py:40 WEIPDCRM/manage/admin/release.py:58
+#: WEIPDCRM/manage/admin/section.py:48 WEIPDCRM/manage/admin/version.py:208
+#: WEIPDCRM/templates/admin/new_change_form.html:8
+msgid "History"
+msgstr ""
+
 #: WEIPDCRM/manage/admin/build.py:316
 #, python-format
 msgid "Build %s generating job has been added to the \"high\" queue."
@@ -29,6 +42,30 @@ msgstr ""
 #: WEIPDCRM/manage/admin/build.py:319
 #, python-format
 msgid "Build %s generating job has been finished."
+msgstr ""
+
+#: WEIPDCRM/manage/admin/device_type.py:37
+#: WEIPDCRM/manage/admin/os_version.py:37 WEIPDCRM/manage/admin/release.py:54
+#: WEIPDCRM/manage/admin/section.py:45
+msgid "Appearance"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/release.py:63
+msgid "Cydia"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/release.py:67
+msgid "SEO"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/release.py:78 WEIPDCRM/manage/admin/settings.py:90
+#: WEIPDCRM/manage/admin/version.py:219
+msgid "Common"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/release.py:79 WEIPDCRM/manage/admin/settings.py:91
+#: WEIPDCRM/manage/admin/version.py:221
+msgid "Advanced"
 msgstr ""
 
 #: WEIPDCRM/manage/admin/release.py:86
@@ -44,6 +81,52 @@ msgstr ""
 
 #: WEIPDCRM/manage/admin/section.py:37
 msgid "Generate icon package for selected sections"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:45
+msgid "Packages List"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:51 WEIPDCRM/manage/admin/version.py:148
+msgid "Display"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:56
+msgid "Social"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:62 WEIPDCRM/manage/admin/version.py:224
+#: WEIPDCRM/templates/admin/help/statistics.html:8
+#: WEIPDCRM/views/admin/help/statistics.py:99
+msgid "Statistics"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:66
+msgid "Footer"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:72
+msgid "Resource"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:76
+msgid "Server"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:82
+msgid "Global"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:92
+msgid "Frontend"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:93
+msgid "Rest API"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:94
+msgid "Third-Party"
 msgstr ""
 
 #: WEIPDCRM/manage/admin/version.py:86
@@ -64,6 +147,78 @@ msgstr ""
 
 #: WEIPDCRM/manage/admin/version.py:108
 msgid "Update hashes of selected versions"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:144
+msgid "Basic"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:152
+#: WEIPDCRM/templates/admin/device_type/change_form.html:7
+#: WEIPDCRM/templates/admin/os_version/change_form.html:7
+#: WEIPDCRM/templates/admin/release/change_form.html:8
+#: WEIPDCRM/templates/admin/version/change_form.html:13
+msgid "Links"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:156
+msgid "Compatibility"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:161 WEIPDCRM/models/version.py:542
+msgid "Maintainer"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:165 WEIPDCRM/models/version.py:629
+msgid "Author"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:169 WEIPDCRM/models/version.py:650
+msgid "Sponsor"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:174 WEIPDCRM/models/device_type.py:56
+msgid "Platform"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:178
+msgid "Relations"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:182
+msgid "Other Relations"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:187 WEIPDCRM/models/version.py:249
+msgid "Storage"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:191
+msgid "Hash"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:196
+msgid "Provider"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:200
+msgid "Make"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:204
+msgid "Development"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:220
+msgid "Contact"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:222
+msgid "File System"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/version.py:223
+msgid "Others"
 msgstr ""
 
 #: WEIPDCRM/manage/admin/version.py:256
@@ -143,10 +298,6 @@ msgstr ""
 
 #: WEIPDCRM/models/device_type.py:53
 msgid "Example: iPhone9,2"
-msgstr ""
-
-#: WEIPDCRM/models/device_type.py:56
-msgid "Platform"
 msgstr ""
 
 #: WEIPDCRM/models/device_type.py:58
@@ -797,10 +948,6 @@ msgstr ""
 msgid "Update Logs"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:249
-msgid "Storage"
-msgstr ""
-
 #: WEIPDCRM/models/version.py:283
 msgid "If there is no \"Online Icon\", this field will be taken."
 msgstr ""
@@ -850,10 +997,6 @@ msgstr ""
 
 #: WEIPDCRM/models/version.py:533
 msgid "1.0-1"
-msgstr ""
-
-#: WEIPDCRM/models/version.py:542
-msgid "Maintainer"
 msgstr ""
 
 #: WEIPDCRM/models/version.py:546
@@ -923,10 +1066,6 @@ msgstr ""
 msgid "Untitled Package"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:629
-msgid "Author"
-msgstr ""
-
 #: WEIPDCRM/models/version.py:633
 msgid ""
 "In contrast, the person who wrote the original software is called the "
@@ -936,10 +1075,6 @@ msgstr ""
 
 #: WEIPDCRM/models/version.py:643
 msgid "Author Email"
-msgstr ""
-
-#: WEIPDCRM/models/version.py:650
-msgid "Sponsor"
 msgstr ""
 
 #: WEIPDCRM/models/version.py:654
@@ -1218,13 +1353,6 @@ msgstr ""
 msgid "Build Active Release"
 msgstr ""
 
-#: WEIPDCRM/templates/admin/device_type/change_form.html:7
-#: WEIPDCRM/templates/admin/os_version/change_form.html:7
-#: WEIPDCRM/templates/admin/release/change_form.html:8
-#: WEIPDCRM/templates/admin/version/change_form.html:13
-msgid "Links"
-msgstr ""
-
 #: WEIPDCRM/templates/admin/device_type/change_form.html:10
 msgid "List of iOS Devices"
 msgstr ""
@@ -1275,11 +1403,6 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: WEIPDCRM/templates/admin/help/statistics.html:8
-#: WEIPDCRM/views/admin/help/statistics.py:99
-msgid "Statistics"
-msgstr ""
-
 #: WEIPDCRM/templates/admin/help/statistics.html:15
 msgid "DataBase Status"
 msgstr ""
@@ -1298,10 +1421,6 @@ msgstr ""
 
 #: WEIPDCRM/templates/admin/help/statistics.html:54
 msgid "Fail to cleanup cache, error message has been written to the console"
-msgstr ""
-
-#: WEIPDCRM/templates/admin/new_change_form.html:8
-msgid "History"
 msgstr ""
 
 #: WEIPDCRM/templates/admin/new_change_form.html:13
