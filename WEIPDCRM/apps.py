@@ -19,8 +19,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 from __future__ import unicode_literals
+
 from django.apps import AppConfig
 from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
+
 from suit.apps import DjangoSuitConfig
 from suit.menu import ParentItem, ChildItem
 
@@ -35,7 +38,7 @@ class SuitConfig(DjangoSuitConfig):
     menu = (
         ParentItem('Sites', children=[
             ChildItem(model='sites.site'),
-            ChildItem('Django RQ', url='/admin/sites/django-rq/'),
+            ChildItem(_('Django RQ'), url='/admin/sites/django-rq/'),
         ]),
         ParentItem('Authentication and Authorization', children=[
             ChildItem(model='auth.user'),
@@ -62,10 +65,10 @@ class SuitConfig(DjangoSuitConfig):
             ChildItem(model='photologue.watermark'),
         ]),
         ParentItem('Upload', children=[
-            ChildItem('New Package', url='/admin/upload/'),
+            ChildItem(_('New Package'), url='/admin/upload/'),
         ], align_right=True),
         ParentItem('Help', children=[
-            ChildItem('Statistics', url='/admin/help/statistics/'),
-            ChildItem('About...', url='/admin/help/about/'),
+            ChildItem(_('Statistics'), url='/admin/help/statistics/'),
+            ChildItem(_('About...'), url='/admin/help/about/'),
         ], align_right=True),
     )

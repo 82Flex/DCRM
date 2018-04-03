@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-03 21:18+0800\n"
+"POT-Creation-Date: 2018-04-03 21:24+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,25 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: WEIPDCRM/apps.py:41
+msgid "Django RQ"
+msgstr ""
+
+#: WEIPDCRM/apps.py:68 WEIPDCRM/templates/admin/upload.html:39
+msgid "New Package"
+msgstr ""
+
+#: WEIPDCRM/apps.py:71 WEIPDCRM/manage/admin/settings.py:62
+#: WEIPDCRM/manage/admin/version.py:224
+#: WEIPDCRM/templates/admin/help/statistics.html:8
+#: WEIPDCRM/views/admin/help/statistics.py:99
+msgid "Statistics"
+msgstr ""
+
+#: WEIPDCRM/apps.py:72
+msgid "About..."
+msgstr ""
 
 #: WEIPDCRM/manage/admin/build.py:84
 msgid "No enabled package available."
@@ -93,12 +112,6 @@ msgstr ""
 
 #: WEIPDCRM/manage/admin/settings.py:56
 msgid "Social"
-msgstr ""
-
-#: WEIPDCRM/manage/admin/settings.py:62 WEIPDCRM/manage/admin/version.py:224
-#: WEIPDCRM/templates/admin/help/statistics.html:8
-#: WEIPDCRM/views/admin/help/statistics.py:99
-msgid "Statistics"
 msgstr ""
 
 #: WEIPDCRM/manage/admin/settings.py:66
@@ -1443,10 +1456,6 @@ msgstr ""
 #: WEIPDCRM/templates/admin/upload.html:39
 #: WEIPDCRM/templates/admin/upload_image.html:8
 msgid "Upload"
-msgstr ""
-
-#: WEIPDCRM/templates/admin/upload.html:39
-msgid "New Package"
 msgstr ""
 
 #: WEIPDCRM/templates/admin/upload.html:54

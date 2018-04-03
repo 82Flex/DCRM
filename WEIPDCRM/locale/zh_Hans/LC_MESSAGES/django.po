@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-03 21:18+0800\n"
+"POT-Creation-Date: 2018-04-03 21:24+0800\n"
 "PO-Revision-Date: 2017-04-03 23:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: 82Flex Team <i.82@me.com>\n"
@@ -18,6 +18,25 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.7.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+
+#: WEIPDCRM/apps.py:41
+msgid "Django RQ"
+msgstr "处理队列"
+
+#: WEIPDCRM/apps.py:68 WEIPDCRM/templates/admin/upload.html:39
+msgid "New Package"
+msgstr "新软件包"
+
+#: WEIPDCRM/apps.py:71 WEIPDCRM/manage/admin/settings.py:62
+#: WEIPDCRM/manage/admin/version.py:224
+#: WEIPDCRM/templates/admin/help/statistics.html:8
+#: WEIPDCRM/views/admin/help/statistics.py:99
+msgid "Statistics"
+msgstr "统计信息"
+
+#: WEIPDCRM/apps.py:72
+msgid "About..."
+msgstr "关于..."
 
 #: WEIPDCRM/manage/admin/build.py:84
 msgid "No enabled package available."
@@ -96,12 +115,6 @@ msgstr "显示"
 #: WEIPDCRM/manage/admin/settings.py:56
 msgid "Social"
 msgstr "社交"
-
-#: WEIPDCRM/manage/admin/settings.py:62 WEIPDCRM/manage/admin/version.py:224
-#: WEIPDCRM/templates/admin/help/statistics.html:8
-#: WEIPDCRM/views/admin/help/statistics.py:99
-msgid "Statistics"
-msgstr "统计信息"
 
 #: WEIPDCRM/manage/admin/settings.py:66
 msgid "Footer"
@@ -191,8 +204,7 @@ msgstr "关联"
 msgid "Other Relations"
 msgstr "其它关联"
 
-#: WEIPDCRM/manage/admin/version.py:187
-#: WEIPDCRM/models/version.py:249
+#: WEIPDCRM/manage/admin/version.py:187 WEIPDCRM/models/version.py:249
 msgid "Storage"
 msgstr "存储"
 
@@ -377,7 +389,7 @@ msgstr "元数据"
 
 #: WEIPDCRM/models/release.py:52 WEIPDCRM/models/version.py:846
 msgid "Origin"
-msgstr "来源"
+msgstr "初始"
 
 #: WEIPDCRM/models/release.py:54
 msgid ""
@@ -1509,10 +1521,6 @@ msgstr "存储库格式"
 #: WEIPDCRM/templates/admin/upload_image.html:8
 msgid "Upload"
 msgstr "上传"
-
-#: WEIPDCRM/templates/admin/upload.html:39
-msgid "New Package"
-msgstr "新软件包"
 
 #: WEIPDCRM/templates/admin/upload.html:54
 msgid "Upload New Package"
