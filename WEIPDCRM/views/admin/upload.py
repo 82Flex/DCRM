@@ -263,6 +263,7 @@ def handle_uploaded_image(request, package_id):
         })
         return result_dict
 
+
 @staff_member_required
 def upload_version_view(request):
     """
@@ -388,6 +389,7 @@ def upload_view(request):
         template = 'admin/upload.html'
         return render(request, template, context)
 
+
 @staff_member_required
 def upload_screenshots_view(request, package_id):
     """
@@ -492,7 +494,7 @@ def upload_screenshots_view(request, package_id):
             return render(request, template, context)
     else:
         version = Version.objects.get(id=int(package_id))
-        name = version.c_name
+        name = version.c_name + " " + version.c_version
         form = ImageForm()
         context = admin.site.each_context(request)
         context.update({
