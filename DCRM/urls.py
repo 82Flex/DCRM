@@ -22,6 +22,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.decorators.cache import cache_page
 
 from WEIPDCRM.views.admin import upload
 from WEIPDCRM.views.admin.help import about

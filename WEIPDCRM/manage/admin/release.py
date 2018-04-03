@@ -84,11 +84,9 @@ class ReleaseAdmin(admin.ModelAdmin):
         if not preferences.Setting.active_release:
             messages.warning(request, mark_safe(_(
                 "There is no active release. " +
-                "<a href=\"" +
-                reverse("set_default_release", args=[obj.id]) +
-                "\">" +
+                "<a href=\"%s\">" +
                 "Set current release as active release." +
                 "</a>"
-            )))
+            ) % reverse("set_default_release", args=[obj.id])))
     
     change_form_template = "admin/release/change_form.html"

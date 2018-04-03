@@ -63,7 +63,6 @@ body {
     -webkit-text-size-adjust: none;
     height: 100%;
     width: 100%;
-    overflow: hidden !important;
 }
 .main {
     margin: 0;
