@@ -39,13 +39,13 @@ class SectionAdmin(admin.ModelAdmin):
     list_display = ('name', 'created_at')
     search_fields = ['name']
     fieldsets = [
-        ('General', {
+        (_('General'), {
             'fields': ['name']
         }),
-        ('Appearance', {
+        (_('Appearance'), {
             'fields': ['icon']
         }),
-        ('History', {
+        (_('History'), {
             'fields': ['created_at']
         }),
     ]

@@ -270,10 +270,10 @@ class BuildAdmin(admin.ModelAdmin):
     search_fields = ['uuid']
     readonly_fields = ['active_release', 'job_id', 'created_at']
     fieldsets = [
-        ('General', {
+        (_('General'), {
             'fields': ['active_release', 'job_id', 'details']
         }),
-        ('History', {
+        (_('History'), {
             'fields': ['created_at']
         }),
     ]

@@ -47,24 +47,24 @@ class ReleaseAdmin(admin.ModelAdmin):
     search_fields = ['origin', 'label', 'codename']
     readonly_fields = ['created_at']
     fieldsets = [
-        ('General', {
+        (_('General'), {
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['origin', 'label', 'version', 'codename']
         }),
-        ('Appearance', {
+        (_('Appearance'), {
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['icon', 'description']
         }),
-        ('History', {
+        (_('History'), {
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['created_at']
         }),
         # Advanced
-        ('Cydia', {
+        (_('Cydia'), {
             'classes': ('suit-tab suit-tab-advanced',),
             'fields': ['suite', 'components', "support", "email"]
         }),
-        ('SEO', {
+        (_('SEO'), {
             'classes': ('suit-tab suit-tab-advanced',),
             'fields': ['keywords']
         }),
@@ -75,8 +75,8 @@ class ReleaseAdmin(admin.ModelAdmin):
         },
     }
     suit_form_tabs = (
-        ('common', 'Common'),
-        ('advanced', 'Advanced'),
+        ('common', _('Common')),
+        ('advanced', _('Advanced')),
     )
     
     def save_model(self, request, obj, form, change):

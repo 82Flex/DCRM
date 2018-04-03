@@ -22,6 +22,7 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 from django.contrib.admin.actions import delete_selected
+from django.utils.translation import ugettext_lazy as _
 
 
 class DeviceTypeAdmin(admin.ModelAdmin):
@@ -30,13 +31,13 @@ class DeviceTypeAdmin(admin.ModelAdmin):
     search_fields = ['descriptor', 'subtype', 'platform']
     readonly_fields = ['created_at']
     fieldsets = [
-        ('General', {
+        (_('General'), {
             'fields': ['enabled', 'descriptor', 'subtype', 'platform']
         }),
-        ('Appearance', {
+        (_('Appearance'), {
             'fields': ['icon']
         }),
-        ('History', {
+        (_('History'), {
             'fields': ['created_at']
         }),
     ]

@@ -24,6 +24,8 @@ from preferences.admin import PreferencesAdmin
 from django.forms import ModelForm
 from suit.widgets import AutosizedTextarea
 from suit_redactor.widgets import RedactorWidget
+from django.utils.translation import ugettext_lazy as _
+
 
 class SettingsForm(ModelForm):
     class Meta(object):
@@ -36,48 +38,48 @@ class SettingsForm(ModelForm):
 class SettingsAdmin(PreferencesAdmin):
     form = SettingsForm
     fieldsets = [
-        ('General', {
+        (_('General'), {
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['active_release']
         }),
-        ('Packages List', {
+        (_('Packages List'), {
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['enable_pdiffs', 'gpg_signature', 'packages_compression',
                        'packages_validation', 'downgrade_support']
         }),
         # Frontend
-        ('Display', {
+        (_('Display'), {
             'classes': ('suit-tab suit-tab-frontend',),
             'fields': ['advanced_mode', 'version_history', 'enable_comments', 'favicon',
                        'notice', 'advertisement']
         }),
-        ('Social', {
+        (_('Social'), {
             'classes': ('suit-tab suit-tab-frontend',),
             'fields': ['display_social', 'qq_group_name', 'qq_group_url',
                        'weibo_name', 'weibo_url',  'telegram_name', 'telegram_url', 'alipay_url',
                        'twitter_name', 'twitter_url', 'facebook_name', 'facebook_url', 'paypal_url']
         }),
-        ('Statistics',{
+        (_('Statistics'),{
             'classes': ('suit-tab suit-tab-frontend',),
             'fields': ['external_statistics', 'internal_statistics']
         }),
-        ('Footer', {
+        (_('Footer'), {
             'classes': ('suit-tab suit-tab-frontend',),
             'fields': ['copyright_name', 'copyright_year',
                        'footer_icp']
         }),
         # Advanced
-        ('Resource', {
+        (_('Resource'), {
             'classes': ('suit-tab suit-tab-advanced',),
             'fields': ['atomic_storage', 'resources_alias']
         }),
-        ('Server', {
+        (_('Server'), {
             'classes': ('suit-tab suit-tab-advanced',),
             'fields': ['web_server', 'redirect_resources',
                        'download_count', 'download_cydia_only']
         }),
         # Rest API
-        ('Global', {
+        (_('Global'), {
             'classes': ('suit-tab suit-tab-api',),
             'fields': ['rest_api']
         }),
@@ -85,11 +87,11 @@ class SettingsAdmin(PreferencesAdmin):
     ]
 
     suit_form_tabs = (
-        ('common', 'Common'),
-        ('advanced', 'Advanced'),
-        ('frontend', 'Frontend'),
-        ('api', 'Rest API'),
-        ('third-party', 'Third-Party'),
+        ('common', _('Common')),
+        ('advanced', _('Advanced')),
+        ('frontend', _('Frontend')),
+        ('api', _('Rest API')),
+        ('third-party', _('Third-Party')),
     )
 
     def has_add_permission(self, request):

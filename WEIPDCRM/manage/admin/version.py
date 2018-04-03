@@ -141,71 +141,71 @@ class VersionAdmin(admin.ModelAdmin):
     ]
     fieldsets = [
         # Common
-        ('Basic', {
+        (_('Basic'), {
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['enabled', 'c_package', 'c_version']
         }),
-        ('Display', {
+        (_('Display'), {
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['c_name', 'c_section', 'online_icon', 'c_icon', 'c_description', 'update_logs']
         }),
-        ('Links', {
+        (_('Links'), {
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['custom_depiction', 'c_depiction', 'c_homepage', 'rich_description']
         }),
-        ('Compatibility', {
+        (_('Compatibility'), {
             'classes': ('suit-tab suit-tab-common',),
             'fields': ['os_compatibility', 'device_compatibility']
         }),
         # Contact
-        ('Maintainer', {
+        (_('Maintainer'), {
             'classes': ('suit-tab suit-tab-contact',),
             'fields': ['maintainer_name', 'maintainer_email']
         }),
-        ('Author', {
+        (_('Author'), {
             'classes': ('suit-tab suit-tab-contact',),
             'fields': ['author_name', 'author_email']
         }),
-        ('Sponsor', {
+        (_('Sponsor'), {
             'classes': ('suit-tab suit-tab-contact',),
             'fields': ['sponsor_name', 'sponsor_site']
         }),
         # Advanced
-        ('Platform', {
+        (_('Platform'), {
             'classes': ('suit-tab suit-tab-advanced',),
             'fields': ['c_architecture', 'c_priority', 'c_essential', 'c_tag']
         }),
-        ('Relations', {
+        (_('Relations'), {
             'classes': ('suit-tab suit-tab-advanced',),
             'fields': ['c_depends', 'c_pre_depends', 'c_conflicts', 'c_replaces', 'c_provides']
         }),
-        ('Other Relations', {
+        (_('Other Relations'), {
             'classes': ('suit-tab suit-tab-advanced',),
             'fields': ['c_recommends', 'c_suggests', 'c_breaks']
         }),
         # File System
-        ('Storage', {
+        (_('Storage'), {
             'classes': ('suit-tab suit-tab-file-system',),
             'fields': ['storage_', 'c_size', 'c_installed_size']
         }),
-        ('Hash', {
+        (_('Hash'), {
             'classes': ('suit-tab suit-tab-file-system',),
             'fields': ['c_md5', 'c_sha1', 'c_sha256', 'c_sha512']
         }),
         # Others
-        ('Provider', {
+        (_('Provider'), {
             'classes': ('suit-tab suit-tab-others',),
             'fields': ['c_origin', 'c_source', 'c_bugs', 'c_installer_menu_item']
         }),
-        ('Make', {
+        (_('Make'), {
             'classes': ('suit-tab suit-tab-others',),
             'fields': ['c_build_essential', 'c_built_using', 'c_built_for_profiles']
         }),
-        ('Development', {
+        (_('Development'), {
             'classes': ('suit-tab suit-tab-others',),
             'fields': ['c_multi_arch', 'c_subarchitecture', 'c_kernel_version']
         }),
-        ('History', {
+        (_('History'), {
             'classes': ('suit-tab suit-tab-statistics',),
             'fields': ['created_at', 'download_times']
         })
@@ -216,12 +216,12 @@ class VersionAdmin(admin.ModelAdmin):
         }
     }
     suit_form_tabs = (
-        ('common', 'Common'),
-        ('contact', 'Contact'),
-        ('advanced', 'Advanced'),
-        ('file-system', 'File System'),
-        ('others', 'Others'),
-        ('statistics', 'Statistics')
+        ('common', _('Common')),
+        ('contact', _('Contact')),
+        ('advanced', _('Advanced')),
+        ('file-system', _('File System')),
+        ('others', _('Others')),
+        ('statistics', _('Statistics'))
     )
     
     def has_add_permission(self, request):
