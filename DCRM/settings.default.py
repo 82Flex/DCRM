@@ -69,8 +69,8 @@ print("[DCRM] Host: " + ALLOWED_HOSTS[0])
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True  # pytz is required.
-LANGUAGE_CODE = 'en'  # zh_Hans for Simplified Chinese
-TIME_ZONE = 'Europe/Paris'  # Asia/Shanghai, etc.
+LANGUAGE_CODE = 'en'  # zh-Hans for Simplified Chinese
+TIME_ZONE = 'Asia/Shanghai'  # Asia/Shanghai, etc.
 
 
 # Database
