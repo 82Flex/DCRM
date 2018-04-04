@@ -18,13 +18,13 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import os
 import errno
+import os
 
 
 def mkdir_p(path):
     try:
-        os.makedirs(path, mode=0777)
+        os.makedirs(path, mode=0755)
     except OSError as exc:  # Python >2.5
         if exc.errno == errno.EEXIST and os.path.isdir(path):
             pass
