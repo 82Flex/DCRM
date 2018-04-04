@@ -1288,6 +1288,9 @@ body {
     .container .content .gotocydia p {
         padding: 0 0 0 48px;
     }
+    .container .content .gotocydia a {
+        color: #444;
+    }
     .container .widget-area {
         float: none;
         width: 90%;
