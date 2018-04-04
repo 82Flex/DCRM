@@ -50,7 +50,11 @@ def package_file_fetch(request, package_id):
     pkg.save()
     if pref.redirect_resources == 1:
         # Redirect URLs
-        return redirect(request_url)
+        pred = pref.redirect_prefix
+        if pred is not None and len(unicode(pred)) > 0:
+            return redirect(pred + request_url)
+        else:
+            return redirect(request_url)
     elif pref.redirect_resources == 2:
         # Redirect to WEB server
         response = HttpResponse()
@@ -75,7 +79,7 @@ def package_file_fetch(request, package_id):
     return response
 
 
-@cache_page(300)
+@cache_page(600)
 def basic_resource_fetch(request, resource_name):
     rename_list = [
         "Release",
@@ -104,7 +108,7 @@ def basic_resource_fetch(request, resource_name):
     request_url = os.path.join(release_root_url, resource_name)
     if pref.redirect_resources == 1:
         # Redirect URLs
-        return redirect(request_url)
+        return redirect(request_url, permanent=True)
     elif pref.redirect_resources == 2:
         # Redirect to WEB server
         if pref.web_server == 0:

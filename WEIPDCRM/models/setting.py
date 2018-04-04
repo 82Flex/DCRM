@@ -29,6 +29,7 @@ from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
+from django.core.validators import URLValidator
 
 from preferences.models import Preferences
 from preferences import preferences
@@ -51,8 +52,8 @@ def validate_alias(value):
     :param value: Input Value
     :type value: str
     """
-    if value[len(value) - 1:] != '/':
-        raise ValidationError(_("Path alias should be suffixed by a slash char."))
+    if value[0] != '/' or value[len(value) - 1:] != '/':
+        raise ValidationError(_("Path alias should be prefixed and suffixed by slash chars."))
 
 
 def validate_gpg(value):
@@ -219,6 +220,18 @@ class Setting(Preferences):
             
         ]
     )
+    redirect_prefix = models.CharField(
+        verbose_name=_("Redirect Prefix"),
+        max_length=128,
+        null=True,
+        blank=True,
+        help_text=_("Changing scheme and host of the url in package downloading requests, "
+                    "which is useful for load balancing or CDN speedup.<br />"
+                    "Example: https://cdn.82flex.com"),
+        validators=[
+            URLValidator
+        ]
+    )
     download_count = models.BooleanField(
         verbose_name=_("Download Count"),
         help_text=_("Count every download. "
@@ -260,27 +273,36 @@ class Setting(Preferences):
         help_text=_("Display QQ group link on the package info page."),
         max_length=255,
         null=True,
-        blank=True
+        blank=True,
+        validators=[
+            URLValidator
+        ]
     )
     weibo_name = models.CharField(
         verbose_name=_("Weibo Name"),
         max_length=128,
         null=True,
-        blank=True
+        blank=True,
     )
     weibo_url = models.URLField(
         verbose_name=_("Weibo URL"),
         help_text=_("Display Weibo link on the package info page."),
         max_length=255,
         null=True,
-        blank=True
+        blank=True,
+        validators=[
+            URLValidator
+        ]
     )
     alipay_url = models.URLField(
         verbose_name=_("Alipay URL"),
         help_text=_("Display \"Donate via Alipay\" link on the package info page."),
         max_length=255,
         null=True,
-        blank=True
+        blank=True,
+        validators=[
+            URLValidator
+        ]
     )
     twitter_name = models.CharField(
         verbose_name=_("Twitter Name"),
@@ -293,7 +315,10 @@ class Setting(Preferences):
         help_text=_("Display Twitter link on the package info page."),
         max_length=255,
         null=True,
-        blank=True
+        blank=True,
+        validators=[
+            URLValidator
+        ]
     )
     facebook_name = models.CharField(
         verbose_name=_("Facebook Name"),
@@ -312,21 +337,30 @@ class Setting(Preferences):
         help_text=_("Display Telegram link on the package info page."),
         max_length=255,
         null=True,
-        blank=True
+        blank=True,
+        validators=[
+            URLValidator
+        ]
     )
     facebook_url = models.URLField(
         verbose_name=_("Facebook URL"),
         help_text=_("Display Facebook link on the package info page."),
         max_length=255,
         null=True,
-        blank=True
+        blank=True,
+        validators=[
+            URLValidator
+        ]
     )
     paypal_url = models.URLField(
         verbose_name=_("Paypal URL"),
         help_text=_("Display \"Donate via Paypal\" link on the package info page."),
         max_length=255,
         null=True,
-        blank=True
+        blank=True,
+        validators=[
+            URLValidator
+        ]
     )
     copyright_year = models.PositiveIntegerField(
         verbose_name=_("Starting Year of Copyright"),
@@ -397,7 +431,6 @@ class Setting(Preferences):
         return unicode(preferences.Setting.resources_alias) + file_path
 
     favicon_link = property(get_external_favicon_link)
-
 
     def get_admin_url(self):
         """

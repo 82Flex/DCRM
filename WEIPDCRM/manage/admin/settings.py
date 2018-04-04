@@ -35,6 +35,8 @@ class SettingsForm(ModelForm):
             'external_statistics': AutosizedTextarea,
             'internal_statistics': AutosizedTextarea
         }
+
+
 class SettingsAdmin(PreferencesAdmin):
     form = SettingsForm
     fieldsets = [
@@ -75,7 +77,7 @@ class SettingsAdmin(PreferencesAdmin):
         }),
         (_('Server'), {
             'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['web_server', 'redirect_resources',
+            'fields': ['web_server', 'redirect_resources', 'redirect_prefix',
                        'download_count', 'download_cydia_only']
         }),
         # Rest API
@@ -98,7 +100,6 @@ class SettingsAdmin(PreferencesAdmin):
         """
         This is a single instance so you cannot add or delete it.
         """
-        
         return False
 
     def has_delete_permission(self, request, obj=None):
