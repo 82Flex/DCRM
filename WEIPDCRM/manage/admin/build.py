@@ -96,7 +96,7 @@ def build_procedure(conf):
         if preferences.Setting.advanced_mode:
             site = Site.objects.get(id=settings.SITE_ID)
             scheme = "http"
-            if settings.SECURE_SSL_REDIRECT is True:
+            if settings.SECURE_SSL is True:
                 scheme = "https"
             depiction_url = scheme + "://" + site.domain
         for version_instance in version_set:
@@ -104,6 +104,8 @@ def build_procedure(conf):
             control_dict = version_instance.get_advanced_control_dict()
             if (not version_instance.custom_depiction) and len(depiction_url) != 0:
                 control_dict["Depiction"] = depiction_url + version_instance.get_absolute_url()
+            if version_instance.online_icon is not None and len(unicode(version_instance.online_icon)) > 0:
+                control_dict["Icon"] = depiction_url + os.path.join(unicode(preferences.Setting.resources_alias), version_instance.online_icon.name)
             DebianPackage.get_control_content(control_dict, build_temp_package)
             build_temp_package.write("\n".encode("utf-8"))
         

@@ -52,10 +52,7 @@ SECRET_KEY = '$!#)nxr8rv83s(b%#kg*8a)m%igd+o%2=mgvqkba_zbc3(bpan'
 # SECURITY
 # WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-SECURE_SSL_REDIRECT = False
-if DEBUG is not True:
-    SECURE_SSL_REDIRECT = True
+SECURE_SSL = True  # https -> True
 
 
 # SECURITY

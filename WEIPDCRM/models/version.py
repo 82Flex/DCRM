@@ -343,7 +343,7 @@ class Version(models.Model):
             "MD5sum": self.c_md5,
             "SHA1": self.c_sha1,
             "SHA256": self.c_sha256,
-            "SHA512": self.c_sha512  # TODO: Online Icon
+            "SHA512": self.c_sha512,
         }
         for (k, v) in advanced_dict.items():
             if v is not None and len(unicode(v)) > 0:
@@ -391,6 +391,7 @@ class Version(models.Model):
             "Built-Using": self.c_built_using,
             "Built-For-Profiles": self.c_built_for_profiles,
             "Installed-Size": self.c_installed_size,
+            "Icon": self.c_icon,
         }
         control = {}
         for (k, v) in control_field.items():
