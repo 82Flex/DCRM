@@ -320,7 +320,7 @@ uwsgi --ini uwsgi.ini
 
 ## LICENSE 版权声明
 
-Copyright © 2013-2017 Zheng Wu
+Copyright © 2013-2018 Zheng Wu
     
 The program is distributed under the terms of the GNU Affero General Public License.
 
