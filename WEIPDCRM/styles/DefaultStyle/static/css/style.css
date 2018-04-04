@@ -1,8 +1,9 @@
 *{
     -webkit-tap-highlight-color: transparent;
 }
+
 a {
-    color: #444;
+    color: #2e9fff;
     text-decoration: none;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
@@ -12,7 +13,7 @@ a {
 }
 
 a:hover {
-    color: #19B5FE
+    color: #19b5fe;
 }
 
 a:focus {
@@ -352,6 +353,10 @@ body {
     background-color: #fff;
     box-shadow: 0 0 30px rgba(200, 200, 200, 0.25);
     height: 20px;
+}
+
+.container .content .breadcrumbs a {
+    color: #444;
 }
 
 .container .content .breadcrumbs p {
