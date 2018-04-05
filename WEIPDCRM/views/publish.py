@@ -29,18 +29,31 @@ from django.shortcuts import redirect
 from django.views.decorators.cache import cache_page
 from django.views.static import serve
 
+from WEIPDCRM.models.package import Package
 from WEIPDCRM.models.version import Version
 from preferences import preferences
 
 
-def package_file_fetch(request, package_id):
-    pref = preferences.Setting
-    pkg = Version.objects.get(id=int(package_id))
-    if not pkg:
+def package_file_fetch(request, package_name=None, package_id='latest'):
+    pkg = None
+    if package_id == 'latest':
+        if package_name is None:
+            return HttpResponseNotFound()
+        pkg = Package.objects.get(c_package=package_name).get_latest_version()
+    else:
+        package_id = int(package_id)
+        if package_id <= 0:
+            return HttpResponseNotFound()
+        pkg = Version.objects.get(id=package_id)
+    if pkg is None:
         return HttpResponseNotFound()
+    else:
+        if package_name is not None and pkg.c_package != package_name:
+            return HttpResponseNotFound()
     file_path = os.path.join(settings.MEDIA_ROOT, pkg.storage.name)
     if not os.path.exists(file_path):
         return HttpResponseNotFound()
+    pref = preferences.Setting
     if pref.download_cydia_only:
         if 'HTTP_X_UNIQUE_ID' not in request.META:
             return HttpResponseBadRequest()
@@ -51,7 +64,10 @@ def package_file_fetch(request, package_id):
     if pref.redirect_resources == 1:
         # Redirect URLs
         pred = pref.redirect_prefix
-        if pred is not None and len(unicode(pred)) > 0:
+        pred_len = len(unicode(pred))
+        if pred is not None and pred_len > 0:
+            if pred[pred_len - 1:] == '/':
+                pred = pred[:pred_len - 1]
             return redirect(pred + request_url)
         else:
             return redirect(request_url)

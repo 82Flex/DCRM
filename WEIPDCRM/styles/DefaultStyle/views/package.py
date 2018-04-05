@@ -23,11 +23,12 @@ Notice: You have used class-based views, that's awesome.
 """
 
 from __future__ import unicode_literals
+
 from django.conf import settings
 from django.http import HttpResponseNotFound
-from django.views.generic import DetailView
-from django.views.decorators.vary import vary_on_headers
 from django.views.decorators.clickjacking import xframe_options_exempt
+from django.views.decorators.vary import vary_on_headers
+from django.views.generic import DetailView
 
 from WEIPDCRM.models.version import Version
 
@@ -66,8 +67,11 @@ class PackageView(DetailView):
         package_id = self.kwargs.get('package_id')
         action_name = self.kwargs.get('action_name')
         try:
-            context['gallery'] = Gallery.objects.get(title=package_id)
-        except Gallery.DoesNotExist:
+            try:
+                context['gallery'] = Gallery.objects.get(title=package_id)
+            except Gallery.DoesNotExist:
+                context['gallery'] = ''
+        except NameError:
             context['gallery'] = ''
         if action_name == "history":
             version = Version.objects.get(id=package_id)

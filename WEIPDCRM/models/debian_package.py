@@ -20,18 +20,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import unicode_literals
 
+import gzip
 import os
 import shutil
-import time
 import tarfile
 import tempfile
-import gzip
+import time
 
+from debian.copyright import parse_multiline, format_multiline
+from debian.deb822 import Deb822
 from django.conf import settings
 from django.utils.translation import ugettext as _
-
-from debian.deb822 import Deb822
-from debian.copyright import parse_multiline, format_multiline
 
 
 class DebianPackage(object):
@@ -222,6 +221,9 @@ class DebianPackage(object):
         temp_control.write(control_field.encode("utf-8"))
         temp_control.close()
 
+        # Change permission of control file
+        os.chmod(temp_control.name, 0700)
+
         # copy temporary control tar gz from original debian package
 
         temp_control_tar_gz = tempfile.NamedTemporaryFile(delete=False)
@@ -251,10 +253,37 @@ class DebianPackage(object):
         gz_control_tar_gz.close()
         temp_control_tar.close()
 
-        # replace with new control file
+        # create temp new control tar file
 
-        new_control_tar = tarfile.open(temp_control_tar.name, "a:")
-        new_control_tar.add(temp_control.name, "./control")
+        temp_new_control_tar = tempfile.NamedTemporaryFile(delete=False)
+        temp_new_control_tar.close()
+
+        def reset(tarinfo):
+            tarinfo.uid = tarinfo.gid = 0
+            tarinfo.uname = tarinfo.gname = "root"
+            return tarinfo
+
+        # copy with new control file
+
+        new_control_tar = tarfile.open(temp_new_control_tar.name, "w:")
+        new_control_tar.add(temp_control.name, "./control", filter=reset)
+        orig_control_tar = tarfile.open(temp_control_tar.name, "r:")
+        for orig_tarinfo_name in orig_control_tar.getnames():
+            if orig_tarinfo_name == '.':
+                continue
+            elif orig_tarinfo_name == '..':
+                continue
+            elif orig_tarinfo_name == './control':
+                continue
+            elif orig_tarinfo_name == 'control':
+                continue
+            orig_tarinfo = orig_control_tar.getmember(orig_tarinfo_name)
+            orig_tarinfo = reset(orig_tarinfo)
+            orig_tarinfo_obj = orig_control_tar.extractfile(orig_tarinfo_name)
+            if orig_tarinfo is None or orig_tarinfo_obj is None:
+                continue
+            new_control_tar.addfile(orig_tarinfo, orig_tarinfo_obj)
+        orig_control_tar.close()
         new_control_tar.close()
 
         # compress new control tar to control tar gz
@@ -262,14 +291,14 @@ class DebianPackage(object):
         temp_new_control_tar_gz = tempfile.NamedTemporaryFile(delete=False)
         temp_new_control_tar_gz.close()
 
-        temp_control_tar = open(temp_control_tar.name, 'rb')
+        new_control_tar = open(temp_new_control_tar.name, 'rb')
         new_control_tar_gz = gzip.open(temp_new_control_tar_gz.name, "wb")
         while True:
-            cache = temp_control_tar.read(16 * 1024)  # 16k cache
+            cache = new_control_tar.read(16 * 1024)  # 16k cache
             if not cache:
                 break
             new_control_tar_gz.write(cache)
-        temp_control_tar.close()
+        new_control_tar.close()
         new_control_tar_gz.close()
 
         # build new debian package

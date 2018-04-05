@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-04 15:18+0200\n"
+"POT-Creation-Date: 2018-04-05 15:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -196,15 +196,15 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:184
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:185
 msgid "Say something..."
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:219
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:221
 msgid "Your device supports this package"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:223
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:225
 msgid "Your device doesn't support this package"
 msgstr ""
 

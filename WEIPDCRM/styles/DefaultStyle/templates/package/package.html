@@ -151,14 +151,19 @@
                 $('.image').css('width', width + 'px');
             }
         }
-        $(document).ready(function () {
+        $(window).resize(function () {
+            nice();
+        });
+        $(function () {
             var $comment_area = $('.comments textarea');
             $comment_area.attr('data-emojiable', 'true');
             $comment_area.attr('data-emoji-input', 'unicode');
             $('.controls.col-sm-10').css('position', 'relative');
             nice();
+
             // In Cydia
-            if (navigator.userAgent.search(/Cydia/) !== -1) {
+            if (navigator.userAgent.search(/Cydia/) !== -1)
+            {
                 $('a').attr("target", "_blank");
                 $('.main').addClass("bg-cydia");
                 $('.footer').remove();
@@ -174,12 +179,8 @@
                 $('.title').remove();
                 $('.intro').remove();
             }
-        });
-        $(window).resize(function () {
-            nice();
-        });
-        $(function () {
-            var $comment_area = $('.comments textarea');
+
+            // Comments
             if ($comment_area.length) {
                 $comment_area.attr('placeholder', '{% trans "Say something..." %}');
                 // Initializes and creates emoji set from sprite sheet
@@ -194,6 +195,7 @@
                 window.emojiPicker.discover();
             }
 
+            // Compatibility Check
             var os_compatibility = '';
             var version = (navigator.userAgent.match(/.+(?:Version)[\/: ]([\d.]+)/) || [])[1];
             if (!version) {

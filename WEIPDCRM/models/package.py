@@ -24,14 +24,13 @@ It just groups all versions in the same package, and list the latest version of 
 
 from __future__ import unicode_literals
 
-from django.db import models
-from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
+from django.core import urlresolvers
+from django.db import models
 from django.utils.translation import ugettext as _
 
-from WEIPDCRM.models.version import Version
 from WEIPDCRM.models.section import Section
-
+from WEIPDCRM.models.version import Version
 from preferences import preferences
 
 
@@ -94,7 +93,7 @@ class Package(models.Model):
         """
         Get display icon from online_icon field, if not set, then
         return its section icon field
-        :return:
+        :return: Icon URL String
         """
         if self.online_icon.name:
             file_path = self.online_icon.name
@@ -109,3 +108,6 @@ class Package(models.Model):
     def get_absolute_url(self):
         from django.urls import reverse
         return reverse('package_id', args=[self.id])
+
+    def get_latest_version(self):
+        return Version.objects.get(id=self.id)

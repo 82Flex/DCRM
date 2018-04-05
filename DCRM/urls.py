@@ -18,17 +18,16 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from django.conf.urls import url, include
-from django.contrib import admin
 from django.conf import settings
+from django.conf.urls import url, include
 from django.conf.urls.static import static
-from django.views.decorators.cache import cache_page
+from django.contrib import admin
 
+from WEIPDCRM.views import publish
+from WEIPDCRM.views.admin import release
 from WEIPDCRM.views.admin import upload
 from WEIPDCRM.views.admin.help import about
 from WEIPDCRM.views.admin.help import statistics
-from WEIPDCRM.views.admin import release
-from WEIPDCRM.views import publish
 
 theme_module = settings.THEME
 
@@ -44,7 +43,12 @@ urlpatterns = [
         name='basic_resource_fetch'
     ),
     url(
-        r'^version/(?P<package_id>\d+)\.deb$',
+        r'^debs/(?P<package_id>\d+)\.deb$',
+        publish.package_file_fetch,
+        name='package_file_fetch'
+    ),
+    url(
+        r'^debs/(?P<package_name>.+?)/(?P<package_id>(\d+|latest))\.deb$',
         publish.package_file_fetch,
         name='package_file_fetch'
     ),

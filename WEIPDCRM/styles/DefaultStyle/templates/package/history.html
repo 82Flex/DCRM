@@ -23,7 +23,8 @@
     <script type="text/javascript">
         $(document).ready(function () {
             // In Cydia
-            if (navigator.userAgent.search(/Cydia/) !== -1) {
+            if (navigator.userAgent.search(/Cydia/) !== -1)
+            {
                 $('a').attr("target", "_blank");
                 $('.main').addClass("bg-cydia");
                 $('.breadcrumbs').remove();

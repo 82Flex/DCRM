@@ -22,19 +22,17 @@ from __future__ import unicode_literals
 
 import re
 import subprocess
-import time
 
-from django.db import models
-from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
-from django.utils.translation import ugettext_lazy as _
+from django.core import urlresolvers
 from django.core.exceptions import ValidationError
 from django.core.validators import URLValidator
-
-from preferences.models import Preferences
-from preferences import preferences
+from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 from WEIPDCRM.models.release import Release
+from preferences import preferences
+from preferences.models import Preferences
 
 
 def validator_basic(value):
@@ -54,6 +52,15 @@ def validate_alias(value):
     """
     if value[0] != '/' or value[len(value) - 1:] != '/':
         raise ValidationError(_("Path alias should be prefixed and suffixed by slash chars."))
+
+
+def validate_slash(value):
+    """
+        :param value: Input Value
+        :type value: str
+        """
+    if value[len(value) - 1:] != '/':
+        raise ValidationError(_("Path alias should be suffixed by a slash char."))
 
 
 def validate_gpg(value):
@@ -227,9 +234,10 @@ class Setting(Preferences):
         blank=True,
         help_text=_("Changing scheme and host of the url in package downloading requests, "
                     "which is useful for load balancing or CDN speedup.<br />"
-                    "Example: https://cdn.82flex.com"),
+                    "Example: https://cdn.82flex.com/"),
         validators=[
-            URLValidator
+            URLValidator,
+            validate_slash
         ]
     )
     download_count = models.BooleanField(
