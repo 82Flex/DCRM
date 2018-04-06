@@ -16,7 +16,7 @@
     <meta name="generator" content="DCRM"/>
     <meta name="template" content="DefaultStyle"/>
     {% if settings.favicon_link %}
-    <link rel="shortcut icon" href="{{ settings.favicon_link }}" />
+        <link rel="shortcut icon" href="{{ settings.favicon_link }}"/>
     {% endif %}
     {% block stylesheet %}
         <link rel="stylesheet" href="{% static "css/style.css" %}">
@@ -69,26 +69,26 @@
                     {% endif %}
                 </div>
                 <div class="repo_name">
-                {% if settings.active_release %}
-                    <h2>{{ settings.active_release.origin | default:_("Untitled Origin") }}</h2>
-                    <p>{{ settings.active_release.description | default:_("No description.") }}</p>
-                {% else %}
-                    <h2>{% trans "No repository created." %}</h2>
-                    <p>{% trans "No repository description." %}</p>
-                {% endif %}
+                    {% if settings.active_release %}
+                        <h2>{{ settings.active_release.origin | default:_("Untitled Origin") }}</h2>
+                        <p>{{ settings.active_release.description | default:_("No description.") }}</p>
+                    {% else %}
+                        <h2>{% trans "No repository created." %}</h2>
+                        <p>{% trans "No repository description." %}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
         {% block notice %}
             {% if settings.notice %}
-            <div class="notice">
-                <h2>{% trans "Notice" %}</h2>
-                <div class="notice-content">
-                    {% autoescape off %}
-                        {{ settings.notice }}
-                    {% endautoescape %}
+                <div class="notice">
+                    <h2>{% trans "Notice" %}</h2>
+                    <div class="notice-content">
+                        {% autoescape off %}
+                            {{ settings.notice }}
+                        {% endautoescape %}
+                    </div>
                 </div>
-            </div>
             {% endif %}
         {% endblock %}
         {% section_list %}
@@ -106,7 +106,8 @@
                                     {% else %}
                                         <img src="{% static 'img/default-package-icon.png' %}"/>
                                     {% endif %}
-                                    <span class="title"><a href="{% url "section_id" section.id %}">{{ section.name }}</a></span>
+                                    <span class="title"><a
+                                            href="{% url "section_id" section.id %}">{{ section.name }}</a></span>
                                 </div>
                             </li>
                         {% endfor %}
@@ -120,11 +121,11 @@
         {% include 'social.html' %}
         {% block ad %}
             {% if settings.advertisement %}
-            <div class="advertisement">
-                {% autoescape off %}
-                    {{ settings.advertisement }}
-                {% endautoescape %}
-            </div>
+                <div class="advertisement">
+                    {% autoescape off %}
+                        {{ settings.advertisement }}
+                    {% endautoescape %}
+                </div>
             {% endif %}
         {% endblock %}
     </div>
@@ -166,9 +167,9 @@
 {% block statistics %}
     {% if settings.external_statistics %}
         <div class="external_statistics">
-        {% autoescape off %}
-          {{ settings.external_statistics }}
-        {% endautoescape %}
+            {% autoescape off %}
+                {{ settings.external_statistics }}
+            {% endautoescape %}
         </div>
     {% endif %}
 {% endblock %}

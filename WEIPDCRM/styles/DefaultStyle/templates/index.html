@@ -6,7 +6,8 @@
 {% endblock %}
 {% block content %}
     <div class="gotocydia">
-        <a href="cydia://url/https://cydia.saurik.com/api/share#?source={{ request.scheme }}://{{ site }}" target="_blank">
+        <a href="cydia://url/https://cydia.saurik.com/api/share#?source={{ request.scheme }}://{{ site }}"
+           target="_blank">
             <img src="{% static "img/cydia.png" %}"/>
             <div class="label"><p>{% trans "Add in Cydia<sup><small>™</small></sup>" %}</p></div>
             <div class="clear"></div>
@@ -21,19 +22,19 @@
 {% endblock %}
 {% block footerscript %}
     <script type="text/javascript">
-    function breadcrumbs() {
+        function breadcrumbs() {
             if ($(window).width() <= 985) {
                 $('.breadcrumbs').hide();
             }
             else {
                 $('.breadcrumbs').show();
             }
-    }
-    $(document).ready(function () {
-        breadcrumbs();
-    });
-    $(window).resize(function () {
-        breadcrumbs();
-    });
+        }
+        $(document).ready(function () {
+            breadcrumbs();
+        });
+        $(window).resize(function () {
+            breadcrumbs();
+        });
     </script>
 {% endblock %}

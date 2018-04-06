@@ -25,8 +25,8 @@ import os
 import time
 
 parser = argparse.ArgumentParser(description='DCRM maintenance script')
-parser.add_argument('-s', '--start', action="store", default='uwsgi', help='{rqworker|uwsgi}')
-parser.add_argument('-r', '--restart', action="store", default='uwsgi', help='{rqworker|uwsgi}')
+parser.add_argument('-s', '--start', action="store", default=None, help='{rqworker|uwsgi}')
+parser.add_argument('-r', '--restart', action="store", default=None, help='{rqworker|uwsgi}')
 parser.add_argument('-u', '--update', action="store_true", help='update DCRM automatically')
 args = parser.parse_args()
 
@@ -63,6 +63,7 @@ def kill(process):
             print("kill " + process + " succssed.")
         else:
             print("kill " + process + " failed.")
+
 
 if args.start:
     p = args.start
