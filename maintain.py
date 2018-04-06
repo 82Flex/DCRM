@@ -112,13 +112,12 @@ elif args.restart:
 
 elif args.update:
     git = commands.getoutput("git pull")
-    if git != "Already up to date.":
-        os.system("rm -rf WEIPDCRM/static && python manage.py collectstatic --noinput")
-        kill('uwsgi')
-        time.sleep(3)
-        start('uwsgi')
-        flush_memcached()
-        refresh_cdn()
+    os.system("rm -rf WEIPDCRM/static && python manage.py collectstatic --noinput")
+    kill('uwsgi')
+    time.sleep(3)
+    start('uwsgi')
+    flush_memcached()
+    refresh_cdn()
 
 elif args.clean:
     if args.clean == 'cdn':
