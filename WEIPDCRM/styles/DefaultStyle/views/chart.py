@@ -25,13 +25,13 @@ Notice: You have used class-based views, that's awesome.
 from __future__ import unicode_literals
 
 from django.views.generic import ListView
-from WEIPDCRM.models.version import Version
+from WEIPDCRM.models.package import Package
 
 
 class ChartView(ListView):
-    model = Version
+    model = Package
     context_object_name = 'package_list'
-    ordering = '-download_times'
+    ordering = '-download_count'
     template_name = 'chart.html'
 
     def get_queryset(self):
@@ -40,6 +40,6 @@ class ChartView(ListView):
 
         :return: QuerySet
         """
-        queryset = super(ChartView, self).get_queryset().filter(enabled=1)[:12]
+        queryset = super(ChartView, self).get_queryset()[:12]
         return queryset
 
