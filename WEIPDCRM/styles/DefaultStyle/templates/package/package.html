@@ -202,6 +202,7 @@
 
                 $('.breadcrumbs').remove();
                 $('.footer').remove();
+                var $widget = $('.widget-area');
                 if ($widget.children().length) {
                     $widget.css("margin", "auto");
                     $widget.css("padding", "0");
@@ -209,7 +210,6 @@
                     $widget.remove();
                 }
                 if (!history_mode) {
-                    var $widget = $('.widget-area');
                     $('.icon').remove();
                     $('.title').remove();
                     $('.intro').remove();
