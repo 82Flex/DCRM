@@ -1097,6 +1097,7 @@ body {
     width: 100%;
     overflow: auto;
     overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .container .content .contact .card .card-wrapper::-webkit-scrollbar-track-piece {
