@@ -24,10 +24,10 @@ import commands
 import os
 import time
 
-parser = argparse.ArgumentParser(description='DCRM Maintenance Script')
-parser.add_argument('-s', '--start', action="store", default=None, help='{rqworker|uwsgi}')
-parser.add_argument('-r', '--restart', action="store", default=None, help='{rqworker|uwsgi}')
-parser.add_argument('-u', '--update', action="store_true", help='Updata DCRM automaticly')
+parser = argparse.ArgumentParser(description='DCRM maintenance script')
+parser.add_argument('-s', '--start', action="store", default='uwsgi', help='{rqworker|uwsgi}')
+parser.add_argument('-r', '--restart', action="store", default='uwsgi', help='{rqworker|uwsgi}')
+parser.add_argument('-u', '--update', action="store_true", help='update DCRM automatically')
 args = parser.parse_args()
 
 
@@ -37,11 +37,10 @@ def start(process):
         if ID == '':
             high = os.system("nohup python manage.py rqworker high > /dev/null &")
             default = os.system("nohup python manage.py rqworker default > /dev/null &")
-
             if high == 0 and default == 0:
-                print("Start rqworker succssed!")
+                print("start rqworker succssed.")
             else:
-                print("Start rqworker failed!")
+                print("start rqworker failed.")
         else:
             print("rqworker already running")
     elif process == 'uwsgi':
@@ -49,11 +48,11 @@ def start(process):
         if ID == '':
             uwsgi = os.system("uwsgi --ini dcrm.ini --daemonize=/dev/null")
             if uwsgi == 0:
-                print("Start uwsgi succssed!")
+                print("start uwsgi succssed.")
             else:
-                print("Start uwsgi failed!")
+                print("start uwsgi failed.")
         else:
-            print("Uwsgi already running")
+            print("uwsgi already running")
 
 
 def kill(process):
@@ -61,9 +60,9 @@ def kill(process):
     for id in ID.split():
         out = os.system('kill -9 ' + id)
         if out == 0:
-            print("Kill "+process+" succssed!")
+            print("kill " + process + " succssed.")
         else:
-            print("Kill "+process+" failed!")
+            print("kill " + process + " failed.")
 
 if args.start:
     p = args.start
