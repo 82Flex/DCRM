@@ -29,8 +29,8 @@ import time
 import json
 
 env = os.environ
-ak = env['AliyunAK']  # Aliyun Access Key ID
-sk = env['AliyunSK']  # Aliyun Access Key Secret
+ak = env['AliyunAK'] if 'AliyunAK' in env else ''  # Aliyun Access Key ID
+sk = env['AliyunSK'] if 'AliyunSK' in env else '' # Aliyun Access Key Secret
 
 parser = argparse.ArgumentParser(description='DCRM maintenance script')
 parser.add_argument('-s', '--start', action="store", default=None, help='{rqworker|uwsgi}')
@@ -85,17 +85,18 @@ def flush_memcached():
 
 
 def refresh_cdn():
-    try:
-        Client = client.AcsClient(ak, sk, 'cn-hangzhou')
-        request = RefreshObjectCachesRequest.RefreshObjectCachesRequest()
-        request.set_accept_format('json')
-        request.set_ObjectPath(ALLOWED_HOSTS[0]+'/static/')
-        request.set_ObjectType('Directory')
-        RequestId = json.loads(Client.do_action_with_exception(request))['RequestId']
-        print "Refresh success\nRequestId: " + RequestId
+    if ak and sk:
+        try:
+            Client = client.AcsClient(ak, sk, 'cn-hangzhou')
+            request = RefreshObjectCachesRequest.RefreshObjectCachesRequest()
+            request.set_accept_format('json')
+            request.set_ObjectPath(ALLOWED_HOSTS[0]+'/static/')
+            request.set_ObjectType('Directory')
+            RequestId = json.loads(Client.do_action_with_exception(request))['RequestId']
+            print "Refresh success\nRequestId: " + RequestId
 
-    except Exception as e:
-        print e.get_error_code() if hasattr(e, 'get_error_code') else e
+        except Exception as e:
+            print e.get_error_code() if hasattr(e, 'get_error_code') else e
 
 
 if args.start:
