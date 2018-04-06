@@ -88,7 +88,7 @@ elif args.update:
 
 elif args.clean:
     clean = commands.getoutput("echo \"flush_all\" | nc localhost 11211")
-    if clean == 'OK':
+    if clean.strip() == 'OK':
         print("Flush Memcached successed.")
     else:
         print("Flush Memcached failed.")
