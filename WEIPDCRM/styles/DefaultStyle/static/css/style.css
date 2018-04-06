@@ -1066,7 +1066,7 @@ body {
     border: 1px solid #eaeaea;
     border-radius: 18px;
     color: #8b8b8b;
-    font-size: 12px
+    font-size: 10px!important;
 }
 
 .page-navi li a:hover {
@@ -1080,7 +1080,7 @@ body {
     border-radius: 18px;
     background-color: #43aafa;
     color: #fff;
-    font-size: 12px
+    font-size: 10px
 }
 
 .page-navi .pages span {

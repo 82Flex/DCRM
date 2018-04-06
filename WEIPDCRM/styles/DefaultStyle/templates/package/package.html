@@ -38,8 +38,13 @@
                     {% endif %}
                     <li>{% trans "Size" %}: {{ package_info.c_size|filesizeformat }}</li>
                     {% if package_info.author_name %}
-                        <li>{% trans "Author" %}: <a
-                                href="{% url "package_action" package_info.id "contact" %}">{{ package_info.author_name }}</a>
+                        <li>
+                            {% if package_info.author_email or package_info.maintainer_email or package_info.sponsor_site %}
+                                {% trans "Author" %}: <a
+                                    href="{% url "package_action" package_info.id "contact" %}">{{ package_info.author_name }}</a>
+                            {% else %}
+                                {{ package_info.author_name }}
+                            {% endif %}
                         </li>
                     {% endif %}
                 </ul>
