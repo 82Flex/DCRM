@@ -74,9 +74,10 @@ class Package(models.Model):
         max_length=255,
         blank=True
     )
-    c_description = models.CharField(
+    c_description = models.TextField(
         verbose_name=_("Description"),
-        max_length=255,
+        blank=True,
+        null=True,
     )
     download_count = models.IntegerField(
         verbose_name=_("Download Times"),
