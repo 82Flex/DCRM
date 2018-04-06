@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # coding=utf-8
 
 """
@@ -21,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import argparse
 import commands
 import os
+import time
 
 parser = argparse.ArgumentParser(description='DCRM Maintenance Script')
 parser.add_argument('-s', '--start', action="store", default=None, help='{rqworker|uwsgi}')
@@ -56,10 +58,8 @@ def start(process):
 
 def kill(process):
     ID = commands.getoutput("ps -def | grep \"rqworker\" | grep -v \"$0\" | grep -v \"grep\" | awk '{print $2}'")
-
     for id in ID.split():
         out = os.system('kill -9 ' + id)
-
         if out == 0:
             print("Kill "+process+" succssed!")
         else:
@@ -74,6 +74,7 @@ elif args.restart:
     p = args.restart
     if p in ['rqworker', 'uwsgi']:
         kill(p)
+        time.sleep(3)
         start(p)
 
 elif args.update:
@@ -81,4 +82,5 @@ elif args.update:
     if git != "Already up to date.":
         os.system("rm -rf WEIPDCRM/static && python manage.py collectstatic --noinput")
         kill('uwsgi')
+        time.sleep(3)
         start('uwsgi')
