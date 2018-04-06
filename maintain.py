@@ -27,6 +27,7 @@ import time
 parser = argparse.ArgumentParser(description='DCRM maintenance script')
 parser.add_argument('-s', '--start', action="store", default=None, help='{rqworker|uwsgi}')
 parser.add_argument('-r', '--restart', action="store", default=None, help='{rqworker|uwsgi}')
+parser.add_argument('-c', '--clean', action="store_true", help='clean memcached cache')
 parser.add_argument('-u', '--update', action="store_true", help='update DCRM automatically')
 args = parser.parse_args()
 
@@ -38,7 +39,7 @@ def start(process):
             high = os.system("nohup python manage.py rqworker high > /dev/null &")
             default = os.system("nohup python manage.py rqworker default > /dev/null &")
             if high == 0 and default == 0:
-                print("start rqworker succssed.")
+                print("start rqworker successed.")
             else:
                 print("start rqworker failed.")
         else:
@@ -48,7 +49,7 @@ def start(process):
         if ID == '':
             uwsgi = os.system("uwsgi --ini dcrm.ini --daemonize=/dev/null")
             if uwsgi == 0:
-                print("start uwsgi succssed.")
+                print("start uwsgi successed.")
             else:
                 print("start uwsgi failed.")
         else:
@@ -60,7 +61,7 @@ def kill(process):
     for id in ID.split():
         out = os.system('kill -9 ' + id)
         if out == 0:
-            print("kill " + process + " succssed.")
+            print("kill " + process + " successed.")
         else:
             print("kill " + process + " failed.")
 
@@ -84,3 +85,10 @@ elif args.update:
         kill('uwsgi')
         time.sleep(3)
         start('uwsgi')
+
+elif args.clean:
+    clean = commands.getoutput("echo \"flush_all\" | nc localhost 11211")
+    if clean == 'OK':
+        print("Flush Memcached successed.")
+    else:
+        print("Flush Memcached failed.")
