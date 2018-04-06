@@ -55,7 +55,7 @@
         </div>
 
         <div class="clear"></div>
-        <div class="compatibility">
+        <div class="compatibility" style="display: none;">
             <p></p>
         </div>
 
@@ -215,7 +215,6 @@
             {% endfor %}
             // Check os compatibility
             if (device !== "UNDEFINE" && os_compatibility && device_type) {
-                $('.compatibility').show();
                 var $comp = $('.compatibility p');
                 if (os_compatibility.search(version) !== -1 && device_type.search(device) !== -1) {
                     $comp.removeClass("no");
@@ -226,6 +225,7 @@
                     $comp.addClass("no");
                     $comp.html("<i class=\"fa fa-times\" aria-hidden=\"true\"></i>{% trans "Your device doesn't support this package" %}");
                 }
+                $('.compatibility').show();
             } else {
                 $('.compatibility').hide();
             }
