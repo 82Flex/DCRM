@@ -18,15 +18,16 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import os
 import argparse
 import commands
+import os
 
 parser = argparse.ArgumentParser(description='DCRM Maintenance Script')
 parser.add_argument('-s', '--start', action="store", default=None, help='{rqworker|uwsgi}')
 parser.add_argument('-r', '--restart', action="store", default=None, help='{rqworker|uwsgi}')
 parser.add_argument('-u', '--update', action="store_true", help='Updata DCRM automaticly')
 args = parser.parse_args()
+
 
 def start(process):
     if process == 'rqworker':

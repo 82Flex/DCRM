@@ -155,6 +155,8 @@
             nice();
         });
         $(function () {
+            $('.article .description a').attr("target", "_blank");
+
             var $comment_area = $('.comments textarea');
             $comment_area.attr('data-emojiable', 'true');
             $comment_area.attr('data-emoji-input', 'unicode');
