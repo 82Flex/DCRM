@@ -14,7 +14,8 @@
         <i class="fa fa-angle-right"></i>
         <a href="{% url "section_id" package_info.c_section.id %}">{{ package_info.c_section }}</a>
     {% endif %}
-    <i class="fa fa-angle-right"></i> <a href="{{ package_info.get_absolute_url }}">{{ package_info.c_name | default:_("Untitled Package") }}</a>
+    <i class="fa fa-angle-right"></i>
+    <a href="{{ package_info.get_absolute_url }}">{{ package_info.c_name | default:_("Untitled Package") }}</a>
 {% endblock %}
 {% block content %}
     <div class="article">
@@ -37,7 +38,9 @@
                     {% endif %}
                     <li>{% trans "Size" %}: {{ package_info.c_size|filesizeformat }}</li>
                     {% if package_info.author_name %}
-                        <li>{% trans "Author" %}: <a href="{% url "package_action" package_info.id "contact" %}">{{ package_info.author_name }}</a></li>
+                        <li>{% trans "Author" %}: <a
+                                href="{% url "package_action" package_info.id "contact" %}">{{ package_info.author_name }}</a>
+                        </li>
                     {% endif %}
                 </ul>
                 <div class="clear"></div>
@@ -62,10 +65,10 @@
         <div class="clear"></div>
         <div class="description">
             <label>
-            <h2>{% trans "Description" %}</h2>
-            {% if package_info.c_homepage %}
-                <a target="_blank" href="{{ package_info.c_homepage }}">{% trans "More Info" %}</a>
-            {% endif %}
+                <h2>{% trans "Description" %}</h2>
+                {% if package_info.c_homepage %}
+                    <a target="_blank" href="{{ package_info.c_homepage }}">{% trans "More Info" %}</a>
+                {% endif %}
             </label>
             <div class="clear"></div>
             <p>
@@ -83,12 +86,13 @@
             <div class="clear"></div>
             <div class="whatsnew">
                 <label>
-                <h2>{% trans "What's New" %}</h2>
-                {% if settings.version_history %}
-                    <a href="{% url "package_action" package_info.id "history" %}">{% trans "History" %}</a>
-                {% endif %}
+                    <h2>{% trans "What's New" %}</h2>
+                    {% if settings.version_history %}
+                        <a href="{% url "package_action" package_info.id "history" %}">{% trans "History" %}</a>
+                    {% endif %}
                 </label>
-                <div class="version"><p>{% trans "Version" %}: {{ package_info.c_version }}</p><span>{{ package_info.created_at | date:"Y-m-d H:i" }}</span></div>
+                <div class="version"><p>{% trans "Version" %}: {{ package_info.c_version }}</p>
+                    <span>{{ package_info.created_at | date:"Y-m-d H:i" }}</span></div>
                 <p>
                     {{ package_info.update_logs | linebreaksbr }}
                 </p>
@@ -106,7 +110,9 @@
                         <ul>
                             {% for photo in gallery.public %}
                                 <li>
-                                    <a data-fancybox="images" data-caption="{{ package_info.c_name | default:_("Untitled Package") }}" href="{{ photo.get_display_url }}">
+                                    <a data-fancybox="images"
+                                       data-caption="{{ package_info.c_name | default:_("Untitled Package") }}"
+                                       href="{{ photo.get_display_url }}">
                                         <img src="{{ photo.get_display_url }}" alt="{{ photo.title }}">
                                     </a>
                                 </li>
@@ -142,7 +148,7 @@
     <script type="application/javascript" src="{% static 'js/jquery.fancybox.min.js' %}"></script>
     <script type="text/javascript">
         function nice() {
-            if ($(window).width() <= 985 && 482 <=$(window).width()) {
+            if ($(window).width() <= 985 && 482 <= $(window).width()) {
                 $('.image').css('width', '100%');
             }
             else if ($(window).width() <= 482) {
@@ -164,22 +170,51 @@
             nice();
 
             // In Cydia
-            if (navigator.userAgent.search(/Cydia/) !== -1)
-            {
+            if (navigator.userAgent.search(/Cydia/) !== -1) {
+                function parse_query_string(query) {
+                    var vars = query.split("&");
+                    var query_string = {};
+                    for (var i = 0; i < vars.length; i++) {
+                        var pair = vars[i].split("=");
+                        // If first entry with this name
+                        if (typeof query_string[pair[0]] === "undefined") {
+                            query_string[pair[0]] = decodeURIComponent(pair[1]);
+                            // If second entry with this name
+                        } else if (typeof query_string[pair[0]] === "string") {
+                            query_string[pair[0]] = [query_string[pair[0]], decodeURIComponent(pair[1])];
+                            // If third or later entry with this name
+                        } else {
+                            query_string[pair[0]].push(decodeURIComponent(pair[1]));
+                        }
+                    }
+                    return query_string;
+                }
+
+                var query = window.location.search.substring(1);
+                var qs = parse_query_string(query);
+                var history_mode = false;
+                if (typeof(qs.history) === "string" && qs.history === "1") {
+                    history_mode = true;
+                }
+
                 $('a').attr("target", "_blank");
                 $('.main').addClass("bg-cydia");
-                $('.footer').remove();
-                $('.breadcrumbs').remove();
-                var $widget = $('.widget-area');
-                if ($widget.children().length) {
-                    $widget.css("margin", "auto");
-                    $widget.css("padding", "0");
-                } else {
-                    $widget.remove();
+
+                if (!history_mode) {
+                    $('.footer').remove();
+                    $('.breadcrumbs').remove();
+                    var $widget = $('.widget-area');
+                    if ($widget.children().length) {
+                        $widget.css("margin", "auto");
+                        $widget.css("padding", "0");
+                    } else {
+                        $widget.remove();
+                    }
+                    $('.icon').remove();
+                    $('.title').remove();
+                    $('.intro').remove();
                 }
-                $('.icon').remove();
-                $('.title').remove();
-                $('.intro').remove();
+
             }
 
             // Comments

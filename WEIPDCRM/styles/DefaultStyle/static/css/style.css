@@ -323,7 +323,8 @@ body {
 }
 
 .container .content .list .chart-item .download {
-    float: right
+    float: right;
+    user-select: none;
 }
 
 .container .content .list .chart-item .download a {
@@ -449,7 +450,8 @@ body {
 
 .container .content .article .download {
     float: right;
-    text-align: center
+    text-align: center;
+    user-select: none;
 }
 
 .container .content .article .download a {
@@ -1089,7 +1091,7 @@ body {
     margin: 30px auto -30px;
     width: 960px;
     min-height: 10px;
-    text-align: center
+    text-align: center;
 }
 
 .container .content .contact .card .card-wrapper {
@@ -1097,6 +1099,7 @@ body {
     width: 100%;
     overflow: auto;
     overflow-y: hidden;
+    user-select: none;
     -webkit-overflow-scrolling: touch;
 }
 

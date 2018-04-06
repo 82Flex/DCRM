@@ -12,7 +12,7 @@
             </div>
             <div class="clear"></div>
             <p>{{ version.update_logs | linebreaksbr }}</p>
-            <a target="_blank" href="{% url "package_id" version.id %}">
+            <a target="_blank" href="{% url "package_id" version.id %}?history=1">
                 {% trans "View this version" %} <i class="fa fa-angle-right" aria-hidden="true"></i>
             </a>
         </div>
