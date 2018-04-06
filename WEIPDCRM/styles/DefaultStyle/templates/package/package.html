@@ -202,14 +202,14 @@
 
                 $('.breadcrumbs').remove();
                 $('.footer').remove();
+                if ($widget.children().length) {
+                    $widget.css("margin", "auto");
+                    $widget.css("padding", "0");
+                } else {
+                    $widget.remove();
+                }
                 if (!history_mode) {
                     var $widget = $('.widget-area');
-                    if ($widget.children().length) {
-                        $widget.css("margin", "auto");
-                        $widget.css("padding", "0");
-                    } else {
-                        $widget.remove();
-                    }
                     $('.icon').remove();
                     $('.title').remove();
                     $('.intro').remove();
