@@ -200,9 +200,9 @@
                 $('a').attr("target", "_blank");
                 $('.main').addClass("bg-cydia");
 
+                $('.breadcrumbs').remove();
+                $('.footer').remove();
                 if (!history_mode) {
-                    $('.footer').remove();
-                    $('.breadcrumbs').remove();
                     var $widget = $('.widget-area');
                     if ($widget.children().length) {
                         $widget.css("margin", "auto");
