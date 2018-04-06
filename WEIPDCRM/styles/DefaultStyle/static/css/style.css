@@ -578,12 +578,17 @@ body {
     overflow: hidden;
     width: 100%;
 }
+
 .container .content .article .description {
     border-top: 1px solid #fdfdfd;
     color: #333;
     font-size: 13px;
     line-height: 22px;
     margin-bottom: 12px;
+}
+
+.container .content .article .description a {
+    color: #2e9fff;
 }
 
 .container .screenshot .image {
