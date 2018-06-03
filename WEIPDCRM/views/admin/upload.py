@@ -136,6 +136,7 @@ def handle_uploaded_package(path):
                 p_version.c_installer_menu_item = control.get('Installer-Menu-Item', None)
                 p_version.c_built_using = control.get('Built-Using', None)
                 p_version.c_built_for_profiles = control.get('Built-For-Profiles', None)
+                p_version.c_icon = control.get('Icon', None)
                 p_version.update_hash()
                 p_version.save()
                 # move resource
