@@ -166,7 +166,7 @@ class Release(models.Model):
         null=True
     )
 
-    def __unicode__(self):
+    def __str__(self):
         return self.label + " (" + self.origin + ")"
 
     @staticmethod
@@ -202,7 +202,7 @@ class Release(models.Model):
         if not self.icon:
             return None
         file_path = self.icon.name
-        return unicode(preferences.Setting.resources_alias) + file_path
+        return str(preferences.Setting.resources_alias) + file_path
     
     icon_link = property(get_external_icon_link)
     
@@ -230,6 +230,6 @@ class Release(models.Model):
         }
         control = {}
         for (k, v) in control_field.items():
-            if v is not None and len(unicode(v)) > 0:
-                control[k] = unicode(v)
+            if v is not None and len(str(v)) > 0:
+                control[k] = str(v)
         return control

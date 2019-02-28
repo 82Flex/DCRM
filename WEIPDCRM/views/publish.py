@@ -64,7 +64,7 @@ def package_file_fetch(request, package_name=None, package_id='latest'):
     if pref.redirect_resources == 1:
         # Redirect URLs
         pred = pref.redirect_prefix
-        pred_len = len(unicode(pred))
+        pred_len = len(str(pred))
         if pred is not None and pred_len > 0:
             if pred[pred_len - 1:] == '/':
                 pred = pred[:pred_len - 1]

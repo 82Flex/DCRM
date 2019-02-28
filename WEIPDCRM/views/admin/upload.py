@@ -148,7 +148,8 @@ def handle_uploaded_package(path):
         # error handler
         result_dict.update({
             "success": False,
-            "exception": unicode(e)
+            # TODO: fix unicode bug
+            "exception": str(e)
         })
     return result_dict
 
@@ -201,7 +202,7 @@ def handle_uploaded_screenshot(content):
         # error handler
         result_dict.update({
             "success": False,
-            "exception": unicode(e)
+            "exception": str(e)
         })
     return result_dict
 
@@ -222,7 +223,7 @@ def handle_uploaded_file(request):
     with open(package_temp_path, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
-    os.chmod(package_temp_path, 0755)
+    os.chmod(package_temp_path, 0o755)
     if settings.ENABLE_REDIS is True:
         queue = django_rq.get_queue('high')
         return queue.enqueue(handle_uploaded_package, package_temp_path)
@@ -246,7 +247,7 @@ def handle_uploaded_image(request, package_id):
         with open(image_temp_path, 'wb+') as destination:
             for chunk in i.chunks():
                 destination.write(chunk)
-        os.chmod(image_temp_path, 0755)
+        os.chmod(image_temp_path, 0o755)
         content = {
             'id': package_id,
             'path': image_temp_path

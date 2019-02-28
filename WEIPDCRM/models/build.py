@@ -81,7 +81,7 @@ class Build(models.Model):
         default=""
     )
     
-    def __unicode__(self):
+    def __str__(self):
         return str(self.uuid)
 
     def get_admin_url(self):

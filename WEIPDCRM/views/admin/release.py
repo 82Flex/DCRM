@@ -41,7 +41,7 @@ def set_default_view(request, release_id):
     
     messages.info(request, _(
         "Active release " +
-        unicode(release_instance) +
+        str(release_instance) +
         " has been set."
     ))
     

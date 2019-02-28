@@ -65,7 +65,7 @@ class OSVersion(models.Model):
         null=True,
     )
 
-    def __unicode__(self):
+    def __str__(self):
         return self.descriptor + " (" + self.build + ")"
 
     def get_admin_url(self):

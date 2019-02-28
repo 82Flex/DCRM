@@ -172,7 +172,7 @@ class Version(models.Model):
         auto_now_add=True
     )  # OK
     
-    def __unicode__(self):
+    def __str__(self):
         return self.c_package + ' (' + self.c_version + ')'
     
     def get_external_storage_link(self):
@@ -183,7 +183,7 @@ class Version(models.Model):
         :return: External Storage Link
          :rtype: str
         """
-        ext_path = os.path.join(unicode(preferences.Setting.resources_alias), self.storage.name)
+        ext_path = os.path.join(str(preferences.Setting.resources_alias), self.storage.name)
         return ext_path
     
     storage_link = property(get_external_storage_link)
@@ -270,7 +270,7 @@ class Version(models.Model):
         """
         if self.online_icon.name:
             file_path = self.online_icon.name
-            return unicode(preferences.Setting.resources_alias) + file_path
+            return str(preferences.Setting.resources_alias) + file_path
         elif self.c_section:
             # self.c_section.icon has been validated by icon_link getter.
             return self.c_section.icon_link
@@ -346,8 +346,8 @@ class Version(models.Model):
             "SHA512": self.c_sha512,
         }
         for (k, v) in advanced_dict.items():
-            if v is not None and len(unicode(v)) > 0:
-                control_dict[k] = unicode(v)
+            if v is not None and len(str(v)) > 0:
+                control_dict[k] = str(v)
         return control_dict
         
     def get_control_dict(self):
@@ -395,8 +395,8 @@ class Version(models.Model):
         }
         control = {}
         for (k, v) in control_field.items():
-            if v is not None and len(unicode(v)) > 0:
-                control[k] = unicode(v)
+            if v is not None and len(str(v)) > 0:
+                control[k] = str(v)
         """
         Foreign Keys
         """
@@ -450,14 +450,14 @@ class Version(models.Model):
             target_path = os.path.join(target_dir, self.base_filename())
             # os.rename(temp_path, target_path)
             shutil.move(temp_path, target_path)
-            os.chmod(target_path, 0755)
+            os.chmod(target_path, 0o755)
             self.storage.name = os.path.relpath(target_path, settings.MEDIA_ROOT)
         else:
             abs_path = os.path.join(settings.MEDIA_ROOT, self.storage.name)
             os.unlink(abs_path)
             # os.rename(temp_path, abs_path)
             shutil.move(temp_path, abs_path)
-            os.chmod(abs_path, 0755)
+            os.chmod(abs_path, 0o755)
         self.update_hash()
         self.save()
     

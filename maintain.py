@@ -23,7 +23,7 @@ from aliyunsdkcdn.request.v20141111 import RefreshObjectCachesRequest
 from aliyunsdkcore import client  # run `pip install aliyun-python-sdk-cdn` to install aliyun sdk
 from DCRM.settings import ALLOWED_HOSTS
 import argparse
-import commands
+import subprocess
 import os
 import time
 import json
@@ -41,7 +41,7 @@ args = parser.parse_args()
 
 
 def get_process_id(name):
-    ID = commands.getoutput("ps -def | grep \"" + name + "\" | grep -v \"grep\" | awk '{print $2}'")
+    ID = subprocess.getoutput("ps -def | grep \"" + name + "\" | grep -v \"grep\" | awk '{print $2}'")
     return ID.split()
 
 
@@ -77,7 +77,7 @@ def kill(process):
 
 
 def flush_memcached():
-    clean = commands.getoutput("echo \"flush_all\" | nc localhost 11211")
+    clean = subprocess.getoutput("echo \"flush_all\" | nc localhost 11211")
     if clean.strip() == 'OK':
         print("Flush Memcached successed.")
     else:
@@ -93,10 +93,10 @@ def refresh_cdn():
             request.set_ObjectPath(ALLOWED_HOSTS[0]+'/static/')
             request.set_ObjectType('Directory')
             RequestId = json.loads(Client.do_action_with_exception(request))['RequestId']
-            print "Refresh success\nRequestId: " + RequestId
+            print("Refresh success\nRequestId: " + RequestId)
 
         except Exception as e:
-            print e.get_error_code() if hasattr(e, 'get_error_code') else e
+            print(e.get_error_code() if hasattr(e, 'get_error_code') else e)
 
 
 if args.start:
@@ -112,7 +112,7 @@ elif args.restart:
         start(p)
 
 elif args.update:
-    git = commands.getoutput("git pull")
+    git = subprocess.getoutput("git pull")
     os.system("rm -rf WEIPDCRM/static && python manage.py collectstatic --noinput")
     kill('uwsgi')
     time.sleep(3)
@@ -126,4 +126,4 @@ elif args.clean:
     elif args.clean == 'memcached':
         flush_memcached()
     else:
-        print 'Unknown command'
+        print('Unknown command')

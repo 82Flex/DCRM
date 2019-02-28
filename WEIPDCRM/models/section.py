@@ -80,7 +80,7 @@ class Section(models.Model):
         null=True,
     )
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def get_admin_url(self):
@@ -105,7 +105,7 @@ class Section(models.Model):
         if not self.icon:
             return None
         file_path = self.icon.name
-        return unicode(preferences.Setting.resources_alias) + file_path
+        return str(preferences.Setting.resources_alias) + file_path
 
     icon_link = property(get_external_icon_link)
     

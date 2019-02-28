@@ -20,12 +20,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from django.conf.urls import url
 
-from views.index import IndexView
-from views.package import PackageView
-from views.section import SectionView
-from views.search import search_view
-from views.chart import ChartView
-from views.section_list import SectionListView
+from .views.index import IndexView
+from .views.package import PackageView
+from .views.section import SectionView
+from .views.search import search_view
+from .views.chart import ChartView
+from .views.section_list import SectionListView
 
 from django.views.decorators.cache import cache_page
 from django.conf import settings

@@ -104,8 +104,8 @@ def build_procedure(conf):
             control_dict = version_instance.get_advanced_control_dict()
             if (not version_instance.custom_depiction) and len(depiction_url) != 0:
                 control_dict["Depiction"] = depiction_url + version_instance.get_absolute_url()
-            if version_instance.online_icon is not None and len(unicode(version_instance.online_icon)) > 0:
-                control_dict["Icon"] = depiction_url + os.path.join(unicode(preferences.Setting.resources_alias), version_instance.online_icon.name)
+            if version_instance.online_icon is not None and len(str(version_instance.online_icon)) > 0:
+                control_dict["Icon"] = depiction_url + os.path.join(str(preferences.Setting.resources_alias), version_instance.online_icon.name)
             DebianPackage.get_control_content(control_dict, build_temp_package)
             build_temp_package.write("\n".encode("utf-8"))
         
@@ -227,10 +227,10 @@ def build_procedure(conf):
                 if os.path.exists(active_path):
                     os.unlink(active_path)
                 shutil.copyfile(rename_path, active_path)
-                os.chmod(active_path, 0755)
+                os.chmod(active_path, 0o755)
                 # os.rename(rename_path, rename_to_path)
                 shutil.move(rename_path, rename_to_path)
-                os.chmod(rename_to_path, 0755)
+                os.chmod(rename_to_path, 0o755)
             else:
                 if os.path.exists(rename_to_path):
                     os.unlink(rename_to_path)
@@ -252,7 +252,7 @@ def build_procedure(conf):
         )
         if settings.ENABLE_SCREENSHOT is True:
             thumb_png(cydia_icon_path)
-        os.chmod(cydia_icon_path, 0755)
+        os.chmod(cydia_icon_path, 0o755)
     else:
         # TODO: Pdiffs Feature
         pass

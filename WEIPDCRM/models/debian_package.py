@@ -65,7 +65,7 @@ class DebianPackage(object):
         fd = open(self.path, 'rb')
         fd.seek(0)
         magic = fd.read(8)
-        if magic != "!<arch>\n":
+        if magic != b"!<arch>\n":
             raise IOError(_('Not a Debian Package'))
         while True:
             is_flag = False
@@ -74,13 +74,13 @@ class DebianPackage(object):
             identifier_d = fd.read(16).rstrip()
             if len(identifier_d) == 0:
                 break
-            elif identifier_d == 'debian-binary':
+            elif identifier_d[:13] == b'debian-binary':
                 has_flag = True
                 is_flag = True
-            elif identifier_d[:7] == 'control':
+            elif identifier_d[:7] == b'control':
                 has_control = True
                 is_control = True
-            elif identifier_d[:4] == 'data':
+            elif identifier_d[:4] == b'data':
                 has_data = True
                 is_data = True
             # timestamp_d =
@@ -93,14 +93,14 @@ class DebianPackage(object):
             fd.read(8).rstrip()
             size_d = fd.read(10).rstrip()
             endc = fd.read(2)
-            if endc != '`\n':
+            if endc != b'`\n':
                 raise IOError(_('Malformed Debian Package'))
             size = int(size_d)
             if is_flag:
                 if size != 4:
                     raise IOError(_('Malformed Debian Package'))
                 else:
-                    self.version = fd.read(4).rstrip()
+                    self.version = fd.read(4).rstrip().decode()
             elif is_control:
                 self.offset_control = fd.tell() - 60
                 self.length_control = size
@@ -222,7 +222,7 @@ class DebianPackage(object):
         temp_control.close()
 
         # Change permission of control file
-        os.chmod(temp_control.name, 0700)
+        os.chmod(temp_control.name, 0o700)
 
         # copy temporary control tar gz from original debian package
 

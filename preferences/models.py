@@ -10,7 +10,7 @@ class Preferences(models.Model):
     singleton = SingletonManager()
     sites = models.ManyToManyField('sites.Site', blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         """
         Include site names.
         """

@@ -92,7 +92,7 @@ class FluentCommentsAdmin(CommentsAdminBase):
             if sys.version_info[0] >= 3:
                 return str(comment.user)
             else:
-                return unicode(comment.user)
+                return str(comment.user)
         else:
             return None
 

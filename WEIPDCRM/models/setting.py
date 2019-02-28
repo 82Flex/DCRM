@@ -71,7 +71,7 @@ def validate_gpg(value):
         try:
             subprocess.check_call(['gpg', '--version', '--batch', '--yes'])
         except Exception as e:
-            raise ValidationError(_("Cannot find command 'gpg': %s") % unicode(e))
+            raise ValidationError(_("Cannot find command 'gpg': %s") % str(e))
 
 
 def validate_web_server(value):
@@ -436,7 +436,7 @@ class Setting(Preferences):
         if not self.favicon:
             return None
         file_path = self.favicon.name
-        return unicode(preferences.Setting.resources_alias) + file_path
+        return str(preferences.Setting.resources_alias) + file_path
 
     favicon_link = property(get_external_favicon_link)
 

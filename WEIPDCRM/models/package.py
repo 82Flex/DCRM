@@ -102,7 +102,7 @@ class Package(models.Model):
         """
         if self.online_icon.name:
             file_path = self.online_icon.name
-            return unicode(preferences.Setting.resources_alias) + file_path
+            return str(preferences.Setting.resources_alias) + file_path
         elif self.c_section:
             # self.c_section.icon has been validated by icon_link getter.
             return self.c_section.icon_link

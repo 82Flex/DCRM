@@ -24,7 +24,7 @@ import os
 
 def mkdir_p(path):
     try:
-        os.makedirs(path, mode=0755)
+        os.makedirs(path, mode=0o755)
     except OSError as exc:  # Python >2.5
         if exc.errno == errno.EEXIST and os.path.isdir(path):
             pass

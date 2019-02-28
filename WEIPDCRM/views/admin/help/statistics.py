@@ -68,7 +68,7 @@ def statistics():
     return stat
 
 def getdirsize(dir):
-   size = 0L
+   size = 0
    for root, dirs, files in os.walk(dir):
       size += sum([getsize(join(root, name)) for name in files])
    return size
@@ -120,7 +120,7 @@ def statistics_view(request):
                 # error handler
                 result_dict.update({
                     "success": False,
-                    "exception": unicode(e)
+                    "exception": str(e)
                 })
                 return HttpResponse(json.dumps(result_dict), content_type='application/json')
 
