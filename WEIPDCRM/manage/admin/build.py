@@ -246,10 +246,11 @@ def build_procedure(conf):
         cydia_icon_path = os.path.join(release_root, "CydiaIcon.png")
         if os.path.exists(cydia_icon_path):
             os.unlink(cydia_icon_path)
-        shutil.copyfile(
-            os.path.join(settings.MEDIA_ROOT, active_release.icon.name),
-            cydia_icon_path
-        )
+        if active_release.icon is not None and len(str(active_release.icon)) > 0:
+            shutil.copyfile(
+                os.path.join(settings.MEDIA_ROOT, active_release.icon.name),
+                cydia_icon_path
+            )
         if settings.ENABLE_SCREENSHOT is True:
             thumb_png(cydia_icon_path)
         os.chmod(cydia_icon_path, 0o755)
