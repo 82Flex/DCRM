@@ -39,8 +39,8 @@ THEME = 'DefaultStyle'
 
 
 # FEATURES
-ENABLE_REDIS = False  # redis-server, rq are required.
-ENABLE_CACHE = False  # memcached, python-memcached are required.
+ENABLE_REDIS = True  # redis-server, rq are required.
+ENABLE_CACHE = True  # memcached, python-memcached are required.
 
 
 # SECURITY
@@ -233,7 +233,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 "django.template.context_processors.i18n",
-                "preferences.context_processors.preferences_cp"
+                "preferences.context_processors.preferences_cp",
+                "WEIPDCRM.context_processors.admin_context"
             ],
         },
     },
