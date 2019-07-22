@@ -1,9 +1,19 @@
 {% extends 'admin/new_change_form.html' %}
-{% load i18n admin_urls %}
+{% load i18n admin_urls to_slug %}
 {% block object-tools-items %}
     <li>
-        <a href="{% url 'screenshots_add' original.pk %}">
-            <i class="fa fa-fw fa fa-upload"></i>{% trans "Upload Screenshot" %}</a>
+        {% if original.gallery %}
+            <a href="{% url 'screenshots_add' original.pk original.gallery.slug %}">
+                <i class="fa fa-fw fa fa-upload"></i>{% trans "Upload Screenshot" %}
+            </a>
+            <a href="{% url 'admin:photologue_gallery_change' original.gallery.pk %}">
+                <i class="fa fa-fw fa fa-image"></i>{% trans "Screenshots" %}
+            </a>
+        {% else %}
+            <a href="{% url 'screenshots_add' original.pk original.c_package|to_slug %}">
+                <i class="fa fa-fw fa fa-upload"></i>{% trans "Upload Screenshot" %}
+            </a>
+        {% endif %}
     </li>
     {{ block.super }}
 {% endblock %}

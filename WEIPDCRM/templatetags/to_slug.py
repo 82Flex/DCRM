@@ -18,21 +18,11 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from __future__ import unicode_literals
-
-from django import forms
-
-
-class UploadForm(forms.Form):
-    """
-    A simple form, just designed to receive and validate the package file.
-    """
-    package = forms.FileField()
+from django import template
+register = template.Library()
 
 
-class ImageForm(forms.Form):
-    """
-    A simple form, just designed to receive and validate the image file.
-    """
-    image = forms.FileField()
+@register.filter
+def to_slug(value):
+    return value.replace(".", "-")
 

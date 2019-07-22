@@ -126,7 +126,7 @@ Edit DCRM/settings.py:
     5. Configure Caches to match your memcached configuration: `CACHES`.
     6. Configure Language & Timezone: `LANGUAGE_CODE` and `TIME_ZONE`.
     7. Set `DEBUG = True` in debug environment, set `DEBUG = False` in production environment.
-    8. Optional features: `ENABLE_REDIS`, `ENABLE_CACHE` and `ENABLE_SCREENSHOT`.
+    8. Optional features: `ENABLE_REDIS`, `ENABLE_CACHE`.
 
 Sync static files:
 同步静态文件:

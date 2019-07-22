@@ -57,7 +57,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^admin/upload/$', upload.upload_view, name='upload'),
     url(r'^admin/upload/version/$', upload.upload_version_view, name='version_add'),
-    url(r'^admin/upload/screenshots/(?P<package_id>\d+)/?$', upload.upload_screenshots_view, name='screenshots_add'),
+    url(r'^admin/upload/screenshots/(?P<package_id>\d+)/(?P<gallery_slug>[0-9A-Za-z|_\-]+)/?$', upload.upload_screenshots_view, name='screenshots_add'),
     url(r'^admin/release/set-default/(?P<release_id>\d+)/?$', release.set_default_view, name='set_default_release'),
     url(r'^admin/help/about/$', about.about_view, name='help_about'),
     url(r'^admin/help/statistics/$', statistics.statistics_view, name='help_statistics'),
@@ -66,8 +66,7 @@ urlpatterns = [
 if settings.ENABLE_REDIS is True:
     urlpatterns.append(url(r'^admin/sites/django-rq/', include('django_rq.urls')))
 
-if settings.ENABLE_SCREENSHOT is True:
-    urlpatterns.append(url(r'^photologue/', include('photologue.urls', namespace='photologue')))
+urlpatterns.append(url(r'^photologue/', include('photologue.urls', namespace='photologue')))
 
 handler400 = 'WEIPDCRM.views.error.bad_request'
 handler404 = 'WEIPDCRM.views.error.page_not_found'

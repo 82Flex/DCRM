@@ -147,7 +147,7 @@ class VersionAdmin(admin.ModelAdmin):
         }),
         (_('Display'), {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['c_name', 'c_section', 'online_icon', 'c_icon', 'c_description', 'update_logs']
+            'fields': ['c_name', 'c_section', 'gallery', 'c_icon', 'online_icon', 'c_description', 'update_logs']
         }),
         (_('Links'), {
             'classes': ('suit-tab suit-tab-common',),
@@ -243,7 +243,7 @@ class VersionAdmin(admin.ModelAdmin):
         to determine whether the related .deb file on file system should be updated.
         """
         excluded_column = ['enabled', 'created_at', 'os_compatibility', 'device_compatibility',
-                           'update_logs', 'storage', 'online_icon', 'c_md5', 'c_sha1', 'c_sha256', 'c_sha512',
+                           'update_logs', 'storage', 'online_icon', 'gallery', 'c_md5', 'c_sha1', 'c_sha256', 'c_sha512',
                            'c_size', 'download_times', 'rich_description']
         change_list = form.changed_data
         change_num = len(change_list)

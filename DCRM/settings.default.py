@@ -41,7 +41,6 @@ THEME = 'DefaultStyle'
 # FEATURES
 ENABLE_REDIS = False  # redis-server, rq are required.
 ENABLE_CACHE = False  # memcached, python-memcached are required.
-ENABLE_SCREENSHOT = False  # libjpeg-dev, Pillow, exifread are required.
 
 
 # SECURITY
@@ -193,16 +192,13 @@ INSTALLED_APPS = [
     'threadedcomments',
     'crispy_forms',
     'django_comments',
+    'sortedm2m',
+    'photologue',
 ]
 
 
 if ENABLE_REDIS is True:
     INSTALLED_APPS.append('django_rq')
-
-
-if ENABLE_SCREENSHOT is True:
-    INSTALLED_APPS.append('sortedm2m')
-    INSTALLED_APPS.append('photologue')
 
 
 COMMENTS_APP = 'fluent_comments'

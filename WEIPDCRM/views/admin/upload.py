@@ -45,8 +45,8 @@ from WEIPDCRM.models.section import Section
 from WEIPDCRM.models.version import Version
 from WEIPDCRM.tools import mkdir_p
 
-if settings.ENABLE_SCREENSHOT is True:
-    from photologue.models import Gallery, Photo
+from photologue.models import Gallery, Photo
+
 
 if settings.ENABLE_REDIS is True:
     import django_rq
@@ -168,32 +168,36 @@ def handle_uploaded_screenshot(content):
             mkdir_p(image_dir)
         file_name = os.path.basename(content['path'])
         with transaction.atomic():
-            id = content['id']
-            gallery = Gallery.objects.filter(title=id).last()
+            content_id = content['id']
+            content_slug = content['slug']
+            gallery = Gallery.objects.filter(slug=content_slug).last()
             current_site = Site.objects.get(id=settings.SITE_ID)
-            p_version = Version.objects.get(id=id)
+            p_version = Version.objects.get(id=content_id)
             c_name = re.sub('[^A-Za-z]', '', p_version.c_name)  # Filter out Chinese
             if gallery:
                 pass
             else:
                 # create a new gallery
-                gallery = Gallery.objects.create(title=id,
-                                                 slug=c_name.lower(),
+                gallery = Gallery.objects.create(title=c_name,
+                                                 slug=content_slug,
                                                  description=p_version.c_depiction if p_version.c_depiction else 'None',
                                                  is_public=1)
                 gallery.sites.add(current_site)
             # save
-            photo = Photo(title=c_name.title()+'_'+str(uuid.uuid1()),
-                          slug=c_name.lower()+'_'+str(uuid.uuid1()),
+            photo = Photo(title=c_name + '_' + str(uuid.uuid1()),
+                          slug=c_name.lower() + '_'+str(uuid.uuid1()),
                           caption='',
                           is_public=1)
-            data = open(content['path'])
-            contentfile = ContentFile(data.read())
-            photo.image.save(file_name, contentfile)
+            data = open(content['path'], 'rb')
+            content_file = ContentFile(data.read())
+            photo.image.save(file_name, content_file)
             photo.save()
             photo.sites.add(current_site)
             gallery.photos.add(photo)
             data.close()
+            if p_version.gallery is None:
+                p_version.gallery = gallery
+                p_version.save()
             result_dict.update({
                 "success": True,
                 "version": p_version.id
@@ -231,8 +235,10 @@ def handle_uploaded_file(request):
         return handle_uploaded_package(package_temp_path)
 
 
-def handle_uploaded_image(request, package_id):
+def handle_uploaded_image(request, package_id, gallery_slug):
     """
+    :param package_id: str
+    :param gallery_slug: str
     :param request: Django Request
     :type request: HttpRequest
     """
@@ -250,6 +256,7 @@ def handle_uploaded_image(request, package_id):
         os.chmod(image_temp_path, 0o755)
         content = {
             'id': package_id,
+            'slug': gallery_slug,
             'path': image_temp_path
         }
         if settings.ENABLE_REDIS is True:
@@ -393,8 +400,10 @@ def upload_view(request):
 
 
 @staff_member_required
-def upload_screenshots_view(request, package_id):
+def upload_screenshots_view(request, package_id, gallery_slug):
     """
+    :param package_id: str
+    :param gallery_slug: str
     :param request: Django Request
     :return: Http Response
     """
@@ -427,9 +436,8 @@ def upload_screenshots_view(request, package_id):
                 form = ImageForm(request.POST, request.FILES)
                 if form.is_valid():
                     # Handle File
-
                     if settings.ENABLE_REDIS is True:
-                        m_job = handle_uploaded_image(request, package_id)
+                        m_job = handle_uploaded_image(request, package_id, gallery_slug)
                         result_dict.update({
                             'status': True,
                             'msg': _('Upload succeed, proceeding...'),
@@ -439,7 +447,7 @@ def upload_screenshots_view(request, package_id):
                             }
                         })
                     else:
-                        m_result = handle_uploaded_image(request, package_id)
+                        m_result = handle_uploaded_image(request, package_id, gallery_slug)
                         succeed = m_result['success']
                         if succeed:
                             result_dict.update({
@@ -467,15 +475,15 @@ def upload_screenshots_view(request, package_id):
             return HttpResponse(json.dumps(result_dict), content_type='application/json')
         else:
             # render upload result
-            form = UploadForm(request.POST, request.FILES)
+            form = ImageForm(request.POST, request.FILES)
             if form.is_valid():
                 # Handle File
                 if settings.ENABLE_REDIS is True:
-                    m_job = handle_uploaded_image(request, package_id)
+                    m_job = handle_uploaded_image(request, package_id, gallery_slug)
                     job_id = m_job.id
                     msg = _('Upload succeed, proceeding...')
                 else:
-                    m_result = handle_uploaded_image(request, package_id)
+                    m_result = handle_uploaded_image(request, package_id, gallery_slug)
                     if m_result["success"] is True:
                         return redirect(Version.objects.get(id=int(m_result["version"])).get_admin_url())
                     else:
@@ -506,5 +514,4 @@ def upload_screenshots_view(request, package_id):
             'job_id': ''
         })
         template = 'admin/upload_image.html'
-
         return render(request, template, context)

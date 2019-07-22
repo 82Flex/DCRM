@@ -27,6 +27,7 @@ import shutil
 
 import hashlib
 import subprocess
+from PIL import Image
 
 from django.conf import settings
 from django.contrib.sites.models import Site
@@ -50,9 +51,6 @@ from WEIPDCRM.tools import mkdir_p
 
 if settings.ENABLE_REDIS is True:
     import django_rq
-
-if settings.ENABLE_SCREENSHOT is True:
-    from PIL import Image
 
 
 def build_procedure(conf):
@@ -251,8 +249,7 @@ def build_procedure(conf):
                 os.path.join(settings.MEDIA_ROOT, active_release.icon.name),
                 cydia_icon_path
             )
-        if settings.ENABLE_SCREENSHOT is True:
-            thumb_png(cydia_icon_path)
+        thumb_png(cydia_icon_path)
         os.chmod(cydia_icon_path, 0o755)
     else:
         # TODO: Pdiffs Feature

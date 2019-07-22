@@ -39,6 +39,7 @@ from django.core.exceptions import ValidationError
 from django.conf import settings
 
 from preferences import preferences
+from photologue.models import Gallery
 
 from WEIPDCRM.models.os_version import OSVersion
 from WEIPDCRM.models.device_type import DeviceType
@@ -46,6 +47,7 @@ from WEIPDCRM.models.section import Section
 from WEIPDCRM.models.debian_package import DebianPackage
 
 from WEIPDCRM.tools import mkdir_p
+
 
 if settings.ENABLE_REDIS is True:
     import django_rq
@@ -979,6 +981,17 @@ class Version(models.Model):
                     "profiles that this binary packages was built with."),
         default="",
     )  # OK
+
+    # Screenshots
+    gallery = models.ForeignKey(
+        Gallery,
+        verbose_name=_("Gallery"),
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        help_text=_("You can manage screenshots in Photologue."),
+        default=None
+    )
 
     def get_absolute_url(self):
         return reverse('package_id', args=[self.id])

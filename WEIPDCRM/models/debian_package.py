@@ -320,7 +320,7 @@ class DebianPackage(object):
             b"\x64\x65\x62\x69\x61\x6E\x2D\x62"  # 16
             b"\x69\x6E\x61\x72\x79\x20\x20\x20"  # 24
         )
-        new_deb.write(str(int(time.time())).ljust(12))
+        new_deb.write(str(int(time.time())).ljust(12).encode())
         new_deb.write(
             b"\x30\x20\x20\x20\x20\x20\x30\x20"  # 8
             b"\x20\x20\x20\x20\x31\x30\x30\x36"  # 16
@@ -330,13 +330,13 @@ class DebianPackage(object):
             b"\x72\x6F\x6C\x2E\x74\x61\x72\x2E"  # 48
             b"\x67\x7A\x20\x20"  # 52
         )
-        new_deb.write(str(int(time.time())).ljust(12))
+        new_deb.write(str(int(time.time())).ljust(12).encode())
         new_deb.write(
             b"\x30\x20\x20\x20\x20\x20\x30\x20"  # 8
             b"\x20\x20\x20\x20\x31\x30\x30\x36"  # 16
             b"\x34\x34\x20\x20"  # 20
         )
-        new_deb.write(str(control_tar_size).ljust(10))
+        new_deb.write(str(control_tar_size).ljust(10).encode())
         new_deb.write(b"\x60\x0A")
 
         # write new control tar gz
