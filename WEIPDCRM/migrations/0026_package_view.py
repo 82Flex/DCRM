@@ -16,6 +16,6 @@ class Migration(migrations.Migration):
             "DROP VIEW `package_view`;"
         ),
         migrations.RunSQL(
-            "CREATE VIEW `package_view` AS SELECT `id`, `c_name`, `created_at`, `c_package`, `c_version`, `c_section_id`, `enabled`, `online_icon`, `c_description`, `download_times` AS `download_count` FROM `WEIPDCRM_version` WHERE `enabled` = TRUE AND `id` IN (SELECT MAX(`id`) FROM `WEIPDCRM_version` GROUP BY `c_package`) GROUP BY `c_package` DESC;"
+            "CREATE VIEW `package_view` AS SELECT `id`, `c_name`, `created_at`, `c_package`, `c_version`, `c_section_id`, `enabled`, `online_icon`, `c_description`, `download_times` AS `download_count` FROM `WEIPDCRM_version` WHERE `enabled` = TRUE AND `id` IN (SELECT MAX(`id`) FROM `WEIPDCRM_version` GROUP BY `c_package`) GROUP BY `c_package` ORDER BY `c_package` DESC;"
         ),
     ]

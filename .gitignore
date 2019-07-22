@@ -30,3 +30,7 @@ DCRM/settings.py
 # Server
 .user.ini
 .well-known
+
+# Packages
+venv/
+
