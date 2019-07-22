@@ -34,6 +34,8 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.sites.models import Site
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.urls import reverse
+from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
 from django.core.files.base import ContentFile
 
@@ -46,7 +48,6 @@ from WEIPDCRM.models.version import Version
 from WEIPDCRM.tools import mkdir_p
 
 from photologue.models import Gallery, Photo
-
 
 if settings.ENABLE_REDIS is True:
     import django_rq
@@ -185,7 +186,7 @@ def handle_uploaded_screenshot(content):
                 gallery.sites.add(current_site)
             # save
             photo = Photo(title=c_name + '_' + str(uuid.uuid1()),
-                          slug=c_name.lower() + '_'+str(uuid.uuid1()),
+                          slug=c_name.lower() + '_' + str(uuid.uuid1()),
                           caption='',
                           is_public=1)
             data = open(content['path'], 'rb')
@@ -285,9 +286,13 @@ def upload_version_view(request):
 @staff_member_required
 def upload_view(request):
     if preferences.Setting.active_release is None:
-        messages.error(request, _("Active release not set: you cannot publish your "
-                                  "repository without an active release."))
-    
+        messages.error(request,
+                       mark_safe(
+                           _("Active release not set: you cannot publish your "
+                             "repository without an active release. <a href=\"%s\">Add Release</a>")
+                           % reverse("admin:WEIPDCRM_release_add")
+                       ))
+
     """
     :param request: Django Request
     :return: Http Response
