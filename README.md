@@ -28,20 +28,20 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 - https://apt.uozi.org
 
 
-### ENVIRONMENT 基本环境
+### ENVIRONMENT 环境
 
-- Python 2.7
-- Django 1.10.5 final
-- Redis (Recommended)
-- memcached (Recommended)
-- MySQL / PostgreSQL
-- uwsgi, Nginx
+- Python 3
+- Django 1.11+
+- MySQL (MariaDB)
+- Redis (Optional)
+- memcached (Optional)
+- uwsgi, Nginx (Production)
 
 
-### CONFIGURATIONS 配置示例
+### CONFIGURATIONS 配置步骤
 
-git, nginx, mysql and python (pip)
-Give a password of root to mysql.
+Install dependencies:
+安装依赖:
 
 ```shell
 apt-get update
@@ -49,47 +49,22 @@ apt-get upgrade
 apt-get install git nginx mysql-server libmysqlclient-dev python-dev python-pip
 ```
 
-python modules
-
-```shell
-pip install -r requirements.txt
-mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
-```
-
-If you want to enable Redis support:
-
-```shell
-apt-get install redis-server
-pip install rq
-```
-
-If you want to enable Page Caching:
-
-```shell
-apt-get install memcached
-pip install python-memcached
-```
-
-If you want to enable Screenshots:
-
-```shell
-apt-get install libjpeg-dev
-pip install Pillow exifread
-```
-
-Then we log in to mysql:
+Configure MySQL:
+安装完成后, 登录到 MySQL:
 
 ```shell
 mysql -uroot -p
 ```
 
 Create a database for this DCRM instance:
+新建 DCRM 数据库:
 
 ```sql
 CREATE DATABASE `DCRM` DEFAULT CHARSET UTF8;
 ```
 
 Create user and grant privileges for it:
+新建 dcrm 用户并设置密码:
 
 ```sql
 CREATE USER 'dcrm'@'localhost' IDENTIFIED BY 'thisisthepassword';
@@ -97,7 +72,37 @@ GRANT ALL PRIVILEGES ON `DCRM`.* TO 'dcrm'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
-Clone this git repository:
+Install python modules:
+安装需要的 python 模块:
+
+```shell
+pip install -r requirements.txt
+mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
+```
+
+If you want to enable Redis support:
+如果你还需要开启 Redis 支持 (用于任务队列), 你可能还需要自行启动 Redis 服务:
+
+```shell
+apt-get install redis-server
+```
+
+If you want to enable Page Caching:
+如果你还需要开启页面缓存, 你可能还需要自行启动 memcached 服务:
+
+```shell
+apt-get install memcached
+```
+
+If you want to enable Screenshots:
+如果你还需要开启截图展示:
+
+```shell
+apt-get install libjpeg-dev
+```
+
+Clone this repo:
+在合适的位置克隆 DCRM:
 
 ```shell
 cd /wwwdata
@@ -106,6 +111,14 @@ cd /wwwdata/DCRM
 ```
 
 Copy DCRM/settings.default.py to DCRM/settings.py and edit it:
+拷贝一份默认配置:
+
+```shell
+cp -p DCRM/settings.default.py DCRM/settings.py
+```
+
+Edit DCRM/settings.py:
+修改配置文件 DCRM/settings.py:
 
     1. Set a random `SECRET_KEY`, it must be unique.
     2. Add your domain into `ALLOWED_HOSTS`.
@@ -114,25 +127,47 @@ Copy DCRM/settings.default.py to DCRM/settings.py and edit it:
     5. Configure Caches to match your memcached configuration: `CACHES`.
     6. Configure Language & Timezone: `LANGUAGE_CODE` and `TIME_ZONE`.
     7. Set `DEBUG = True` in debug environment, set `DEBUG = False` in production environment.
-
+    8. Optional features: `ENABLE_REDIS`, `ENABLE_CACHE` and `ENABLE_SCREENSHOT`.
 
 Sync static files:
+同步静态文件:
 
 ```shell
 ./manage.py collectstatic
 ```
 
 Sync database structure and create new super user:
+同步数据库结构并创建超级用户:
 
 ```shell
 ./manage.py migrate
 ./manage.py createsuperuser
 ```
 
+Launch debug server:
+启动测试服务器:
 
-#### CONFIGURE UWSGI 配置示例
+```shell
+./manage.py runserver 
+```
+
+
+#### CONFIGURE IN PRODUCTION 生产环境配置示例
+
+生产环境的配置需要有一定的服务器运维经验, 如果你在生产环境的配置过程中遇到困难, 我们提供付费的疑难解答.
 
 By default, nginx uses `www-data` as its user and group.
+假设 nginx 使用 `www-data` 用作其用户名和用户组名.
+
+Create `uwsgi.ini` in DCRM directory:
+在 DCRM 目录下创建 `uwsgi.ini`:
+
+```shell
+touch uwsgi.ini
+```
+
+An example of `uwsgi.ini`:
+`uwsgi.ini` 配置示例:
 
 ```ini
 [uwsgi]
@@ -148,8 +183,7 @@ uid = www-data
 gid = www-data
 ```
 
-
-#### LAUNCH UWSGI 启动 UWSGI
+Launch uwsgi:
 
 To test:
 
@@ -163,10 +197,8 @@ To run:
 uwsgi --ini uwsgi.ini --daemonize=/dev/null
 ```
 
-
-#### CONFIGURE NGINX 配置示例
-
-This is the configuration of 82Flex Repo, with SSL.
+An example of Nginx configuration:
+Nginx 配置示例 (请根据你的站点情况进行修改):
 
 ```nginx
 upstream django {
@@ -219,6 +251,9 @@ server {
     
     location ~^/((CydiaIcon.png)|(Release(.gpg)?)|(Packages(.gz|.bz2)?))$ {
         # Cydia meta resources, including Release, Release.gpg, Packages and CydiaIcon
+        
+        # Note:
+        # 'releases/{SITE_ID}/$1' should match `SITE_ID` in your DCRM/settings.py.
         alias /wwwdata/DCRM/resources/releases/1/$1;  # make an alias for Cydia meta resources
     }
     
@@ -237,8 +272,7 @@ server {
 }
 ```
 
-
-#### LAUNCH NGINX 启动
+Launch Nginx:
 
 Test configuration:
 
@@ -259,7 +293,7 @@ sudo /etc/init.d/nginx start
 ```
 
 
-#### LAUNCH BACKGROUND QUEUE (only if Redis Queue is enabled) 启动后台队列进程
+#### LAUNCH WORKERS (if `ENABLE_REDIS` is `True`) 启动 worker (`ENABLE_REDIS` 为 `True` 时)
 
 Make sure to launch background queue with the same nginx working user (www/www-data).
 
@@ -275,8 +309,10 @@ nohup ./manage.py rqworker high > /dev/null &
 nohup ./manage.py rqworker default > /dev/null &
 ```
 
+worker 的数量以你的具体需求为准, 但是各队列中至少要有一个活跃 worker, 否则队列中的任务将一直保持挂起.
 
-#### CONFIGURE GnuPG (only if GnuPG is enabled) 配置示例
+
+#### CONFIGURE GnuPG (if GnuPG feature is enabled) 开启 GnuPG 签名
 
 ```shell
 apt-get install gnupg2
@@ -295,32 +331,20 @@ gpg --allow-secret-key-import --import private.key
 ```
 
 
-### Update DCRM 更新示例
+#### PUBLISH A REPOSITORY 发布软件源
 
-```shell
-git pull
-./manage.py migrate
-rm -rf WEIPDCRM/static
-./manage.py collectstatic
-killall -s INT uwsgi
-uwsgi --ini uwsgi.ini
-```
-
-
-#### PUBLISH A REPOSITORY RELEASE 发布软件源
-
-1. Sites: Set domains and site names
-2. WEIPDCRM -> Settings
-3. WEIPDCRM -> Releases: Add a new release and set it as an active release
-4. WEIPDCRM -> Sections: Add sections
-5. Upload: Upload deb files
-6. WEIPDCRM -> Versions: Enable Packages and assign them into sections
-7. WEIPDCRM -> Builds: Build the repository to apply all the changes
+1. Sites: Set domains and site names. 在 Sites 中设置域名和站点名称.
+2. WEIPDCRM.Settings
+3. WEIPDCRM.Releases: Add a new release and set it as an active release. 添加新的 Release 并将其设置为活跃状态.
+4. WEIPDCRM.Sections: Add sections. 添加源分类 (可以生成分类图标包).
+5. Upload: 上传你的 deb 包.
+6. WEIPDCRM.Versions: Enable Packages and assign them into sections. 记得启用你的 deb 包 (默认不启用), 并且将它们分配到源分类当中.
+7. WEIPDCRM.Builds: Build the repository to apply all the changes. 构建全源, 让所有更改生效 (第一次构建前, Cydia 中是无法添加该源的).
 
 
 ## LICENSE 版权声明
 
-Copyright © 2013-2018 Zheng Wu
+Copyright © 2013-2019 Zheng Wu <i.82@me.com>
     
 The program is distributed under the terms of the GNU Affero General Public License.
 
