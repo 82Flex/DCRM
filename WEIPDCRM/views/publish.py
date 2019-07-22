@@ -21,7 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from __future__ import unicode_literals
 
 import os
-import urllib
+from urllib import parse
 
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseBadRequest
@@ -91,7 +91,7 @@ def package_file_fetch(request, package_name=None, package_id='latest'):
     response['Content-Type'] = 'application/octet-stream'
     response['Content-Transfer-Encoding'] = "binary"
     response['Cache-Control'] = "public, must-revalidate, max-age=0"
-    response['Content-Disposition'] = "attachment; filename=\"" + urllib.quote_plus(pkg.base_filename()) + "\""
+    response['Content-Disposition'] = "attachment; filename=\"" + parse.quote_plus(pkg.base_filename()) + "\""
     return response
 
 
