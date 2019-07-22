@@ -3,17 +3,20 @@
 {% block object-tools-items %}
     <li>
         {% if original.gallery %}
-            <a href="{% url 'screenshots_add' original.pk original.gallery.slug %}">
+            <a href="{% url 'screenshots_add' original.pk original.gallery.slug %}" target="_blank">
                 <i class="fa fa-fw fa fa-upload"></i>{% trans "Upload Screenshot" %}
             </a>
-            <a href="{% url 'admin:photologue_gallery_change' original.gallery.pk %}">
+            <a href="{% url 'admin:photologue_gallery_change' original.gallery.pk %}" target="_blank">
                 <i class="fa fa-fw fa fa-image"></i>{% trans "Screenshots" %}
             </a>
         {% else %}
-            <a href="{% url 'screenshots_add' original.pk original.c_package|to_slug %}">
+            <a href="{% url 'screenshots_add' original.pk original.c_package|to_slug %}" target="_blank">
                 <i class="fa fa-fw fa fa-upload"></i>{% trans "Upload Screenshot" %}
             </a>
         {% endif %}
+        <a href="{% url 'admin:threadedcomments_threadedcomment_changelist' %}" target="_blank">
+            <i class="fa fa-fw fa fa-comments"></i>{% trans "Comments" %}
+        </a>
     </li>
     {{ block.super }}
 {% endblock %}

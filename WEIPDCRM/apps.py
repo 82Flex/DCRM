@@ -57,6 +57,9 @@ class SuitConfig(DjangoSuitConfig):
             
             ChildItem(model='WEIPDCRM.setting'),
         ]),
+        ParentItem('Comments', children=[
+            ChildItem(model='threadedcomments.threadedcomment'),
+        ]),
         ParentItem('Photologue', children=[
             ChildItem(model='photologue.gallery'),
             ChildItem(model='photologue.photo'),

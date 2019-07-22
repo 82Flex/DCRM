@@ -34,7 +34,7 @@ def about_view(request):
     context = admin.site.each_context(request)
     context.update({
         'title': _('About'),
-        'version': "4.0 Build 4096",
+        'version': "4.1",
     })
 
     template = 'admin/help/about.html'

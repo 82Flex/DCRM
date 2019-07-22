@@ -21,7 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from __future__ import unicode_literals
 
 import os
-from urllib import parse
+from urllib.parse import quote_plus
 
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseBadRequest
@@ -91,7 +91,7 @@ def package_file_fetch(request, package_name=None, package_id='latest'):
     response['Content-Type'] = 'application/octet-stream'
     response['Content-Transfer-Encoding'] = "binary"
     response['Cache-Control'] = "public, must-revalidate, max-age=0"
-    response['Content-Disposition'] = "attachment; filename=\"" + parse.quote_plus(pkg.base_filename()) + "\""
+    response['Content-Disposition'] = "attachment; filename=\"" + quote_plus(pkg.base_filename()) + "\""
     return response
 
 
@@ -119,7 +119,7 @@ def basic_resource_fetch(request, resource_name):
         return HttpResponseNotFound()
     if pref.download_cydia_only:
         if 'HTTP_X_UNIQUE_ID' not in request.META:
-            return HttpResponseBadRequest()
+            return HttpResponseBadRequest()  # X-UNIQUE-ID
     release_root_url = os.path.join(pref.resources_alias, "releases", release_id)
     request_url = os.path.join(release_root_url, resource_name)
     if pref.redirect_resources == 1:

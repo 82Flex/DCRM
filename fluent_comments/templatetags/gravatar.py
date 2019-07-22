@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 import hashlib
-import urllib
+from urllib.parse import urlencode
 from django import template
 from DCRM.settings import LANGUAGE_CODE
 register = template.Library()
@@ -30,4 +30,4 @@ def gravatar_url(email, size=128):
     url = "https://cdn.v2ex.com/gravatar/" if LANGUAGE_CODE == 'zh-hans' else "https://www.gravatar.com/avatar/"
     # default image, doc: https://en.gravatar.com/site/implement/images/
     default = 'mm'
-    return url + "%s?%s" % (hashlib.md5(email.lower()).hexdigest(), urllib.urlencode({'d': default, 's': str(size)}))
+    return url + "%s?%s" % (hashlib.md5(email.lower().encode()).hexdigest(), urlencode({'d': default, 's': str(size)}))
