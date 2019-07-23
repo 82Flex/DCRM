@@ -67,7 +67,7 @@ if settings.ENABLE_REDIS is True:
     urlpatterns.append(url(r'^admin/sites/django-rq/', include('django_rq.urls')))
 
 # Photologue public pages are not necessary in DCRM.
-# urlpatterns.append(url(r'^photologue/', include('photologue.urls', namespace='photologue')))
+urlpatterns.append(url(r'^photologue/', include('photologue.urls', namespace='photologue')))
 
 handler400 = 'WEIPDCRM.views.error.bad_request'
 handler404 = 'WEIPDCRM.views.error.page_not_found'
