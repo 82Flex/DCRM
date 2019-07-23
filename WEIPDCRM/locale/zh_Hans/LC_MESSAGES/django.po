@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-23 12:33+0800\n"
+"POT-Creation-Date: 2019-07-23 14:56+0800\n"
 "PO-Revision-Date: 2017-04-03 23:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: 82Flex Team <i.82@me.com>\n"
@@ -27,7 +27,7 @@ msgstr "处理队列"
 msgid "New Package"
 msgstr "新软件包"
 
-#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/settings.py:64
+#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/settings.py:82
 #: WEIPDCRM/manage/admin/version.py:224
 #: WEIPDCRM/templates/admin/help/statistics.html:8
 #: WEIPDCRM/views/admin/help/statistics.py:99
@@ -44,7 +44,7 @@ msgstr "无可用软件包。"
 
 #: WEIPDCRM/manage/admin/build.py:273 WEIPDCRM/manage/admin/device_type.py:34
 #: WEIPDCRM/manage/admin/os_version.py:34 WEIPDCRM/manage/admin/release.py:50
-#: WEIPDCRM/manage/admin/section.py:42 WEIPDCRM/manage/admin/settings.py:43
+#: WEIPDCRM/manage/admin/section.py:42 WEIPDCRM/manage/admin/settings.py:61
 msgid "General"
 msgstr "通用"
 
@@ -91,12 +91,12 @@ msgstr "Cydia"
 msgid "SEO"
 msgstr "SEO"
 
-#: WEIPDCRM/manage/admin/release.py:78 WEIPDCRM/manage/admin/settings.py:92
+#: WEIPDCRM/manage/admin/release.py:78 WEIPDCRM/manage/admin/settings.py:110
 #: WEIPDCRM/manage/admin/version.py:219
 msgid "Common"
 msgstr "常用"
 
-#: WEIPDCRM/manage/admin/release.py:79 WEIPDCRM/manage/admin/settings.py:93
+#: WEIPDCRM/manage/admin/release.py:79 WEIPDCRM/manage/admin/settings.py:111
 #: WEIPDCRM/manage/admin/version.py:221
 msgid "Advanced"
 msgstr "进阶"
@@ -116,43 +116,52 @@ msgstr "图标包生成任务已被加入 \"default\" 队列."
 msgid "Generate icon package for selected sections"
 msgstr "为选中分类生成图标包"
 
-#: WEIPDCRM/manage/admin/settings.py:47
+#: WEIPDCRM/manage/admin/settings.py:48
+#, python-format
+msgid "<a href=\"%(href)s\" target=\"_blank\">%(name)s</a>"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:54
+msgid "Current Site"
+msgstr "当前站点"
+
+#: WEIPDCRM/manage/admin/settings.py:65
 msgid "Packages List"
 msgstr "软件包列表"
 
-#: WEIPDCRM/manage/admin/settings.py:53 WEIPDCRM/manage/admin/version.py:148
+#: WEIPDCRM/manage/admin/settings.py:71 WEIPDCRM/manage/admin/version.py:148
 msgid "Display"
 msgstr "显示"
 
-#: WEIPDCRM/manage/admin/settings.py:58
+#: WEIPDCRM/manage/admin/settings.py:76
 msgid "Social"
 msgstr "社交"
 
-#: WEIPDCRM/manage/admin/settings.py:68
+#: WEIPDCRM/manage/admin/settings.py:86
 msgid "Footer"
 msgstr "底部栏"
 
-#: WEIPDCRM/manage/admin/settings.py:74
+#: WEIPDCRM/manage/admin/settings.py:92
 msgid "Resource"
 msgstr "资源"
 
-#: WEIPDCRM/manage/admin/settings.py:78
+#: WEIPDCRM/manage/admin/settings.py:96
 msgid "Server"
 msgstr "服务"
 
-#: WEIPDCRM/manage/admin/settings.py:84
+#: WEIPDCRM/manage/admin/settings.py:102
 msgid "Global"
 msgstr "全局"
 
-#: WEIPDCRM/manage/admin/settings.py:94
+#: WEIPDCRM/manage/admin/settings.py:112
 msgid "Frontend"
 msgstr "前端"
 
-#: WEIPDCRM/manage/admin/settings.py:95
+#: WEIPDCRM/manage/admin/settings.py:113
 msgid "Rest API"
 msgstr "Restful API"
 
-#: WEIPDCRM/manage/admin/settings.py:96
+#: WEIPDCRM/manage/admin/settings.py:114
 msgid "Third-Party"
 msgstr "第三方"
 
@@ -810,7 +819,7 @@ msgstr ""
 #: WEIPDCRM/models/setting.py:264
 #: WEIPDCRM/templates/admin/version/change_form.html:18
 msgid "Comments"
-msgstr "评论模块"
+msgstr "评论"
 
 #: WEIPDCRM/models/setting.py:265
 msgid "Enable comments module"
@@ -1440,11 +1449,11 @@ msgstr ""
 
 #: WEIPDCRM/models/version.py:988
 msgid "Gallery"
-msgstr ""
+msgstr "图库"
 
 #: WEIPDCRM/models/version.py:992
 msgid "You can manage screenshots in Photologue."
-msgstr ""
+msgstr "你可以在 Photologue 中管理截图."
 
 #: WEIPDCRM/templates/admin/build/change_action.html:7
 msgid "Delete"

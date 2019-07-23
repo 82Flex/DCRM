@@ -20,11 +20,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import unicode_literals
 
-from preferences.admin import PreferencesAdmin
+from django.contrib.sites.models import Site
+from django.conf import settings
 from django.forms import ModelForm
+from django.urls import reverse
+from django.utils.safestring import mark_safe
+from django.utils.translation import ugettext_lazy as _
+
+from preferences.admin import PreferencesAdmin
 from suit.widgets import AutosizedTextarea
 from suit_redactor.widgets import RedactorWidget
-from django.utils.translation import ugettext_lazy as _
 
 
 class SettingsForm(ModelForm):
@@ -38,11 +43,24 @@ class SettingsForm(ModelForm):
 
 
 class SettingsAdmin(PreferencesAdmin):
+    def site_(self, instance):
+        return mark_safe(
+            _("<a href=\"%(href)s\" target=\"_blank\">%(name)s</a>")
+            % ({
+                "href": reverse("admin:sites_site_change", args=[settings.SITE_ID]),
+                "name": Site.objects.get(id=settings.SITE_ID)
+            })
+        )
+    site_.short_description = _("Current Site")
+
     form = SettingsForm
+    readonly_fields = [
+        'site_',
+    ]
     fieldsets = [
         (_('General'), {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['active_release']
+            'fields': ['site_', 'active_release']
         }),
         (_('Packages List'), {
             'classes': ('suit-tab suit-tab-common',),

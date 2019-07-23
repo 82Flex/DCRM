@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-23 12:33+0800\n"
+"POT-Creation-Date: 2019-07-23 14:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "New Package"
 msgstr ""
 
-#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/settings.py:64
+#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/settings.py:82
 #: WEIPDCRM/manage/admin/version.py:224
 #: WEIPDCRM/templates/admin/help/statistics.html:8
 #: WEIPDCRM/views/admin/help/statistics.py:99
@@ -42,7 +42,7 @@ msgstr ""
 
 #: WEIPDCRM/manage/admin/build.py:273 WEIPDCRM/manage/admin/device_type.py:34
 #: WEIPDCRM/manage/admin/os_version.py:34 WEIPDCRM/manage/admin/release.py:50
-#: WEIPDCRM/manage/admin/section.py:42 WEIPDCRM/manage/admin/settings.py:43
+#: WEIPDCRM/manage/admin/section.py:42 WEIPDCRM/manage/admin/settings.py:61
 msgid "General"
 msgstr ""
 
@@ -89,12 +89,12 @@ msgstr ""
 msgid "SEO"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/release.py:78 WEIPDCRM/manage/admin/settings.py:92
+#: WEIPDCRM/manage/admin/release.py:78 WEIPDCRM/manage/admin/settings.py:110
 #: WEIPDCRM/manage/admin/version.py:219
 msgid "Common"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/release.py:79 WEIPDCRM/manage/admin/settings.py:93
+#: WEIPDCRM/manage/admin/release.py:79 WEIPDCRM/manage/admin/settings.py:111
 #: WEIPDCRM/manage/admin/version.py:221
 msgid "Advanced"
 msgstr ""
@@ -114,43 +114,52 @@ msgstr ""
 msgid "Generate icon package for selected sections"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:47
+#: WEIPDCRM/manage/admin/settings.py:48
+#, python-format
+msgid "<a href=\"%(href)s\" target=\"_blank\">%(name)s</a>"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:54
+msgid "Current Site"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:65
 msgid "Packages List"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:53 WEIPDCRM/manage/admin/version.py:148
+#: WEIPDCRM/manage/admin/settings.py:71 WEIPDCRM/manage/admin/version.py:148
 msgid "Display"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:58
+#: WEIPDCRM/manage/admin/settings.py:76
 msgid "Social"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:68
+#: WEIPDCRM/manage/admin/settings.py:86
 msgid "Footer"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:74
+#: WEIPDCRM/manage/admin/settings.py:92
 msgid "Resource"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:78
+#: WEIPDCRM/manage/admin/settings.py:96
 msgid "Server"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:84
+#: WEIPDCRM/manage/admin/settings.py:102
 msgid "Global"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:94
+#: WEIPDCRM/manage/admin/settings.py:112
 msgid "Frontend"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:95
+#: WEIPDCRM/manage/admin/settings.py:113
 msgid "Rest API"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:96
+#: WEIPDCRM/manage/admin/settings.py:114
 msgid "Third-Party"
 msgstr ""
 

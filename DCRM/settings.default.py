@@ -207,6 +207,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 
 MIDDLEWARE_CLASSES = [
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
