@@ -45,13 +45,15 @@ Install dependencies:
 ```shell
 apt-get update
 apt-get upgrade
-apt-get install git nginx mysql-server libmysqlclient-dev python-dev python-pip
+apt-get install git nginx mysql-server libmysqlclient-dev python3-dev python3-pip libjpeg-dev tzdata
 ```
 
 Configure MySQL:
 安装完成后, 登录到 MySQL:
 
 ```shell
+service mysql start
+mysql_secure_installation
 mysql -uroot -p
 ```
 
@@ -71,19 +73,30 @@ GRANT ALL PRIVILEGES ON `DCRM`.* TO 'dcrm'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
+Clone this repo:
+在合适的位置克隆 DCRM:
+
+```shell
+mkdir -p /wwwdata
+cd /wwwdata
+git clone https://github.com/82Flex/DCRM.git
+cd /wwwdata/DCRM
+```
+
 Install python modules:
 安装需要的 python 模块:
 
 ```shell
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
 ```
 
 If you want to enable Redis support:
-如果你还需要开启 Redis 支持 (用于任务队列), 你可能还需要自行启动 Redis 服务:
+如果你还需要开启 Redis 支持 (用于任务队列):
 
 ```shell
 apt-get install redis-server
+service redis-server start
 ```
 
 If you want to enable Page Caching:
@@ -91,22 +104,7 @@ If you want to enable Page Caching:
 
 ```shell
 apt-get install memcached
-```
-
-If you want to enable Screenshots:
-如果你还需要开启截图展示:
-
-```shell
-apt-get install libjpeg-dev
-```
-
-Clone this repo:
-在合适的位置克隆 DCRM:
-
-```shell
-cd /wwwdata
-git clone https://github.com/82Flex/DCRM.git
-cd /wwwdata/DCRM
+service memcached start
 ```
 
 Copy DCRM/settings.default.py to DCRM/settings.py and edit it:
@@ -132,22 +130,22 @@ Sync static files:
 同步静态文件:
 
 ```shell
-./manage.py collectstatic
+python3 manage.py collectstatic
 ```
 
 Sync database structure and create new super user:
 同步数据库结构并创建超级用户:
 
 ```shell
-./manage.py migrate
-./manage.py createsuperuser
+python3 manage.py migrate
+python3 manage.py createsuperuser
 ```
 
 Launch debug server:
 启动测试服务器:
 
 ```shell
-./manage.py runserver 
+python3 manage.py runserver
 ```
 
 
