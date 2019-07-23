@@ -15,7 +15,7 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 
 ## TODOs 计划任务
 
-- Panel in zh-CN
+- pdiffs
 - Restful API
 
 

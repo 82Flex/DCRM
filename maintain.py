@@ -28,9 +28,10 @@ import os
 import time
 import json
 
+
 env = os.environ
 ak = env['AliyunAK'] if 'AliyunAK' in env else ''  # Aliyun Access Key ID
-sk = env['AliyunSK'] if 'AliyunSK' in env else '' # Aliyun Access Key Secret
+sk = env['AliyunSK'] if 'AliyunSK' in env else ''  # Aliyun Access Key Secret
 
 parser = argparse.ArgumentParser(description='DCRM maintenance script')
 parser.add_argument('-s', '--start', action="store", default=None, help='{rqworker|uwsgi}')
@@ -41,8 +42,8 @@ args = parser.parse_args()
 
 
 def get_process_id(name):
-    ID = subprocess.getoutput("ps -def | grep \"" + name + "\" | grep -v \"grep\" | awk '{print $2}'")
-    return ID.split()
+    sub_id = subprocess.getoutput("ps -def | grep \"" + name + "\" | grep -v \"grep\" | awk '{print $2}'")
+    return sub_id.split()
 
 
 def start(process):
@@ -51,18 +52,18 @@ def start(process):
             high = os.system("nohup python manage.py rqworker high > /dev/null &")
             default = os.system("nohup python manage.py rqworker default > /dev/null &")
             if high == 0 and default == 0:
-                print("start rqworker successed.")
+                print("start rqworker succeed")
             else:
-                print("start rqworker failed.")
+                print("start rqworker failed")
         else:
             print("rqworker already running")
     elif process == 'uwsgi':
         if get_process_id(process):
             uwsgi = os.system("uwsgi --ini dcrm.ini --daemonize=/dev/null")
             if uwsgi == 0:
-                print("start uwsgi successed.")
+                print("start uwsgi succeed")
             else:
-                print("start uwsgi failed.")
+                print("start uwsgi failed")
         else:
             print("uwsgi already running")
 
@@ -79,21 +80,21 @@ def kill(process):
 def flush_memcached():
     clean = subprocess.getoutput("echo \"flush_all\" | nc localhost 11211")
     if clean.strip() == 'OK':
-        print("Flush Memcached successed.")
+        print("flush memcached succeed")
     else:
-        print("Flush Memcached failed.")
+        print("flush memcached failed")
 
 
 def refresh_cdn():
     if ak and sk:
         try:
-            Client = client.AcsClient(ak, sk, 'cn-hangzhou')
+            _client = client.AcsClient(ak, sk, 'cn-hangzhou')
             request = RefreshObjectCachesRequest.RefreshObjectCachesRequest()
             request.set_accept_format('json')
             request.set_ObjectPath(ALLOWED_HOSTS[0]+'/static/')
             request.set_ObjectType('Directory')
-            RequestId = json.loads(Client.do_action_with_exception(request))['RequestId']
-            print("Refresh success\nRequestId: " + RequestId)
+            request_id = json.loads(_client.do_action_with_exception(request))['RequestId']
+            print("RequestId: " + request_id)
 
         except Exception as e:
             print(e.get_error_code() if hasattr(e, 'get_error_code') else e)
@@ -126,4 +127,4 @@ elif args.clean:
     elif args.clean == 'memcached':
         flush_memcached()
     else:
-        print('Unknown command')
+        print('unknown command')
