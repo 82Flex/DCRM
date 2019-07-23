@@ -1,0 +1,6 @@
+{% load i18n %}
+{% if filtered_by_package %}
+    {% blocktrans %}
+        <h1>Package: {{ filtered_by_package }}</h1>
+    {% endblocktrans %}
+{% endif %}

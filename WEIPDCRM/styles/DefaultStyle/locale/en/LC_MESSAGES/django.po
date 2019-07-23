@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-05 15:55+0800\n"
+"POT-Creation-Date: 2019-07-23 12:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,7 +52,7 @@ msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:74
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:33
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:77
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:85
 msgid "No description."
 msgstr ""
 
@@ -68,20 +68,20 @@ msgstr ""
 msgid "Notice"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:115
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:116
 msgid "More..."
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:159
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:160
 msgid "Powered By DCRM"
 msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:26
 #: WEIPDCRM/styles/DefaultStyle/templates/grid-list.html:16
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:3
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:17
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:29
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:109
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:18
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:30
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:119
 #: WEIPDCRM/styles/DefaultStyle/templates/section.html:28
 msgid "Untitled Package"
 msgstr ""
@@ -92,7 +92,7 @@ msgid "No section"
 msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:40
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:48
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:56
 msgid "Download"
 msgstr ""
 
@@ -100,11 +100,11 @@ msgstr ""
 msgid "Index"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/index.html:11
+#: WEIPDCRM/styles/DefaultStyle/templates/index.html:12
 msgid "Add in Cydia<sup><small>™</small></sup>"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/index.html:16
+#: WEIPDCRM/styles/DefaultStyle/templates/index.html:17
 msgid "Package List"
 msgstr ""
 
@@ -113,32 +113,32 @@ msgstr ""
 msgid "Contact %(c_name)s | DCRM\n"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:19
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:40
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:21
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:43
 msgid "Author"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:21
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:23
 msgid ""
 "Source manager can <strong>NOT</strong> solve the function problem of "
 "package: you <strong>MUST</strong> contact the author."
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:38
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:42
 msgid "Maintainer"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:40
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:44
 msgid ""
 "If you have questions when install or uninstall this package, please contact "
 "the maintainer."
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:57
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:61
 msgid "Sponsor"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:59
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:63
 msgid ""
 "If the package is a commercial package, you can contact the sponsor to "
 "obtain commercial support."
@@ -146,65 +146,65 @@ msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/history.html:3
 #, python-format
-msgid "History %(c_name)s | DCRM"
+msgid "History %(c_name)s | DCRM\n"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/history.html:16
+#: WEIPDCRM/styles/DefaultStyle/templates/package/history.html:17
 msgid "View this version"
 msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:3
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:33
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:34
 msgid "Package"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:34
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:91
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:35
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:99
 msgid "Version"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:36
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:37
 #: WEIPDCRM/styles/DefaultStyle/templates/section.html:3
 msgid "Section"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:38
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:39
 msgid "Size"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:65
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:73
 msgid "Description"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:67
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:75
 msgid "More Info"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:86
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:94
 msgid "What's New"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:88
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:96
 msgid "History"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:102
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:111
 msgid "Screenshot"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:123
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:134
 msgid "Comments"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:185
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:229
 msgid "Say something..."
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:221
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:264
 msgid "Your device supports this package"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:225
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:268
 msgid "Your device doesn't support this package"
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-05 15:55+0800\n"
+"POT-Creation-Date: 2019-07-23 12:33+0800\n"
 "PO-Revision-Date: 2017-08-20 08:58+0800\n"
 "Last-Translator: \n"
 "Language-Team: 82Flex <i.82@me.com>\n"
@@ -56,7 +56,7 @@ msgstr "未命名源"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:74
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:33
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:77
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:85
 msgid "No description."
 msgstr "无描述。"
 
@@ -72,20 +72,20 @@ msgstr "无源描述。"
 msgid "Notice"
 msgstr "公告"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:115
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:116
 msgid "More..."
 msgstr "更多..."
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:159
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:160
 msgid "Powered By DCRM"
 msgstr "由 DCRM 强力驱动"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:26
 #: WEIPDCRM/styles/DefaultStyle/templates/grid-list.html:16
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:3
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:17
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:29
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:109
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:18
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:30
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:119
 #: WEIPDCRM/styles/DefaultStyle/templates/section.html:28
 msgid "Untitled Package"
 msgstr "未命名软件包"
@@ -96,7 +96,7 @@ msgid "No section"
 msgstr "未分类"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:40
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:48
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:56
 msgid "Download"
 msgstr "下载"
 
@@ -104,11 +104,11 @@ msgstr "下载"
 msgid "Index"
 msgstr "首页"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/index.html:11
+#: WEIPDCRM/styles/DefaultStyle/templates/index.html:12
 msgid "Add in Cydia<sup><small>™</small></sup>"
 msgstr "在 Cydia<sup><small>™</small></sup> 中添加"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/index.html:16
+#: WEIPDCRM/styles/DefaultStyle/templates/index.html:17
 msgid "Package List"
 msgstr "软件包"
 
@@ -117,12 +117,12 @@ msgstr "软件包"
 msgid "Contact %(c_name)s | DCRM\n"
 msgstr "联系信息 %(c_name)s | DCRM\n"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:19
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:40
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:21
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:43
 msgid "Author"
 msgstr "作者"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:21
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:23
 msgid ""
 "Source manager can <strong>NOT</strong> solve the function problem of "
 "package: you <strong>MUST</strong> contact the author."
@@ -130,87 +130,88 @@ msgstr ""
 "源管理者<strong>无法</strong>为你解决软件包功能上出现的问题：你<strong>必须</"
 "strong>联系其开发者或设计者。"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:38
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:42
 msgid "Maintainer"
 msgstr "提供者"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:40
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:44
 msgid ""
 "If you have questions when install or uninstall this package, please contact "
 "the maintainer."
 msgstr "安装、卸载过程中出现的问题，你需要将其发送给制作软件包的提供者。"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:57
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:61
 msgid "Sponsor"
 msgstr "发起者"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:59
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:63
 msgid ""
 "If the package is a commercial package, you can contact the sponsor to "
 "obtain commercial support."
 msgstr "如果该软件包为商业软件包，你可以联系其发起者获取商业支持。"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/history.html:3
-#, python-format
-msgid "History %(c_name)s | DCRM"
+#, fuzzy, python-format
+#| msgid "History %(c_name)s | DCRM"
+msgid "History %(c_name)s | DCRM\n"
 msgstr "版本历史 %(c_name)s | DCRM"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/history.html:16
+#: WEIPDCRM/styles/DefaultStyle/templates/package/history.html:17
 msgid "View this version"
 msgstr "查看此版本"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:3
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:33
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:34
 msgid "Package"
 msgstr "软件包"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:34
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:91
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:35
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:99
 msgid "Version"
 msgstr "版本"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:36
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:37
 #: WEIPDCRM/styles/DefaultStyle/templates/section.html:3
 msgid "Section"
 msgstr "分类"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:38
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:39
 msgid "Size"
 msgstr "尺寸"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:65
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:73
 msgid "Description"
 msgstr "描述"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:67
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:75
 msgid "More Info"
 msgstr "更多信息"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:86
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:94
 msgid "What's New"
 msgstr "更新日志"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:88
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:96
 msgid "History"
 msgstr "版本历史"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:102
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:111
 msgid "Screenshot"
 msgstr "截图"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:123
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:134
 msgid "Comments"
 msgstr "评论"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:185
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:229
 msgid "Say something..."
 msgstr "说点什么…"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:221
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:264
 msgid "Your device supports this package"
 msgstr "您的设备兼容此软件包"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:225
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:268
 msgid "Your device doesn't support this package"
 msgstr "您的设备不兼容此软件包"
 

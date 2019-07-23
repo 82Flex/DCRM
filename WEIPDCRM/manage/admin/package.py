@@ -43,6 +43,7 @@ class PackageAdmin(admin.ModelAdmin):
                          Version.get_change_list_url() + '?c_package__exact=' +
                          instance.c_package + '" target="_blank">' +
                          instance.c_package + '</a>')
+    package_.short_description = _("Package")
     
     def version_(self, instance):
         """
@@ -54,6 +55,7 @@ class PackageAdmin(admin.ModelAdmin):
             return "-"
         return mark_safe('<a href="' + instance.get_version_admin_url() + '" target="_blank">' +
                          instance.c_version + '</a>')
+    version_.short_description = _("Version")
     
     list_display = (
         "package_",

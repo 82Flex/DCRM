@@ -17,6 +17,9 @@
         <a href="{% url 'admin:threadedcomments_threadedcomment_changelist' %}" target="_blank">
             <i class="fa fa-fw fa fa-comments"></i>{% trans "Comments" %}
         </a>
+        <a href="{% url 'admin:WEIPDCRM_version_changelist' %}?c_package__exact={{ original.c_package }}" target="_blank">
+            <i class="fa fa-fw fa fa-cube"></i>{% trans "Package" %}
+        </a>
     </li>
     {{ block.super }}
 {% endblock %}
