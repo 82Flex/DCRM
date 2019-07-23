@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-23 14:56+0800\n"
+"POT-Creation-Date: 2019-07-23 17:16+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "New Package"
 msgstr ""
 
-#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/settings.py:82
+#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/settings.py:106
 #: WEIPDCRM/manage/admin/version.py:224
 #: WEIPDCRM/templates/admin/help/statistics.html:8
 #: WEIPDCRM/views/admin/help/statistics.py:99
@@ -42,7 +42,7 @@ msgstr ""
 
 #: WEIPDCRM/manage/admin/build.py:273 WEIPDCRM/manage/admin/device_type.py:34
 #: WEIPDCRM/manage/admin/os_version.py:34 WEIPDCRM/manage/admin/release.py:50
-#: WEIPDCRM/manage/admin/section.py:42 WEIPDCRM/manage/admin/settings.py:61
+#: WEIPDCRM/manage/admin/section.py:42 WEIPDCRM/manage/admin/settings.py:85
 msgid "General"
 msgstr ""
 
@@ -89,12 +89,12 @@ msgstr ""
 msgid "SEO"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/release.py:78 WEIPDCRM/manage/admin/settings.py:110
+#: WEIPDCRM/manage/admin/release.py:78 WEIPDCRM/manage/admin/settings.py:141
 #: WEIPDCRM/manage/admin/version.py:219
 msgid "Common"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/release.py:79 WEIPDCRM/manage/admin/settings.py:111
+#: WEIPDCRM/manage/admin/release.py:79 WEIPDCRM/manage/admin/settings.py:142
 #: WEIPDCRM/manage/admin/version.py:221
 msgid "Advanced"
 msgstr ""
@@ -123,43 +123,70 @@ msgstr ""
 msgid "Current Site"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:65
+#: WEIPDCRM/manage/admin/settings.py:58 WEIPDCRM/manage/admin/settings.py:65
+#: WEIPDCRM/manage/admin/settings.py:72
+msgid "Enabled (in DCRM/settings.py)"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:60 WEIPDCRM/manage/admin/settings.py:67
+#: WEIPDCRM/manage/admin/settings.py:74
+msgid "Disabled (in DCRM/settings.py)"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:61
+msgid "Redis Status"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:68
+msgid "Memcached Status"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:75
+msgid "API Status"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:89
 msgid "Packages List"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:71 WEIPDCRM/manage/admin/version.py:148
+#: WEIPDCRM/manage/admin/settings.py:95 WEIPDCRM/manage/admin/version.py:148
 msgid "Display"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:76
+#: WEIPDCRM/manage/admin/settings.py:100
 msgid "Social"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:86
+#: WEIPDCRM/manage/admin/settings.py:110
 msgid "Footer"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:92
+#: WEIPDCRM/manage/admin/settings.py:116
 msgid "Resource"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:96
+#: WEIPDCRM/manage/admin/settings.py:120
 msgid "Server"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:102
-msgid "Global"
+#: WEIPDCRM/manage/admin/settings.py:125
+msgid "Queue"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:112
+#: WEIPDCRM/manage/admin/settings.py:129
+msgid "Cache"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:133
+#: WEIPDCRM/templates/admin/setting/change_form.html:8
+msgid "API"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/settings.py:143
 msgid "Frontend"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:113
-msgid "Rest API"
-msgstr ""
-
-#: WEIPDCRM/manage/admin/settings.py:114
+#: WEIPDCRM/manage/admin/settings.py:144
 msgid "Third-Party"
 msgstr ""
 
@@ -563,7 +590,7 @@ msgid "Only Nginx is supported now."
 msgstr ""
 
 #: WEIPDCRM/models/setting.py:84
-msgid "Pdiffs is not supported now."
+msgid "pdiffs is not supported now."
 msgstr ""
 
 #: WEIPDCRM/models/setting.py:89
@@ -700,8 +727,8 @@ msgstr ""
 
 #: WEIPDCRM/models/setting.py:188
 msgid ""
-"Upload packages using HTTP, manage your repositories, snapshots, published "
-"repositories etc."
+"Upload packages using HTTP, manage your repositories, snapshots and comments "
+"etc."
 msgstr ""
 
 #: WEIPDCRM/models/setting.py:195

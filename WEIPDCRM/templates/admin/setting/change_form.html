@@ -1,7 +1,16 @@
 {% extends 'admin/new_change_form.html' %}
 
 {% load setting_submit_row i18n admin_urls %}
-
+{% block object-tools-items %}
+    {% if settings.ENABLE_API %}
+        <li>
+            <a href="{% url 'api-root' %}" target="_blank">
+                <i class="fa fa-fw fa fa-cloud"></i>{% trans "API" %}
+            </a>
+        </li>
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
 {% block submit_buttons_bottom %}
     {# Currently only way extending submit_row.html is by custom template tag #}
     {% submit_row %}

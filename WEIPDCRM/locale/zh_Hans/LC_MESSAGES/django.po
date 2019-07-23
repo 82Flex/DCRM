@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-23 14:56+0800\n"
+"POT-Creation-Date: 2019-07-23 17:16+0800\n"
 "PO-Revision-Date: 2017-04-03 23:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: 82Flex Team <i.82@me.com>\n"
@@ -27,7 +27,7 @@ msgstr "处理队列"
 msgid "New Package"
 msgstr "新软件包"
 
-#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/settings.py:82
+#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/settings.py:106
 #: WEIPDCRM/manage/admin/version.py:224
 #: WEIPDCRM/templates/admin/help/statistics.html:8
 #: WEIPDCRM/views/admin/help/statistics.py:99
@@ -44,7 +44,7 @@ msgstr "无可用软件包。"
 
 #: WEIPDCRM/manage/admin/build.py:273 WEIPDCRM/manage/admin/device_type.py:34
 #: WEIPDCRM/manage/admin/os_version.py:34 WEIPDCRM/manage/admin/release.py:50
-#: WEIPDCRM/manage/admin/section.py:42 WEIPDCRM/manage/admin/settings.py:61
+#: WEIPDCRM/manage/admin/section.py:42 WEIPDCRM/manage/admin/settings.py:85
 msgid "General"
 msgstr "通用"
 
@@ -91,12 +91,12 @@ msgstr "Cydia"
 msgid "SEO"
 msgstr "SEO"
 
-#: WEIPDCRM/manage/admin/release.py:78 WEIPDCRM/manage/admin/settings.py:110
+#: WEIPDCRM/manage/admin/release.py:78 WEIPDCRM/manage/admin/settings.py:141
 #: WEIPDCRM/manage/admin/version.py:219
 msgid "Common"
 msgstr "常用"
 
-#: WEIPDCRM/manage/admin/release.py:79 WEIPDCRM/manage/admin/settings.py:111
+#: WEIPDCRM/manage/admin/release.py:79 WEIPDCRM/manage/admin/settings.py:142
 #: WEIPDCRM/manage/admin/version.py:221
 msgid "Advanced"
 msgstr "进阶"
@@ -125,43 +125,70 @@ msgstr ""
 msgid "Current Site"
 msgstr "当前站点"
 
-#: WEIPDCRM/manage/admin/settings.py:65
+#: WEIPDCRM/manage/admin/settings.py:58 WEIPDCRM/manage/admin/settings.py:65
+#: WEIPDCRM/manage/admin/settings.py:72
+msgid "Enabled (in DCRM/settings.py)"
+msgstr "启用 (in DCRM/settings.py)"
+
+#: WEIPDCRM/manage/admin/settings.py:60 WEIPDCRM/manage/admin/settings.py:67
+#: WEIPDCRM/manage/admin/settings.py:74
+msgid "Disabled (in DCRM/settings.py)"
+msgstr "禁用 (in DCRM/settings.py)"
+
+#: WEIPDCRM/manage/admin/settings.py:61
+msgid "Redis Status"
+msgstr "Redis 状态"
+
+#: WEIPDCRM/manage/admin/settings.py:68
+msgid "Memcached Status"
+msgstr "Memcached 状态"
+
+#: WEIPDCRM/manage/admin/settings.py:75
+msgid "API Status"
+msgstr "API 状态"
+
+#: WEIPDCRM/manage/admin/settings.py:89
 msgid "Packages List"
 msgstr "软件包列表"
 
-#: WEIPDCRM/manage/admin/settings.py:71 WEIPDCRM/manage/admin/version.py:148
+#: WEIPDCRM/manage/admin/settings.py:95 WEIPDCRM/manage/admin/version.py:148
 msgid "Display"
 msgstr "显示"
 
-#: WEIPDCRM/manage/admin/settings.py:76
+#: WEIPDCRM/manage/admin/settings.py:100
 msgid "Social"
 msgstr "社交"
 
-#: WEIPDCRM/manage/admin/settings.py:86
+#: WEIPDCRM/manage/admin/settings.py:110
 msgid "Footer"
 msgstr "底部栏"
 
-#: WEIPDCRM/manage/admin/settings.py:92
+#: WEIPDCRM/manage/admin/settings.py:116
 msgid "Resource"
 msgstr "资源"
 
-#: WEIPDCRM/manage/admin/settings.py:96
+#: WEIPDCRM/manage/admin/settings.py:120
 msgid "Server"
 msgstr "服务"
 
-#: WEIPDCRM/manage/admin/settings.py:102
-msgid "Global"
-msgstr "全局"
+#: WEIPDCRM/manage/admin/settings.py:125
+msgid "Queue"
+msgstr "队列"
 
-#: WEIPDCRM/manage/admin/settings.py:112
+#: WEIPDCRM/manage/admin/settings.py:129
+msgid "Cache"
+msgstr "缓存"
+
+#: WEIPDCRM/manage/admin/settings.py:133
+#: WEIPDCRM/templates/admin/setting/change_form.html:8
+msgid "API"
+msgstr "API"
+
+#: WEIPDCRM/manage/admin/settings.py:143
 msgid "Frontend"
 msgstr "前端"
 
-#: WEIPDCRM/manage/admin/settings.py:113
-msgid "Rest API"
-msgstr "Restful API"
-
-#: WEIPDCRM/manage/admin/settings.py:114
+#: WEIPDCRM/manage/admin/settings.py:144
 msgid "Third-Party"
 msgstr "第三方"
 
@@ -574,7 +601,7 @@ msgid "Only Nginx is supported now."
 msgstr "目前仅支持 Nginx. "
 
 #: WEIPDCRM/models/setting.py:84
-msgid "Pdiffs is not supported now."
+msgid "pdiffs is not supported now."
 msgstr "目前还不支持 pdiffs. "
 
 #: WEIPDCRM/models/setting.py:89
@@ -716,9 +743,9 @@ msgstr "启用 Restful API"
 
 #: WEIPDCRM/models/setting.py:188
 msgid ""
-"Upload packages using HTTP, manage your repositories, snapshots, published "
-"repositories etc."
-msgstr "允许使用 Restful API 上传软件包, 管理存储库, 截图, 并进行构建等操作. "
+"Upload packages using HTTP, manage your repositories, snapshots and comments "
+"etc."
+msgstr "允许使用 Restful API 进行上传软件包, 管理存储库, 截图与评论等操作. "
 
 #: WEIPDCRM/models/setting.py:195
 msgid "Enable GPG Signature"

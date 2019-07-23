@@ -22,3 +22,4 @@ exifread==2.1.2
 python-memcached==1.59
 django-sortedm2m==1.5.0
 django-photologue==3.9
+djangorestframework==3.10.1

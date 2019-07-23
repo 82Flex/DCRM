@@ -23,6 +23,7 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
+from WEIPDCRM.api import get_router
 from WEIPDCRM.views import publish
 from WEIPDCRM.views.admin import release
 from WEIPDCRM.views.admin import upload
@@ -61,13 +62,20 @@ urlpatterns = [
     url(r'^admin/release/set-default/(?P<release_id>\d+)/?$', release.set_default_view, name='set_default_release'),
     url(r'^admin/help/about/$', about.about_view, name='help_about'),
     url(r'^admin/help/statistics/$', statistics.statistics_view, name='help_statistics'),
+
+    # Photologue
+    url(r'^photologue/', include('photologue.urls', namespace='photologue'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.ENABLE_REDIS is True:
     urlpatterns.append(url(r'^admin/sites/django-rq/', include('django_rq.urls')))
 
-# Photologue public pages are not necessary in DCRM.
-urlpatterns.append(url(r'^photologue/', include('photologue.urls', namespace='photologue')))
+if settings.ENABLE_API is True:
+    urlpatterns += [
+        url(r'^api/', include(get_router().urls)),
+        url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    ]
+
 
 handler400 = 'WEIPDCRM.views.error.bad_request'
 handler404 = 'WEIPDCRM.views.error.page_not_found'

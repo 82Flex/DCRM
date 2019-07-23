@@ -53,9 +53,33 @@ class SettingsAdmin(PreferencesAdmin):
         )
     site_.short_description = _("Current Site")
 
+    def redis_(self, instance):
+        if settings.ENABLE_REDIS:
+            return _("Enabled (in DCRM/settings.py)")
+        else:
+            return _("Disabled (in DCRM/settings.py)")
+    redis_.short_description = _("Redis Status")
+
+    def memcached_(self, instance):
+        if settings.ENABLE_CACHE:
+            return _("Enabled (in DCRM/settings.py)")
+        else:
+            return _("Disabled (in DCRM/settings.py)")
+    memcached_.short_description = _("Memcached Status")
+
+    def api_(self, instance):
+        if settings.ENABLE_API:
+            return _("Enabled (in DCRM/settings.py)")
+        else:
+            return _("Disabled (in DCRM/settings.py)")
+    api_.short_description = _("API Status")
+
     form = SettingsForm
     readonly_fields = [
         'site_',
+        'redis_',
+        'memcached_',
+        'api_'
     ]
     fieldsets = [
         (_('General'), {
@@ -98,10 +122,17 @@ class SettingsAdmin(PreferencesAdmin):
             'fields': ['web_server', 'redirect_resources', 'redirect_prefix',
                        'download_count', 'download_cydia_only']
         }),
-        # Rest API
-        (_('Global'), {
-            'classes': ('suit-tab suit-tab-api',),
-            'fields': ['rest_api']
+        (_('Queue'), {
+            'classes': ('suit-tab suit-tab-advanced',),
+            'fields': ['redis_']
+        }),
+        (_('Cache'), {
+            'classes': ('suit-tab suit-tab-advanced',),
+            'fields': ['memcached_']
+        }),
+        (_('API'), {
+            'classes': ('suit-tab suit-tab-advanced',),
+            'fields': ['api_']
         }),
         # Third Party
     ]
@@ -110,7 +141,6 @@ class SettingsAdmin(PreferencesAdmin):
         ('common', _('Common')),
         ('advanced', _('Advanced')),
         ('frontend', _('Frontend')),
-        ('api', _('Rest API')),
         ('third-party', _('Third-Party')),
     )
 

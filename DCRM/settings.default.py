@@ -41,6 +41,7 @@ THEME = 'DefaultStyle'
 # FEATURES
 ENABLE_REDIS = True  # redis-server, rq are required.
 ENABLE_CACHE = True  # memcached, python-memcached are required.
+ENABLE_API = False   # restful api
 
 
 # SECURITY
@@ -200,10 +201,22 @@ INSTALLED_APPS = [
 if ENABLE_REDIS is True:
     INSTALLED_APPS.append('django_rq')
 
+if ENABLE_API is True:
+    INSTALLED_APPS.append('rest_framework')
+
 
 COMMENTS_APP = 'fluent_comments'
 FLUENT_COMMENTS_EXCLUDE_FIELDS = ('url', 'title')
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 100
+}
 
 
 MIDDLEWARE_CLASSES = [

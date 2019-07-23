@@ -20,12 +20,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import unicode_literals
 
+from django.conf import settings
 from django.contrib import admin
 
 
 def admin_context(request):
     if request.user.is_superuser:
         return {
-            **admin.site.each_context(request=request)
+            **admin.site.each_context(request=request),
+            'settings': settings
         }
     return {}

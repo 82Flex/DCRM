@@ -81,7 +81,7 @@ def validate_web_server(value):
 
 def validate_pdiffs(value):
     if value:
-        raise ValidationError(_("Pdiffs is not supported now."))
+        raise ValidationError(_("pdiffs is not supported now."))
 
 
 def validate_rest_api(value):
@@ -185,8 +185,8 @@ class Setting(Preferences):
     )
     rest_api = models.BooleanField(
         verbose_name=_("Enable Rest API"),
-        help_text=_("Upload packages using HTTP, manage your repositories, snapshots, published repositories etc."),
-        default=False,
+        help_text=_("Upload packages using HTTP, manage your repositories, snapshots and comments etc."),
+        default=True,
         validators=[
             validate_rest_api
         ]
