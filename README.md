@@ -16,7 +16,6 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 ## TODOs 计划任务
 
 - pdiffs
-- Restful API
 
 
 ## GUIDE 使用说明
@@ -24,7 +23,7 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 
 ### DEMO SITE 示例站点
 
-- https://apt.uozi.org
+- https://apt.uozi.org/
 
 
 ### ENVIRONMENT 环境
@@ -124,7 +123,7 @@ Edit DCRM/settings.py:
     5. Configure Caches to match your memcached configuration: `CACHES`.
     6. Configure Language & Timezone: `LANGUAGE_CODE` and `TIME_ZONE`.
     7. Set `DEBUG = True` in debug environment, set `DEBUG = False` in production environment.
-    8. Optional features: `ENABLE_REDIS`, `ENABLE_CACHE`.
+    8. Optional features: `ENABLE_REDIS`, `ENABLE_CACHE`, `ENABLE_API`.
 
 Sync static files:
 同步静态文件:
