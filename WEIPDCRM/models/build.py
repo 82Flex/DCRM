@@ -82,7 +82,7 @@ class Build(models.Model):
         null=True,
         help_text=_("Tell others what did you do this time "
                     "before you rebuild the repository."),
-        default=""
+        default="Fast Build"
     )
     
     def __str__(self):
