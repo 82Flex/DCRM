@@ -34,8 +34,8 @@ from WEIPDCRM.apis.setting import SettingViewSet
 from WEIPDCRM.apis.site import SiteViewSet
 from WEIPDCRM.apis.user import UserViewSet
 from WEIPDCRM.apis.version import VersionViewSet
-from WEIPDCRM.models.gallery import GalleryViewSet
-from WEIPDCRM.models.photo import PhotoViewSet
+from WEIPDCRM.apis.gallery import GalleryViewSet
+from WEIPDCRM.apis.photo import PhotoViewSet
 
 
 def get_router():

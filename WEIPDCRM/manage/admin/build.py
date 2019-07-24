@@ -34,6 +34,10 @@ from django.contrib.sites.models import Site
 from django.forms import ModelForm
 
 from django.contrib import admin
+from django.urls import reverse
+from django.utils.safestring import mark_safe
+from django_rq import queues
+
 from preferences import preferences
 from django.contrib.admin.actions import delete_selected
 from django.contrib import messages
@@ -245,12 +249,27 @@ def build_procedure(conf):
         if os.path.exists(cydia_icon_path):
             os.unlink(cydia_icon_path)
         if active_release.icon is not None and len(str(active_release.icon)) > 0:
-            shutil.copyfile(
-                os.path.join(settings.MEDIA_ROOT, active_release.icon.name),
-                cydia_icon_path
-            )
-        thumb_png(cydia_icon_path)
-        os.chmod(cydia_icon_path, 0o755)
+            src_path = os.path.join(settings.MEDIA_ROOT, active_release.icon.name)
+            if os.path.exists(src_path):
+                shutil.copyfile(
+                    src_path,
+                    cydia_icon_path
+                )
+        else:
+            src_path = os.path.join(settings.STATIC_ROOT, "img/CydiaIcon.png")
+            if os.path.exists(src_path):
+                shutil.copyfile(
+                    src_path,
+                    cydia_icon_path
+                )
+        if os.path.exists(cydia_icon_path):
+            thumb_png(cydia_icon_path)
+            os.chmod(cydia_icon_path, 0o755)
+
+        build_instance = Build.objects.get(uuid=str(conf["build_uuid"]))
+        if build_instance is not None:
+            build_instance.is_finished = True
+            build_instance.save()
     else:
         # TODO: Pdiffs Feature
         pass
@@ -266,12 +285,11 @@ class BuildForm(ModelForm):
 class BuildAdmin(admin.ModelAdmin):
     form = BuildForm
     actions = [delete_selected]
-    list_display = ('uuid', 'active_release', 'created_at')
+    list_display = ('uuid', 'active_release', 'is_finished', 'created_at')
     search_fields = ['uuid']
-    readonly_fields = ['active_release', 'job_id', 'created_at']
     fieldsets = [
         (_('General'), {
-            'fields': ['active_release', 'job_id', 'details']
+            'fields': ['active_release', 'job_link', 'details']
         }),
         (_('History'), {
             'fields': ['created_at']
@@ -279,15 +297,47 @@ class BuildAdmin(admin.ModelAdmin):
     ]
     change_form_template = "admin/build/change_form.html"
     change_list_template = "admin/build/change_list.html"
+
+    def job_link(self, obj):
+        if obj.job_id is None:
+            if obj.is_finished:
+                return mark_safe("<img src=\"/static/admin/img/icon-yes.svg\" alt=\"True\" /> %s" % _('Finished'))
+            else:
+                return mark_safe("<img src=\"/static/admin/img/icon-unknown.svg\" alt=\"Unknown\" /> %s" % _('Unknown'))
+        m_job = queues.get_queue('high').fetch_job(obj.job_id)
+        if m_job is None:
+            return _('No such job')
+        if m_job.is_failed:
+            status_str = mark_safe("<img src=\"/static/admin/img/icon-no.svg\" alt=\"False\" /> %s" % _('Failed'))
+        elif m_job.is_finished:
+            if obj.is_finished:
+                status_str = mark_safe("<img src=\"/static/admin/img/icon-yes.svg\" alt=\"True\" /> %s" % _('Finished'))
+            else:
+                status_str = mark_safe(
+                    "<img src=\"/static/admin/img/icon-unknown.svg\" alt=\"Unknown\" /> %s" % _('Unknown'))
+        else:
+            status_str = mark_safe("<img src=\"/static/img/icon-loading.svg\" width=\"13\" alt=\"Loading\" "
+                                   "onload=\"setTimeout(function () { window.location.reload(); }, 2000);\" /> "
+                                   "%s" % _("Processing..."))
+        return mark_safe('<a href="%s" target="_blank">%s</a>' % (
+            reverse('rq_job_detail', kwargs={
+                'queue_index': 1,
+                'job_id': m_job.id
+            }),
+            status_str
+        ))
+
+    job_link.short_description = _("Job")
+    job_link.allow_tags = True
     
     def has_add_permission(self, request):
         return preferences.Setting.active_release is not None and Package.objects.count() != 0
     
     def get_readonly_fields(self, request, obj=None):
         if not obj:
-            return ['active_release', 'job_id', 'created_at']
+            return ['active_release', 'job_link', 'created_at']
         else:
-            return ['active_release', 'job_id', 'created_at', 'details']
+            return ['active_release', 'job_link', 'created_at', 'details']
     
     def save_model(self, request, obj, form, change):
         """

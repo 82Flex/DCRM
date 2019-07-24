@@ -995,3 +995,5 @@ class Version(models.Model):
 
     def get_absolute_url(self):
         return reverse('package_id', args=[self.id])
+
+    # TODO: post delete should remove online icon file

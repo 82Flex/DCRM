@@ -233,3 +233,5 @@ class Release(models.Model):
             if v is not None and len(str(v)) > 0:
                 control[k] = str(v)
         return control
+
+    # TODO: post delete should remove release icon file

@@ -112,3 +112,5 @@ class Section(models.Model):
     def get_absolute_url(self):
         from django.urls import reverse
         return reverse('section_id', args=[self.id])
+
+    # TODO: post delete should remove section icon file

@@ -286,3 +286,5 @@ class VersionAdmin(admin.ModelAdmin):
 
     change_list_template = 'admin/version/change_list.html'
     change_form_template = 'admin/version/change_form.html'
+
+    # TODO: beautify django queue pages

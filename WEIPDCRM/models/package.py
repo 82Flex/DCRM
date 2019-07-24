@@ -116,3 +116,5 @@ class Package(models.Model):
 
     def get_latest_version(self):
         return Version.objects.get(id=self.id)
+
+    # TODO: post delete should remove online icon file

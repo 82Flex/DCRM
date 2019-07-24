@@ -13,9 +13,10 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 请在使用 DCRM 前请务必仔细阅读并透彻理解开源许可与使用协议，您的任何使用行为将被视为对本项目开源许可和使用协议中全部内容的认可，否则您无权使用本项目。任何违反开源许可及使用协议的行为将被记入耻辱柱中并保留追究法律责任的权力。
 
 
-## TODOs 计划任务
+## TODOs
 
 - pdiffs
+- rqscheduler supports 定时任务支持
 
 
 ## GUIDE 使用说明

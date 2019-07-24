@@ -18,10 +18,11 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 from django_filters.rest_framework import DjangoFilterBackend
-from photologue.models import Gallery, Photo
+from photologue.models import Gallery
 from rest_framework import serializers, viewsets
 from rest_framework.pagination import LimitOffsetPagination
-from WEIPDCRM.models.photo import PhotoSerializer
+
+from WEIPDCRM.apis.photo import PhotoSerializer
 
 
 class GallerySerializer(serializers.ModelSerializer):

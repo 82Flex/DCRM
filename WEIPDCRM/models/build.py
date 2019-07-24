@@ -70,6 +70,10 @@ class Build(models.Model):
         null=True,
         default=None
     )
+    is_finished = models.BooleanField(
+        verbose_name=_("Job Finished"),
+        default=False
+    )
     
     # History Settings
     details = models.TextField(
@@ -94,3 +98,5 @@ class Build(models.Model):
             "admin:%s_%s_change" % (content_type.app_label, content_type.model),
             args=(self.id,)
         )
+
+    # TODO: post delete should remove build directory

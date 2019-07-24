@@ -18,9 +18,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-
 import os
-
 
 # SITE
 # IMPORTANT:
@@ -28,32 +26,26 @@ import os
 # Usually, it is set to 1, do not change it at the very first.
 SITE_ID = 1
 
-
 # PATH
 # TIPS: Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # THEME
 THEME = 'DefaultStyle'
-
 
 # FEATURES
 ENABLE_REDIS = True  # redis-server, rq are required.
 ENABLE_CACHE = True  # memcached, python-memcached are required.
-ENABLE_API = True    # restful api
-
+ENABLE_API = True  # restful api
 
 # SECURITY
 # WARNING: keep the secret key used in production secret!
 SECRET_KEY = '$!#)nxr8rv83s(b%#kg*8a)m%igd+o%2=mgvqkba_zbc3(bpan'
 
-
 # SECURITY
 # WARNING: don't run with debug turned on in production!
 DEBUG = True
 SECURE_SSL = True  # https -> True
-
 
 # SECURITY
 ALLOWED_HOSTS = [
@@ -63,15 +55,12 @@ ALLOWED_HOSTS = [
 ]
 print("[DCRM] Host: " + ALLOWED_HOSTS[0])
 
-
-
 # INTERNATIONAL
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True  # pytz is required.
 LANGUAGE_CODE = 'en'  # zh-Hans for Simplified Chinese
 TIME_ZONE = 'Asia/Shanghai'  # Asia/Shanghai, etc.
-
 
 # Database
 # You cannot use SQLite3 due to the lack of advanced database supports.
@@ -91,7 +80,6 @@ DATABASES = {
         }
     }
 }
-
 
 if ENABLE_REDIS is True:
     # Redis
@@ -116,7 +104,6 @@ if ENABLE_REDIS is True:
 else:
     print("[DCRM] Redis Queue: Disabled")
 
-
 CACHE_TIME = 0
 if ENABLE_CACHE is True:
     # Cache
@@ -133,12 +120,11 @@ if ENABLE_CACHE is True:
 else:
     print("[DCRM] Page Caching: Disabled")
 
-
 # Nginx Locations
 
 # !!! please configure Nginx to make an alias from STATIC_URL to STATIC_ROOT !!!
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'WEIPDCRM/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
 
 ]
@@ -147,14 +133,6 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/resources/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'resources')
 
-
-
-
-
-
-
-
-
 """
 !!! DO NOT EDIT ANYTHING BELOW !!!
 !!! DO NOT EDIT ANYTHING BELOW !!!
@@ -165,16 +143,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'resources')
 !!! 如果你不知道下面各项配置的作用，请勿修改以下任何内容 !!!
 !!! 如果你不知道下面各项配置的作用，请勿修改以下任何内容 !!!
 """
-
-
-
-
-
-
-
-
-
-
 
 INSTALLED_APPS = [
     'WEIPDCRM',
@@ -197,14 +165,12 @@ INSTALLED_APPS = [
     'photologue',
 ]
 
-
 if ENABLE_REDIS is True:
     INSTALLED_APPS.append('django_rq')
 
 if ENABLE_API is True:
     INSTALLED_APPS.append('rest_framework')
     INSTALLED_APPS.append('django_filters')
-
 
 COMMENTS_APP = 'fluent_comments'
 FLUENT_COMMENTS_EXCLUDE_FIELDS = ('url', 'title')
@@ -219,7 +185,6 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 100
 }
 
-
 MIDDLEWARE_CLASSES = [
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -232,9 +197,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 ROOT_URLCONF = 'DCRM.urls'
-
 
 TEMPLATES = [
     {
@@ -255,9 +218,7 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'DCRM.wsgi.application'
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -274,7 +235,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 LANGUAGES = (
     ('en', u'English'),
     ('zh_Hans', u'中文简体'),
@@ -284,9 +244,7 @@ LOCALE_PATHS = (
 )
 TEMP_ROOT = os.path.join(BASE_DIR, 'temp')
 
-
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
 )
-

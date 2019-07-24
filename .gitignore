@@ -1,36 +1,30 @@
-# Temp Files
-temp/
+# temp files
+/temp/
 
-# Site Resources
-resources/
-wwwroot/
+# site resources
+/resources/
+/wwwroot/
 
-# IDE Configrations
-.idea/
+# IDE configurations
+/.idea/
 
-# Static Files
-WEIPDCRM/static/
+# static files
+/static/
 
-# Databases
+# databases
 *.sqlite3
 *.rdb
-
-# Compiled Python Scripts
 *.pyc
-
-# Logs
 *.log
-
-# Configrations
 *.ini
 
-# Settings
-DCRM/settings.py
+# user-defined settings
+/DCRM/settings.py
 
-# Server
+# server
 .user.ini
 .well-known
 
-# Packages
-venv/
+# python virtual environment
+/venv/
 

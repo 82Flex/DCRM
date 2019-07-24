@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-23 17:16+0800\n"
+"POT-Creation-Date: 2019-07-24 18:24+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "New Package"
 msgstr ""
 
-#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/settings.py:106
+#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/setting.py:106
 #: WEIPDCRM/manage/admin/version.py:224
 #: WEIPDCRM/templates/admin/help/statistics.html:8
 #: WEIPDCRM/views/admin/help/statistics.py:99
@@ -36,29 +36,54 @@ msgstr ""
 msgid "About..."
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:82
+#: WEIPDCRM/manage/admin/build.py:86
 msgid "No enabled package available."
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:273 WEIPDCRM/manage/admin/device_type.py:34
+#: WEIPDCRM/manage/admin/build.py:291 WEIPDCRM/manage/admin/device_type.py:34
 #: WEIPDCRM/manage/admin/os_version.py:34 WEIPDCRM/manage/admin/release.py:50
-#: WEIPDCRM/manage/admin/section.py:42 WEIPDCRM/manage/admin/settings.py:85
+#: WEIPDCRM/manage/admin/section.py:42 WEIPDCRM/manage/admin/setting.py:85
 msgid "General"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:276 WEIPDCRM/manage/admin/device_type.py:40
+#: WEIPDCRM/manage/admin/build.py:294 WEIPDCRM/manage/admin/device_type.py:40
 #: WEIPDCRM/manage/admin/os_version.py:40 WEIPDCRM/manage/admin/release.py:58
 #: WEIPDCRM/manage/admin/section.py:48 WEIPDCRM/manage/admin/version.py:208
 #: WEIPDCRM/templates/admin/new_change_form.html:8
 msgid "History"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:316
+#: WEIPDCRM/manage/admin/build.py:304 WEIPDCRM/manage/admin/build.py:314
+msgid "Finished"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/build.py:306 WEIPDCRM/manage/admin/build.py:317
+msgid "Unknown"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/build.py:309 WEIPDCRM/views/admin/upload.py:311
+#: WEIPDCRM/views/admin/upload.py:426
+msgid "No such job"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/build.py:311
+msgid "Failed"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/build.py:321
+msgid "Processing..."
+msgstr ""
+
+#: WEIPDCRM/manage/admin/build.py:330
+msgid "Job"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/build.py:366
 #, python-format
 msgid "Build %s generating job has been added to the \"high\" queue."
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:319
+#: WEIPDCRM/manage/admin/build.py:369
 #, python-format
 msgid "Build %s generating job has been finished."
 msgstr ""
@@ -89,12 +114,12 @@ msgstr ""
 msgid "SEO"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/release.py:78 WEIPDCRM/manage/admin/settings.py:141
+#: WEIPDCRM/manage/admin/release.py:78 WEIPDCRM/manage/admin/setting.py:141
 #: WEIPDCRM/manage/admin/version.py:219
 msgid "Common"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/release.py:79 WEIPDCRM/manage/admin/settings.py:142
+#: WEIPDCRM/manage/admin/release.py:79 WEIPDCRM/manage/admin/setting.py:142
 #: WEIPDCRM/manage/admin/version.py:221
 msgid "Advanced"
 msgstr ""
@@ -114,79 +139,79 @@ msgstr ""
 msgid "Generate icon package for selected sections"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:48
+#: WEIPDCRM/manage/admin/setting.py:48
 #, python-format
 msgid "<a href=\"%(href)s\" target=\"_blank\">%(name)s</a>"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:54
+#: WEIPDCRM/manage/admin/setting.py:54
 msgid "Current Site"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:58 WEIPDCRM/manage/admin/settings.py:65
-#: WEIPDCRM/manage/admin/settings.py:72
+#: WEIPDCRM/manage/admin/setting.py:58 WEIPDCRM/manage/admin/setting.py:65
+#: WEIPDCRM/manage/admin/setting.py:72
 msgid "Enabled (in DCRM/settings.py)"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:60 WEIPDCRM/manage/admin/settings.py:67
-#: WEIPDCRM/manage/admin/settings.py:74
+#: WEIPDCRM/manage/admin/setting.py:60 WEIPDCRM/manage/admin/setting.py:67
+#: WEIPDCRM/manage/admin/setting.py:74
 msgid "Disabled (in DCRM/settings.py)"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:61
+#: WEIPDCRM/manage/admin/setting.py:61
 msgid "Redis Status"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:68
+#: WEIPDCRM/manage/admin/setting.py:68
 msgid "Memcached Status"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:75
+#: WEIPDCRM/manage/admin/setting.py:75
 msgid "API Status"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:89
+#: WEIPDCRM/manage/admin/setting.py:89
 msgid "Packages List"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:95 WEIPDCRM/manage/admin/version.py:148
+#: WEIPDCRM/manage/admin/setting.py:95 WEIPDCRM/manage/admin/version.py:148
 msgid "Display"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:100
+#: WEIPDCRM/manage/admin/setting.py:100
 msgid "Social"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:110
+#: WEIPDCRM/manage/admin/setting.py:110
 msgid "Footer"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:116
+#: WEIPDCRM/manage/admin/setting.py:116
 msgid "Resource"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:120
+#: WEIPDCRM/manage/admin/setting.py:120
 msgid "Server"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:125
+#: WEIPDCRM/manage/admin/setting.py:125
 msgid "Queue"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:129
+#: WEIPDCRM/manage/admin/setting.py:129
 msgid "Cache"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:133
+#: WEIPDCRM/manage/admin/setting.py:133
 #: WEIPDCRM/templates/admin/setting/change_form.html:8
 msgid "API"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:143
+#: WEIPDCRM/manage/admin/setting.py:143
 msgid "Frontend"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/settings.py:144
+#: WEIPDCRM/manage/admin/setting.py:144
 msgid "Third-Party"
 msgstr ""
 
@@ -314,11 +339,15 @@ msgstr ""
 msgid "Job ID"
 msgstr ""
 
-#: WEIPDCRM/models/build.py:76
+#: WEIPDCRM/models/build.py:74
+msgid "Job Finished"
+msgstr ""
+
+#: WEIPDCRM/models/build.py:80
 msgid "Details"
 msgstr ""
 
-#: WEIPDCRM/models/build.py:79
+#: WEIPDCRM/models/build.py:83
 msgid ""
 "Tell others what did you do this time before you rebuild the repository."
 msgstr ""
@@ -1662,10 +1691,6 @@ msgstr ""
 msgid ""
 "Active release not set: you cannot publish your repository without an active "
 "release. <a href=\"%s\">Add Release</a>"
-msgstr ""
-
-#: WEIPDCRM/views/admin/upload.py:311 WEIPDCRM/views/admin/upload.py:426
-msgid "No such job"
 msgstr ""
 
 #: WEIPDCRM/views/admin/upload.py:333 WEIPDCRM/views/admin/upload.py:345
