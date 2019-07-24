@@ -23,7 +23,7 @@ from django.contrib import admin
 
 # from WEIPDCRM.manage.admin.package import PackageAdmin
 from WEIPDCRM.manage.admin.release import ReleaseAdmin
-from WEIPDCRM.manage.admin.settings import SettingsAdmin
+from WEIPDCRM.manage.admin.setting import SettingAdmin
 from WEIPDCRM.manage.admin.version import VersionAdmin
 from WEIPDCRM.manage.admin.device_type import DeviceTypeAdmin
 from WEIPDCRM.manage.admin.os_version import OSVersionAdmin
@@ -56,5 +56,5 @@ admin.site.register(Section, SectionAdmin)
 admin.site.register(Release, ReleaseAdmin)
 admin.site.register(OSVersion, OSVersionAdmin)
 admin.site.register(DeviceType, DeviceTypeAdmin)
-admin.site.register(Setting, SettingsAdmin)
+admin.site.register(Setting, SettingAdmin)
 admin.site.register(Build, BuildAdmin)

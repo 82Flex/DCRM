@@ -32,7 +32,7 @@ from suit.widgets import AutosizedTextarea
 from suit_redactor.widgets import RedactorWidget
 
 
-class SettingsForm(ModelForm):
+class SettingForm(ModelForm):
     class Meta(object):
         widgets = {
             'notice': RedactorWidget,
@@ -42,7 +42,7 @@ class SettingsForm(ModelForm):
         }
 
 
-class SettingsAdmin(PreferencesAdmin):
+class SettingAdmin(PreferencesAdmin):
     def site_(self, instance):
         return mark_safe(
             _("<a href=\"%(href)s\" target=\"_blank\">%(name)s</a>")
@@ -74,7 +74,7 @@ class SettingsAdmin(PreferencesAdmin):
             return _("Disabled (in DCRM/settings.py)")
     api_.short_description = _("API Status")
 
-    form = SettingsForm
+    form = SettingForm
     readonly_fields = [
         'site_',
         'redis_',
