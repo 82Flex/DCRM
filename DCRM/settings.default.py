@@ -41,7 +41,7 @@ THEME = 'DefaultStyle'
 # FEATURES
 ENABLE_REDIS = True  # redis-server, rq are required.
 ENABLE_CACHE = True  # memcached, python-memcached are required.
-ENABLE_API = False   # restful api
+ENABLE_API = True    # restful api
 
 
 # SECURITY
@@ -203,6 +203,7 @@ if ENABLE_REDIS is True:
 
 if ENABLE_API is True:
     INSTALLED_APPS.append('rest_framework')
+    INSTALLED_APPS.append('django_filters')
 
 
 COMMENTS_APP = 'fluent_comments'
