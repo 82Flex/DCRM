@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-24 18:24+0800\n"
+"POT-Creation-Date: 2019-07-26 01:59+0800\n"
 "PO-Revision-Date: 2017-08-20 08:58+0800\n"
 "Last-Translator: \n"
 "Language-Team: 82Flex <i.82@me.com>\n"
@@ -32,7 +32,7 @@ msgid "Home"
 msgstr "首页"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:43
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:97
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:96
 #: WEIPDCRM/styles/DefaultStyle/templates/section-list.html:3
 #: WEIPDCRM/styles/DefaultStyle/templates/section-list.html:10
 #: WEIPDCRM/styles/DefaultStyle/templates/section-list.html:14
@@ -50,35 +50,39 @@ msgstr "排行"
 msgid "Search packages"
 msgstr "搜索软件包"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:73
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:72
 msgid "Untitled Origin"
 msgstr "未命名源"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:74
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:73
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:33
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:85
 msgid "No description."
 msgstr "无描述。"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:76
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:75
 msgid "No repository created."
 msgstr "无软件源。"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:77
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:76
 msgid "No repository description."
 msgstr "无源描述。"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:85
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:84
 msgid "Notice"
 msgstr "公告"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:116
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:114
 msgid "More..."
 msgstr "更多..."
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:160
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:158
 msgid "Powered By DCRM"
 msgstr "由 DCRM 强力驱动"
+
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:161
+msgid "Django Admin"
+msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:26
 #: WEIPDCRM/styles/DefaultStyle/templates/grid-list.html:16

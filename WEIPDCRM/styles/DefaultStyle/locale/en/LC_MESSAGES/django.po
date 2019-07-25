@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-24 18:24+0800\n"
+"POT-Creation-Date: 2019-07-26 01:59+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgid "Home"
 msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:43
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:97
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:96
 #: WEIPDCRM/styles/DefaultStyle/templates/section-list.html:3
 #: WEIPDCRM/styles/DefaultStyle/templates/section-list.html:10
 #: WEIPDCRM/styles/DefaultStyle/templates/section-list.html:14
@@ -46,34 +46,38 @@ msgstr ""
 msgid "Search packages"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:73
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:72
 msgid "Untitled Origin"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:74
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:73
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:33
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:85
 msgid "No description."
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:76
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:75
 msgid "No repository created."
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:77
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:76
 msgid "No repository description."
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:85
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:84
 msgid "Notice"
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:116
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:114
 msgid "More..."
 msgstr ""
 
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:160
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:158
 msgid "Powered By DCRM"
+msgstr ""
+
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:161
+msgid "Django Admin"
 msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:26

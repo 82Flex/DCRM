@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-24 18:24+0800\n"
+"POT-Creation-Date: 2019-07-26 01:59+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "New Package"
 msgstr ""
 
-#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/setting.py:106
+#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/setting.py:159
 #: WEIPDCRM/manage/admin/version.py:224
 #: WEIPDCRM/templates/admin/help/statistics.html:8
 #: WEIPDCRM/views/admin/help/statistics.py:99
@@ -40,69 +40,69 @@ msgstr ""
 msgid "No enabled package available."
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:291 WEIPDCRM/manage/admin/device_type.py:34
+#: WEIPDCRM/manage/admin/build.py:299 WEIPDCRM/manage/admin/device_type.py:34
 #: WEIPDCRM/manage/admin/os_version.py:34 WEIPDCRM/manage/admin/release.py:50
-#: WEIPDCRM/manage/admin/section.py:42 WEIPDCRM/manage/admin/setting.py:85
+#: WEIPDCRM/manage/admin/section.py:226 WEIPDCRM/manage/admin/setting.py:133
 msgid "General"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:294 WEIPDCRM/manage/admin/device_type.py:40
+#: WEIPDCRM/manage/admin/build.py:302 WEIPDCRM/manage/admin/device_type.py:40
 #: WEIPDCRM/manage/admin/os_version.py:40 WEIPDCRM/manage/admin/release.py:58
-#: WEIPDCRM/manage/admin/section.py:48 WEIPDCRM/manage/admin/version.py:208
+#: WEIPDCRM/manage/admin/section.py:232 WEIPDCRM/manage/admin/version.py:208
 #: WEIPDCRM/templates/admin/new_change_form.html:8
 msgid "History"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:304 WEIPDCRM/manage/admin/build.py:314
+#: WEIPDCRM/manage/admin/build.py:312 WEIPDCRM/manage/admin/build.py:322
 msgid "Finished"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:306 WEIPDCRM/manage/admin/build.py:317
+#: WEIPDCRM/manage/admin/build.py:314 WEIPDCRM/manage/admin/build.py:325
 msgid "Unknown"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:309 WEIPDCRM/views/admin/upload.py:311
+#: WEIPDCRM/manage/admin/build.py:317 WEIPDCRM/views/admin/upload.py:311
 #: WEIPDCRM/views/admin/upload.py:426
 msgid "No such job"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:311
+#: WEIPDCRM/manage/admin/build.py:319
 msgid "Failed"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:321
+#: WEIPDCRM/manage/admin/build.py:329
 msgid "Processing..."
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:330
+#: WEIPDCRM/manage/admin/build.py:338
 msgid "Job"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:366
+#: WEIPDCRM/manage/admin/build.py:374
 #, python-format
 msgid "Build %s generating job has been added to the \"high\" queue."
 msgstr ""
 
-#: WEIPDCRM/manage/admin/build.py:369
+#: WEIPDCRM/manage/admin/build.py:377
 #, python-format
 msgid "Build %s generating job has been finished."
 msgstr ""
 
 #: WEIPDCRM/manage/admin/device_type.py:37
 #: WEIPDCRM/manage/admin/os_version.py:37 WEIPDCRM/manage/admin/release.py:54
-#: WEIPDCRM/manage/admin/section.py:45
+#: WEIPDCRM/manage/admin/section.py:229
 msgid "Appearance"
 msgstr ""
 
 #: WEIPDCRM/manage/admin/package.py:46 WEIPDCRM/models/package.py:49
-#: WEIPDCRM/models/package.py:61 WEIPDCRM/models/version.py:520
+#: WEIPDCRM/models/package.py:61 WEIPDCRM/models/version.py:521
 #: WEIPDCRM/templates/admin/version/change_form.html:21
 msgid "Package"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/package.py:58 WEIPDCRM/models/os_version.py:47
-#: WEIPDCRM/models/package.py:65 WEIPDCRM/models/release.py:83
-#: WEIPDCRM/models/version.py:151 WEIPDCRM/models/version.py:531
+#: WEIPDCRM/manage/admin/package.py:58 WEIPDCRM/models/os_version.py:51
+#: WEIPDCRM/models/package.py:65 WEIPDCRM/models/release.py:87
+#: WEIPDCRM/models/version.py:152 WEIPDCRM/models/version.py:532
 msgid "Version"
 msgstr ""
 
@@ -114,12 +114,12 @@ msgstr ""
 msgid "SEO"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/release.py:78 WEIPDCRM/manage/admin/setting.py:141
+#: WEIPDCRM/manage/admin/release.py:78 WEIPDCRM/manage/admin/setting.py:207
 #: WEIPDCRM/manage/admin/version.py:219
 msgid "Common"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/release.py:79 WEIPDCRM/manage/admin/setting.py:142
+#: WEIPDCRM/manage/admin/release.py:79 WEIPDCRM/manage/admin/setting.py:209
 #: WEIPDCRM/manage/admin/version.py:221
 msgid "Advanced"
 msgstr ""
@@ -131,15 +131,31 @@ msgid ""
 "release.</a>"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/section.py:36
-msgid "Icon package generating job has been added to the \"default\" queue."
+#: WEIPDCRM/manage/admin/section.py:173
+#, python-format
+msgid "%s Source Icon"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/section.py:37
+#: WEIPDCRM/manage/admin/section.py:207
+#, python-format
+msgid "Auto generated section icon package for %s."
+msgstr ""
+
+#: WEIPDCRM/manage/admin/section.py:214
+msgid ""
+"Section icon package generating job has been added to the \"default\" queue."
+msgstr ""
+
+#: WEIPDCRM/manage/admin/section.py:217
+msgid "Section icon package generating job has been finished."
+msgstr ""
+
+#: WEIPDCRM/manage/admin/section.py:221
 msgid "Generate icon package for selected sections"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/setting.py:48
+#: WEIPDCRM/manage/admin/setting.py:48 WEIPDCRM/manage/admin/setting.py:59
+#: WEIPDCRM/manage/admin/setting.py:83
 #, python-format
 msgid "<a href=\"%(href)s\" target=\"_blank\">%(name)s</a>"
 msgstr ""
@@ -148,70 +164,105 @@ msgstr ""
 msgid "Current Site"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/setting.py:58 WEIPDCRM/manage/admin/setting.py:65
-#: WEIPDCRM/manage/admin/setting.py:72
-msgid "Enabled (in DCRM/settings.py)"
+#: WEIPDCRM/manage/admin/setting.py:62 WEIPDCRM/manage/admin/setting.py:71
+#: WEIPDCRM/manage/admin/setting.py:86 WEIPDCRM/manage/admin/setting.py:99
+#: WEIPDCRM/manage/admin/setting.py:106 WEIPDCRM/models/device_type.py:44
+#: WEIPDCRM/models/os_version.py:45 WEIPDCRM/models/version.py:169
+msgid "Enabled"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/setting.py:60 WEIPDCRM/manage/admin/setting.py:67
-#: WEIPDCRM/manage/admin/setting.py:74
-msgid "Disabled (in DCRM/settings.py)"
+#: WEIPDCRM/manage/admin/setting.py:66 WEIPDCRM/manage/admin/setting.py:73
+#: WEIPDCRM/manage/admin/setting.py:90 WEIPDCRM/manage/admin/setting.py:101
+#: WEIPDCRM/manage/admin/setting.py:108
+msgid "Disabled"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/setting.py:61
+#: WEIPDCRM/manage/admin/setting.py:67
 msgid "Redis Status"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/setting.py:68
+#: WEIPDCRM/manage/admin/setting.py:74
 msgid "Memcached Status"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/setting.py:75
+#: WEIPDCRM/manage/admin/setting.py:78
+msgid "Memcached Interval"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/setting.py:91
 msgid "API Status"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/setting.py:89
+#: WEIPDCRM/manage/admin/setting.py:95 WEIPDCRM/manage/admin/setting.py:143
+msgid "Theme"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/setting.py:102
+msgid "Secure SSL"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/setting.py:109
+msgid "Debug"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/setting.py:113
+msgid "Static URL"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/setting.py:117
+msgid "Resources URL"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/setting.py:137
 msgid "Packages List"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/setting.py:95 WEIPDCRM/manage/admin/version.py:148
+#: WEIPDCRM/manage/admin/setting.py:148 WEIPDCRM/manage/admin/version.py:148
 msgid "Display"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/setting.py:100
+#: WEIPDCRM/manage/admin/setting.py:153
 msgid "Social"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/setting.py:110
+#: WEIPDCRM/manage/admin/setting.py:163
 msgid "Footer"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/setting.py:116
-msgid "Resource"
+#: WEIPDCRM/manage/admin/setting.py:169 WEIPDCRM/manage/admin/setting.py:210
+msgid "Security"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/setting.py:120
-msgid "Server"
-msgstr ""
-
-#: WEIPDCRM/manage/admin/setting.py:125
-msgid "Queue"
-msgstr ""
-
-#: WEIPDCRM/manage/admin/setting.py:129
-msgid "Cache"
-msgstr ""
-
-#: WEIPDCRM/manage/admin/setting.py:133
+#: WEIPDCRM/manage/admin/setting.py:174
 #: WEIPDCRM/templates/admin/setting/change_form.html:8
 msgid "API"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/setting.py:143
+#: WEIPDCRM/manage/admin/setting.py:179
+msgid "Cache"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/setting.py:184
+msgid "Queue"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/setting.py:189
+msgid "Static"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/setting.py:194
+msgid "Resource"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/setting.py:198
+msgid "Server"
+msgstr ""
+
+#: WEIPDCRM/manage/admin/setting.py:208
 msgid "Frontend"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/setting.py:144
+#: WEIPDCRM/manage/admin/setting.py:211
 msgid "Third-Party"
 msgstr ""
 
@@ -251,19 +302,19 @@ msgstr ""
 msgid "Compatibility"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/version.py:161 WEIPDCRM/models/version.py:545
+#: WEIPDCRM/manage/admin/version.py:161 WEIPDCRM/models/version.py:546
 msgid "Maintainer"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/version.py:165 WEIPDCRM/models/version.py:632
+#: WEIPDCRM/manage/admin/version.py:165 WEIPDCRM/models/version.py:633
 msgid "Author"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/version.py:169 WEIPDCRM/models/version.py:653
+#: WEIPDCRM/manage/admin/version.py:169 WEIPDCRM/models/version.py:654
 msgid "Sponsor"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/version.py:174 WEIPDCRM/models/device_type.py:56
+#: WEIPDCRM/manage/admin/version.py:174 WEIPDCRM/models/device_type.py:60
 msgid "Platform"
 msgstr ""
 
@@ -275,7 +326,7 @@ msgstr ""
 msgid "Other Relations"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/version.py:187 WEIPDCRM/models/version.py:251
+#: WEIPDCRM/manage/admin/version.py:187 WEIPDCRM/models/version.py:252
 msgid "Storage"
 msgstr ""
 
@@ -312,7 +363,7 @@ msgstr ""
 msgid "%s storage updating job has been added to the \"high\" queue."
 msgstr ""
 
-#: WEIPDCRM/models/build.py:45 WEIPDCRM/models/os_version.py:52
+#: WEIPDCRM/models/build.py:45 WEIPDCRM/models/os_version.py:56
 msgid "Build"
 msgstr ""
 
@@ -324,10 +375,10 @@ msgstr ""
 msgid "UUID"
 msgstr ""
 
-#: WEIPDCRM/models/build.py:56 WEIPDCRM/models/device_type.py:42
-#: WEIPDCRM/models/os_version.py:43 WEIPDCRM/models/package.py:58
-#: WEIPDCRM/models/release.py:47 WEIPDCRM/models/section.py:59
-#: WEIPDCRM/models/version.py:173
+#: WEIPDCRM/models/build.py:56 WEIPDCRM/models/device_type.py:46
+#: WEIPDCRM/models/os_version.py:47 WEIPDCRM/models/package.py:58
+#: WEIPDCRM/models/release.py:51 WEIPDCRM/models/section.py:63
+#: WEIPDCRM/models/version.py:174
 msgid "Created At"
 msgstr ""
 
@@ -361,63 +412,58 @@ msgstr ""
 msgid "Malformed Debian Package"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:35
+#: WEIPDCRM/models/device_type.py:39
 msgid "Device Type"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:36
+#: WEIPDCRM/models/device_type.py:40
 msgid "Device Types"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:40 WEIPDCRM/models/os_version.py:41
-#: WEIPDCRM/models/version.py:168
-msgid "Enabled"
-msgstr ""
-
-#: WEIPDCRM/models/device_type.py:46
+#: WEIPDCRM/models/device_type.py:50
 msgid "Descriptor"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:48
+#: WEIPDCRM/models/device_type.py:52
 msgid "Example: iPhone 7 Plus"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:51
+#: WEIPDCRM/models/device_type.py:55
 msgid "Subtype"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:53
+#: WEIPDCRM/models/device_type.py:57
 msgid "Example: iPhone9,2"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:58
+#: WEIPDCRM/models/device_type.py:62
 msgid "Example: A1661/A1784/A1785"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:65 WEIPDCRM/models/os_version.py:60
-#: WEIPDCRM/models/section.py:75 WEIPDCRM/models/version.py:284
+#: WEIPDCRM/models/device_type.py:69 WEIPDCRM/models/os_version.py:64
+#: WEIPDCRM/models/section.py:79 WEIPDCRM/models/version.py:285
 msgid "Icon"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:68 WEIPDCRM/models/os_version.py:63
-#: WEIPDCRM/models/release.py:148 WEIPDCRM/models/section.py:78
-#: WEIPDCRM/models/setting.py:402 WEIPDCRM/models/version.py:261
+#: WEIPDCRM/models/device_type.py:72 WEIPDCRM/models/os_version.py:67
+#: WEIPDCRM/models/release.py:152 WEIPDCRM/models/section.py:82
+#: WEIPDCRM/models/setting.py:409 WEIPDCRM/models/version.py:262
 msgid "Choose an Icon (*.png) to upload"
 msgstr ""
 
-#: WEIPDCRM/models/os_version.py:36
+#: WEIPDCRM/models/os_version.py:40
 msgid "iOS Version"
 msgstr ""
 
-#: WEIPDCRM/models/os_version.py:37
+#: WEIPDCRM/models/os_version.py:41
 msgid "iOS Versions"
 msgstr ""
 
-#: WEIPDCRM/models/os_version.py:49
+#: WEIPDCRM/models/os_version.py:53
 msgid "Example: 10.2"
 msgstr ""
 
-#: WEIPDCRM/models/os_version.py:54
+#: WEIPDCRM/models/os_version.py:58
 msgid "Example: 14C92/11A466"
 msgstr ""
 
@@ -425,53 +471,53 @@ msgstr ""
 msgid "Packages"
 msgstr ""
 
-#: WEIPDCRM/models/package.py:54 WEIPDCRM/models/section.py:61
-#: WEIPDCRM/models/version.py:620
+#: WEIPDCRM/models/package.py:54 WEIPDCRM/models/section.py:65
+#: WEIPDCRM/models/version.py:621
 msgid "Name"
 msgstr ""
 
-#: WEIPDCRM/models/package.py:70 WEIPDCRM/models/section.py:54
-#: WEIPDCRM/models/version.py:585
+#: WEIPDCRM/models/package.py:70 WEIPDCRM/models/section.py:58
+#: WEIPDCRM/models/version.py:586
 msgid "Section"
 msgstr ""
 
-#: WEIPDCRM/models/package.py:73 WEIPDCRM/models/version.py:259
+#: WEIPDCRM/models/package.py:73 WEIPDCRM/models/version.py:260
 msgid "Online Icon"
 msgstr ""
 
-#: WEIPDCRM/models/package.py:78 WEIPDCRM/models/release.py:126
-#: WEIPDCRM/models/version.py:564
+#: WEIPDCRM/models/package.py:78 WEIPDCRM/models/release.py:130
+#: WEIPDCRM/models/version.py:565
 msgid "Description"
 msgstr ""
 
-#: WEIPDCRM/models/package.py:83 WEIPDCRM/models/version.py:317
+#: WEIPDCRM/models/package.py:83 WEIPDCRM/models/version.py:318
 msgid "Download Times"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:41
+#: WEIPDCRM/models/release.py:45
 msgid "Release"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:42
+#: WEIPDCRM/models/release.py:46
 msgid "Releases"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:52 WEIPDCRM/models/version.py:849
+#: WEIPDCRM/models/release.py:56 WEIPDCRM/models/version.py:850
 msgid "Origin"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:54
+#: WEIPDCRM/models/release.py:58
 msgid ""
 "This is used by Cydia as the name of the repository as shown in the source "
 "editor (and elsewhere). This should be a longer, but not insanely long, "
 "description of the repository."
 msgstr ""
 
-#: WEIPDCRM/models/release.py:61
+#: WEIPDCRM/models/release.py:65
 msgid "Label"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:63
+#: WEIPDCRM/models/release.py:67
 msgid ""
 "On the package list screens, Cydia shows what repository and section "
 "packages came from. This location doesn't have much room, though, so this "
@@ -479,35 +525,35 @@ msgid ""
 "that can be used as a tag."
 msgstr ""
 
-#: WEIPDCRM/models/release.py:71
+#: WEIPDCRM/models/release.py:75
 msgid "Suite"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:73
+#: WEIPDCRM/models/release.py:77
 msgid ""
 "Just set this to \"stable\". This field might not be required, but who "
 "really knows? I, for certain, do not."
 msgstr ""
 
-#: WEIPDCRM/models/release.py:75
+#: WEIPDCRM/models/release.py:79
 msgid "stable"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:85
+#: WEIPDCRM/models/release.py:89
 msgid ""
 "This is an arbitrary version number that nothing actually parses. I am going "
 "to look into seeing how required it is."
 msgstr ""
 
-#: WEIPDCRM/models/release.py:87
+#: WEIPDCRM/models/release.py:91
 msgid "0.0.1-1"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:91
+#: WEIPDCRM/models/release.py:95
 msgid "Codename"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:95
+#: WEIPDCRM/models/release.py:99
 msgid ""
 "In an \"automatic\" repository you might store multiple distributions of "
 "software for different target systems. For example: apt.saurik.com's main "
@@ -516,11 +562,11 @@ msgid ""
 "looking for."
 msgstr ""
 
-#: WEIPDCRM/models/release.py:103
+#: WEIPDCRM/models/release.py:107
 msgid "Architectures"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:105
+#: WEIPDCRM/models/release.py:109
 msgid ""
 "To verify a repository is for the specific device you are working with APT "
 "looks in the release file for this list. You must specify all of the "
@@ -528,25 +574,25 @@ msgid ""
 "arm for 1.1.x and iphoneos-arm for 2.x."
 msgstr ""
 
-#: WEIPDCRM/models/release.py:109
+#: WEIPDCRM/models/release.py:113
 msgid "iphoneos-arm"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:114
+#: WEIPDCRM/models/release.py:118
 msgid "Components"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:116
+#: WEIPDCRM/models/release.py:120
 msgid ""
 "Just set this to \"main\". This field might not be required, but who really "
 "knows? I, for certain, do not."
 msgstr ""
 
-#: WEIPDCRM/models/release.py:118
+#: WEIPDCRM/models/release.py:122
 msgid "main"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:128
+#: WEIPDCRM/models/release.py:132
 msgid ""
 "On the package source screen a short description is listed of the "
 "repository. This description may eventually work similarly to that of a "
@@ -554,43 +600,43 @@ msgid ""
 "right now only the shorter description is displayed directly on the list."
 msgstr ""
 
-#: WEIPDCRM/models/release.py:135
+#: WEIPDCRM/models/release.py:139
 msgid "Keywords"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:137
+#: WEIPDCRM/models/release.py:141
 msgid "Separated by commas."
 msgstr ""
 
-#: WEIPDCRM/models/release.py:145
+#: WEIPDCRM/models/release.py:149
 msgid "Repository Icon"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:154
+#: WEIPDCRM/models/release.py:158
 msgid "Support"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:156
+#: WEIPDCRM/models/release.py:160
 msgid "Official site to provide support."
 msgstr ""
 
-#: WEIPDCRM/models/release.py:162
+#: WEIPDCRM/models/release.py:166
 msgid "E-mail"
 msgstr ""
 
-#: WEIPDCRM/models/release.py:164
+#: WEIPDCRM/models/release.py:168
 msgid "Maintainer's E-mail to provide support."
 msgstr ""
 
-#: WEIPDCRM/models/section.py:39
+#: WEIPDCRM/models/section.py:43
 msgid "Section name should not contain any underscore."
 msgstr ""
 
-#: WEIPDCRM/models/section.py:55
+#: WEIPDCRM/models/section.py:59
 msgid "Sections"
 msgstr ""
 
-#: WEIPDCRM/models/section.py:63
+#: WEIPDCRM/models/section.py:67
 msgid ""
 "This is a general field that gives the package a category based on the "
 "software that it installs. You will not be able to edit its name after "
@@ -686,7 +732,7 @@ msgstr ""
 msgid "No validation"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:135 WEIPDCRM/models/version.py:292
+#: WEIPDCRM/models/setting.py:135 WEIPDCRM/models/version.py:293
 msgid "MD5Sum"
 msgstr ""
 
@@ -771,42 +817,46 @@ msgid ""
 msgstr ""
 
 #: WEIPDCRM/models/setting.py:203
-msgid "Web Server"
-msgstr ""
-
-#: WEIPDCRM/models/setting.py:205
-msgid "Nginx"
-msgstr ""
-
-#: WEIPDCRM/models/setting.py:206
-msgid "Apache"
-msgstr ""
-
-#: WEIPDCRM/models/setting.py:207
-msgid "Tomcat"
+msgid "GPG Password"
 msgstr ""
 
 #: WEIPDCRM/models/setting.py:210
+msgid "Web Server"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:212
+msgid "Nginx"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:213
+msgid "Apache"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:214
+msgid "Tomcat"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:217
 msgid "This will help DCRM redirect download request properly."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:216
+#: WEIPDCRM/models/setting.py:223
 msgid "Redirect Methods"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:218
+#: WEIPDCRM/models/setting.py:225
 msgid "None"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:219
+#: WEIPDCRM/models/setting.py:226
 msgid "Moved"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:220
+#: WEIPDCRM/models/setting.py:227
 msgid "Accel"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:222
+#: WEIPDCRM/models/setting.py:229
 msgid ""
 "None - Read resources and return, without partical support, not recommended."
 "<br />Moved - Return 301/302 responses and redirect to the real resource "
@@ -814,298 +864,298 @@ msgid ""
 "changing urls."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:231
+#: WEIPDCRM/models/setting.py:238
 msgid "Redirect Prefix"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:235
+#: WEIPDCRM/models/setting.py:242
 msgid ""
 "Changing scheme and host of the url in package downloading requests, which "
 "is useful for load balancing or CDN speedup.<br />Example: https://"
 "cdn.82flex.com/"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:244
+#: WEIPDCRM/models/setting.py:251
 msgid "Download Count"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:245
+#: WEIPDCRM/models/setting.py:252
 msgid ""
 "Count every download. You should configure Nginx or other Web servers before "
 "you enable this feature."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:254
+#: WEIPDCRM/models/setting.py:261
 msgid "Cydia Only"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:255
+#: WEIPDCRM/models/setting.py:262
 msgid ""
 "Protect downloading from any other tools except Cydia. You should configure "
 "Nginx or other Web servers before you enable this feature."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:264
+#: WEIPDCRM/models/setting.py:271
 #: WEIPDCRM/templates/admin/version/change_form.html:18
 msgid "Comments"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:265
+#: WEIPDCRM/models/setting.py:272
 msgid "Enable comments module"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:269
+#: WEIPDCRM/models/setting.py:276
 msgid "Social Module"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:270
+#: WEIPDCRM/models/setting.py:277
 msgid "Enable social module"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:274
+#: WEIPDCRM/models/setting.py:281
 msgid "QQ Group Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:280
+#: WEIPDCRM/models/setting.py:287
 msgid "QQ Group URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:281
+#: WEIPDCRM/models/setting.py:288
 msgid "Display QQ group link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:290
+#: WEIPDCRM/models/setting.py:297
 msgid "Weibo Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:296
+#: WEIPDCRM/models/setting.py:303
 msgid "Weibo URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:297
+#: WEIPDCRM/models/setting.py:304
 msgid "Display Weibo link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:306
+#: WEIPDCRM/models/setting.py:313
 msgid "Alipay URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:307
+#: WEIPDCRM/models/setting.py:314
 msgid "Display \"Donate via Alipay\" link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:316
+#: WEIPDCRM/models/setting.py:323
 msgid "Twitter Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:322
+#: WEIPDCRM/models/setting.py:329
 msgid "Twitter URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:323
+#: WEIPDCRM/models/setting.py:330
 msgid "Display Twitter link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:332
+#: WEIPDCRM/models/setting.py:339
 msgid "Facebook Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:338
+#: WEIPDCRM/models/setting.py:345
 msgid "Telegram Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:344
+#: WEIPDCRM/models/setting.py:351
 msgid "Telegram URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:345
+#: WEIPDCRM/models/setting.py:352
 msgid "Display Telegram link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:354
+#: WEIPDCRM/models/setting.py:361
 msgid "Facebook URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:355
+#: WEIPDCRM/models/setting.py:362
 msgid "Display Facebook link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:364
+#: WEIPDCRM/models/setting.py:371
 msgid "Paypal URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:365
+#: WEIPDCRM/models/setting.py:372
 msgid "Display \"Donate via Paypal\" link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:374
+#: WEIPDCRM/models/setting.py:381
 msgid "Starting Year of Copyright"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:375
+#: WEIPDCRM/models/setting.py:382
 msgid "Leave blank to display current year."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:380
+#: WEIPDCRM/models/setting.py:387
 msgid "Copyright Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:381
+#: WEIPDCRM/models/setting.py:388
 msgid ""
 "Corpyright name is displayed on the footer, leave a blank will display the "
 "source name."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:387
+#: WEIPDCRM/models/setting.py:394
 msgid "ICP Number"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:388
+#: WEIPDCRM/models/setting.py:395
 msgid "The ICP Number displayed on the footer."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:394
+#: WEIPDCRM/models/setting.py:401
 msgid "Version History"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:395
+#: WEIPDCRM/models/setting.py:402
 msgid "Enable version history module"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:399
+#: WEIPDCRM/models/setting.py:406
 msgid "Favicon"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:407
+#: WEIPDCRM/models/setting.py:414
 msgid "Notice"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:411 WEIPDCRM/models/setting.py:418
+#: WEIPDCRM/models/setting.py:418 WEIPDCRM/models/setting.py:425
 msgid ""
 "HTML Displayed on the frontend widget and the auto depiction page (mobile)."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:414
+#: WEIPDCRM/models/setting.py:421
 msgid "Advertisement"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:421
+#: WEIPDCRM/models/setting.py:428
 msgid "External Statistics"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:425
+#: WEIPDCRM/models/setting.py:432
 msgid "Invisible statistic code."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:428
+#: WEIPDCRM/models/setting.py:435
 msgid "Internal Statistics"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:432
+#: WEIPDCRM/models/setting.py:439
 msgid "Statistics code of view information at statistics page."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:88
+#: WEIPDCRM/models/version.py:89
 msgid ""
 "We recommend using a reverse-domain name style string (i.e., com.domainname."
 "appname)."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:100
+#: WEIPDCRM/models/version.py:101
 msgid "Invalid version number."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:111
+#: WEIPDCRM/models/version.py:112
 msgid "Name cannot contain < or >."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:124
+#: WEIPDCRM/models/version.py:125
 #, python-format
 msgid "Cannot parse package relationship \"%s\""
 msgstr ""
 
-#: WEIPDCRM/models/version.py:130
+#: WEIPDCRM/models/version.py:131
 msgid "Enter a valid url of the bug tracking system."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:152
+#: WEIPDCRM/models/version.py:153
 msgid "Versions"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:233
+#: WEIPDCRM/models/version.py:234
 msgid "OS Compatibility"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:238
+#: WEIPDCRM/models/version.py:239
 msgid "Device Compatibility"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:244
+#: WEIPDCRM/models/version.py:245
 msgid "Update Logs"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:285
+#: WEIPDCRM/models/version.py:286
 msgid "If there is no \"Online Icon\", this field will be taken."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:297
+#: WEIPDCRM/models/version.py:298
 msgid "SHA1"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:302
+#: WEIPDCRM/models/version.py:303
 msgid "SHA256"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:307
+#: WEIPDCRM/models/version.py:308
 msgid "SHA512"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:312
+#: WEIPDCRM/models/version.py:313
 msgid "Size"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:314
+#: WEIPDCRM/models/version.py:315
 msgid "The exact size of the package, in bytes."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:321
+#: WEIPDCRM/models/version.py:322
 msgid "Installed-Size"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:325
+#: WEIPDCRM/models/version.py:326
 msgid ""
 "The approximate total size of the package's installed files, in KiB units."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:522
+#: WEIPDCRM/models/version.py:523
 msgid ""
 "This is the \"identifier\" of the package. This should be, entirely in lower "
 "case, a reversed hostname (much like a \"bundleIdentifier\" in Apple's Info."
 "plist files)."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:533
+#: WEIPDCRM/models/version.py:534
 msgid ""
 "A package's version indicates two separate values: the version of the "
 "software in the package, and the version of the package itself. These "
 "version numbers are separated by a hyphen."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:536
+#: WEIPDCRM/models/version.py:537
 msgid "1.0-1"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:549
+#: WEIPDCRM/models/version.py:550
 msgid ""
 "It is typically the person who created the package, as opposed to the author "
 "of the software that was packaged."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:557
+#: WEIPDCRM/models/version.py:558
 msgid "Maintainer Email"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:568
+#: WEIPDCRM/models/version.py:569
 msgid ""
 "The first line (after the colon) should contain a short description to be "
 "displayed on the package lists underneath the name of the package. "
@@ -1113,36 +1163,36 @@ msgid ""
 "long one that will be displayed on the package details screen."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:575
+#: WEIPDCRM/models/version.py:576
 msgid "Rich Description"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:579
+#: WEIPDCRM/models/version.py:580
 msgid "HTML Displayed on the auto depiction page (mobile)."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:589
+#: WEIPDCRM/models/version.py:590
 msgid ""
 "Under the \"Install\" tab in Cydia, packages are listed by \"Section\". If "
 "you would like to encode a space into your section name, use an underscore "
 "(Cydia will automatically convert these)."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:595
+#: WEIPDCRM/models/version.py:596
 msgid "Tag"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:598
+#: WEIPDCRM/models/version.py:599
 msgid ""
 "List of tags describing the qualities of the package. The description and "
 "list of supported tags can be found in the debtags package."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:604
+#: WEIPDCRM/models/version.py:605
 msgid "Architecture"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:608
+#: WEIPDCRM/models/version.py:609
 msgid ""
 "This describes what system a package is designed for, as .deb files are used "
 "on everything from the iPhone to your desktop computer. The correct value "
@@ -1150,7 +1200,7 @@ msgid ""
 "1.2/2.x you should use \"iphoneos-arm\"."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:624
+#: WEIPDCRM/models/version.py:625
 msgid ""
 "When the package is shown in Cydia's lists, it is convenient to have a "
 "prettier name. This field allows you to override this display with an "
@@ -1158,22 +1208,22 @@ msgid ""
 "is fixed for the lifetime of the package."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:629
+#: WEIPDCRM/models/version.py:630
 msgid "Untitled Package"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:636
+#: WEIPDCRM/models/version.py:637
 msgid ""
 "In contrast, the person who wrote the original software is called the "
 "\"author\". This name will be shown underneath the name of the package on "
 "the details screen. The field is in the same format as \"Maintainer\"."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:646
+#: WEIPDCRM/models/version.py:647
 msgid "Author Email"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:657
+#: WEIPDCRM/models/version.py:658
 msgid ""
 "Finally, there might be someone who is simply providing the influence or the "
 "cash to make the package happen. This person should be listed here in the "
@@ -1181,53 +1231,53 @@ msgid ""
 "address."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:667
+#: WEIPDCRM/models/version.py:668
 msgid "Sponsor Site"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:674
+#: WEIPDCRM/models/version.py:675
 msgid "Depiction"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:677
+#: WEIPDCRM/models/version.py:678
 msgid ""
 "This is a URL that is loaded into an iframe, replacing the Description: and "
 "Homepage: ."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:681
+#: WEIPDCRM/models/version.py:682
 msgid "Custom Depiction"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:682
+#: WEIPDCRM/models/version.py:683
 msgid "Exclude this version from Auto Depiction feature."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:686
+#: WEIPDCRM/models/version.py:687
 msgid "Homepage"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:690
+#: WEIPDCRM/models/version.py:691
 msgid ""
 "Cydia supports a \"More Info\" field on the details screen that shunts users "
 "off to a website of the packager's choice."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:696
+#: WEIPDCRM/models/version.py:697
 msgid "Priority"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:708
+#: WEIPDCRM/models/version.py:709
 msgid ""
 "Sets the importance of this package in relation to the system as a whole.  "
 "Common priorities are required, standard, optional, extra, etc."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:713
+#: WEIPDCRM/models/version.py:714
 msgid "Essential"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:723
+#: WEIPDCRM/models/version.py:724
 msgid ""
 "This field is usually only needed when the answer is yes. It denotes a "
 "package that is required for proper operation of the system. Dpkg or any "
@@ -1235,11 +1285,11 @@ msgid ""
 "(at least not without using one of the force options)."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:730
+#: WEIPDCRM/models/version.py:731
 msgid "Depends"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:733
+#: WEIPDCRM/models/version.py:734
 msgid ""
 "List of packages that are required for this package to provide a non-trivial "
 "amount of functionality. The package maintenance software will not allow a "
@@ -1251,44 +1301,44 @@ msgid ""
 "listed in its Depends field."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:749
+#: WEIPDCRM/models/version.py:750
 msgid "Pre-Depends"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:752
+#: WEIPDCRM/models/version.py:753
 msgid ""
 "List of packages that must be installed and configured before this one can "
 "be installed. This is usually used in the case where this package requires "
 "another package for running its preinst script."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:762
+#: WEIPDCRM/models/version.py:763
 msgid "Recommends"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:765
+#: WEIPDCRM/models/version.py:766
 msgid ""
 "Lists packages that would be found together with this one in all but unusual "
 "installations. The package maintenance software will warn the user if they "
 "install a package without those listed in its Recommends field."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:775
+#: WEIPDCRM/models/version.py:776
 msgid "Suggests"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:778
+#: WEIPDCRM/models/version.py:779
 msgid ""
 "Lists packages that are related to this one and can perhaps enhance its "
 "usefulness, but without which installing this package is perfectly "
 "reasonable."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:787
+#: WEIPDCRM/models/version.py:788
 msgid "Breaks"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:790
+#: WEIPDCRM/models/version.py:791
 msgid ""
 "Lists packages that this one breaks, for example by exposing bugs when the "
 "named packages rely on this one. The package maintenance software will not "
@@ -1296,11 +1346,11 @@ msgid ""
 "upgrade the packages named in a Breaks field."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:801
+#: WEIPDCRM/models/version.py:802
 msgid "Conflicts"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:804
+#: WEIPDCRM/models/version.py:805
 msgid ""
 "Lists packages that conflict with this one, for example by containing files "
 "with the same names. The package maintenance software will not allow "
@@ -1308,11 +1358,11 @@ msgid ""
 "packages should each include a Conflicts line mentioning the other."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:815
+#: WEIPDCRM/models/version.py:816
 msgid "Replaces"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:818
+#: WEIPDCRM/models/version.py:819
 msgid ""
 "List of packages files from which this one replaces. This is used for "
 "allowing this package to overwrite the files of another package and is "
@@ -1320,11 +1370,11 @@ msgid ""
 "if this one also has the same files as the conflicted package."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:829
+#: WEIPDCRM/models/version.py:830
 msgid "Provides"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:832
+#: WEIPDCRM/models/version.py:833
 msgid ""
 "This is a list of virtual packages that this one provides. Usually this is "
 "used in the case of several packages all providing the same service. For "
@@ -1336,15 +1386,15 @@ msgid ""
 "to separate the list."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:853
+#: WEIPDCRM/models/version.py:854
 msgid "The name of the distribution this package is originating from."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:857
+#: WEIPDCRM/models/version.py:858
 msgid "Source"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:861
+#: WEIPDCRM/models/version.py:862
 msgid ""
 "The name of the source package that this binary package came from, if it is "
 "different than the name of the package itself. If the source version differs "
@@ -1352,32 +1402,32 @@ msgid ""
 "version in parenthesis."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:869
+#: WEIPDCRM/models/version.py:870
 msgid "Build-Essential"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:879
+#: WEIPDCRM/models/version.py:880
 msgid ""
 "This field is usually only needed when the answer is yes, and is commonly "
 "injected by the archive software.  It denotes a package that is required "
 "when building other packages."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:884
+#: WEIPDCRM/models/version.py:885
 msgid "Bugs"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:888
+#: WEIPDCRM/models/version.py:889
 msgid ""
 "The url of the bug tracking system for this package. The current used format "
 "is bts-type://bts-address, like debbugs://bugs.debian.org."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:897
+#: WEIPDCRM/models/version.py:898
 msgid "Multi-Arch"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:907
+#: WEIPDCRM/models/version.py:908
 msgid ""
 "This field is used to indicate how this package should behave on a multi-"
 "arch installations.<br /><ul><li>no - This value is the default when the "
@@ -1393,30 +1443,30 @@ msgid ""
 "qualifying the package name with :any, but has no effect otherwise.</li></ul>"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:929
+#: WEIPDCRM/models/version.py:930
 msgid "Subarchitecture"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:939
+#: WEIPDCRM/models/version.py:940
 msgid "Kernel-Version"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:949
+#: WEIPDCRM/models/version.py:950
 msgid "Installer-Menu-Item"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:952
+#: WEIPDCRM/models/version.py:953
 msgid ""
 "These fields are used by the debian-installer and are usually not needed. "
 "See /usr/share/doc/debian-installer/devel/modules.txt from the debian-"
 "installer package for more details about them."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:959
+#: WEIPDCRM/models/version.py:960
 msgid "Built-Using"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:962
+#: WEIPDCRM/models/version.py:963
 msgid ""
 "This field lists extra source packages that were used during the build of "
 "this binary package.  This is an indication to the archive maintenance "
@@ -1427,21 +1477,21 @@ msgid ""
 "Using relationship which cannot be satisfied within the archive."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:977
+#: WEIPDCRM/models/version.py:978
 msgid "Built-For-Profiles"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:980
+#: WEIPDCRM/models/version.py:981
 msgid ""
 "This field specifies a whitespace separated list of build profiles that this "
 "binary packages was built with."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:988
+#: WEIPDCRM/models/version.py:989
 msgid "Gallery"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:992
+#: WEIPDCRM/models/version.py:993
 msgid "You can manage screenshots in Photologue."
 msgstr ""
 
