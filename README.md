@@ -250,7 +250,7 @@ server {
         # Cydia meta resources, including Release, Release.gpg, Packages and CydiaIcon
         
         # Note:
-        # 'releases/{SITE_ID}/$1' should match `SITE_ID` in your DCRM/settings.py.
+        # 'releases/(\d)+/$1' should contain `active_release.id`, which is set in Settings tab.
         alias /wwwdata/DCRM/resources/releases/1/$1;  # make an alias for Cydia meta resources
     }
     
