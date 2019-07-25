@@ -55,43 +55,96 @@ class SettingAdmin(PreferencesAdmin):
 
     def redis_(self, instance):
         if settings.ENABLE_REDIS:
-            return _("Enabled (in DCRM/settings.py)")
+            return mark_safe(
+                _("<a href=\"%(href)s\" target=\"_blank\">%(name)s</a>")
+                % ({
+                    "href": reverse("rq_home"),
+                    "name": _("Enabled")
+                })
+            )
         else:
-            return _("Disabled (in DCRM/settings.py)")
+            return _("Disabled")
     redis_.short_description = _("Redis Status")
 
     def memcached_(self, instance):
         if settings.ENABLE_CACHE:
-            return _("Enabled (in DCRM/settings.py)")
+            return _("Enabled")
         else:
-            return _("Disabled (in DCRM/settings.py)")
+            return _("Disabled")
     memcached_.short_description = _("Memcached Status")
+
+    def memcached_interval_(self, instance):
+        return settings.CACHE_TIME
+    memcached_interval_.short_description = _("Memcached Interval")
 
     def api_(self, instance):
         if settings.ENABLE_API:
-            return _("Enabled (in DCRM/settings.py)")
+            return mark_safe(
+                _("<a href=\"%(href)s\" target=\"_blank\">%(name)s</a>")
+                % ({
+                    "href": reverse("api-root"),
+                    "name": _("Enabled")
+                })
+            )
         else:
-            return _("Disabled (in DCRM/settings.py)")
+            return _("Disabled")
     api_.short_description = _("API Status")
+
+    def theme_(self, instance):
+        return settings.THEME
+    theme_.short_description = _("Theme")
+
+    def secure_ssl_(self, instance):
+        if settings.SECURE_SSL:
+            return _("Enabled")
+        else:
+            return _("Disabled")
+    secure_ssl_.short_description = _("Secure SSL")
+
+    def debug_(self, instance):
+        if settings.DEBUG:
+            return _("Enabled")
+        else:
+            return _("Disabled")
+    debug_.short_description = _("Debug")
+
+    def static_url_(self, instance):
+        return settings.STATIC_URL
+    static_url_.short_description = _("Static URL")
+
+    def resources_url_(self, instance):
+        return settings.MEDIA_URL
+    resources_url_.short_description = _("Resources URL")
 
     form = SettingForm
     readonly_fields = [
+        'debug_',
         'site_',
+        'secure_ssl_',
         'redis_',
         'memcached_',
-        'api_'
+        'api_',
+        'memcached_interval_',
+        'theme_',
+        'static_url_',
+        'resources_url_',
     ]
     fieldsets = [
         (_('General'), {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['site_', 'active_release']
+            'fields': ['debug_', 'secure_ssl_', 'site_', 'active_release']
         }),
         (_('Packages List'), {
             'classes': ('suit-tab suit-tab-common',),
-            'fields': ['enable_pdiffs', 'gpg_signature', 'packages_compression',
+            'fields': ['enable_pdiffs', 'packages_compression',
                        'packages_validation', 'downgrade_support']
         }),
         # Frontend
+        (_('Theme'), {
+            'classes': ('suit-tab suit-tab-frontend',),
+            'fields': ['theme_'],
+            'description': '<div class="help">DCRM/settings.py</div>'
+        }),
         (_('Display'), {
             'classes': ('suit-tab suit-tab-frontend',),
             'fields': ['advanced_mode', 'version_history', 'enable_comments', 'favicon',
@@ -103,7 +156,7 @@ class SettingAdmin(PreferencesAdmin):
                        'weibo_name', 'weibo_url',  'telegram_name', 'telegram_url', 'alipay_url',
                        'twitter_name', 'twitter_url', 'facebook_name', 'facebook_url', 'paypal_url']
         }),
-        (_('Statistics'),{
+        (_('Statistics'), {
             'classes': ('suit-tab suit-tab-frontend',),
             'fields': ['external_statistics', 'internal_statistics']
         }),
@@ -112,35 +165,49 @@ class SettingAdmin(PreferencesAdmin):
             'fields': ['copyright_name', 'copyright_year',
                        'footer_icp']
         }),
+        # Security
+        (_('Security'), {
+            'classes': ('suit-tab suit-tab-security',),
+            'fields': ['gpg_signature', 'gpg_password']
+        }),
         # Advanced
+        (_('API'), {
+            'classes': ('suit-tab suit-tab-advanced',),
+            'fields': ['api_'],
+            'description': '<div class="help">DCRM/settings.py</div>'
+        }),
+        (_('Cache'), {
+            'classes': ('suit-tab suit-tab-advanced',),
+            'fields': ['memcached_', 'memcached_interval_'],
+            'description': '<div class="help">DCRM/settings.py</div>'
+        }),
+        (_('Queue'), {
+            'classes': ('suit-tab suit-tab-advanced',),
+            'fields': ['redis_'],
+            'description': '<div class="help">DCRM/settings.py</div>'
+        }),
+        (_('Static'), {
+            'classes': ('suit-tab suit-tab-advanced',),
+            'fields': ['static_url_'],
+            'description': '<div class="help">DCRM/settings.py</div>'
+        }),
         (_('Resource'), {
             'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['atomic_storage', 'resources_alias']
+            'fields': ['atomic_storage', 'resources_url_', 'resources_alias']
         }),
         (_('Server'), {
             'classes': ('suit-tab suit-tab-advanced',),
             'fields': ['web_server', 'redirect_resources', 'redirect_prefix',
                        'download_count', 'download_cydia_only']
         }),
-        (_('Queue'), {
-            'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['redis_']
-        }),
-        (_('Cache'), {
-            'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['memcached_']
-        }),
-        (_('API'), {
-            'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['api_']
-        }),
         # Third Party
     ]
 
     suit_form_tabs = (
         ('common', _('Common')),
-        ('advanced', _('Advanced')),
         ('frontend', _('Frontend')),
+        ('advanced', _('Advanced')),
+        ('security', _('Security')),
         ('third-party', _('Third-Party')),
     )
 

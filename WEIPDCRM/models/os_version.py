@@ -20,9 +20,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import unicode_literals
 
+import os
+
+from django.conf import settings
 from django.db import models
 from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
+from django.dispatch import receiver
 from django.utils.translation import ugettext as _
 from django.core.validators import validate_slug
 
@@ -79,4 +83,13 @@ class OSVersion(models.Model):
             args=(self.id,)
         )
 
-    # TODO: post delete should remove icon file
+
+@receiver(models.signals.post_delete, sender=OSVersion)
+def auto_delete_file_on_delete(sender, instance, **kwargs):
+    """
+    :type instance: OSVersion
+    """
+    if instance.icon.name is not None:
+        actual_path = os.path.join(settings.MEDIA_ROOT, instance.icon.name[1:])
+        if os.path.isfile(actual_path):
+            os.unlink(actual_path)

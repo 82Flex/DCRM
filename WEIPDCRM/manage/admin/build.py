@@ -74,8 +74,8 @@ def build_procedure(conf):
             version_set = Version.objects.raw(
                 "SELECT * FROM `WEIPDCRM_version` "
                 "WHERE `enabled` = TRUE "
-                "GROUP BY `c_package` DESC "
-                "ORDER BY `id` DESC"
+                "GROUP BY `c_package` "
+                "ORDER BY `c_package`, `id` DESC"
             )
             version_count = 0
             for version in version_set:
@@ -100,7 +100,7 @@ def build_procedure(conf):
             scheme = "http"
             if settings.SECURE_SSL is True:
                 scheme = "https"
-            depiction_url = scheme + "://" + site.domain
+            depiction_url = "%s://%s" % (scheme, site.domain)
         for version_instance in version_set:
             # !!! HERE WE SHOULD USE ADVANCED CONTROL DICT !!!
             control_dict = version_instance.get_advanced_control_dict()
@@ -192,13 +192,21 @@ def build_procedure(conf):
             """
             Use 'gpg --gen-key' to generate GnuPG key before using this function.
             """
-            subprocess.check_call(
-                ["gpg", "-abs", "--batch", "--yes", "-o",
-                 os.path.join(build_temp_path, "Release.gpg"),
-                 os.path.join(build_temp_path, "Release"),
-                 ]
-            )
-        
+            password = preferences.Setting.gpg_password
+            if password is not None and len(password) > 0:
+                subprocess.check_call(
+                    ["gpg", "-abs", "--batch", "--yes", "--passphrase", password, "-o",
+                     os.path.join(build_temp_path, "Release.gpg"),
+                     os.path.join(build_temp_path, "Release"),
+                     ]
+                )
+            else:
+                subprocess.check_call(
+                    ["gpg", "-abs", "--batch", "--yes", "-o",
+                     os.path.join(build_temp_path, "Release.gpg"),
+                     os.path.join(build_temp_path, "Release"),
+                     ]
+                )
         # Preparing Directory
         release_root = os.path.join(
             settings.MEDIA_ROOT,

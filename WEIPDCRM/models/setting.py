@@ -199,6 +199,13 @@ class Setting(Preferences):
             validate_gpg
         ]
     )
+    gpg_password = models.CharField(
+        verbose_name=_("GPG Password"),
+        max_length=255,
+        blank=True,
+        null=False,
+        default=""
+    )
     web_server = models.IntegerField(
         verbose_name=_("Web Server"),
         choices=(

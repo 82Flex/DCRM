@@ -28,6 +28,7 @@ import hashlib
 
 from debian.debian_support import NativeVersion
 from debian.deb822 import PkgRelation
+from django.dispatch import receiver
 from django.urls import reverse
 from django.db import models
 from django.core import urlresolvers
@@ -996,4 +997,17 @@ class Version(models.Model):
     def get_absolute_url(self):
         return reverse('package_id', args=[self.id])
 
-    # TODO: post delete should remove online icon file
+
+@receiver(models.signals.post_delete, sender=Version)
+def auto_delete_file_on_delete(sender, instance, **kwargs):
+    """
+    :type instance: Version
+    """
+    if instance.online_icon.name is not None:
+        actual_path = os.path.join(settings.MEDIA_ROOT, instance.online_icon.name[1:])
+        if os.path.isfile(actual_path):
+            os.unlink(actual_path)
+    if instance.storage.name is not None:
+        actual_path = os.path.join(settings.MEDIA_ROOT, instance.storage.name[1:])
+        if os.path.isfile(actual_path):
+            os.unlink(actual_path)

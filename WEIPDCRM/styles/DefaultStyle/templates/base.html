@@ -61,11 +61,10 @@
         <div class="repo-card">
             <div class="avatar-panel">
                 <div class="repo_pic">
-                    <!-- TODO: Repo's Logo -->
                     {% if settings.active_release.icon_link %}
-                        <img src="{{ settings.active_release.icon_link }}"/>
+                        <img src="{{ settings.active_release.icon_link }}" alt="CydiaIcon"/>
                     {% else %}
-                        <!-- nothing here -->
+                        <img src="{% static 'img/CydiaIcon.png' %}" alt="CydiaIcon">
                     {% endif %}
                 </div>
                 <div class="repo_name">
@@ -101,10 +100,9 @@
                             <li>
                                 <div class="icon">
                                     {% if section.icon %}
-                                        <!-- TODO: Section Icon  -->
-                                        <img src="{{ section.icon_link }}"/>
+                                        <img src="{{ section.icon_link }}" alt="Section Icon" />
                                     {% else %}
-                                        <img src="{% static 'img/default-package-icon.png' %}"/>
+                                        <img src="{% static 'img/default-package-icon.png' %}" alt="Section Icon" />
                                     {% endif %}
                                     <span class="title"><a
                                             href="{% url "section_id" section.id %}">{{ section.name }}</a></span>
@@ -158,6 +156,9 @@
             </li>
             <li>
                 <span>·</span><a target="_blank" href="https://github.com/82Flex/DCRM">{% trans "Powered By DCRM" %}</a>
+            </li>
+            <li>
+                <span>/</span><a target="_blank" href="{% url "admin:index" %}">{% trans "Django Admin" %}</a>
             </li>
         </ul>
         <div class="clear"></div>
