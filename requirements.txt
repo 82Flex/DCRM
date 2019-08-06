@@ -1,7 +1,7 @@
 appdirs==1.4.3
 chardet==3.0.4
 click==7.0
-Django==1.11.22
+Django==1.11.23
 mysqlclient==1.4.2.post1
 olefile==0.46
 packaging==19.0
