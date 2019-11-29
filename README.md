@@ -33,9 +33,9 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 
 ## MANUALLY INSTALL 手动安装
 
-### CONFIGURATION EXAMPLE (UBUNTU) 示例配置
+### EXAMPLE 示例
 
-1. Install dependencies:
+1. install dependencies:
 安装依赖:
 
 ```shell
@@ -44,7 +44,7 @@ apt-get upgrade
 apt-get install git mysql-server libmysqlclient-dev python3-dev python3-pip libjpeg-dev tzdata
 ```
 
-2. Configure MySQL:
+2. configure MySQL:
 安装完成后, 登录到 MySQL:
 
 ```shell
@@ -53,14 +53,14 @@ mysql_secure_installation
 mysql -uroot -p
 ```
 
-3. Create a database for this DCRM instance:
+3. create a database for this DCRM instance:
 新建 DCRM 数据库:
 
 ```sql
 CREATE DATABASE `DCRM` DEFAULT CHARSET UTF8;
 ```
 
-4. Create user and grant privileges for it:
+4. create user and grant privileges:
 新建 dcrm 用户并设置密码:
 
 ```sql
@@ -69,7 +69,7 @@ GRANT ALL PRIVILEGES ON `DCRM`.* TO 'dcrm'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
-5. Clone this repo:
+5. clone this git repo:
 在合适的位置克隆 DCRM:
 
 ```shell
@@ -79,7 +79,7 @@ git clone --depth 1 https://github.com/82Flex/DCRM.git
 cd /wwwdata/DCRM
 ```
 
-6. Install python modules:
+6. install python modules:
 安装需要的 python 模块:
 
 ```shell
@@ -87,7 +87,7 @@ pip3 install -r requirements.txt
 mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
 ```
 
-7. If you want to enable Redis support:
+7. enable Redis support:
 如果你还需要开启 Redis 支持 (用于任务队列):
 
 ```shell
@@ -95,7 +95,7 @@ apt-get install redis-server
 service redis-server start
 ```
 
-8. If you want to enable Page Caching:
+8. enable Page Caching support:
 如果你还需要开启页面缓存, 你可能还需要自行启动 memcached 服务:
 
 ```shell
@@ -103,14 +103,7 @@ apt-get install memcached
 service memcached start
 ```
 
-9. Copy DCRM/settings.default.py to DCRM/settings.py and edit it:
-拷贝一份默认配置:
-
-```shell
-cp -p DCRM/settings.default.py DCRM/settings.py
-```
-
-10. Edit DCRM/settings.py:
+9. edit DCRM/settings.py:
 修改配置文件 DCRM/settings.py:
 
     1. set a random `SECRET_KEY`, which must be unique
@@ -122,14 +115,14 @@ cp -p DCRM/settings.default.py DCRM/settings.py
     7. set `DEBUG = True` for debugging, set `DEBUG = False` for production
     8. enable optional features: `ENABLE_REDIS`, `ENABLE_CACHE`, `ENABLE_API`
 
-11. Sync static files:
+10. collect static files:
 同步静态文件:
 
 ```shell
 python3 manage.py collectstatic
 ```
 
-12. Sync database structure and create new super user:
+11. migrate database and create new super user:
 同步数据库结构并创建超级用户:
 
 ```shell
@@ -137,7 +130,7 @@ python3 manage.py migrate
 python3 manage.py createsuperuser
 ```
 
-13. Launch debug server:
+12. run debug server:
 启动测试服务器:
 
 ```shell
@@ -145,17 +138,16 @@ python3 manage.py runserver
 ```
 
 
-#### PRODUCTION CONFIGURATION 生产环境配置示例
+#### IN PRODUCTION 生产环境示例
 
 生产环境的配置需要有一定的服务器运维经验, 如果你在生产环境的配置过程中遇到困难, 我们提供付费的疑难解答.
 
-By default, nginx uses `www-data` as its user and group.
+We assumed that nginx uses `www-data` as its user and group.
 假设 nginx 使用 `www-data` 用作其用户名和用户组名.
 
 
 ##### Configure UWSGI
 
-Create `uwsgi.ini` in DCRM directory:
 在 DCRM 目录下创建 `uwsgi.ini`:
 
 ```shell
@@ -183,19 +175,19 @@ safe-pidfile = /home/run/uwsgi-apt.pid
 
 ##### UWSGI Commands
 
-Test:
+test:
 
 ```shell
 uwsgi --ini uwsgi.ini
 ```
 
-Run:
+run:
 
 ```shell
 uwsgi --ini uwsgi.ini --daemonize=/dev/null
 ```
 
-Kill:
+kill:
 
 ```shell
 kill -INT `cat /home/run/uwsgi-apt.pid`
@@ -279,46 +271,46 @@ server {
 
 ##### NGINX Commands
 
-1. Install Nginx:
+1. install Nginx:
 
 ```shell
 apt-get install nginx
 ```
 
-2. Launch Nginx:
+2. launch Nginx:
 
 ```shell
 service nginx start
 ```
 
-3. Test configuration:
+3. test configuration:
 
 ```shell
 nginx -t
 ```
 
-4. Reload configuration:
+4. reload configuration:
 
 ```shell
 nginx -s reload
 ```
 
-5. Launch nginx if it is down:
+5. launch nginx if it is down:
 
 ```shell
 sudo /etc/init.d/nginx start
 ```
 
 
-#### LAUNCH WORKERS 启动工作进程
+##### Launch Workers
 
-Make sure to launch background queue with the same nginx working user (www/www-data).
+make sure to launch background queue with the same nginx working user (www/www-data).
 
 ```shell
 su www-data
 ```
 
-If you cannot switch to user `www-data`, remember to change its login prompt in `/etc/passwd`.
+if you cannot switch to user `www-data`, remember to change its login prompt in `/etc/passwd`.
 Launch some workers for DCRM background queue:
 
 ```shell
@@ -329,7 +321,7 @@ nohup ./manage.py rqworker default > /dev/null &
 worker 的数量以你的具体需求为准, 但是各队列中至少要有一个活跃 worker, 否则队列中的任务将一直保持挂起.
 
 
-#### CONFIGURE GnuPG
+##### Configure GnuPG
 
 ```shell
 apt-get install gnupg2
