@@ -8,17 +8,6 @@
 
 DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 
-禁止将 DCRM 用于**分发盗版软件包**。根据开源许可，任何对源码的更改均需要向实际用户提供修改后的源码（包括网络分发、在线服务）。
-
-请在使用 DCRM 前请务必仔细阅读并透彻理解开源许可与使用协议，您的任何使用行为将被视为对本项目开源许可和使用协议中全部内容的认可，否则您无权使用本项目。任何违反开源许可及使用协议的行为将被记入耻辱柱中并保留追究法律责任的权力。
-
-
-## TODOs
-
-- pdiffs
-- rqscheduler supports 定时任务支持
-
-
 
 ## ENVIRONMENT 环境
 
@@ -44,8 +33,8 @@ apt-get upgrade
 apt-get install git mysql-server libmysqlclient-dev python3-dev python3-pip libjpeg-dev tzdata
 ```
 
-2. configure MySQL:
-安装完成后, 登录到 MySQL:
+2. configure mysql:
+安装完成后, 登录到 mysql:
 
 ```shell
 service mysql start
@@ -80,14 +69,14 @@ cd /wwwdata/DCRM
 ```
 
 6. install python modules:
-安装需要的 python 模块:
+安装必要的 python 模块:
 
 ```shell
 pip3 install -r requirements.txt
 mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
 ```
 
-7. enable Redis support:
+7. enable redis support (task queue):
 如果你还需要开启 Redis 支持 (用于任务队列):
 
 ```shell
@@ -95,7 +84,7 @@ apt-get install redis-server
 service redis-server start
 ```
 
-8. enable Page Caching support:
+8. enable memcached support (page caching):
 如果你还需要开启页面缓存, 你可能还需要自行启动 memcached 服务:
 
 ```shell
@@ -103,8 +92,7 @@ apt-get install memcached
 service memcached start
 ```
 
-9. edit DCRM/settings.py:
-修改配置文件 DCRM/settings.py:
+9. edit `DCRM/settings.py`:
 
     1. set a random `SECRET_KEY`, which must be unique
     2. add your domain into `ALLOWED_HOSTS`
@@ -219,7 +207,7 @@ server {
     root /wwwdata/wwwroot;  # specify a web root, not the DCRM directory
     error_page 497 https://$host$uri?$args;
     server_name_in_redirect off;
-    index index.html index.htm;
+    index index.html;
     
     location = / {
         # only enable this section if you want to use DCRM as your home page
@@ -304,7 +292,7 @@ sudo /etc/init.d/nginx start
 
 ##### Launch Workers
 
-make sure to launch background queue with the same nginx working user (www/www-data).
+make sure to launch task queue with the same nginx working user (www/www-data).
 
 ```shell
 su www-data
@@ -344,13 +332,36 @@ gpg --allow-secret-key-import --import private.key
 
 Before you publish your repository, there are a few steps you should follow:
 
-1. `Sites` Set domains and site names. 在 Sites 中设置域名和站点名称.
+1. `Sites`
+
+Set domains and site names.
+在 Sites 中设置域名和站点名称
+
 2. `WEIPDCRM -> Settings`
-3. `WEIPDCRM -> Releases` Add a new release and set it as an active release. 添加新的 Release 并将其设置为活跃状态.
-4. `WEIPDCRM -> Sections` Add sections. 添加源分类 (可以生成分类图标包).
-5. `WEIPDCRM -> Versions -> Add Version` Upload your debian package. 上传你的 deb 包.
-6. `WEIPDCRM -> Versions` Enable package versions and assign them into sections. 记得启用你的 deb 包 (默认不启用), 并且将它们分配到源分类当中.
-7. `WEIPDCRM -> Builds` Build the repository to apply all the changes. 构建全源, 让所有更改生效 (第一次构建前, Cydia 中是无法添加该源的).
+3. `WEIPDCRM -> Releases`
+
+Add a new release and set it as an active release.
+添加新的 Release 并将其设置为活跃状态
+
+4. `WEIPDCRM -> Sections`
+
+Add sections.
+添加源分类 (可以生成分类图标包)
+
+5. `WEIPDCRM -> Versions -> Add Version`
+
+Upload your debian package.
+上传你的 deb 包
+
+6. `WEIPDCRM -> Versions`
+
+Enable package versions and assign them into sections.
+记得启用你的 deb 包 (默认不启用), 并且将它们分配到源分类当中
+
+7. `WEIPDCRM -> Builds`
+
+Build the repository to apply all the changes.
+构建全源, 让所有更改生效 (第一次构建前, Cydia 中是无法添加该源的)
 
 
 ## LICENSE 版权声明
