@@ -19,13 +19,7 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 - rqscheduler supports 定时任务支持
 
 
-## GUIDE 使用说明
-
-
-### DEMO SITE 示例站点
-
-- https://apt.uozi.org/
-
+## INSTALLATION GUIDE 使用说明
 
 ### ENVIRONMENT 环境
 
