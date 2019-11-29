@@ -29,15 +29,16 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 
 ### ENVIRONMENT 环境
 
-- Python 3
+- Python 3.7
+- gzip, bzip2, **xz (xz-devel)**
 - Django 1.11+
-- MySQL (MariaDB)
-- Redis (Optional)
-- memcached (Optional)
-- uwsgi, Nginx (Production)
+- MySQL (or MariaDB)
+- Redis (optional)
+- memcached (optional)
+- uwsgi, Nginx (production only)
 
 
-### CONFIGURATIONS 配置步骤
+### CONFIGURATION EXAMPLE (UBUNTU) 示例配置
 
 Install dependencies:
 安装依赖:
@@ -79,7 +80,7 @@ Clone this repo:
 ```shell
 mkdir -p /wwwdata
 cd /wwwdata
-git clone https://github.com/82Flex/DCRM.git
+git clone --depth 1 https://github.com/82Flex/DCRM.git
 cd /wwwdata/DCRM
 ```
 
@@ -341,7 +342,7 @@ gpg --allow-secret-key-import --import private.key
 
 ## LICENSE 版权声明
 
-Copyright © 2013-2019 Zheng Wu <i.82@me.com>
+Copyright © 2013-2020 Zheng Wu <i.82@me.com>
     
 The program is distributed under the terms of the GNU Affero General Public License.
 
@@ -350,3 +351,4 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
