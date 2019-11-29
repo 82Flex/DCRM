@@ -9,7 +9,85 @@
 DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES. 请勿使用 DCRM 分发盗版软件包.
 
 
-## ENVIRONMENT 环境
+## DOCKER DEPLOY 自动部署 (Docker)
+
+以下步骤能完整部署 DCRM 最新副本, 启用了任务队列及页面缓存支持, 你可以根据需要调整自己的配置. 关于 Docker 容器的启动/停止/重建等其它用法, 参见其官方网站.
+
+1. clone this git repo:
+克隆该仓库:
+
+```bash
+git clone --depth 1 git@github.com:82Flex/DCRM.git
+```
+
+2. build and launch DCRM via `docker-compose`
+构建并启动 DCRM 容器:
+
+```bash
+docker-compose up --build
+```
+
+3. if there is no error, you can access DCRM via `http://127.0.0.1:8080/`
+如果没有发生错误, 你可以尝试访问首页
+
+4. attach to `dcrm_app` container:
+先附加到容器中:
+
+```bash
+docker exec -i -t dcrm_app_1 /bin/bash
+```
+
+5. create superuser in container:
+在容器中创建后台超级管理员帐户:
+
+```bash
+python manage.py createsuperuser
+```
+
+6. access admin panel via `http://127.0.0.1:8080/admin/`
+创建完成后, 你现在可以访问 DCRM 后台了
+
+
+## PUBLISH REPOSITORY 发布软件源
+
+Before you publish your repository, there are a few steps you should follow:
+部署完成后, 你还需要一些步骤来发布你的软件源:
+
+1. `Sites`
+
+Set domains and site names.
+在 Sites 中设置域名和站点名称
+
+2. `WEIPDCRM -> Settings`
+3. `WEIPDCRM -> Releases`
+
+Add a new release and set it as an active release.
+添加新的 Release 并将其设置为活跃状态
+
+4. `WEIPDCRM -> Sections`
+
+Add sections.
+添加源分类 (可以生成分类图标包)
+
+5. `WEIPDCRM -> Versions -> Add Version`
+
+Upload your debian package.
+上传你的 deb 包
+
+6. `WEIPDCRM -> Versions`
+
+Enable package versions and assign them into sections.
+记得启用你的 deb 包 (默认不启用), 并且将它们分配到源分类当中
+
+7. `WEIPDCRM -> Builds`
+
+Build the repository to apply all the changes.
+构建全源, 让所有更改生效 (第一次构建前, Cydia 中是无法添加该源的)
+
+
+## MANUALLY DEPLOY 手动部署
+
+### ENVIRONMENT 环境
 
 - gzip, bzip2, **xz (xz-devel)**
 - Python 3.7 (*CentOS: if Python is compiled from source, make sure package `xz-devel` is installed*)
@@ -19,52 +97,6 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES. 请勿使用 DCRM 分发盗�
 - memcached (optional)
 - uwsgi, Nginx (production only)
 
-
-## DOCKER DEPLOY 自动部署
-
-1. clone this git repo:
-克隆该仓库:
-
-```bash
-git clone --depth 1 git@github.com:82Flex/DCRM.git
-```
-
-2. build DCRM via `docker-compose`
-构建 DCRM 容器:
-
-```bash
-docker-compose build
-```
-
-3. launch DCRM via `docker-compose`
-启动 DCRM 容器:
-
-```bash
-docker-compose up
-```
-
-4. if there is no error, you can access DCRM via `http://127.0.0.1:8080/`
-如果没有发生错误, 你可以尝试访问首页
-
-5. attach to `dcrm_app` container:
-先附加到容器中:
-
-```bash
-docker exec -i -t dcrm_app_1 /bin/bash
-```
-
-6. create superuser in container:
-在容器中创建后台超级管理员帐户:
-
-```bash
-python manage.py createsuperuser
-```
-
-7. access admin panel via `http://127.0.0.1:8080/admin/`
-创建完成后, 你现在可以访问 DCRM 后台了
-
-
-## MANUALLY DEPLOY 手动部署
 
 ### EXAMPLE 示例
 
@@ -372,43 +404,6 @@ gpg --gen-key
 # or
 gpg --allow-secret-key-import --import private.key
 ```
-
-
-## PUBLISH A REPOSITORY 发布软件源
-
-Before you publish your repository, there are a few steps you should follow:
-部署完成后, 你还需要一些步骤来发布你的软件源:
-
-1. `Sites`
-
-Set domains and site names.
-在 Sites 中设置域名和站点名称
-
-2. `WEIPDCRM -> Settings`
-3. `WEIPDCRM -> Releases`
-
-Add a new release and set it as an active release.
-添加新的 Release 并将其设置为活跃状态
-
-4. `WEIPDCRM -> Sections`
-
-Add sections.
-添加源分类 (可以生成分类图标包)
-
-5. `WEIPDCRM -> Versions -> Add Version`
-
-Upload your debian package.
-上传你的 deb 包
-
-6. `WEIPDCRM -> Versions`
-
-Enable package versions and assign them into sections.
-记得启用你的 deb 包 (默认不启用), 并且将它们分配到源分类当中
-
-7. `WEIPDCRM -> Builds`
-
-Build the repository to apply all the changes.
-构建全源, 让所有更改生效 (第一次构建前, Cydia 中是无法添加该源的)
 
 
 ## LICENSE 版权声明
