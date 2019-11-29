@@ -4,6 +4,7 @@
 /temp/
 
 # site resources
+/WEIPDCRM/static/
 /resources/
 /wwwroot/
 
@@ -29,4 +30,6 @@
 
 # python virtual environment
 /venv/
+/envpy3.7/
+
 
