@@ -9,7 +9,9 @@ services:
       - app_static:/usr/share/nginx/html/static
       - app_resources:/usr/share/nginx/html/resources
     ports:
-      - "8080:80"  # use 80:80 in production
+      - "8080:80"
+      #- "80:80"  # production
+      #- "443:443"  # https
     depends_on:
       - app
       - worker-default
