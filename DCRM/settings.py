@@ -49,7 +49,7 @@ SECURE_SSL = False  # https -> True
 
 # SECURITY
 ALLOWED_HOSTS = [
-    'apt.82flex.com',  # this is the domain
+    'apt.82flex.com',  # your domain here
     '127.0.0.1',
     'localhost'
 ]
@@ -70,10 +70,10 @@ TIME_ZONE = 'Asia/Shanghai'  # Asia/Shanghai, etc.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DCRM',
+        'NAME': 'DCRM',  # mysql database name here
         'USER': 'dcrm',  # mysql user name here
         'PASSWORD': 'dcrm_user_password',  # mysql user password here
-        'HOST': 'dcrm-db',  # e.g. 127.0.0.1
+        'HOST': 'dcrm-db',  # if you don't use docker, set it to 127.0.0.1
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
@@ -86,14 +86,14 @@ if ENABLE_REDIS is True:
     # !!! Change the 'DB' number here if you have multiple DCRM installed !!!
     RQ_QUEUES = {
         'default': {
-            'HOST': 'dcrm-redis',  # e.g. 127.0.0.1
+            'HOST': 'dcrm-redis',  # if you don't use docker, set it to 127.0.0.1
             'PORT': 6379,
             'DB': 0,
             'PASSWORD': '',
             'DEFAULT_TIMEOUT': 360,
         },
         'high': {
-            'HOST': 'dcrm-redis',  # e.g. 127.0.0.1
+            'HOST': 'dcrm-redis',  # if you don't use docker, set it to 127.0.0.1
             'PORT': 6379,
             'DB': 0,
             'PASSWORD': '',
@@ -110,7 +110,7 @@ if ENABLE_CACHE is True:
     CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-            'LOCATION': 'dcrm-memcached:11211',  # e.g. 127.0.0.1:11211
+            'LOCATION': 'dcrm-memcached:11211',  # if you don't use docker, set it to 127.0.0.1:11211
         }
     }
     CACHE_TIME = 7200
