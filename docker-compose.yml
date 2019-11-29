@@ -1,0 +1,42 @@
+version: '3.2'
+
+services:
+  web:
+    image: nginx:1.17.6
+    volumes:
+      - ./docker/web/nginx:/etc/nginx
+      - ./static:/usr/share/nginx/html/static
+      - ./resources:/usr/share/nginx/html/resources
+    ports:
+      - "8080:80"  # use 80:80 in production
+    links:
+      - app:dcrm-app
+  app:
+    build: .
+    stdin_open: true
+    tty: true
+    links:
+      - db:dcrm-db
+      - redis:dcrm-redis
+      - memcached:dcrm-memcached
+    environment:
+      PYTHONUNBUFFERED: 1
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: dcrm_root_password
+      MYSQL_DATABASE: DCRM
+      MYSQL_USER: dcrm
+      MYSQL_PASSWORD: dcrm_user_password
+  redis:
+    image: redis
+    restart: always
+  memcached:
+    image: memcached
+    restart: always
+
+volumes:
+  db_data:

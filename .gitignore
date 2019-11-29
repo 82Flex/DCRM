@@ -18,10 +18,7 @@
 *.rdb
 *.pyc
 *.log
-*.ini
-
-# user-defined settings
-/DCRM/settings.py
+/db/
 
 # server
 .user.ini

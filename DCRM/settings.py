@@ -45,11 +45,11 @@ SECRET_KEY = '$!#)nxr8rv83s(b%#kg*8a)m%igd+o%2=mgvqkba_zbc3(bpan'
 # SECURITY
 # WARNING: don't run with debug turned on in production!
 DEBUG = True
-SECURE_SSL = True  # https -> True
+SECURE_SSL = False  # https -> True
 
 # SECURITY
 ALLOWED_HOSTS = [
-    'apt.82flex.com',
+    'apt.82flex.com',  # this is the domain
     '127.0.0.1',
     'localhost'
 ]
@@ -72,8 +72,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'DCRM',
         'USER': 'dcrm',  # mysql user name here
-        'PASSWORD': 'thisisthepassword',  # mysql user password here
-        'HOST': '127.0.0.1',
+        'PASSWORD': 'dcrm_user_password',  # mysql user password here
+        'HOST': 'dcrm-db',  # e.g. 127.0.0.1
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
@@ -86,14 +86,14 @@ if ENABLE_REDIS is True:
     # !!! Change the 'DB' number here if you have multiple DCRM installed !!!
     RQ_QUEUES = {
         'default': {
-            'HOST': '127.0.0.1',
+            'HOST': 'dcrm-redis',  # e.g. 127.0.0.1
             'PORT': 6379,
             'DB': 0,
             'PASSWORD': '',
             'DEFAULT_TIMEOUT': 360,
         },
         'high': {
-            'HOST': '127.0.0.1',
+            'HOST': 'dcrm-redis',  # e.g. 127.0.0.1
             'PORT': 6379,
             'DB': 0,
             'PASSWORD': '',
@@ -110,7 +110,7 @@ if ENABLE_CACHE is True:
     CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-            'LOCATION': '127.0.0.1:11211',
+            'LOCATION': 'dcrm-memcached:11211',  # e.g. 127.0.0.1:11211
         }
     }
     CACHE_TIME = 7200
