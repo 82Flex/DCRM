@@ -9,6 +9,16 @@
 DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES. 请勿使用 DCRM 分发盗版软件包.
 
 
+## DEMO
+
+This demo is deployed using [Container Optimized OS](https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os) on Google Cloud.
+
+[https://apt.82flex.com/](https://apt.82flex.com/)
+
+* Username: `root`
+* Password: `dcrmpass`
+
+
 ## DOCKER DEPLOY 自动部署 (Docker)
 
 以下步骤能完整部署 DCRM 最新副本, 启用了任务队列及页面缓存支持, 你可以根据需要调整自己的配置. 关于 Docker 容器的启动/停止/重建等其它用法, 参见其官方网站.
