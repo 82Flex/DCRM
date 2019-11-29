@@ -17,7 +17,7 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES. 请勿使用 DCRM 分发盗�
 克隆该仓库, 并修改部署设置:
 
 ```bash
-git clone --depth 1 git@github.com:82Flex/DCRM.git && cd DCRM
+git clone --depth 1 https://github.com/82Flex/DCRM.git && cd DCRM
 ```
 
 2. build and launch DCRM via `docker-compose`
