@@ -16,7 +16,7 @@ django-threadedcomments==1.2
 generic==0.3.1
 argparse==1.4.0
 django-rq==2.1.0
-Pillow==6.1.0
+Pillow==6.2.0
 exifread==2.1.2
 python-memcached==1.59
 django-sortedm2m==1.5.0
