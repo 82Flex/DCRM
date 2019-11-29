@@ -13,11 +13,11 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES. 请勿使用 DCRM 分发盗�
 
 以下步骤能完整部署 DCRM 最新副本, 启用了任务队列及页面缓存支持, 你可以根据需要调整自己的配置. 关于 Docker 容器的启动/停止/重建等其它用法, 参见其官方网站.
 
-1. clone this git repo:
-克隆该仓库:
+1. clone this git repo and edit `DCRM/settings.py`:
+克隆该仓库, 并修改部署设置:
 
 ```bash
-git clone --depth 1 git@github.com:82Flex/DCRM.git
+git clone --depth 1 git@github.com:82Flex/DCRM.git && cd DCRM
 ```
 
 2. build and launch DCRM via `docker-compose`
