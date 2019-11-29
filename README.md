@@ -19,9 +19,8 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 - rqscheduler supports 定时任务支持
 
 
-## INSTALLATION GUIDE 使用说明
 
-### ENVIRONMENT 环境
+## ENVIRONMENT 环境
 
 - gzip, bzip2, **xz (xz-devel)**
 - Python 3.7 (*CentOS: if Python is compiled from source, make sure package `xz-devel` is installed*)
@@ -31,6 +30,8 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 - memcached (optional)
 - uwsgi, Nginx (production only)
 
+
+## MANUALLY INSTALL 手动安装
 
 ### CONFIGURATION EXAMPLE (UBUNTU) 示例配置
 
@@ -112,14 +113,14 @@ cp -p DCRM/settings.default.py DCRM/settings.py
 10. Edit DCRM/settings.py:
 修改配置文件 DCRM/settings.py:
 
-    1. Set a random `SECRET_KEY`, it must be unique.
-    2. Add your domain into `ALLOWED_HOSTS`.
-    3. Configure Redis to match your redis configurations: `RQ_QUEUES`, you may use different 'DB' number for different DCRM instances.
-    4. Configure Databases to match your mysql configurations: `DATABASES`, you may use different 'DATABASE' for different DCRM instances.
-    5. Configure Caches to match your memcached configuration: `CACHES`.
-    6. Configure Language & Timezone: `LANGUAGE_CODE` and `TIME_ZONE`.
-    7. Set `DEBUG = True` in debug environment, set `DEBUG = False` in production environment.
-    8. Optional features: `ENABLE_REDIS`, `ENABLE_CACHE`, `ENABLE_API`.
+    1. set a random `SECRET_KEY`, which must be unique
+    2. add your domain into `ALLOWED_HOSTS`
+    3. configure Redis to match your redis configurations: `RQ_QUEUES`, you may use different 'DB' numbers across DCRM instances
+    4. configure databases to match your mysql configurations: `DATABASES`, you may use different 'DATABASE' across DCRM instances
+    5. configure caches to match your memcached configuration: `CACHES`
+    6. configure language and timezone: `LANGUAGE_CODE` and `TIME_ZONE`
+    7. set `DEBUG = True` for debugging, set `DEBUG = False` for production
+    8. enable optional features: `ENABLE_REDIS`, `ENABLE_CACHE`, `ENABLE_API`
 
 11. Sync static files:
 同步静态文件:
@@ -144,7 +145,7 @@ python3 manage.py runserver
 ```
 
 
-#### CONFIGURE IN PRODUCTION 生产环境配置示例
+#### PRODUCTION CONFIGURATION 生产环境配置示例
 
 生产环境的配置需要有一定的服务器运维经验, 如果你在生产环境的配置过程中遇到困难, 我们提供付费的疑难解答.
 
@@ -309,7 +310,7 @@ sudo /etc/init.d/nginx start
 ```
 
 
-#### LAUNCH WORKERS (if `ENABLE_REDIS` is `True`)
+#### LAUNCH WORKERS 启动工作进程
 
 Make sure to launch background queue with the same nginx working user (www/www-data).
 
@@ -328,7 +329,7 @@ nohup ./manage.py rqworker default > /dev/null &
 worker 的数量以你的具体需求为准, 但是各队列中至少要有一个活跃 worker, 否则队列中的任务将一直保持挂起.
 
 
-#### CONFIGURE GnuPG (if GnuPG feature is enabled)
+#### CONFIGURE GnuPG
 
 ```shell
 apt-get install gnupg2
@@ -348,6 +349,8 @@ gpg --allow-secret-key-import --import private.key
 
 
 #### PUBLISH A REPOSITORY 发布软件源
+
+Before you publish your repository, there are a few steps you should follow:
 
 1. `Sites` Set domains and site names. 在 Sites 中设置域名和站点名称.
 2. `WEIPDCRM -> Settings`
