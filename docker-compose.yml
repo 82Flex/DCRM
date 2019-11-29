@@ -9,6 +9,10 @@ services:
       - app_resources:/usr/share/nginx/html/resources
     ports:
       - "8080:80"  # use 80:80 in production
+    depends_on:
+      - app
+      - worker-default
+      - worker-high
     links:
       - app:dcrm-app
   app:
@@ -19,9 +23,6 @@ services:
       - app_temp:/usr/src/app/temp
     stdin_open: true
     tty: true
-    depends_on:
-      - worker-default
-      - worker-high
     links:
       - db:dcrm-db
       - redis:dcrm-redis
