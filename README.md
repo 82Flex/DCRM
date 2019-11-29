@@ -6,7 +6,7 @@
 
 ## WARNING 警告
 
-DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
+DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES. 请勿使用 DCRM 分发盗版软件包.
 
 
 ## ENVIRONMENT 环境
@@ -20,14 +20,58 @@ DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES.
 - uwsgi, Nginx (production only)
 
 
-## MANUALLY INSTALL 手动安装
+## DOCKER DEPLOY 自动部署
+
+1. clone this git repo:
+克隆该仓库:
+
+```bash
+git clone --depth 1 git@github.com:82Flex/DCRM.git
+```
+
+2. build DCRM via `docker-compose`
+构建 DCRM 容器:
+
+```bash
+docker-compose build
+```
+
+3. launch DCRM via `docker-compose`
+启动 DCRM 容器:
+
+```bash
+docker-compose up
+```
+
+4. if there is no error, you can access DCRM via `http://127.0.0.1:8080/`
+如果没有发生错误, 你可以尝试访问首页
+
+5. attach to `dcrm_app` container:
+先附加到容器中:
+
+```bash
+docker exec -i -t dcrm_app_1 /bin/bash
+```
+
+6. create superuser in container:
+在容器中创建后台超级管理员帐户:
+
+```bash
+python manage.py createsuperuser
+```
+
+7. access admin panel via `http://127.0.0.1:8080/admin/`
+创建完成后, 你现在可以访问 DCRM 后台了
+
+
+## MANUALLY DEPLOY 手动部署
 
 ### EXAMPLE 示例
 
 1. install dependencies:
 安装依赖:
 
-```shell
+```bash
 apt-get update
 apt-get upgrade
 apt-get install git mysql-server libmysqlclient-dev python3-dev python3-pip libjpeg-dev tzdata
@@ -36,7 +80,7 @@ apt-get install git mysql-server libmysqlclient-dev python3-dev python3-pip libj
 2. configure mysql:
 安装完成后, 登录到 mysql:
 
-```shell
+```bash
 service mysql start
 mysql_secure_installation
 mysql -uroot -p
@@ -61,7 +105,7 @@ FLUSH PRIVILEGES;
 5. clone this git repo:
 在合适的位置克隆 DCRM:
 
-```shell
+```bash
 mkdir -p /wwwdata
 cd /wwwdata
 git clone --depth 1 https://github.com/82Flex/DCRM.git
@@ -71,7 +115,7 @@ cd /wwwdata/DCRM
 6. install python modules:
 安装必要的 python 模块:
 
-```shell
+```bash
 pip3 install -r requirements.txt
 mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
 ```
@@ -79,7 +123,7 @@ mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
 7. enable redis support (task queue):
 如果你还需要开启 Redis 支持 (用于任务队列):
 
-```shell
+```bash
 apt-get install redis-server
 service redis-server start
 ```
@@ -87,7 +131,7 @@ service redis-server start
 8. enable memcached support (page caching):
 如果你还需要开启页面缓存, 你可能还需要自行启动 memcached 服务:
 
-```shell
+```bash
 apt-get install memcached
 service memcached start
 ```
@@ -106,14 +150,14 @@ service memcached start
 10. collect static files:
 同步静态文件:
 
-```shell
+```bash
 python3 manage.py collectstatic
 ```
 
 11. migrate database and create new super user:
 同步数据库结构并创建超级用户:
 
-```shell
+```bash
 python3 manage.py migrate
 python3 manage.py createsuperuser
 ```
@@ -121,9 +165,11 @@ python3 manage.py createsuperuser
 12. run debug server:
 启动测试服务器:
 
-```shell
+```bash
 python3 manage.py runserver
 ```
+
+13. access admin panel via `http://127.0.0.1:8000/admin/`
 
 
 #### IN PRODUCTION 生产环境示例
@@ -138,7 +184,7 @@ We assumed that nginx uses `www-data` as its user and group.
 
 在 DCRM 目录下创建 `uwsgi.ini`:
 
-```shell
+```bash
 touch uwsgi.ini
 ```
 
@@ -157,27 +203,27 @@ socket = :8001
 vaccum = true
 uid = www-data
 gid = www-data
-; daemonize = /dev/null
 safe-pidfile = /home/run/uwsgi-apt.pid
+; daemonize = /dev/null
 ```
 
 ##### UWSGI Commands
 
 test:
 
-```shell
+```bash
 uwsgi --ini uwsgi.ini
 ```
 
 run:
 
-```shell
+```bash
 uwsgi --ini uwsgi.ini --daemonize=/dev/null
 ```
 
 kill:
 
-```shell
+```bash
 kill -INT `cat /home/run/uwsgi-apt.pid`
 ```
 
@@ -261,31 +307,31 @@ server {
 
 1. install Nginx:
 
-```shell
+```bash
 apt-get install nginx
 ```
 
 2. launch Nginx:
 
-```shell
+```bash
 service nginx start
 ```
 
 3. test configuration:
 
-```shell
+```bash
 nginx -t
 ```
 
 4. reload configuration:
 
-```shell
+```bash
 nginx -s reload
 ```
 
 5. launch nginx if it is down:
 
-```shell
+```bash
 sudo /etc/init.d/nginx start
 ```
 
@@ -294,14 +340,14 @@ sudo /etc/init.d/nginx start
 
 make sure to launch task queue with the same nginx working user (www/www-data).
 
-```shell
+```bash
 su www-data
 ```
 
 if you cannot switch to user `www-data`, remember to change its login prompt in `/etc/passwd`.
 Launch some workers for DCRM background queue:
 
-```shell
+```bash
 nohup ./manage.py rqworker high > /dev/null &
 nohup ./manage.py rqworker default > /dev/null &
 ```
@@ -311,26 +357,27 @@ worker 的数量以你的具体需求为准, 但是各队列中至少要有一�
 
 ##### Configure GnuPG
 
-```shell
+```bash
 apt-get install gnupg2
 ```
 
 Make sure to launch background queue with the same nginx working user (www/www-data).
 
-```shell
+```bash
 su www-data
 ```
 
-```shell
+```bash
 gpg --gen-key
 # or
 gpg --allow-secret-key-import --import private.key
 ```
 
 
-#### PUBLISH A REPOSITORY 发布软件源
+## PUBLISH A REPOSITORY 发布软件源
 
 Before you publish your repository, there are a few steps you should follow:
+部署完成后, 你还需要一些步骤来发布你的软件源:
 
 1. `Sites`
 

@@ -5,28 +5,60 @@ services:
     image: nginx:1.17.6
     volumes:
       - ./docker/web/nginx:/etc/nginx
-      - ./static:/usr/share/nginx/html/static
-      - ./resources:/usr/share/nginx/html/resources
+      - app_static:/usr/share/nginx/html/static
+      - app_resources:/usr/share/nginx/html/resources
     ports:
       - "8080:80"  # use 80:80 in production
     links:
       - app:dcrm-app
   app:
     build: .
+    volumes:
+      - app_static:/usr/src/app/static
+      - app_resources:/usr/src/app/resources
+      - app_temp:/usr/src/app/temp
     stdin_open: true
     tty: true
+    depends_on:
+      - worker-default
+      - worker-high
     links:
       - db:dcrm-db
       - redis:dcrm-redis
       - memcached:dcrm-memcached
     environment:
       PYTHONUNBUFFERED: 1
+      DCRM_WORKER: none
+  worker-default:
+    build: .
+    volumes:
+      - app_resources:/usr/src/app/resources
+      - app_temp:/usr/src/app/temp
+    links:
+      - db:dcrm-db
+      - redis:dcrm-redis
+      - memcached:dcrm-memcached
+    environment:
+      PYTHONUNBUFFERED: 1
+      DCRM_WORKER: default
+  worker-high:  # if you need more workers, you can duplicate this section
+    build: .
+    volumes:
+      - app_resources:/usr/src/app/resources
+      - app_temp:/usr/src/app/temp
+    links:
+      - db:dcrm-db
+      - redis:dcrm-redis
+      - memcached:dcrm-memcached
+    environment:
+      PYTHONUNBUFFERED: 1
+      DCRM_WORKER: high  # worker priority: default/high
   db:
     image: mysql:5.7
     volumes:
       - db_data:/var/lib/mysql
     restart: always
-    environment:
+    environment:  # should match `DCRM/settings.py`
       MYSQL_ROOT_PASSWORD: dcrm_root_password
       MYSQL_DATABASE: DCRM
       MYSQL_USER: dcrm
@@ -40,3 +72,7 @@ services:
 
 volumes:
   db_data:
+  app_static:
+  app_resources:
+  app_temp:
+
