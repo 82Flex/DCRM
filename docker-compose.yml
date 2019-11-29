@@ -4,7 +4,8 @@ services:
   web:
     image: nginx:1.17.6
     volumes:
-      - ./docker/web/nginx:/etc/nginx
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/nginx/certs:/etc/nginx/certs
       - app_static:/usr/share/nginx/html/static
       - app_resources:/usr/share/nginx/html/resources
     ports:
