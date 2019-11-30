@@ -32,4 +32,5 @@
 
 # docker
 /docker/
+/.gnupg/
 
