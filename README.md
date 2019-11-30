@@ -5,7 +5,7 @@
 <p align="center">DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES. 请勿使用 DCRM 分发盗版软件包.</p>
 
 
-<!-- TOC -->
+<!-- TOC insertanchor:true -->
 
 - [DEMO](#demo)
 - [DOCKER DEPLOY 自动部署 (Docker)](#docker-deploy-自动部署-docker)
@@ -27,6 +27,7 @@
 
 
 # 1. DEMO
+<a id="markdown-demo" name="demo"></a>
 
 This demo is deployed using [Container Optimized OS](https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os) on Google Cloud.
 
@@ -37,6 +38,7 @@ This demo is deployed using [Container Optimized OS](https://cloud.google.com/co
 
 
 # 2. DOCKER DEPLOY 自动部署 (Docker)
+<a id="markdown-docker-deploy-自动部署-docker" name="docker-deploy-自动部署-docker"></a>
 
 以下步骤能完整部署 DCRM 最新副本, 启用了任务队列及页面缓存支持, 你可以根据需要调整自己的配置. 关于 Docker 容器的启动/停止/重建等其它用法, 参见其官方网站.
 
@@ -76,6 +78,7 @@ cd DCRM && python manage.py createsuperuser
 
 
 ## 2.1. USEFUL COMMANDS 常用命令
+<a id="markdown-useful-commands-常用命令" name="useful-commands-常用命令"></a>
 
 1. build then launch DCRM in background (when app src code updated) 重新构建并在后台启动 DCRM (仅当代码发生变动, 不会影响数据)
 
@@ -97,6 +100,7 @@ docker-compose down
 
 
 # 3. PUBLISH REPOSITORY 发布软件源
+<a id="markdown-publish-repository-发布软件源" name="publish-repository-发布软件源"></a>
 
 Before you publish your repository, there are a few steps you should follow:
 部署完成后, 你还需要一些步骤来发布你的软件源:
@@ -134,8 +138,10 @@ Build the repository to apply all the changes.
 
 
 # 4. MANUALLY DEPLOY 手动部署
+<a id="markdown-manually-deploy-手动部署" name="manually-deploy-手动部署"></a>
 
 ## 4.1. ENVIRONMENT 环境
+<a id="markdown-environment-环境" name="environment-环境"></a>
 
 - gzip, bzip2, **xz (xz-devel)**
 - Python 3.7 (*CentOS: if Python is compiled from source, make sure package `xz-devel` is installed*)
@@ -147,6 +153,7 @@ Build the repository to apply all the changes.
 
 
 ## 4.2. EXAMPLE 示例
+<a id="markdown-example-示例" name="example-示例"></a>
 
 1. install dependencies:
 安装依赖:
@@ -253,6 +260,7 @@ python3 manage.py runserver
 
 
 ## 4.3. IN PRODUCTION 生产环境示例
+<a id="markdown-in-production-生产环境示例" name="in-production-生产环境示例"></a>
 
 生产环境的配置需要有一定的服务器运维经验, 如果你在生产环境的配置过程中遇到困难, 我们提供付费的疑难解答.
 
@@ -261,6 +269,7 @@ We assumed that nginx uses `www-data` as its user and group.
 
 
 ### 4.3.1. Configure UWSGI
+<a id="markdown-configure-uwsgi" name="configure-uwsgi"></a>
 
 在 DCRM 目录下创建 `uwsgi.ini`:
 
@@ -288,6 +297,7 @@ safe-pidfile = /home/run/uwsgi-apt.pid
 ```
 
 ### 4.3.2. UWSGI Commands
+<a id="markdown-uwsgi-commands" name="uwsgi-commands"></a>
 
 test:
 
@@ -309,6 +319,7 @@ kill -INT `cat /home/run/uwsgi-apt.pid`
 
 
 ### 4.3.3. Configure NGINX
+<a id="markdown-configure-nginx" name="configure-nginx"></a>
 
 ```nginx
 upstream django {
@@ -384,6 +395,7 @@ server {
 
 
 ### 4.3.4. NGINX Commands
+<a id="markdown-nginx-commands" name="nginx-commands"></a>
 
 1. install Nginx:
 
@@ -417,6 +429,7 @@ sudo /etc/init.d/nginx start
 
 
 ### 4.3.5. Launch Workers
+<a id="markdown-launch-workers" name="launch-workers"></a>
 
 make sure to launch task queue with the same nginx working user (www/www-data).
 
@@ -436,6 +449,7 @@ worker 的数量以你的具体需求为准, 但是各队列中至少要有一�
 
 
 ### 4.3.6. Configure GnuPG
+<a id="markdown-configure-gnupg" name="configure-gnupg"></a>
 
 ```bash
 apt-get install gnupg2
@@ -455,6 +469,7 @@ gpg --allow-secret-key-import --import private.key --homedir .gnupg
 
 
 # 5. LICENSE 版权声明
+<a id="markdown-license-版权声明" name="license-版权声明"></a>
 
 Copyright © 2013-2020 Zheng Wu <i.82@me.com>
     
