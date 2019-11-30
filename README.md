@@ -472,6 +472,9 @@ gpg --allow-secret-key-import --import private.key --homedir .gnupg
 5. create APT verification package in `WEIPDCRM -> Sections -> Action -> Generate icon package for selected sections`, which will install GPG public key to user's device
 
 
+----
+
+
 ## LICENSE 版权声明
 
 Copyright © 2013-2020 Zheng Wu <i.82@me.com>
