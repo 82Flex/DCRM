@@ -51,11 +51,32 @@ docker exec -i -t dcrm_app_1 /bin/bash
 在容器中创建后台超级管理员帐户:
 
 ```bash
-python manage.py createsuperuser
+cd DCRM && python manage.py createsuperuser
 ```
 
 6. access admin panel via `http://127.0.0.1:8080/admin/`
 创建完成后, 你现在可以访问 DCRM 后台了
+
+
+## USEFUL COMMANDS 常用命令
+
+1. build then launch DCRM in background (when app src code updated) 重新构建并在后台启动 DCRM (仅当代码发生变动, 不会影响数据)
+
+```bash
+docker-compose up --build --detach
+```
+
+2. launch DCRM in background only 仅在后台启动 DCRM
+
+```bash
+docker-compose up --detach
+```
+
+3. shutdown DCRM 停止 DCRM
+
+```bash
+docker-compose down
+```
 
 
 ## PUBLISH REPOSITORY 发布软件源
