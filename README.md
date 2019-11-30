@@ -46,22 +46,18 @@ This demo is deployed using [Container Optimized OS](https://cloud.google.com/co
 
 以下步骤能完整部署 DCRM 最新副本, 启用了任务队列及页面缓存支持, 你可以根据需要调整自己的配置.
 
-1. download this project or clone this git repo and edit `DCRM/settings.py`:
-如果你还没有下载此项目, 建议使用 `git` 克隆该仓库, 并修改部署设置:
+1. download this project or clone this git repo:
+如果你还没有下载此项目, 建议使用 `git` 克隆该仓库:
 
 ```bash
-# clone this repo
 git clone --depth 1 https://github.com/82Flex/DCRM.git && cd DCRM
-
-# should be carefully
-vi DCRM/settings.py
 ```
 
 2. build and launch DCRM via `docker-compose`
 构建并启动 DCRM 容器:
 
 ```bash
-docker-compose up --build
+docker-compose up --build --detach
 ```
 
 3. attach to `dcrm_app` container:
