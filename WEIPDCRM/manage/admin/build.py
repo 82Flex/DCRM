@@ -195,14 +195,14 @@ def build_procedure(conf):
             password = preferences.Setting.gpg_password
             if password is not None and len(password) > 0:
                 subprocess.check_call(
-                    ["gpg", "-abs", "--batch", "--yes", "--passphrase", password, "-o",
+                    ["gpg", "-abs", "--homedir", os.path.join(settings.BASE_DIR, '.gnupg'), "--batch", "--yes", "--passphrase", password, "-o",
                      os.path.join(build_temp_path, "Release.gpg"),
                      os.path.join(build_temp_path, "Release"),
                      ]
                 )
             else:
                 subprocess.check_call(
-                    ["gpg", "-abs", "--batch", "--yes", "-o",
+                    ["gpg", "-abs", "--homedir", os.path.join(settings.BASE_DIR, '.gnupg'), "--batch", "--yes", "-o",
                      os.path.join(build_temp_path, "Release.gpg"),
                      os.path.join(build_temp_path, "Release"),
                      ]

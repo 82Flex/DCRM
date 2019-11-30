@@ -76,13 +76,13 @@ def build_section_package_procedure(conf):
         pubkey_path = os.path.join(gpg_dest_path, pub_name)
         if password is not None and len(password) > 0:
             subprocess.check_call(
-                ["gpg", "-a", "--export", "--batch", "--yes", "--passphrase", password, "-o",
+                ["gpg", "-a", "--export", "--homedir", os.path.join(settings.BASE_DIR, '.gnupg'), "--batch", "--yes", "--passphrase", password, "-o",
                  pubkey_path
                  ]
             )
         else:
             subprocess.check_call(
-                ["gpg", "-a", "--export", "--batch", "--yes", "-o",
+                ["gpg", "-a", "--export", "--homedir", os.path.join(settings.BASE_DIR, '.gnupg'), "--batch", "--yes", "-o",
                  pubkey_path
                  ]
             )

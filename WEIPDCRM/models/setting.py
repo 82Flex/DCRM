@@ -23,11 +23,12 @@ from __future__ import unicode_literals
 import re
 import subprocess
 
+from django.db import models
+from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.core import urlresolvers
 from django.core.exceptions import ValidationError
 from django.core.validators import URLValidator
-from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from WEIPDCRM.models.release import Release
@@ -69,7 +70,7 @@ def validate_gpg(value):
     """
     if value:
         try:
-            subprocess.check_call(['gpg', '--version', '--batch', '--yes'])
+            subprocess.check_call(['gpg', '--homedir', os.path.join(settings.BASE_DIR, '.gnupg'), '--version', '--batch', '--yes'])
         except Exception as e:
             raise ValidationError(_("Cannot find command 'gpg': %s") % str(e))
 

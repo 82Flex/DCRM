@@ -24,6 +24,7 @@ services:
       - app_static:/usr/src/app/static
       - app_resources:/usr/src/app/resources
       - app_temp:/usr/src/app/temp
+      - ./.gnupg:/usr/src/app/.gnupg
     stdin_open: true
     tty: true
     links:
@@ -38,6 +39,7 @@ services:
     volumes:
       - app_resources:/usr/src/app/resources
       - app_temp:/usr/src/app/temp
+      - ./.gnupg:/usr/src/app/.gnupg
     links:
       - db:dcrm-db
       - redis:dcrm-redis
@@ -50,6 +52,7 @@ services:
     volumes:
       - app_resources:/usr/src/app/resources
       - app_temp:/usr/src/app/temp
+      - ./.gnupg:/usr/src/app/.gnupg
     links:
       - db:dcrm-db
       - redis:dcrm-redis

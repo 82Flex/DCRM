@@ -10,6 +10,7 @@
 
 # IDE configurations
 /.idea/
+/.vscode/
 
 # static files
 /static/
@@ -28,5 +29,4 @@
 # python virtual environment
 /venv/
 /envpy3.7/
-
 

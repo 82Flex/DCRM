@@ -410,9 +410,9 @@ su www-data
 ```
 
 ```bash
-gpg --gen-key
-# or
-gpg --allow-secret-key-import --import private.key
+mkdir .gnupg
+gpg --gen-key --homedir .gnupg
+gpg --allow-secret-key-import --import private.key --homedir .gnupg
 ```
 
 
