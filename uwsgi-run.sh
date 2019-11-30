@@ -5,10 +5,10 @@ if [ "${DCRM_WORKER}" = "none" ]; then
     python manage.py migrate --no-input
     uwsgi --ini uwsgi.ini
 elif [ "${DCRM_WORKER}" = "default" ]; then
-    # python manage.py migrate --no-input
+    sleep 60  # wait for app
     python manage.py rqworker default
 elif [ "${DCRM_WORKER}" = "high" ]; then
-    # python manage.py migrate --no-input
+    sleep 60  # wait for app
     python manage.py rqworker high
 fi
 
