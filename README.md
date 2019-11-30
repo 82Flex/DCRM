@@ -54,7 +54,7 @@ docker exec -i -t dcrm_app_1 /bin/bash
 在容器中创建后台超级管理员帐户:
 
 ```bash
-cd DCRM && python manage.py createsuperuser
+python manage.py createsuperuser
 ```
 
 6. access admin panel via `http://127.0.0.1:8080/admin/`
