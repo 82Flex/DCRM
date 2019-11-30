@@ -30,3 +30,6 @@
 /venv/
 /envpy3.7/
 
+# docker
+/docker/
+
