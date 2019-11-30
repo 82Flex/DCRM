@@ -9,7 +9,8 @@
 
 - [DEMO](#demo)
 - [DOCKER DEPLOY 自动部署 (Docker)](#docker-deploy-自动部署-docker)
-    - [USEFUL COMMANDS 常用命令](#useful-commands-常用命令)
+    - [DOCKER COMMANDS 常用命令](#docker-commands-常用命令)
+    - [Configure GnuPG](#configure-gnupg)
 - [PUBLISH REPOSITORY 发布软件源](#publish-repository-发布软件源)
 - [MANUALLY DEPLOY 手动部署](#manually-deploy-手动部署)
     - [ENVIRONMENT 环境](#environment-环境)
@@ -19,11 +20,14 @@
         - [UWSGI Commands](#uwsgi-commands)
         - [Configure NGINX](#configure-nginx)
         - [NGINX Commands](#nginx-commands)
-        - [Launch Workers](#launch-workers)
+        - [Configure Workers](#configure-workers)
         - [Configure GnuPG](#configure-gnupg)
 - [LICENSE 版权声明](#license-版权声明)
 
 <!-- /TOC -->
+
+
+----
 
 
 # 1. DEMO
@@ -40,10 +44,10 @@ This demo is deployed using [Container Optimized OS](https://cloud.google.com/co
 # 2. DOCKER DEPLOY 自动部署 (Docker)
 <a id="markdown-docker-deploy-自动部署-docker" name="docker-deploy-自动部署-docker"></a>
 
-以下步骤能完整部署 DCRM 最新副本, 启用了任务队列及页面缓存支持, 你可以根据需要调整自己的配置. 关于 Docker 容器的启动/停止/重建等其它用法, 参见其官方网站.
+以下步骤能完整部署 DCRM 最新副本, 启用了任务队列及页面缓存支持, 你可以根据需要调整自己的配置.
 
-1. clone this git repo and edit `DCRM/settings.py`:
-克隆该仓库, 并修改部署设置:
+1. download this project or clone this git repo and edit `DCRM/settings.py`:
+如果你还没有下载此项目, 建议使用 `git` 克隆该仓库, 并修改部署设置:
 
 ```bash
 git clone --depth 1 https://github.com/82Flex/DCRM.git && cd DCRM
@@ -70,15 +74,15 @@ docker exec -i -t dcrm_app_1 /bin/bash
 在容器中创建后台超级管理员帐户:
 
 ```bash
-cd DCRM && python manage.py createsuperuser
+python manage.py createsuperuser
 ```
 
 6. access admin panel via `http://127.0.0.1:8080/admin/`
 创建完成后, 你现在可以访问 DCRM 后台了
 
 
-## 2.1. USEFUL COMMANDS 常用命令
-<a id="markdown-useful-commands-常用命令" name="useful-commands-常用命令"></a>
+## 2.1. DOCKER COMMANDS 常用命令
+<a id="markdown-docker-commands-常用命令" name="docker-commands-常用命令"></a>
 
 1. build then launch DCRM in background (when app src code updated) 重新构建并在后台启动 DCRM (仅当代码发生变动, 不会影响数据)
 
@@ -97,6 +101,27 @@ docker-compose up --detach
 ```bash
 docker-compose down
 ```
+
+
+## 2.2. Configure GnuPG
+<a id="markdown-configure-gnupg" name="configure-gnupg"></a>
+
+1. attach to `dcrm_app` container:
+
+```bash
+docker exec -i -t dcrm_app_1 /bin/bash
+```
+
+2. generate new GPG key:
+
+```bash
+gpg --gen-key --homedir .gnupg
+# or
+gpg --allow-secret-key-import --import private.key --homedir .gnupg
+```
+
+3. enable GPG feature and configure passphrase in `WEIPDCRM -> Settings -> Security`
+4. create APT verification package in `WEIPDCRM -> Sections -> Action -> Generate icon package for selected sections`, which will install GPG public key to user's device
 
 
 # 3. PUBLISH REPOSITORY 发布软件源
@@ -428,8 +453,8 @@ sudo /etc/init.d/nginx start
 ```
 
 
-### 4.3.5. Launch Workers
-<a id="markdown-launch-workers" name="launch-workers"></a>
+### 4.3.5. Configure Workers
+<a id="markdown-configure-workers" name="configure-workers"></a>
 
 make sure to launch task queue with the same nginx working user (www/www-data).
 
@@ -437,35 +462,41 @@ make sure to launch task queue with the same nginx working user (www/www-data).
 su www-data
 ```
 
-if you cannot switch to user `www-data`, remember to change its login prompt in `/etc/passwd`.
-Launch some workers for DCRM background queue:
+if you cannot switch to user `www-data`, remember to change its login prompt in `/etc/passwd`. launch some workers for DCRM background queue:
 
 ```bash
 nohup ./manage.py rqworker high > /dev/null &
 nohup ./manage.py rqworker default > /dev/null &
 ```
 
-worker 的数量以你的具体需求为准, 但是各队列中至少要有一个活跃 worker, 否则队列中的任务将一直保持挂起.
+you need at least one worker for each queue. worker 的数量以你的具体需求为准, 但是各队列中至少要有一个活跃 worker, 否则队列中的任务将一直保持挂起.
 
 
 ### 4.3.6. Configure GnuPG
 <a id="markdown-configure-gnupg" name="configure-gnupg"></a>
 
+1. install `gnupg2`
+
 ```bash
 apt-get install gnupg2
 ```
 
-Make sure to launch background queue with the same nginx working user (www/www-data).
+2. make sure to launch background queue with the same nginx working user (www/www-data):
 
 ```bash
 su www-data
 ```
 
+3. generate new GPG key
+
 ```bash
-mkdir .gnupg
 gpg --gen-key --homedir .gnupg
+# or
 gpg --allow-secret-key-import --import private.key --homedir .gnupg
 ```
+
+4. enable GPG feature and configure passphrase in `WEIPDCRM -> Settings -> Security`
+5. create APT verification package in `WEIPDCRM -> Sections -> Action -> Generate icon package for selected sections`, which will install GPG public key to user's device
 
 
 # 5. LICENSE 版权声明
