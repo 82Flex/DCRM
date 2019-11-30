@@ -5,31 +5,28 @@
 <p align="center">DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES. 请勿使用 DCRM 分发盗版软件包.</p>
 
 
-# 1. TOC
-
 <!-- TOC -->
 
-- [TOC](#toc)
 - [DEMO](#demo)
 - [DOCKER DEPLOY 自动部署 (Docker)](#docker-deploy-自动部署-docker)
-- [USEFUL COMMANDS 常用命令](#useful-commands-常用命令)
+    - [USEFUL COMMANDS 常用命令](#useful-commands-常用命令)
 - [PUBLISH REPOSITORY 发布软件源](#publish-repository-发布软件源)
 - [MANUALLY DEPLOY 手动部署](#manually-deploy-手动部署)
     - [ENVIRONMENT 环境](#environment-环境)
     - [EXAMPLE 示例](#example-示例)
-        - [IN PRODUCTION 生产环境示例](#in-production-生产环境示例)
-            - [Configure UWSGI](#configure-uwsgi)
-            - [UWSGI Commands](#uwsgi-commands)
-            - [Configure NGINX](#configure-nginx)
-            - [NGINX Commands](#nginx-commands)
-            - [Launch Workers](#launch-workers)
-            - [Configure GnuPG](#configure-gnupg)
+    - [IN PRODUCTION 生产环境示例](#in-production-生产环境示例)
+        - [Configure UWSGI](#configure-uwsgi)
+        - [UWSGI Commands](#uwsgi-commands)
+        - [Configure NGINX](#configure-nginx)
+        - [NGINX Commands](#nginx-commands)
+        - [Launch Workers](#launch-workers)
+        - [Configure GnuPG](#configure-gnupg)
 - [LICENSE 版权声明](#license-版权声明)
 
 <!-- /TOC -->
 
 
-# 2. DEMO
+# 1. DEMO
 
 This demo is deployed using [Container Optimized OS](https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os) on Google Cloud.
 
@@ -39,7 +36,7 @@ This demo is deployed using [Container Optimized OS](https://cloud.google.com/co
 * Password: `dcrmpass`
 
 
-# 3. DOCKER DEPLOY 自动部署 (Docker)
+# 2. DOCKER DEPLOY 自动部署 (Docker)
 
 以下步骤能完整部署 DCRM 最新副本, 启用了任务队列及页面缓存支持, 你可以根据需要调整自己的配置. 关于 Docker 容器的启动/停止/重建等其它用法, 参见其官方网站.
 
@@ -78,7 +75,7 @@ cd DCRM && python manage.py createsuperuser
 创建完成后, 你现在可以访问 DCRM 后台了
 
 
-# 4. USEFUL COMMANDS 常用命令
+## 2.1. USEFUL COMMANDS 常用命令
 
 1. build then launch DCRM in background (when app src code updated) 重新构建并在后台启动 DCRM (仅当代码发生变动, 不会影响数据)
 
@@ -99,7 +96,7 @@ docker-compose down
 ```
 
 
-# 5. PUBLISH REPOSITORY 发布软件源
+# 3. PUBLISH REPOSITORY 发布软件源
 
 Before you publish your repository, there are a few steps you should follow:
 部署完成后, 你还需要一些步骤来发布你的软件源:
@@ -136,9 +133,9 @@ Build the repository to apply all the changes.
 构建全源, 让所有更改生效 (第一次构建前, Cydia 中是无法添加该源的)
 
 
-# 6. MANUALLY DEPLOY 手动部署
+# 4. MANUALLY DEPLOY 手动部署
 
-## 6.1. ENVIRONMENT 环境
+## 4.1. ENVIRONMENT 环境
 
 - gzip, bzip2, **xz (xz-devel)**
 - Python 3.7 (*CentOS: if Python is compiled from source, make sure package `xz-devel` is installed*)
@@ -149,7 +146,7 @@ Build the repository to apply all the changes.
 - uwsgi, Nginx (production only)
 
 
-## 6.2. EXAMPLE 示例
+## 4.2. EXAMPLE 示例
 
 1. install dependencies:
 安装依赖:
@@ -255,7 +252,7 @@ python3 manage.py runserver
 13. access admin panel via `http://127.0.0.1:8000/admin/`
 
 
-### 6.2.1. IN PRODUCTION 生产环境示例
+## 4.3. IN PRODUCTION 生产环境示例
 
 生产环境的配置需要有一定的服务器运维经验, 如果你在生产环境的配置过程中遇到困难, 我们提供付费的疑难解答.
 
@@ -263,7 +260,7 @@ We assumed that nginx uses `www-data` as its user and group.
 假设 nginx 使用 `www-data` 用作其用户名和用户组名.
 
 
-#### 6.2.1.1. Configure UWSGI
+### 4.3.1. Configure UWSGI
 
 在 DCRM 目录下创建 `uwsgi.ini`:
 
@@ -290,7 +287,7 @@ safe-pidfile = /home/run/uwsgi-apt.pid
 ; daemonize = /dev/null
 ```
 
-#### 6.2.1.2. UWSGI Commands
+### 4.3.2. UWSGI Commands
 
 test:
 
@@ -311,7 +308,7 @@ kill -INT `cat /home/run/uwsgi-apt.pid`
 ```
 
 
-#### 6.2.1.3. Configure NGINX
+### 4.3.3. Configure NGINX
 
 ```nginx
 upstream django {
@@ -386,7 +383,7 @@ server {
 ```
 
 
-#### 6.2.1.4. NGINX Commands
+### 4.3.4. NGINX Commands
 
 1. install Nginx:
 
@@ -419,7 +416,7 @@ sudo /etc/init.d/nginx start
 ```
 
 
-#### 6.2.1.5. Launch Workers
+### 4.3.5. Launch Workers
 
 make sure to launch task queue with the same nginx working user (www/www-data).
 
@@ -438,7 +435,7 @@ nohup ./manage.py rqworker default > /dev/null &
 worker 的数量以你的具体需求为准, 但是各队列中至少要有一个活跃 worker, 否则队列中的任务将一直保持挂起.
 
 
-#### 6.2.1.6. Configure GnuPG
+### 4.3.6. Configure GnuPG
 
 ```bash
 apt-get install gnupg2
@@ -457,7 +454,7 @@ gpg --allow-secret-key-import --import private.key --homedir .gnupg
 ```
 
 
-# 7. LICENSE 版权声明
+# 5. LICENSE 版权声明
 
 Copyright © 2013-2020 Zheng Wu <i.82@me.com>
     
