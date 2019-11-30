@@ -24,10 +24,10 @@ This demo is deployed using [Container Optimized OS](https://cloud.google.com/co
 
 ## DOCKER DEPLOY 自动部署 (Docker)
 
-以下步骤能完整部署 DCRM 最新副本, 启用了任务队列及页面缓存支持, 你可以根据需要调整自己的配置. 关于 Docker 容器的启动/停止/重建等其它用法, 参见其官方网站.
+以下步骤能完整部署 DCRM 最新副本, 启用了任务队列及页面缓存支持, 你可以根据需要调整自己的配置.
 
-1. clone this git repo and edit `DCRM/settings.py`:
-克隆该仓库, 并修改部署设置:
+1. download this project or clone this git repo and edit `DCRM/settings.py`:
+如果你还没有下载此项目, 建议使用 `git` 克隆该仓库, 并修改部署设置:
 
 ```bash
 git clone --depth 1 https://github.com/82Flex/DCRM.git && cd DCRM
