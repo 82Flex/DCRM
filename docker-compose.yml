@@ -4,13 +4,13 @@ services:
   web:
     image: nginx:1.17.6
     volumes:
-      - ./docker/nginx/conf.d:/etc/nginx/conf.d
-      - ./docker/nginx/certs:/etc/nginx/certs
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d         # your web configuration: docker/nginx/conf.d
+      - ./docker/nginx/certs:/etc/nginx/certs           # your https certs: docker/nginx/certs
       - app_static:/usr/share/nginx/html/static
       - app_resources:/usr/share/nginx/html/resources
     ports:
-      - "8080:80"
-      #- "80:80"  # production
+      - "8080:80"   # test
+      #- "80:80"    # production
       #- "443:443"  # https
     depends_on:
       - app
@@ -34,7 +34,7 @@ services:
     environment:
       PYTHONUNBUFFERED: 1
       DCRM_WORKER: none
-  worker-default:
+  worker-default:           # if you need more `default` workers, duplicate this section
     build: .
     volumes:
       - app_resources:/usr/src/app/resources
@@ -46,8 +46,8 @@ services:
       - memcached:dcrm-memcached
     environment:
       PYTHONUNBUFFERED: 1
-      DCRM_WORKER: default
-  worker-high:  # if you need more workers, you can duplicate this section
+      DCRM_WORKER: default  # worker priority
+  worker-high:              # if you need more `high` workers, duplicate this section
     build: .
     volumes:
       - app_resources:/usr/src/app/resources
@@ -59,17 +59,17 @@ services:
       - memcached:dcrm-memcached
     environment:
       PYTHONUNBUFFERED: 1
-      DCRM_WORKER: high  # worker priority: default/high
+      DCRM_WORKER: high     # worker priority
   db:
     image: mysql:5.7
     volumes:
       - db_data:/var/lib/mysql
     restart: always
-    environment:  # should match `DCRM/settings.py`
+    environment:
       MYSQL_ROOT_PASSWORD: dcrm_root_password
-      MYSQL_DATABASE: DCRM
-      MYSQL_USER: dcrm
-      MYSQL_PASSWORD: dcrm_user_password
+      MYSQL_DATABASE: DCRM                       # important: should match `DCRM/settings.py`
+      MYSQL_USER: dcrm                           # important: should match `DCRM/settings.py`
+      MYSQL_PASSWORD: dcrm_user_password         # important: should match `DCRM/settings.py`
   redis:
     image: redis
     restart: always
@@ -77,9 +77,10 @@ services:
     image: memcached
     restart: always
 
+# your data will not lost until you clean these docker volumes
 volumes:
-  db_data:
-  app_static:
-  app_resources:
+  db_data:        # mysql database
+  app_static:     # static files
+  app_resources:  # packages
   app_temp:
 

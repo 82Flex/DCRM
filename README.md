@@ -50,7 +50,11 @@ This demo is deployed using [Container Optimized OS](https://cloud.google.com/co
 如果你还没有下载此项目, 建议使用 `git` 克隆该仓库, 并修改部署设置:
 
 ```bash
+# clone this repo
 git clone --depth 1 https://github.com/82Flex/DCRM.git && cd DCRM
+
+# should be carefully
+vi DCRM/settings.py
 ```
 
 2. build and launch DCRM via `docker-compose`
@@ -60,25 +64,29 @@ git clone --depth 1 https://github.com/82Flex/DCRM.git && cd DCRM
 docker-compose up --build
 ```
 
-3. if there is no error, you can access DCRM via `http://127.0.0.1:8080/`
-如果没有发生错误, 你可以尝试访问首页
-
-4. attach to `dcrm_app` container:
+3. attach to `dcrm_app` container:
 先附加到容器中:
 
 ```bash
 docker exec -i -t dcrm_app_1 /bin/bash
 ```
 
-5. create superuser in container:
-在容器中创建后台超级管理员帐户:
+4. in container:
+在容器中执行命令:
 
 ```bash
+# collect static files
+python manage.py collectstatic
+
+# create required database structures
+python manage.py migrate
+
+# create super user in database
 python manage.py createsuperuser
 ```
 
-6. access admin panel via `http://127.0.0.1:8080/admin/`
-创建完成后, 你现在可以访问 DCRM 后台了
+5. access admin panel via `http://127.0.0.1:8080/admin/`
+现在可以尝试访问 DCRM 后台了
 
 
 ## 2.1. DOCKER COMMANDS 常用命令

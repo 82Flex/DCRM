@@ -20,34 +20,37 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
 
-# SITE
-# IMPORTANT:
-# Just set this to the first Site instance's id in database.
-# Usually, it is set to 1, do not change it at the very first.
+
+# SITE ID
+"""
+!!! DO NOT CHANGE THIS SECTION IF YOU DO NOT KNOW WHAT IT MEANS !!!
+"""
 SITE_ID = 1
 
+
 # PATH
-# TIPS: Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+"""
+!!! DO NOT CHANGE THIS SECTION IF YOU DO NOT KNOW WHAT IT MEANS !!!
+"""
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 # THEME
 THEME = 'DefaultStyle'
 
+
 # FEATURES
-ENABLE_REDIS = True  # redis-server, rq are required.
-ENABLE_CACHE = True  # memcached, python-memcached are required.
-ENABLE_API = True  # restful api
+ENABLE_REDIS = True  # redis-server, rq are required
+ENABLE_CACHE = True  # memcached, python-memcached are required
+ENABLE_API = True    # restful api framework
+
 
 # SECURITY
 # WARNING: keep the secret key used in production secret!
 SECRET_KEY = '$!#)nxr8rv83s(b%#kg*8a)m%igd+o%2=mgvqkba_zbc3(bpan'
-
-# SECURITY
 # WARNING: don't run with debug turned on in production!
-DEBUG = True
-SECURE_SSL = False  # https -> True
-
-# SECURITY
+DEBUG = True         # disable it in production environment
+SECURE_SSL = False   # force https -> True
 ALLOWED_HOSTS = [
     'apt.82flex.com',  # your domain here
     '127.0.0.1',
@@ -55,25 +58,25 @@ ALLOWED_HOSTS = [
 ]
 print("[DCRM] Host: " + ALLOWED_HOSTS[0])
 
+
 # INTERNATIONAL
 USE_I18N = True
 USE_L10N = True
-USE_TZ = True  # pytz is required.
-LANGUAGE_CODE = 'en'  # zh-Hans for Simplified Chinese
-TIME_ZONE = 'Asia/Shanghai'  # Asia/Shanghai, etc.
+USE_TZ = True                # pytz module is required.
+LANGUAGE_CODE = 'en'         # zh-Hans -> Simplified Chinese
+TIME_ZONE = 'Asia/Shanghai'
 
-# Database
+
+# DATABASE
 # You cannot use SQLite3 due to the lack of advanced database supports.
-# !!! Change the 'NAME' here if you have multiple DCRM installed !!!
-
-
+# !!! change the 'NAME' here if you have multiple DCRM installed !!!
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DCRM',  # mysql database name here
-        'USER': 'dcrm',  # mysql user name here
-        'PASSWORD': 'dcrm_user_password',  # mysql user password here
-        'HOST': 'dcrm-db',  # if you don't use docker, set it to 127.0.0.1
+        'NAME': 'DCRM',                          # mysql database name here, should match `docker-compose.yml`
+        'USER': 'dcrm',                          # mysql user name here, should match `docker-compose.yml`
+        'PASSWORD': 'dcrm_user_password',        # mysql user password here, should match `docker-compose.yml`
+        'HOST': 'dcrm-db',                       # if you don't use docker, set it to 127.0.0.1
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
@@ -81,19 +84,21 @@ DATABASES = {
     }
 }
 
+
+# REDIS (TASK QUEUE)
 if ENABLE_REDIS is True:
     # Redis
-    # !!! Change the 'DB' number here if you have multiple DCRM installed !!!
+    # !!! change the 'DB' number here if you have multiple DCRM installed !!!
     RQ_QUEUES = {
         'default': {
-            'HOST': 'dcrm-redis',  # if you don't use docker, set it to 127.0.0.1
+            'HOST': 'dcrm-redis',                # if you don't use docker, set it to 127.0.0.1
             'PORT': 6379,
             'DB': 0,
             'PASSWORD': '',
             'DEFAULT_TIMEOUT': 360,
         },
         'high': {
-            'HOST': 'dcrm-redis',  # if you don't use docker, set it to 127.0.0.1
+            'HOST': 'dcrm-redis',                # if you don't use docker, set it to 127.0.0.1
             'PORT': 6379,
             'DB': 0,
             'PASSWORD': '',
@@ -104,6 +109,8 @@ if ENABLE_REDIS is True:
 else:
     print("[DCRM] Redis Queue: Disabled")
 
+
+# MEMCACHED (PAGE CACHING)
 CACHE_TIME = 0
 if ENABLE_CACHE is True:
     # Cache
@@ -120,18 +127,25 @@ if ENABLE_CACHE is True:
 else:
     print("[DCRM] Page Caching: Disabled")
 
-# Nginx Locations
 
-# !!! please configure Nginx to make an alias from STATIC_URL to STATIC_ROOT !!!
+# NGINX
+"""
+!!! DO NOT CHANGE THIS SECTION IF YOU USE DOCKER !!!
+"""
+# !!! remember to configure Nginx to make an alias from STATIC_URL to STATIC_ROOT !!!
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [
-
-]
-
-# !!! please configure Nginx to make an alias from MEDIA_URL to MEDIA_ROOT !!!
+STATICFILES_DIRS = []
+"""
+!!! DO NOT CHANGE THIS SECTION IF YOU USE DOCKER !!!
+"""
+# !!! remember to configure Nginx to make an alias from MEDIA_URL to MEDIA_ROOT !!!
 MEDIA_URL = '/resources/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'resources')
+
+
+
+
 
 """
 !!! DO NOT EDIT ANYTHING BELOW !!!
@@ -248,3 +262,4 @@ STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
 )
+
