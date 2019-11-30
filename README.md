@@ -166,7 +166,7 @@ Enable package versions and assign them into sections.
 
 7. `WEIPDCRM -> Builds`
 
-Build the repository to apply all the changes.
+Build the repository to apply all the changes, thus you cannot add this repo in Cydia.
 构建全源, 让所有更改生效 (第一次构建前, Cydia 中是无法添加该源的)
 
 
@@ -256,7 +256,7 @@ apt-get install memcached
 service memcached start
 ```
 
-9. edit `DCRM/settings.py`:
+9. modify `DCRM/settings.py`:
 
     1. set a random `SECRET_KEY`, which must be unique
     2. add your domain into `ALLOWED_HOSTS`
@@ -304,11 +304,7 @@ We assumed that nginx uses `www-data` as its user and group.
 ### 4.3.1. Configure UWSGI
 <a id="markdown-configure-uwsgi" name="configure-uwsgi"></a>
 
-在 DCRM 目录下创建 `uwsgi.ini`:
-
-```bash
-touch uwsgi.ini
-```
+here is an example of `uwsgi.ini`:
 
 ```ini
 [uwsgi]
@@ -328,6 +324,7 @@ gid = www-data
 safe-pidfile = /home/run/uwsgi-apt.pid
 ; daemonize = /dev/null
 ```
+
 
 ### 4.3.2. UWSGI Commands
 <a id="markdown-uwsgi-commands" name="uwsgi-commands"></a>
@@ -353,6 +350,8 @@ kill -INT `cat /home/run/uwsgi-apt.pid`
 
 ### 4.3.3. Configure NGINX
 <a id="markdown-configure-nginx" name="configure-nginx"></a>
+
+here is an example of nginx https site configuration file:
 
 ```nginx
 upstream django {
