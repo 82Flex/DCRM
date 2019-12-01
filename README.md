@@ -40,6 +40,8 @@ This demo is deployed using [Container Optimized OS](https://cloud.google.com/co
 * Username: `root`
 * Password: `dcrmpass`
 
+Before you build your personal Cydia repository, watch this guide video:[https://youtu.be/dvNCRckm2Cc](https://youtu.be/dvNCRckm2Cc)
+
 
 # 2. DOCKER DEPLOY 自动部署 (Docker)
 <a id="markdown-docker-deploy-自动部署-docker" name="docker-deploy-自动部署-docker"></a>
