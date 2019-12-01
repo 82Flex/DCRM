@@ -47,7 +47,7 @@ from WEIPDCRM.models.build import Build
 admin.site.site_header = "WEIPDCRM"
 admin.site.site_title = "WEIPDCRM"
 
-admin.site.disable_action("delete_selected")
+# admin.site.disable_action("delete_selected")
 
 # Models (The order should be edited in apps.py)
 admin.site.register(Package, PackageAdmin)

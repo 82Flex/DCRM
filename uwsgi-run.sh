@@ -11,5 +11,8 @@ elif [ "${DCRM_WORKER}" = "default" ]; then
 elif [ "${DCRM_WORKER}" = "high" ]; then
     sleep 30  # wait for main app to launch
     python manage.py rqworker high
+elif [ "${DCRM_WORKER}" = "scheduler" ]; then
+    sleep 30  # wait for main app to launch
+    python manage.py rqscheduler
 fi
 

@@ -39,6 +39,9 @@ class SuitConfig(DjangoSuitConfig):
         ParentItem('Sites', children=[
             ChildItem(model='sites.site'),
             ChildItem(_('Django RQ'), url='/admin/sites/django-rq/'),
+            ChildItem(model='scheduler.cronjob'),
+            ChildItem(model='scheduler.repeatablejob'),
+            ChildItem(model='scheduler.scheduledjob'),
         ]),
         ParentItem('Authentication and Authorization', children=[
             ChildItem(model='auth.user'),

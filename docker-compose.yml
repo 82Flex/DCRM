@@ -37,6 +37,7 @@ services:
   worker-default:           # if you need more `default` workers, duplicate this section
     build: .
     volumes:
+      - app_static:/usr/src/app/static
       - app_resources:/usr/src/app/resources
       - app_temp:/usr/src/app/temp
       - ./.gnupg:/usr/src/app/.gnupg
@@ -50,6 +51,7 @@ services:
   worker-high:              # if you need more `high` workers, duplicate this section
     build: .
     volumes:
+      - app_static:/usr/src/app/static
       - app_resources:/usr/src/app/resources
       - app_temp:/usr/src/app/temp
       - ./.gnupg:/usr/src/app/.gnupg
@@ -60,6 +62,20 @@ services:
     environment:
       PYTHONUNBUFFERED: 1
       DCRM_WORKER: high     # worker priority
+  scheduler:
+    build: .
+    volumes:
+      - app_static:/usr/src/app/static
+      - app_resources:/usr/src/app/resources
+      - app_temp:/usr/src/app/temp
+      - ./.gnupg:/usr/src/app/.gnupg
+    links:
+      - db:dcrm-db
+      - redis:dcrm-redis
+      - memcached:dcrm-memcached
+    environment:
+      PYTHONUNBUFFERED: 1
+      DCRM_WORKER: scheduler
   db:
     image: mysql:5.7
     volumes:
