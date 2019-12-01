@@ -7,6 +7,9 @@
 
 <!-- TOC insertanchor:true -->
 
+- [SUMMARY](#summary)
+    - [Features](#features)
+    - [TODOs](#todos)
 - [DEMO](#demo)
 - [DOCKER DEPLOY 自动部署 (Docker)](#docker-deploy-自动部署-docker)
     - [DOCKER COMMANDS 常用命令](#docker-commands-常用命令)
@@ -30,7 +33,42 @@
 ----
 
 
-# 1. DEMO
+# 1. SUMMARY
+<a id="markdown-summary" name="summary"></a>
+
+DCRM means Darwin Cydia Repo (APT) Manager, which is designed for [Jay Freeman](https://twitter.com/saurik)'s [Cydia](https://en.wikipedia.org/wiki/Cydia). Cydia is an universal package manager for jailbroken devices.
+
+
+## 1.1. Features
+<a id="markdown-features" name="features"></a>
+
+- full featured dashboard powered by Django and Django Suit
+- restful APIs with full documentation powered by Django REST framework
+- import Debian package (.deb) via http upload
+- manage packages, versions, sections and icons
+- sync control fields between db and the `control` file inside package automatically
+- auto generated depiction pages, mobile optimized
+- threaded comments & screenshots gallery
+- iOS version / product type compatibility check
+- version history & downgrade support
+- download count & statistics
+- scheduled tasks
+- multiple users / groups
+- CDN/OSS friendly
+- GPG signature
+- supports Docker
+
+
+## 1.2. TODOs
+<a id="markdown-todos" name="todos"></a>
+
+- apt pdiff feature
+- support for commercial packages
+- import package via ftp upload
+- more themes
+
+
+# 2. DEMO
 <a id="markdown-demo" name="demo"></a>
 
 This demo is deployed using [Container Optimized OS](https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os) on Google Cloud.
@@ -43,7 +81,7 @@ This demo is deployed using [Container Optimized OS](https://cloud.google.com/co
 Before you build your personal Cydia repository, watch this guide video:[https://youtu.be/dvNCRckm2Cc](https://youtu.be/dvNCRckm2Cc)
 
 
-# 2. DOCKER DEPLOY 自动部署 (Docker)
+# 3. DOCKER DEPLOY 自动部署 (Docker)
 <a id="markdown-docker-deploy-自动部署-docker" name="docker-deploy-自动部署-docker"></a>
 
 以下步骤能完整部署 DCRM 最新副本, 启用了任务队列及页面缓存支持, 你可以根据需要调整自己的配置.
@@ -87,7 +125,7 @@ python manage.py createsuperuser
 现在可以尝试访问 DCRM 后台了
 
 
-## 2.1. DOCKER COMMANDS 常用命令
+## 3.1. DOCKER COMMANDS 常用命令
 <a id="markdown-docker-commands-常用命令" name="docker-commands-常用命令"></a>
 
 1. build then launch DCRM in background (when app src code updated) 重新构建并在后台启动 DCRM (仅当代码发生变动, 不会影响数据)
@@ -109,7 +147,7 @@ docker-compose down
 ```
 
 
-## 2.2. Configure GnuPG
+## 3.2. Configure GnuPG
 <a id="markdown-configure-gnupg" name="configure-gnupg"></a>
 
 1. attach to `dcrm_app` container:
@@ -130,7 +168,7 @@ gpg --allow-secret-key-import --import private.key --homedir .gnupg
 4. create APT verification package in `WEIPDCRM -> Sections -> Action -> Generate icon package for selected sections`, which will install GPG public key to user's device
 
 
-# 3. PUBLISH REPOSITORY 发布软件源
+# 4. PUBLISH REPOSITORY 发布软件源
 <a id="markdown-publish-repository-发布软件源" name="publish-repository-发布软件源"></a>
 
 Before you publish your repository, there are a few steps you should follow:
@@ -168,10 +206,10 @@ Build the repository to apply all the changes, thus you cannot add this repo in 
 构建全源, 让所有更改生效 (第一次构建前, Cydia 中是无法添加该源的)
 
 
-# 4. MANUALLY DEPLOY 手动部署
+# 5. MANUALLY DEPLOY 手动部署
 <a id="markdown-manually-deploy-手动部署" name="manually-deploy-手动部署"></a>
 
-## 4.1. ENVIRONMENT 环境
+## 5.1. ENVIRONMENT 环境
 <a id="markdown-environment-环境" name="environment-环境"></a>
 
 - gzip, bzip2, **xz (xz-devel)**
@@ -183,7 +221,7 @@ Build the repository to apply all the changes, thus you cannot add this repo in 
 - uwsgi, Nginx (production only)
 
 
-## 4.2. EXAMPLE 示例
+## 5.2. EXAMPLE 示例
 <a id="markdown-example-示例" name="example-示例"></a>
 
 1. install dependencies:
@@ -290,7 +328,7 @@ python3 manage.py runserver
 13. access admin panel via `http://127.0.0.1:8000/admin/`
 
 
-## 4.3. IN PRODUCTION 生产环境示例
+## 5.3. IN PRODUCTION 生产环境示例
 <a id="markdown-in-production-生产环境示例" name="in-production-生产环境示例"></a>
 
 生产环境的配置需要有一定的服务器运维经验, 如果你在生产环境的配置过程中遇到困难, 我们提供付费的疑难解答.
@@ -299,7 +337,7 @@ We assumed that nginx uses `www-data` as its user and group.
 假设 nginx 使用 `www-data` 用作其用户名和用户组名.
 
 
-### 4.3.1. Configure UWSGI
+### 5.3.1. Configure UWSGI
 <a id="markdown-configure-uwsgi" name="configure-uwsgi"></a>
 
 here is an example of `uwsgi.ini`:
@@ -324,7 +362,7 @@ safe-pidfile = /home/run/uwsgi-apt.pid
 ```
 
 
-### 4.3.2. UWSGI Commands
+### 5.3.2. UWSGI Commands
 <a id="markdown-uwsgi-commands" name="uwsgi-commands"></a>
 
 test:
@@ -346,7 +384,7 @@ kill -INT `cat /home/run/uwsgi-apt.pid`
 ```
 
 
-### 4.3.3. Configure NGINX
+### 5.3.3. Configure NGINX
 <a id="markdown-configure-nginx" name="configure-nginx"></a>
 
 here is an example of nginx https site configuration file:
@@ -424,7 +462,7 @@ server {
 ```
 
 
-### 4.3.4. NGINX Commands
+### 5.3.4. NGINX Commands
 <a id="markdown-nginx-commands" name="nginx-commands"></a>
 
 1. install Nginx:
@@ -458,7 +496,7 @@ sudo /etc/init.d/nginx start
 ```
 
 
-### 4.3.5. Configure Workers
+### 5.3.5. Configure Workers
 <a id="markdown-configure-workers" name="configure-workers"></a>
 
 make sure to launch task queue with the same nginx working user (www/www-data).
@@ -477,7 +515,7 @@ nohup ./manage.py rqworker default > /dev/null &
 you need at least one worker for each queue. worker 的数量以你的具体需求为准, 但是各队列中至少要有一个活跃 worker, 否则队列中的任务将一直保持挂起.
 
 
-### 4.3.6. Configure GnuPG
+### 5.3.6. Configure GnuPG
 <a id="markdown-configure-gnupg" name="configure-gnupg"></a>
 
 1. install `gnupg2`
@@ -504,7 +542,7 @@ gpg --allow-secret-key-import --import private.key --homedir .gnupg
 5. create APT verification package in `WEIPDCRM -> Sections -> Action -> Generate icon package for selected sections`, which will install GPG public key to user's device
 
 
-# 5. LICENSE 版权声明
+# 6. LICENSE 版权声明
 <a id="markdown-license-版权声明" name="license-版权声明"></a>
 
 Copyright © 2013-2020 Zheng Wu <i.82@me.com>
