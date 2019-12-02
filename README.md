@@ -11,8 +11,9 @@
     - [Features](#features)
     - [TODOs](#todos)
 - [DEMO](#demo)
-- [DOCKER DEPLOY 自动部署 (Docker)](#docker-deploy-自动部署-docker)
+- [DOCKER DEPLOY 自动部署](#docker-deploy-自动部署)
     - [DOCKER COMMANDS 常用命令](#docker-commands-常用命令)
+    - [SIMPLE CONFIGURATION](#simple-configuration)
     - [Configure GnuPG](#configure-gnupg)
 - [PUBLISH REPOSITORY 发布软件源](#publish-repository-发布软件源)
 - [MANUALLY DEPLOY 手动部署](#manually-deploy-手动部署)
@@ -42,21 +43,21 @@ DCRM means Darwin Cydia Repo (APT) Manager, which is designed for [Jay Freeman](
 ## 1.1. Features
 <a id="markdown-features" name="features"></a>
 
-- full featured dashboard powered by Django and Django Suit
-- restful APIs with full documentation powered by Django REST framework
+- full featured dashboard powered by [Django](https://www.djangoproject.com/) and [Django Suit](https://djangosuit.com/)
+- restful APIs with full documentation powered by [Django REST framework](https://www.django-rest-framework.org/)
 - import Debian package (.deb) via http upload
 - manage packages, versions, sections and icons
 - sync control fields between db and the `control` file inside package automatically
 - auto generated depiction pages, mobile optimized
-- threaded comments & screenshots gallery
+- [threaded comments](https://github.com/HonzaKral/django-threadedcomments) & [screenshots gallery](https://github.com/richardbarran/django-photologue)
 - iOS version / product type compatibility check
 - version history & downgrade support
 - download count & statistics
 - scheduled tasks
 - multiple users / groups
 - CDN/OSS friendly
-- GPG signature
-- supports Docker
+- [GPG signature](https://wiki.debian.org/SecureApt)
+- supports [Docker](https://www.docker.com/)
 
 
 ## 1.2. TODOs
@@ -71,18 +72,18 @@ DCRM means Darwin Cydia Repo (APT) Manager, which is designed for [Jay Freeman](
 # 2. DEMO
 <a id="markdown-demo" name="demo"></a>
 
-This demo is deployed using [Container Optimized OS](https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os) on Google Cloud.
+This demo is deployed using [Container Optimized OS](https://cloud.google.com/community/tutorials/docker-compose-on-container-optimized-os) on [Google Cloud](https://cloud.google.com/).
 
 [https://apt.82flex.com/](https://apt.82flex.com/)
 
 * Username: `root`
 * Password: `dcrmpass`
 
-Before you build your personal Cydia repository, watch this guide video:[https://youtu.be/dvNCRckm2Cc](https://youtu.be/dvNCRckm2Cc)
+Before you build your personal Cydia repository, watch this guide video: [https://youtu.be/dvNCRckm2Cc](https://youtu.be/dvNCRckm2Cc)
 
 
-# 3. DOCKER DEPLOY 自动部署 (Docker)
-<a id="markdown-docker-deploy-自动部署-docker" name="docker-deploy-自动部署-docker"></a>
+# 3. DOCKER DEPLOY 自动部署
+<a id="markdown-docker-deploy-自动部署" name="docker-deploy-自动部署"></a>
 
 以下步骤能完整部署 DCRM 最新副本, 启用了任务队列及页面缓存支持, 你可以根据需要调整自己的配置.
 
@@ -107,12 +108,12 @@ docker-compose up --build --detach
 docker exec -i -t dcrm_app_1 /bin/bash
 ```
 
-4. in container:
+4. **execute in container**:
 在容器中执行命令:
 
 ```bash
 # collect static files
-python manage.py collectstatic
+python manage.py collectstatic --no-input
 
 # create required database structures
 python manage.py migrate
@@ -128,7 +129,7 @@ python manage.py createsuperuser
 ## 3.1. DOCKER COMMANDS 常用命令
 <a id="markdown-docker-commands-常用命令" name="docker-commands-常用命令"></a>
 
-1. build then launch DCRM in background (when app src code updated) 重新构建并在后台启动 DCRM (仅当代码发生变动, 不会影响数据)
+1. build then launch DCRM in background, only when source code updated 重新构建并在后台启动 DCRM (仅当代码发生变动, 不会影响数据)
 
 ```bash
 docker-compose up --build --detach
@@ -140,14 +141,45 @@ docker-compose up --build --detach
 docker-compose up --detach
 ```
 
-3. shutdown DCRM 停止 DCRM
+3. launch DCRM in foreground to see what happens 在前台启动 DCRM
+
+```bash
+docker-compose up
+```
+
+4. shutdown DCRM 停止 DCRM
 
 ```bash
 docker-compose down
 ```
 
 
-## 3.2. Configure GnuPG
+## 3.2. SIMPLE CONFIGURATION
+<a id="markdown-simple-configuration" name="simple-configuration"></a>
+
+here are a few steps you need to follow:
+
+edit `docker/nginx/conf.d/default.conf`, line 6:
+
+1. set `server_name` to your domain
+2. [configure your https server](http://nginx.org/en/docs/http/configuring_https_servers.html)
+
+
+edit `DCRM/settings.py`:
+
+1. `TIME_ZONE`
+2. `ALLOWED_HOSTS`
+3. `DEBUG`: set it to `false` if you're providing subscription to others
+4. `SECURE_SSL`: set it to `true` if you have https certs and properly configured
+5. `SECRET_KEY`: set it to a random, unique string
+
+
+edit `docker-compose.yml`, line 12:
+
+1. change it from `8080:80` to `80:80` if you're providing subscription to others using http, add an extra `443:443` if you're using https
+
+
+## 3.3. Configure GnuPG
 <a id="markdown-configure-gnupg" name="configure-gnupg"></a>
 
 1. attach to `dcrm_app` container:
@@ -213,7 +245,7 @@ Build the repository to apply all the changes, thus you cannot add this repo in 
 <a id="markdown-environment-环境" name="environment-环境"></a>
 
 - gzip, bzip2, **xz (xz-devel)**
-- Python 3.7 (*CentOS: if Python is compiled from source, make sure package `xz-devel` is installed*)
+- Python 3.7 (*CentOS: if compiled from source, make sure package `xz-devel` is installed*)
 - Django 1.11+
 - MySQL (or MariaDB)
 - Redis (optional)
@@ -249,7 +281,7 @@ mysql -uroot -p
 CREATE DATABASE `DCRM` DEFAULT CHARSET UTF8;
 ```
 
-4. create user and grant privileges:
+4. create mysql user `dcrm` and grant privileges:
 新建 dcrm 用户并设置密码:
 
 ```sql
@@ -268,7 +300,7 @@ git clone --depth 1 https://github.com/82Flex/DCRM.git
 cd /wwwdata/DCRM
 ```
 
-6. install python modules:
+6. install python modules, `virtualenv` is recommended if you want:
 安装必要的 python 模块:
 
 ```bash
@@ -294,14 +326,14 @@ service memcached start
 
 9. modify `DCRM/settings.py`:
 
-    1. set a random `SECRET_KEY`, which must be unique
-    2. add your domain into `ALLOWED_HOSTS`
-    3. configure Redis to match your redis configurations: `RQ_QUEUES`, you may use different 'DB' numbers across DCRM instances
-    4. configure databases to match your mysql configurations: `DATABASES`, you may use different 'DATABASE' across DCRM instances
-    5. configure caches to match your memcached configuration: `CACHES`
-    6. configure language and timezone: `LANGUAGE_CODE` and `TIME_ZONE`
-    7. set `DEBUG = True` for debugging, set `DEBUG = False` for production
-    8. enable optional features: `ENABLE_REDIS`, `ENABLE_CACHE`, `ENABLE_API`
+- `SECRET_KEY`: set it to a random, unique string
+- `ALLOWED_HOSTS`: add your domain 
+- `RQ_QUEUES`: your redis configurations, you may use different 'DB' numbers across DCRM instances
+- `DATABASES`: your mysql configurations, you may use different 'DATABASE' across DCRM instances
+- `CACHES`: your memcached configurations
+- `LANGUAGE_CODE` and `TIME_ZONE`
+- set `DEBUG = True` for debugging, set `DEBUG = False` for production
+- optional features: `ENABLE_REDIS`, `ENABLE_CACHE`, `ENABLE_API`
 
 10. collect static files:
 同步静态文件:
