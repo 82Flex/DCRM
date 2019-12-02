@@ -12,8 +12,8 @@
     - [TODOs](#todos)
 - [DEMO](#demo)
 - [DOCKER DEPLOY 自动部署](#docker-deploy-自动部署)
-    - [DOCKER COMMANDS 常用命令](#docker-commands-常用命令)
-    - [SIMPLE CONFIGURATION](#simple-configuration)
+    - [Docker Commands 常用命令](#docker-commands-常用命令)
+    - [Basic Configuration](#basic-configuration)
     - [Configure GnuPG](#configure-gnupg)
 - [PUBLISH REPOSITORY 发布软件源](#publish-repository-发布软件源)
 - [MANUALLY DEPLOY 手动部署](#manually-deploy-手动部署)
@@ -108,7 +108,7 @@ docker-compose up --build --detach
 docker exec -i -t dcrm_app_1 /bin/bash
 ```
 
-4. **execute in container**:
+4. execute in **container**:
 在容器中执行命令:
 
 ```bash
@@ -126,7 +126,7 @@ python manage.py createsuperuser
 现在可以尝试访问 DCRM 后台了
 
 
-## 3.1. DOCKER COMMANDS 常用命令
+## 3.1. Docker Commands 常用命令
 <a id="markdown-docker-commands-常用命令" name="docker-commands-常用命令"></a>
 
 1. build then launch DCRM in background, only when source code updated 重新构建并在后台启动 DCRM (仅当代码发生变动, 不会影响数据)
@@ -154,8 +154,8 @@ docker-compose down
 ```
 
 
-## 3.2. SIMPLE CONFIGURATION
-<a id="markdown-simple-configuration" name="simple-configuration"></a>
+## 3.2. Basic Configuration
+<a id="markdown-basic-configuration" name="basic-configuration"></a>
 
 here are a few steps you need to follow:
 
