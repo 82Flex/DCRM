@@ -79,6 +79,7 @@ services:
   db:
     image: mysql:5.7
     volumes:
+      - ./docker/mysql/conf.d:/etc/mysql/conf.d         # your db configuration: docker/mysql/conf.d
       - db_data:/var/lib/mysql
     restart: always
     environment:
