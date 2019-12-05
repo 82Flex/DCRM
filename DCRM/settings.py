@@ -63,7 +63,7 @@ print("[DCRM] Host: " + ALLOWED_HOSTS[0])
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True                # pytz module is required.
-LANGUAGE_CODE = 'en'         # zh-Hans -> Simplified Chinese
+LANGUAGE_CODE = 'ar'         # ar -> Arabic, zh-Hans -> Simplified Chinese, etc.
 TIME_ZONE = 'Asia/Shanghai'
 
 
@@ -252,6 +252,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGES = (
     ('en', u'English'),
+    ('ar', u'العربية'),
     ('zh_Hans', u'中文简体'),
 )
 LOCALE_PATHS = (
