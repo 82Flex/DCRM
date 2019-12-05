@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-05 14:14+0800\n"
+"POT-Creation-Date: 2019-12-05 22:43+0800\n"
 "PO-Revision-Date: 2017-08-12 22:01+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,92 +20,92 @@ msgstr ""
 
 #: suit/admin_filters.py:6
 msgid "Is present"
-msgstr ""
+msgstr "是否存在"
 
 #: suit/admin_filters.py:7
 msgid "Is Null"
-msgstr ""
+msgstr "是否为空"
 
 #: suit/admin_filters.py:21
 msgid "All"
-msgstr ""
+msgstr "所有"
 
 #: suit/menu.py:105 suit/templates/registration/password_change_form.html:7
 msgid "Home"
-msgstr ""
+msgstr "首页"
 
 #: suit/templates/admin/auth/user/add_form.html:8
 msgid ""
 "First, enter a username and password. Then, you'll be able to edit more user "
 "options."
-msgstr ""
+msgstr "首先, 输入用户名和密码. 然后你才能编辑更多用户选项."
 
 #: suit/templates/admin/auth/user/add_form.html:10
 msgid "Enter a username and password."
-msgstr ""
+msgstr "请输入用户名和密码."
 
 #: suit/templates/admin/auth/user/change_password.html:11
 #: suit/templates/admin/login.html:9
 #: suit/templates/registration/password_change_form.html:21
 msgid "Please correct the error below."
-msgstr ""
+msgstr "请更正下方的错误."
 
 #: suit/templates/admin/auth/user/change_password.html:11
 #: suit/templates/admin/login.html:10
 #: suit/templates/registration/password_change_form.html:21
 msgid "Please correct the errors below."
-msgstr ""
+msgstr "请更正下方的错误."
 
 #: suit/templates/admin/auth/user/change_password.html:15
 #, python-format
 msgid "Enter a new password for the user <strong>%(username)s</strong>."
-msgstr ""
+msgstr "请为用户 <strong>%(username)s</strong> 设置新密码."
 
 #: suit/templates/admin/auth/user/change_password.html:35
 #: suit/templates/admin/base.html:55
 msgid "Change password"
-msgstr ""
+msgstr "修改密码"
 
 #: suit/templates/admin/base.html:13
 msgid "Django site admin"
-msgstr ""
+msgstr "Django 站点管理"
 
 #: suit/templates/admin/base.html:18 suit/templates/admin/base.html:97
 msgid "Django administration"
-msgstr ""
+msgstr "Django 管理"
 
 #: suit/templates/admin/base.html:19
 msgid "Admin"
-msgstr ""
+msgstr "管理"
 
 #: suit/templates/admin/base.html:43
 msgid "View site"
-msgstr ""
+msgstr "查看站点"
 
 #: suit/templates/admin/base.html:50
 msgid "Documentation"
-msgstr ""
+msgstr "文档"
 
 #: suit/templates/admin/base.html:58
 msgid "Log out"
-msgstr ""
+msgstr "登出"
 
 #: suit/templates/admin/change_list.html:9
 msgid "Filter"
-msgstr ""
+msgstr "过滤"
 
 #: suit/templates/admin/change_list_results.html:17
 msgid "Remove from sorting"
-msgstr ""
+msgstr "从排序移除"
 
 #: suit/templates/admin/change_list_results.html:18
 #, python-format
 msgid "Sorting priority: %(priority_number)s"
-msgstr ""
+msgstr "排序优先级: %(priority_number)s"
 
 #: suit/templates/admin/change_list_results.html:19
 msgid "Toggle sorting"
-msgstr ""
+msgstr "切换排序"
 
 #: suit/templates/admin/login.html:26
 #, python-format
@@ -113,32 +113,35 @@ msgid ""
 "You are authenticated as %(username)s, but are not authorized to access this "
 "page. Would you like to login to a different account?"
 msgstr ""
+"你当前以 %(username)s 身份登录, 但是你无权访问该页面. 你是否希望使用另一个帐"
+"户登录?"
 
 #: suit/templates/admin/login.html:47
 msgid "Forgotten your password or username?"
-msgstr ""
+msgstr "忘记你的密码或用户名?"
 
 #: suit/templates/admin/login.html:51
 msgid "Log in"
-msgstr ""
+msgstr "登录"
 
 #: suit/templates/registration/password_change_form.html:8
 msgid "Password change"
-msgstr ""
+msgstr "修改密码"
 
 #: suit/templates/registration/password_change_form.html:26
 msgid ""
 "Please enter your old password, for security's sake, and then enter your new "
 "password twice so we can verify you typed it in correctly."
 msgstr ""
+"为保安全, 请输入你的旧密码, 然后键入你的新密码两次, 以便验证你的输入正确无虞."
 
 #: suit/templates/registration/password_change_form.html:54
 msgid "Change my password"
-msgstr ""
+msgstr "修改我的密码"
 
 #: suit/templates/suit/search_form.html:15
 msgid "Search"
-msgstr ""
+msgstr "搜索"
 
 #: suit/templates/suit/search_form.html:17
 #, python-format
@@ -146,7 +149,7 @@ msgid ""
 "%(counter)s result\n"
 "                        "
 msgid_plural "%(counter)s results"
-msgstr[0] ""
+msgstr[0] "%(counter)s 条结果"
 
 #: suit/templates/suit/search_form.html:20
 #, python-format
@@ -154,7 +157,9 @@ msgid ""
 "%(full_result_count)s total\n"
 "                        "
 msgstr ""
+"总计 %(full_result_count)s\n"
+"                        "
 
 #: suit/templates/suit/search_form.html:21
 msgid "Show all"
-msgstr ""
+msgstr "显示所有"
