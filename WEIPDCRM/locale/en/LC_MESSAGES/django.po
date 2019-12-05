@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 01:59+0800\n"
+"POT-Creation-Date: 2019-12-05 14:14+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,18 +21,18 @@ msgstr ""
 msgid "Django RQ"
 msgstr ""
 
-#: WEIPDCRM/apps.py:71 WEIPDCRM/templates/admin/upload.html:39
+#: WEIPDCRM/apps.py:74 WEIPDCRM/templates/admin/upload.html:39
 msgid "New Package"
 msgstr ""
 
-#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/setting.py:159
+#: WEIPDCRM/apps.py:77 WEIPDCRM/manage/admin/setting.py:159
 #: WEIPDCRM/manage/admin/version.py:224
 #: WEIPDCRM/templates/admin/help/statistics.html:8
 #: WEIPDCRM/views/admin/help/statistics.py:99
 msgid "Statistics"
 msgstr ""
 
-#: WEIPDCRM/apps.py:75
+#: WEIPDCRM/apps.py:78
 msgid "About..."
 msgstr ""
 
@@ -382,7 +382,7 @@ msgstr ""
 msgid "Created At"
 msgstr ""
 
-#: WEIPDCRM/models/build.py:61 WEIPDCRM/models/setting.py:106
+#: WEIPDCRM/models/build.py:61 WEIPDCRM/models/setting.py:108
 msgid "Active Release"
 msgstr ""
 
@@ -403,12 +403,12 @@ msgid ""
 "Tell others what did you do this time before you rebuild the repository."
 msgstr ""
 
-#: WEIPDCRM/models/debian_package.py:69
+#: WEIPDCRM/models/debian_package.py:72
 msgid "Not a Debian Package"
 msgstr ""
 
-#: WEIPDCRM/models/debian_package.py:97 WEIPDCRM/models/debian_package.py:101
-#: WEIPDCRM/models/debian_package.py:143
+#: WEIPDCRM/models/debian_package.py:102 WEIPDCRM/models/debian_package.py:106
+#: WEIPDCRM/models/debian_package.py:148
 msgid "Malformed Debian Package"
 msgstr ""
 
@@ -447,7 +447,7 @@ msgstr ""
 
 #: WEIPDCRM/models/device_type.py:72 WEIPDCRM/models/os_version.py:67
 #: WEIPDCRM/models/release.py:152 WEIPDCRM/models/section.py:82
-#: WEIPDCRM/models/setting.py:409 WEIPDCRM/models/version.py:262
+#: WEIPDCRM/models/setting.py:411 WEIPDCRM/models/version.py:262
 msgid "Choose an Icon (*.png) to upload"
 msgstr ""
 
@@ -643,220 +643,220 @@ msgid ""
 "assigning any package under it."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:45
+#: WEIPDCRM/models/setting.py:47
 msgid "Only these characters are allowed: 0-9A-Za-z_.-/"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:54
+#: WEIPDCRM/models/setting.py:56
 msgid "Path alias should be prefixed and suffixed by slash chars."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:63
+#: WEIPDCRM/models/setting.py:65
 msgid "Path alias should be suffixed by a slash char."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:74
+#: WEIPDCRM/models/setting.py:76
 #, python-format
 msgid "Cannot find command 'gpg': %s"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:79
+#: WEIPDCRM/models/setting.py:81
 msgid "Only Nginx is supported now."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:84
+#: WEIPDCRM/models/setting.py:86
 msgid "pdiffs is not supported now."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:89
+#: WEIPDCRM/models/setting.py:91
 msgid "Rest API is not supported now."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:102
+#: WEIPDCRM/models/setting.py:104
 msgid "Setting"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:103
+#: WEIPDCRM/models/setting.py:105
 msgid "Settings"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:111
+#: WEIPDCRM/models/setting.py:113
 msgid ""
 "Each repository should have an active release, otherwise it will not be "
 "recognized by any advanced package tools."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:116
+#: WEIPDCRM/models/setting.py:118
 msgid "Packages Compression"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:118
+#: WEIPDCRM/models/setting.py:120
 msgid "Plain"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:119
+#: WEIPDCRM/models/setting.py:121
 msgid "Gzip"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:120
+#: WEIPDCRM/models/setting.py:122
 msgid "Plain and Gzip"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:121
+#: WEIPDCRM/models/setting.py:123
 msgid "Bzip"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:122
+#: WEIPDCRM/models/setting.py:124
 msgid "Plain and Bzip"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:123
+#: WEIPDCRM/models/setting.py:125
 msgid "Gzip and Bzip"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:124
+#: WEIPDCRM/models/setting.py:126
 msgid "All (Recommended)"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:128
+#: WEIPDCRM/models/setting.py:130
 msgid ""
 "Please change the compression method if error occurred when try to rebuild "
 "the list."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:132
+#: WEIPDCRM/models/setting.py:134
 msgid "Packages Validation"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:134
+#: WEIPDCRM/models/setting.py:136
 msgid "No validation"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:135 WEIPDCRM/models/version.py:293
+#: WEIPDCRM/models/setting.py:137 WEIPDCRM/models/version.py:293
 msgid "MD5Sum"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:136
+#: WEIPDCRM/models/setting.py:138
 msgid "MD5Sum & SHA1"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:137
+#: WEIPDCRM/models/setting.py:139
 msgid "MD5Sum & SHA1 & SHA256 (Recommended)"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:138
+#: WEIPDCRM/models/setting.py:140
 msgid "MD5Sum & SHA1 & SHA256 & SHA512"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:142
+#: WEIPDCRM/models/setting.py:144
 msgid "You need to update hashes manually."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:146
+#: WEIPDCRM/models/setting.py:148
 msgid "Downgrade Support"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:148
+#: WEIPDCRM/models/setting.py:150
 msgid "Allow multiple versions to exist in the latest package list."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:153
+#: WEIPDCRM/models/setting.py:155
 msgid "Auto Depiction"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:155
+#: WEIPDCRM/models/setting.py:157
 msgid "Check it to generate awesome depiction page for each version."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:160
+#: WEIPDCRM/models/setting.py:162
 msgid "Atomic Storage"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:162
+#: WEIPDCRM/models/setting.py:164
 msgid "Generate a new copy of package after editing control columns."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:168
+#: WEIPDCRM/models/setting.py:170
 msgid "Resources Alias"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:169
+#: WEIPDCRM/models/setting.py:171
 msgid ""
 "You can specify alias for resources path in Nginx or other HTTP servers, "
 "which is also necessary for CDN speedup."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:179
+#: WEIPDCRM/models/setting.py:181
 msgid "Enable pdiffs"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:180
+#: WEIPDCRM/models/setting.py:182
 msgid ""
 "If package list is extremely large, you should enable this to allow "
 "incremental update."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:187
+#: WEIPDCRM/models/setting.py:189
 msgid "Enable Rest API"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:188
+#: WEIPDCRM/models/setting.py:190
 msgid ""
 "Upload packages using HTTP, manage your repositories, snapshots and comments "
 "etc."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:195
+#: WEIPDCRM/models/setting.py:197
 msgid "Enable GPG Signature"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:196
+#: WEIPDCRM/models/setting.py:198
 msgid ""
 "Verify the integrity of the repository. Run 'gpg --gen-key' before you "
 "enable this feature."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:203
+#: WEIPDCRM/models/setting.py:205
 msgid "GPG Password"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:210
+#: WEIPDCRM/models/setting.py:212
 msgid "Web Server"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:212
+#: WEIPDCRM/models/setting.py:214
 msgid "Nginx"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:213
+#: WEIPDCRM/models/setting.py:215
 msgid "Apache"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:214
+#: WEIPDCRM/models/setting.py:216
 msgid "Tomcat"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:217
+#: WEIPDCRM/models/setting.py:219
 msgid "This will help DCRM redirect download request properly."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:223
+#: WEIPDCRM/models/setting.py:225
 msgid "Redirect Methods"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:225
+#: WEIPDCRM/models/setting.py:227
 msgid "None"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:226
+#: WEIPDCRM/models/setting.py:228
 msgid "Moved"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:227
+#: WEIPDCRM/models/setting.py:229
 msgid "Accel"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:229
+#: WEIPDCRM/models/setting.py:231
 msgid ""
 "None - Read resources and return, without partical support, not recommended."
 "<br />Moved - Return 301/302 responses and redirect to the real resource "
@@ -864,194 +864,194 @@ msgid ""
 "changing urls."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:238
+#: WEIPDCRM/models/setting.py:240
 msgid "Redirect Prefix"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:242
+#: WEIPDCRM/models/setting.py:244
 msgid ""
 "Changing scheme and host of the url in package downloading requests, which "
 "is useful for load balancing or CDN speedup.<br />Example: https://"
 "cdn.82flex.com/"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:251
+#: WEIPDCRM/models/setting.py:253
 msgid "Download Count"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:252
+#: WEIPDCRM/models/setting.py:254
 msgid ""
 "Count every download. You should configure Nginx or other Web servers before "
 "you enable this feature."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:261
+#: WEIPDCRM/models/setting.py:263
 msgid "Cydia Only"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:262
+#: WEIPDCRM/models/setting.py:264
 msgid ""
 "Protect downloading from any other tools except Cydia. You should configure "
 "Nginx or other Web servers before you enable this feature."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:271
+#: WEIPDCRM/models/setting.py:273
 #: WEIPDCRM/templates/admin/version/change_form.html:18
 msgid "Comments"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:272
+#: WEIPDCRM/models/setting.py:274
 msgid "Enable comments module"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:276
+#: WEIPDCRM/models/setting.py:278
 msgid "Social Module"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:277
+#: WEIPDCRM/models/setting.py:279
 msgid "Enable social module"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:281
+#: WEIPDCRM/models/setting.py:283
 msgid "QQ Group Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:287
+#: WEIPDCRM/models/setting.py:289
 msgid "QQ Group URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:288
+#: WEIPDCRM/models/setting.py:290
 msgid "Display QQ group link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:297
+#: WEIPDCRM/models/setting.py:299
 msgid "Weibo Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:303
+#: WEIPDCRM/models/setting.py:305
 msgid "Weibo URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:304
+#: WEIPDCRM/models/setting.py:306
 msgid "Display Weibo link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:313
+#: WEIPDCRM/models/setting.py:315
 msgid "Alipay URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:314
+#: WEIPDCRM/models/setting.py:316
 msgid "Display \"Donate via Alipay\" link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:323
+#: WEIPDCRM/models/setting.py:325
 msgid "Twitter Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:329
+#: WEIPDCRM/models/setting.py:331
 msgid "Twitter URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:330
+#: WEIPDCRM/models/setting.py:332
 msgid "Display Twitter link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:339
+#: WEIPDCRM/models/setting.py:341
 msgid "Facebook Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:345
+#: WEIPDCRM/models/setting.py:347
 msgid "Telegram Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:351
+#: WEIPDCRM/models/setting.py:353
 msgid "Telegram URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:352
+#: WEIPDCRM/models/setting.py:354
 msgid "Display Telegram link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:361
+#: WEIPDCRM/models/setting.py:363
 msgid "Facebook URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:362
+#: WEIPDCRM/models/setting.py:364
 msgid "Display Facebook link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:371
+#: WEIPDCRM/models/setting.py:373
 msgid "Paypal URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:372
+#: WEIPDCRM/models/setting.py:374
 msgid "Display \"Donate via Paypal\" link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:381
+#: WEIPDCRM/models/setting.py:383
 msgid "Starting Year of Copyright"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:382
+#: WEIPDCRM/models/setting.py:384
 msgid "Leave blank to display current year."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:387
+#: WEIPDCRM/models/setting.py:389
 msgid "Copyright Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:388
+#: WEIPDCRM/models/setting.py:390
 msgid ""
 "Corpyright name is displayed on the footer, leave a blank will display the "
 "source name."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:394
+#: WEIPDCRM/models/setting.py:396
 msgid "ICP Number"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:395
+#: WEIPDCRM/models/setting.py:397
 msgid "The ICP Number displayed on the footer."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:401
+#: WEIPDCRM/models/setting.py:403
 msgid "Version History"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:402
+#: WEIPDCRM/models/setting.py:404
 msgid "Enable version history module"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:406
+#: WEIPDCRM/models/setting.py:408
 msgid "Favicon"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:414
+#: WEIPDCRM/models/setting.py:416
 msgid "Notice"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:418 WEIPDCRM/models/setting.py:425
+#: WEIPDCRM/models/setting.py:420 WEIPDCRM/models/setting.py:427
 msgid ""
 "HTML Displayed on the frontend widget and the auto depiction page (mobile)."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:421
+#: WEIPDCRM/models/setting.py:423
 msgid "Advertisement"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:428
+#: WEIPDCRM/models/setting.py:430
 msgid "External Statistics"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:432
+#: WEIPDCRM/models/setting.py:434
 msgid "Invisible statistic code."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:435
+#: WEIPDCRM/models/setting.py:437
 msgid "Internal Statistics"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:439
+#: WEIPDCRM/models/setting.py:441
 msgid "Statistics code of view information at statistics page."
 msgstr ""
 

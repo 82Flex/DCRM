@@ -256,7 +256,10 @@ LANGUAGES = (
     ('zh_Hans', u'中文简体'),
 )
 LOCALE_PATHS = (
+    os.path.join(BASE_DIR, "locale"),
+    os.path.join(BASE_DIR, "fluent_comments/locale"),
     os.path.join(BASE_DIR, "WEIPDCRM/locale"),
+    os.path.join(BASE_DIR, "WEIPDCRM/styles/DefaultStyle/locale"),
 )
 TEMP_ROOT = os.path.join(BASE_DIR, 'temp')
 

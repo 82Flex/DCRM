@@ -1,28 +1,30 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: DCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-05 14:14+0800\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
-"Project-Id-Version: DCRM\n"
-"Language: ar\n"
 
 #: WEIPDCRM/apps.py:41
 msgid "Django RQ"
 msgstr "قائمة انتظار المعالجة"
 
-#: WEIPDCRM/apps.py:71 WEIPDCRM/templates/admin/upload.html:39
+#: WEIPDCRM/apps.py:74 WEIPDCRM/templates/admin/upload.html:39
 msgid "New Package"
 msgstr "حزمة جديدة"
 
-#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/setting.py:159
+#: WEIPDCRM/apps.py:77 WEIPDCRM/manage/admin/setting.py:159
 #: WEIPDCRM/manage/admin/version.py:224
 #: WEIPDCRM/templates/admin/help/statistics.html:8
 #: WEIPDCRM/views/admin/help/statistics.py:99
 msgid "Statistics"
 msgstr "المعلومات الإحصائية"
 
-#: WEIPDCRM/apps.py:75
+#: WEIPDCRM/apps.py:78
 msgid "About..."
 msgstr "حول.."
 
@@ -69,10 +71,12 @@ msgid "Job"
 msgstr "وظيفة"
 
 #: WEIPDCRM/manage/admin/build.py:374
+#, python-format
 msgid "Build %s generating job has been added to the \"high\" queue."
 msgstr "بناء  %s توليد وظيفة أضيف إلى \"high\" طابور."
 
 #: WEIPDCRM/manage/admin/build.py:377
+#, python-format
 msgid "Build %s generating job has been finished."
 msgstr "بناء %s توليد وظيفة قد انتهى."
 
@@ -113,19 +117,25 @@ msgid "Advanced"
 msgstr "متقدم"
 
 #: WEIPDCRM/manage/admin/release.py:86
-msgid "There is no active release. <a href=\"%s\">Set current release as active release.</a>"
+#, python-format
+msgid ""
+"There is no active release. <a href=\"%s\">Set current release as active "
+"release.</a>"
 msgstr "لا يوجد إصدار نشط. <a href=\"%s\">تعيين الإصدار الحالي نشط "
 
 #: WEIPDCRM/manage/admin/section.py:173
+#, python-format
 msgid "%s Source Icon"
 msgstr "%s أيقونة المصدر"
 
 #: WEIPDCRM/manage/admin/section.py:207
+#, python-format
 msgid "Auto generated section icon package for %s."
 msgstr "قم تلقائيًا بإنشاء حزم أيقونات الفئات للفئات المحددة %s."
 
 #: WEIPDCRM/manage/admin/section.py:214
-msgid "Section icon package generating job has been added to the \"default\" queue."
+msgid ""
+"Section icon package generating job has been added to the \"default\" queue."
 msgstr "تمت إضافة مهمة إنشاء حزمة رمز الفئة \"default\" طابور."
 
 #: WEIPDCRM/manage/admin/section.py:217
@@ -138,6 +148,7 @@ msgstr "إنشاء حزمة رمز للأقسام المحددة"
 
 #: WEIPDCRM/manage/admin/setting.py:48 WEIPDCRM/manage/admin/setting.py:59
 #: WEIPDCRM/manage/admin/setting.py:83
+#, python-format
 msgid "<a href=\"%(href)s\" target=\"_blank\">%(name)s</a>"
 msgstr ""
 
@@ -340,6 +351,7 @@ msgid "Others"
 msgstr "اخرى"
 
 #: WEIPDCRM/manage/admin/version.py:256
+#, python-format
 msgid "%s storage updating job has been added to the \"high\" queue."
 msgstr "%s تمت إضافة وظيفة تحديث التخزين إلى \"high\" queue."
 
@@ -362,7 +374,7 @@ msgstr "UUID"
 msgid "Created At"
 msgstr "أنشئت في"
 
-#: WEIPDCRM/models/build.py:61 WEIPDCRM/models/setting.py:106
+#: WEIPDCRM/models/build.py:61 WEIPDCRM/models/setting.py:108
 msgid "Active Release"
 msgstr "الإصدار النشط"
 
@@ -379,15 +391,16 @@ msgid "Details"
 msgstr "تفاصيل"
 
 #: WEIPDCRM/models/build.py:83
-msgid "Tell others what did you do this time before you rebuild the repository."
+msgid ""
+"Tell others what did you do this time before you rebuild the repository."
 msgstr "\"أخبر الآخرين بما فعلته هذه المرة قبل إعادة بناء المستودع"
 
-#: WEIPDCRM/models/debian_package.py:69
+#: WEIPDCRM/models/debian_package.py:72
 msgid "Not a Debian Package"
 msgstr "الحزمة ليس بنظام Debian"
 
-#: WEIPDCRM/models/debian_package.py:97 WEIPDCRM/models/debian_package.py:101
-#: WEIPDCRM/models/debian_package.py:143
+#: WEIPDCRM/models/debian_package.py:102 WEIPDCRM/models/debian_package.py:106
+#: WEIPDCRM/models/debian_package.py:148
 msgid "Malformed Debian Package"
 msgstr "الحزمة تالفة"
 
@@ -426,7 +439,7 @@ msgstr ""
 
 #: WEIPDCRM/models/device_type.py:72 WEIPDCRM/models/os_version.py:67
 #: WEIPDCRM/models/release.py:152 WEIPDCRM/models/section.py:82
-#: WEIPDCRM/models/setting.py:409 WEIPDCRM/models/version.py:262
+#: WEIPDCRM/models/setting.py:411 WEIPDCRM/models/version.py:262
 msgid "Choose an Icon (*.png) to upload"
 msgstr ""
 
@@ -486,31 +499,50 @@ msgid "Origin"
 msgstr "الاصلي"
 
 #: WEIPDCRM/models/release.py:58
-msgid "This is used by Cydia as the name of the repository as shown in the source editor (and elsewhere). This should be a longer, but not insanely long, description of the repository."
-msgstr "يستخدم هذا Cydia كاسم المستودع كما هو موضح في المصدرمحرر (وفي أي مكان آخر). يجب أن يكون هذا أطول ، لكن ليس بجنونوصف المستودع"
+msgid ""
+"This is used by Cydia as the name of the repository as shown in the source "
+"editor (and elsewhere). This should be a longer, but not insanely long, "
+"description of the repository."
+msgstr ""
+"يستخدم هذا Cydia كاسم المستودع كما هو موضح في المصدرمحرر (وفي أي مكان آخر). "
+"يجب أن يكون هذا أطول ، لكن ليس بجنونوصف المستودع"
 
 #: WEIPDCRM/models/release.py:65
 msgid "Label"
 msgstr "المكتبة"
 
 #: WEIPDCRM/models/release.py:67
-msgid "On the package list screens, Cydia shows what repository and section packages came from. This location doesn't have much room, though, so this field should contain a shorter/simpler version of the name of the repository that can be used as a tag."
-msgstr "\"على شاشات قائمة الحزم ، تعرض Cydia المستودع والقسمجاءت الحزم من. هذا الموقع لا يحتوي على مساحة كبيرة ، لذلك هذايجب أن يحتوي الحقل على نسخة أقصر / أبسط من اسم المستودعالتي يمكن استخدامها كعلامة"
+msgid ""
+"On the package list screens, Cydia shows what repository and section "
+"packages came from. This location doesn't have much room, though, so this "
+"field should contain a shorter/simpler version of the name of the repository "
+"that can be used as a tag."
+msgstr ""
+"\"على شاشات قائمة الحزم ، تعرض Cydia المستودع والقسمجاءت الحزم من. هذا "
+"الموقع لا يحتوي على مساحة كبيرة ، لذلك هذايجب أن يحتوي الحقل على نسخة أقصر / "
+"أبسط من اسم المستودعالتي يمكن استخدامها كعلامة"
 
 #: WEIPDCRM/models/release.py:75
 msgid "Suite"
 msgstr "جناح"
 
 #: WEIPDCRM/models/release.py:77
-msgid "Just set this to \"stable\". This field might not be required, but who really knows? I, for certain, do not."
-msgstr "على واجهة قائمة الحزمة ، ستعرض Cydia المستودع والفئة التي جاءت منها الحزمة. ومع ذلك ، فإن هذا البتلا يوجد مجال كبير للإعداد ، لذلك يجب أن يحتوي هذا الحقل على نسخة أقصر أو أبسط من اسم المستودع الذي يمكن استخدامه كعلامة."
+msgid ""
+"Just set this to \"stable\". This field might not be required, but who "
+"really knows? I, for certain, do not."
+msgstr ""
+"على واجهة قائمة الحزمة ، ستعرض Cydia المستودع والفئة التي جاءت منها الحزمة. "
+"ومع ذلك ، فإن هذا البتلا يوجد مجال كبير للإعداد ، لذلك يجب أن يحتوي هذا "
+"الحقل على نسخة أقصر أو أبسط من اسم المستودع الذي يمكن استخدامه كعلامة."
 
 #: WEIPDCRM/models/release.py:79
 msgid "stable"
 msgstr "مستقر"
 
 #: WEIPDCRM/models/release.py:89
-msgid "This is an arbitrary version number that nothing actually parses. I am going to look into seeing how required it is."
+msgid ""
+"This is an arbitrary version number that nothing actually parses. I am going "
+"to look into seeing how required it is."
 msgstr "فقط تحتاج إلى تعيين ل \"stable\" نعم ، الدور المحدد غير واضح. "
 
 #: WEIPDCRM/models/release.py:91
@@ -522,15 +554,28 @@ msgid "Codename"
 msgstr "اسم الكود"
 
 #: WEIPDCRM/models/release.py:99
-msgid "In an \"automatic\" repository you might store multiple distributions of software for different target systems. For example: apt.saurik.com's main repository houses content both for desktop Debian Etch systems as well as the iPhone. This codename then describes what distribution we are currently looking for."
-msgstr "في مستودع \"تلقائي \" ، يمكنك تخزين إصدارات متعددة للأنظمة المستهدفة المختلفة ، على سبيل المثال:\"apt.saurik.com\" يحتوي المستودع الرئيسي على إصدار سطح المكتب Debian Etch النظام و iPhone محتوى المنصة. هذا يصف الاسم الرمزي التوزيع الذي نبحث عنه حاليًا."
+msgid ""
+"In an \"automatic\" repository you might store multiple distributions of "
+"software for different target systems. For example: apt.saurik.com's main "
+"repository houses content both for desktop Debian Etch systems as well as "
+"the iPhone. This codename then describes what distribution we are currently "
+"looking for."
+msgstr ""
+"في مستودع \"تلقائي \" ، يمكنك تخزين إصدارات متعددة للأنظمة المستهدفة "
+"المختلفة ، على سبيل المثال:\"apt.saurik.com\" يحتوي المستودع الرئيسي على "
+"إصدار سطح المكتب Debian Etch النظام و iPhone محتوى المنصة. هذا يصف الاسم "
+"الرمزي التوزيع الذي نبحث عنه حاليًا."
 
 #: WEIPDCRM/models/release.py:107
 msgid "Architectures"
 msgstr "هندسة معمارية"
 
 #: WEIPDCRM/models/release.py:109
-msgid "To verify a repository is for the specific device you are working with APT looks in the release file for this list. You must specify all of the architectures that appear in your Packages file here. Again, we use darwin-arm for 1.1.x and iphoneos-arm for 2.x."
+msgid ""
+"To verify a repository is for the specific device you are working with APT "
+"looks in the release file for this list. You must specify all of the "
+"architectures that appear in your Packages file here. Again, we use darwin-"
+"arm for 1.1.x and iphoneos-arm for 2.x."
 msgstr "فقط تحتاج إلى تعيين ل \"iphoneos-arm\" حسنا ، ممثل iOS منصة. "
 
 #: WEIPDCRM/models/release.py:113
@@ -542,7 +587,9 @@ msgid "Components"
 msgstr "المكونات"
 
 #: WEIPDCRM/models/release.py:120
-msgid "Just set this to \"main\". This field might not be required, but who really knows? I, for certain, do not."
+msgid ""
+"Just set this to \"main\". This field might not be required, but who really "
+"knows? I, for certain, do not."
 msgstr "فقط تحتاج إلى تعيين ل \"main\" الى. "
 
 #: WEIPDCRM/models/release.py:122
@@ -550,7 +597,11 @@ msgid "main"
 msgstr "main"
 
 #: WEIPDCRM/models/release.py:132
-msgid "On the package source screen a short description is listed of the repository. This description may eventually work similarly to that of a package (with a long/short variety and the aforementioned encoding), but for right now only the shorter description is displayed directly on the list."
+msgid ""
+"On the package source screen a short description is listed of the "
+"repository. This description may eventually work similarly to that of a "
+"package (with a long/short variety and the aforementioned encoding), but for "
+"right now only the shorter description is displayed directly on the list."
 msgstr "في قسم معلومات مصدر الحزمة ، يتم سرد وصف موجز للمستودع."
 
 #: WEIPDCRM/models/release.py:139
@@ -590,397 +641,456 @@ msgid "Sections"
 msgstr "الاقسم"
 
 #: WEIPDCRM/models/section.py:67
-msgid "This is a general field that gives the package a category based on the software that it installs. You will not be able to edit its name after assigning any package under it."
-msgstr "هذا حقل عام يوفر فئة للحزم بناءً على البرنامج المثبت. قبل التعيين في أي برنامج بعد الحزمة ، لن تتمكن من تعديل اسمها."
+msgid ""
+"This is a general field that gives the package a category based on the "
+"software that it installs. You will not be able to edit its name after "
+"assigning any package under it."
+msgstr ""
+"هذا حقل عام يوفر فئة للحزم بناءً على البرنامج المثبت. قبل التعيين في أي "
+"برنامج بعد الحزمة ، لن تتمكن من تعديل اسمها."
 
-#: WEIPDCRM/models/setting.py:45
+#: WEIPDCRM/models/setting.py:47
 msgid "Only these characters are allowed: 0-9A-Za-z_.-/"
 msgstr "يُسمح فقط بهذه الأحرف: 0-9A-Za-z _.- /"
 
-#: WEIPDCRM/models/setting.py:54
+#: WEIPDCRM/models/setting.py:56
 msgid "Path alias should be prefixed and suffixed by slash chars."
 msgstr "يجب أن يبدأ الاسم المستعار للمسار بشرطة مائلة وينتهي بشرطة مائلة"
 
-#: WEIPDCRM/models/setting.py:63
+#: WEIPDCRM/models/setting.py:65
 msgid "Path alias should be suffixed by a slash char."
 msgstr "يجب أن تكون لاحقة المسار باحرف مائلة"
 
-#: WEIPDCRM/models/setting.py:74
+#: WEIPDCRM/models/setting.py:76
+#, python-format
 msgid "Cannot find command 'gpg': %s"
 msgstr "لا يمكن العثور على الأمر \"gpg\": %s"
 
-#: WEIPDCRM/models/setting.py:79
+#: WEIPDCRM/models/setting.py:81
 msgid "Only Nginx is supported now."
 msgstr "فقط Nginx مدعوم الآن"
 
-#: WEIPDCRM/models/setting.py:84
+#: WEIPDCRM/models/setting.py:86
 msgid "pdiffs is not supported now."
 msgstr "pdiffs غير معتمد الآن"
 
-#: WEIPDCRM/models/setting.py:89
+#: WEIPDCRM/models/setting.py:91
 msgid "Rest API is not supported now."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:102
+#: WEIPDCRM/models/setting.py:104
 msgid "Setting"
 msgstr "اعداد"
 
-#: WEIPDCRM/models/setting.py:103
+#: WEIPDCRM/models/setting.py:105
 msgid "Settings"
 msgstr "اعدادات"
 
-#: WEIPDCRM/models/setting.py:111
-msgid "Each repository should have an active release, otherwise it will not be recognized by any advanced package tools."
-msgstr "كل مخزن يتطلب التعريف النشط، وإلا لن يتم الاعتراف بها من قبل سيديا وغيرها من أدوات إدارة الحزم"
+#: WEIPDCRM/models/setting.py:113
+msgid ""
+"Each repository should have an active release, otherwise it will not be "
+"recognized by any advanced package tools."
+msgstr ""
+"كل مخزن يتطلب التعريف النشط، وإلا لن يتم الاعتراف بها من قبل سيديا وغيرها من "
+"أدوات إدارة الحزم"
 
-#: WEIPDCRM/models/setting.py:116
+#: WEIPDCRM/models/setting.py:118
 msgid "Packages Compression"
 msgstr "ضغط الحزم"
 
-#: WEIPDCRM/models/setting.py:118
+#: WEIPDCRM/models/setting.py:120
 msgid "Plain"
 msgstr "عادي"
 
-#: WEIPDCRM/models/setting.py:119
+#: WEIPDCRM/models/setting.py:121
 msgid "Gzip"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:120
+#: WEIPDCRM/models/setting.py:122
 msgid "Plain and Gzip"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:121
+#: WEIPDCRM/models/setting.py:123
 msgid "Bzip"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:122
+#: WEIPDCRM/models/setting.py:124
 msgid "Plain and Bzip"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:123
+#: WEIPDCRM/models/setting.py:125
 msgid "Gzip and Bzip"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:124
+#: WEIPDCRM/models/setting.py:126
 msgid "All (Recommended)"
 msgstr "الجميع (مستحسن)"
 
-#: WEIPDCRM/models/setting.py:128
-msgid "Please change the compression method if error occurred when try to rebuild the list."
+#: WEIPDCRM/models/setting.py:130
+msgid ""
+"Please change the compression method if error occurred when try to rebuild "
+"the list."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:132
+#: WEIPDCRM/models/setting.py:134
 msgid "Packages Validation"
 msgstr "التحقق من صحة الحزم"
 
-#: WEIPDCRM/models/setting.py:134
+#: WEIPDCRM/models/setting.py:136
 msgid "No validation"
 msgstr "لم التحقق من الصحة"
 
-#: WEIPDCRM/models/setting.py:135 WEIPDCRM/models/version.py:293
+#: WEIPDCRM/models/setting.py:137 WEIPDCRM/models/version.py:293
 msgid "MD5Sum"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:136
+#: WEIPDCRM/models/setting.py:138
 msgid "MD5Sum & SHA1"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:137
+#: WEIPDCRM/models/setting.py:139
 msgid "MD5Sum & SHA1 & SHA256 (Recommended)"
 msgstr "MD5Sum & SHA1 & SHA256 (مستحسن)"
 
-#: WEIPDCRM/models/setting.py:138
+#: WEIPDCRM/models/setting.py:140
 msgid "MD5Sum & SHA1 & SHA256 & SHA512"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:142
+#: WEIPDCRM/models/setting.py:144
 msgid "You need to update hashes manually."
 msgstr "تحتاج إلى تحديث علامات الرقم يدويا"
 
-#: WEIPDCRM/models/setting.py:146
+#: WEIPDCRM/models/setting.py:148
 msgid "Downgrade Support"
 msgstr "يدعم الاصدارات السابقة"
 
-#: WEIPDCRM/models/setting.py:148
+#: WEIPDCRM/models/setting.py:150
 msgid "Allow multiple versions to exist in the latest package list."
 msgstr "السماح بوجود إصدارات متعددة في أحدث قائمة حزم"
 
-#: WEIPDCRM/models/setting.py:153
+#: WEIPDCRM/models/setting.py:155
 msgid "Auto Depiction"
 msgstr "وصف تلقائي"
 
-#: WEIPDCRM/models/setting.py:155
+#: WEIPDCRM/models/setting.py:157
 msgid "Check it to generate awesome depiction page for each version."
 msgstr "التحقق من ذلك لإنشاء صفحة تصوير رهيبة لكل إصدار"
 
-#: WEIPDCRM/models/setting.py:160
+#: WEIPDCRM/models/setting.py:162
 msgid "Atomic Storage"
 msgstr "المساحة المتوفرة"
 
-#: WEIPDCRM/models/setting.py:162
+#: WEIPDCRM/models/setting.py:164
 msgid "Generate a new copy of package after editing control columns."
 msgstr "قم بإنشاء نسخة جديدة من الحزمة بعد تحرير أعمدة التحكم."
 
-#: WEIPDCRM/models/setting.py:168
+#: WEIPDCRM/models/setting.py:170
 msgid "Resources Alias"
 msgstr "الاسم المستعار للمصدر"
 
-#: WEIPDCRM/models/setting.py:169
-msgid "You can specify alias for resources path in Nginx or other HTTP servers, which is also necessary for CDN speedup."
-msgstr "يمكنك تحديد اسم مستعار لمسار المورد المعين في Nginx أو وكيل HTTP عكسي آخر ، والذي يستخدم CDNفعالة جدا لتسريع مستوى الدليل."
+#: WEIPDCRM/models/setting.py:171
+msgid ""
+"You can specify alias for resources path in Nginx or other HTTP servers, "
+"which is also necessary for CDN speedup."
+msgstr ""
+"يمكنك تحديد اسم مستعار لمسار المورد المعين في Nginx أو وكيل HTTP عكسي آخر ، "
+"والذي يستخدم CDNفعالة جدا لتسريع مستوى الدليل."
 
-#: WEIPDCRM/models/setting.py:179
+#: WEIPDCRM/models/setting.py:181
 msgid "Enable pdiffs"
 msgstr "تفعيل pdiffs"
 
-#: WEIPDCRM/models/setting.py:180
-msgid "If package list is extremely large, you should enable this to allow incremental update."
-msgstr "إذا كانت قائمة الحزم كبيرة جدًا ، فإن تمكينها سيسمح بتحديثات تدريجية إلى القائمة."
+#: WEIPDCRM/models/setting.py:182
+msgid ""
+"If package list is extremely large, you should enable this to allow "
+"incremental update."
+msgstr ""
+"إذا كانت قائمة الحزم كبيرة جدًا ، فإن تمكينها سيسمح بتحديثات تدريجية إلى "
+"القائمة."
 
-#: WEIPDCRM/models/setting.py:187
+#: WEIPDCRM/models/setting.py:189
 msgid "Enable Rest API"
 msgstr "تفعيل Rest API"
 
-#: WEIPDCRM/models/setting.py:188
-msgid "Upload packages using HTTP, manage your repositories, snapshots and comments etc."
-msgstr "يسمح لك باستخدام Restful API لتحميل الحزم ، وإدارة المستودعات ، لقطات الشاشة والتعليقات."
+#: WEIPDCRM/models/setting.py:190
+msgid ""
+"Upload packages using HTTP, manage your repositories, snapshots and comments "
+"etc."
+msgstr ""
+"يسمح لك باستخدام Restful API لتحميل الحزم ، وإدارة المستودعات ، لقطات الشاشة "
+"والتعليقات."
 
-#: WEIPDCRM/models/setting.py:195
+#: WEIPDCRM/models/setting.py:197
 msgid "Enable GPG Signature"
 msgstr "تفعيل GPG Signature"
 
-#: WEIPDCRM/models/setting.py:196
-msgid "Verify the integrity of the repository. Run 'gpg --gen-key' before you enable this feature."
-msgstr "\"اسمح لأداة إدارة الحزمة بالتحقق من سلامة هذا المستودع. قبل تمكين هذه الميزة ، يرجى تشغيل \"gpg --gen-key\"."
+#: WEIPDCRM/models/setting.py:198
+msgid ""
+"Verify the integrity of the repository. Run 'gpg --gen-key' before you "
+"enable this feature."
+msgstr ""
+"\"اسمح لأداة إدارة الحزمة بالتحقق من سلامة هذا المستودع. قبل تمكين هذه "
+"الميزة ، يرجى تشغيل \"gpg --gen-key\"."
 
-#: WEIPDCRM/models/setting.py:203
+#: WEIPDCRM/models/setting.py:205
 msgid "GPG Password"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:210
+#: WEIPDCRM/models/setting.py:212
 msgid "Web Server"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:212
+#: WEIPDCRM/models/setting.py:214
 msgid "Nginx"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:213
+#: WEIPDCRM/models/setting.py:215
 msgid "Apache"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:214
+#: WEIPDCRM/models/setting.py:216
 msgid "Tomcat"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:217
+#: WEIPDCRM/models/setting.py:219
 msgid "This will help DCRM redirect download request properly."
 msgstr "اضبط إستراتيجية استجابة مورد حزمة توزيع DCRM."
 
-#: WEIPDCRM/models/setting.py:223
+#: WEIPDCRM/models/setting.py:225
 msgid "Redirect Methods"
 msgstr "طرق إعادة التوجيه"
 
-#: WEIPDCRM/models/setting.py:225
+#: WEIPDCRM/models/setting.py:227
 msgid "None"
 msgstr "لاشيء"
 
-#: WEIPDCRM/models/setting.py:226
+#: WEIPDCRM/models/setting.py:228
 msgid "Moved"
 msgstr "نُقل"
 
-#: WEIPDCRM/models/setting.py:227
+#: WEIPDCRM/models/setting.py:229
 msgid "Accel"
 msgstr "Accel"
 
-#: WEIPDCRM/models/setting.py:229
-msgid "None - Read resources and return, without partical support, not recommended.<br />Moved - Return 301/302 responses and redirect to the real resource urls.<br />Accel - Redirect resource requests to WEB servers without changing urls."
-msgstr "لا توجد موارد للقراءة والعودة ، لا تدعم Range back to source ، غير مستحسن. <br /> إعادة التوجيه - إرجاع 301/302الاستجابة للرأس وإعادة التوجيه إلى عنوان URL الخاص بالمورد الحقيقي ، والسماح لـ Nginx بإرجاع البيانات. <br /> عكس تسارع طلب الموردأبلغ الوكيل العكسي بالقراءة دون تغيير عنوان URL."
+#: WEIPDCRM/models/setting.py:231
+msgid ""
+"None - Read resources and return, without partical support, not recommended."
+"<br />Moved - Return 301/302 responses and redirect to the real resource "
+"urls.<br />Accel - Redirect resource requests to WEB servers without "
+"changing urls."
+msgstr ""
+"لا توجد موارد للقراءة والعودة ، لا تدعم Range back to source ، غير مستحسن. "
+"<br /> إعادة التوجيه - إرجاع 301/302الاستجابة للرأس وإعادة التوجيه إلى عنوان "
+"URL الخاص بالمورد الحقيقي ، والسماح لـ Nginx بإرجاع البيانات. <br /> عكس "
+"تسارع طلب الموردأبلغ الوكيل العكسي بالقراءة دون تغيير عنوان URL."
 
-#: WEIPDCRM/models/setting.py:238
+#: WEIPDCRM/models/setting.py:240
 msgid "Redirect Prefix"
 msgstr "بادئة إعادة التوجيه"
 
-#: WEIPDCRM/models/setting.py:242
-msgid "Changing scheme and host of the url in package downloading requests, which is useful for load balancing or CDN speedup.<br />Example: https://cdn.82flex.com/"
-msgstr "قم بتعديل المخطط ومضيف عنوان URL في طلب تنزيل الحزمة. هذا مفيد جدًا لموازنة التحميل وتسريع CDN.مساعدة رائعة. <br /> مثال: https://cdn.82flex.com/"
+#: WEIPDCRM/models/setting.py:244
+msgid ""
+"Changing scheme and host of the url in package downloading requests, which "
+"is useful for load balancing or CDN speedup.<br />Example: https://"
+"cdn.82flex.com/"
+msgstr ""
+"قم بتعديل المخطط ومضيف عنوان URL في طلب تنزيل الحزمة. هذا مفيد جدًا لموازنة "
+"التحميل وتسريع CDN.مساعدة رائعة. <br /> مثال: https://cdn.82flex.com/"
 
-#: WEIPDCRM/models/setting.py:251
+#: WEIPDCRM/models/setting.py:253
 msgid "Download Count"
 msgstr "عدد تحميل"
 
-#: WEIPDCRM/models/setting.py:252
-msgid "Count every download. You should configure Nginx or other Web servers before you enable this feature."
-msgstr "يعتبر كل تنزيل بمثابة عدد مرات التنزيل. قبل تمكين هذه الميزة ، يلزمك تكوين Nginx أو أي جيل عكسي آخر من HTTPلنجعل دليل الموارد غير ممكن الوصول إليه مباشرة ولكن نتعامل معه من خلال جانغو."
+#: WEIPDCRM/models/setting.py:254
+msgid ""
+"Count every download. You should configure Nginx or other Web servers before "
+"you enable this feature."
+msgstr ""
+"يعتبر كل تنزيل بمثابة عدد مرات التنزيل. قبل تمكين هذه الميزة ، يلزمك تكوين "
+"Nginx أو أي جيل عكسي آخر من HTTPلنجعل دليل الموارد غير ممكن الوصول إليه "
+"مباشرة ولكن نتعامل معه من خلال جانغو."
 
-#: WEIPDCRM/models/setting.py:261
+#: WEIPDCRM/models/setting.py:263
 msgid "Cydia Only"
 msgstr "Cydia Only"
 
-#: WEIPDCRM/models/setting.py:262
-msgid "Protect downloading from any other tools except Cydia. You should configure Nginx or other Web servers before you enable this feature."
-msgstr "قم بحماية دليل الموارد ولا تسمح بوصول وكلاء المستخدم بخلاف Cydia. قبل تمكين هذه الميزة ، تحتاج إلى تكوينه بشكل صحيحNginx أو وكيل HTTP العكسي الآخر يجعل دليل المورد غير قابل للوصول مباشرة ولكن يتم معالجته بواسطة Django."
+#: WEIPDCRM/models/setting.py:264
+msgid ""
+"Protect downloading from any other tools except Cydia. You should configure "
+"Nginx or other Web servers before you enable this feature."
+msgstr ""
+"قم بحماية دليل الموارد ولا تسمح بوصول وكلاء المستخدم بخلاف Cydia. قبل تمكين "
+"هذه الميزة ، تحتاج إلى تكوينه بشكل صحيحNginx أو وكيل HTTP العكسي الآخر يجعل "
+"دليل المورد غير قابل للوصول مباشرة ولكن يتم معالجته بواسطة Django."
 
-#: WEIPDCRM/models/setting.py:271
+#: WEIPDCRM/models/setting.py:273
 #: WEIPDCRM/templates/admin/version/change_form.html:18
 msgid "Comments"
 msgstr "التعليقات"
 
-#: WEIPDCRM/models/setting.py:272
+#: WEIPDCRM/models/setting.py:274
 msgid "Enable comments module"
 msgstr "تفعيل التعليقات"
 
-#: WEIPDCRM/models/setting.py:276
+#: WEIPDCRM/models/setting.py:278
 msgid "Social Module"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:277
+#: WEIPDCRM/models/setting.py:279
 msgid "Enable social module"
 msgstr "تفعيل التواصل الاجتماعي"
 
-#: WEIPDCRM/models/setting.py:281
+#: WEIPDCRM/models/setting.py:283
 msgid "QQ Group Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:287
+#: WEIPDCRM/models/setting.py:289
 msgid "QQ Group URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:288
+#: WEIPDCRM/models/setting.py:290
 msgid "Display QQ group link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:297
+#: WEIPDCRM/models/setting.py:299
 msgid "Weibo Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:303
+#: WEIPDCRM/models/setting.py:305
 msgid "Weibo URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:304
+#: WEIPDCRM/models/setting.py:306
 msgid "Display Weibo link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:313
+#: WEIPDCRM/models/setting.py:315
 msgid "Alipay URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:314
+#: WEIPDCRM/models/setting.py:316
 msgid "Display \"Donate via Alipay\" link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:323
+#: WEIPDCRM/models/setting.py:325
 msgid "Twitter Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:329
+#: WEIPDCRM/models/setting.py:331
 msgid "Twitter URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:330
+#: WEIPDCRM/models/setting.py:332
 msgid "Display Twitter link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:339
+#: WEIPDCRM/models/setting.py:341
 msgid "Facebook Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:345
+#: WEIPDCRM/models/setting.py:347
 msgid "Telegram Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:351
+#: WEIPDCRM/models/setting.py:353
 msgid "Telegram URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:352
+#: WEIPDCRM/models/setting.py:354
 msgid "Display Telegram link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:361
+#: WEIPDCRM/models/setting.py:363
 msgid "Facebook URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:362
+#: WEIPDCRM/models/setting.py:364
 msgid "Display Facebook link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:371
+#: WEIPDCRM/models/setting.py:373
 msgid "Paypal URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:372
+#: WEIPDCRM/models/setting.py:374
 msgid "Display \"Donate via Paypal\" link on the package info page."
 msgstr "إظهار الرابط \"التبرع عبر Paypal \" في صفحة تفاصيل الحزمة."
 
-#: WEIPDCRM/models/setting.py:381
+#: WEIPDCRM/models/setting.py:383
 msgid "Starting Year of Copyright"
 msgstr "بداية سنة حقوق النشر"
 
-#: WEIPDCRM/models/setting.py:382
+#: WEIPDCRM/models/setting.py:384
 msgid "Leave blank to display current year."
 msgstr "اتركه فارغا لعرض السنة الحالية."
 
-#: WEIPDCRM/models/setting.py:387
+#: WEIPDCRM/models/setting.py:389
 msgid "Copyright Name"
 msgstr "اسم حقوق الطبع والنشر"
 
-#: WEIPDCRM/models/setting.py:388
-msgid "Corpyright name is displayed on the footer, leave a blank will display the source name."
-msgstr "يتم عرض اسم حقوق التأليف والنشر على تذييل الصفحة ، اترك فارغا سيعرضاسم المصدر."
+#: WEIPDCRM/models/setting.py:390
+msgid ""
+"Corpyright name is displayed on the footer, leave a blank will display the "
+"source name."
+msgstr ""
+"يتم عرض اسم حقوق التأليف والنشر على تذييل الصفحة ، اترك فارغا سيعرضاسم "
+"المصدر."
 
-#: WEIPDCRM/models/setting.py:394
+#: WEIPDCRM/models/setting.py:396
 msgid "ICP Number"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:395
+#: WEIPDCRM/models/setting.py:397
 msgid "The ICP Number displayed on the footer."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:401
+#: WEIPDCRM/models/setting.py:403
 msgid "Version History"
 msgstr "تاريخ النسخة"
 
-#: WEIPDCRM/models/setting.py:402
+#: WEIPDCRM/models/setting.py:404
 msgid "Enable version history module"
 msgstr "تمكين إصدار وحدة التاريخ"
 
-#: WEIPDCRM/models/setting.py:406
+#: WEIPDCRM/models/setting.py:408
 msgid "Favicon"
 msgstr "مفضلة"
 
-#: WEIPDCRM/models/setting.py:414
+#: WEIPDCRM/models/setting.py:416
 msgid "Notice"
 msgstr "تنويه"
 
-#: WEIPDCRM/models/setting.py:418 WEIPDCRM/models/setting.py:425
-msgid "HTML Displayed on the frontend widget and the auto depiction page (mobile)."
+#: WEIPDCRM/models/setting.py:420 WEIPDCRM/models/setting.py:427
+msgid ""
+"HTML Displayed on the frontend widget and the auto depiction page (mobile)."
 msgstr "يتم عرض محتوى HTML المخصص في منطقة المكون العائمة الأمامية."
 
-#: WEIPDCRM/models/setting.py:421
+#: WEIPDCRM/models/setting.py:423
 msgid "Advertisement"
 msgstr "الإعلانات"
 
-#: WEIPDCRM/models/setting.py:428
+#: WEIPDCRM/models/setting.py:430
 msgid "External Statistics"
 msgstr "الاحصائيات الخارجية"
 
-#: WEIPDCRM/models/setting.py:432
+#: WEIPDCRM/models/setting.py:434
 msgid "Invisible statistic code."
 msgstr "كود إحصائي غير مرئي."
 
-#: WEIPDCRM/models/setting.py:435
+#: WEIPDCRM/models/setting.py:437
 msgid "Internal Statistics"
 msgstr "الاحصائيات الداخلية"
 
-#: WEIPDCRM/models/setting.py:439
+#: WEIPDCRM/models/setting.py:441
 msgid "Statistics code of view information at statistics page."
 msgstr "إحصائيات رمز عرض المعلومات في صفحة الإحصاءات."
 
 #: WEIPDCRM/models/version.py:89
-msgid "We recommend using a reverse-domain name style string (i.e., com.domainname.appname)."
-msgstr "نوصي باستخدام سلسلة نمط اسم المجال العكسي (أي com.domainname.اسم التطبيق)."
+msgid ""
+"We recommend using a reverse-domain name style string (i.e., com.domainname."
+"appname)."
+msgstr ""
+"نوصي باستخدام سلسلة نمط اسم المجال العكسي (أي com.domainname.اسم التطبيق)."
 
 #: WEIPDCRM/models/version.py:101
 msgid "Invalid version number."
@@ -991,6 +1101,7 @@ msgid "Name cannot contain < or >."
 msgstr "لا يمكن أن يحتوي الاسم < or >."
 
 #: WEIPDCRM/models/version.py:125
+#, python-format
 msgid "Cannot parse package relationship \"%s\""
 msgstr "لا يمكن تحليل علاقة الحزمة \"%s\""
 
@@ -1043,32 +1154,53 @@ msgid "Installed-Size"
 msgstr "حجم التثبيت"
 
 #: WEIPDCRM/models/version.py:326
-msgid "The approximate total size of the package's installed files, in KiB units."
+msgid ""
+"The approximate total size of the package's installed files, in KiB units."
 msgstr "الحجم الكلي التقريبي لملفات الحزمة المثبتة ، بوحدات KiB."
 
 #: WEIPDCRM/models/version.py:523
-msgid "This is the \"identifier\" of the package. This should be, entirely in lower case, a reversed hostname (much like a \"bundleIdentifier\" in Apple's Info.plist files)."
-msgstr "هذا هو \" معرّف \"الحزمة. كل صغيرة ، اسم مضيف للطلب العكسي (يشبه إلى حد كبير Info.plist من Apple)\"bundleIdentifier\") في الملف."
+msgid ""
+"This is the \"identifier\" of the package. This should be, entirely in lower "
+"case, a reversed hostname (much like a \"bundleIdentifier\" in Apple's Info."
+"plist files)."
+msgstr ""
+"هذا هو \" معرّف \"الحزمة. كل صغيرة ، اسم مضيف للطلب العكسي (يشبه إلى حد كبير "
+"Info.plist من Apple)\"bundleIdentifier\") في الملف."
 
 #: WEIPDCRM/models/version.py:534
-msgid "A package's version indicates two separate values: the version of the software in the package, and the version of the package itself. These version numbers are separated by a hyphen."
-msgstr "يمثل إصدار الحزمة قيمتين منفصلتين: إصدار التطبيق الموجود في الحزمة وإصدار الحزمة نفسها. هذايتم فصل بعض أرقام الإصدار بالواصلات."
+msgid ""
+"A package's version indicates two separate values: the version of the "
+"software in the package, and the version of the package itself. These "
+"version numbers are separated by a hyphen."
+msgstr ""
+"يمثل إصدار الحزمة قيمتين منفصلتين: إصدار التطبيق الموجود في الحزمة وإصدار "
+"الحزمة نفسها. هذايتم فصل بعض أرقام الإصدار بالواصلات."
 
 #: WEIPDCRM/models/version.py:537
 msgid "1.0-1"
 msgstr "1.0-1"
 
 #: WEIPDCRM/models/version.py:550
-msgid "It is typically the person who created the package, as opposed to the author of the software that was packaged."
-msgstr "بشكل عام ، هذا هو اسم منشئ الحزمة ، وليس مؤلف علم الوجود البرمجي للبرنامج."
+msgid ""
+"It is typically the person who created the package, as opposed to the author "
+"of the software that was packaged."
+msgstr ""
+"بشكل عام ، هذا هو اسم منشئ الحزمة ، وليس مؤلف علم الوجود البرمجي للبرنامج."
 
 #: WEIPDCRM/models/version.py:558
 msgid "Maintainer Email"
 msgstr "البريد الإلكتروني للحافظ"
 
 #: WEIPDCRM/models/version.py:569
-msgid "The first line (after the colon) should contain a short description to be displayed on the package lists underneath the name of the package. Optionally, one can choose to replace that description with an arbitrarily long one that will be displayed on the package details screen."
-msgstr "يجب أن يحتوي السطر الأول (بعد النقطتين) على وصف قصير ، والذي سيظهر أسفل اسم إدخال الحزمة. أوأيضًا ، يمكنك اختيار استخدام وصف بأي طول ، والذي سيتم عرضه في صفحة تفاصيل الحزمة."
+msgid ""
+"The first line (after the colon) should contain a short description to be "
+"displayed on the package lists underneath the name of the package. "
+"Optionally, one can choose to replace that description with an arbitrarily "
+"long one that will be displayed on the package details screen."
+msgstr ""
+"يجب أن يحتوي السطر الأول (بعد النقطتين) على وصف قصير ، والذي سيظهر أسفل اسم "
+"إدخال الحزمة. أوأيضًا ، يمكنك اختيار استخدام وصف بأي طول ، والذي سيتم عرضه في "
+"صفحة تفاصيل الحزمة."
 
 #: WEIPDCRM/models/version.py:576
 msgid "Rich Description"
@@ -1079,15 +1211,23 @@ msgid "HTML Displayed on the auto depiction page (mobile)."
 msgstr "HTML يتم عرضه على صفحة الوصف التلقائي (الجوال)."
 
 #: WEIPDCRM/models/version.py:590
-msgid "Under the \"Install\" tab in Cydia, packages are listed by \"Section\". If you would like to encode a space into your section name, use an underscore (Cydia will automatically convert these)."
-msgstr "ضمن علامة التبويب \" التثبيت \"في Cydia ، يتم سرد الحزم حسب \" الفئة \". إذا كنت ترغب في تشفير المسافات إلىفي الاسم ، استخدم الشرطة السفلية (Cydia ستحول هذه المسافات تلقائيًا)."
+msgid ""
+"Under the \"Install\" tab in Cydia, packages are listed by \"Section\". If "
+"you would like to encode a space into your section name, use an underscore "
+"(Cydia will automatically convert these)."
+msgstr ""
+"ضمن علامة التبويب \" التثبيت \"في Cydia ، يتم سرد الحزم حسب \" الفئة \". إذا "
+"كنت ترغب في تشفير المسافات إلىفي الاسم ، استخدم الشرطة السفلية (Cydia ستحول "
+"هذه المسافات تلقائيًا)."
 
 #: WEIPDCRM/models/version.py:596
 msgid "Tag"
 msgstr "الاشارات"
 
 #: WEIPDCRM/models/version.py:599
-msgid "List of tags describing the qualities of the package. The description and list of supported tags can be found in the debtags package."
+msgid ""
+"List of tags describing the qualities of the package. The description and "
+"list of supported tags can be found in the debtags package."
 msgstr "قائمة العلامات التي تصف خصائص الحزمة."
 
 #: WEIPDCRM/models/version.py:605
@@ -1095,27 +1235,48 @@ msgid "Architecture"
 msgstr ""
 
 #: WEIPDCRM/models/version.py:609
-msgid "This describes what system a package is designed for, as .deb files are used on everything from the iPhone to your desktop computer. The correct value for iPhoneOS 1.0.x/1.1.x is \"darwin-arm\". If you are deploying to iPhoneOS 1.2/2.x you should use \"iphoneos-arm\"."
+msgid ""
+"This describes what system a package is designed for, as .deb files are used "
+"on everything from the iPhone to your desktop computer. The correct value "
+"for iPhoneOS 1.0.x/1.1.x is \"darwin-arm\". If you are deploying to iPhoneOS "
+"1.2/2.x you should use \"iphoneos-arm\"."
 msgstr "فقط قم بتعيينها على \"iphoneos-arm\"، والتي تمثل منصة iOS."
 
 #: WEIPDCRM/models/version.py:625
-msgid "When the package is shown in Cydia's lists, it is convenient to have a prettier name. This field allows you to override this display with an arbitrary string. This field may change often, whereas the \"Package\" field is fixed for the lifetime of the package."
-msgstr "عندما يتم عرض حزمة في قائمة Cydia ، من المريح أن يكون لديك اسم جميل. هذا الحقل يتيح لك استخدام أيٍّ منهماسلسلة المعنى تحل محل الاسم الأصلي للحزمة للعرض. يمكن تغيير هذا الحقل بشكل متكرر ، في حين أن حقل\" المعرف \"ثابت طوال حياة الحزمة."
+msgid ""
+"When the package is shown in Cydia's lists, it is convenient to have a "
+"prettier name. This field allows you to override this display with an "
+"arbitrary string. This field may change often, whereas the \"Package\" field "
+"is fixed for the lifetime of the package."
+msgstr ""
+"عندما يتم عرض حزمة في قائمة Cydia ، من المريح أن يكون لديك اسم جميل. هذا "
+"الحقل يتيح لك استخدام أيٍّ منهماسلسلة المعنى تحل محل الاسم الأصلي للحزمة "
+"للعرض. يمكن تغيير هذا الحقل بشكل متكرر ، في حين أن حقل\" المعرف \"ثابت طوال "
+"حياة الحزمة."
 
 #: WEIPDCRM/models/version.py:630
 msgid "Untitled Package"
 msgstr "حزمة بدون عنوان"
 
 #: WEIPDCRM/models/version.py:637
-msgid "In contrast, the person who wrote the original software is called the \"author\". This name will be shown underneath the name of the package on the details screen. The field is in the same format as \"Maintainer\"."
-msgstr "المؤلف الأصلي للتطبيق الموجود في الحزمة يسمى \" المؤلف \"، وسيتم عرض اسم المؤلف في حزمة صفحة التفاصيلمباشرة أسفل الاسم."
+msgid ""
+"In contrast, the person who wrote the original software is called the "
+"\"author\". This name will be shown underneath the name of the package on "
+"the details screen. The field is in the same format as \"Maintainer\"."
+msgstr ""
+"المؤلف الأصلي للتطبيق الموجود في الحزمة يسمى \" المؤلف \"، وسيتم عرض اسم "
+"المؤلف في حزمة صفحة التفاصيلمباشرة أسفل الاسم."
 
 #: WEIPDCRM/models/version.py:647
 msgid "Author Email"
 msgstr "اميل الكاتب"
 
 #: WEIPDCRM/models/version.py:658
-msgid "Finally, there might be someone who is simply providing the influence or the cash to make the package happen. This person should be listed here in the form of \"Maintainer\" except using a resource URI instead of an e-mail address."
+msgid ""
+"Finally, there might be someone who is simply providing the influence or the "
+"cash to make the package happen. This person should be listed here in the "
+"form of \"Maintainer\" except using a resource URI instead of an e-mail "
+"address."
 msgstr "في النهاية ، قد يقدم شخص ما نفوذا أو موارد مالية لتسهيل إصدار الحزمة."
 
 #: WEIPDCRM/models/version.py:668
@@ -1127,8 +1288,12 @@ msgid "Depiction"
 msgstr "وصف"
 
 #: WEIPDCRM/models/version.py:678
-msgid "This is a URL that is loaded into an iframe, replacing the Description: and Homepage: ."
-msgstr "هذا هو عنوان URL الذي تم تحميله في iframe ، ليحل محل الوصف: والصفحة الرئيسية:."
+msgid ""
+"This is a URL that is loaded into an iframe, replacing the Description: and "
+"Homepage: ."
+msgstr ""
+"هذا هو عنوان URL الذي تم تحميله في iframe ، ليحل محل الوصف: والصفحة "
+"الرئيسية:."
 
 #: WEIPDCRM/models/version.py:682
 msgid "Custom Depiction"
@@ -1143,88 +1308,171 @@ msgid "Homepage"
 msgstr "الصفحة الرئيسية"
 
 #: WEIPDCRM/models/version.py:691
-msgid "Cydia supports a \"More Info\" field on the details screen that shunts users off to a website of the packager's choice."
-msgstr "تدعم Cydia حقل \"مزيد من المعلومات\" على شاشة التفاصيل التي تنقل المستخدمين إلى موقع ويب من اختيار الرابط."
+msgid ""
+"Cydia supports a \"More Info\" field on the details screen that shunts users "
+"off to a website of the packager's choice."
+msgstr ""
+"تدعم Cydia حقل \"مزيد من المعلومات\" على شاشة التفاصيل التي تنقل المستخدمين "
+"إلى موقع ويب من اختيار الرابط."
 
 #: WEIPDCRM/models/version.py:697
 msgid "Priority"
 msgstr "الخصوصية"
 
 #: WEIPDCRM/models/version.py:709
-msgid "Sets the importance of this package in relation to the system as a whole.  Common priorities are required, standard, optional, extra, etc."
-msgstr "يحدد أهمية هذه الحزمة بالنسبة للنظام ككل. الأولويات المشتركة مطلوبة ، قياسية ، اختيارية ، إضافية ، إلخ."
+msgid ""
+"Sets the importance of this package in relation to the system as a whole.  "
+"Common priorities are required, standard, optional, extra, etc."
+msgstr ""
+"يحدد أهمية هذه الحزمة بالنسبة للنظام ككل. الأولويات المشتركة مطلوبة ، "
+"قياسية ، اختيارية ، إضافية ، إلخ."
 
 #: WEIPDCRM/models/version.py:714
 msgid "Essential"
 msgstr "أساسى"
 
 #: WEIPDCRM/models/version.py:724
-msgid "This field is usually only needed when the answer is yes. It denotes a package that is required for proper operation of the system. Dpkg or any other installation tool will not allow an Essential package to be removed (at least not without using one of the force options)."
-msgstr "عادة ما تكون هناك حاجة لهذا الحقل فقط عندما يكون الجواب نعم. يشير إلى الحزمة المطلوبة للتشغيل السليم للنظام. لن يسمح Dpkg أو أي أداة تثبيت أخرى بإزالة الحزمة الأساسية (على الأقل ليس دون استخدام أحد خيارات القوة)."
+msgid ""
+"This field is usually only needed when the answer is yes. It denotes a "
+"package that is required for proper operation of the system. Dpkg or any "
+"other installation tool will not allow an Essential package to be removed "
+"(at least not without using one of the force options)."
+msgstr ""
+"عادة ما تكون هناك حاجة لهذا الحقل فقط عندما يكون الجواب نعم. يشير إلى الحزمة "
+"المطلوبة للتشغيل السليم للنظام. لن يسمح Dpkg أو أي أداة تثبيت أخرى بإزالة "
+"الحزمة الأساسية (على الأقل ليس دون استخدام أحد خيارات القوة)."
 
 #: WEIPDCRM/models/version.py:731
 msgid "Depends"
 msgstr "يعتمد على"
 
 #: WEIPDCRM/models/version.py:734
-msgid "List of packages that are required for this package to provide a non-trivial amount of functionality. The package maintenance software will not allow a package to be installed if the packages listed in its Depends field aren't installed (at least not without using the force options).  In an installation, the postinst scripts of packages listed in Depends fields are run before those of the packages which depend on them. On the opposite, in a removal, the prerm script of a package is run before those of the packages listed in its Depends field."
-msgstr "قائمة الحزم المطلوبة لهذه الحزمة لتوفير كمية غير تافهة من الوظائف. لن يسمح برنامج صيانة الحزمة بتثبيت الحزمة إذا لم يتم تثبيت الحزم المدرجة في حقل Depends (على الأقل ليس دون استخدام خيارات القوة). في التثبيت ، يتم تشغيل البرامج النصية postinst للحزم المدرجة في الحقول Depends قبل تلك الحزم التي تعتمد عليها. على العكس ، في الإزالة ، يتم تشغيل البرنامج النصي prerm لحزمة قبل تلك الحزم المدرجة في حقل Depends."
+msgid ""
+"List of packages that are required for this package to provide a non-trivial "
+"amount of functionality. The package maintenance software will not allow a "
+"package to be installed if the packages listed in its Depends field aren't "
+"installed (at least not without using the force options).  In an "
+"installation, the postinst scripts of packages listed in Depends fields are "
+"run before those of the packages which depend on them. On the opposite, in a "
+"removal, the prerm script of a package is run before those of the packages "
+"listed in its Depends field."
+msgstr ""
+"قائمة الحزم المطلوبة لهذه الحزمة لتوفير كمية غير تافهة من الوظائف. لن يسمح "
+"برنامج صيانة الحزمة بتثبيت الحزمة إذا لم يتم تثبيت الحزم المدرجة في حقل "
+"Depends (على الأقل ليس دون استخدام خيارات القوة). في التثبيت ، يتم تشغيل "
+"البرامج النصية postinst للحزم المدرجة في الحقول Depends قبل تلك الحزم التي "
+"تعتمد عليها. على العكس ، في الإزالة ، يتم تشغيل البرنامج النصي prerm لحزمة "
+"قبل تلك الحزم المدرجة في حقل Depends."
 
 #: WEIPDCRM/models/version.py:750
 msgid "Pre-Depends"
 msgstr "قبل الاعتماد"
 
 #: WEIPDCRM/models/version.py:753
-msgid "List of packages that must be installed and configured before this one can be installed. This is usually used in the case where this package requires another package for running its preinst script."
-msgstr "قائمة الحزم التي يجب تثبيتها وتكوينها قبل أن يتم تثبيت هذه الحزمة. يستخدم هذا عادةً في الحالة التي تتطلب فيها هذه الحزمة حزمة أخرى لتشغيل البرنامج النصي preinst."
+msgid ""
+"List of packages that must be installed and configured before this one can "
+"be installed. This is usually used in the case where this package requires "
+"another package for running its preinst script."
+msgstr ""
+"قائمة الحزم التي يجب تثبيتها وتكوينها قبل أن يتم تثبيت هذه الحزمة. يستخدم "
+"هذا عادةً في الحالة التي تتطلب فيها هذه الحزمة حزمة أخرى لتشغيل البرنامج "
+"النصي preinst."
 
 #: WEIPDCRM/models/version.py:763
 msgid "Recommends"
 msgstr "ينصح به"
 
 #: WEIPDCRM/models/version.py:766
-msgid "Lists packages that would be found together with this one in all but unusual installations. The package maintenance software will warn the user if they install a package without those listed in its Recommends field."
-msgstr "يسرد الحزم التي يمكن العثور عليها مع هذا واحد في جميع المنشآت باستثناء غير عادية. سوف يحذر برنامج صيانة الحزمة المستخدم إذا قام بتثبيت حزمة دون تلك المدرجة في حقل \"التوصية\"."
+msgid ""
+"Lists packages that would be found together with this one in all but unusual "
+"installations. The package maintenance software will warn the user if they "
+"install a package without those listed in its Recommends field."
+msgstr ""
+"يسرد الحزم التي يمكن العثور عليها مع هذا واحد في جميع المنشآت باستثناء غير "
+"عادية. سوف يحذر برنامج صيانة الحزمة المستخدم إذا قام بتثبيت حزمة دون تلك "
+"المدرجة في حقل \"التوصية\"."
 
 #: WEIPDCRM/models/version.py:776
 msgid "Suggests"
 msgstr "اقترح"
 
 #: WEIPDCRM/models/version.py:779
-msgid "Lists packages that are related to this one and can perhaps enhance its usefulness, but without which installing this package is perfectly reasonable."
-msgstr "يسرد الحزم المرتبطة بهذه الحزمة والتي يمكن أن تعزز فائدتها ، ولكن بدونها يكون تثبيت هذه الحزمة معقولًا تمامًا."
+msgid ""
+"Lists packages that are related to this one and can perhaps enhance its "
+"usefulness, but without which installing this package is perfectly "
+"reasonable."
+msgstr ""
+"يسرد الحزم المرتبطة بهذه الحزمة والتي يمكن أن تعزز فائدتها ، ولكن بدونها "
+"يكون تثبيت هذه الحزمة معقولًا تمامًا."
 
 #: WEIPDCRM/models/version.py:788
 msgid "Breaks"
 msgstr "فواصل"
 
 #: WEIPDCRM/models/version.py:791
-msgid "Lists packages that this one breaks, for example by exposing bugs when the named packages rely on this one. The package maintenance software will not allow broken packages to be configured; generally the resolution is to upgrade the packages named in a Breaks field."
-msgstr "يسرد الحزم التي يكسرها هذا ، على سبيل المثال عن طريق الكشف عن الأخطاء عندما تعتمد الحزم المسماة على هذه الحزمة. لن يسمح برنامج صيانة الحزمة بتكوين الحزم المعطلة ؛ بشكل عام ، الدقة هي ترقية الحزم المسماة في حقل فواصل."
+msgid ""
+"Lists packages that this one breaks, for example by exposing bugs when the "
+"named packages rely on this one. The package maintenance software will not "
+"allow broken packages to be configured; generally the resolution is to "
+"upgrade the packages named in a Breaks field."
+msgstr ""
+"يسرد الحزم التي يكسرها هذا ، على سبيل المثال عن طريق الكشف عن الأخطاء عندما "
+"تعتمد الحزم المسماة على هذه الحزمة. لن يسمح برنامج صيانة الحزمة بتكوين الحزم "
+"المعطلة ؛ بشكل عام ، الدقة هي ترقية الحزم المسماة في حقل فواصل."
 
 #: WEIPDCRM/models/version.py:802
 msgid "Conflicts"
 msgstr "النزاعات"
 
 #: WEIPDCRM/models/version.py:805
-msgid "Lists packages that conflict with this one, for example by containing files with the same names. The package maintenance software will not allow conflicting packages to be installed at the same time. Two conflicting packages should each include a Conflicts line mentioning the other."
-msgstr "يسرد الحزم التي تتعارض مع هذه الحزمة ، على سبيل المثال عن طريق احتواء الملفات التي تحمل نفس الأسماء. لن يسمح برنامج صيانة الحزمة بتثبيت حزم متعارضة في نفس الوقت. يجب أن تتضمن كلتا الحزمتين المتعارضتين خطًا تعارضًا يذكر الآخر."
+msgid ""
+"Lists packages that conflict with this one, for example by containing files "
+"with the same names. The package maintenance software will not allow "
+"conflicting packages to be installed at the same time. Two conflicting "
+"packages should each include a Conflicts line mentioning the other."
+msgstr ""
+"يسرد الحزم التي تتعارض مع هذه الحزمة ، على سبيل المثال عن طريق احتواء "
+"الملفات التي تحمل نفس الأسماء. لن يسمح برنامج صيانة الحزمة بتثبيت حزم "
+"متعارضة في نفس الوقت. يجب أن تتضمن كلتا الحزمتين المتعارضتين خطًا تعارضًا يذكر "
+"الآخر."
 
 #: WEIPDCRM/models/version.py:816
 msgid "Replaces"
 msgstr "يستبدل"
 
 #: WEIPDCRM/models/version.py:819
-msgid "List of packages files from which this one replaces. This is used for allowing this package to overwrite the files of another package and is usually used with the Conflicts field to force removal of the other package, if this one also has the same files as the conflicted package."
-msgstr "قائمة ملفات الحزم التي يستبدل منها هذا. يستخدم هذا للسماح لهذه الحزمة بالكتابة فوق ملفات حزمة أخرى وعادةً ما يتم استخدامه مع حقل Conflicts لفرض إزالة الحزمة الأخرى ، إذا كان هذا الملف يحتوي أيضًا على نفس ملفات الحزمة المتعارضة."
+msgid ""
+"List of packages files from which this one replaces. This is used for "
+"allowing this package to overwrite the files of another package and is "
+"usually used with the Conflicts field to force removal of the other package, "
+"if this one also has the same files as the conflicted package."
+msgstr ""
+"قائمة ملفات الحزم التي يستبدل منها هذا. يستخدم هذا للسماح لهذه الحزمة "
+"بالكتابة فوق ملفات حزمة أخرى وعادةً ما يتم استخدامه مع حقل Conflicts لفرض "
+"إزالة الحزمة الأخرى ، إذا كان هذا الملف يحتوي أيضًا على نفس ملفات الحزمة "
+"المتعارضة."
 
 #: WEIPDCRM/models/version.py:830
 msgid "Provides"
 msgstr "يوفر"
 
 #: WEIPDCRM/models/version.py:833
-msgid "This is a list of virtual packages that this one provides. Usually this is used in the case of several packages all providing the same service. For example, sendmail and exim can serve as a mail server, so they provide a common package (\"mail-transport-agent\") on which other packages can depend. This will allow sendmail or exim to serve as a valid option to satisfy the dependency.  This prevents the packages that depend on a mail server from having to know the package names for all of them, and using '|' to separate the list."
-msgstr "هذه قائمة بالحزم الافتراضية التي توفرها هذه الحزمة. عادة ما يتم استخدام هذا في حالة وجود عدة حزم تقدم جميعها نفس الخدمة. على سبيل المثال ، يمكن أن يعمل mailmail و exim كخادم بريد ، بحيث يوفران حزمة مشتركة (\"mail-transport-agent\") يمكن أن تعتمد عليها الحزم الأخرى. سيسمح هذا mailmail أو exim ليكون بمثابة خيار صالح لتلبية التبعية. هذا يمنع الحزم التي تعتمد على خادم البريد من معرفة أسماء الحزم لجميعها ، واستخدام \"|\" لفصل القائمة."
+msgid ""
+"This is a list of virtual packages that this one provides. Usually this is "
+"used in the case of several packages all providing the same service. For "
+"example, sendmail and exim can serve as a mail server, so they provide a "
+"common package (\"mail-transport-agent\") on which other packages can "
+"depend. This will allow sendmail or exim to serve as a valid option to "
+"satisfy the dependency.  This prevents the packages that depend on a mail "
+"server from having to know the package names for all of them, and using '|' "
+"to separate the list."
+msgstr ""
+"هذه قائمة بالحزم الافتراضية التي توفرها هذه الحزمة. عادة ما يتم استخدام هذا "
+"في حالة وجود عدة حزم تقدم جميعها نفس الخدمة. على سبيل المثال ، يمكن أن يعمل "
+"mailmail و exim كخادم بريد ، بحيث يوفران حزمة مشتركة (\"mail-transport-agent"
+"\") يمكن أن تعتمد عليها الحزم الأخرى. سيسمح هذا mailmail أو exim ليكون "
+"بمثابة خيار صالح لتلبية التبعية. هذا يمنع الحزم التي تعتمد على خادم البريد "
+"من معرفة أسماء الحزم لجميعها ، واستخدام \"|\" لفصل القائمة."
 
 #: WEIPDCRM/models/version.py:854
 msgid "The name of the distribution this package is originating from."
@@ -1235,23 +1483,37 @@ msgid "Source"
 msgstr "المصدر"
 
 #: WEIPDCRM/models/version.py:862
-msgid "The name of the source package that this binary package came from, if it is different than the name of the package itself. If the source version differs from the binary version, then the source-name will be followed by a source-version in parenthesis."
-msgstr "اسم الحزمة المصدر التي جاءت منها هذه الحزمة الثنائية ، إذا كان مختلفًا عن اسم الحزمة نفسها. إذا كان الإصدار المصدر يختلف عن الإصدار الثنائي ، فسيتبع اسم المصدر إصدار مصدر بين قوسين."
+msgid ""
+"The name of the source package that this binary package came from, if it is "
+"different than the name of the package itself. If the source version differs "
+"from the binary version, then the source-name will be followed by a source-"
+"version in parenthesis."
+msgstr ""
+"اسم الحزمة المصدر التي جاءت منها هذه الحزمة الثنائية ، إذا كان مختلفًا عن اسم "
+"الحزمة نفسها. إذا كان الإصدار المصدر يختلف عن الإصدار الثنائي ، فسيتبع اسم "
+"المصدر إصدار مصدر بين قوسين."
 
 #: WEIPDCRM/models/version.py:870
 msgid "Build-Essential"
 msgstr "بناء الأساسية"
 
 #: WEIPDCRM/models/version.py:880
-msgid "This field is usually only needed when the answer is yes, and is commonly injected by the archive software.  It denotes a package that is required when building other packages."
-msgstr "عادة ما تكون هناك حاجة لهذا الحقل فقط عندما تكون الإجابة نعم ، ويتم حقنه عادةً بواسطة برنامج الأرشيف. يشير إلى الحزمة المطلوبة عند إنشاء حزم أخرى."
+msgid ""
+"This field is usually only needed when the answer is yes, and is commonly "
+"injected by the archive software.  It denotes a package that is required "
+"when building other packages."
+msgstr ""
+"عادة ما تكون هناك حاجة لهذا الحقل فقط عندما تكون الإجابة نعم ، ويتم حقنه "
+"عادةً بواسطة برنامج الأرشيف. يشير إلى الحزمة المطلوبة عند إنشاء حزم أخرى."
 
 #: WEIPDCRM/models/version.py:885
 msgid "Bugs"
 msgstr ""
 
 #: WEIPDCRM/models/version.py:889
-msgid "The url of the bug tracking system for this package. The current used format is bts-type://bts-address, like debbugs://bugs.debian.org."
+msgid ""
+"The url of the bug tracking system for this package. The current used format "
+"is bts-type://bts-address, like debbugs://bugs.debian.org."
 msgstr ""
 
 #: WEIPDCRM/models/version.py:898
@@ -1259,7 +1521,19 @@ msgid "Multi-Arch"
 msgstr ""
 
 #: WEIPDCRM/models/version.py:908
-msgid "This field is used to indicate how this package should behave on a multi-arch installations.<br /><ul><li>no - This value is the default when the field is omitted, in which case adding the field with an explicit no value is generally not needed.</li><li>same - This package is co-installable with itself, but it must not be used to satisfy the dependency of any package of a different architecture from itself.</li><li>foreign - This package is not co-installable with itself, but should be allowed to satisfy a non-arch-qualified dependency of a package of a different arch from itself (if a dependency has an explicit arch-qualifier then the value foreign is ignored).</li><li>allowed - This allows reverse-dependencies to indicate in their Depends field that they accept this package from a foreign architecture by qualifying the package name with :any, but has no effect otherwise.</li></ul>"
+msgid ""
+"This field is used to indicate how this package should behave on a multi-"
+"arch installations.<br /><ul><li>no - This value is the default when the "
+"field is omitted, in which case adding the field with an explicit no value "
+"is generally not needed.</li><li>same - This package is co-installable with "
+"itself, but it must not be used to satisfy the dependency of any package of "
+"a different architecture from itself.</li><li>foreign - This package is not "
+"co-installable with itself, but should be allowed to satisfy a non-arch-"
+"qualified dependency of a package of a different arch from itself (if a "
+"dependency has an explicit arch-qualifier then the value foreign is ignored)."
+"</li><li>allowed - This allows reverse-dependencies to indicate in their "
+"Depends field that they accept this package from a foreign architecture by "
+"qualifying the package name with :any, but has no effect otherwise.</li></ul>"
 msgstr ""
 
 #: WEIPDCRM/models/version.py:930
@@ -1275,7 +1549,10 @@ msgid "Installer-Menu-Item"
 msgstr ""
 
 #: WEIPDCRM/models/version.py:953
-msgid "These fields are used by the debian-installer and are usually not needed. See /usr/share/doc/debian-installer/devel/modules.txt from the debian-installer package for more details about them."
+msgid ""
+"These fields are used by the debian-installer and are usually not needed. "
+"See /usr/share/doc/debian-installer/devel/modules.txt from the debian-"
+"installer package for more details about them."
 msgstr ""
 
 #: WEIPDCRM/models/version.py:960
@@ -1283,7 +1560,14 @@ msgid "Built-Using"
 msgstr ""
 
 #: WEIPDCRM/models/version.py:963
-msgid "This field lists extra source packages that were used during the build of this binary package.  This is an indication to the archive maintenance software that these extra source packages must be kept whilst this binary package is maintained. This field must be a list of source package names with strict '=' version relationships.  Note that the archive maintenance software is likely to refuse to accept an upload which declares a Built-Using relationship which cannot be satisfied within the archive."
+msgid ""
+"This field lists extra source packages that were used during the build of "
+"this binary package.  This is an indication to the archive maintenance "
+"software that these extra source packages must be kept whilst this binary "
+"package is maintained. This field must be a list of source package names "
+"with strict '=' version relationships.  Note that the archive maintenance "
+"software is likely to refuse to accept an upload which declares a Built-"
+"Using relationship which cannot be satisfied within the archive."
 msgstr ""
 
 #: WEIPDCRM/models/version.py:978
@@ -1291,8 +1575,12 @@ msgid "Built-For-Profiles"
 msgstr ""
 
 #: WEIPDCRM/models/version.py:981
-msgid "This field specifies a whitespace separated list of build profiles that this binary packages was built with."
-msgstr "يحدد هذا الحقل قائمة ملفات تعريف البناء المفصولة بمسافة بيضاء والتي تم بناء هذه الحزم الثنائية عليها."
+msgid ""
+"This field specifies a whitespace separated list of build profiles that this "
+"binary packages was built with."
+msgstr ""
+"يحدد هذا الحقل قائمة ملفات تعريف البناء المفصولة بمسافة بيضاء والتي تم بناء "
+"هذه الحزم الثنائية عليها."
 
 #: WEIPDCRM/models/version.py:989
 msgid "Gallery"
@@ -1334,19 +1622,30 @@ msgid "Darwin Cydia Repository Manager (DCRM)"
 msgstr "Darwin Cydia Repository Manager (DCRM)"
 
 #: WEIPDCRM/templates/admin/help/about.html:20
-msgid "\n"
+#, python-format
+msgid ""
+"\n"
 "            Version: %(version)s<br />\n"
 "            Open source Repository Manager for Cydia™/APT.<br /><br />\n"
-"            <!-- We strongly recommend you to use https instead of http to ensure transfer security.<br /-->\n"
+"            <!-- We strongly recommend you to use https instead of http to "
+"ensure transfer security.<br /-->\n"
 "            Designer: <a href=\"http://weibo.com/82flex\">@i_82</a><br />\n"
-"            Frontend: <a href=\"http://weibo.com/jacky189\">@0xJacky</a><br />\n"
-"            Special Thanks: <a href=\"https://twitter.com/saurik\">Saurik</a>/<a href=\"https://www.djangoproject.com/\">Django</a>/<a href=\"https://github.com/darklow/django-suit\">Django Suit</a>/<a href=\"https://github.com/ui/django-rq\">Django RQ</a><br /><br />\n"
-"            Copyright &copy; 2017 82Flex.com All Rights Reserved.<br />\n"
+"            Frontend: <a href=\"http://weibo.com/jacky189\">@0xJacky</a><br /"
+">\n"
+"            Special Thanks: <a href=\"https://twitter.com/saurik\">Saurik</"
+"a>/<a href=\"https://www.djangoproject.com/\">Django</a>/<a href=\"https://"
+"github.com/darklow/django-suit\">Django Suit</a>/<a href=\"https://github."
+"com/ui/django-rq\">Django RQ</a><br /><br />\n"
+"            Copyright &copy; 2020 Zheng Wu. All Rights Reserved.<br />\n"
 "            "
 msgstr ""
 
 #: WEIPDCRM/templates/admin/help/about.html:30
-msgid "This program is free software, you can redistribute it and/or modify it under the terms of the <a href=\"http://www.gnu.org/licenses\">GNU Affero General Public License</a> as published by the Free Software Foundation either version 3 of the License."
+msgid ""
+"This program is free software, you can redistribute it and/or modify it "
+"under the terms of the <a href=\"http://www.gnu.org/licenses\">GNU Affero "
+"General Public License</a> as published by the Free Software Foundation "
+"either version 3 of the License."
 msgstr ""
 
 #: WEIPDCRM/templates/admin/help/statistics.html:8
@@ -1371,7 +1670,8 @@ msgstr "اكتمل تنظيف الذاكرة المءقت"
 
 #: WEIPDCRM/templates/admin/help/statistics.html:54
 msgid "Fail to cleanup cache, error message has been written to the console"
-msgstr "فشل في تنظيف ذاكرة التخزين المؤقت ، تمت كتابة رسالة خطأ إلى وحدة التحكم"
+msgstr ""
+"فشل في تنظيف ذاكرة التخزين المؤقت ، تمت كتابة رسالة خطأ إلى وحدة التحكم"
 
 #: WEIPDCRM/templates/admin/new_change_form.html:13
 msgid "View on site"
@@ -1487,11 +1787,14 @@ msgid "About Deb-Control"
 msgstr "حول Deb-Control"
 
 #: WEIPDCRM/templates/admin/version/change_list.html:17
+#, python-format
 msgid "Add %(name)s"
 msgstr "اضافة %(name)s"
 
 #: WEIPDCRM/templates/admin/version/package_title_script.html:3
-msgid "\n"
+#, python-format
+msgid ""
+"\n"
 "        <h1>Package: %(filtered_by_package)s</h1>\n"
 "    "
 msgstr ""
@@ -1521,6 +1824,7 @@ msgid "Active release "
 msgstr ""
 
 #: WEIPDCRM/views/admin/upload.py:97
+#, python-format
 msgid "Version Conflict: %s"
 msgstr ""
 
@@ -1529,7 +1833,10 @@ msgid "Upload failed, Unsupported file extension."
 msgstr "أخفق الرفع ، ملحق الملف غير مدعوم"
 
 #: WEIPDCRM/views/admin/upload.py:291
-msgid "Active release not set: you cannot publish your repository without an active release. <a href=\"%s\">Add Release</a>"
+#, python-format
+msgid ""
+"Active release not set: you cannot publish your repository without an active "
+"release. <a href=\"%s\">Add Release</a>"
 msgstr ""
 
 #: WEIPDCRM/views/admin/upload.py:333 WEIPDCRM/views/admin/upload.py:345
@@ -1546,4 +1853,3 @@ msgstr "فشل الرفع ، نموذج غير صالح."
 #: WEIPDCRM/views/admin/upload.py:388 WEIPDCRM/views/admin/upload.py:399
 msgid "Upload New Packages"
 msgstr "تحميل حزمة جديدة"
-
