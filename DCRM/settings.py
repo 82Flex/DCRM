@@ -61,7 +61,7 @@ USE_I18N      = int(os.environ.get('DCRM_USE_I18N', True)) == 1
 USE_L10N      = int(os.environ.get('DCRM_USE_L10N', True)) == 1
 USE_TZ        = int(os.environ.get('DCRM_USE_TZ', True))   == 1
 LANGUAGE_CODE = os.environ.get('DCRM_LANGUAGE_CODE', 'en')
-TIME_ZONE     = os.environ.get('DCRM_TIME_ZONE', 'Asia/Shanghai')
+TIME_ZONE     = os.environ.get('DCRM_TIME_ZONE', "Asia/Shanghai")
 
 
 # DATABASE
