@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-05 22:43+0800\n"
+"POT-Creation-Date: 2019-12-06 23:51+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,6 +119,7 @@ msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:21
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:43
+#: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:46
 msgid "Author"
 msgstr ""
 
