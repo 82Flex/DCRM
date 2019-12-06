@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 01:59+0800\n"
+"POT-Creation-Date: 2019-12-06 23:51+0800\n"
 "PO-Revision-Date: 2017-04-03 23:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: 82Flex Team <i.82@me.com>\n"
@@ -23,18 +23,18 @@ msgstr ""
 msgid "Django RQ"
 msgstr "处理队列"
 
-#: WEIPDCRM/apps.py:71 WEIPDCRM/templates/admin/upload.html:39
+#: WEIPDCRM/apps.py:74 WEIPDCRM/templates/admin/upload.html:39
 msgid "New Package"
 msgstr "新软件包"
 
-#: WEIPDCRM/apps.py:74 WEIPDCRM/manage/admin/setting.py:159
+#: WEIPDCRM/apps.py:77 WEIPDCRM/manage/admin/setting.py:159
 #: WEIPDCRM/manage/admin/version.py:224
 #: WEIPDCRM/templates/admin/help/statistics.html:8
 #: WEIPDCRM/views/admin/help/statistics.py:99
 msgid "Statistics"
 msgstr "统计信息"
 
-#: WEIPDCRM/apps.py:75
+#: WEIPDCRM/apps.py:78
 msgid "About..."
 msgstr "关于..."
 
@@ -134,12 +134,14 @@ msgid ""
 msgstr "无活跃元数据. <a href=\"%s\">设置当前元数据为活跃元数据</a>"
 
 #: WEIPDCRM/manage/admin/section.py:173
+#, python-format
 msgid "%s Source Icon"
 msgstr "%s 源图标"
 
 #: WEIPDCRM/manage/admin/section.py:207
+#, python-format
 msgid "Auto generated section icon package for %s."
-msgstr "为选中分类自动生成分类图标包"
+msgstr "为 %s 自动生成的分类图标包."
 
 #: WEIPDCRM/manage/admin/section.py:214
 msgid ""
@@ -382,7 +384,7 @@ msgstr "UUID"
 msgid "Created At"
 msgstr "创建于"
 
-#: WEIPDCRM/models/build.py:61 WEIPDCRM/models/setting.py:106
+#: WEIPDCRM/models/build.py:61 WEIPDCRM/models/setting.py:108
 msgid "Active Release"
 msgstr "活跃元数据"
 
@@ -403,12 +405,12 @@ msgid ""
 "Tell others what did you do this time before you rebuild the repository."
 msgstr "请描述重新构建该存储库的理由."
 
-#: WEIPDCRM/models/debian_package.py:69
+#: WEIPDCRM/models/debian_package.py:72
 msgid "Not a Debian Package"
 msgstr "不是一个 Debian 软件包"
 
-#: WEIPDCRM/models/debian_package.py:97 WEIPDCRM/models/debian_package.py:101
-#: WEIPDCRM/models/debian_package.py:143
+#: WEIPDCRM/models/debian_package.py:102 WEIPDCRM/models/debian_package.py:106
+#: WEIPDCRM/models/debian_package.py:148
 msgid "Malformed Debian Package"
 msgstr "受损的 Debian 软件包"
 
@@ -447,7 +449,7 @@ msgstr "图标"
 
 #: WEIPDCRM/models/device_type.py:72 WEIPDCRM/models/os_version.py:67
 #: WEIPDCRM/models/release.py:152 WEIPDCRM/models/section.py:82
-#: WEIPDCRM/models/setting.py:409 WEIPDCRM/models/version.py:262
+#: WEIPDCRM/models/setting.py:411 WEIPDCRM/models/version.py:262
 msgid "Choose an Icon (*.png) to upload"
 msgstr "请选择并上传一个图标 (*.png)"
 
@@ -652,147 +654,147 @@ msgstr ""
 "这是一个通用字段, 它根据安装的软件为软件包提供了一个类别. 在分配给了任何软件"
 "包后, 您将无法编辑其名称. "
 
-#: WEIPDCRM/models/setting.py:45
+#: WEIPDCRM/models/setting.py:47
 msgid "Only these characters are allowed: 0-9A-Za-z_.-/"
 msgstr "只允许这些字符: 0-9A-Za-z_.-/"
 
-#: WEIPDCRM/models/setting.py:54
+#: WEIPDCRM/models/setting.py:56
 msgid "Path alias should be prefixed and suffixed by slash chars."
 msgstr "路径别名需要以斜杠开始, 以斜杠结尾. "
 
-#: WEIPDCRM/models/setting.py:63
+#: WEIPDCRM/models/setting.py:65
 msgid "Path alias should be suffixed by a slash char."
 msgstr "路径别名需要以斜杠结尾. "
 
-#: WEIPDCRM/models/setting.py:74
+#: WEIPDCRM/models/setting.py:76
 #, python-format
 msgid "Cannot find command 'gpg': %s"
 msgstr "找不到命令 \"gpg\": %s"
 
-#: WEIPDCRM/models/setting.py:79
+#: WEIPDCRM/models/setting.py:81
 msgid "Only Nginx is supported now."
 msgstr "目前仅支持 Nginx. "
 
-#: WEIPDCRM/models/setting.py:84
+#: WEIPDCRM/models/setting.py:86
 msgid "pdiffs is not supported now."
 msgstr "目前还不支持 pdiffs. "
 
-#: WEIPDCRM/models/setting.py:89
+#: WEIPDCRM/models/setting.py:91
 msgid "Rest API is not supported now."
 msgstr "目前还不支持 Restful API."
 
-#: WEIPDCRM/models/setting.py:102
+#: WEIPDCRM/models/setting.py:104
 msgid "Setting"
 msgstr "设置"
 
-#: WEIPDCRM/models/setting.py:103
+#: WEIPDCRM/models/setting.py:105
 msgid "Settings"
 msgstr "设置"
 
-#: WEIPDCRM/models/setting.py:111
+#: WEIPDCRM/models/setting.py:113
 msgid ""
 "Each repository should have an active release, otherwise it will not be "
 "recognized by any advanced package tools."
 msgstr ""
 "每个存储库都需要活跃的元数据, 否则它将不能被 Cydia 等包管理工具所识别. "
 
-#: WEIPDCRM/models/setting.py:116
+#: WEIPDCRM/models/setting.py:118
 msgid "Packages Compression"
 msgstr "软件包列表压缩方式"
 
-#: WEIPDCRM/models/setting.py:118
+#: WEIPDCRM/models/setting.py:120
 msgid "Plain"
 msgstr "纯文本 (不压缩)"
 
-#: WEIPDCRM/models/setting.py:119
+#: WEIPDCRM/models/setting.py:121
 msgid "Gzip"
 msgstr "gz 压缩"
 
-#: WEIPDCRM/models/setting.py:120
+#: WEIPDCRM/models/setting.py:122
 msgid "Plain and Gzip"
 msgstr "纯文本和 gz 压缩"
 
-#: WEIPDCRM/models/setting.py:121
+#: WEIPDCRM/models/setting.py:123
 msgid "Bzip"
 msgstr "bz2 压缩"
 
-#: WEIPDCRM/models/setting.py:122
+#: WEIPDCRM/models/setting.py:124
 msgid "Plain and Bzip"
 msgstr "纯文本和 bz2 压缩"
 
-#: WEIPDCRM/models/setting.py:123
+#: WEIPDCRM/models/setting.py:125
 msgid "Gzip and Bzip"
 msgstr "gz 和 bz2 压缩"
 
-#: WEIPDCRM/models/setting.py:124
+#: WEIPDCRM/models/setting.py:126
 msgid "All (Recommended)"
 msgstr "全部压缩方式 (推荐)"
 
-#: WEIPDCRM/models/setting.py:128
+#: WEIPDCRM/models/setting.py:130
 msgid ""
 "Please change the compression method if error occurred when try to rebuild "
 "the list."
 msgstr "如果构建时出现问题, 请修改此处支持的压缩方式. "
 
-#: WEIPDCRM/models/setting.py:132
+#: WEIPDCRM/models/setting.py:134
 msgid "Packages Validation"
 msgstr "软件包校验"
 
-#: WEIPDCRM/models/setting.py:134
+#: WEIPDCRM/models/setting.py:136
 msgid "No validation"
 msgstr "无校验"
 
-#: WEIPDCRM/models/setting.py:135 WEIPDCRM/models/version.py:293
+#: WEIPDCRM/models/setting.py:137 WEIPDCRM/models/version.py:293
 msgid "MD5Sum"
 msgstr "MD5Sum"
 
-#: WEIPDCRM/models/setting.py:136
+#: WEIPDCRM/models/setting.py:138
 msgid "MD5Sum & SHA1"
 msgstr "MD5Sum & SHA1"
 
-#: WEIPDCRM/models/setting.py:137
+#: WEIPDCRM/models/setting.py:139
 msgid "MD5Sum & SHA1 & SHA256 (Recommended)"
 msgstr "MD5Sum & SHA1 & SHA256 (推荐)"
 
-#: WEIPDCRM/models/setting.py:138
+#: WEIPDCRM/models/setting.py:140
 msgid "MD5Sum & SHA1 & SHA256 & SHA512"
 msgstr "MD5Sum & SHA1 & SHA256 & SHA512"
 
-#: WEIPDCRM/models/setting.py:142
+#: WEIPDCRM/models/setting.py:144
 msgid "You need to update hashes manually."
 msgstr "如果您修改了此设置, 您需要手动更新各软件包的哈希值. "
 
-#: WEIPDCRM/models/setting.py:146
+#: WEIPDCRM/models/setting.py:148
 msgid "Downgrade Support"
 msgstr "降级支持"
 
-#: WEIPDCRM/models/setting.py:148
+#: WEIPDCRM/models/setting.py:150
 msgid "Allow multiple versions to exist in the latest package list."
 msgstr "允许同一软件包的多个启用版本在最新软件包列表中出现. "
 
-#: WEIPDCRM/models/setting.py:153
+#: WEIPDCRM/models/setting.py:155
 msgid "Auto Depiction"
 msgstr "自动展示页"
 
-#: WEIPDCRM/models/setting.py:155
+#: WEIPDCRM/models/setting.py:157
 msgid "Check it to generate awesome depiction page for each version."
 msgstr "选中后将为软件包的每个版本生成酷炫的展示页面. "
 
-#: WEIPDCRM/models/setting.py:160
+#: WEIPDCRM/models/setting.py:162
 msgid "Atomic Storage"
 msgstr "原子存储"
 
-#: WEIPDCRM/models/setting.py:162
+#: WEIPDCRM/models/setting.py:164
 msgid "Generate a new copy of package after editing control columns."
 msgstr ""
 "每当需要修改软件包信息并同步到软件包 control 数据的时候, 为软件包生成修改后的"
 "新副本, 而不是覆盖原文件. "
 
-#: WEIPDCRM/models/setting.py:168
+#: WEIPDCRM/models/setting.py:170
 msgid "Resources Alias"
 msgstr "资源目录别名"
 
-#: WEIPDCRM/models/setting.py:169
+#: WEIPDCRM/models/setting.py:171
 msgid ""
 "You can specify alias for resources path in Nginx or other HTTP servers, "
 "which is also necessary for CDN speedup."
@@ -800,31 +802,31 @@ msgstr ""
 "您可以为资源路径指定在 Nginx 或其它 HTTP 反向代理中设置的别名, 这在使用 CDN "
 "进行目录级别加速时非常有效. "
 
-#: WEIPDCRM/models/setting.py:179
+#: WEIPDCRM/models/setting.py:181
 msgid "Enable pdiffs"
 msgstr "启用 pdiffs"
 
-#: WEIPDCRM/models/setting.py:180
+#: WEIPDCRM/models/setting.py:182
 msgid ""
 "If package list is extremely large, you should enable this to allow "
 "incremental update."
 msgstr "如果软件包列表非常巨大, 启用它将允许列表的增量更新. "
 
-#: WEIPDCRM/models/setting.py:187
+#: WEIPDCRM/models/setting.py:189
 msgid "Enable Rest API"
 msgstr "启用 Restful API"
 
-#: WEIPDCRM/models/setting.py:188
+#: WEIPDCRM/models/setting.py:190
 msgid ""
 "Upload packages using HTTP, manage your repositories, snapshots and comments "
 "etc."
 msgstr "允许使用 Restful API 进行上传软件包, 管理存储库, 截图与评论等操作. "
 
-#: WEIPDCRM/models/setting.py:195
+#: WEIPDCRM/models/setting.py:197
 msgid "Enable GPG Signature"
 msgstr "启用 GPG 签名"
 
-#: WEIPDCRM/models/setting.py:196
+#: WEIPDCRM/models/setting.py:198
 msgid ""
 "Verify the integrity of the repository. Run 'gpg --gen-key' before you "
 "enable this feature."
@@ -832,47 +834,47 @@ msgstr ""
 "允许包管理工具验证该存储库的完整性. 在启用本功能前, 请先运行 \"gpg --gen-key"
 "\". "
 
-#: WEIPDCRM/models/setting.py:203
+#: WEIPDCRM/models/setting.py:205
 msgid "GPG Password"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:210
+#: WEIPDCRM/models/setting.py:212
 msgid "Web Server"
 msgstr "Web 服务"
 
-#: WEIPDCRM/models/setting.py:212
+#: WEIPDCRM/models/setting.py:214
 msgid "Nginx"
 msgstr "Nginx"
 
-#: WEIPDCRM/models/setting.py:213
+#: WEIPDCRM/models/setting.py:215
 msgid "Apache"
 msgstr "Apache"
 
-#: WEIPDCRM/models/setting.py:214
+#: WEIPDCRM/models/setting.py:216
 msgid "Tomcat"
 msgstr "Tomcat"
 
-#: WEIPDCRM/models/setting.py:217
+#: WEIPDCRM/models/setting.py:219
 msgid "This will help DCRM redirect download request properly."
 msgstr "调整 DCRM 分发软件包资源回应的策略. "
 
-#: WEIPDCRM/models/setting.py:223
+#: WEIPDCRM/models/setting.py:225
 msgid "Redirect Methods"
 msgstr "跳转方式"
 
-#: WEIPDCRM/models/setting.py:225
+#: WEIPDCRM/models/setting.py:227
 msgid "None"
 msgstr "不跳转"
 
-#: WEIPDCRM/models/setting.py:226
+#: WEIPDCRM/models/setting.py:228
 msgid "Moved"
 msgstr "重定向"
 
-#: WEIPDCRM/models/setting.py:227
+#: WEIPDCRM/models/setting.py:229
 msgid "Accel"
 msgstr "反向加速"
 
-#: WEIPDCRM/models/setting.py:229
+#: WEIPDCRM/models/setting.py:231
 msgid ""
 "None - Read resources and return, without partical support, not recommended."
 "<br />Moved - Return 301/302 responses and redirect to the real resource "
@@ -883,11 +885,11 @@ msgstr ""
 "响应头并重定向到真正的资源URL, 让 Nginx 返回数据. <br />反向加速 - 将资源请求"
 "通知到反向代理进行读取而不更改URL. "
 
-#: WEIPDCRM/models/setting.py:238
+#: WEIPDCRM/models/setting.py:240
 msgid "Redirect Prefix"
 msgstr "跳转前缀"
 
-#: WEIPDCRM/models/setting.py:242
+#: WEIPDCRM/models/setting.py:244
 msgid ""
 "Changing scheme and host of the url in package downloading requests, which "
 "is useful for load balancing or CDN speedup.<br />Example: https://"
@@ -896,11 +898,11 @@ msgstr ""
 "为软件包下载请求中的 URL 修改其 scheme 和 host, 这对于负载均衡与 CDN 加速有很"
 "大帮助. <br />例: https://cdn.82flex.com/"
 
-#: WEIPDCRM/models/setting.py:251
+#: WEIPDCRM/models/setting.py:253
 msgid "Download Count"
 msgstr "下载计数"
 
-#: WEIPDCRM/models/setting.py:252
+#: WEIPDCRM/models/setting.py:254
 msgid ""
 "Count every download. You should configure Nginx or other Web servers before "
 "you enable this feature."
@@ -908,11 +910,11 @@ msgstr ""
 "每一次下载都会计入下载次数中. 启用本功能前, 需要配置 Nginx 或其它 HTTP 反向代"
 "理, 使资源目录不可被直接访问而是通过 Django 处理. "
 
-#: WEIPDCRM/models/setting.py:261
+#: WEIPDCRM/models/setting.py:263
 msgid "Cydia Only"
 msgstr "限制 Cydia 访问"
 
-#: WEIPDCRM/models/setting.py:262
+#: WEIPDCRM/models/setting.py:264
 msgid ""
 "Protect downloading from any other tools except Cydia. You should configure "
 "Nginx or other Web servers before you enable this feature."
@@ -920,163 +922,163 @@ msgstr ""
 "保护资源目录, 不允许 Cydia 以外的用户代理访问. 启用本功能前, 需要正确配置 "
 "Nginx 或其它 HTTP 反向代理, 使资源目录不可被直接访问而是通过 Django 处理. "
 
-#: WEIPDCRM/models/setting.py:271
+#: WEIPDCRM/models/setting.py:273
 #: WEIPDCRM/templates/admin/version/change_form.html:18
 msgid "Comments"
 msgstr "评论"
 
-#: WEIPDCRM/models/setting.py:272
+#: WEIPDCRM/models/setting.py:274
 msgid "Enable comments module"
 msgstr "启用评论模块"
 
-#: WEIPDCRM/models/setting.py:276
+#: WEIPDCRM/models/setting.py:278
 msgid "Social Module"
 msgstr "社交模块"
 
-#: WEIPDCRM/models/setting.py:277
+#: WEIPDCRM/models/setting.py:279
 msgid "Enable social module"
 msgstr "启用社交模块"
 
-#: WEIPDCRM/models/setting.py:281
+#: WEIPDCRM/models/setting.py:283
 msgid "QQ Group Name"
 msgstr "QQ 群名称"
 
-#: WEIPDCRM/models/setting.py:287
+#: WEIPDCRM/models/setting.py:289
 msgid "QQ Group URL"
 msgstr "QQ 群加群 URL"
 
-#: WEIPDCRM/models/setting.py:288
+#: WEIPDCRM/models/setting.py:290
 msgid "Display QQ group link on the package info page."
 msgstr "在软件包详情页面显示 QQ 群加群链接. "
 
-#: WEIPDCRM/models/setting.py:297
+#: WEIPDCRM/models/setting.py:299
 msgid "Weibo Name"
 msgstr "微博名称"
 
-#: WEIPDCRM/models/setting.py:303
+#: WEIPDCRM/models/setting.py:305
 msgid "Weibo URL"
 msgstr "微博 URL"
 
-#: WEIPDCRM/models/setting.py:304
+#: WEIPDCRM/models/setting.py:306
 msgid "Display Weibo link on the package info page."
 msgstr "在软件包详情页面显示微博关注链接. "
 
-#: WEIPDCRM/models/setting.py:313
+#: WEIPDCRM/models/setting.py:315
 msgid "Alipay URL"
 msgstr "支付宝 URL"
 
-#: WEIPDCRM/models/setting.py:314
+#: WEIPDCRM/models/setting.py:316
 msgid "Display \"Donate via Alipay\" link on the package info page."
 msgstr "在软件包详情页显示 \"通过支付宝捐助\" 链接. "
 
-#: WEIPDCRM/models/setting.py:323
+#: WEIPDCRM/models/setting.py:325
 msgid "Twitter Name"
 msgstr "Twitter 名称"
 
-#: WEIPDCRM/models/setting.py:329
+#: WEIPDCRM/models/setting.py:331
 msgid "Twitter URL"
 msgstr "Twitter 个人主页 URL"
 
-#: WEIPDCRM/models/setting.py:330
+#: WEIPDCRM/models/setting.py:332
 msgid "Display Twitter link on the package info page."
 msgstr "在软件包详情页面显示 Twitter 链接. "
 
-#: WEIPDCRM/models/setting.py:339
+#: WEIPDCRM/models/setting.py:341
 msgid "Facebook Name"
 msgstr "Facebook 名称"
 
-#: WEIPDCRM/models/setting.py:345
+#: WEIPDCRM/models/setting.py:347
 msgid "Telegram Name"
 msgstr "Telegram 名称"
 
-#: WEIPDCRM/models/setting.py:351
+#: WEIPDCRM/models/setting.py:353
 msgid "Telegram URL"
 msgstr "Telegram URL"
 
-#: WEIPDCRM/models/setting.py:352
+#: WEIPDCRM/models/setting.py:354
 msgid "Display Telegram link on the package info page."
 msgstr "在软件包详情页面显示 Telegram 链接. "
 
-#: WEIPDCRM/models/setting.py:361
+#: WEIPDCRM/models/setting.py:363
 msgid "Facebook URL"
 msgstr "Facebook URL"
 
-#: WEIPDCRM/models/setting.py:362
+#: WEIPDCRM/models/setting.py:364
 msgid "Display Facebook link on the package info page."
 msgstr "在软件包详情页面显示 Facebook 链接. "
 
-#: WEIPDCRM/models/setting.py:371
+#: WEIPDCRM/models/setting.py:373
 msgid "Paypal URL"
 msgstr "Paypal URL"
 
-#: WEIPDCRM/models/setting.py:372
+#: WEIPDCRM/models/setting.py:374
 msgid "Display \"Donate via Paypal\" link on the package info page."
 msgstr "在软件包详情页面显示 \"通过 Paypal 捐助\" 链接. "
 
-#: WEIPDCRM/models/setting.py:381
+#: WEIPDCRM/models/setting.py:383
 msgid "Starting Year of Copyright"
 msgstr "版权开始年份"
 
-#: WEIPDCRM/models/setting.py:382
+#: WEIPDCRM/models/setting.py:384
 msgid "Leave blank to display current year."
 msgstr "留空以显示当前年份"
 
-#: WEIPDCRM/models/setting.py:387
+#: WEIPDCRM/models/setting.py:389
 msgid "Copyright Name"
 msgstr "版权所有人名称"
 
-#: WEIPDCRM/models/setting.py:388
+#: WEIPDCRM/models/setting.py:390
 msgid ""
 "Corpyright name is displayed on the footer, leave a blank will display the "
 "source name."
 msgstr "版权所有人名称显示在页面底部, 留空将显示存储库名称. "
 
-#: WEIPDCRM/models/setting.py:394
+#: WEIPDCRM/models/setting.py:396
 msgid "ICP Number"
 msgstr "ICP 备案号"
 
-#: WEIPDCRM/models/setting.py:395
+#: WEIPDCRM/models/setting.py:397
 msgid "The ICP Number displayed on the footer."
 msgstr "ICP 备案号显示在页面底部. "
 
-#: WEIPDCRM/models/setting.py:401
+#: WEIPDCRM/models/setting.py:403
 msgid "Version History"
 msgstr "版本历史"
 
-#: WEIPDCRM/models/setting.py:402
+#: WEIPDCRM/models/setting.py:404
 msgid "Enable version history module"
 msgstr "启用版本历史模块"
 
-#: WEIPDCRM/models/setting.py:406
+#: WEIPDCRM/models/setting.py:408
 msgid "Favicon"
 msgstr "Favicon"
 
-#: WEIPDCRM/models/setting.py:414
+#: WEIPDCRM/models/setting.py:416
 msgid "Notice"
 msgstr "提示"
 
-#: WEIPDCRM/models/setting.py:418 WEIPDCRM/models/setting.py:425
+#: WEIPDCRM/models/setting.py:420 WEIPDCRM/models/setting.py:427
 msgid ""
 "HTML Displayed on the frontend widget and the auto depiction page (mobile)."
 msgstr "显示在前端浮动组件区域的自定义 HTML 内容. "
 
-#: WEIPDCRM/models/setting.py:421
+#: WEIPDCRM/models/setting.py:423
 msgid "Advertisement"
 msgstr "广告位"
 
-#: WEIPDCRM/models/setting.py:428
+#: WEIPDCRM/models/setting.py:430
 msgid "External Statistics"
 msgstr "外部统计代码"
 
-#: WEIPDCRM/models/setting.py:432
+#: WEIPDCRM/models/setting.py:434
 msgid "Invisible statistic code."
 msgstr "不可见统计代码"
 
-#: WEIPDCRM/models/setting.py:435
+#: WEIPDCRM/models/setting.py:437
 msgid "Internal Statistics"
 msgstr "内部统计代码"
 
-#: WEIPDCRM/models/setting.py:439
+#: WEIPDCRM/models/setting.py:441
 msgid "Statistics code of view information at statistics page."
 msgstr "在统计页面上用于显示统计结果的统计代码. "
 
@@ -1605,7 +1607,7 @@ msgid ""
 "a>/<a href=\"https://www.djangoproject.com/\">Django</a>/<a href=\"https://"
 "github.com/darklow/django-suit\">Django Suit</a>/<a href=\"https://github."
 "com/ui/django-rq\">Django RQ</a><br /><br />\n"
-"            Copyright &copy; 2017 82Flex.com All Rights Reserved.<br />\n"
+"            Copyright &copy; 2020 Zheng Wu. All Rights Reserved.<br />\n"
 "            "
 msgstr ""
 

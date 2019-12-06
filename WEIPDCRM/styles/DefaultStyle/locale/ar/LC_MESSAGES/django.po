@@ -1,25 +1,13 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: DCRM\n"
+"Project-Id-Version: css\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-06 23:51+0800\n"
-"PO-Revision-Date: 2017-08-20 08:58+0800\n"
-"Last-Translator: \n"
-"Language-Team: 82Flex <i.82@me.com>\n"
-"Language: zh_CN\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.3\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-Basepath: ../../../templates\n"
-"X-Poedit-SearchPath-0: .\n"
+"X-Generator: POEditor.com\n"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:42
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:5
@@ -29,7 +17,7 @@ msgstr ""
 #: WEIPDCRM/styles/DefaultStyle/templates/section-list.html:9
 #: WEIPDCRM/styles/DefaultStyle/templates/section.html:9
 msgid "Home"
-msgstr "首页"
+msgstr "الرئيسية"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:43
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:96
@@ -37,52 +25,52 @@ msgstr "首页"
 #: WEIPDCRM/styles/DefaultStyle/templates/section-list.html:10
 #: WEIPDCRM/styles/DefaultStyle/templates/section-list.html:14
 msgid "Section List"
-msgstr "分类"
+msgstr "قائمة المصادر"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:44
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:3
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:6
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:10
 msgid "Chart"
-msgstr "排行"
+msgstr "قائمة"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:51
 msgid "Search packages"
-msgstr "搜索软件包"
+msgstr "البحث في الحزم"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:72
 msgid "Untitled Origin"
-msgstr "未命名源"
+msgstr "الأصل بدون اسم"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:73
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:33
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:85
 msgid "No description."
-msgstr "无描述。"
+msgstr "لايوجد وصف"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:75
 msgid "No repository created."
-msgstr "无软件源。"
+msgstr "لم يتم إنشاء مستودع."
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:76
 msgid "No repository description."
-msgstr "无源描述。"
+msgstr "لايوجد وصف للمستودع"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:84
 msgid "Notice"
-msgstr "公告"
+msgstr "تنويه"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:114
 msgid "More..."
-msgstr "更多..."
+msgstr "المزيد"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:158
 msgid "Powered By DCRM"
-msgstr "由 DCRM 强力驱动"
+msgstr "مدعوم من DCRM"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:161
 msgid "Django Admin"
-msgstr ""
+msgstr "لوحة الادارة"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:26
 #: WEIPDCRM/styles/DefaultStyle/templates/grid-list.html:16
@@ -92,219 +80,154 @@ msgstr ""
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:119
 #: WEIPDCRM/styles/DefaultStyle/templates/section.html:28
 msgid "Untitled Package"
-msgstr "未命名软件包"
+msgstr "حزمة بدون عنوان"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:30
 #: WEIPDCRM/styles/DefaultStyle/templates/grid-list.html:20
 msgid "No section"
-msgstr "未分类"
+msgstr "لايوجد قسم"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:40
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:56
 msgid "Download"
-msgstr "下载"
+msgstr "تنزيل"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/index.html:3
 msgid "Index"
-msgstr "首页"
+msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/index.html:12
 msgid "Add in Cydia<sup><small>™</small></sup>"
-msgstr "在 Cydia<sup><small>™</small></sup> 中添加"
+msgstr ""
 
 #: WEIPDCRM/styles/DefaultStyle/templates/index.html:17
 msgid "Package List"
-msgstr "软件包"
+msgstr "قائمة الحزم"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:3
 #, python-format
 msgid "Contact %(c_name)s | DCRM\n"
-msgstr "联系信息 %(c_name)s | DCRM\n"
+msgstr "تواصل  %(c_name)s | DCRM\n"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:21
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:43
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:46
 msgid "Author"
-msgstr "作者"
+msgstr "المؤلف"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:23
 msgid ""
 "Source manager can <strong>NOT</strong> solve the function problem of "
 "package: you <strong>MUST</strong> contact the author."
 msgstr ""
-"源管理者<strong>无法</strong>为你解决软件包功能上出现的问题：你<strong>必须</"
-"strong>联系其开发者或设计者。"
+"يستطيع مدير المصدر <strong> لا </strong> حل مشكلة وظيفة الحزمة: يجب عليك "
+"<strong> يجب </strong> الاتصال بالمؤلف."
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:42
 msgid "Maintainer"
-msgstr "提供者"
+msgstr "المشرف"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:44
 msgid ""
 "If you have questions when install or uninstall this package, please contact "
 "the maintainer."
-msgstr "安装、卸载过程中出现的问题，你需要将其发送给制作软件包的提供者。"
+msgstr ""
+"إذا كانت لديك أسئلة عند تثبيت أو إلغاء تثبيت هذه الحزمة ، فيرجى الاتصال "
+"بمشرف الصيانة."
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:61
 msgid "Sponsor"
-msgstr "发起者"
+msgstr "الراعي"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:63
 msgid ""
 "If the package is a commercial package, you can contact the sponsor to "
 "obtain commercial support."
-msgstr "如果该软件包为商业软件包，你可以联系其发起者获取商业支持。"
+msgstr ""
+"إذا كانت الحزمة عبارة عن حزمة تجارية ، يمكنك الاتصال بالكفيل للحصول على "
+"الدعم التجاري."
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/history.html:3
 #, python-format
 msgid "History %(c_name)s | DCRM\n"
-msgstr "版本历史 %(c_name)s | DCRM\n"
+msgstr "تاريخ  %(c_name)s | DCRM\n"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/history.html:17
 msgid "View this version"
-msgstr "查看此版本"
+msgstr "عرض هذا الاصدار"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:3
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:34
 msgid "Package"
-msgstr "软件包"
+msgstr "الحزمة"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:35
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:99
 msgid "Version"
-msgstr "版本"
+msgstr "الاصدار"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:37
 #: WEIPDCRM/styles/DefaultStyle/templates/section.html:3
 msgid "Section"
-msgstr "分类"
+msgstr "القسم"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:39
 msgid "Size"
-msgstr "尺寸"
+msgstr "الحجم"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:73
 msgid "Description"
-msgstr "描述"
+msgstr "الوصف"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:75
 msgid "More Info"
-msgstr "更多信息"
+msgstr "المزيد من المعلومات"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:94
 msgid "What's New"
-msgstr "更新日志"
+msgstr "ما الجديد"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:96
 msgid "History"
-msgstr "版本历史"
+msgstr "التاريخ"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:111
 msgid "Screenshot"
-msgstr "截图"
+msgstr "لقطة الشاشة"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:134
 msgid "Comments"
-msgstr "评论"
+msgstr "التعليقات"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:229
 msgid "Say something..."
-msgstr "说点什么…"
+msgstr "قل شيئا..."
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:264
 msgid "Your device supports this package"
-msgstr "您的设备兼容此软件包"
+msgstr "يدعم جهازك هذه الحزمة"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:268
 msgid "Your device doesn't support this package"
-msgstr "您的设备不兼容此软件包"
+msgstr "لا يدعم جهازك هذه الحزمة"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/search.html:3
 #: WEIPDCRM/styles/DefaultStyle/templates/search.html:10
 msgid "Search"
-msgstr "搜索"
+msgstr "البحث"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/search.html:6
 msgid "Search Result"
-msgstr "搜索结果"
+msgstr "نتيجة البحث"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/social.html:4
 msgid "Support"
-msgstr "支持"
+msgstr "الدعم"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/social.html:37
 msgid "Donate via Alipay"
-msgstr "通过支付宝<sup><small>™</small></sup>捐助"
+msgstr "تبرع من خلال Alipay"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/social.html:64
 msgid "Donate via Paypal"
-msgstr "通过 Paypal<sup><small>™</small></sup> 捐助"
-
-#~ msgid "Latest Comments"
-#~ msgstr "最新评论"
-
-#~ msgid "Copyright"
-#~ msgstr "版权所有"
-
-#~ msgid "Untitled Section"
-#~ msgstr "未命名分类"
-
-#~ msgid "Add this URL via Cydia<sup><small>™</small></sup>"
-#~ msgstr "在 Cydia<sup><small>™</small></sup> 中添加该URL"
-
-#~ msgid "<strong>%(packages_num)s</strong> packages in total."
-#~ msgstr "总计 <strong>%(packages_num)s</strong> 个软件包。"
-
-#~ msgid "Last updated"
-#~ msgstr "最后更新"
-
-#~ msgid "Contact Us"
-#~ msgstr "联系我们"
-
-#~ msgid "Donate Via Alipay"
-#~ msgstr "通过支付宝<sup><small>™</small></sup>捐助"
-
-#~ msgid "More"
-#~ msgstr "更多"
-
-#~ msgid "Source Info"
-#~ msgstr "源信息"
-
-#~ msgid "Package %(c_name)s | DCRM"
-#~ msgstr "软件包 %(c_name)s | DCRM"
-
-#~ msgid "View in Cydia<sup><small>™</small></sup>"
-#~ msgstr "在 Cydia<sup><small>™</small></sup> 中查看"
-
-#~ msgid "Download Times"
-#~ msgstr "下载次数"
-
-#~ msgid "Last Updated"
-#~ msgstr "最后更新"
-
-#~ msgid "Preview"
-#~ msgstr "预览"
-
-#~ msgid "Change Log"
-#~ msgstr "更新日志"
-
-#~ msgid "Fold Comments"
-#~ msgstr "折叠评论"
-
-#~ msgid "Unfold Comments"
-#~ msgstr "展开评论"
-
-#~ msgid "No Section"
-#~ msgstr "未分类"
-
-#~ msgid "<strong>%(section_num)s</strong> sections in total."
-#~ msgstr "总计 <strong>%(section_num)s</strong> 个分类。"
-
-#~ msgid "<strong>%(packages_num)s</strong> packages in this section."
-#~ msgstr "此分类中总计 <strong>%(packages_num)s</strong>  个软件包。"
-
-#~ msgid "Created at"
-#~ msgstr "创建时间"
-
-#~ msgid "Load More"
-#~ msgstr "加载更多"
+msgstr "تبرع من خلال بايبال"

@@ -26,6 +26,7 @@
         - [NGINX Commands](#nginx-commands)
         - [Configure Workers](#configure-workers)
         - [Configure GnuPG](#configure-gnupg)
+- [CONTRIBUTORS](#contributors)
 - [LICENSE 版权声明](#license-版权声明)
 
 <!-- /TOC -->
@@ -165,13 +166,13 @@ edit `docker/nginx/conf.d/default.conf`, line 6:
 2. [configure your https server](http://nginx.org/en/docs/http/configuring_https_servers.html)
 
 
-edit `DCRM/settings.py`:
+edit `DCRM/.env`:
 
-1. `TIME_ZONE`
-2. `ALLOWED_HOSTS`
-3. `DEBUG`: set it to `false` if you're providing subscription to others
-4. `SECURE_SSL`: set it to `true` if you have https certs and properly configured
-5. `SECRET_KEY`: set it to a random, unique string
+1. `DCRM_HOST`
+2. `DCRM_DEBUG`: set it to `0` if you're providing subscription to others
+3. `DCRM_SECURE_SSL`: set it to `1` if you have https certs and properly configured
+4. `DCRM_SECRET_KEY`: set it to a random, unique string
+5. `DCRM_TIME_ZONE`
 
 
 edit `docker-compose.yml`, line 12:
@@ -324,16 +325,16 @@ apt-get install memcached
 service memcached start
 ```
 
-9. modify `DCRM/settings.py`:
+9. modify `DCRM/.env`:
 
-- `SECRET_KEY`: set it to a random, unique string
-- `ALLOWED_HOSTS`: add your domain 
-- `RQ_QUEUES`: your redis configurations, you may use different 'DB' numbers across DCRM instances
-- `DATABASES`: your mysql configurations, you may use different 'DATABASE' across DCRM instances
-- `CACHES`: your memcached configurations
-- `LANGUAGE_CODE` and `TIME_ZONE`
-- set `DEBUG = True` for debugging, set `DEBUG = False` for production
-- optional features: `ENABLE_REDIS`, `ENABLE_CACHE`, `ENABLE_API`
+- `DCRM_DEBUG=1` for debugging, `DCRM_DEBUG=0` for production
+- `DCRM_HOST`: add your domain
+- `DCRM_SECRET_KEY`: set it to a random, unique string
+- `DCRM_MYSQL_*`: your mysql configurations, you may use different 'DATABASE' across DCRM instances
+- `DCRM_REDIS_*`: your redis configurations, you may use different 'DB' numbers across DCRM instances
+- `DCRM_MEMCACHED_*`: your memcached configurations
+- `DCRM_LANGUAGE_CODE` and `DCRM_TIME_ZONE`
+- optional features: `DCRM_ENABLE_REDIS`, `DCRM_ENABLE_CACHE`, `DCRM_ENABLE_API`
 
 10. collect static files:
 同步静态文件:
@@ -574,10 +575,20 @@ gpg --allow-secret-key-import --import private.key --homedir .gnupg
 5. create APT verification package in `WEIPDCRM -> Sections -> Action -> Generate icon package for selected sections`, which will install GPG public key to user's device
 
 
-# 6. LICENSE 版权声明
+# 6. CONTRIBUTORS
+<a id="markdown-contributors" name="contributors"></a>
+
+- Py: [Lessica](82flex@gmail.com)
+- Py: [Hintay](http://weibo.com/Hintay)
+- Web: [0xJacky](jacky-943572677@qq.com)
+- Translation (Arabic): [Albirkawi](Dev.mohammed.iq@gmail.com)
+- Translation (Simplified Chinese): [Lessica](82flex@gmail.com)
+
+
+# 7. LICENSE 版权声明
 <a id="markdown-license-版权声明" name="license-版权声明"></a>
 
-Copyright © 2013-2020 Zheng Wu <i.82@me.com>
+Copyright © 2013-2020 Lessica, Hintay, 0xJacky and all DCRM contributors
     
 The program is distributed under the terms of the GNU Affero General Public License.
 
