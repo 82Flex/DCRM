@@ -68,11 +68,11 @@ TIME_ZONE     = os.environ.get('DCRM_TIME_ZONE', 'Asia/Shanghai')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DCRM_DATABASE_NAME', 'DCRM'),  # mysql database name here, should match `docker-compose.yml`
-        'USER': os.environ.get('DCRM_DATABASE_USER', 'dcrm'),  # mysql user name here, should match `docker-compose.yml`
-        'PASSWORD': os.environ.get('DCRM_DATABASE_PASSWORD', 'dcrm_user_password'),  # mysql user password here, should match `docker-compose.yml`
-        'HOST': os.environ.get('DCRM_DATABASE_HOST', '127.0.0.1'),  # if you don't use docker, set it to 127.0.0.1
-        'PORT': os.environ.get('DCRM_DATABASE_PORT', '3306'),
+        'NAME': os.environ.get('DCRM_MYSQL_NAME', 'DCRM'),  # mysql database name here, should match `docker-compose.yml`
+        'USER': os.environ.get('DCRM_MYSQL_USER', 'dcrm'),  # mysql user name here, should match `docker-compose.yml`
+        'PASSWORD': os.environ.get('DCRM_MYSQL_PASSWORD', 'dcrm_user_password'),  # mysql user password here, should match `docker-compose.yml`
+        'HOST': os.environ.get('DCRM_MYSQL_HOST', '127.0.0.1'),  # if you don't use docker, set it to 127.0.0.1
+        'PORT': os.environ.get('DCRM_MYSQL_PORT', '3306'),
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }

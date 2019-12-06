@@ -36,6 +36,7 @@ services:
       DCRM_WORKER: none
     env_file:
       - ./DCRM/.env
+      - ./docker/DCRM/.env
   worker-default:           # if you need more `default` workers, duplicate this section
     build: .
     volumes:
@@ -52,6 +53,7 @@ services:
       DCRM_WORKER: default  # worker priority
     env_file:
       - ./DCRM/.env
+      - ./docker/DCRM/.env
   worker-high:              # if you need more `high` workers, duplicate this section
     build: .
     volumes:
@@ -68,6 +70,7 @@ services:
       DCRM_WORKER: high     # worker priority
     env_file:
       - ./DCRM/.env
+      - ./docker/DCRM/.env
   scheduler:
     build: .
     volumes:
@@ -84,6 +87,7 @@ services:
       DCRM_WORKER: scheduler
     env_file:
       - ./DCRM/.env
+      - ./docker/DCRM/.env
   db:
     image: mysql:5.7
     volumes:
