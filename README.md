@@ -578,17 +578,17 @@ gpg --allow-secret-key-import --import private.key --homedir .gnupg
 # 6. CONTRIBUTORS
 <a id="markdown-contributors" name="contributors"></a>
 
-- Py: Lessica <82flex@gmail.com>
-- Py: Hintay <http://weibo.com/Hintay>
-- Web: 0xJacky <jacky-943572677@qq.com>
-- Translation (Arabic): Albirkawi <Dev.mohammed.iq@gmail.com>
-- Translation (Simplified Chinese): Lessica <82flex@gmail.com>
+- Py: [Lessica](82flex@gmail.com)
+- Py: [Hintay](http://weibo.com/Hintay)
+- Web: [0xJacky](jacky-943572677@qq.com)
+- Translation (Arabic): [Albirkawi](Dev.mohammed.iq@gmail.com)
+- Translation (Simplified Chinese): [Lessica](82flex@gmail.com)
 
 
 # 7. LICENSE 版权声明
 <a id="markdown-license-版权声明" name="license-版权声明"></a>
 
-Copyright © 2013-2020 Lessica <82flex@gmail.com>, 0xJacky and all DCRM contributors
+Copyright © 2013-2020 Lessica, Hintay, 0xJacky and all DCRM contributors
     
 The program is distributed under the terms of the GNU Affero General Public License.
 
