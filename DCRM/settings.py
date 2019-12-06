@@ -47,7 +47,7 @@ ENABLE_API = True    # restful api framework
 
 # SECURITY
 # WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$!#)nxr8rv83s(b%#kg*8a)m%igd+o%2=mgvqkba_zbc3(bpan'
+SECRET_KEY = 'vR*dKs4pp9MGx*V-j8hbB7wF*u6N98XLaXyJtPxHBr_.2-448a'
 # WARNING: don't run with debug turned on in production!
 DEBUG = True         # disable it in production environment
 SECURE_SSL = False   # force https -> True
@@ -177,10 +177,10 @@ INSTALLED_APPS = [
     'django_comments',
     'sortedm2m',
     'photologue',
-    'scheduler',
 ]
 
 if ENABLE_REDIS is True:
+    INSTALLED_APPS.append('scheduler')
     INSTALLED_APPS.append('django_rq')
 
 if ENABLE_API is True:
