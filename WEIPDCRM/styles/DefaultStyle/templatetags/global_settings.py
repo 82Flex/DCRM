@@ -22,7 +22,10 @@ from django import template
 from preferences import preferences
 from django.contrib.sites.models import Site
 from django.conf import settings
+from DCRM.settings import LANGUAGE_CODE
 register = template.Library()
+
+rtl_support = ['ar']
 
 
 @register.simple_tag(takes_context=True)
@@ -30,4 +33,5 @@ def global_settings(context):
     context['settings'] = preferences.Setting
     current_site = Site.objects.get(id=settings.SITE_ID)
     context['site'] = current_site.domain
+    context['rtl_support'] = LANGUAGE_CODE in rtl_support
     return ''

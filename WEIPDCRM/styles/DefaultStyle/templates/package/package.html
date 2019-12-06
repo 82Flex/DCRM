@@ -43,7 +43,7 @@
                                 {% trans "Author" %}: <a
                                     href="{% url "package_action" package_info.id "contact" %}">{{ package_info.author_name }}</a>
                             {% else %}
-                                {{ package_info.author_name }}
+                                {% trans "Author" %}: {{ package_info.author_name }}
                             {% endif %}
                         </li>
                     {% endif %}

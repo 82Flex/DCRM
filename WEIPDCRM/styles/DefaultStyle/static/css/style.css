@@ -429,19 +429,16 @@ body {
 
 .container .content .article .intro .details {
     float: left;
-    max-width: 55%;
-    overflow: hidden;
+    max-width: 70%;
     text-overflow: ellipsis;
-    white-space: nowrap;
     word-wrap: break-word;
 }
 
 .container .content .article .details li {
-    width: 150px;
     color: #555;
     font-size: 13px;
-    line-height: 31px;
-    /* float: left; */
+    line-height: 22px;
+    margin: 8px 0;
 }
 
 .container .content .article .details a {
