@@ -19,40 +19,35 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
-
-# SITE ID
+# SITE ID & BASE DIR
 """
 !!! DO NOT CHANGE THIS SECTION IF YOU DO NOT KNOW WHAT IT MEANS !!!
 """
 SITE_ID = 1
-
-
-# PATH
-"""
-!!! DO NOT CHANGE THIS SECTION IF YOU DO NOT KNOW WHAT IT MEANS !!!
-"""
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # THEME
-THEME = 'DefaultStyle'
+THEME         = os.environ.get('DCRM_THEME', 'DefaultStyle')
 
 
 # FEATURES
-ENABLE_REDIS = True  # redis-server, rq are required
-ENABLE_CACHE = True  # memcached, python-memcached are required
-ENABLE_API = True    # restful api framework
+ENABLE_REDIS  = int(os.environ.get('DCRM_ENABLE_REDIS', True)) == 1
+ENABLE_CACHE  = int(os.environ.get('DCRM_ENABLE_CACHE', True)) == 1
+ENABLE_API    = int(os.environ.get('DCRM_ENABLE_API', False))  == 1
 
 
 # SECURITY
-# WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'vR*dKs4pp9MGx*V-j8hbB7wF*u6N98XLaXyJtPxHBr_.2-448a'
+# WARNING: keep the secret key secret!
 # WARNING: don't run with debug turned on in production!
-DEBUG = True         # disable it in production environment
-SECURE_SSL = False   # force https -> True
+SECRET_KEY    = os.environ.get('DCRM_SECRET_KEY', 'vR*dKs4pp9MGx*V-j8hbB7wF*u6N98XLaXyJtPxHBr_.2-448a')
+DEBUG         = int(os.environ.get('DCRM_DEBUG', True))       == 1        
+SECURE_SSL    = int(os.environ.get('DCRM_SECURE_SSL', False)) == 1
 ALLOWED_HOSTS = [
-    'apt.82flex.com',  # your domain here
+    os.environ.get('DCRM_HOST', 'apt.82flex.com'),
     '127.0.0.1',
     'localhost'
 ]
@@ -60,11 +55,11 @@ print("[DCRM] Host: " + ALLOWED_HOSTS[0])
 
 
 # INTERNATIONAL
-USE_I18N = True
-USE_L10N = True
-USE_TZ = True                # pytz module is required.
-LANGUAGE_CODE = 'ar'         # ar -> Arabic, zh-Hans -> Simplified Chinese, etc.
-TIME_ZONE = 'Asia/Shanghai'
+USE_I18N      = int(os.environ.get('DCRM_USE_I18N', True)) == 1
+USE_L10N      = int(os.environ.get('DCRM_USE_L10N', True)) == 1
+USE_TZ        = int(os.environ.get('DCRM_USE_TZ', True))   == 1
+LANGUAGE_CODE = os.environ.get('DCRM_LANGUAGE_CODE', 'en')
+TIME_ZONE     = os.environ.get('DCRM_TIME_ZONE', 'Asia/Shanghai')
 
 
 # DATABASE
@@ -73,11 +68,11 @@ TIME_ZONE = 'Asia/Shanghai'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DCRM',                          # mysql database name here, should match `docker-compose.yml`
-        'USER': 'dcrm',                          # mysql user name here, should match `docker-compose.yml`
-        'PASSWORD': 'dcrm_user_password',        # mysql user password here, should match `docker-compose.yml`
-        'HOST': 'dcrm-db',                       # if you don't use docker, set it to 127.0.0.1
-        'PORT': '3306',
+        'NAME': os.environ.get('DCRM_DATABASE_NAME', 'DCRM'),  # mysql database name here, should match `docker-compose.yml`
+        'USER': os.environ.get('DCRM_DATABASE_USER', 'dcrm'),  # mysql user name here, should match `docker-compose.yml`
+        'PASSWORD': os.environ.get('DCRM_DATABASE_PASSWORD', 'dcrm_user_password'),  # mysql user password here, should match `docker-compose.yml`
+        'HOST': os.environ.get('DCRM_DATABASE_HOST', '127.0.0.1'),  # if you don't use docker, set it to 127.0.0.1
+        'PORT': os.environ.get('DCRM_DATABASE_PORT', '3306'),
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
@@ -91,15 +86,15 @@ if ENABLE_REDIS is True:
     # !!! change the 'DB' number here if you have multiple DCRM installed !!!
     RQ_QUEUES = {
         'default': {
-            'HOST': 'dcrm-redis',                # if you don't use docker, set it to 127.0.0.1
-            'PORT': 6379,
+            'HOST': os.environ.get('DCRM_REDIS_HOST', '127.0.0.1'),  # if you don't use docker, set it to 127.0.0.1
+            'PORT': int(os.environ.get('DCRM_REDIS_PORT', 6379)),
             'DB': 0,
             'PASSWORD': '',
             'DEFAULT_TIMEOUT': 360,
         },
         'high': {
-            'HOST': 'dcrm-redis',                # if you don't use docker, set it to 127.0.0.1
-            'PORT': 6379,
+            'HOST': os.environ.get('DCRM_REDIS_HOST', '127.0.0.1'),  # if you don't use docker, set it to 127.0.0.1
+            'PORT': int(os.environ.get('DCRM_REDIS_PORT', 6379)),
             'DB': 0,
             'PASSWORD': '',
             'DEFAULT_TIMEOUT': 360,
@@ -117,10 +112,10 @@ if ENABLE_CACHE is True:
     CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-            'LOCATION': 'dcrm-memcached:11211',  # if you don't use docker, set it to 127.0.0.1:11211
+            'LOCATION': os.environ.get('DCRM_MEMCACHED_HOST', '127.0.0.1') + ':' + os.environ.get('DCRM_MEMCACHED_PORT', '11211'),
         }
     }
-    CACHE_TIME = 7200
+    CACHE_TIME = int(os.environ.get('DCRM_CACHE_TIME', 7200))
     if DEBUG:
         CACHE_TIME = 0
     print("[DCRM] Page Caching: Enabled, %s seconds." % str(CACHE_TIME))
@@ -251,8 +246,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LANGUAGES = (
-    ('en', u'English'),
-    ('ar', u'العربية'),
+    ('en',      u'English'),
+    ('ar',      u'العربية'),
     ('zh_Hans', u'中文简体'),
 )
 LOCALE_PATHS = (

@@ -34,6 +34,8 @@ services:
     environment:
       PYTHONUNBUFFERED: 1
       DCRM_WORKER: none
+    env_file:
+      - ./DCRM/.env
   worker-default:           # if you need more `default` workers, duplicate this section
     build: .
     volumes:
@@ -48,6 +50,8 @@ services:
     environment:
       PYTHONUNBUFFERED: 1
       DCRM_WORKER: default  # worker priority
+    env_file:
+      - ./DCRM/.env
   worker-high:              # if you need more `high` workers, duplicate this section
     build: .
     volumes:
@@ -62,6 +66,8 @@ services:
     environment:
       PYTHONUNBUFFERED: 1
       DCRM_WORKER: high     # worker priority
+    env_file:
+      - ./DCRM/.env
   scheduler:
     build: .
     volumes:
@@ -76,6 +82,8 @@ services:
     environment:
       PYTHONUNBUFFERED: 1
       DCRM_WORKER: scheduler
+    env_file:
+      - ./DCRM/.env
   db:
     image: mysql:5.7
     volumes:
