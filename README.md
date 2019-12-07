@@ -592,10 +592,13 @@ As long as you do not use the DCRM in a business or money-making venture, it is 
 
 PayPal receipt is valid proof of purchase of DCRM licence.
 
-- Single: Use DCRM in one commercial project
-- Unlimited: Use DCRM in unlimited commercial projects
+## Single: Use DCRM in one commercial project
 
 [![paypal](https://www.paypalobjects.com/en_US/GB/i/btn/btn_buynowCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=772TAEU53AXFY)
+
+## Unlimited: Use DCRM in unlimited commercial projects
+
+[![paypal](https://www.paypalobjects.com/en_US/GB/i/btn/btn_buynowCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M2DGSYVJASPAL)
 
 
 ----
