@@ -588,7 +588,7 @@ gpg --allow-secret-key-import --import private.key --homedir .gnupg
 # 7. LICENSE 版权声明
 <a id="markdown-license-版权声明" name="license-版权声明"></a>
 
-As long as you do not use the DCRM in a business or money-making venture, it is free for your own personal use. If you use DCRM in commercial projects, please consider buy a commercial license.
+As long as you do not use the DCRM in a business or money-making venture, it is free for your own personal use. If you use DCRM in commercial projects (e.g. hosting commercial packages), please consider buy a commercial license.
 
 PayPal receipt is valid proof of purchase of DCRM licence.
 
