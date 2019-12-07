@@ -578,11 +578,11 @@ gpg --allow-secret-key-import --import private.key --homedir .gnupg
 # 6. CONTRIBUTORS
 <a id="markdown-contributors" name="contributors"></a>
 
-- Py: [Lessica](82flex@gmail.com)
-- Py: [Hintay](http://weibo.com/Hintay)
-- Web: [0xJacky](jacky-943572677@qq.com)
-- Translation (Arabic): [Albirkawi](Dev.mohammed.iq@gmail.com)
-- Translation (Simplified Chinese): [Lessica](82flex@gmail.com)
+- Py: [Lessica](mailto:82flex@gmail.com)
+- Py: [Hintay](https://weibo.com/Hintay)
+- Web: [0xJacky](mailto:jacky-943572677@qq.com)
+- Translation (Arabic): [Albirkawi](mailto:Dev.mohammed.iq@gmail.com)
+- Translation (Simplified Chinese): [Lessica](mailto:82flex@gmail.com)
 
 
 # 7. LICENSE 版权声明
