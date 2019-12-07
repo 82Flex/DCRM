@@ -1,32 +1,52 @@
 version: '3.2'
 
+# do not change any thing if you do not know what it means
 services:
   web:
     image: nginx:1.17.6
-    volumes:
-      - ./docker/nginx/conf.d:/etc/nginx/conf.d         # your web configuration: docker/nginx/conf.d
-      - ./docker/nginx/certs:/etc/nginx/certs           # your https certs: docker/nginx/certs
-      - app_static:/usr/share/nginx/html/static
-      - app_resources:/usr/share/nginx/html/resources
     ports:
       - "8080:80"   # test
       #- "80:80"    # production
       #- "443:443"  # https
+    volumes:
+      - app_static:/usr/share/nginx/html/static
+      - app_resources:/usr/share/nginx/html/resources
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d         # important: modify nginx conf
+      - ./docker/nginx/certs:/etc/nginx/certs           # your https certs: docker/nginx/certs
     depends_on:
       - app
       - worker-default
       - worker-high
     links:
       - app:dcrm-app
+  pure-ftpd:
+    image: stilliard/pure-ftpd:hardened
+    restart: always
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
+    volumes:
+      - app_upload:/home/dcrm
+      - ./docker/pure-ftpd/passwd:/etc/pure-ftpd/passwd
+      # - ./docker/pure-ftpd/ssl:/etc/ssl/private
+    depends_on:
+      - app
+    environment:
+      PUBLICHOST: localhost
+      FTP_USER_NAME: dcrm                               # important: modify your ftp username
+      FTP_USER_PASS: dcrm_ftp_password                  # important: modify your ftp password
+      FTP_USER_HOME: /home/dcrm
+      # ADDED_FLAGS: "--tls=2"
   app:
     build: .
+    tty: true
+    stdin_open: true
     volumes:
       - app_static:/usr/src/app/static
       - app_resources:/usr/src/app/resources
+      - app_upload:/usr/src/app/upload
       - app_temp:/usr/src/app/temp
       - ./.gnupg:/usr/src/app/.gnupg
-    stdin_open: true
-    tty: true
     links:
       - db:dcrm-db
       - redis:dcrm-redis
@@ -42,6 +62,7 @@ services:
     volumes:
       - app_static:/usr/src/app/static
       - app_resources:/usr/src/app/resources
+      - app_upload:/usr/src/app/upload
       - app_temp:/usr/src/app/temp
       - ./.gnupg:/usr/src/app/.gnupg
     links:
@@ -50,7 +71,7 @@ services:
       - memcached:dcrm-memcached
     environment:
       PYTHONUNBUFFERED: 1
-      DCRM_WORKER: default  # worker priority
+      DCRM_WORKER: default
     env_file:
       - ./DCRM/.env
       - ./docker/DCRM/.env
@@ -59,6 +80,7 @@ services:
     volumes:
       - app_static:/usr/src/app/static
       - app_resources:/usr/src/app/resources
+      - app_upload:/usr/src/app/upload
       - app_temp:/usr/src/app/temp
       - ./.gnupg:/usr/src/app/.gnupg
     links:
@@ -67,7 +89,7 @@ services:
       - memcached:dcrm-memcached
     environment:
       PYTHONUNBUFFERED: 1
-      DCRM_WORKER: high     # worker priority
+      DCRM_WORKER: high
     env_file:
       - ./DCRM/.env
       - ./docker/DCRM/.env
@@ -76,6 +98,7 @@ services:
     volumes:
       - app_static:/usr/src/app/static
       - app_resources:/usr/src/app/resources
+      - app_upload:/usr/src/app/upload
       - app_temp:/usr/src/app/temp
       - ./.gnupg:/usr/src/app/.gnupg
     links:
@@ -90,15 +113,15 @@ services:
       - ./docker/DCRM/.env
   db:
     image: mysql:5.7
-    volumes:
-      - ./docker/mysql/conf.d:/etc/mysql/conf.d         # your db configuration: docker/mysql/conf.d
-      - db_data:/var/lib/mysql
     restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./docker/mysql/conf.d:/etc/mysql/conf.d
     environment:
       MYSQL_ROOT_PASSWORD: dcrm_root_password
-      MYSQL_DATABASE: DCRM                       # important: should match `DCRM/settings.py`
-      MYSQL_USER: dcrm                           # important: should match `DCRM/settings.py`
-      MYSQL_PASSWORD: dcrm_user_password         # important: should match `DCRM/settings.py`
+      MYSQL_DATABASE: DCRM
+      MYSQL_USER: dcrm
+      MYSQL_PASSWORD: dcrm_user_password
   redis:
     image: redis
     restart: always
@@ -111,5 +134,6 @@ volumes:
   db_data:        # mysql database
   app_static:     # static files
   app_resources:  # packages
+  app_upload:     # upload root
   app_temp:
 
