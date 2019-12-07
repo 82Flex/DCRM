@@ -578,15 +578,31 @@ gpg --allow-secret-key-import --import private.key --homedir .gnupg
 # 6. CONTRIBUTORS
 <a id="markdown-contributors" name="contributors"></a>
 
-- Py: [Lessica](82flex@gmail.com)
-- Py: [Hintay](http://weibo.com/Hintay)
-- Web: [0xJacky](jacky-943572677@qq.com)
-- Translation (Arabic): [Albirkawi](Dev.mohammed.iq@gmail.com)
-- Translation (Simplified Chinese): [Lessica](82flex@gmail.com)
+- Py: [Lessica](mailto:82flex@gmail.com)
+- Py: [Hintay](https://weibo.com/Hintay)
+- Web: [0xJacky](mailto:jacky-943572677@qq.com)
+- Translation (Arabic): [Albirkawi](mailto:Dev.mohammed.iq@gmail.com)
+- Translation (Simplified Chinese): [Lessica](mailto:82flex@gmail.com)
 
 
 # 7. LICENSE 版权声明
 <a id="markdown-license-版权声明" name="license-版权声明"></a>
+
+As long as you do not use the DCRM in a business or money-making venture, it is free for your own personal use. If you use DCRM in commercial projects (e.g. hosting commercial packages), please consider buy a commercial license.
+
+PayPal receipt is valid proof of purchase of DCRM licence.
+
+**SINGLE: Use DCRM in one commercial project**
+
+[![paypal](https://www.paypalobjects.com/en_US/GB/i/btn/btn_buynowCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=772TAEU53AXFY)
+
+**UNLIMITED: Use DCRM in unlimited commercial projects**
+
+[![paypal](https://www.paypalobjects.com/en_US/GB/i/btn/btn_buynowCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M2DGSYVJASPAL)
+
+
+----
+
 
 Copyright © 2013-2020 Lessica, Hintay, 0xJacky and all DCRM contributors
     
