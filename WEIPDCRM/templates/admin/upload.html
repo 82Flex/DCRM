@@ -69,6 +69,20 @@
             </div>
         </div>
     </div>
+    <div class="card">
+        <div class="card-header">
+            {% trans "Import Guide" %}
+        </div>
+        <div class="card-block">
+            {% url "upload" as upload_url %}
+            <ul>
+                <li>{% trans "Allowed file extensions: deb" %}</li>
+                <li>{% trans "Package manager for Debian: " %}<a href="https://manpages.debian.org/stretch/dpkg/dpkg.1.en.html" target="_blank">{% trans "dpkg(1)" %}</a></li>
+                <li>{% blocktrans %}If you get http code <code>413 request entity too large</code>, increase the <code>client_max_body_size</code> in <a href="https://nginx.org/en/docs/http/ngx_http_core_module.html" target="_blank">Nginx configuration</a>.{% endblocktrans %}</li>
+                <li>{% blocktrans %}If you want to import all packages in <b>Upload Root</b>, <a href="{{ upload_url }}?action=async-import">click here</a>.{% endblocktrans %}</li>
+            </ul>
+        </div>
+    </div>
     <script>
         (function ($) {
             var isUpload = false;
@@ -260,7 +274,7 @@
                 if (upload_list.length === 0) {
                     return;
                 } else if (upload_list.length > 500) {
-                    box_alert("{% trans "Too many files." %}");
+                    box_alert("{% trans 'Too many files.' %}");
                     return;
                 }
                 // Display list

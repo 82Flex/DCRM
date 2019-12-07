@@ -371,8 +371,17 @@ class BuildAdmin(admin.ModelAdmin):
                 queue = django_rq.get_queue('high')
                 build_job = queue.enqueue(build_procedure, build_args)
                 obj.job_id = build_job.id
-                messages.info(request, _("Build %s generating job has been added to the \"high\" queue.") % str(obj))
+                messages.info(request, mark_safe(
+                    _("The Build \"<a href=\"%s\">%s</a>\" generating job has been added to the \"<a href=\"%s\">high</a>\" queue.") % (
+                        reverse('rq_job_detail', kwargs={
+                            'queue_index': 1,
+                            'job_id': build_job.id,
+                        }),
+                        str(obj),
+                        reverse('rq_jobs', args=(1, )),
+                    )
+                ))
             else:
                 build_procedure(build_args)
-                messages.info(request, _("Build %s generating job has been finished.") % str(obj))
+                messages.info(request, _("The Build \"%s\" generating job has been finished.") % str(obj))
             obj.save()

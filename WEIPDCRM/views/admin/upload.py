@@ -393,6 +393,16 @@ def upload_view(request):
             template = 'admin/upload.html'
             return render(request, template, context)
     else:
+        action = ''
+        if 'action' in request.GET:
+            action = request.GET['action']
+        if action == 'async-import':
+            if not settings.ENABLE_REDIS:
+                messages.error(request, mark_safe(
+                    _("To use this action, you must enable <b>Redis Queue</b>.")
+                ))
+            else:
+                pass
         form = UploadForm()
         context = admin.site.each_context(request)
         context.update({

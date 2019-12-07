@@ -112,9 +112,21 @@ class SettingAdmin(PreferencesAdmin):
         return settings.STATIC_URL
     static_url_.short_description = _("Static URL")
 
+    def static_root_(self, instance):
+        return settings.STATIC_ROOT
+    static_root_.short_description = _("Static Root")
+
     def resources_url_(self, instance):
         return settings.MEDIA_URL
     resources_url_.short_description = _("Resources URL")
+
+    def resources_root_(self, instance):
+        return settings.MEDIA_ROOT
+    resources_root_.short_description = _("Resources Root")
+
+    def upload_root_(self, instance):
+        return settings.UPLOAD_ROOT
+    upload_root_.short_description = _("Upload Root")
 
     form = SettingForm
     readonly_fields = [
@@ -127,7 +139,10 @@ class SettingAdmin(PreferencesAdmin):
         'memcached_interval_',
         'theme_',
         'static_url_',
+        'static_root_',
         'resources_url_',
+        'resources_root_',
+        'upload_root_',
     ]
     fieldsets = [
         (_('General'), {
@@ -188,12 +203,17 @@ class SettingAdmin(PreferencesAdmin):
         }),
         (_('Static'), {
             'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['static_url_'],
+            'fields': ['static_url_', 'static_root_'],
+            'description': '<div class="help">DCRM/settings.py</div>'
+        }),
+        (_('Upload'), {
+            'classes': ('suit-tab suit-tab-advanced',),
+            'fields': ['upload_root_'],
             'description': '<div class="help">DCRM/settings.py</div>'
         }),
         (_('Resource'), {
             'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['atomic_storage', 'resources_url_', 'resources_alias']
+            'fields': ['atomic_storage', 'resources_url_', 'resources_root_', 'resources_alias']
         }),
         (_('Server'), {
             'classes': ('suit-tab suit-tab-advanced',),

@@ -139,6 +139,10 @@ STATICFILES_DIRS = []
 # !!! remember to configure Nginx to make an alias from MEDIA_URL to MEDIA_ROOT !!!
 MEDIA_URL = '/resources/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'resources')
+"""
+!!! DO NOT CHANGE THIS SECTION IF YOU USE DOCKER !!!
+"""
+UPLOAD_ROOT = os.path.join(BASE_DIR, 'upload')
 
 
 

@@ -30,7 +30,9 @@ from django.conf import settings
 from django.contrib import admin, messages
 from django.contrib.admin.actions import delete_selected
 from django.contrib.sites.models import Site
+from django.urls import reverse
 from django.shortcuts import redirect
+from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
 
 from WEIPDCRM.models.package import Package
@@ -211,7 +213,11 @@ class SectionAdmin(admin.ModelAdmin):
         if settings.ENABLE_REDIS is True:
             queue = django_rq.get_queue('default')
             queue.enqueue(build_section_package_procedure, conf)
-            messages.info(request, _("Section icon package generating job has been added to the \"default\" queue."))
+            messages.info(request, mark_safe(
+                _("Section icon package generating job has been added to the \"<a href=\"%s\">default</a>\" queue.") % (
+                    reverse('rq_jobs', args=(0, ))
+                )
+            ))
         else:
             build_section_package_procedure(conf)
             messages.info(request, _("Section icon package generating job has been finished."))

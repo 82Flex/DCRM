@@ -26,6 +26,7 @@ from django.contrib import admin
 from django.contrib import messages
 from django.contrib.admin.actions import delete_selected
 from django.forms import ModelForm
+from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
@@ -251,9 +252,17 @@ class VersionAdmin(admin.ModelAdmin):
             if change_var in excluded_column:
                 change_num -= 1
         if change is True and change_num > 0:
-            obj.update_storage()
-            if settings.ENABLE_REDIS is True:
-                messages.info(request, _("%s storage updating job has been added to the \"high\" queue.") % str(obj))
+            update_job = obj.update_storage()
+            if settings.ENABLE_REDIS is True and update_job is not None:
+                messages.info(request, mark_safe(_("The Version \"<a href=\"%s\">%s</a>\" storage updating job has been added to the \"<a href=\"%s\">high</a>\" queue.") % (
+                        reverse('rq_job_detail', kwargs={
+                            'queue_index': 1,
+                            'job_id': update_job.id,
+                        }),
+                        str(obj),
+                        reverse('rq_jobs', args=(1, ))
+                    )
+                ))
         else:
             pass
     

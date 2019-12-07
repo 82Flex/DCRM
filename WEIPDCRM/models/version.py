@@ -428,9 +428,11 @@ class Version(models.Model):
         path = self.storage.name
         if settings.ENABLE_REDIS is True:
             queue = django_rq.get_queue('high')
-            queue.enqueue(write_to_package_job, control, path, self.id)
+            update_job = queue.enqueue(write_to_package_job, control, path, self.id)
+            return update_job
         else:
             write_to_package_job(control, path, self.id)
+        return None
     
     def base_filename(self):
         return self.c_package + '_' + self.c_version + '_' + self.c_architecture + '.deb'

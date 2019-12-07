@@ -25,6 +25,8 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.translation import ugettext_lazy as _
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.urls import reverse
+from django.utils.safestring import mark_safe
 
 from WEIPDCRM.models.release import Release
 from WEIPDCRM.models.setting import Setting
@@ -39,10 +41,11 @@ def set_default_view(request, release_id):
     """
     release_instance = Release.objects.get(id=release_id)
     
-    messages.info(request, _(
-        "Active release " +
-        str(release_instance) +
-        " has been set."
+    messages.info(request, mark_safe(_(
+        "Active release \"<a href=\"%s\">%s</a>\" has been set." % (
+            release_instance.get_admin_url(),
+            str(release_instance)
+        ))
     ))
     
     setting_instance = Setting.objects.get()

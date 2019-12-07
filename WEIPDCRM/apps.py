@@ -38,7 +38,7 @@ class SuitConfig(DjangoSuitConfig):
     menu = (
         ParentItem('Sites', children=[
             ChildItem(model='sites.site'),
-            ChildItem(_('Django RQ'), url='/admin/sites/django-rq/'),
+            ChildItem(_('Django RQ'), url='rq_home'),
             ChildItem(model='scheduler.cronjob'),
             ChildItem(model='scheduler.repeatablejob'),
             ChildItem(model='scheduler.scheduledjob'),
@@ -71,10 +71,10 @@ class SuitConfig(DjangoSuitConfig):
             ChildItem(model='photologue.watermark'),
         ]),
         ParentItem('Upload', children=[
-            ChildItem(_('New Package'), url='/admin/upload/'),
+            ChildItem(_('New Package'), url='upload'),
         ], align_right=True),
         ParentItem('Help', children=[
-            ChildItem(_('Statistics'), url='/admin/help/statistics/'),
-            ChildItem(_('About...'), url='/admin/help/about/'),
+            ChildItem(_('Statistics'), url='help_statistics'),
+            ChildItem(_('About...'), url='help_about'),
         ], align_right=True),
     )
