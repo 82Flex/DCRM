@@ -123,8 +123,11 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-5. access admin panel via `http://127.0.0.1:8080/admin/`
-现在可以尝试访问 DCRM 后台了
+5. access admin panel via `http://127.0.0.1:8080/admin/`, you can upload packages via HTTP or FTP:
+现在可以尝试访问 DCRM 后台了, 你可以通过 HTTP 或 FTP 方式上传软件包:
+
+- Default FTP username: `dcrm`
+- Default FTP password: `dcrm_ftp_password`
 
 
 ## 3.1. Docker Commands 常用命令
@@ -175,9 +178,10 @@ edit `DCRM/.env`:
 5. `DCRM_TIME_ZONE`
 
 
-edit `docker-compose.yml`, line 12:
+edit `docker-compose.yml`:
 
-1. change it from `8080:80` to `80:80` if you're providing subscription to others using http, add an extra `443:443` if you're using https
+1. change `services:web:ports` from `8080:80` to `80:80` if you're providing subscription to others using http, add an extra `443:443` if you're using https
+2. change default FTP username and password in `services:pure-ftpd:environment`, `FTP_USER_NAME` and `FTP_USER_PASS`, enable [FTP over TLS](https://github.com/stilliard/docker-pure-ftpd#TLS) if you want
 
 
 ## 3.3. Configure GnuPG
@@ -225,7 +229,7 @@ Add sections.
 
 5. `WEIPDCRM -> Versions -> Add Version`
 
-Upload your debian package.
+Upload your debian package via HTTP or FTP.
 上传你的 deb 包
 
 6. `WEIPDCRM -> Versions`
