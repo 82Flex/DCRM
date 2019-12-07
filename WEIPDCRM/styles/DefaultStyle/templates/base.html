@@ -27,7 +27,7 @@
         <!-- Jquery and Main JS -->
         <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
         <script type="text/javascript" src="{% static "js/main.js" %}"></script>
-        <script type="text/javascript" src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+        <script type="text/javascript" src="{% static "js/masonry.pkgd.min.js" %}"></script>
         <script type="text/javascript" src="{% static "js/fastclick.js" %}"></script>
     {% endblock %}
 </head>
@@ -176,11 +176,29 @@
 {% endblock %}
 </body>
 {% if rtl_support %}
+    <!-- RTL Support -->
     <style type="text/css">
     * {
         direction: rtl;
     }
+    .container .content .article .description h2 {
+        float: right;
+    }
+    .container .content .article .download {
+        float: left;
+    }
+    .container .content .article .intro .details {
+        float: right;
+    }
+    .emoji-menu {
+        left: 0;
+        right: initial;
+    }
+    .emoji-picker-icon {
+        left: 10px;
+        right: initial;
+    }
+    </style>
 {% endif %}
-</style>
 </html>
 
