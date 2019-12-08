@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-06 23:51+0800\n"
+"POT-Creation-Date: 2019-12-08 11:56+0800\n"
 "PO-Revision-Date: 2017-08-20 08:58+0800\n"
 "Last-Translator: \n"
 "Language-Team: 82Flex <i.82@me.com>\n"
@@ -239,72 +239,3 @@ msgstr "通过支付宝<sup><small>™</small></sup>捐助"
 #: WEIPDCRM/styles/DefaultStyle/templates/social.html:64
 msgid "Donate via Paypal"
 msgstr "通过 Paypal<sup><small>™</small></sup> 捐助"
-
-#~ msgid "Latest Comments"
-#~ msgstr "最新评论"
-
-#~ msgid "Copyright"
-#~ msgstr "版权所有"
-
-#~ msgid "Untitled Section"
-#~ msgstr "未命名分类"
-
-#~ msgid "Add this URL via Cydia<sup><small>™</small></sup>"
-#~ msgstr "在 Cydia<sup><small>™</small></sup> 中添加该URL"
-
-#~ msgid "<strong>%(packages_num)s</strong> packages in total."
-#~ msgstr "总计 <strong>%(packages_num)s</strong> 个软件包。"
-
-#~ msgid "Last updated"
-#~ msgstr "最后更新"
-
-#~ msgid "Contact Us"
-#~ msgstr "联系我们"
-
-#~ msgid "Donate Via Alipay"
-#~ msgstr "通过支付宝<sup><small>™</small></sup>捐助"
-
-#~ msgid "More"
-#~ msgstr "更多"
-
-#~ msgid "Source Info"
-#~ msgstr "源信息"
-
-#~ msgid "Package %(c_name)s | DCRM"
-#~ msgstr "软件包 %(c_name)s | DCRM"
-
-#~ msgid "View in Cydia<sup><small>™</small></sup>"
-#~ msgstr "在 Cydia<sup><small>™</small></sup> 中查看"
-
-#~ msgid "Download Times"
-#~ msgstr "下载次数"
-
-#~ msgid "Last Updated"
-#~ msgstr "最后更新"
-
-#~ msgid "Preview"
-#~ msgstr "预览"
-
-#~ msgid "Change Log"
-#~ msgstr "更新日志"
-
-#~ msgid "Fold Comments"
-#~ msgstr "折叠评论"
-
-#~ msgid "Unfold Comments"
-#~ msgstr "展开评论"
-
-#~ msgid "No Section"
-#~ msgstr "未分类"
-
-#~ msgid "<strong>%(section_num)s</strong> sections in total."
-#~ msgstr "总计 <strong>%(section_num)s</strong> 个分类。"
-
-#~ msgid "<strong>%(packages_num)s</strong> packages in this section."
-#~ msgstr "此分类中总计 <strong>%(packages_num)s</strong>  个软件包。"
-
-#~ msgid "Created at"
-#~ msgstr "创建时间"
-
-#~ msgid "Load More"
-#~ msgstr "加载更多"

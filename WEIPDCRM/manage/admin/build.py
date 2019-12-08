@@ -372,13 +372,13 @@ class BuildAdmin(admin.ModelAdmin):
                 build_job = queue.enqueue(build_procedure, build_args)
                 obj.job_id = build_job.id
                 messages.info(request, mark_safe(
-                    _("The Build \"<a href=\"%s\">%s</a>\" generating job has been added to the \"<a href=\"%s\">high</a>\" queue.") % (
-                        reverse('rq_job_detail', kwargs={
+                    _("The Build \"<a href=\"%(job_detail)s\">%(obj)s</a>\" generating job has been added to the \"<a href=\"%(jobs)s\">high</a>\" queue.").format(
+                        job_detail=reverse('rq_job_detail', kwargs={
                             'queue_index': 1,
                             'job_id': build_job.id,
                         }),
-                        str(obj),
-                        reverse('rq_jobs', args=(1, )),
+                        obj=str(obj),
+                        jobs=reverse('rq_jobs', args=(1, )),
                     )
                 ))
             else:

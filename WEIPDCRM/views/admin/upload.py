@@ -424,14 +424,14 @@ def upload_view(request):
                         import_job = queue.enqueue(handle_uploaded_package, package_temp_path)
                         import_jobs.append(import_job)
                     if len(import_jobs) == 1:
-                        messages.info(request, mark_safe(_("%s package importing job have been added to the \"<a href=\"%s\">high</a>\" queue." % (
-                            str(len(import_jobs)),
-                            reverse('rq_jobs', args=(1, )),
+                        messages.info(request, mark_safe(_("%(job_count)s package importing job have been added to the \"<a href=\"%(jobs)s\">high</a>\" queue.".format(
+                            job_count=str(len(import_jobs)),
+                            jobs=reverse('rq_jobs', args=(1, )),
                         ))))
                     else:
-                        messages.info(request, mark_safe(_("%s package importing jobs have been added to the \"<a href=\"%s\">high</a>\" queue." % (
-                            str(len(import_jobs)),
-                            reverse('rq_jobs', args=(1, )),
+                        messages.info(request, mark_safe(_("%(job_count)s package importing jobs have been added to the \"<a href=\"%(jobs)s\">high</a>\" queue.".format(
+                            job_count=str(len(import_jobs)),
+                            jobs=reverse('rq_jobs', args=(1, )),
                         ))))
                 else:
                     messages.warning(request, _("There is no package to import."))
