@@ -58,6 +58,7 @@
                   novalidate>
                 {% csrf_token %}
                 {{ form }}
+                <input type="hidden" name="action" value="upload">
                 <input type="hidden" name="ajax" value="false">
                 <input type="submit">
             </form>
@@ -79,7 +80,8 @@
                 <li>{% trans "Allowed file extensions: deb" %}</li>
                 <li>{% trans "Package manager for Debian: " %}<a href="https://manpages.debian.org/stretch/dpkg/dpkg.1.en.html" target="_blank">{% trans "dpkg(1)" %}</a></li>
                 <li>{% blocktrans %}If you get http code <code>413 request entity too large</code>, increase the <code>client_max_body_size</code> in <a href="https://nginx.org/en/docs/http/ngx_http_core_module.html" target="_blank">Nginx configuration</a>.{% endblocktrans %}</li>
-                <li>{% blocktrans %}If you want to import all packages in <b>Upload Root</b>, <a href="{{ upload_url }}?action=async-import">click here</a>.{% endblocktrans %}</li>
+                <li>{% blocktrans %}If you want to import all packages in <b>Upload Root</b>{% endblocktrans %}:</li>
+                <li><form action="{{ upload_url }}" method="POST">{% csrf_token %}<input type="hidden" name="action" value="async-import"><input class="btn btn-large btn-warning" type="submit" value="Import Packages"></form></li>
             </ul>
         </div>
     </div>
@@ -106,6 +108,7 @@
                     dataType: 'json',
                     data: {
                         'csrfmiddlewaretoken': '{{ csrf_token }}',
+                        'action': 'upload',
                         'ajax': true,
                         'job': job_id
                     },
@@ -146,6 +149,7 @@
                 xhr.open("POST", "", true);
                 var body = new FormData();
                 body.append("ajax", true);
+                body.append("action", "upload");
                 body.append("package", file);
                 body.append("csrfmiddlewaretoken", '{{ csrf_token }}');
                 var node = document.getElementById("file_id_" + current_index);

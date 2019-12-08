@@ -266,11 +266,10 @@ def handle_uploaded_image(request, package_id, gallery_slug):
         else:
             return handle_uploaded_screenshot(content)
     else:
-        result_dict = {}
-        result_dict.update({
+        result_dict = {
             'success': False,
-            'exception': _('Upload failed, Unsupported file extension.')
-        })
+            'exception': _('Upload failed, unsupported file extension.')
+        }
         return result_dict
 
 
@@ -285,6 +284,10 @@ def upload_version_view(request):
 
 @staff_member_required
 def upload_view(request):
+    """
+    :param request: Django Request
+    :return: Http Response
+    """
     if preferences.Setting.active_release is None:
         messages.error(request,
                        mark_safe(
@@ -292,111 +295,105 @@ def upload_view(request):
                              "repository without an active release. <a href=\"%s\">Add Release</a>")
                            % reverse("admin:WEIPDCRM_release_add")
                        ))
-
-    """
-    :param request: Django Request
-    :return: Http Response
-    """
+    # POST
     if request.method == 'POST':
-        # Save Package File To Resource Base
-        if 'ajax' in request.POST and request.POST['ajax'] == 'true':
-            result_dict = {}
-            if 'job' in request.POST:
-                job_id = request.POST['job']
+        # action: upload
+        if 'action' in request.POST and request.POST['action'] == 'upload':
+            if 'ajax' in request.POST and request.POST['ajax'] == 'true':
                 result_dict = {}
-                m_job = queues.get_queue('high').fetch_job(job_id)
-                if m_job is None:
-                    result_dict.update({
-                        'result': False,
-                        'msg': _('No such job'),
-                        'job': None
-                    })
+                if 'job' in request.POST:
+                    job_id = request.POST['job']
+                    result_dict = {}
+                    m_job = queues.get_queue('high').fetch_job(job_id)
+                    if m_job is None:
+                        result_dict.update({
+                            'result': False,
+                            'msg': _('No such job'),
+                            'job': None
+                        })
+                    else:
+                        result_dict.update({
+                            'result': True,
+                            'msg': '',
+                            'job': {
+                                'id': m_job.id,
+                                'is_failed': m_job.is_failed,
+                                'is_finished': m_job.is_finished,
+                                'result': m_job.result
+                            }
+                        })
                 else:
-                    result_dict.update({
-                        'result': True,
-                        'msg': '',
-                        'job': {
-                            'id': m_job.id,
-                            'is_failed': m_job.is_failed,
-                            'is_finished': m_job.is_finished,
-                            'result': m_job.result
-                        }
-                    })
+                    form = UploadForm(request.POST, request.FILES)
+                    if form.is_valid():
+                        # Handle File
+                        if settings.ENABLE_REDIS is True:
+                            m_job = handle_uploaded_file(request)
+                            result_dict.update({
+                                'status': True,
+                                'msg': _('Upload succeed, proceeding...'),
+                                'job': {
+                                    'id': m_job.id,
+                                    'result': m_job.result
+                                }
+                            })
+                        else:
+                            m_result = handle_uploaded_file(request)
+                            succeed = m_result['success']
+                            if succeed:
+                                result_dict.update({
+                                    'status': True,
+                                    'msg': _('Upload succeed, proceeding...'),
+                                    'job': {
+                                        'id': None,
+                                        'result': {
+                                            'version': m_result['version']
+                                        }
+                                    }
+                                })
+                            else:
+                                result_dict.update({
+                                    'status': False,
+                                    'msg': m_result['exception'],
+                                    'job': None
+                                })
+                    else:
+                        result_dict.update({
+                            'status': False,
+                            'msg': _('Upload failed, invalid form.'),
+                            'job': None
+                        })
+                return HttpResponse(json.dumps(result_dict), content_type='application/json')
             else:
+                # render upload result
                 form = UploadForm(request.POST, request.FILES)
                 if form.is_valid():
                     # Handle File
                     if settings.ENABLE_REDIS is True:
                         m_job = handle_uploaded_file(request)
-                        result_dict.update({
-                            'status': True,
-                            'msg': _('Upload succeed, proceeding...'),
-                            'job': {
-                                'id': m_job.id,
-                                'result': m_job.result
-                            }
-                        })
+                        job_id = m_job.id
+                        msg = _('Upload succeed, proceeding...')
                     else:
                         m_result = handle_uploaded_file(request)
-                        succeed = m_result['success']
-                        if succeed:
-                            result_dict.update({
-                                'status': True,
-                                'msg': _('Upload succeed, proceeding...'),
-                                'job': {
-                                    'id': None,
-                                    'result': {
-                                        'version': m_result['version']
-                                    }
-                                }
-                            })
+                        if m_result["success"] is True:
+                            return redirect(Version.objects.get(id=int(m_result["version"])).get_admin_url())
                         else:
-                            result_dict.update({
-                                'status': False,
-                                'msg': m_result['exception'],
-                                'job': None
-                            })
+                            job_id = ''
+                            msg = m_result["exception"]
                 else:
-                    result_dict.update({
-                        'status': False,
-                        'msg': _('Upload failed, invalid form.'),
-                        'job': None
-                    })
-            return HttpResponse(json.dumps(result_dict), content_type='application/json')
-        else:
-            # render upload result
-            form = UploadForm(request.POST, request.FILES)
-            if form.is_valid():
-                # Handle File
-                if settings.ENABLE_REDIS is True:
-                    m_job = handle_uploaded_file(request)
-                    job_id = m_job.id
-                    msg = _('Upload succeed, proceeding...')
-                else:
-                    m_result = handle_uploaded_file(request)
-                    if m_result["success"] is True:
-                        return redirect(Version.objects.get(id=int(m_result["version"])).get_admin_url())
-                    else:
-                        job_id = ''
-                        msg = m_result["exception"]
-            else:
-                job_id = ''
-                msg = _('Upload failed, invalid form.')
-            form = UploadForm()
-            context = admin.site.each_context(request)
-            context.update({
-                'title': _('Upload New Packages'),
-                'form': form,
-                'job_id': job_id,
-                'msg': msg
-            })
-            template = 'admin/upload.html'
-            return render(request, template, context)
-    else:
-        action = ''
-        if 'action' in request.GET:
-            action = request.GET['action']
-        if action == 'async-import':
+                    job_id = ''
+                    msg = _('Upload failed, invalid form.')
+                form = UploadForm()
+                context = admin.site.each_context(request)
+                context.update({
+                    'title': _('Upload New Packages'),
+                    'form': form,
+                    'job_id': job_id,
+                    'msg': msg
+                })
+                template = 'admin/upload.html'
+                return render(request, template, context)
+        # action: async-import
+        elif 'action' in request.POST and request.POST['action'] == 'async-import':
             if not settings.ENABLE_REDIS:
                 messages.error(request, mark_safe(
                     _("To use this action, you must enable <b>Redis Queue</b>.")
@@ -435,6 +432,9 @@ def upload_view(request):
                         ))))
                 else:
                     messages.warning(request, _("There is no package to import."))
+            return redirect('upload')
+    # GET
+    elif request.method == 'GET':
         form = UploadForm()
         context = admin.site.each_context(request)
         context.update({
@@ -454,8 +454,9 @@ def upload_screenshots_view(request, package_id, gallery_slug):
     :param request: Django Request
     :return: Http Response
     """
+    # POST
     if request.method == "POST":
-        # Save Images To Resource Base
+        # action: upload-img
         if 'ajax' in request.POST and request.POST['ajax'] == 'true':
             result_dict = {}
             if 'job' in request.POST:
@@ -549,9 +550,10 @@ def upload_screenshots_view(request, package_id, gallery_slug):
             })
             template = 'admin/upload_image.html'
             return render(request, template, context)
-    else:
+    # GET
+    elif request.method == 'GET':
         version = Version.objects.get(id=int(package_id))
-        name = version.c_name + " " + version.c_version
+        name = str(version.c_name) + " " + str(version.c_version)
         form = ImageForm()
         context = admin.site.each_context(request)
         context.update({

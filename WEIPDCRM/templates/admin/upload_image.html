@@ -19,6 +19,7 @@
                   novalidate>
                 {% csrf_token %}
                 {{ form }}
+                <input type="hidden" name="action" value="upload-img">
                 <input type="hidden" name="ajax" value="false">
                 <input type="submit">
             </form>
@@ -57,6 +58,7 @@
                     dataType: 'json',
                     data: {
                         'csrfmiddlewaretoken': '{{ csrf_token }}',
+                        'action': 'upload-img',
                         'ajax': true,
                         'job': job_id
                     },
@@ -96,6 +98,7 @@
                 xhr.responseType = "json";
                 xhr.open("POST", "", true);
                 var body = new FormData();
+                body.append("action", "upload-img");
                 body.append("ajax", true);
                 body.append("image", file);
                 body.append("csrfmiddlewaretoken", '{{ csrf_token }}');
