@@ -46,7 +46,7 @@ DCRM means Darwin Cydia Repo (APT) Manager, which is designed for [Jay Freeman](
 
 - full featured dashboard powered by [Django](https://www.djangoproject.com/) and [Django Suit](https://djangosuit.com/)
 - restful APIs with full documentation powered by [Django REST framework](https://www.django-rest-framework.org/)
-- import Debian package (.deb) via http upload
+- import Debian package (.deb) via http or ftp upload
 - manage packages, versions, sections and icons
 - sync control fields between db and the `control` file inside package automatically
 - auto generated depiction pages, mobile optimized
@@ -66,7 +66,6 @@ DCRM means Darwin Cydia Repo (APT) Manager, which is designed for [Jay Freeman](
 
 - apt pdiff feature
 - support for commercial packages
-- import package via ftp upload
 - more themes
 
 

@@ -157,11 +157,11 @@ def handle_uploaded_package(path):
 
 def handle_uploaded_screenshot(content):
     """
-        :param content: Image info
-        :type content: dict
-        :return: Result Dict
-        :rtype: dict
-        """
+    :param content: Image info
+    :type content: dict
+    :return: Result Dict
+    :rtype: dict
+    """
     result_dict = {}
     try:
         image_dir = os.path.join(settings.MEDIA_ROOT, 'photologue', 'photos')
@@ -174,7 +174,7 @@ def handle_uploaded_screenshot(content):
             gallery = Gallery.objects.filter(slug=content_slug).last()
             current_site = Site.objects.get(id=settings.SITE_ID)
             p_version = Version.objects.get(id=content_id)
-            c_name = re.sub('[^A-Za-z]', '', p_version.c_name)  # Filter out Chinese
+            c_name = re.sub('[^A-Za-z0-9]', '', p_version.c_name)  # filter
             if gallery:
                 pass
             else:
@@ -402,7 +402,39 @@ def upload_view(request):
                     _("To use this action, you must enable <b>Redis Queue</b>.")
                 ))
             else:
-                pass
+                items = os.listdir(settings.UPLOAD_ROOT)
+                import_items = []
+                for item in items:
+                    if item[-4:] == ".deb":
+                        item_path = os.path.join(settings.UPLOAD_ROOT, item)
+                        import_items.append(item_path)
+                if len(import_items) > 0:
+                    temp_root = settings.TEMP_ROOT
+                    if not os.path.exists(temp_root):
+                        try:
+                            mkdir_p(temp_root)
+                        except OSError:
+                            pass
+                    import_jobs = []
+                    queue = django_rq.get_queue('high')
+                    for import_item in import_items:
+                        package_temp_path = os.path.join(temp_root, str(uuid.uuid1()) + '.deb')
+                        shutil.move(import_item, package_temp_path)
+                        os.chmod(package_temp_path, 0o755)
+                        import_job = queue.enqueue(handle_uploaded_package, package_temp_path)
+                        import_jobs.append(import_job)
+                    if len(import_jobs) == 1:
+                        messages.info(request, mark_safe(_("%s package importing job have been added to the \"<a href=\"%s\">high</a>\" queue." % (
+                            str(len(import_jobs)),
+                            reverse('rq_jobs', args=(1, )),
+                        ))))
+                    else:
+                        messages.info(request, mark_safe(_("%s package importing jobs have been added to the \"<a href=\"%s\">high</a>\" queue." % (
+                            str(len(import_jobs)),
+                            reverse('rq_jobs', args=(1, )),
+                        ))))
+                else:
+                    messages.warning(request, _("There is no package to import."))
         form = UploadForm()
         context = admin.site.each_context(request)
         context.update({
