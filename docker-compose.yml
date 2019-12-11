@@ -57,8 +57,11 @@ services:
     env_file:
       - ./DCRM/.env
       - ./docker/DCRM/.env
-  worker-default:           # if you need more `default` workers, duplicate this section
+  worker-default:
     build: .
+    deploy:
+      mode: replicated
+      replicas: 1
     volumes:
       - app_static:/usr/src/app/static
       - app_resources:/usr/src/app/resources
@@ -75,8 +78,11 @@ services:
     env_file:
       - ./DCRM/.env
       - ./docker/DCRM/.env
-  worker-high:              # if you need more `high` workers, duplicate this section
+  worker-high:
     build: .
+    deploy:
+      mode: replicated
+      replicas: 2
     volumes:
       - app_static:/usr/src/app/static
       - app_resources:/usr/src/app/resources
