@@ -1,8 +1,8 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/82Flex/DCRM/master/docs/logo.png" width="160"/><br />
+<p style="text-align: center;">
+  <img src="https://raw.githubusercontent.com/82Flex/DCRM/master/docs/logo.png" width="160" alt="DCRM Logo"/><br />
 </p>
-<p align="center">DCRM - Darwin Cydia Repository Manager (Version 4)</p>
-<p align="center">DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES. 请勿使用 DCRM 分发盗版软件包.</p>
+<p style="text-align: center;">DCRM - Darwin Cydia Repository Manager (Version 4)</p>
+<p style="text-align: center;">DO NOT USE DCRM FOR DISTRIBUTING PIRATED PACKAGES. 请勿使用 DCRM 分发盗版软件包.</p>
 
 
 <!-- TOC insertanchor:true -->
@@ -79,7 +79,7 @@ This demo is deployed using [Container Optimized OS](https://cloud.google.com/co
 * Username: `root`
 * Password: `dcrmpass`
 
-Before you build your personal Cydia repository, watch this guide video: [https://youtu.be/dvNCRckm2Cc](https://youtu.be/dvNCRckm2Cc)
+Watch the guide video: [https://youtu.be/dvNCRckm2Cc](https://youtu.be/dvNCRckm2Cc)
 
 
 # 3. DOCKER DEPLOY 自动部署
@@ -87,31 +87,31 @@ Before you build your personal Cydia repository, watch this guide video: [https:
 
 以下步骤能完整部署 DCRM 最新副本, 启用了任务队列及页面缓存支持, 你可以根据需要调整自己的配置.
 
-1. download this project or clone this git repo:
-如果你还没有下载此项目, 建议使用 `git` 克隆该仓库:
+1. 如果你还没有下载此项目, 建议使用 `git` 克隆该仓库:
 
-```bash
+```shell script
+# download this project or clone this git repo:
 git clone --depth 1 https://github.com/82Flex/DCRM.git && cd DCRM
 ```
 
-2. build and launch DCRM via `docker-compose`
-构建并启动 DCRM 容器:
+2. 构建并启动 DCRM 容器:
 
-```bash
+```shell script
+# build and launch DCRM via `docker-compose`
 docker-compose up --build --detach
 ```
 
-3. attach to `dcrm_app` container:
-先附加到容器中:
+3. 先附加到容器中:
 
-```bash
+```shell script
+# attach to `dcrm_app` container
 docker exec -i -t dcrm_app_1 /bin/bash
 ```
 
 4. execute in **container**:
 在容器中执行命令:
 
-```bash
+```shell script
 # collect static files
 python manage.py collectstatic --no-input
 
@@ -122,7 +122,7 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-5. access admin panel via `http://127.0.0.1:8080/admin/`, you can upload packages via HTTP or FTP:
+5. access admin panel via `http://127.0.0.1/admin/`, you can upload packages via HTTP or FTP:
 现在可以尝试访问 DCRM 后台了, 你可以通过 HTTP 或 FTP 方式上传软件包:
 
 - Default FTP username: `dcrm`
@@ -132,27 +132,31 @@ python manage.py createsuperuser
 ## 3.1. Docker Commands 常用命令
 <a id="markdown-docker-commands-常用命令" name="docker-commands-常用命令"></a>
 
-1. build then launch DCRM in background, only when source code updated 重新构建并在后台启动 DCRM (仅当代码发生变动, 不会影响数据)
+1. 重新构建并在后台启动 DCRM (仅当代码发生变动, 不会影响数据)
 
-```bash
+```shell script
+# build and launch DCRM in background (when source code changed)
 docker-compose up --build --detach
 ```
 
-2. launch DCRM in background only 仅在后台启动 DCRM
+2. 仅在后台启动 DCRM
 
-```bash
+```shell script
+# launch DCRM in background
 docker-compose up --detach
 ```
 
-3. launch DCRM in foreground to see what happens 在前台启动 DCRM
+3. 在前台启动 DCRM
 
-```bash
+```shell script
+# launch DCRM in foreground to see what happens
 docker-compose up
 ```
 
-4. shutdown DCRM 停止 DCRM
+4. 停止 DCRM
 
-```bash
+```shell script
+# shutdown DCRM
 docker-compose down
 ```
 
@@ -162,7 +166,7 @@ docker-compose down
 
 here are a few steps you need to follow:
 
-edit `docker/nginx/conf.d/default.conf`, line 6:
+edit `docker/nginx/conf.d/default.conf`:
 
 1. set `server_name` to your domain
 2. [configure your https server](http://nginx.org/en/docs/http/configuring_https_servers.html)
@@ -179,29 +183,24 @@ edit `DCRM/.env`:
 
 edit `docker-compose.yml`:
 
-1. change `services:web:ports` from `8080:80` to `80:80` if you're providing subscription to others using http, add an extra `443:443` if you're using https
-2. change default FTP username and password in `services:pure-ftpd:environment`, `FTP_USER_NAME` and `FTP_USER_PASS`, enable [FTP over TLS](https://github.com/stilliard/docker-pure-ftpd#TLS) if you want
+1. change default FTP username and password in `services:pure-ftpd:environment`, `FTP_USER_NAME` and `FTP_USER_PASS`, enable [FTP over TLS](https://github.com/stilliard/docker-pure-ftpd#TLS) if you want
 
 
 ## 3.3. Configure GnuPG
 <a id="markdown-configure-gnupg" name="configure-gnupg"></a>
 
-1. attach to `dcrm_app` container:
-
-```bash
+```shell script
+# 1. attach to `dcrm_app` container
 docker exec -i -t dcrm_app_1 /bin/bash
-```
 
-2. generate new GPG key:
-
-```bash
+# 2. generate new GPG key
 gpg --gen-key --homedir .gnupg
 # or
-gpg --allow-secret-key-import --import private.key --homedir .gnupg
-```
+# gpg --allow-secret-key-import --import private.key --homedir .gnupg
 
-3. enable GPG feature and configure passphrase in `WEIPDCRM -> Settings -> Security`
-4. create APT verification package in `WEIPDCRM -> Sections -> Action -> Generate icon package for selected sections`, which will install GPG public key to user's device
+# 3. enable GPG feature and configure passphrase in `WEIPDCRM -> Settings -> Security`
+# 4. create APT verification package in `WEIPDCRM -> Sections -> Action -> Generate icon package for selected sections`, which will install GPG public key to user's device
+```
 
 
 # 4. PUBLISH REPOSITORY 发布软件源
@@ -222,11 +221,7 @@ Add a new release and set it as an active release.
 添加新的 Release 并将其设置为活跃状态
 
 4. `WEIPDCRM -> Sections`
-
-Add sections.
-添加源分类 (可以生成分类图标包)
-
-5. `WEIPDCRM -> Versions -> Add Version`
+5. `WEIPDCRM -> Upload -> New Package`
 
 Upload your debian package via HTTP or FTP.
 上传你的 deb 包
@@ -255,6 +250,7 @@ Build the repository to apply all the changes, thus you cannot add this repo in 
 - Redis (optional)
 - memcached (optional)
 - uwsgi, Nginx (production only)
+- vsftpd (or pure-ftpd, optional)
 
 
 ## 5.2. EXAMPLE 示例
@@ -263,7 +259,7 @@ Build the repository to apply all the changes, thus you cannot add this repo in 
 1. install dependencies:
 安装依赖:
 
-```bash
+```shell script
 apt-get update
 apt-get upgrade
 apt-get install git mysql-server libmysqlclient-dev python3-dev python3-pip libjpeg-dev tzdata
@@ -272,7 +268,7 @@ apt-get install git mysql-server libmysqlclient-dev python3-dev python3-pip libj
 2. configure mysql:
 安装完成后, 登录到 mysql:
 
-```bash
+```shell script
 service mysql start
 mysql_secure_installation
 mysql -uroot -p
@@ -297,7 +293,7 @@ FLUSH PRIVILEGES;
 5. clone this git repo:
 在合适的位置克隆 DCRM:
 
-```bash
+```shell script
 mkdir -p /wwwdata
 cd /wwwdata
 git clone --depth 1 https://github.com/82Flex/DCRM.git
@@ -307,7 +303,7 @@ cd /wwwdata/DCRM
 6. install python modules, `virtualenv` is recommended if you want:
 安装必要的 python 模块:
 
-```bash
+```shell script
 pip3 install -r requirements.txt
 mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
 ```
@@ -315,7 +311,7 @@ mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
 7. enable redis support (task queue):
 如果你还需要开启 Redis 支持 (用于任务队列):
 
-```bash
+```shell script
 apt-get install redis-server
 service redis-server start
 ```
@@ -323,7 +319,7 @@ service redis-server start
 8. enable memcached support (page caching):
 如果你还需要开启页面缓存, 你可能还需要自行启动 memcached 服务:
 
-```bash
+```shell script
 apt-get install memcached
 service memcached start
 ```
@@ -342,14 +338,14 @@ service memcached start
 10. collect static files:
 同步静态文件:
 
-```bash
+```shell script
 python3 manage.py collectstatic
 ```
 
 11. migrate database and create new super user:
 同步数据库结构并创建超级用户:
 
-```bash
+```shell script
 python3 manage.py migrate
 python3 manage.py createsuperuser
 ```
@@ -357,7 +353,7 @@ python3 manage.py createsuperuser
 12. run debug server:
 启动测试服务器:
 
-```bash
+```shell script
 python3 manage.py runserver
 ```
 
@@ -401,21 +397,14 @@ safe-pidfile = /home/run/uwsgi-apt.pid
 ### 5.3.2. UWSGI Commands
 <a id="markdown-uwsgi-commands" name="uwsgi-commands"></a>
 
-test:
-
-```bash
+```shell script
+# test
 uwsgi --ini uwsgi.ini
-```
 
-run:
-
-```bash
+# run
 uwsgi --ini uwsgi.ini --daemonize=/dev/null
-```
 
-kill:
-
-```bash
+# kill
 kill -INT `cat /home/run/uwsgi-apt.pid`
 ```
 
@@ -501,33 +490,20 @@ server {
 ### 5.3.4. NGINX Commands
 <a id="markdown-nginx-commands" name="nginx-commands"></a>
 
-1. install Nginx:
-
-```bash
+```shell script
+# install Nginx
 apt-get install nginx
-```
 
-2. launch Nginx:
-
-```bash
+# launch Nginx
 service nginx start
-```
 
-3. test configuration:
-
-```bash
+# test Nginx configuration
 nginx -t
-```
 
-4. reload configuration:
-
-```bash
+# reload configuration
 nginx -s reload
-```
 
-5. launch nginx if it is down:
-
-```bash
+# launch nginx if it is down
 sudo /etc/init.d/nginx start
 ```
 
@@ -535,47 +511,38 @@ sudo /etc/init.d/nginx start
 ### 5.3.5. Configure Workers
 <a id="markdown-configure-workers" name="configure-workers"></a>
 
-make sure to launch task queue with the same nginx working user (www/www-data).
-
-```bash
+```shell script
+# launch task queue with the same nginx working user (www/www-data)
 su www-data
-```
 
-if you cannot switch to user `www-data`, remember to change its login prompt in `/etc/passwd`. launch some workers for DCRM background queue:
-
-```bash
+# if you cannot switch to user `www-data`, remember to change its login prompt in `/etc/passwd`. launch some workers for DCRM background queue
 nohup ./manage.py rqworker high > /dev/null &
 nohup ./manage.py rqworker default > /dev/null &
+
+# you need at least one worker for each queue
 ```
 
-you need at least one worker for each queue. worker 的数量以你的具体需求为准, 但是各队列中至少要有一个活跃 worker, 否则队列中的任务将一直保持挂起.
+worker 的数量以你的具体需求为准, 但是各队列中至少要有一个活跃 worker, 否则队列中的任务将一直保持挂起.
 
 
 ### 5.3.6. Configure GnuPG
 <a id="markdown-configure-gnupg" name="configure-gnupg"></a>
 
-1. install `gnupg2`
-
-```bash
+```shell script
+# 1. install `gnupg2`
 apt-get install gnupg2
-```
 
-2. make sure to launch background queue with the same nginx working user (www/www-data):
-
-```bash
+# 2. make sure to launch background queue with the same nginx working user (www/www-data)
 su www-data
-```
 
-3. generate new GPG key
-
-```bash
+# 3. generate new GPG key
 gpg --gen-key --homedir .gnupg
 # or
-gpg --allow-secret-key-import --import private.key --homedir .gnupg
-```
+# gpg --allow-secret-key-import --import private.key --homedir .gnupg
 
-4. enable GPG feature and configure passphrase in `WEIPDCRM -> Settings -> Security`
-5. create APT verification package in `WEIPDCRM -> Sections -> Action -> Generate icon package for selected sections`, which will install GPG public key to user's device
+# 4. enable GPG feature and configure passphrase in `WEIPDCRM -> Settings -> Security`
+# 5. create APT verification package in `WEIPDCRM -> Sections -> Action -> Generate icon package for selected sections`, which will install GPG public key to user's device
+```
 
 
 # 6. CONTRIBUTORS

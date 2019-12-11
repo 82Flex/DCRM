@@ -5,9 +5,9 @@ services:
   web:
     image: nginx:1.17.6
     ports:
-      - "8080:80"   # test
-      #- "80:80"    # production
-      #- "443:443"  # https
+      #- "8080:80"   # test
+      - "80:80"    # production
+      - "443:443"  # https
     volumes:
       - app_static:/usr/share/nginx/html/static
       - app_resources:/usr/share/nginx/html/resources

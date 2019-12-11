@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 11:56+0800\n"
+"POT-Creation-Date: 2019-12-11 17:18+0800\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,7 +54,7 @@ msgid "Unknown"
 msgstr "غير معروف"
 
 #: WEIPDCRM/manage/admin/build.py:317 WEIPDCRM/views/admin/upload.py:311
-#: WEIPDCRM/views/admin/upload.py:468
+#: WEIPDCRM/views/admin/upload.py:469
 msgid "No such job"
 msgstr ""
 
@@ -1720,93 +1720,90 @@ msgstr "صيغة Repository"
 msgid "Upload New Package"
 msgstr "رفع حزمة جديدة"
 
-#: WEIPDCRM/templates/admin/upload.html:65
-#: WEIPDCRM/templates/admin/upload.html:257
-#: WEIPDCRM/templates/admin/upload.html:264
+#: WEIPDCRM/templates/admin/upload.html:66
+#: WEIPDCRM/templates/admin/upload.html:261
+#: WEIPDCRM/templates/admin/upload.html:268
 msgid "Debian Package (*.deb)"
 msgstr ""
 
-#: WEIPDCRM/templates/admin/upload.html:74
+#: WEIPDCRM/templates/admin/upload.html:75
 msgid "Import Guide"
 msgstr ""
 
-#: WEIPDCRM/templates/admin/upload.html:79
+#: WEIPDCRM/templates/admin/upload.html:80
 msgid "Allowed file extensions: deb"
 msgstr ""
 
-#: WEIPDCRM/templates/admin/upload.html:80
+#: WEIPDCRM/templates/admin/upload.html:81
 msgid "Package manager for Debian: "
 msgstr ""
 
-#: WEIPDCRM/templates/admin/upload.html:80
+#: WEIPDCRM/templates/admin/upload.html:81
 msgid "dpkg(1)"
 msgstr ""
 
-#: WEIPDCRM/templates/admin/upload.html:81
+#: WEIPDCRM/templates/admin/upload.html:82
 msgid ""
 "If you get http code <code>413 request entity too large</code>, increase the "
 "<code>client_max_body_size</code> in <a href=\"https://nginx.org/en/docs/"
 "http/ngx_http_core_module.html\" target=\"_blank\">Nginx configuration</a>."
 msgstr ""
 
-#: WEIPDCRM/templates/admin/upload.html:82
-#, python-format
-msgid ""
-"If you want to import all packages in <b>Upload Root</b>, <a href="
-"\"%(upload_url)s?action=async-import\">click here</a>."
+#: WEIPDCRM/templates/admin/upload.html:83
+msgid "If you want to import all packages in <b>Upload Root</b>"
 msgstr ""
 
-#: WEIPDCRM/templates/admin/upload.html:120
-#: WEIPDCRM/templates/admin/upload_image.html:71
+#: WEIPDCRM/templates/admin/upload.html:123
+#: WEIPDCRM/templates/admin/upload_image.html:73
 msgid "Exception: "
 msgstr "استثناء"
 
-#: WEIPDCRM/templates/admin/upload.html:121
-#: WEIPDCRM/templates/admin/upload_image.html:72
+#: WEIPDCRM/templates/admin/upload.html:124
+#: WEIPDCRM/templates/admin/upload_image.html:74
 msgid "An error occured."
 msgstr "حدث خطأ."
 
-#: WEIPDCRM/templates/admin/upload.html:125
-#: WEIPDCRM/templates/admin/upload_image.html:76
+#: WEIPDCRM/templates/admin/upload.html:128
+#: WEIPDCRM/templates/admin/upload_image.html:78
 msgid "Service Unavailable."
 msgstr "الخدمة غير متوفرة."
 
-#: WEIPDCRM/templates/admin/upload.html:133
-#: WEIPDCRM/templates/admin/upload_image.html:84
+#: WEIPDCRM/templates/admin/upload.html:136
+#: WEIPDCRM/templates/admin/upload_image.html:86
 msgid "Invalid Job."
 msgstr "وظيفة غير صالحة."
 
-#: WEIPDCRM/templates/admin/upload.html:153
-#: WEIPDCRM/templates/admin/upload_image.html:104
+#: WEIPDCRM/templates/admin/upload.html:157
+#: WEIPDCRM/templates/admin/upload_image.html:107
 msgid "Uploading..."
 msgstr "يتم الرفع  .."
 
-#: WEIPDCRM/templates/admin/upload.html:163
-#: WEIPDCRM/templates/admin/upload_image.html:114
+#: WEIPDCRM/templates/admin/upload.html:167
+#: WEIPDCRM/templates/admin/upload_image.html:117
 msgid "Transfer Timeout"
 msgstr "Transfer Timeout"
 
-#: WEIPDCRM/templates/admin/upload.html:200
-#: WEIPDCRM/templates/admin/upload_image.html:151
+#: WEIPDCRM/templates/admin/upload.html:204
+#: WEIPDCRM/templates/admin/upload_image.html:154
 msgid "Service Unavailable: "
 msgstr "الخدمة غير متوفرة:"
 
-#: WEIPDCRM/templates/admin/upload.html:208
-#: WEIPDCRM/templates/admin/upload_image.html:159
+#: WEIPDCRM/templates/admin/upload.html:212
+#: WEIPDCRM/templates/admin/upload_image.html:162
 msgid "Operation Completed."
 msgstr "اكتملت العملية."
 
-#: WEIPDCRM/templates/admin/upload.html:219
+#: WEIPDCRM/templates/admin/upload.html:223
 msgid "Only Debian Package (*.deb) is allowed."
 msgstr "الحزم فقط بصيغة (*.deb)"
 
-#: WEIPDCRM/templates/admin/upload.html:250
-#: WEIPDCRM/templates/admin/upload_image.html:212
+#: WEIPDCRM/templates/admin/upload.html:254
+#: WEIPDCRM/templates/admin/upload_image.html:215
 msgid "Drop Here!"
 msgstr "افلت هنا"
 
-#: WEIPDCRM/templates/admin/upload.html:277
-#: WEIPDCRM/templates/admin/upload_image.html:239
+#: WEIPDCRM/templates/admin/upload.html:281
+#: WEIPDCRM/templates/admin/upload_image.html:242
 msgid "Too many files."
 msgstr "الكثير من الملفات."
 
@@ -1816,15 +1813,15 @@ msgid "Screenshots"
 msgstr "لقطات الشاشة"
 
 #: WEIPDCRM/templates/admin/upload_image.html:15
-#: WEIPDCRM/views/admin/upload.py:545 WEIPDCRM/views/admin/upload.py:558
+#: WEIPDCRM/views/admin/upload.py:546 WEIPDCRM/views/admin/upload.py:560
 msgid "Upload Screenshots"
 msgstr "رفع لقطات الشاشة"
 
-#: WEIPDCRM/templates/admin/upload_image.html:30
+#: WEIPDCRM/templates/admin/upload_image.html:31
 msgid "Back"
 msgstr "الخلف"
 
-#: WEIPDCRM/templates/admin/upload_image.html:183
+#: WEIPDCRM/templates/admin/upload_image.html:186
 msgid "Unsupported file extension."
 msgstr "امتداد الملف غير مدعوم"
 
@@ -1881,11 +1878,11 @@ msgstr ""
 msgid "Version Conflict: %s"
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:272
-msgid "Upload failed, Unsupported file extension."
+#: WEIPDCRM/views/admin/upload.py:271
+msgid "Upload failed, unsupported file extension."
 msgstr "أخفق الرفع ، ملحق الملف غير مدعوم"
 
-#: WEIPDCRM/views/admin/upload.py:291
+#: WEIPDCRM/views/admin/upload.py:294
 #, python-format
 msgid ""
 "Active release not set: you cannot publish your repository without an active "
@@ -1893,13 +1890,13 @@ msgid ""
 msgstr ""
 
 #: WEIPDCRM/views/admin/upload.py:333 WEIPDCRM/views/admin/upload.py:345
-#: WEIPDCRM/views/admin/upload.py:374 WEIPDCRM/views/admin/upload.py:490
-#: WEIPDCRM/views/admin/upload.py:502 WEIPDCRM/views/admin/upload.py:531
+#: WEIPDCRM/views/admin/upload.py:374 WEIPDCRM/views/admin/upload.py:491
+#: WEIPDCRM/views/admin/upload.py:503 WEIPDCRM/views/admin/upload.py:532
 msgid "Upload succeed, proceeding..."
 msgstr "نجح الرفع , تتم المعالجة"
 
 #: WEIPDCRM/views/admin/upload.py:362 WEIPDCRM/views/admin/upload.py:384
-#: WEIPDCRM/views/admin/upload.py:519 WEIPDCRM/views/admin/upload.py:541
+#: WEIPDCRM/views/admin/upload.py:520 WEIPDCRM/views/admin/upload.py:542
 msgid "Upload failed, invalid form."
 msgstr "فشل الرفع ، نموذج غير صالح."
 
@@ -1907,24 +1904,24 @@ msgstr "فشل الرفع ، نموذج غير صالح."
 msgid "Upload New Packages"
 msgstr "تحميل حزمة جديدة"
 
-#: WEIPDCRM/views/admin/upload.py:402
+#: WEIPDCRM/views/admin/upload.py:399
 msgid "To use this action, you must enable <b>Redis Queue</b>."
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:427
+#: WEIPDCRM/views/admin/upload.py:424
 #, python-format
 msgid ""
 "%(job_count)s package importing job have been added to the \"<a href="
 "\"%(jobs)s\">high</a>\" queue."
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:432
+#: WEIPDCRM/views/admin/upload.py:429
 #, python-format
 msgid ""
 "%(job_count)s package importing jobs have been added to the \"<a href="
 "\"%(jobs)s\">high</a>\" queue."
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:437
+#: WEIPDCRM/views/admin/upload.py:434
 msgid "There is no package to import."
 msgstr ""

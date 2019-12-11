@@ -416,20 +416,20 @@ def upload_view(request):
                     queue = django_rq.get_queue('high')
                     for import_item in import_items:
                         package_temp_path = os.path.join(temp_root, str(uuid.uuid1()) + '.deb')
-                        shutil.move(import_item, package_temp_path)
+                        os.link(import_item, package_temp_path)
                         os.chmod(package_temp_path, 0o755)
                         import_job = queue.enqueue(handle_uploaded_package, package_temp_path)
                         import_jobs.append(import_job)
                     if len(import_jobs) == 1:
-                        messages.info(request, mark_safe(_("%(job_count)s package importing job have been added to the \"<a href=\"%(jobs)s\">high</a>\" queue.".format(
+                        messages.info(request, mark_safe(_("%(job_count)s package importing job have been added to the \"<a href=\"%(jobs)s\">high</a>\" queue.").format(
                             job_count=str(len(import_jobs)),
                             jobs=reverse('rq_jobs', args=(1, )),
-                        ))))
+                        )))
                     else:
-                        messages.info(request, mark_safe(_("%(job_count)s package importing jobs have been added to the \"<a href=\"%(jobs)s\">high</a>\" queue.".format(
+                        messages.info(request, mark_safe(_("%(job_count)s package importing jobs have been added to the \"<a href=\"%(jobs)s\">high</a>\" queue.").format(
                             job_count=str(len(import_jobs)),
                             jobs=reverse('rq_jobs', args=(1, )),
-                        ))))
+                        )))
                 else:
                     messages.warning(request, _("There is no package to import."))
             return redirect('upload')
