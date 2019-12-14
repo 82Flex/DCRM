@@ -118,7 +118,7 @@
                                 if (d['job']['result']['success'] === true) {
                                     // Success, jump to version control
                                     var version_id = d['job']['result']['version'];
-                                    window.location.href = '../WEIPDCRM/version/' + version_id + '/change/';
+                                    window.location.href = '/admin/WEIPDCRM/version/' + version_id + '/change/';
                                 } else {
                                     alert("{% trans 'Exception: ' %}" + d['job']['result']['exception']);
                                     box_alert("{% trans 'An error occured.' %}");
