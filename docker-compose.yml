@@ -3,6 +3,8 @@ version: '3.2'
 # do not change any thing if you do not know what it means
 services:
   web:
+    container_name: dcrm_web
+    hostname: dcrm_web
     image: nginx:1.17.6
     ports:
       #- "8080:80"   # test
@@ -20,6 +22,8 @@ services:
     links:
       - app:dcrm-app
   pure-ftpd:
+    container_name: dcrm_pure-ftpd
+    hostname: dcrm_pure-ftpd
     image: stilliard/pure-ftpd:hardened
     restart: always
     ports:
@@ -38,6 +42,8 @@ services:
       FTP_USER_HOME: /home/dcrm
       # ADDED_FLAGS: "--tls=2"
   app:
+    container_name: dcrm_app
+    hostname: dcrm_app
     build: .
     tty: true
     stdin_open: true
@@ -58,6 +64,8 @@ services:
       - ./DCRM/.env
       - ./docker/DCRM/.env
   worker-default:
+    container_name: dcrm_worker-default
+    hostname: dcrm_worker-default
     build: .
     deploy:
       mode: replicated
@@ -79,6 +87,8 @@ services:
       - ./DCRM/.env
       - ./docker/DCRM/.env
   worker-high:
+    container_name: dcrm_worker-high
+    hostname: dcrm_worker-high
     build: .
     deploy:
       mode: replicated
@@ -100,6 +110,8 @@ services:
       - ./DCRM/.env
       - ./docker/DCRM/.env
   scheduler:
+    container_name: dcrm_scheduler
+    hostname: dcrm_scheduler
     build: .
     volumes:
       - app_static:/usr/src/app/static
@@ -118,6 +130,8 @@ services:
       - ./DCRM/.env
       - ./docker/DCRM/.env
   db:
+    container_name: dcrm_db
+    hostname: dcrm_db
     image: mysql:5.7
     restart: always
     volumes:
@@ -129,9 +143,13 @@ services:
       MYSQL_USER: dcrm
       MYSQL_PASSWORD: dcrm_user_password
   redis:
+    container_name: dcrm_redis
+    hostname: dcrm_redis
     image: redis
     restart: always
   memcached:
+    container_name: dcrm_memcached
+    hostname: dcrm_memcached
     image: memcached
     restart: always
 
