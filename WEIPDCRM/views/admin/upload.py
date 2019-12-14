@@ -416,7 +416,7 @@ def upload_view(request):
                     queue = django_rq.get_queue('high')
                     for import_item in import_items:
                         package_temp_path = os.path.join(temp_root, str(uuid.uuid1()) + '.deb')
-                        os.link(import_item, package_temp_path)
+                        shutil.copy(import_item, package_temp_path)
                         os.chmod(package_temp_path, 0o755)
                         import_job = queue.enqueue(handle_uploaded_package, package_temp_path)
                         import_jobs.append(import_job)
