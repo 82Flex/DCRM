@@ -105,7 +105,7 @@ docker-compose up --build --detach
 
 ```shell script
 # attach to `dcrm_app` container
-docker exec -i -t dcrm_app_1 /bin/bash
+docker exec -i -t dcrm_app /bin/bash
 ```
 
 4. execute in **container**:
@@ -191,7 +191,7 @@ edit `docker-compose.yml`:
 
 ```shell script
 # 1. attach to `dcrm_app` container
-docker exec -i -t dcrm_app_1 /bin/bash
+docker exec -i -t dcrm_app /bin/bash
 
 # 2. generate new GPG key
 gpg --gen-key --homedir .gnupg
