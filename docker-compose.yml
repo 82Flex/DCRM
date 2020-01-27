@@ -20,7 +20,7 @@ services:
       - worker-default
       - worker-high
     links:
-      - app:dcrm-app
+      - app:dcrm_app
   pure-ftpd:
     container_name: dcrm_pure-ftpd
     hostname: dcrm_pure-ftpd
