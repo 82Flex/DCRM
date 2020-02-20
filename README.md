@@ -89,21 +89,21 @@ Watch the guide video: [https://youtu.be/dvNCRckm2Cc](https://youtu.be/dvNCRckm2
 
 1. 如果你还没有下载此项目, 建议使用 `git` 克隆该仓库:
 
-```shell script
+```
 # download this project or clone this git repo:
 git clone --depth 1 https://github.com/82Flex/DCRM.git && cd DCRM
 ```
 
 2. 构建并启动 DCRM 容器:
 
-```shell script
+```
 # build and launch DCRM via `docker-compose`
 docker-compose up --build --detach
 ```
 
 3. 先附加到容器中:
 
-```shell script
+```
 # attach to `dcrm_app` container
 docker exec -i -t dcrm_app /bin/bash
 ```
@@ -111,7 +111,7 @@ docker exec -i -t dcrm_app /bin/bash
 4. execute in **container**:
 在容器中执行命令:
 
-```shell script
+```
 # collect static files
 python manage.py collectstatic --no-input
 
@@ -134,28 +134,28 @@ python manage.py createsuperuser
 
 1. 重新构建并在后台启动 DCRM (仅当代码发生变动, 不会影响数据)
 
-```shell script
+```
 # build and launch DCRM in background (when source code changed)
 docker-compose up --build --detach
 ```
 
 2. 仅在后台启动 DCRM
 
-```shell script
+```
 # launch DCRM in background
 docker-compose up --detach
 ```
 
 3. 在前台启动 DCRM
 
-```shell script
+```
 # launch DCRM in foreground to see what happens
 docker-compose up
 ```
 
 4. 停止 DCRM
 
-```shell script
+```
 # shutdown DCRM
 docker-compose down
 ```
@@ -189,7 +189,7 @@ edit `docker-compose.yml`:
 ## 3.3. Configure GnuPG
 <a id="markdown-configure-gnupg" name="configure-gnupg"></a>
 
-```shell script
+```
 # 1. attach to `dcrm_app` container
 docker exec -i -t dcrm_app /bin/bash
 
@@ -259,7 +259,7 @@ Build the repository to apply all the changes, thus you cannot add this repo in 
 1. install dependencies:
 安装依赖:
 
-```shell script
+```
 apt-get update
 apt-get upgrade
 apt-get install git mysql-server libmysqlclient-dev python3-dev python3-pip libjpeg-dev tzdata
@@ -268,7 +268,7 @@ apt-get install git mysql-server libmysqlclient-dev python3-dev python3-pip libj
 2. configure mysql:
 安装完成后, 登录到 mysql:
 
-```shell script
+```
 service mysql start
 mysql_secure_installation
 mysql -uroot -p
@@ -293,7 +293,7 @@ FLUSH PRIVILEGES;
 5. clone this git repo:
 在合适的位置克隆 DCRM:
 
-```shell script
+```
 mkdir -p /wwwdata
 cd /wwwdata
 git clone --depth 1 https://github.com/82Flex/DCRM.git
@@ -303,7 +303,7 @@ cd /wwwdata/DCRM
 6. install python modules, `virtualenv` is recommended if you want:
 安装必要的 python 模块:
 
-```shell script
+```
 pip3 install -r requirements.txt
 mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
 ```
@@ -311,7 +311,7 @@ mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
 7. enable redis support (task queue):
 如果你还需要开启 Redis 支持 (用于任务队列):
 
-```shell script
+```
 apt-get install redis-server
 service redis-server start
 ```
@@ -319,7 +319,7 @@ service redis-server start
 8. enable memcached support (page caching):
 如果你还需要开启页面缓存, 你可能还需要自行启动 memcached 服务:
 
-```shell script
+```
 apt-get install memcached
 service memcached start
 ```
@@ -338,14 +338,14 @@ service memcached start
 10. collect static files:
 同步静态文件:
 
-```shell script
+```
 python3 manage.py collectstatic
 ```
 
 11. migrate database and create new super user:
 同步数据库结构并创建超级用户:
 
-```shell script
+```
 python3 manage.py migrate
 python3 manage.py createsuperuser
 ```
@@ -353,7 +353,7 @@ python3 manage.py createsuperuser
 12. run debug server:
 启动测试服务器:
 
-```shell script
+```
 python3 manage.py runserver
 ```
 
@@ -397,7 +397,7 @@ safe-pidfile = /home/run/uwsgi-apt.pid
 ### 5.3.2. UWSGI Commands
 <a id="markdown-uwsgi-commands" name="uwsgi-commands"></a>
 
-```shell script
+```
 # test
 uwsgi --ini uwsgi.ini
 
@@ -490,7 +490,7 @@ server {
 ### 5.3.4. NGINX Commands
 <a id="markdown-nginx-commands" name="nginx-commands"></a>
 
-```shell script
+```
 # install Nginx
 apt-get install nginx
 
@@ -511,7 +511,7 @@ sudo /etc/init.d/nginx start
 ### 5.3.5. Configure Workers
 <a id="markdown-configure-workers" name="configure-workers"></a>
 
-```shell script
+```
 # launch task queue with the same nginx working user (www/www-data)
 su www-data
 
@@ -528,7 +528,7 @@ worker 的数量以你的具体需求为准, 但是各队列中至少要有一�
 ### 5.3.6. Configure GnuPG
 <a id="markdown-configure-gnupg" name="configure-gnupg"></a>
 
-```shell script
+```
 # 1. install `gnupg2`
 apt-get install gnupg2
 
