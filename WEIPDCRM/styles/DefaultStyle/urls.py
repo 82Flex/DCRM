@@ -37,13 +37,13 @@ def cache():
 
 urlpatterns = [
     url(r'^$', cache()(IndexView.as_view()), name='index'),
-    url(r'^index/(?P<page>\d?)/?$', cache()(IndexView.as_view()), name='index_page'),
+    url(r'^index/(?P<page>\d*)/?$', cache()(IndexView.as_view()), name='index_page'),
     url(r'^package/(?P<package_id>\d+)/?$', cache()(PackageView.as_view()), name='package_id'),
     url(r'^package/(?P<package_id>\d+)/(?P<action_name>[0-9A-Za-z]+)/?$', cache()(PackageView.as_view()), name='package_action'),
     url(r'^search/?$', cache()(search_view), name='search'),
     url(r'^chart/?$', cache()(ChartView.as_view()), name='chart'),
     url(r'^section/list/?$', cache()(SectionListView.as_view()), name='section_list'),
-    url(r'^section/list/(?P<page>\d?)/?$', cache()(SectionListView.as_view()), name='section_list_page'),
+    url(r'^section/list/(?P<page>\d*)/?$', cache()(SectionListView.as_view()), name='section_list_page'),
     url(r'^section/(?P<section_id>\d+)/?$', cache()(SectionView.as_view()), name='section_id'),
-    url(r'^section/(?P<section_id>\d+)/(?P<page>\d?)/?$', cache()(SectionView.as_view()), name='section_id_page'),
+    url(r'^section/(?P<section_id>\d+)/(?P<page>\d*)/?$', cache()(SectionView.as_view()), name='section_id_page'),
 ]

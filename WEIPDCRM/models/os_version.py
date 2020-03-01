@@ -39,6 +39,7 @@ class OSVersion(models.Model):
     class Meta(object):
         verbose_name = _("iOS Version")
         verbose_name_plural = _("iOS Versions")
+        ordering = ['-id']
 
     # Base Property
     id = models.AutoField(primary_key=True, editable=False)

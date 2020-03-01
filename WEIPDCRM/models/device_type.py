@@ -38,6 +38,7 @@ class DeviceType(models.Model):
     class Meta(object):
         verbose_name = _("Device Type")
         verbose_name_plural = _("Device Types")
+        ordering = ['-id']
 
     # Base Property
     id = models.AutoField(primary_key=True, editable=False)
