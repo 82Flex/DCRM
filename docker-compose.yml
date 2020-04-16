@@ -6,6 +6,7 @@ services:
     container_name: dcrm_web
     hostname: dcrm_web
     image: nginx:1.17.6
+    restart: always
     ports:
       #- "8080:80"   # test
       - "80:80"    # production
@@ -44,6 +45,7 @@ services:
   app:
     container_name: dcrm_app
     hostname: dcrm_app
+    restart: always
     build: .
     tty: true
     stdin_open: true
@@ -66,6 +68,7 @@ services:
   worker-default:
     container_name: dcrm_worker-default
     hostname: dcrm_worker-default
+    restart: always
     build: .
     deploy:
       mode: replicated
@@ -89,6 +92,7 @@ services:
   worker-high:
     container_name: dcrm_worker-high
     hostname: dcrm_worker-high
+    restart: always
     build: .
     deploy:
       mode: replicated
@@ -112,6 +116,7 @@ services:
   scheduler:
     container_name: dcrm_scheduler
     hostname: dcrm_scheduler
+    restart: always
     build: .
     volumes:
       - app_static:/usr/src/app/static
