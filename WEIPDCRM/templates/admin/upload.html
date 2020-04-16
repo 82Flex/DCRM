@@ -81,7 +81,7 @@
                 <li>{% trans "Package manager for Debian: " %}<a href="https://manpages.debian.org/stretch/dpkg/dpkg.1.en.html" target="_blank">{% trans "dpkg(1)" %}</a></li>
                 <li>{% blocktrans %}If you get http code <code>413 request entity too large</code>, increase the <code>client_max_body_size</code> in <a href="https://nginx.org/en/docs/http/ngx_http_core_module.html" target="_blank">Nginx configuration</a>.{% endblocktrans %}</li>
                 <li>{% blocktrans %}If you want to import all packages in <b>Upload Root</b>{% endblocktrans %}:</li>
-                <li><form action="{{ upload_url }}" method="POST">{% csrf_token %}<input type="hidden" name="action" value="async-import"><input class="btn btn-large btn-warning" type="submit" value="Import Packages"></form></li>
+                <li><form action="{{ upload_url }}" method="POST">{% csrf_token %}<input type="hidden" name="action" value="async-import"><input class="btn btn-large btn-warning" type="submit" value="{% trans "Import Packages" %}"></form></li>
             </ul>
         </div>
     </div>

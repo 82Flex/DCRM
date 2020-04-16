@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-11 17:18+0800\n"
+"POT-Creation-Date: 2020-04-17 01:07+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr ""
 #: WEIPDCRM/apps.py:77 WEIPDCRM/manage/admin/setting.py:174
 #: WEIPDCRM/manage/admin/version.py:225
 #: WEIPDCRM/templates/admin/help/statistics.html:8
-#: WEIPDCRM/views/admin/help/statistics.py:99
+#: WEIPDCRM/views/admin/help/statistics.py:105
 msgid "Statistics"
 msgstr ""
 
@@ -102,7 +102,7 @@ msgstr ""
 msgid "Package"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/package.py:58 WEIPDCRM/models/os_version.py:51
+#: WEIPDCRM/manage/admin/package.py:58 WEIPDCRM/models/os_version.py:52
 #: WEIPDCRM/models/package.py:65 WEIPDCRM/models/release.py:87
 #: WEIPDCRM/models/version.py:152 WEIPDCRM/models/version.py:534
 msgid "Version"
@@ -170,8 +170,8 @@ msgstr ""
 
 #: WEIPDCRM/manage/admin/setting.py:62 WEIPDCRM/manage/admin/setting.py:71
 #: WEIPDCRM/manage/admin/setting.py:86 WEIPDCRM/manage/admin/setting.py:99
-#: WEIPDCRM/manage/admin/setting.py:106 WEIPDCRM/models/device_type.py:44
-#: WEIPDCRM/models/os_version.py:45 WEIPDCRM/models/version.py:169
+#: WEIPDCRM/manage/admin/setting.py:106 WEIPDCRM/models/device_type.py:45
+#: WEIPDCRM/models/os_version.py:46 WEIPDCRM/models/version.py:169
 msgid "Enabled"
 msgstr ""
 
@@ -335,7 +335,7 @@ msgstr ""
 msgid "Sponsor"
 msgstr ""
 
-#: WEIPDCRM/manage/admin/version.py:175 WEIPDCRM/models/device_type.py:60
+#: WEIPDCRM/manage/admin/version.py:175 WEIPDCRM/models/device_type.py:61
 msgid "Platform"
 msgstr ""
 
@@ -386,7 +386,7 @@ msgid ""
 "has been added to the \"<a href=\"%(jobs)s\">high</a>\" queue."
 msgstr ""
 
-#: WEIPDCRM/models/build.py:45 WEIPDCRM/models/os_version.py:56
+#: WEIPDCRM/models/build.py:45 WEIPDCRM/models/os_version.py:57
 msgid "Build"
 msgstr ""
 
@@ -398,8 +398,8 @@ msgstr ""
 msgid "UUID"
 msgstr ""
 
-#: WEIPDCRM/models/build.py:56 WEIPDCRM/models/device_type.py:46
-#: WEIPDCRM/models/os_version.py:47 WEIPDCRM/models/package.py:58
+#: WEIPDCRM/models/build.py:56 WEIPDCRM/models/device_type.py:47
+#: WEIPDCRM/models/os_version.py:48 WEIPDCRM/models/package.py:58
 #: WEIPDCRM/models/release.py:51 WEIPDCRM/models/section.py:63
 #: WEIPDCRM/models/version.py:174
 msgid "Created At"
@@ -443,32 +443,32 @@ msgstr ""
 msgid "Device Types"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:50
+#: WEIPDCRM/models/device_type.py:51
 msgid "Descriptor"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:52
+#: WEIPDCRM/models/device_type.py:53
 msgid "Example: iPhone 7 Plus"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:55
+#: WEIPDCRM/models/device_type.py:56
 msgid "Subtype"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:57
+#: WEIPDCRM/models/device_type.py:58
 msgid "Example: iPhone9,2"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:62
+#: WEIPDCRM/models/device_type.py:63
 msgid "Example: A1661/A1784/A1785"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:69 WEIPDCRM/models/os_version.py:64
+#: WEIPDCRM/models/device_type.py:70 WEIPDCRM/models/os_version.py:65
 #: WEIPDCRM/models/section.py:79 WEIPDCRM/models/version.py:285
 msgid "Icon"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:72 WEIPDCRM/models/os_version.py:67
+#: WEIPDCRM/models/device_type.py:73 WEIPDCRM/models/os_version.py:68
 #: WEIPDCRM/models/release.py:152 WEIPDCRM/models/section.py:82
 #: WEIPDCRM/models/setting.py:411 WEIPDCRM/models/version.py:262
 msgid "Choose an Icon (*.png) to upload"
@@ -482,11 +482,11 @@ msgstr ""
 msgid "iOS Versions"
 msgstr ""
 
-#: WEIPDCRM/models/os_version.py:53
+#: WEIPDCRM/models/os_version.py:54
 msgid "Example: 10.2"
 msgstr ""
 
-#: WEIPDCRM/models/os_version.py:58
+#: WEIPDCRM/models/os_version.py:59
 msgid "Example: 14C92/11A466"
 msgstr ""
 
@@ -1541,6 +1541,16 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
+#: WEIPDCRM/templates/admin/help/about.html:8
+#: WEIPDCRM/templates/admin/help/statistics.html:8
+msgid "Help"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/help/about.html:8
+#: WEIPDCRM/views/admin/help/about.py:36
+msgid "About"
+msgstr ""
+
 #: WEIPDCRM/templates/admin/help/about.html:15
 msgid "About DCRM"
 msgstr ""
@@ -1574,10 +1584,6 @@ msgid ""
 "under the terms of the <a href=\"http://www.gnu.org/licenses\">GNU Affero "
 "General Public License</a> as published by the Free Software Foundation "
 "either version 3 of the License."
-msgstr ""
-
-#: WEIPDCRM/templates/admin/help/statistics.html:8
-msgid "Help"
 msgstr ""
 
 #: WEIPDCRM/templates/admin/help/statistics.html:15
@@ -1617,6 +1623,10 @@ msgstr ""
 msgid "Repository Format"
 msgstr ""
 
+#: WEIPDCRM/templates/admin/setting/change_action.html:5
+msgid "Save"
+msgstr ""
+
 #: WEIPDCRM/templates/admin/upload.html:54
 msgid "Upload New Package"
 msgstr ""
@@ -1652,6 +1662,10 @@ msgstr ""
 
 #: WEIPDCRM/templates/admin/upload.html:83
 msgid "If you want to import all packages in <b>Upload Root</b>"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/upload.html:84
+msgid "Import Packages"
 msgstr ""
 
 #: WEIPDCRM/templates/admin/upload.html:123
@@ -1760,12 +1774,36 @@ msgstr ""
 msgid "Internal Server Error"
 msgstr ""
 
-#: WEIPDCRM/views/admin/help/about.py:36
-msgid "About"
+#: WEIPDCRM/views/admin/help/statistics.py:63
+msgid "Number of packages"
+msgstr ""
+
+#: WEIPDCRM/views/admin/help/statistics.py:64
+msgid "Number of enabled packages"
 msgstr ""
 
 #: WEIPDCRM/views/admin/help/statistics.py:65
+msgid "Number of sections"
+msgstr ""
+
+#: WEIPDCRM/views/admin/help/statistics.py:66
+msgid "Total download times"
+msgstr ""
+
+#: WEIPDCRM/views/admin/help/statistics.py:67
+msgid "Temp pool size"
+msgstr ""
+
+#: WEIPDCRM/views/admin/help/statistics.py:68
 msgid "Clean"
+msgstr ""
+
+#: WEIPDCRM/views/admin/help/statistics.py:69
+msgid "Download pool size"
+msgstr ""
+
+#: WEIPDCRM/views/admin/help/statistics.py:70
+msgid "Total resource size"
 msgstr ""
 
 #: WEIPDCRM/views/admin/release.py:45

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-11 17:18+0800\n"
+"POT-Creation-Date: 2020-04-17 01:07+0800\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr "حزمة جديدة"
 #: WEIPDCRM/apps.py:77 WEIPDCRM/manage/admin/setting.py:174
 #: WEIPDCRM/manage/admin/version.py:225
 #: WEIPDCRM/templates/admin/help/statistics.html:8
-#: WEIPDCRM/views/admin/help/statistics.py:99
+#: WEIPDCRM/views/admin/help/statistics.py:105
 msgid "Statistics"
 msgstr "المعلومات الإحصائية"
 
@@ -96,7 +96,7 @@ msgstr "الشكل"
 msgid "Package"
 msgstr "الحزمة"
 
-#: WEIPDCRM/manage/admin/package.py:58 WEIPDCRM/models/os_version.py:51
+#: WEIPDCRM/manage/admin/package.py:58 WEIPDCRM/models/os_version.py:52
 #: WEIPDCRM/models/package.py:65 WEIPDCRM/models/release.py:87
 #: WEIPDCRM/models/version.py:152 WEIPDCRM/models/version.py:534
 msgid "Version"
@@ -165,8 +165,8 @@ msgstr "الموقع الحالي"
 
 #: WEIPDCRM/manage/admin/setting.py:62 WEIPDCRM/manage/admin/setting.py:71
 #: WEIPDCRM/manage/admin/setting.py:86 WEIPDCRM/manage/admin/setting.py:99
-#: WEIPDCRM/manage/admin/setting.py:106 WEIPDCRM/models/device_type.py:44
-#: WEIPDCRM/models/os_version.py:45 WEIPDCRM/models/version.py:169
+#: WEIPDCRM/manage/admin/setting.py:106 WEIPDCRM/models/device_type.py:45
+#: WEIPDCRM/models/os_version.py:46 WEIPDCRM/models/version.py:169
 msgid "Enabled"
 msgstr "تفعيل"
 
@@ -330,7 +330,7 @@ msgstr "المؤلف"
 msgid "Sponsor"
 msgstr "الراعي"
 
-#: WEIPDCRM/manage/admin/version.py:175 WEIPDCRM/models/device_type.py:60
+#: WEIPDCRM/manage/admin/version.py:175 WEIPDCRM/models/device_type.py:61
 msgid "Platform"
 msgstr "المنصة"
 
@@ -381,7 +381,7 @@ msgid ""
 "has been added to the \"<a href=\"%(jobs)s\">high</a>\" queue."
 msgstr ""
 
-#: WEIPDCRM/models/build.py:45 WEIPDCRM/models/os_version.py:56
+#: WEIPDCRM/models/build.py:45 WEIPDCRM/models/os_version.py:57
 msgid "Build"
 msgstr "بناء"
 
@@ -393,8 +393,8 @@ msgstr "بناء"
 msgid "UUID"
 msgstr "UUID"
 
-#: WEIPDCRM/models/build.py:56 WEIPDCRM/models/device_type.py:46
-#: WEIPDCRM/models/os_version.py:47 WEIPDCRM/models/package.py:58
+#: WEIPDCRM/models/build.py:56 WEIPDCRM/models/device_type.py:47
+#: WEIPDCRM/models/os_version.py:48 WEIPDCRM/models/package.py:58
 #: WEIPDCRM/models/release.py:51 WEIPDCRM/models/section.py:63
 #: WEIPDCRM/models/version.py:174
 msgid "Created At"
@@ -438,32 +438,32 @@ msgstr "نوع الجهاز"
 msgid "Device Types"
 msgstr "انواع الاجهزة"
 
-#: WEIPDCRM/models/device_type.py:50
+#: WEIPDCRM/models/device_type.py:51
 msgid "Descriptor"
 msgstr "الوصف"
 
-#: WEIPDCRM/models/device_type.py:52
+#: WEIPDCRM/models/device_type.py:53
 msgid "Example: iPhone 7 Plus"
 msgstr "مثال: iPhone 7 Plus"
 
-#: WEIPDCRM/models/device_type.py:55
+#: WEIPDCRM/models/device_type.py:56
 msgid "Subtype"
 msgstr "العنوان الفرعي"
 
-#: WEIPDCRM/models/device_type.py:57
+#: WEIPDCRM/models/device_type.py:58
 msgid "Example: iPhone9,2"
 msgstr "مثال: iPhone9,2"
 
-#: WEIPDCRM/models/device_type.py:62
+#: WEIPDCRM/models/device_type.py:63
 msgid "Example: A1661/A1784/A1785"
 msgstr "مثال: A1661/A1784/A1785"
 
-#: WEIPDCRM/models/device_type.py:69 WEIPDCRM/models/os_version.py:64
+#: WEIPDCRM/models/device_type.py:70 WEIPDCRM/models/os_version.py:65
 #: WEIPDCRM/models/section.py:79 WEIPDCRM/models/version.py:285
 msgid "Icon"
 msgstr ""
 
-#: WEIPDCRM/models/device_type.py:72 WEIPDCRM/models/os_version.py:67
+#: WEIPDCRM/models/device_type.py:73 WEIPDCRM/models/os_version.py:68
 #: WEIPDCRM/models/release.py:152 WEIPDCRM/models/section.py:82
 #: WEIPDCRM/models/setting.py:411 WEIPDCRM/models/version.py:262
 msgid "Choose an Icon (*.png) to upload"
@@ -477,11 +477,11 @@ msgstr "iOS اصدار"
 msgid "iOS Versions"
 msgstr "iOS اصدارات"
 
-#: WEIPDCRM/models/os_version.py:53
+#: WEIPDCRM/models/os_version.py:54
 msgid "Example: 10.2"
 msgstr "مثال: 10.2"
 
-#: WEIPDCRM/models/os_version.py:58
+#: WEIPDCRM/models/os_version.py:59
 msgid "Example: 14C92/11A466"
 msgstr "مثال: 14C92/11A466"
 
@@ -1639,6 +1639,16 @@ msgstr "قائمة أجهزة iOS"
 msgid "Home"
 msgstr "الرئيسية"
 
+#: WEIPDCRM/templates/admin/help/about.html:8
+#: WEIPDCRM/templates/admin/help/statistics.html:8
+msgid "Help"
+msgstr "المساعدة"
+
+#: WEIPDCRM/templates/admin/help/about.html:8
+#: WEIPDCRM/views/admin/help/about.py:36
+msgid "About"
+msgstr "حول"
+
 #: WEIPDCRM/templates/admin/help/about.html:15
 msgid "About DCRM"
 msgstr "حول DCRM"
@@ -1673,10 +1683,6 @@ msgid ""
 "General Public License</a> as published by the Free Software Foundation "
 "either version 3 of the License."
 msgstr ""
-
-#: WEIPDCRM/templates/admin/help/statistics.html:8
-msgid "Help"
-msgstr "المساعدة"
 
 #: WEIPDCRM/templates/admin/help/statistics.html:15
 msgid "DataBase Status"
@@ -1716,6 +1722,10 @@ msgstr "Saurik's Cydia"
 msgid "Repository Format"
 msgstr "صيغة Repository"
 
+#: WEIPDCRM/templates/admin/setting/change_action.html:5
+msgid "Save"
+msgstr ""
+
 #: WEIPDCRM/templates/admin/upload.html:54
 msgid "Upload New Package"
 msgstr "رفع حزمة جديدة"
@@ -1752,6 +1762,12 @@ msgstr ""
 #: WEIPDCRM/templates/admin/upload.html:83
 msgid "If you want to import all packages in <b>Upload Root</b>"
 msgstr ""
+
+#: WEIPDCRM/templates/admin/upload.html:84
+#, fuzzy
+#| msgid "Packages"
+msgid "Import Packages"
+msgstr "الحزم"
 
 #: WEIPDCRM/templates/admin/upload.html:123
 #: WEIPDCRM/templates/admin/upload_image.html:73
@@ -1859,13 +1875,45 @@ msgstr "غير موجود"
 msgid "Internal Server Error"
 msgstr "خطأ في الخادم الداخلي"
 
-#: WEIPDCRM/views/admin/help/about.py:36
-msgid "About"
-msgstr "حول"
+#: WEIPDCRM/views/admin/help/statistics.py:63
+#, fuzzy
+#| msgid "New Package"
+msgid "Number of packages"
+msgstr "حزمة جديدة"
+
+#: WEIPDCRM/views/admin/help/statistics.py:64
+#, fuzzy
+#| msgid "No enabled package available."
+msgid "Number of enabled packages"
+msgstr "لا توجد حزمة متاحة"
 
 #: WEIPDCRM/views/admin/help/statistics.py:65
+msgid "Number of sections"
+msgstr ""
+
+#: WEIPDCRM/views/admin/help/statistics.py:66
+#, fuzzy
+#| msgid "Download Times"
+msgid "Total download times"
+msgstr "مرات التحميل"
+
+#: WEIPDCRM/views/admin/help/statistics.py:67
+msgid "Temp pool size"
+msgstr ""
+
+#: WEIPDCRM/views/admin/help/statistics.py:68
 msgid "Clean"
 msgstr "تنظيف"
+
+#: WEIPDCRM/views/admin/help/statistics.py:69
+#, fuzzy
+#| msgid "Download Times"
+msgid "Download pool size"
+msgstr "مرات التحميل"
+
+#: WEIPDCRM/views/admin/help/statistics.py:70
+msgid "Total resource size"
+msgstr ""
 
 #: WEIPDCRM/views/admin/release.py:45
 #, python-format

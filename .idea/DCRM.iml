@@ -20,13 +20,13 @@
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
+    <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/suit/templates" />
+        <option value="$MODULE_DIR$/WEIPDCRM/templates" />
+        <option value="$MODULE_DIR$/WEIPDCRM/styles/DefaultStyle/templates" />
       </list>
     </option>
-  </component>
-  <component name="TestRunnerService">
-    <option name="PROJECT_TEST_RUNNER" value="Unittests" />
   </component>
 </module>

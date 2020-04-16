@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-11 17:18+0800\n"
+"POT-Creation-Date: 2020-04-17 01:07+0800\n"
 "PO-Revision-Date: 2017-04-03 23:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: 82Flex Team <i.82@me.com>\n"
@@ -30,7 +30,7 @@ msgstr "新软件包"
 #: WEIPDCRM/apps.py:77 WEIPDCRM/manage/admin/setting.py:174
 #: WEIPDCRM/manage/admin/version.py:225
 #: WEIPDCRM/templates/admin/help/statistics.html:8
-#: WEIPDCRM/views/admin/help/statistics.py:99
+#: WEIPDCRM/views/admin/help/statistics.py:105
 msgid "Statistics"
 msgstr "统计信息"
 
@@ -106,7 +106,7 @@ msgstr "外观"
 msgid "Package"
 msgstr "软件包"
 
-#: WEIPDCRM/manage/admin/package.py:58 WEIPDCRM/models/os_version.py:51
+#: WEIPDCRM/manage/admin/package.py:58 WEIPDCRM/models/os_version.py:52
 #: WEIPDCRM/models/package.py:65 WEIPDCRM/models/release.py:87
 #: WEIPDCRM/models/version.py:152 WEIPDCRM/models/version.py:534
 msgid "Version"
@@ -174,8 +174,8 @@ msgstr "当前站点"
 
 #: WEIPDCRM/manage/admin/setting.py:62 WEIPDCRM/manage/admin/setting.py:71
 #: WEIPDCRM/manage/admin/setting.py:86 WEIPDCRM/manage/admin/setting.py:99
-#: WEIPDCRM/manage/admin/setting.py:106 WEIPDCRM/models/device_type.py:44
-#: WEIPDCRM/models/os_version.py:45 WEIPDCRM/models/version.py:169
+#: WEIPDCRM/manage/admin/setting.py:106 WEIPDCRM/models/device_type.py:45
+#: WEIPDCRM/models/os_version.py:46 WEIPDCRM/models/version.py:169
 msgid "Enabled"
 msgstr "启用"
 
@@ -339,7 +339,7 @@ msgstr "作者"
 msgid "Sponsor"
 msgstr "发起者"
 
-#: WEIPDCRM/manage/admin/version.py:175 WEIPDCRM/models/device_type.py:60
+#: WEIPDCRM/manage/admin/version.py:175 WEIPDCRM/models/device_type.py:61
 msgid "Platform"
 msgstr "平台"
 
@@ -392,7 +392,7 @@ msgstr ""
 "版本 \"<a href=\"%(job_detail)s\">%(obj)s</a>\" 存储同步任务 已经被添加至 "
 "\"<a href=\"%(jobs)s\">high</a>\" 队列."
 
-#: WEIPDCRM/models/build.py:45 WEIPDCRM/models/os_version.py:56
+#: WEIPDCRM/models/build.py:45 WEIPDCRM/models/os_version.py:57
 msgid "Build"
 msgstr "构建"
 
@@ -404,8 +404,8 @@ msgstr "构建"
 msgid "UUID"
 msgstr "UUID"
 
-#: WEIPDCRM/models/build.py:56 WEIPDCRM/models/device_type.py:46
-#: WEIPDCRM/models/os_version.py:47 WEIPDCRM/models/package.py:58
+#: WEIPDCRM/models/build.py:56 WEIPDCRM/models/device_type.py:47
+#: WEIPDCRM/models/os_version.py:48 WEIPDCRM/models/package.py:58
 #: WEIPDCRM/models/release.py:51 WEIPDCRM/models/section.py:63
 #: WEIPDCRM/models/version.py:174
 msgid "Created At"
@@ -449,32 +449,32 @@ msgstr "设备类型"
 msgid "Device Types"
 msgstr "设备类型"
 
-#: WEIPDCRM/models/device_type.py:50
+#: WEIPDCRM/models/device_type.py:51
 msgid "Descriptor"
 msgstr "描述符"
 
-#: WEIPDCRM/models/device_type.py:52
+#: WEIPDCRM/models/device_type.py:53
 msgid "Example: iPhone 7 Plus"
 msgstr "例: iPhone 7 Plus"
 
-#: WEIPDCRM/models/device_type.py:55
+#: WEIPDCRM/models/device_type.py:56
 msgid "Subtype"
 msgstr "子类型"
 
-#: WEIPDCRM/models/device_type.py:57
+#: WEIPDCRM/models/device_type.py:58
 msgid "Example: iPhone9,2"
 msgstr "例: iPhone9,2"
 
-#: WEIPDCRM/models/device_type.py:62
+#: WEIPDCRM/models/device_type.py:63
 msgid "Example: A1661/A1784/A1785"
 msgstr "例: A1661/A1784/A1785"
 
-#: WEIPDCRM/models/device_type.py:69 WEIPDCRM/models/os_version.py:64
+#: WEIPDCRM/models/device_type.py:70 WEIPDCRM/models/os_version.py:65
 #: WEIPDCRM/models/section.py:79 WEIPDCRM/models/version.py:285
 msgid "Icon"
 msgstr "图标"
 
-#: WEIPDCRM/models/device_type.py:72 WEIPDCRM/models/os_version.py:67
+#: WEIPDCRM/models/device_type.py:73 WEIPDCRM/models/os_version.py:68
 #: WEIPDCRM/models/release.py:152 WEIPDCRM/models/section.py:82
 #: WEIPDCRM/models/setting.py:411 WEIPDCRM/models/version.py:262
 msgid "Choose an Icon (*.png) to upload"
@@ -488,11 +488,11 @@ msgstr "iOS 版本"
 msgid "iOS Versions"
 msgstr "iOS 版本"
 
-#: WEIPDCRM/models/os_version.py:53
+#: WEIPDCRM/models/os_version.py:54
 msgid "Example: 10.2"
 msgstr "例: 10.2"
 
-#: WEIPDCRM/models/os_version.py:58
+#: WEIPDCRM/models/os_version.py:59
 msgid "Example: 14C92/11A466"
 msgstr "例: 14C92/11A466"
 
@@ -863,7 +863,7 @@ msgstr ""
 
 #: WEIPDCRM/models/setting.py:205
 msgid "GPG Password"
-msgstr ""
+msgstr "GPG 密码"
 
 #: WEIPDCRM/models/setting.py:212
 msgid "Web Server"
@@ -1611,6 +1611,16 @@ msgstr "iOS 设备列表"
 msgid "Home"
 msgstr "首页"
 
+#: WEIPDCRM/templates/admin/help/about.html:8
+#: WEIPDCRM/templates/admin/help/statistics.html:8
+msgid "Help"
+msgstr "帮助"
+
+#: WEIPDCRM/templates/admin/help/about.html:8
+#: WEIPDCRM/views/admin/help/about.py:36
+msgid "About"
+msgstr "关于"
+
 #: WEIPDCRM/templates/admin/help/about.html:15
 msgid "About DCRM"
 msgstr "关于 DCRM"
@@ -1637,6 +1647,19 @@ msgid ""
 "            Copyright &copy; 2020 Zheng Wu. All Rights Reserved.<br />\n"
 "            "
 msgstr ""
+"\n"
+"            版本: %(version)s<br />\n"
+"            开源的 Cydia™/APT 软件源管理系统.<br /><br />\n"
+"            <!-- We strongly recommend you to use https instead of http to "
+"ensure transfer security.<br /-->\n"
+"            后端: <a href=\"http://weibo.com/82flex\">@i_82</a><br />\n"
+"            前端: <a href=\"http://weibo.com/jacky189\">@0xJacky</a><br />\n"
+"            特别感谢: <a href=\"https://twitter.com/saurik\">Saurik</a>/<a "
+"href=\"https://www.djangoproject.com/\">Django</a>/<a href=\"https://github."
+"com/darklow/django-suit\">Django Suit</a>/<a href=\"https://github.com/ui/"
+"django-rq\">Django RQ</a><br /><br />\n"
+"            版权所有 &copy; 2020 Zheng Wu. 保留所有权利.<br />\n"
+"            "
 
 #: WEIPDCRM/templates/admin/help/about.html:30
 msgid ""
@@ -1645,10 +1668,6 @@ msgid ""
 "General Public License</a> as published by the Free Software Foundation "
 "either version 3 of the License."
 msgstr ""
-
-#: WEIPDCRM/templates/admin/help/statistics.html:8
-msgid "Help"
-msgstr "帮助"
 
 #: WEIPDCRM/templates/admin/help/statistics.html:15
 msgid "DataBase Status"
@@ -1687,6 +1706,10 @@ msgstr "Saurik 的 Cydia"
 msgid "Repository Format"
 msgstr "存储库格式"
 
+#: WEIPDCRM/templates/admin/setting/change_action.html:5
+msgid "Save"
+msgstr "保存"
+
 #: WEIPDCRM/templates/admin/upload.html:54
 msgid "Upload New Package"
 msgstr "上传新软件包"
@@ -1699,7 +1722,7 @@ msgstr "Debian 软件包 (*.deb)"
 
 #: WEIPDCRM/templates/admin/upload.html:75
 msgid "Import Guide"
-msgstr ""
+msgstr "导入向导"
 
 #: WEIPDCRM/templates/admin/upload.html:80
 msgid "Allowed file extensions: deb"
@@ -1707,11 +1730,11 @@ msgstr "支持的文件扩展名: deb"
 
 #: WEIPDCRM/templates/admin/upload.html:81
 msgid "Package manager for Debian: "
-msgstr ""
+msgstr "Debian 软件包管理器: "
 
 #: WEIPDCRM/templates/admin/upload.html:81
 msgid "dpkg(1)"
-msgstr ""
+msgstr "dpkg(1)"
 
 #: WEIPDCRM/templates/admin/upload.html:82
 msgid ""
@@ -1719,10 +1742,18 @@ msgid ""
 "<code>client_max_body_size</code> in <a href=\"https://nginx.org/en/docs/"
 "http/ngx_http_core_module.html\" target=\"_blank\">Nginx configuration</a>."
 msgstr ""
+"如果你遇到了 http 状态码 <code>413 request entity too large</code>, 那么你需"
+"要修改并提高 <code>client_max_body_size</code> 的数值, 可参考此官方文档 <a "
+"href=\"https://nginx.org/en/docs/http/ngx_http_core_module.html\" target="
+"\"_blank\">Nginx 配置</a>."
 
 #: WEIPDCRM/templates/admin/upload.html:83
 msgid "If you want to import all packages in <b>Upload Root</b>"
-msgstr ""
+msgstr "如果你想要导入<b>上传根目录</b>下所有的软件包"
+
+#: WEIPDCRM/templates/admin/upload.html:84
+msgid "Import Packages"
+msgstr "导入软件包"
 
 #: WEIPDCRM/templates/admin/upload.html:123
 #: WEIPDCRM/templates/admin/upload_image.html:73
@@ -1833,19 +1864,43 @@ msgstr "找不到文件"
 msgid "Internal Server Error"
 msgstr "内部服务器错误"
 
-#: WEIPDCRM/views/admin/help/about.py:36
-msgid "About"
-msgstr "关于"
+#: WEIPDCRM/views/admin/help/statistics.py:63
+msgid "Number of packages"
+msgstr "软件包总数"
+
+#: WEIPDCRM/views/admin/help/statistics.py:64
+msgid "Number of enabled packages"
+msgstr "已启用软件包总数"
 
 #: WEIPDCRM/views/admin/help/statistics.py:65
+msgid "Number of sections"
+msgstr "分类总数"
+
+#: WEIPDCRM/views/admin/help/statistics.py:66
+msgid "Total download times"
+msgstr "总下载次数"
+
+#: WEIPDCRM/views/admin/help/statistics.py:67
+msgid "Temp pool size"
+msgstr "缓存池尺寸"
+
+#: WEIPDCRM/views/admin/help/statistics.py:68
 msgid "Clean"
 msgstr "清理"
+
+#: WEIPDCRM/views/admin/help/statistics.py:69
+msgid "Download pool size"
+msgstr "下载池尺寸"
+
+#: WEIPDCRM/views/admin/help/statistics.py:70
+msgid "Total resource size"
+msgstr "资源尺寸总计"
 
 #: WEIPDCRM/views/admin/release.py:45
 #, python-format
 msgid ""
 "Active release \"<a href=\"%(release_url)s\">%(release)s</a>\" has been set."
-msgstr ""
+msgstr "活跃元数据 \"<a href=\"%(release_url)s\">%(release)s</a>\" 已设定."
 
 #: WEIPDCRM/views/admin/upload.py:97
 #, python-format
@@ -1862,8 +1917,8 @@ msgid ""
 "Active release not set: you cannot publish your repository without an active "
 "release. <a href=\"%s\">Add Release</a>"
 msgstr ""
-"活跃元数据未设置: 在完成设置之前, 您无法发布您的存储库. <a href=\"%s\">Add "
-"Release</a>"
+"活跃元数据未设置: 在完成设置之前, 您无法发布您的存储库. <a href=\"%s\">添加元"
+"数据</a>"
 
 #: WEIPDCRM/views/admin/upload.py:333 WEIPDCRM/views/admin/upload.py:345
 #: WEIPDCRM/views/admin/upload.py:374 WEIPDCRM/views/admin/upload.py:491
@@ -1882,7 +1937,7 @@ msgstr "上传新软件包"
 
 #: WEIPDCRM/views/admin/upload.py:399
 msgid "To use this action, you must enable <b>Redis Queue</b>."
-msgstr ""
+msgstr "你必须启用 <b>Redis 队列</b> 以进行该操作."
 
 #: WEIPDCRM/views/admin/upload.py:424
 #, python-format
