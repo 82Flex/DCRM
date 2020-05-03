@@ -25,7 +25,6 @@ olefile==0.46
 packaging==20.3
 Pillow==7.1.1
 pyparsing==2.4.7
-python-akismet==0.4.1
 python-dateutil==2.8.1
 python-debian==0.1.37
 python-dotenv==0.13.0
