@@ -217,8 +217,7 @@ class SettingAdmin(PreferencesAdmin):
         }),
         (_('Server'), {
             'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['web_server', 'redirect_resources', 'redirect_prefix',
-                       'download_count', 'download_cydia_only']
+            'fields': ['download_count', 'download_cydia_only', 'web_server', 'redirect_resources', 'redirect_prefix']
         }),
         # Third Party
     ]

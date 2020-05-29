@@ -1,28 +1,32 @@
-appdirs==1.4.3
+appdirs==1.4.4
 certifi==2020.4.5.1
 chardet==3.0.4
 Click==7.1.2
-croniter==0.3.31
-Django==1.11.28  # fixed
-django-contrib-comments==1.9.2
-django-crispy-forms==1.9.0
+croniter==0.3.32
+Django==1.11.29  # fixed
+#django-contrib-comments==1.9.2
+git+git://github.com/django/django-contrib-comments.git@f498cee0e04a4bcd4e061b25805c83ef08e9e536#egg=django-contrib-comments
+django-crispy-forms==1.9.1
 django-filter==2.2.0
 django-fluent-comments==2.1
 django-model-utils==3.2.0  # fixed
-django-photologue==3.11
+#django-photologue==3.11
+git+git://github.com/richardbarran/django-photologue.git@743d7ab78b720d9f8afa4dc3933163dffc690aae#egg=django-photologue
 django-redis-cache==2.1.1
 django-rq==2.1.0  # fixed
-django-rq-scheduler==1.1.3
+#django-rq-scheduler==1.1.3
+git+git://github.com/Lessica/django-rq-scheduler.git@eeed256c7d37bce46cd30b24458c149528b4b180#egg=django-rq-scheduler
 django-sortedm2m==3.0.0
 django-tag-parser==3.2
-django-threadedcomments==1.2
+#django-threadedcomments==1.2
+git+git://github.com/Lessica/django-threadedcomments.git@266100f85570701ee6134e531ee1293584680c11#egg=django-threadedcomments
 djangorestframework==3.11.0
 ExifRead==2.1.2
 generic==1.0.0
 idna==2.9
 mysqlclient==1.4.6
 olefile==0.46
-packaging==20.3
+packaging==20.4
 Pillow==7.1.2
 pyparsing==2.4.7
 python-akismet==0.4.2
@@ -31,11 +35,11 @@ python-debian==0.1.37
 python-dotenv==0.13.0
 python-memcached==1.59
 pytz==2020.1
-redis==3.4.1  # fixed
+redis==3.5.2
 requests==2.23.0
-rq==1.3.0
+rq==1.3.0  # fixed
 rq-scheduler==0.9.1  # fixed
-six==1.14.0
+six==1.15.0
 sqlparse==0.3.1
 urllib3==1.25.9
 uWSGI==2.0.18
