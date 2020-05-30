@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-31 01:57+0800\n"
+"POT-Creation-Date: 2020-05-31 02:55+0800\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr "حزمة جديدة"
 
 #: WEIPDCRM/apps.py:77 WEIPDCRM/manage/admin/setting.py:174
 #: WEIPDCRM/manage/admin/version.py:225
-#: WEIPDCRM/templates/admin/help/statistics.html:8
+#: WEIPDCRM/templates/admin/help/statistics.html:13
 #: WEIPDCRM/views/admin/help/statistics.py:105
 msgid "Statistics"
 msgstr "المعلومات الإحصائية"
@@ -883,8 +883,6 @@ msgid "Tomcat"
 msgstr ""
 
 #: WEIPDCRM/models/setting.py:219
-#, fuzzy
-#| msgid "This will help DCRM redirect download request properly."
 msgid ""
 "This will help DCRM redirect download request properly. Only works when "
 "\"Redirect Methods\" is \"Accel\"."
@@ -923,11 +921,6 @@ msgid "Redirect Prefix"
 msgstr "بادئة إعادة التوجيه"
 
 #: WEIPDCRM/models/setting.py:245
-#, fuzzy
-#| msgid ""
-#| "Changing scheme and host of the url in package downloading requests, "
-#| "which is useful for load balancing or CDN speedup.<br />Example: https://"
-#| "cdn.82flex.com/"
 msgid ""
 "Changing scheme and host of the url in package downloading requests, which "
 "is useful for load balancing or CDN speedup. Only works when \"Redirect "
@@ -1666,14 +1659,14 @@ msgid "List of iOS Devices"
 msgstr "قائمة أجهزة iOS"
 
 #: WEIPDCRM/templates/admin/help/about.html:7
-#: WEIPDCRM/templates/admin/help/statistics.html:7
+#: WEIPDCRM/templates/admin/help/statistics.html:12
 #: WEIPDCRM/templates/admin/upload.html:38
 #: WEIPDCRM/templates/admin/upload_image.html:7
 msgid "Home"
 msgstr "الرئيسية"
 
 #: WEIPDCRM/templates/admin/help/about.html:8
-#: WEIPDCRM/templates/admin/help/statistics.html:8
+#: WEIPDCRM/templates/admin/help/statistics.html:13
 msgid "Help"
 msgstr "المساعدة"
 
@@ -1712,24 +1705,34 @@ msgid ""
 "either version 3 of the License."
 msgstr ""
 
-#: WEIPDCRM/templates/admin/help/statistics.html:15
-msgid "DataBase Status"
+#: WEIPDCRM/templates/admin/help/statistics.html:20
+msgid "Cache Status"
+msgstr "حالة Cache"
+
+#: WEIPDCRM/templates/admin/help/statistics.html:24
+msgid "Flush All"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/help/statistics.html:29
+msgid "Database Status"
 msgstr "حالة قاعدة البيانات"
 
-#: WEIPDCRM/templates/admin/help/statistics.html:25
-msgid "Repo Statistics"
+#: WEIPDCRM/templates/admin/help/statistics.html:39
+msgid "Repository Statistics"
 msgstr "Repo احصائية ال"
 
-#: WEIPDCRM/templates/admin/help/statistics.html:40
-msgid "Are you sure to clean the cache?"
+#: WEIPDCRM/templates/admin/help/statistics.html:54
+msgid "Are you sure to clean temporarily files and caches?"
 msgstr "هل أنت متأكد من تنظيف ذاكرة التخزين المؤقت؟"
 
-#: WEIPDCRM/templates/admin/help/statistics.html:51
-msgid "Cache cleanup completed!"
-msgstr "اكتمل تنظيف الذاكرة المءقت"
+#: WEIPDCRM/templates/admin/help/statistics.html:65
+msgid "Complete: cleanup temporarily files and caches."
+msgstr ""
 
-#: WEIPDCRM/templates/admin/help/statistics.html:54
-msgid "Fail to cleanup cache, error message has been written to the console"
+#: WEIPDCRM/templates/admin/help/statistics.html:68
+msgid ""
+"Fail to cleanup temporarily files and caches: error messages wrote to "
+"console."
 msgstr ""
 "فشل في تنظيف ذاكرة التخزين المؤقت ، تمت كتابة رسالة خطأ إلى وحدة التحكم"
 
@@ -1922,7 +1925,7 @@ msgid "Total download times"
 msgstr ""
 
 #: WEIPDCRM/views/admin/help/statistics.py:67
-msgid "Temp pool size"
+msgid "Temporarily files"
 msgstr ""
 
 #: WEIPDCRM/views/admin/help/statistics.py:68
@@ -1930,11 +1933,11 @@ msgid "Clean"
 msgstr "تنظيف"
 
 #: WEIPDCRM/views/admin/help/statistics.py:69
-msgid "Download pool size"
+msgid "Downloadable files"
 msgstr ""
 
 #: WEIPDCRM/views/admin/help/statistics.py:70
-msgid "Total resource size"
+msgid "Total resources"
 msgstr ""
 
 #: WEIPDCRM/views/admin/release.py:45

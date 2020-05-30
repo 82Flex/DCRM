@@ -1,6 +1,11 @@
 {% extends "admin/base_site.html" %}
 
-{% load i18n %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "memcache_status.css" %}"/>
+{% endblock %}
 
 {% block breadcrumbs %}
 <div class="breadcrumbs">
@@ -10,53 +15,62 @@
 {% endblock %}
 
 {% block content %}
-<div class="card">
-    <div class="card-header">
-        {% trans "DataBase Status" %}
+    <div class="card">
+        <div class="card-header">
+            {% trans "Cache Status" %}
+        </div>
+        <div class="card-block">
+            {% include "memcache_status/memcache_status.html" %}
+            <a href="javascript:;" onclick="clean_all()">{% trans "Flush All" %}</a>
+        </div>
     </div>
-    <div class="card-block">
-        {% for key,value in db_status.items %}
-            <p style="margin-bottom: 5px">{{ key }}: {{ value }}</p>
-        {% endfor %}
+    <div class="card">
+        <div class="card-header">
+            {% trans "Database Status" %}
+        </div>
+        <div class="card-block">
+            {% for key,value in db_status.items %}
+                <p style="margin-bottom: 5px">{{ key }}: {{ value }}</p>
+            {% endfor %}
+        </div>
     </div>
-</div>
-<div class="card">
-    <div class="card-header">
-        {% trans "Repo Statistics" %}
+    <div class="card">
+        <div class="card-header">
+            {% trans "Repository Statistics" %}
+        </div>
+        <div class="card-block">
+        {% autoescape off %}
+            {% for key,value in stat.items %}
+                <p style="margin-bottom: 5px">{% trans key %}: {{ value }}</p>
+            {% endfor %}
+            {% if settings.internal_statistics %}
+              {{ settings.internal_statistics }}
+            {% endif %}
+        {% endautoescape %}
+        </div>
     </div>
-    <div class="card-block">
-    {% autoescape off %}
-        {% for key,value in stat.items %}
-            <p style="margin-bottom: 5px">{% trans key %}: {{ value }}</p>
-        {% endfor %}
-        {% if settings.internal_statistics %}
-          {{ settings.internal_statistics }}
-        {% endif %}
-    {% endautoescape %}
-    </div>
-</div>
-<script type="text/javascript">
-function clean() {
-    if (confirm("{% trans "Are you sure to clean the cache?" %}")) {
-        var xhr = new XMLHttpRequest();
-        var msg = '';
-        xhr.timeout = 30000;
-        xhr.responseType = "json";
-        xhr.open("POST", "", true);
-        var body = new FormData();
-        body.append("action", "clean");
-        body.append("csrfmiddlewaretoken", '{{ csrf_token }}');
-        xhr.onload = function (e) {
-            if (this.status === 200 && this.response['status'] === true) {
-                alert('{% trans "Cache cleanup completed!" %}');
-                window.location.reload();
-            } else {
-                alert(msg = '{% trans "Fail to cleanup cache, error message has been written to the console" %}');
-                console.error(this.response['exception']);
-            }
-        };
-        xhr.send(body);
+    <script type="text/javascript">
+    function clean_all() {
+        if (confirm("{% trans "Are you sure to clean temporarily files and caches?" %}")) {
+            var xhr = new XMLHttpRequest();
+            var msg = '';
+            xhr.timeout = 30000;
+            xhr.responseType = "json";
+            xhr.open("POST", "", true);
+            var body = new FormData();
+            body.append("action", "clean_all");
+            body.append("csrfmiddlewaretoken", '{{ csrf_token }}');
+            xhr.onload = function (e) {
+                if (this.status === 200 && this.response['status'] === true) {
+                    alert('{% trans "Complete: cleanup temporarily files and caches." %}');
+                    window.location.reload();
+                } else {
+                    alert(msg = '{% trans "Fail to cleanup temporarily files and caches: error messages wrote to console." %}');
+                    console.error(this.response['exception']);
+                }
+            };
+            xhr.send(body);
+        }
     }
-}
-</script>
+    </script>
 {% endblock %}

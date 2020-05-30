@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-31 01:57+0800\n"
+"POT-Creation-Date: 2020-05-31 02:55+0800\n"
 "PO-Revision-Date: 2017-04-03 23:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: 82Flex Team <i.82@me.com>\n"
@@ -29,7 +29,7 @@ msgstr "新软件包"
 
 #: WEIPDCRM/apps.py:77 WEIPDCRM/manage/admin/setting.py:174
 #: WEIPDCRM/manage/admin/version.py:225
-#: WEIPDCRM/templates/admin/help/statistics.html:8
+#: WEIPDCRM/templates/admin/help/statistics.html:13
 #: WEIPDCRM/views/admin/help/statistics.py:105
 msgid "Statistics"
 msgstr "统计信息"
@@ -1634,14 +1634,14 @@ msgid "List of iOS Devices"
 msgstr "iOS 设备列表"
 
 #: WEIPDCRM/templates/admin/help/about.html:7
-#: WEIPDCRM/templates/admin/help/statistics.html:7
+#: WEIPDCRM/templates/admin/help/statistics.html:12
 #: WEIPDCRM/templates/admin/upload.html:38
 #: WEIPDCRM/templates/admin/upload_image.html:7
 msgid "Home"
 msgstr "首页"
 
 #: WEIPDCRM/templates/admin/help/about.html:8
-#: WEIPDCRM/templates/admin/help/statistics.html:8
+#: WEIPDCRM/templates/admin/help/statistics.html:13
 msgid "Help"
 msgstr "帮助"
 
@@ -1693,25 +1693,35 @@ msgid ""
 "either version 3 of the License."
 msgstr ""
 
-#: WEIPDCRM/templates/admin/help/statistics.html:15
-msgid "DataBase Status"
+#: WEIPDCRM/templates/admin/help/statistics.html:20
+msgid "Cache Status"
+msgstr "缓存状态"
+
+#: WEIPDCRM/templates/admin/help/statistics.html:24
+msgid "Flush All"
+msgstr "刷新缓存"
+
+#: WEIPDCRM/templates/admin/help/statistics.html:29
+msgid "Database Status"
 msgstr "数据库状态"
 
-#: WEIPDCRM/templates/admin/help/statistics.html:25
-msgid "Repo Statistics"
+#: WEIPDCRM/templates/admin/help/statistics.html:39
+msgid "Repository Statistics"
 msgstr "存储库统计信息"
 
-#: WEIPDCRM/templates/admin/help/statistics.html:40
-msgid "Are you sure to clean the cache?"
-msgstr "您确定要清理缓存吗? "
-
-#: WEIPDCRM/templates/admin/help/statistics.html:51
-msgid "Cache cleanup completed!"
-msgstr "缓存清理成功! "
-
 #: WEIPDCRM/templates/admin/help/statistics.html:54
-msgid "Fail to cleanup cache, error message has been written to the console"
-msgstr "无法清理缓存, 错误信息已被写入控制台. "
+msgid "Are you sure to clean temporarily files and caches?"
+msgstr "您确定要清理临时文件和缓存吗? "
+
+#: WEIPDCRM/templates/admin/help/statistics.html:65
+msgid "Complete: cleanup temporarily files and caches."
+msgstr "临时文件和缓存清理完成. "
+
+#: WEIPDCRM/templates/admin/help/statistics.html:68
+msgid ""
+"Fail to cleanup temporarily files and caches: error messages wrote to "
+"console."
+msgstr "无法清理临时文件和缓存, 错误信息已被写入控制台. "
 
 #: WEIPDCRM/templates/admin/new_change_form.html:13
 msgid "View on site"
@@ -1909,20 +1919,20 @@ msgid "Total download times"
 msgstr "总下载次数"
 
 #: WEIPDCRM/views/admin/help/statistics.py:67
-msgid "Temp pool size"
-msgstr "缓存池尺寸"
+msgid "Temporarily files"
+msgstr "临时文件"
 
 #: WEIPDCRM/views/admin/help/statistics.py:68
 msgid "Clean"
 msgstr "清理"
 
 #: WEIPDCRM/views/admin/help/statistics.py:69
-msgid "Download pool size"
-msgstr "下载池尺寸"
+msgid "Downloadable files"
+msgstr "可下载文件"
 
 #: WEIPDCRM/views/admin/help/statistics.py:70
-msgid "Total resource size"
-msgstr "资源尺寸总计"
+msgid "Total resources"
+msgstr "资源总计"
 
 #: WEIPDCRM/views/admin/release.py:45
 #, python-format

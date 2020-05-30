@@ -180,6 +180,7 @@ INSTALLED_APPS = [
     'django_comments',
     'sortedm2m',
     'photologue',
+    'memcache_status',
 ]
 
 if ENABLE_REDIS is True:

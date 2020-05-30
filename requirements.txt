@@ -9,6 +9,7 @@ git+git://github.com/django/django-contrib-comments.git@f498cee0e04a4bcd4e061b25
 django-crispy-forms==1.9.1
 django-filter==2.2.0
 django-fluent-comments==2.1
+django-memcache-status==2.2
 django-model-utils==3.2.0  # fixed
 #django-photologue==3.11
 git+git://github.com/richardbarran/django-photologue.git@743d7ab78b720d9f8afa4dc3933163dffc690aae#egg=django-photologue

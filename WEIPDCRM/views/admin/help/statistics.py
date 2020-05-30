@@ -23,6 +23,7 @@ from os.path import join, getsize
 
 from django.contrib import admin
 from django.contrib.admin.views.decorators import staff_member_required
+from django.core.cache import cache
 from django.shortcuts import render
 from django.utils.translation import ugettext as _
 from django.http import HttpResponse
@@ -64,10 +65,10 @@ def statistics():
     stat[_('Number of enabled packages')] = Version.objects.filter(enabled=1).count()
     stat[_('Number of sections')] = Section.objects.count()
     stat[_('Total download times')] = Version.objects.aggregate(Sum('download_times'))['download_times__sum']
-    stat[_('Temp pool size')] = nicesize(getdirsize(TEMP_ROOT)) + ' <a href="javascript:;" onclick="clean()">' + _(
+    stat[_('Temporarily files')] = nicesize(getdirsize(TEMP_ROOT)) + ' <a href="javascript:;" onclick="clean_all()">' + _(
         'Clean') + "</a>"
-    stat[_('Download pool size')] = nicesize(download_pool_size)
-    stat[_('Total resource size')] = nicesize(getdirsize(MEDIA_ROOT))
+    stat[_('Downloadable files')] = nicesize(download_pool_size)
+    stat[_('Total resources')] = nicesize(getdirsize(MEDIA_ROOT))
     return stat
 
 
@@ -105,22 +106,24 @@ def statistics_view(request):
             'title': _('Statistics'),
             'db_status': db_status(),
             'stat': statistics(),
-            'settings': preferences.Setting
-
+            'settings': preferences.Setting,
         })
 
         template = 'admin/help/statistics.html'
         return render(request, template, context)
     else:
-        if 'action' in request.POST and request.POST['action'] == 'clean':
+        if 'action' in request.POST and request.POST['action'] == 'clean_all':
             result_dict = {}
             try:
+                # cache clear
+                cache.clear()
+                # remove all temporarily files
                 if os.path.exists(TEMP_ROOT):
                     shutil.rmtree(TEMP_ROOT)
                     os.mkdir(TEMP_ROOT)
                 else:
                     os.mkdir(TEMP_ROOT)
-                result_dict = {'status': True}
+                result_dict = {"status": True}
                 return HttpResponse(json.dumps(result_dict), content_type='application/json')
             except Exception as e:
                 # error handler

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-31 01:57+0800\n"
+"POT-Creation-Date: 2020-05-31 02:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: WEIPDCRM/apps.py:77 WEIPDCRM/manage/admin/setting.py:174
 #: WEIPDCRM/manage/admin/version.py:225
-#: WEIPDCRM/templates/admin/help/statistics.html:8
+#: WEIPDCRM/templates/admin/help/statistics.html:13
 #: WEIPDCRM/views/admin/help/statistics.py:105
 msgid "Statistics"
 msgstr ""
@@ -1561,14 +1561,14 @@ msgid "List of iOS Devices"
 msgstr ""
 
 #: WEIPDCRM/templates/admin/help/about.html:7
-#: WEIPDCRM/templates/admin/help/statistics.html:7
+#: WEIPDCRM/templates/admin/help/statistics.html:12
 #: WEIPDCRM/templates/admin/upload.html:38
 #: WEIPDCRM/templates/admin/upload_image.html:7
 msgid "Home"
 msgstr ""
 
 #: WEIPDCRM/templates/admin/help/about.html:8
-#: WEIPDCRM/templates/admin/help/statistics.html:8
+#: WEIPDCRM/templates/admin/help/statistics.html:13
 msgid "Help"
 msgstr ""
 
@@ -1607,24 +1607,34 @@ msgid ""
 "either version 3 of the License."
 msgstr ""
 
-#: WEIPDCRM/templates/admin/help/statistics.html:15
-msgid "DataBase Status"
+#: WEIPDCRM/templates/admin/help/statistics.html:20
+msgid "Cache Status"
 msgstr ""
 
-#: WEIPDCRM/templates/admin/help/statistics.html:25
-msgid "Repo Statistics"
+#: WEIPDCRM/templates/admin/help/statistics.html:24
+msgid "Flush All"
 msgstr ""
 
-#: WEIPDCRM/templates/admin/help/statistics.html:40
-msgid "Are you sure to clean the cache?"
+#: WEIPDCRM/templates/admin/help/statistics.html:29
+msgid "Database Status"
 msgstr ""
 
-#: WEIPDCRM/templates/admin/help/statistics.html:51
-msgid "Cache cleanup completed!"
+#: WEIPDCRM/templates/admin/help/statistics.html:39
+msgid "Repository Statistics"
 msgstr ""
 
 #: WEIPDCRM/templates/admin/help/statistics.html:54
-msgid "Fail to cleanup cache, error message has been written to the console"
+msgid "Are you sure to clean temporarily files and caches?"
+msgstr ""
+
+#: WEIPDCRM/templates/admin/help/statistics.html:65
+msgid "Complete: cleanup temporarily files and caches."
+msgstr ""
+
+#: WEIPDCRM/templates/admin/help/statistics.html:68
+msgid ""
+"Fail to cleanup temporarily files and caches: error messages wrote to "
+"console."
 msgstr ""
 
 #: WEIPDCRM/templates/admin/new_change_form.html:13
@@ -1816,7 +1826,7 @@ msgid "Total download times"
 msgstr ""
 
 #: WEIPDCRM/views/admin/help/statistics.py:67
-msgid "Temp pool size"
+msgid "Temporarily files"
 msgstr ""
 
 #: WEIPDCRM/views/admin/help/statistics.py:68
@@ -1824,11 +1834,11 @@ msgid "Clean"
 msgstr ""
 
 #: WEIPDCRM/views/admin/help/statistics.py:69
-msgid "Download pool size"
+msgid "Downloadable files"
 msgstr ""
 
 #: WEIPDCRM/views/admin/help/statistics.py:70
-msgid "Total resource size"
+msgid "Total resources"
 msgstr ""
 
 #: WEIPDCRM/views/admin/release.py:45
