@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>{% block title %}DCRM{% endblock %}</title>
+    <title>{% block title %}{% endblock %} | {% if settings.active_release %}{{ settings.active_release.origin | default:_("Untitled Origin") }}{% else %}DCRM{% endif %}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta name="renderer" content="webkit"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>

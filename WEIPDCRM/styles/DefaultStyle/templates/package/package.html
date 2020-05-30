@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load i18n staticfiles %}
-{% block title %}{% trans "Package" %} {{ package_info.c_name | default:_("Untitled Package") }} | DCRM{% endblock %}
+{% block title %}{% trans "Package" %} {{ package_info.c_name | default:_("Untitled Package") }}{% endblock %}
 {% block stylesheet %}
     {{ block.super }}
     <link rel="stylesheet" type="text/css" href="{% static "css/package-info.css" %}"/>

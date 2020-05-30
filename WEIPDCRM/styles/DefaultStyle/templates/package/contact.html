@@ -1,7 +1,6 @@
 {% extends "package/package.html" %}
 {% load i18n staticfiles %}
-{% block title %}{% blocktrans with package_info.c_name as c_name %}Contact {{ c_name }} | DCRM
-{% endblocktrans %}{% endblock %}
+{% block title %}{% blocktrans with package_info.c_name as c_name %}Contact {{ c_name }}{% endblocktrans %}{% endblock %}
 {% block content %}
     <div class="contact">
         <div class="card">

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-31 01:33+0800\n"
+"POT-Creation-Date: 2020-05-31 01:57+0800\n"
 "PO-Revision-Date: 2017-08-20 08:58+0800\n"
 "Last-Translator: \n"
 "Language-Team: 82Flex <i.82@me.com>\n"
@@ -20,6 +20,11 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ../../../templates\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:7
+#: WEIPDCRM/styles/DefaultStyle/templates/base.html:72
+msgid "Untitled Origin"
+msgstr "未命名源"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:42
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:5
@@ -49,10 +54,6 @@ msgstr "排行"
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:51
 msgid "Search packages"
 msgstr "搜索软件包"
-
-#: WEIPDCRM/styles/DefaultStyle/templates/base.html:72
-msgid "Untitled Origin"
-msgstr "未命名源"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/base.html:73
 #: WEIPDCRM/styles/DefaultStyle/templates/chart.html:33
@@ -117,17 +118,16 @@ msgid "Package List"
 msgstr "软件包"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:3
-#, python-format
-msgid "Contact %(c_name)s | DCRM\n"
-msgstr "联系信息 %(c_name)s | DCRM\n"
+msgid "Contact %(c_name)s"
+msgstr "联系信息 %(c_name)s"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:21
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:20
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:43
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:46
 msgid "Author"
 msgstr "作者"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:23
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:22
 msgid ""
 "Source manager can <strong>NOT</strong> solve the function problem of "
 "package: you <strong>MUST</strong> contact the author."
@@ -135,32 +135,31 @@ msgstr ""
 "源管理者<strong>无法</strong>为你解决软件包功能上出现的问题：你<strong>必须</"
 "strong>联系其开发者或设计者。"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:42
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:41
 msgid "Maintainer"
 msgstr "提供者"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:44
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:43
 msgid ""
 "If you have questions when install or uninstall this package, please contact "
 "the maintainer."
 msgstr "安装、卸载过程中出现的问题，你需要将其发送给制作软件包的提供者。"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:61
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:60
 msgid "Sponsor"
 msgstr "发起者"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:63
+#: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:62
 msgid ""
 "If the package is a commercial package, you can contact the sponsor to "
 "obtain commercial support."
 msgstr "如果该软件包为商业软件包，你可以联系其发起者获取商业支持。"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/history.html:3
-#, python-format
-msgid "History %(c_name)s | DCRM\n"
-msgstr "版本历史 %(c_name)s | DCRM\n"
+msgid "History %(c_name)s"
+msgstr "版本历史 %(c_name)s"
 
-#: WEIPDCRM/styles/DefaultStyle/templates/package/history.html:17
+#: WEIPDCRM/styles/DefaultStyle/templates/package/history.html:16
 msgid "View this version"
 msgstr "查看此版本"
 
