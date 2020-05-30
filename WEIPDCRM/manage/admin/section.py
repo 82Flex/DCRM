@@ -117,26 +117,28 @@ Depends: cydia
     os.chmod(control_path, 0o755)
 
     # generate postinst
-    postinst_text = \
-        """#!/bin/sh
+    if gpg_enabled:
+        postinst_text = \
+            """#!/bin/sh
 apt-key add "%(pub)s"
 
 """ % ({"pub": pub_path})
-    postinst_path = os.path.join(debian_path, 'postinst')
-    with open(postinst_path, 'wb+') as destination:
-        destination.write(postinst_text.encode("utf-8"))
-    os.chmod(postinst_path, 0o755)
+        postinst_path = os.path.join(debian_path, 'postinst')
+        with open(postinst_path, 'wb+') as destination:
+            destination.write(postinst_text.encode("utf-8"))
+        os.chmod(postinst_path, 0o755)
 
     # generate prerm
-    prerm_text = \
-        """#!/bin/sh
+    if gpg_enabled:
+        prerm_text = \
+            """#!/bin/sh
 apt-key del "%(pub)s"
 
 """ % ({"pub": pub_path})
-    prerm_path = os.path.join(debian_path, 'prerm')
-    with open(prerm_path, 'wb+') as destination:
-        destination.write(prerm_text.encode("utf-8"))
-    os.chmod(prerm_path, 0o755)
+        prerm_path = os.path.join(debian_path, 'prerm')
+        with open(prerm_path, 'wb+') as destination:
+            destination.write(prerm_text.encode("utf-8"))
+        os.chmod(prerm_path, 0o755)
 
     # call dpkg to make debian package
     target_dir = os.path.join(settings.TEMP_ROOT, 'packages')

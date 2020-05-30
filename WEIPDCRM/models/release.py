@@ -28,7 +28,7 @@ from django.core import urlresolvers
 from django.contrib.contenttypes.models import ContentType
 from django.dispatch import receiver
 from django.utils.translation import ugettext as _
-from django.core.validators import validate_slug
+from django.core.validators import validate_slug, FileExtensionValidator
 
 from preferences import preferences
 
@@ -152,6 +152,9 @@ class Release(models.Model):
         help_text=_("Choose an Icon (*.png) to upload"),
         blank=True,
         null=True,
+        validators=[
+            FileExtensionValidator(allowed_extensions=['png'])
+        ]
     )
 
     support = models.URLField(

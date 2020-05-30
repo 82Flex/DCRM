@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-17 01:07+0800\n"
+"POT-Creation-Date: 2020-05-31 01:33+0800\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr "حزمة جديدة"
 msgid "Statistics"
 msgstr "المعلومات الإحصائية"
 
-#: WEIPDCRM/apps.py:78
+#: WEIPDCRM/apps.py:78 WEIPDCRM/templates/admin/help/about.html:8
 msgid "About..."
 msgstr "حول.."
 
@@ -34,13 +34,13 @@ msgstr "لا توجد حزمة متاحة"
 
 #: WEIPDCRM/manage/admin/build.py:299 WEIPDCRM/manage/admin/device_type.py:34
 #: WEIPDCRM/manage/admin/os_version.py:34 WEIPDCRM/manage/admin/release.py:50
-#: WEIPDCRM/manage/admin/section.py:232 WEIPDCRM/manage/admin/setting.py:148
+#: WEIPDCRM/manage/admin/section.py:234 WEIPDCRM/manage/admin/setting.py:148
 msgid "General"
 msgstr "مشترك"
 
 #: WEIPDCRM/manage/admin/build.py:302 WEIPDCRM/manage/admin/device_type.py:40
 #: WEIPDCRM/manage/admin/os_version.py:40 WEIPDCRM/manage/admin/release.py:58
-#: WEIPDCRM/manage/admin/section.py:238 WEIPDCRM/manage/admin/version.py:209
+#: WEIPDCRM/manage/admin/section.py:240 WEIPDCRM/manage/admin/version.py:209
 #: WEIPDCRM/templates/admin/new_change_form.html:8
 msgid "History"
 msgstr "التاريخ"
@@ -53,8 +53,8 @@ msgstr "اكتمل"
 msgid "Unknown"
 msgstr "غير معروف"
 
-#: WEIPDCRM/manage/admin/build.py:317 WEIPDCRM/views/admin/upload.py:311
-#: WEIPDCRM/views/admin/upload.py:469
+#: WEIPDCRM/manage/admin/build.py:317 WEIPDCRM/views/admin/upload.py:313
+#: WEIPDCRM/views/admin/upload.py:471
 msgid "No such job"
 msgstr ""
 
@@ -86,7 +86,7 @@ msgstr "بناء \"%s\" توليد وظيفة قد انتهى."
 
 #: WEIPDCRM/manage/admin/device_type.py:37
 #: WEIPDCRM/manage/admin/os_version.py:37 WEIPDCRM/manage/admin/release.py:54
-#: WEIPDCRM/manage/admin/section.py:235
+#: WEIPDCRM/manage/admin/section.py:237
 msgid "Appearance"
 msgstr "الشكل"
 
@@ -127,17 +127,17 @@ msgid ""
 "release.</a>"
 msgstr "لا يوجد إصدار نشط. <a href=\"%s\">تعيين الإصدار الحالي نشط "
 
-#: WEIPDCRM/manage/admin/section.py:175
+#: WEIPDCRM/manage/admin/section.py:177
 #, python-format
 msgid "%s Source Icon"
 msgstr "%s أيقونة المصدر"
 
-#: WEIPDCRM/manage/admin/section.py:209
+#: WEIPDCRM/manage/admin/section.py:211
 #, python-format
 msgid "Auto generated section icon package for %s."
 msgstr "قم تلقائيًا بإنشاء حزم أيقونات الفئات للفئات المحددة %s."
 
-#: WEIPDCRM/manage/admin/section.py:217
+#: WEIPDCRM/manage/admin/section.py:219
 #, python-format
 msgid ""
 "Section icon package generating job has been added to the \"<a href=\"%s"
@@ -145,11 +145,11 @@ msgid ""
 msgstr ""
 "تمت إضافة مهمة إنشاء حزمة رمز الفئة \"<a href=\"%s\">default</a>\" طابور."
 
-#: WEIPDCRM/manage/admin/section.py:223
+#: WEIPDCRM/manage/admin/section.py:225
 msgid "Section icon package generating job has been finished."
 msgstr "تم الانتهاء من إنشاء حزمة رمز القسم"
 
-#: WEIPDCRM/manage/admin/section.py:227
+#: WEIPDCRM/manage/admin/section.py:229
 msgid "Generate icon package for selected sections"
 msgstr "إنشاء حزمة رمز للأقسام المحددة"
 
@@ -273,6 +273,10 @@ msgstr "المصادر"
 #: WEIPDCRM/manage/admin/setting.py:218
 msgid "Server"
 msgstr "الخادم"
+
+#: WEIPDCRM/manage/admin/setting.py:221
+msgid "This section only works when \"Download Count\" is enabled."
+msgstr ""
 
 #: WEIPDCRM/manage/admin/setting.py:228
 msgid "Frontend"
@@ -465,7 +469,7 @@ msgstr ""
 
 #: WEIPDCRM/models/device_type.py:73 WEIPDCRM/models/os_version.py:68
 #: WEIPDCRM/models/release.py:152 WEIPDCRM/models/section.py:82
-#: WEIPDCRM/models/setting.py:411 WEIPDCRM/models/version.py:262
+#: WEIPDCRM/models/version.py:262
 msgid "Choose an Icon (*.png) to upload"
 msgstr ""
 
@@ -499,16 +503,16 @@ msgstr "الاسم"
 msgid "Section"
 msgstr "القسم"
 
-#: WEIPDCRM/models/package.py:73 WEIPDCRM/models/version.py:260
+#: WEIPDCRM/models/package.py:74 WEIPDCRM/models/version.py:260
 msgid "Online Icon"
 msgstr "اختيار ايقونة"
 
-#: WEIPDCRM/models/package.py:78 WEIPDCRM/models/release.py:130
+#: WEIPDCRM/models/package.py:79 WEIPDCRM/models/release.py:130
 #: WEIPDCRM/models/version.py:567
 msgid "Description"
 msgstr "الوصف"
 
-#: WEIPDCRM/models/package.py:83 WEIPDCRM/models/version.py:318
+#: WEIPDCRM/models/package.py:84 WEIPDCRM/models/version.py:318
 msgid "Download Times"
 msgstr "مرات التحميل"
 
@@ -642,19 +646,19 @@ msgstr "مستخلص بواسطة "
 msgid "Repository Icon"
 msgstr "أيقونة المستودع"
 
-#: WEIPDCRM/models/release.py:158
+#: WEIPDCRM/models/release.py:161
 msgid "Support"
 msgstr "الدعم"
 
-#: WEIPDCRM/models/release.py:160
+#: WEIPDCRM/models/release.py:163
 msgid "Official site to provide support."
 msgstr "الموقع الرسمي لتقديم الدعم"
 
-#: WEIPDCRM/models/release.py:166
+#: WEIPDCRM/models/release.py:169
 msgid "E-mail"
 msgstr "البريد الالكتروني"
 
-#: WEIPDCRM/models/release.py:168
+#: WEIPDCRM/models/release.py:171
 msgid "Maintainer's E-mail to provide support."
 msgstr "الاميل الخاص بالدعم الفني"
 
@@ -879,26 +883,30 @@ msgid "Tomcat"
 msgstr ""
 
 #: WEIPDCRM/models/setting.py:219
-msgid "This will help DCRM redirect download request properly."
+#, fuzzy
+#| msgid "This will help DCRM redirect download request properly."
+msgid ""
+"This will help DCRM redirect download request properly. Only works when "
+"\"Redirect Methods\" is \"Accel\"."
 msgstr "اضبط إستراتيجية استجابة مورد حزمة توزيع DCRM."
 
-#: WEIPDCRM/models/setting.py:225
+#: WEIPDCRM/models/setting.py:226
 msgid "Redirect Methods"
 msgstr "طرق إعادة التوجيه"
 
-#: WEIPDCRM/models/setting.py:227
+#: WEIPDCRM/models/setting.py:228
 msgid "None"
 msgstr "لاشيء"
 
-#: WEIPDCRM/models/setting.py:228
+#: WEIPDCRM/models/setting.py:229
 msgid "Moved"
 msgstr "نُقل"
 
-#: WEIPDCRM/models/setting.py:229
+#: WEIPDCRM/models/setting.py:230
 msgid "Accel"
 msgstr "Accel"
 
-#: WEIPDCRM/models/setting.py:231
+#: WEIPDCRM/models/setting.py:232
 msgid ""
 "None - Read resources and return, without partical support, not recommended."
 "<br />Moved - Return 301/302 responses and redirect to the real resource "
@@ -910,24 +918,29 @@ msgstr ""
 "URL الخاص بالمورد الحقيقي ، والسماح لـ Nginx بإرجاع البيانات. <br /> عكس "
 "تسارع طلب الموردأبلغ الوكيل العكسي بالقراءة دون تغيير عنوان URL."
 
-#: WEIPDCRM/models/setting.py:240
+#: WEIPDCRM/models/setting.py:241
 msgid "Redirect Prefix"
 msgstr "بادئة إعادة التوجيه"
 
-#: WEIPDCRM/models/setting.py:244
+#: WEIPDCRM/models/setting.py:245
+#, fuzzy
+#| msgid ""
+#| "Changing scheme and host of the url in package downloading requests, "
+#| "which is useful for load balancing or CDN speedup.<br />Example: https://"
+#| "cdn.82flex.com/"
 msgid ""
 "Changing scheme and host of the url in package downloading requests, which "
-"is useful for load balancing or CDN speedup.<br />Example: https://"
-"cdn.82flex.com/"
+"is useful for load balancing or CDN speedup. Only works when \"Redirect "
+"Methods\" is \"Moved\".<br /> Example: https://cdn.82flex.com/"
 msgstr ""
 "قم بتعديل المخطط ومضيف عنوان URL في طلب تنزيل الحزمة. هذا مفيد جدًا لموازنة "
 "التحميل وتسريع CDN.مساعدة رائعة. <br /> مثال: https://cdn.82flex.com/"
 
-#: WEIPDCRM/models/setting.py:253
+#: WEIPDCRM/models/setting.py:255
 msgid "Download Count"
 msgstr "عدد تحميل"
 
-#: WEIPDCRM/models/setting.py:254
+#: WEIPDCRM/models/setting.py:256
 msgid ""
 "Count every download. You should configure Nginx or other Web servers before "
 "you enable this feature."
@@ -936,11 +949,11 @@ msgstr ""
 "Nginx أو أي جيل عكسي آخر من HTTPلنجعل دليل الموارد غير ممكن الوصول إليه "
 "مباشرة ولكن نتعامل معه من خلال جانغو."
 
-#: WEIPDCRM/models/setting.py:263
+#: WEIPDCRM/models/setting.py:265
 msgid "Cydia Only"
 msgstr "Cydia Only"
 
-#: WEIPDCRM/models/setting.py:264
+#: WEIPDCRM/models/setting.py:266
 msgid ""
 "Protect downloading from any other tools except Cydia. You should configure "
 "Nginx or other Web servers before you enable this feature."
@@ -949,112 +962,112 @@ msgstr ""
 "هذه الميزة ، تحتاج إلى تكوينه بشكل صحيحNginx أو وكيل HTTP العكسي الآخر يجعل "
 "دليل المورد غير قابل للوصول مباشرة ولكن يتم معالجته بواسطة Django."
 
-#: WEIPDCRM/models/setting.py:273
+#: WEIPDCRM/models/setting.py:275
 #: WEIPDCRM/templates/admin/version/change_form.html:18
 msgid "Comments"
 msgstr "التعليقات"
 
-#: WEIPDCRM/models/setting.py:274
+#: WEIPDCRM/models/setting.py:276
 msgid "Enable comments module"
 msgstr "تفعيل التعليقات"
 
-#: WEIPDCRM/models/setting.py:278
+#: WEIPDCRM/models/setting.py:280
 msgid "Social Module"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:279
+#: WEIPDCRM/models/setting.py:281
 msgid "Enable social module"
 msgstr "تفعيل التواصل الاجتماعي"
 
-#: WEIPDCRM/models/setting.py:283
+#: WEIPDCRM/models/setting.py:285
 msgid "QQ Group Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:289
+#: WEIPDCRM/models/setting.py:291
 msgid "QQ Group URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:290
+#: WEIPDCRM/models/setting.py:292
 msgid "Display QQ group link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:299
+#: WEIPDCRM/models/setting.py:301
 msgid "Weibo Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:305
+#: WEIPDCRM/models/setting.py:307
 msgid "Weibo URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:306
+#: WEIPDCRM/models/setting.py:308
 msgid "Display Weibo link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:315
+#: WEIPDCRM/models/setting.py:317
 msgid "Alipay URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:316
+#: WEIPDCRM/models/setting.py:318
 msgid "Display \"Donate via Alipay\" link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:325
+#: WEIPDCRM/models/setting.py:327
 msgid "Twitter Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:331
+#: WEIPDCRM/models/setting.py:333
 msgid "Twitter URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:332
+#: WEIPDCRM/models/setting.py:334
 msgid "Display Twitter link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:341
+#: WEIPDCRM/models/setting.py:343
 msgid "Facebook Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:347
+#: WEIPDCRM/models/setting.py:349
 msgid "Telegram Name"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:353
+#: WEIPDCRM/models/setting.py:355
 msgid "Telegram URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:354
+#: WEIPDCRM/models/setting.py:356
 msgid "Display Telegram link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:363
+#: WEIPDCRM/models/setting.py:365
 msgid "Facebook URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:364
+#: WEIPDCRM/models/setting.py:366
 msgid "Display Facebook link on the package info page."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:373
+#: WEIPDCRM/models/setting.py:375
 msgid "Paypal URL"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:374
+#: WEIPDCRM/models/setting.py:376
 msgid "Display \"Donate via Paypal\" link on the package info page."
 msgstr "إظهار الرابط \"التبرع عبر Paypal \" في صفحة تفاصيل الحزمة."
 
-#: WEIPDCRM/models/setting.py:383
+#: WEIPDCRM/models/setting.py:385
 msgid "Starting Year of Copyright"
 msgstr "بداية سنة حقوق النشر"
 
-#: WEIPDCRM/models/setting.py:384
+#: WEIPDCRM/models/setting.py:386
 msgid "Leave blank to display current year."
 msgstr "اتركه فارغا لعرض السنة الحالية."
 
-#: WEIPDCRM/models/setting.py:389
+#: WEIPDCRM/models/setting.py:391
 msgid "Copyright Name"
 msgstr "اسم حقوق الطبع والنشر"
 
-#: WEIPDCRM/models/setting.py:390
+#: WEIPDCRM/models/setting.py:392
 msgid ""
 "Corpyright name is displayed on the footer, leave a blank will display the "
 "source name."
@@ -1062,52 +1075,72 @@ msgstr ""
 "يتم عرض اسم حقوق التأليف والنشر على تذييل الصفحة ، اترك فارغا سيعرضاسم "
 "المصدر."
 
-#: WEIPDCRM/models/setting.py:396
+#: WEIPDCRM/models/setting.py:398
 msgid "ICP Number"
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:397
+#: WEIPDCRM/models/setting.py:399
 msgid "The ICP Number displayed on the footer."
 msgstr ""
 
-#: WEIPDCRM/models/setting.py:403
+#: WEIPDCRM/models/setting.py:405
 msgid "Version History"
 msgstr "تاريخ النسخة"
 
-#: WEIPDCRM/models/setting.py:404
+#: WEIPDCRM/models/setting.py:406
 msgid "Enable version history module"
 msgstr "تمكين إصدار وحدة التاريخ"
 
-#: WEIPDCRM/models/setting.py:408
+#: WEIPDCRM/models/setting.py:410
 msgid "Favicon"
 msgstr "مفضلة"
 
-#: WEIPDCRM/models/setting.py:416
+#: WEIPDCRM/models/setting.py:413
+msgid "Choose an Icon (*.ico) to upload"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:421
 msgid "Notice"
 msgstr "تنويه"
 
-#: WEIPDCRM/models/setting.py:420 WEIPDCRM/models/setting.py:427
+#: WEIPDCRM/models/setting.py:425 WEIPDCRM/models/setting.py:437
 msgid ""
 "HTML Displayed on the frontend widget and the auto depiction page (mobile)."
 msgstr "يتم عرض محتوى HTML المخصص في منطقة المكون العائمة الأمامية."
 
-#: WEIPDCRM/models/setting.py:423
+#: WEIPDCRM/models/setting.py:428
+msgid "Show Notice"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:430
+msgid "Check it to display notice."
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:433
 msgid "Advertisement"
 msgstr "الإعلانات"
 
-#: WEIPDCRM/models/setting.py:430
+#: WEIPDCRM/models/setting.py:440
+msgid "Show Advertisement"
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:442
+msgid "Check it to display advertisement."
+msgstr ""
+
+#: WEIPDCRM/models/setting.py:445
 msgid "External Statistics"
 msgstr "الاحصائيات الخارجية"
 
-#: WEIPDCRM/models/setting.py:434
+#: WEIPDCRM/models/setting.py:449
 msgid "Invisible statistic code."
 msgstr "كود إحصائي غير مرئي."
 
-#: WEIPDCRM/models/setting.py:437
+#: WEIPDCRM/models/setting.py:452
 msgid "Internal Statistics"
 msgstr "الاحصائيات الداخلية"
 
-#: WEIPDCRM/models/setting.py:441
+#: WEIPDCRM/models/setting.py:456
 msgid "Statistics code of view information at statistics page."
 msgstr "إحصائيات رمز عرض المعلومات في صفحة الإحصاءات."
 
@@ -1644,11 +1677,6 @@ msgstr "الرئيسية"
 msgid "Help"
 msgstr "المساعدة"
 
-#: WEIPDCRM/templates/admin/help/about.html:8
-#: WEIPDCRM/views/admin/help/about.py:36
-msgid "About"
-msgstr "حول"
-
 #: WEIPDCRM/templates/admin/help/about.html:15
 msgid "About DCRM"
 msgstr "حول DCRM"
@@ -1764,10 +1792,8 @@ msgid "If you want to import all packages in <b>Upload Root</b>"
 msgstr ""
 
 #: WEIPDCRM/templates/admin/upload.html:84
-#, fuzzy
-#| msgid "Packages"
 msgid "Import Packages"
-msgstr "الحزم"
+msgstr ""
 
 #: WEIPDCRM/templates/admin/upload.html:123
 #: WEIPDCRM/templates/admin/upload_image.html:73
@@ -1829,7 +1855,7 @@ msgid "Screenshots"
 msgstr "لقطات الشاشة"
 
 #: WEIPDCRM/templates/admin/upload_image.html:15
-#: WEIPDCRM/views/admin/upload.py:546 WEIPDCRM/views/admin/upload.py:560
+#: WEIPDCRM/views/admin/upload.py:548 WEIPDCRM/views/admin/upload.py:562
 msgid "Upload Screenshots"
 msgstr "رفع لقطات الشاشة"
 
@@ -1875,27 +1901,25 @@ msgstr "غير موجود"
 msgid "Internal Server Error"
 msgstr "خطأ في الخادم الداخلي"
 
+#: WEIPDCRM/views/admin/help/about.py:36
+msgid "About"
+msgstr "حول"
+
 #: WEIPDCRM/views/admin/help/statistics.py:63
-#, fuzzy
-#| msgid "New Package"
 msgid "Number of packages"
-msgstr "حزمة جديدة"
+msgstr ""
 
 #: WEIPDCRM/views/admin/help/statistics.py:64
-#, fuzzy
-#| msgid "No enabled package available."
 msgid "Number of enabled packages"
-msgstr "لا توجد حزمة متاحة"
+msgstr ""
 
 #: WEIPDCRM/views/admin/help/statistics.py:65
 msgid "Number of sections"
 msgstr ""
 
 #: WEIPDCRM/views/admin/help/statistics.py:66
-#, fuzzy
-#| msgid "Download Times"
 msgid "Total download times"
-msgstr "مرات التحميل"
+msgstr ""
 
 #: WEIPDCRM/views/admin/help/statistics.py:67
 msgid "Temp pool size"
@@ -1906,10 +1930,8 @@ msgid "Clean"
 msgstr "تنظيف"
 
 #: WEIPDCRM/views/admin/help/statistics.py:69
-#, fuzzy
-#| msgid "Download Times"
 msgid "Download pool size"
-msgstr "مرات التحميل"
+msgstr ""
 
 #: WEIPDCRM/views/admin/help/statistics.py:70
 msgid "Total resource size"
@@ -1930,46 +1952,46 @@ msgstr ""
 msgid "Upload failed, unsupported file extension."
 msgstr "أخفق الرفع ، ملحق الملف غير مدعوم"
 
-#: WEIPDCRM/views/admin/upload.py:294
+#: WEIPDCRM/views/admin/upload.py:296
 #, python-format
 msgid ""
 "Active release not set: you cannot publish your repository without an active "
 "release. <a href=\"%s\">Add Release</a>"
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:333 WEIPDCRM/views/admin/upload.py:345
-#: WEIPDCRM/views/admin/upload.py:374 WEIPDCRM/views/admin/upload.py:491
-#: WEIPDCRM/views/admin/upload.py:503 WEIPDCRM/views/admin/upload.py:532
+#: WEIPDCRM/views/admin/upload.py:335 WEIPDCRM/views/admin/upload.py:347
+#: WEIPDCRM/views/admin/upload.py:376 WEIPDCRM/views/admin/upload.py:493
+#: WEIPDCRM/views/admin/upload.py:505 WEIPDCRM/views/admin/upload.py:534
 msgid "Upload succeed, proceeding..."
 msgstr "نجح الرفع , تتم المعالجة"
 
-#: WEIPDCRM/views/admin/upload.py:362 WEIPDCRM/views/admin/upload.py:384
-#: WEIPDCRM/views/admin/upload.py:520 WEIPDCRM/views/admin/upload.py:542
+#: WEIPDCRM/views/admin/upload.py:364 WEIPDCRM/views/admin/upload.py:386
+#: WEIPDCRM/views/admin/upload.py:522 WEIPDCRM/views/admin/upload.py:544
 msgid "Upload failed, invalid form."
 msgstr "فشل الرفع ، نموذج غير صالح."
 
-#: WEIPDCRM/views/admin/upload.py:388 WEIPDCRM/views/admin/upload.py:441
+#: WEIPDCRM/views/admin/upload.py:390 WEIPDCRM/views/admin/upload.py:443
 msgid "Upload New Packages"
 msgstr "تحميل حزمة جديدة"
 
-#: WEIPDCRM/views/admin/upload.py:399
+#: WEIPDCRM/views/admin/upload.py:401
 msgid "To use this action, you must enable <b>Redis Queue</b>."
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:424
+#: WEIPDCRM/views/admin/upload.py:426
 #, python-format
 msgid ""
 "%(job_count)s package importing job have been added to the \"<a href="
 "\"%(jobs)s\">high</a>\" queue."
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:429
+#: WEIPDCRM/views/admin/upload.py:431
 #, python-format
 msgid ""
 "%(job_count)s package importing jobs have been added to the \"<a href="
 "\"%(jobs)s\">high</a>\" queue."
 msgstr ""
 
-#: WEIPDCRM/views/admin/upload.py:434
+#: WEIPDCRM/views/admin/upload.py:436
 msgid "There is no package to import."
 msgstr ""

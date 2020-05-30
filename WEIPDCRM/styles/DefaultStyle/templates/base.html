@@ -79,7 +79,7 @@
             </div>
         </div>
         {% block notice %}
-            {% if settings.notice %}
+            {% if settings.show_notice %}
                 <div class="notice">
                     <h2>{% trans "Notice" %}</h2>
                     <div class="notice-content">
@@ -118,7 +118,7 @@
         {% endblock %}
         {% include 'social.html' %}
         {% block ad %}
-            {% if settings.advertisement %}
+            {% if settings.show_advertisement %}
                 <div class="advertisement">
                     {% autoescape off %}
                         {{ settings.advertisement }}

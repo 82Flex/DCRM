@@ -289,12 +289,14 @@ def upload_view(request):
     :return: Http Response
     """
     if preferences.Setting.active_release is None:
-        messages.error(request,
-                       mark_safe(
-                           _("Active release not set: you cannot publish your "
-                             "repository without an active release. <a href=\"%s\">Add Release</a>")
-                           % reverse("admin:WEIPDCRM_release_add")
-                       ))
+        all_msgs = messages.get_messages(request)
+        if len(all_msgs) == 0:
+            messages.error(request,
+                           mark_safe(
+                               _("Active release not set: you cannot publish your "
+                                 "repository without an active release. <a href=\"%s\">Add Release</a>")
+                               % reverse("admin:WEIPDCRM_release_add")
+                           ))
     # POST
     if request.method == 'POST':
         # action: upload

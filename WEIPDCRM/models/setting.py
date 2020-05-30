@@ -29,7 +29,7 @@ from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.core import urlresolvers
 from django.core.exceptions import ValidationError
-from django.core.validators import URLValidator
+from django.core.validators import URLValidator, FileExtensionValidator
 from django.utils.translation import ugettext_lazy as _
 
 from WEIPDCRM.models.release import Release
@@ -216,7 +216,8 @@ class Setting(Preferences):
             (2, _("Tomcat")),
         ),
         default=0,
-        help_text=_("This will help DCRM redirect download request properly."),
+        help_text=_("This will help DCRM redirect download request properly. Only works when \"Redirect Methods\" is "
+                    "\"Accel\"."),
         validators=[
             validate_web_server
         ]
@@ -242,7 +243,8 @@ class Setting(Preferences):
         null=True,
         blank=True,
         help_text=_("Changing scheme and host of the url in package downloading requests, "
-                    "which is useful for load balancing or CDN speedup.<br />"
+                    "which is useful for load balancing or CDN speedup. Only works when \"Redirect Methods\" is "
+                    "\"Moved\".<br /> "
                     "Example: https://cdn.82flex.com/"),
         validators=[
             URLValidator,
@@ -408,9 +410,12 @@ class Setting(Preferences):
         verbose_name=_("Favicon"),
         max_length=255,
         upload_to="favicon",
-        help_text=_("Choose an Icon (*.png) to upload"),
+        help_text=_("Choose an Icon (*.ico) to upload"),
         blank=True,
         null=True,
+        validators=[
+            FileExtensionValidator(allowed_extensions=['ico'])
+        ]
     )
     notice = models.TextField(
         verbose_name=_("Notice"),
@@ -419,12 +424,22 @@ class Setting(Preferences):
         default="",
         help_text=_("HTML Displayed on the frontend widget and the auto depiction page (mobile).")
     )
+    show_notice = models.BooleanField(
+        verbose_name=_("Show Notice"),
+        default=False,
+        help_text=_("Check it to display notice.")
+    )
     advertisement = models.TextField(
         verbose_name=_("Advertisement"),
         blank=True,
         null=True,
         default="",
         help_text=_("HTML Displayed on the frontend widget and the auto depiction page (mobile).")
+    )
+    show_advertisement = models.BooleanField(
+        verbose_name=_("Show Advertisement"),
+        default=False,
+        help_text=_("Check it to display advertisement.")
     )
     external_statistics = models.TextField(
         verbose_name=_("External Statistics"),

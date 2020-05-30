@@ -162,8 +162,8 @@ class SettingAdmin(PreferencesAdmin):
         }),
         (_('Display'), {
             'classes': ('suit-tab suit-tab-frontend',),
-            'fields': ['advanced_mode', 'version_history', 'enable_comments', 'favicon',
-                       'notice', 'advertisement']
+            'fields': ['favicon', 'advanced_mode', 'version_history', 'enable_comments',
+                       'show_notice', 'notice', 'show_advertisement', 'advertisement']
         }),
         (_('Social'), {
             'classes': ('suit-tab suit-tab-frontend',),
@@ -217,7 +217,8 @@ class SettingAdmin(PreferencesAdmin):
         }),
         (_('Server'), {
             'classes': ('suit-tab suit-tab-advanced',),
-            'fields': ['download_count', 'download_cydia_only', 'web_server', 'redirect_resources', 'redirect_prefix']
+            'fields': ['download_count', 'download_cydia_only', 'redirect_resources', 'redirect_prefix', 'web_server'],
+            'description': _("This section only works when \"Download Count\" is enabled.")
         }),
         # Third Party
     ]
