@@ -51,7 +51,7 @@ urlpatterns = [
     url(
         r'^debs/(?P<package_name>.+?)/(?P<package_id>(\d+|latest))\.deb$',
         publish.package_file_fetch,
-        name='package_file_fetch'
+        name='package_file_fetch_with_name'
     ),
     
     # Admin Panel

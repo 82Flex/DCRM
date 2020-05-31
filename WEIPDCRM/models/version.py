@@ -200,9 +200,11 @@ class Version(models.Model):
          :rtype: str
         """
         if preferences.Setting.download_count:
-            return reverse("package_file_fetch", args=(self.id,))
+            return reverse("package_file_fetch", kwargs={
+                'package_id': self.id
+            })
         else:
-            return self.storage_link
+            return self.get_external_storage_link()
     
     frontend_link = property(get_frontend_storage_link)
     
