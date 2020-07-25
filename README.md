@@ -409,7 +409,7 @@ kill -INT `cat /home/run/uwsgi-apt.pid`
 ```
 
 
-### 5.3.3. Configure NGINX
+### 5.3.3. Configure Nginx/Apache
 <a id="markdown-configure-nginx" name="configure-nginx"></a>
 
 here is an example of nginx https site configuration file:
@@ -451,7 +451,7 @@ server {
     
     location ~^/static/(.*)$ {
         # static files for DCRM, you can change its path in settings.py
-        alias /wwwdata/DCRM/WEIPDCRM/static/$1;  # make an alias for static files
+        alias /wwwdata/DCRM/static/$1;  # make an alias for static files
     }
 
     location ~^/resources/(.*)$ {
@@ -484,6 +484,43 @@ server {
         expires 12h;
     }
 }
+```
+
+here is an example of apache virtual host configuration file:
+
+```apache
+Alias /static        /home/DCRM/static
+Alias /resources     /home/DCRM/resources
+Alias /CydiaIcon.png /home/DCRM/resources/releases/1/CydiaIcon.png
+Alias /Release       /home/DCRM/resources/releases/1/Release
+Alias /Release.gpg   /home/DCRM/resources/releases/1/Release.gpg
+Alias /Packages      /home/DCRM/resources/releases/1/Packages
+Alias /Packages.gz   /home/DCRM/resources/releases/1/Packages.gz
+Alias /Packages.bz2  /home/DCRM/resources/releases/1/Packages.bz2
+
+<IfModule mod_proxy_uwsgi.c>
+  ProxyPreserveHost On
+  ProxyPass /static !
+  ProxyPass /resources !
+  ProxyPass /CydiaIcon.png !
+  ProxyPass /Release !
+  ProxyPass /Release.gpg !
+  ProxyPass /Packages !
+  ProxyPass /Packages.gz !
+  ProxyPass /Packages.bz2 !
+  ProxyPass / uwsgi://127.0.0.1:8001/
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access 7 days"
+  ExpiresByType image/gif "access 7 days"
+  ExpiresByType image/jpeg "access 7 days"
+  ExpiresByType text/javascript "access 2 weeks"
+  ExpiresByType text/css "access 2 weeks"
+  ExpiresByType text/html "modification 4 hours"
+  ExpiresDefault "access 2 hours"
+</IfModule>
 ```
 
 
