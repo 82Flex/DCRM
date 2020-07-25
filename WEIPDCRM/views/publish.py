@@ -133,8 +133,10 @@ def basic_resource_fetch(request, resource_name):
             response['Content-Type'] = 'application/octet-stream'
             return response
         elif pref.web_server == 1:
-            # TODO: Apache Support
-            pass
+            response = HttpResponse()
+            response['X-sendfile'] = request_path
+            response['Content-Type'] = 'application/octet-stream'
+            return response
         elif pref.web_server == 2:
             # TODO: Tomcat Support
             pass
