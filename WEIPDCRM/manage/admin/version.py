@@ -254,7 +254,7 @@ class VersionAdmin(admin.ModelAdmin):
         if change is True and change_num > 0:
             update_job = obj.update_storage()
             if settings.ENABLE_REDIS is True and update_job is not None:
-                messages.info(request, mark_safe(_("The Version \"<a href=\"%(job_detail)s\">%(obj)s</a>\" storage updating job has been added to the \"<a href=\"%(jobs)s\">high</a>\" queue.").format(
+                messages.info(request, mark_safe(_("The Version \"<a href=\"{job_detail}\">{obj}</a>\" storage updating job has been added to the \"<a href=\"{jobs}\">high</a>\" queue.").format(
                         job_detail=reverse('rq_job_detail', kwargs={
                             'queue_index': 1,
                             'job_id': update_job.id,

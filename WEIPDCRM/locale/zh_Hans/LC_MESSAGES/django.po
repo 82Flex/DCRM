@@ -1,13 +1,8 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: DCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-31 02:55+0800\n"
+"POT-Creation-Date: 2020-07-26 15:27+0800\n"
 "PO-Revision-Date: 2017-04-03 23:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: 82Flex Team <i.82@me.com>\n"
@@ -30,7 +25,7 @@ msgstr "新软件包"
 #: WEIPDCRM/apps.py:77 WEIPDCRM/manage/admin/setting.py:174
 #: WEIPDCRM/manage/admin/version.py:225
 #: WEIPDCRM/templates/admin/help/statistics.html:13
-#: WEIPDCRM/views/admin/help/statistics.py:105
+#: WEIPDCRM/views/admin/help/statistics.py:106
 msgid "Statistics"
 msgstr "统计信息"
 
@@ -81,13 +76,13 @@ msgid "Job"
 msgstr "任务"
 
 #: WEIPDCRM/manage/admin/build.py:375
-#, python-format
+#, python-brace-format
 msgid ""
-"The Build \"<a href=\"%(job_detail)s\">%(obj)s</a>\" generating job has been "
-"added to the \"<a href=\"%(jobs)s\">high</a>\" queue."
+"The Build \"<a href=\"{job_detail}\">{obj}</a>\" generating job has been "
+"added to the \"<a href=\"{jobs}\">high</a>\" queue."
 msgstr ""
-"构建 \"<a href=\"%(job_detail)s\">%(obj)s</a>\" 构建生成任务已经被添加至 "
-"\"<a href=\"%(jobs)s\">high</a>\" 队列."
+"构建 \"<a href=\"{job_detail}\">{obj}</a>\" 构建生成任务已经被添加至 \"<a "
+"href=\"{jobs}\">high</a>\" 队列."
 
 #: WEIPDCRM/manage/admin/build.py:386
 #, python-format
@@ -101,14 +96,14 @@ msgid "Appearance"
 msgstr "外观"
 
 #: WEIPDCRM/manage/admin/package.py:46 WEIPDCRM/models/package.py:49
-#: WEIPDCRM/models/package.py:61 WEIPDCRM/models/version.py:523
+#: WEIPDCRM/models/package.py:61 WEIPDCRM/models/version.py:525
 #: WEIPDCRM/templates/admin/version/change_form.html:21
 msgid "Package"
 msgstr "软件包"
 
 #: WEIPDCRM/manage/admin/package.py:58 WEIPDCRM/models/os_version.py:52
 #: WEIPDCRM/models/package.py:65 WEIPDCRM/models/release.py:87
-#: WEIPDCRM/models/version.py:152 WEIPDCRM/models/version.py:534
+#: WEIPDCRM/models/version.py:152 WEIPDCRM/models/version.py:536
 msgid "Version"
 msgstr "版本"
 
@@ -331,15 +326,15 @@ msgstr "链接"
 msgid "Compatibility"
 msgstr "兼容性"
 
-#: WEIPDCRM/manage/admin/version.py:162 WEIPDCRM/models/version.py:548
+#: WEIPDCRM/manage/admin/version.py:162 WEIPDCRM/models/version.py:550
 msgid "Maintainer"
 msgstr "维护者"
 
-#: WEIPDCRM/manage/admin/version.py:166 WEIPDCRM/models/version.py:635
+#: WEIPDCRM/manage/admin/version.py:166 WEIPDCRM/models/version.py:637
 msgid "Author"
 msgstr "作者"
 
-#: WEIPDCRM/manage/admin/version.py:170 WEIPDCRM/models/version.py:656
+#: WEIPDCRM/manage/admin/version.py:170 WEIPDCRM/models/version.py:658
 msgid "Sponsor"
 msgstr "发起者"
 
@@ -355,7 +350,7 @@ msgstr "关联"
 msgid "Other Relations"
 msgstr "其它关联"
 
-#: WEIPDCRM/manage/admin/version.py:188 WEIPDCRM/models/version.py:252
+#: WEIPDCRM/manage/admin/version.py:188 WEIPDCRM/models/version.py:254
 msgid "Storage"
 msgstr "存储"
 
@@ -388,13 +383,13 @@ msgid "Others"
 msgstr "其它"
 
 #: WEIPDCRM/manage/admin/version.py:257
-#, python-format
+#, python-brace-format
 msgid ""
-"The Version \"<a href=\"%(job_detail)s\">%(obj)s</a>\" storage updating job "
-"has been added to the \"<a href=\"%(jobs)s\">high</a>\" queue."
+"The Version \"<a href=\"{job_detail}\">{obj}</a>\" storage updating job has "
+"been added to the \"<a href=\"{jobs}\">high</a>\" queue."
 msgstr ""
-"版本 \"<a href=\"%(job_detail)s\">%(obj)s</a>\" 存储同步任务 已经被添加至 "
-"\"<a href=\"%(jobs)s\">high</a>\" 队列. "
+"版本 \"<a href=\"{job_detail}\">{obj}</a>\" 存储同步任务 已经被添加至 \"<a "
+"href=\"{jobs}\">high</a>\" 队列. "
 
 #: WEIPDCRM/models/build.py:45 WEIPDCRM/models/os_version.py:57
 msgid "Build"
@@ -474,13 +469,13 @@ msgid "Example: A1661/A1784/A1785"
 msgstr "例: A1661/A1784/A1785"
 
 #: WEIPDCRM/models/device_type.py:70 WEIPDCRM/models/os_version.py:65
-#: WEIPDCRM/models/section.py:79 WEIPDCRM/models/version.py:285
+#: WEIPDCRM/models/section.py:79 WEIPDCRM/models/version.py:287
 msgid "Icon"
 msgstr "图标"
 
 #: WEIPDCRM/models/device_type.py:73 WEIPDCRM/models/os_version.py:68
 #: WEIPDCRM/models/release.py:152 WEIPDCRM/models/section.py:82
-#: WEIPDCRM/models/version.py:262
+#: WEIPDCRM/models/version.py:264
 msgid "Choose an Icon (*.png) to upload"
 msgstr "请选择并上传一个图标 (*.png)"
 
@@ -505,25 +500,25 @@ msgid "Packages"
 msgstr "软件包"
 
 #: WEIPDCRM/models/package.py:54 WEIPDCRM/models/section.py:65
-#: WEIPDCRM/models/version.py:623
+#: WEIPDCRM/models/version.py:625
 msgid "Name"
 msgstr "名称"
 
 #: WEIPDCRM/models/package.py:70 WEIPDCRM/models/section.py:58
-#: WEIPDCRM/models/version.py:588
+#: WEIPDCRM/models/version.py:590
 msgid "Section"
 msgstr "分类"
 
-#: WEIPDCRM/models/package.py:74 WEIPDCRM/models/version.py:260
+#: WEIPDCRM/models/package.py:74 WEIPDCRM/models/version.py:262
 msgid "Online Icon"
 msgstr "在线图标"
 
 #: WEIPDCRM/models/package.py:79 WEIPDCRM/models/release.py:130
-#: WEIPDCRM/models/version.py:567
+#: WEIPDCRM/models/version.py:569
 msgid "Description"
 msgstr "描述"
 
-#: WEIPDCRM/models/package.py:84 WEIPDCRM/models/version.py:318
+#: WEIPDCRM/models/package.py:84 WEIPDCRM/models/version.py:320
 msgid "Download Times"
 msgstr "下载次数"
 
@@ -535,7 +530,7 @@ msgstr "元数据"
 msgid "Releases"
 msgstr "元数据"
 
-#: WEIPDCRM/models/release.py:56 WEIPDCRM/models/version.py:852
+#: WEIPDCRM/models/release.py:56 WEIPDCRM/models/version.py:854
 msgid "Origin"
 msgstr "初始"
 
@@ -703,8 +698,8 @@ msgid "Cannot find command 'gpg': %s"
 msgstr "找不到命令 \"gpg\": %s"
 
 #: WEIPDCRM/models/setting.py:81
-msgid "Only Nginx is supported now."
-msgstr "目前仅支持 Nginx. "
+msgid "Only Nginx/Apache are supported now."
+msgstr "目前仅支持 Nginx 或 Apache. "
 
 #: WEIPDCRM/models/setting.py:86
 msgid "pdiffs is not supported now."
@@ -775,7 +770,7 @@ msgstr "软件包校验"
 msgid "No validation"
 msgstr "无校验"
 
-#: WEIPDCRM/models/setting.py:137 WEIPDCRM/models/version.py:293
+#: WEIPDCRM/models/setting.py:137 WEIPDCRM/models/version.py:295
 msgid "MD5Sum"
 msgstr "MD5Sum"
 
@@ -1165,52 +1160,52 @@ msgstr "请输入用于 bug 追踪系统的有效 URL. "
 msgid "Versions"
 msgstr "版本"
 
-#: WEIPDCRM/models/version.py:234
+#: WEIPDCRM/models/version.py:236
 msgid "OS Compatibility"
 msgstr "iOS 兼容性"
 
-#: WEIPDCRM/models/version.py:239
+#: WEIPDCRM/models/version.py:241
 msgid "Device Compatibility"
 msgstr "设备兼容性"
 
-#: WEIPDCRM/models/version.py:245
+#: WEIPDCRM/models/version.py:247
 msgid "Update Logs"
 msgstr "更新日志"
 
-#: WEIPDCRM/models/version.py:286
+#: WEIPDCRM/models/version.py:288
 msgid "If there is no \"Online Icon\", this field will be taken."
 msgstr "如果 \"在线图标\" 不存在, 则此字段会被使用. "
 
-#: WEIPDCRM/models/version.py:298
+#: WEIPDCRM/models/version.py:300
 msgid "SHA1"
 msgstr "SHA1"
 
-#: WEIPDCRM/models/version.py:303
+#: WEIPDCRM/models/version.py:305
 msgid "SHA256"
 msgstr "SHA256"
 
-#: WEIPDCRM/models/version.py:308
+#: WEIPDCRM/models/version.py:310
 msgid "SHA512"
 msgstr "SHA512"
 
-#: WEIPDCRM/models/version.py:313
+#: WEIPDCRM/models/version.py:315
 msgid "Size"
 msgstr "尺寸"
 
-#: WEIPDCRM/models/version.py:315
+#: WEIPDCRM/models/version.py:317
 msgid "The exact size of the package, in bytes."
 msgstr "软件包的准确尺寸, 以字节为单位. "
 
-#: WEIPDCRM/models/version.py:322
+#: WEIPDCRM/models/version.py:324
 msgid "Installed-Size"
 msgstr "安装尺寸"
 
-#: WEIPDCRM/models/version.py:326
+#: WEIPDCRM/models/version.py:328
 msgid ""
 "The approximate total size of the package's installed files, in KiB units."
 msgstr "软件包安装后的大致尺寸, 以 KiB 为单位. "
 
-#: WEIPDCRM/models/version.py:525
+#: WEIPDCRM/models/version.py:527
 msgid ""
 "This is the \"identifier\" of the package. This should be, entirely in lower "
 "case, a reversed hostname (much like a \"bundleIdentifier\" in Apple's Info."
@@ -1219,7 +1214,7 @@ msgstr ""
 "这是软件包的 \"标识符\". 全小写, 是一个逆序主机名 (很像 Apple 的 Info.plist "
 "文件中的 \"bundleIdentifier\"). "
 
-#: WEIPDCRM/models/version.py:536
+#: WEIPDCRM/models/version.py:538
 msgid ""
 "A package's version indicates two separate values: the version of the "
 "software in the package, and the version of the package itself. These "
@@ -1228,21 +1223,21 @@ msgstr ""
 "软件包的版本表示两个单独的值: 包中包含的应用程序的版本和软件包本身的版本. 这"
 "些版本号由连字符分隔. "
 
-#: WEIPDCRM/models/version.py:539
+#: WEIPDCRM/models/version.py:541
 msgid "1.0-1"
 msgstr "1.0-1"
 
-#: WEIPDCRM/models/version.py:552
+#: WEIPDCRM/models/version.py:554
 msgid ""
 "It is typically the person who created the package, as opposed to the author "
 "of the software that was packaged."
 msgstr "通常来说, 这是软件包创建者的名称, 而不是被打包的软件本体的作者. "
 
-#: WEIPDCRM/models/version.py:560
+#: WEIPDCRM/models/version.py:562
 msgid "Maintainer Email"
 msgstr "维护者电子邮箱"
 
-#: WEIPDCRM/models/version.py:571
+#: WEIPDCRM/models/version.py:573
 msgid ""
 "The first line (after the colon) should contain a short description to be "
 "displayed on the package lists underneath the name of the package. "
@@ -1252,17 +1247,17 @@ msgstr ""
 "第一行 (冒号后面) 应该包含一个简短描述, 它将显示在软件包条目的名称下方. 或"
 "者, 您也可以选择用任意长度的描述, 它将显示在软件包的详情页中. "
 
-#: WEIPDCRM/models/version.py:578
+#: WEIPDCRM/models/version.py:580
 msgid "Rich Description"
 msgstr "富文本描述"
 
-#: WEIPDCRM/models/version.py:582
+#: WEIPDCRM/models/version.py:584
 msgid "HTML Displayed on the auto depiction page (mobile)."
 msgstr ""
 "自动生成的详情页上将会显示这一段支持 HTML 的富文本描述, 以替代纯文本普通描"
 "述. "
 
-#: WEIPDCRM/models/version.py:592
+#: WEIPDCRM/models/version.py:594
 msgid ""
 "Under the \"Install\" tab in Cydia, packages are listed by \"Section\". If "
 "you would like to encode a space into your section name, use an underscore "
@@ -1271,21 +1266,21 @@ msgstr ""
 "在 Cydia 的 \"安装\" 选项卡下, 软件包会按 \"分类\" 列出. 如果您想将空格编码到"
 "名称中, 请使用下划线 (Cydia 将自动转换这些空格). "
 
-#: WEIPDCRM/models/version.py:598
+#: WEIPDCRM/models/version.py:600
 msgid "Tag"
 msgstr "标签"
 
-#: WEIPDCRM/models/version.py:601
+#: WEIPDCRM/models/version.py:603
 msgid ""
 "List of tags describing the qualities of the package. The description and "
 "list of supported tags can be found in the debtags package."
 msgstr "描述软件包特性的标签列表. "
 
-#: WEIPDCRM/models/version.py:607
+#: WEIPDCRM/models/version.py:609
 msgid "Architecture"
 msgstr "架构"
 
-#: WEIPDCRM/models/version.py:611
+#: WEIPDCRM/models/version.py:613
 msgid ""
 "This describes what system a package is designed for, as .deb files are used "
 "on everything from the iPhone to your desktop computer. The correct value "
@@ -1293,7 +1288,7 @@ msgid ""
 "1.2/2.x you should use \"iphoneos-arm\"."
 msgstr "只需要设置为 \"iphoneos-arm\" 即可, 代表 iOS 平台. "
 
-#: WEIPDCRM/models/version.py:627
+#: WEIPDCRM/models/version.py:629
 msgid ""
 "When the package is shown in Cydia's lists, it is convenient to have a "
 "prettier name. This field allows you to override this display with an "
@@ -1304,11 +1299,11 @@ msgstr ""
 "意字符串替代软件包本来的名字用于显示. 此字段可以经常更改, 而 \"标识符\" 字段"
 "在软件包的整个生命周期内是固定的. "
 
-#: WEIPDCRM/models/version.py:632
+#: WEIPDCRM/models/version.py:634
 msgid "Untitled Package"
 msgstr "未命名软件包"
 
-#: WEIPDCRM/models/version.py:639
+#: WEIPDCRM/models/version.py:641
 msgid ""
 "In contrast, the person who wrote the original software is called the "
 "\"author\". This name will be shown underneath the name of the package on "
@@ -1317,11 +1312,11 @@ msgstr ""
 "软件包中包含的应用程序的原作者被称作 \"作者\", 作者名称将被显示在详情页软件包"
 "名称的正下方. "
 
-#: WEIPDCRM/models/version.py:649
+#: WEIPDCRM/models/version.py:651
 msgid "Author Email"
 msgstr "作者电子邮箱"
 
-#: WEIPDCRM/models/version.py:660
+#: WEIPDCRM/models/version.py:662
 msgid ""
 "Finally, there might be someone who is simply providing the influence or the "
 "cash to make the package happen. This person should be listed here in the "
@@ -1329,15 +1324,15 @@ msgid ""
 "address."
 msgstr "最后, 可能有人仅仅提供影响力或财力, 促成了软件包的发布. "
 
-#: WEIPDCRM/models/version.py:670
+#: WEIPDCRM/models/version.py:672
 msgid "Sponsor Site"
 msgstr "发起者网址"
 
-#: WEIPDCRM/models/version.py:677
+#: WEIPDCRM/models/version.py:679
 msgid "Depiction"
 msgstr "展示页"
 
-#: WEIPDCRM/models/version.py:680
+#: WEIPDCRM/models/version.py:682
 msgid ""
 "This is a URL that is loaded into an iframe, replacing the Description: and "
 "Homepage: ."
@@ -1345,32 +1340,32 @@ msgstr ""
 "展示页是用于替代 \"描述\" 和 \"首页\" 的, 在详情页中显示的页面, 你可以填写任"
 "意 URL, 它将被加载到 iframe 中. "
 
-#: WEIPDCRM/models/version.py:684
+#: WEIPDCRM/models/version.py:686
 msgid "Custom Depiction"
 msgstr "自定义展示页"
 
-#: WEIPDCRM/models/version.py:685
+#: WEIPDCRM/models/version.py:687
 msgid "Exclude this version from Auto Depiction feature."
 msgstr ""
 "如果此字段不为空, 该软件包版本将不使用 \"自动展示页\" 功能所提供的展示页 "
 "URL. "
 
-#: WEIPDCRM/models/version.py:689
+#: WEIPDCRM/models/version.py:691
 msgid "Homepage"
 msgstr "首页"
 
-#: WEIPDCRM/models/version.py:693
+#: WEIPDCRM/models/version.py:695
 msgid ""
 "Cydia supports a \"More Info\" field on the details screen that shunts users "
 "off to a website of the packager's choice."
 msgstr ""
 "Cydia 支持在详情页上提供 \"更多信息\" 字段，将用户引导到供应商提供的网站. "
 
-#: WEIPDCRM/models/version.py:699
+#: WEIPDCRM/models/version.py:701
 msgid "Priority"
 msgstr "优先级"
 
-#: WEIPDCRM/models/version.py:711
+#: WEIPDCRM/models/version.py:713
 msgid ""
 "Sets the importance of this package in relation to the system as a whole.  "
 "Common priorities are required, standard, optional, extra, etc."
@@ -1378,11 +1373,11 @@ msgstr ""
 "设置软件包对于系统整体来说的优先级. 通常的属性 (优先级从高到低) 有 required, "
 "standard, optional, extra 等. "
 
-#: WEIPDCRM/models/version.py:716
+#: WEIPDCRM/models/version.py:718
 msgid "Essential"
 msgstr "必需"
 
-#: WEIPDCRM/models/version.py:726
+#: WEIPDCRM/models/version.py:728
 msgid ""
 "This field is usually only needed when the answer is yes. It denotes a "
 "package that is required for proper operation of the system. Dpkg or any "
@@ -1392,11 +1387,11 @@ msgstr ""
 "这个字段通常只有当答案是肯定时才需要. 它表示该软件包是系统正常运行所必需的一"
 "个包. Dpkg 或任何其他安装工具将不允许删除基本包 (如果不使用强制选项的话). "
 
-#: WEIPDCRM/models/version.py:733
+#: WEIPDCRM/models/version.py:735
 msgid "Depends"
 msgstr "依赖"
 
-#: WEIPDCRM/models/version.py:736
+#: WEIPDCRM/models/version.py:738
 msgid ""
 "List of packages that are required for this package to provide a non-trivial "
 "amount of functionality. The package maintenance software will not allow a "
@@ -1411,11 +1406,11 @@ msgstr ""
 "将自动搜寻并将它们添加到安装队列中. 如果这些软件包有任何一个未能安装, 且在所"
 "有已记录的软件源中找不到相应记录, 则安装过程无法继续. "
 
-#: WEIPDCRM/models/version.py:752
+#: WEIPDCRM/models/version.py:754
 msgid "Pre-Depends"
 msgstr "前置依赖"
 
-#: WEIPDCRM/models/version.py:755
+#: WEIPDCRM/models/version.py:757
 msgid ""
 "List of packages that must be installed and configured before this one can "
 "be installed. This is usually used in the case where this package requires "
@@ -1424,11 +1419,11 @@ msgstr ""
 "这个列表也包含了安装所必需的其它软件包. 和 \"依赖\" 不同的是, 在 \"preinst\" "
 "脚本执行之前, 它就依赖于列出的软件包. "
 
-#: WEIPDCRM/models/version.py:765
+#: WEIPDCRM/models/version.py:767
 msgid "Recommends"
 msgstr "推荐"
 
-#: WEIPDCRM/models/version.py:768
+#: WEIPDCRM/models/version.py:770
 msgid ""
 "Lists packages that would be found together with this one in all but unusual "
 "installations. The package maintenance software will warn the user if they "
@@ -1437,11 +1432,11 @@ msgstr ""
 "列出推荐的其它软件包, 如果他们安装的软件包没有在其 \"推荐\" 字段中列出的软件"
 "包, 包管理器会警告用户. "
 
-#: WEIPDCRM/models/version.py:778
+#: WEIPDCRM/models/version.py:780
 msgid "Suggests"
 msgstr "建议"
 
-#: WEIPDCRM/models/version.py:781
+#: WEIPDCRM/models/version.py:783
 msgid ""
 "Lists packages that are related to this one and can perhaps enhance its "
 "usefulness, but without which installing this package is perfectly "
@@ -1450,11 +1445,11 @@ msgstr ""
 "列出相关的其它软件包, 也许可以增强它的实用性, 但没有它们, 安装也是完全合理"
 "的. "
 
-#: WEIPDCRM/models/version.py:790
+#: WEIPDCRM/models/version.py:792
 msgid "Breaks"
 msgstr "故障"
 
-#: WEIPDCRM/models/version.py:793
+#: WEIPDCRM/models/version.py:795
 msgid ""
 "Lists packages that this one breaks, for example by exposing bugs when the "
 "named packages rely on this one. The package maintenance software will not "
@@ -1464,11 +1459,11 @@ msgstr ""
 "列出如果安装该软件包, 有哪些其它软件包可能会受到负面影响. 例如, 它会造成某个"
 "其它软件包的非致命性 bug 的发生. "
 
-#: WEIPDCRM/models/version.py:804
+#: WEIPDCRM/models/version.py:806
 msgid "Conflicts"
 msgstr "冲突"
 
-#: WEIPDCRM/models/version.py:807
+#: WEIPDCRM/models/version.py:809
 msgid ""
 "Lists packages that conflict with this one, for example by containing files "
 "with the same names. The package maintenance software will not allow "
@@ -1478,11 +1473,11 @@ msgstr ""
 "列出与此冲突的软件包, 例如通过包含具有相同名称的文件. 包管理器不允许同时安装"
 "冲突软件包. 两个相互冲突的软件包应该每个都包含并提及另一个. "
 
-#: WEIPDCRM/models/version.py:818
+#: WEIPDCRM/models/version.py:820
 msgid "Replaces"
 msgstr "替换"
 
-#: WEIPDCRM/models/version.py:821
+#: WEIPDCRM/models/version.py:823
 msgid ""
 "List of packages files from which this one replaces. This is used for "
 "allowing this package to overwrite the files of another package and is "
@@ -1492,11 +1487,11 @@ msgstr ""
 "列出此软件包可替换掉的其它软件包. 通常它会允许此软件包覆盖其它软件包的文件, "
 "通常来说与 \"冲突\" 一同使用, 可以将其它软件包强制卸载. "
 
-#: WEIPDCRM/models/version.py:832
+#: WEIPDCRM/models/version.py:834
 msgid "Provides"
 msgstr "提供"
 
-#: WEIPDCRM/models/version.py:835
+#: WEIPDCRM/models/version.py:837
 msgid ""
 "This is a list of virtual packages that this one provides. Usually this is "
 "used in the case of several packages all providing the same service. For "
@@ -1508,15 +1503,15 @@ msgid ""
 "to separate the list."
 msgstr "列出此软件包可提供的来自其它软件包的功能及服务. "
 
-#: WEIPDCRM/models/version.py:856
+#: WEIPDCRM/models/version.py:858
 msgid "The name of the distribution this package is originating from."
 msgstr "此软件包分发来源的发布名称. "
 
-#: WEIPDCRM/models/version.py:860
+#: WEIPDCRM/models/version.py:862
 msgid "Source"
 msgstr "来源"
 
-#: WEIPDCRM/models/version.py:864
+#: WEIPDCRM/models/version.py:866
 msgid ""
 "The name of the source package that this binary package came from, if it is "
 "different than the name of the package itself. If the source version differs "
@@ -1524,32 +1519,32 @@ msgid ""
 "version in parenthesis."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:872
+#: WEIPDCRM/models/version.py:874
 msgid "Build-Essential"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:882
+#: WEIPDCRM/models/version.py:884
 msgid ""
 "This field is usually only needed when the answer is yes, and is commonly "
 "injected by the archive software.  It denotes a package that is required "
 "when building other packages."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:887
+#: WEIPDCRM/models/version.py:889
 msgid "Bugs"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:891
+#: WEIPDCRM/models/version.py:893
 msgid ""
 "The url of the bug tracking system for this package. The current used format "
 "is bts-type://bts-address, like debbugs://bugs.debian.org."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:900
+#: WEIPDCRM/models/version.py:902
 msgid "Multi-Arch"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:910
+#: WEIPDCRM/models/version.py:912
 msgid ""
 "This field is used to indicate how this package should behave on a multi-"
 "arch installations.<br /><ul><li>no - This value is the default when the "
@@ -1565,30 +1560,30 @@ msgid ""
 "qualifying the package name with :any, but has no effect otherwise.</li></ul>"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:932
+#: WEIPDCRM/models/version.py:934
 msgid "Subarchitecture"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:942
+#: WEIPDCRM/models/version.py:944
 msgid "Kernel-Version"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:952
+#: WEIPDCRM/models/version.py:954
 msgid "Installer-Menu-Item"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:955
+#: WEIPDCRM/models/version.py:957
 msgid ""
 "These fields are used by the debian-installer and are usually not needed. "
 "See /usr/share/doc/debian-installer/devel/modules.txt from the debian-"
 "installer package for more details about them."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:962
+#: WEIPDCRM/models/version.py:964
 msgid "Built-Using"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:965
+#: WEIPDCRM/models/version.py:967
 msgid ""
 "This field lists extra source packages that were used during the build of "
 "this binary package.  This is an indication to the archive maintenance "
@@ -1599,21 +1594,21 @@ msgid ""
 "Using relationship which cannot be satisfied within the archive."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:980
+#: WEIPDCRM/models/version.py:982
 msgid "Built-For-Profiles"
 msgstr ""
 
-#: WEIPDCRM/models/version.py:983
+#: WEIPDCRM/models/version.py:985
 msgid ""
 "This field specifies a whitespace separated list of build profiles that this "
 "binary packages was built with."
 msgstr ""
 
-#: WEIPDCRM/models/version.py:991
+#: WEIPDCRM/models/version.py:993
 msgid "Gallery"
 msgstr "图库"
 
-#: WEIPDCRM/models/version.py:995
+#: WEIPDCRM/models/version.py:997
 msgid "You can manage screenshots in Photologue."
 msgstr "你可以在 Photologue 中管理截图. "
 
@@ -1902,43 +1897,43 @@ msgstr "内部服务器错误"
 msgid "About"
 msgstr "关于"
 
-#: WEIPDCRM/views/admin/help/statistics.py:63
+#: WEIPDCRM/views/admin/help/statistics.py:64
 msgid "Number of packages"
 msgstr "软件包总数"
 
-#: WEIPDCRM/views/admin/help/statistics.py:64
+#: WEIPDCRM/views/admin/help/statistics.py:65
 msgid "Number of enabled packages"
 msgstr "已启用软件包总数"
 
-#: WEIPDCRM/views/admin/help/statistics.py:65
+#: WEIPDCRM/views/admin/help/statistics.py:66
 msgid "Number of sections"
 msgstr "分类总数"
 
-#: WEIPDCRM/views/admin/help/statistics.py:66
+#: WEIPDCRM/views/admin/help/statistics.py:67
 msgid "Total download times"
 msgstr "总下载次数"
 
-#: WEIPDCRM/views/admin/help/statistics.py:67
+#: WEIPDCRM/views/admin/help/statistics.py:68
 msgid "Temporarily files"
 msgstr "临时文件"
 
-#: WEIPDCRM/views/admin/help/statistics.py:68
+#: WEIPDCRM/views/admin/help/statistics.py:69
 msgid "Clean"
 msgstr "清理"
 
-#: WEIPDCRM/views/admin/help/statistics.py:69
+#: WEIPDCRM/views/admin/help/statistics.py:70
 msgid "Downloadable files"
 msgstr "可下载文件"
 
-#: WEIPDCRM/views/admin/help/statistics.py:70
+#: WEIPDCRM/views/admin/help/statistics.py:71
 msgid "Total resources"
 msgstr "资源总计"
 
 #: WEIPDCRM/views/admin/release.py:45
-#, python-format
+#, python-brace-format
 msgid ""
-"Active release \"<a href=\"%(release_url)s\">%(release)s</a>\" has been set."
-msgstr "活跃元数据 \"<a href=\"%(release_url)s\">%(release)s</a>\" 已设定."
+"Active release \"<a href=\"{release_url}\">{release}</a>\" has been set."
+msgstr "活跃元数据 \"<a href=\"{release_url}\">{release}</a>\" 已设定."
 
 #: WEIPDCRM/views/admin/upload.py:97
 #, python-format
@@ -1978,22 +1973,20 @@ msgid "To use this action, you must enable <b>Redis Queue</b>."
 msgstr "你必须启用 <b>Redis 队列</b> 以进行该操作. "
 
 #: WEIPDCRM/views/admin/upload.py:426
-#, python-format
+#, python-brace-format
 msgid ""
-"%(job_count)s package importing job have been added to the \"<a href="
-"\"%(jobs)s\">high</a>\" queue."
+"{job_count} package importing job have been added to the \"<a href="
+"\"{jobs}\">high</a>\" queue."
 msgstr ""
-"%(job_count)s 软件包导入任务已经被添加至 \"<a href=\"%(jobs)s\">high</a>\" 队"
-"列. "
+"{job_count} 软件包导入任务已经被添加至 \"<a href=\"{jobs}\">high</a>\" 队列. "
 
 #: WEIPDCRM/views/admin/upload.py:431
-#, python-format
+#, python-brace-format
 msgid ""
-"%(job_count)s package importing jobs have been added to the \"<a href="
-"\"%(jobs)s\">high</a>\" queue."
+"{job_count} package importing jobs have been added to the \"<a href="
+"\"{jobs}\">high</a>\" queue."
 msgstr ""
-"%(job_count)s 软件包导入任务已经被添加至 \"<a href=\"%(jobs)s\">high</a>\" 队"
-"列. "
+"{job_count} 软件包导入任务已经被添加至 \"<a href=\"{jobs}\">high</a>\" 队列. "
 
 #: WEIPDCRM/views/admin/upload.py:436
 msgid "There is no package to import."

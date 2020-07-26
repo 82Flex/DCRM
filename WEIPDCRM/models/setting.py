@@ -77,8 +77,8 @@ def validate_gpg(value):
 
 
 def validate_web_server(value):
-    if value != 0:
-        raise ValidationError(_("Only Nginx is supported now."))
+    if value != 0 and value != 1:
+        raise ValidationError(_("Only Nginx/Apache are supported now."))
 
 
 def validate_pdiffs(value):

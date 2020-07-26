@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: css\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-31 02:55+0800\n"
+"POT-Creation-Date: 2020-07-26 15:27+0800\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -106,10 +106,9 @@ msgid "Package List"
 msgstr "قائمة الحزم"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:3
-#, fuzzy, python-format
-#| msgid "Contact %(c_name)s | DCRM\n"
+#, python-format
 msgid "Contact %(c_name)s"
-msgstr "تواصل  %(c_name)s | DCRM\n"
+msgstr "تواصل %(c_name)s"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/contact.html:20
 #: WEIPDCRM/styles/DefaultStyle/templates/package/package.html:43
@@ -150,10 +149,9 @@ msgstr ""
 "الدعم التجاري."
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/history.html:3
-#, fuzzy, python-format
-#| msgid "History %(c_name)s | DCRM\n"
+#, python-format
 msgid "History %(c_name)s"
-msgstr "تاريخ  %(c_name)s | DCRM\n"
+msgstr "تاريخ %(c_name)s"
 
 #: WEIPDCRM/styles/DefaultStyle/templates/package/history.html:16
 msgid "View this version"

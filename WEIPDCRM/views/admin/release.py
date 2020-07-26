@@ -42,7 +42,7 @@ def set_default_view(request, release_id):
     release_instance = Release.objects.get(id=release_id)
     
     messages.info(request, mark_safe(_(
-        "Active release \"<a href=\"%(release_url)s\">%(release)s</a>\" has been set.").format(
+        "Active release \"<a href=\"{release_url}\">{release}</a>\" has been set.").format(
             release_url=release_instance.get_admin_url(),
             release=str(release_instance)
         )

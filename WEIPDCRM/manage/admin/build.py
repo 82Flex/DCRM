@@ -195,7 +195,7 @@ def build_procedure(conf):
             password = preferences.Setting.gpg_password
             if password is not None and len(password) > 0:
                 subprocess.check_call(
-                    ["gpg", "-abs", "--homedir", os.path.join(settings.BASE_DIR, '.gnupg'), "--batch", "--yes", "--pinentry-mode=loopback", "--passphrase", password, "-o",
+                    ["gpg", "-abs", "--homedir", os.path.join(settings.BASE_DIR, '.gnupg'), "--batch", "--yes", "--passphrase", password, "-o",
                      os.path.join(build_temp_path, "Release.gpg"),
                      os.path.join(build_temp_path, "Release"),
                      ]
@@ -372,7 +372,7 @@ class BuildAdmin(admin.ModelAdmin):
                 build_job = queue.enqueue(build_procedure, build_args)
                 obj.job_id = build_job.id
                 messages.info(request, mark_safe(
-                    _("The Build \"<a href=\"%(job_detail)s\">%(obj)s</a>\" generating job has been added to the \"<a href=\"%(jobs)s\">high</a>\" queue.").format(
+                    _("The Build \"<a href=\"{job_detail}\">{obj}</a>\" generating job has been added to the \"<a href=\"{jobs}\">high</a>\" queue.").format(
                         job_detail=reverse('rq_job_detail', kwargs={
                             'queue_index': 1,
                             'job_id': build_job.id,
