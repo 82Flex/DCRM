@@ -21,7 +21,7 @@ django-sortedm2m==3.0.0
 django-tag-parser==3.2
 #django-threadedcomments==1.2
 git+git://github.com/Lessica/django-threadedcomments.git@266100f85570701ee6134e531ee1293584680c11#egg=django-threadedcomments
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 ExifRead==2.1.2
 generic==1.0.0
 idna==2.9
