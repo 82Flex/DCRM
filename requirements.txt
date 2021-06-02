@@ -42,5 +42,5 @@ rq==1.3.0  # fixed
 rq-scheduler==0.9.1  # fixed
 six==1.15.0
 sqlparse==0.3.1
-urllib3==1.25.9
+urllib3==1.26.5
 uWSGI==2.0.18
