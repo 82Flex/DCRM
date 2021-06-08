@@ -28,7 +28,7 @@ idna==2.9
 mysqlclient==1.4.6
 olefile==0.46
 packaging==20.4
-Pillow==7.1.2
+Pillow==8.2.0
 pyparsing==2.4.7
 python-akismet==0.4.2
 python-dateutil==2.8.1
