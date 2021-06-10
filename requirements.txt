@@ -3,7 +3,7 @@ certifi==2020.4.5.1
 chardet==3.0.4
 Click==7.1.2
 croniter==0.3.32
-Django==1.11.29  # fixed
+Django==2.2.24  # fixed
 #django-contrib-comments==1.9.2
 git+git://github.com/django/django-contrib-comments.git@f498cee0e04a4bcd4e061b25805c83ef08e9e536#egg=django-contrib-comments
 django-crispy-forms==1.9.1
